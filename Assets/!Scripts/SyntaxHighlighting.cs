@@ -1,13 +1,18 @@
+using AYellowpaper.SerializedCollections;
 using TMPro;
 using UnityEngine;
 
 public class SyntaxHighlighting : MonoBehaviour
 {
-    [SerializeField] TMP_InputField syntax;
+
+    [SerializedDictionary("Syntax", "Color")]
+    public SerializedDictionary<string, Color> syntax;
+
+    [SerializeField] TMP_InputField input;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        syntax.text = "<color=\"blue\">im blue</color>";
+        input.text = "<color=\"blue\">im blue</color>";
     }
 
     // Update is called once per frame

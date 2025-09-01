@@ -76,14 +76,14 @@ public static class Interpreter
         }
     }
 
-    static void FindEncapulasion(ref List<string> encapsulatedScript, int lineNum)
+    static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint)
     {
-        for (int k = lineNum + 1; k >= 0; k--)
+        for (int k = startPoint + 1; k >= 0; k--)
         {
             encapsulatedScript[k] = "removed";
         }
         bool foundEnd = false;
-        for (int k = 0; k < encapsulatedScript.Count; k++)
+        for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
         {
             Debug.Log(encapsulatedScript[k]);
             if (foundEnd)

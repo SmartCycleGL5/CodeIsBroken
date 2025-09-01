@@ -1174,7 +1174,8 @@ MonoBehaviour:
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
-    coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n}\n\nplease;\nremove;\nthis;"
+    coolbeans = \"cool beans but more\";\n}\n\nclass NotSoCoolClass\n{\n\tbool coolBool
+    = true;\n\tint number = 3\n}"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -1741,7 +1742,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
-    coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n}\n\nplease;\nremove;\nthis;\u200B"
+    coolbeans = \"cool beans but more\";\n}\n\nclass NotSoCoolClass\n{\n\tbool coolBool
+    = true;\n\tint number = 3\n}\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

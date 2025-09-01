@@ -1,3 +1,4 @@
+using NaughtyAttributes.Test;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -24,82 +25,72 @@ public static class Interpreter
     public static void InterperateInitialization(string script, ref MachineScript machine)
     {
         //the script split into individual lines
-        List<string> scriptLines = ExtractLines(script);
-
-        foreach (var item in scriptLines)
-        {
-            Debug.Log(item);
-        }
-
+        string[] scriptLines = ExtractLines(script).ToArray();
 
         //make into method that finds encapulasions rather than just classes
-        for (int i = 0; i < scriptLines.Count; i++)
+        for (int i = 0; i < scriptLines.Length; i++)
         {
-            string[] sections = scriptLines[i].Split(" ");
-
-            for (int j = 0; j < sections.Length; j++)
+            if (scriptLines[i].Contains("class"))
             {
-                if (sections[j] == "class")
-                {
-                    List<string> classScript = scriptLines;
+                string[] sections = scriptLines[i].Split(" ");
+                string name = sections[1];
 
-                    FindEncapulasion(ref classScript, i, j);
+                List<string> classScript = scriptLines.ToList();
 
-                    Class newClass = new Class(classScript.ToArray());
-                    machine.Classes.Add(sections[j + 1], newClass);
+                FindEncapulasion(ref classScript, i);
 
-                    InitializeClass(ref newClass);
+                Class newClass = new Class(name, classScript.ToArray());
+                machine.Classes.Add(name, newClass);
 
-                    break;
-                }
+                InitializeClass(ref newClass);
             }
         }
     }
 
     /// <summary>
-    /// initializes the clas
+    /// initializes the class
     /// </summary>
-    /// <param name="ClassScript"></param>
-    public static void InitializeClass(ref Class ClassScript)
+    /// <param name="Class"></param>
+    public static void InitializeClass(ref Class Class)
     {
-        foreach (var line in ClassScript.baseCode)
+        foreach (var line in Class.baseCode)
         {
-            Debug.Log($"{line}");
             List<string> sections = line.Split(" ").ToList();
 
             FindAndRetainStrings(ref sections);
 
-            if (ReturnType(sections[0], out Type type) && !ClassScript.variables.ContainsKey(sections[1]))
+            if (ReturnType(sections[0], out Type type) && !Class.variables.ContainsKey(sections[1]))
             {
                 var value = new Dynamic(type);
-                ClassScript.variables.Add(sections[1], value);
+                Class.variables.Add(sections[1], value);
             }
 
             for (int i = 0; i < sections.Count; i++)
             {
                 if (sections[i] == "=")
                 {
-                    Assignment(ClassScript.variables[sections[i - 1]], sections[i + 1]);
+                    Assignment(Class.variables[sections[i - 1]], sections[i + 1]);
                     break;
                 }
             }
         }
     }
 
-    static void FindEncapulasion(ref List<string> encapsulatedScript, int lineNum, int sectionNum)
+    static void FindEncapulasion(ref List<string> encapsulatedScript, int lineNum)
     {
         for (int k = lineNum + 1; k >= 0; k--)
         {
             encapsulatedScript[k] = "removed";
         }
         bool foundEnd = false;
-        for (int k = sectionNum; k < encapsulatedScript.Count; k++)
+        for (int k = 0; k < encapsulatedScript.Count; k++)
         {
+            Debug.Log(encapsulatedScript[k]);
             if (foundEnd)
             {
                 encapsulatedScript[k] = "removed";
             }
-            else if (encapsulatedScript[k] == "}")
+            else if (encapsulatedScript[k].Contains("}"))
             {
                 encapsulatedScript[k] = "removed";
                 foundEnd = true;
@@ -112,9 +103,13 @@ public static class Interpreter
 
     static List<string> ExtractLines(string raw)
     {
+        //removes enter
         string modified = raw.Replace("\n", "");
+        //removes tab
         modified = modified.Replace("\t", "");
+        //splits it into a string array while keeping ; { and }
         List<string> list = Regex.Split(modified, "(;|{|})").ToList();
+        //removes ;
         list.RemoveAll(item => item == ";");
 
         return list;

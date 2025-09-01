@@ -10,8 +10,13 @@ public class Terminal : MonoBehaviour
 
     public string[] lines;
 
+    [SerializedDictionary("Syntax", "Color")]
+    public SerializedDictionary<string, Color> syntax;
+
     public void Run()
     {
+        interpreter.ClearMemory();
+
         lines = ExtractLines(input.text);
         interpreter.Interperate(ExtractLines(input.text));
     }

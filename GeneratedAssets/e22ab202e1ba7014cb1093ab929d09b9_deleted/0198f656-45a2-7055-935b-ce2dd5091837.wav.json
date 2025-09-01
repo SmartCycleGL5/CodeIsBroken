@@ -1,0 +1,13 @@
+{
+    "asset": "e22ab202e1ba7014cb1093ab929d09b9",
+    "fileName": "0198f656-45a2-7055-935b-ce2dd5091837.wav",
+    "prompt": "Car honk",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "8fd669d12c6801b34abf05447445cfa7",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}

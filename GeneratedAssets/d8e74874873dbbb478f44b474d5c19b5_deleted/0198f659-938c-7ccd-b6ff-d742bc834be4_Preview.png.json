@@ -1,0 +1,11 @@
+{
+    "asset": "d8e74874873dbbb478f44b474d5c19b5",
+    "fileName": "0198f659-938c-7ccd-b6ff-d742bc834be4_Preview.png",
+    "prompt": "clay with fingerprints",
+    "negativePrompt": "",
+    "model": "575ecf67-4425-4939-97b9-5e138b8ee234",
+    "modelName": "Unity Texture2D",
+    "customSeed": 1521312605,
+    "w3CTraceId": "b10a5134741f360e47eb511e049dd458",
+    "refinementMode": "Generation"
+}

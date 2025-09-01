@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +9,10 @@ public class PlacementSystem : MonoBehaviour
     [SerializeField] private GameObject cellIndicator;
     [SerializeField] private BuildingInput inputManager;
     [SerializeField] private Grid grid;
+    [SerializeField] private GridData gridData;
     private Vector3 blockOffset = new Vector3(0.5f, 0, 0.5f);
+    
+    private int _rotation;
     bool isBuilding = false;
 
     private void Start()
@@ -21,8 +25,7 @@ public class PlacementSystem : MonoBehaviour
         //Updates when new building block is selected
         BuildingBlockSelector.OnChangedBuilding += UpdateCellIndicator;
     }
-
-
+    
     
     public Vector3Int GetCellPosition()
     {
@@ -47,7 +50,7 @@ public class PlacementSystem : MonoBehaviour
     void RotateCellIndicator()
     {
         if(!isBuilding) return;
-        cellIndicator.transform.Rotate(Vector3.up, 90);
+        cellIndicator.transform.Rotate(0, 90, 0);
         
         
     }

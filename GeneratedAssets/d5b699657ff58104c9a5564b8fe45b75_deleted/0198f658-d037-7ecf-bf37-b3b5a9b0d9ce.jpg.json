@@ -1,0 +1,20 @@
+{
+    "asset": "d5b699657ff58104c9a5564b8fe45b75",
+    "fileName": "0198f658-d037-7ecf-bf37-b3b5a9b0d9ce.jpg",
+    "prompt": "Old lady falling down the stairs",
+    "negativePrompt": "",
+    "model": "94c4260f-b988-40e7-b3d3-435b9f449bd0",
+    "modelName": "Flux.1 Dev",
+    "customSeed": -1,
+    "w3CTraceId": "49470bd07464337ec511b2f49bff39dd",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

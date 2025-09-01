@@ -1,0 +1,11 @@
+{
+    "asset": "d8e74874873dbbb478f44b474d5c19b5",
+    "fileName": "0198f65a-80c5-7252-b332-023079e71931_Preview.png",
+    "prompt": "rock wall",
+    "negativePrompt": "",
+    "model": "575ecf67-4425-4939-97b9-5e138b8ee234",
+    "modelName": "Unity Texture2D",
+    "customSeed": 650463659,
+    "w3CTraceId": "ba332268b62d02f7452db99621c67ff3",
+    "refinementMode": "Generation"
+}

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MachineScript : MonoBehaviour
 {
-    [SerializedDictionary("Name", "Nlass")]
+    [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
 
     private void Start()

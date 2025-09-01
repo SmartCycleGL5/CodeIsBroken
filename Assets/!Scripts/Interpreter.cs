@@ -1,9 +1,12 @@
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using static Utility;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
+using UnityEngine;
+using static UnityEngine.Rendering.CoreUtils;
+using static Utility;
 
 public enum Type
 {
@@ -21,14 +24,16 @@ public static class Interpreter
     public static void InterperateInitialization(string script, ref MachineScript machine)
     {
         //the script split into individual lines
-        string[] scriptLines = ExtractLines(script);
+        List<string> scriptLines = ExtractLines(script);
 
         foreach (var item in scriptLines)
         {
             Debug.Log(item);
         }
 
-        for (int i = 0; i < scriptLines.Length; i++)
+
+        //make into method that finds encapulasions rather than just classes
+        for (int i = 0; i < scriptLines.Count; i++)
         {
             string[] sections = scriptLines[i].Split(" ");
 
@@ -36,14 +41,16 @@ public static class Interpreter
             {
                 if (sections[j] == "class")
                 {
-                    List<string> classScript = scriptLines.ToList();
+                    List<string> classScript = scriptLines;
 
-                    for (int k = i; k >= 0; k--)
-                    {
-                        classScript.RemoveAt(k);
-                    }
+                    FindEncapulasion(ref classScript, i, j);
 
-                    machine.Classes.Add(sections[j + 1], new Class(classScript.ToArray()));
+                    Class newClass = new Class(classScript.ToArray());
+                    machine.Classes.Add(sections[j + 1], newClass);
+
+                    InitializeClass(ref newClass);
+
+                    break;
                 }
             }
         }
@@ -53,10 +60,11 @@ public static class Interpreter
     /// initializes the clas
     /// </summary>
     /// <param name="ClassScript"></param>
-    public static void InitializeClass(Class ClassScript)
+    public static void InitializeClass(ref Class ClassScript)
     {
         foreach (var line in ClassScript.baseCode)
         {
+            Debug.Log($"{line}");
             List<string> sections = line.Split(" ").ToList();
 
             FindAndRetainStrings(ref sections);
@@ -78,10 +86,38 @@ public static class Interpreter
         }
     }
 
-    static string[] ExtractLines(string raw)
+    static void FindEncapulasion(ref List<string> encapsulatedScript, int lineNum, int sectionNum)
+    {
+        for (int k = lineNum + 1; k >= 0; k--)
+        {
+            encapsulatedScript[k] = "removed";
+        }
+        bool foundEnd = false;
+        for (int k = sectionNum; k < encapsulatedScript.Count; k++)
+        {
+            if (foundEnd)
+            {
+                encapsulatedScript[k] = "removed";
+            }
+            else if (encapsulatedScript[k] == "}")
+            {
+                encapsulatedScript[k] = "removed";
+                foundEnd = true;
+            }
+        }
+
+        encapsulatedScript.RemoveAll(item => item == "removed");
+        encapsulatedScript.RemoveAll(item => item == "");
+    }
+
+    static List<string> ExtractLines(string raw)
     {
         string modified = raw.Replace("\n", "");
-        return Regex.Split(modified, "[;{}]");
+        modified = modified.Replace("\t", "");
+        List<string> list = Regex.Split(modified, "(;|{|})").ToList();
+        list.RemoveAll(item => item == ";");
+
+        return list;
     }
 
     static void Assignment(Dynamic variable, string toAssign)

@@ -15,8 +15,10 @@ public class Class
     public Class(string[] baseCode)
     {
         this.baseCode = baseCode;
-
-        Interpreter.InitializeClass(this);
+    }
+    public Class(List<string> baseCode)
+    {
+        this.baseCode = baseCode.ToArray();
     }
 }
 public class Method

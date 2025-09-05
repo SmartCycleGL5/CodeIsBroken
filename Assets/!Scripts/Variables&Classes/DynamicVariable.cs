@@ -1,8 +1,10 @@
 using System;
 
 [Serializable]
-public class Dynamic
+public class Variable
 {
+    public string name;
+
     public Type type;
 
     public float Float = 0;
@@ -10,8 +12,9 @@ public class Dynamic
     public string String = "";
     public bool Bool = false;
 
-    public Dynamic(Type type)
+    public Variable(string name, Type type)
     {
+        this.name = name;
         this.type = type;
     }
     public void SetValue(string variable)

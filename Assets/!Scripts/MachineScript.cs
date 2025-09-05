@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class MachineScript : MonoBehaviour

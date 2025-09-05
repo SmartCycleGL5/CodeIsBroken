@@ -1,45 +1,131 @@
 using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Interpreter;
+using static Utility;
+
 [Serializable]
-public class Class
+/// <summary>
+/// Reperesents Player made classes
+/// </summary>
+public class Class : IVariable, IMethod
 {
     public string name;
 
     public Class inheritedClass;
 
-    [SerializedDictionary("Name", "Value")]
-    public SerializedDictionary<string, Dynamic> variables = new();
+    [field: SerializeField, SerializedDictionary("Name", "Value")]
+    public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
-    public List<Method> methods;
+    [field: SerializeField, SerializedDictionary("Name", "Value")]
+    public SerializedDictionary<string, Method> methods { get; set; } = new();
 
     public string[] baseCode;
 
-    public Class(string name, string[] baseCode)
+    #region Class
+    public Class(string name, string[] baseCode, Class inheritedClass = null)
     {
         this.baseCode = baseCode;
         this.name = name;
-    }
-    public Class(string name, List<string> baseCode)
-    {
-        this.baseCode = baseCode.ToArray();
-        this.name = name;
-    }
-    public Class(string name, string[] baseCode, Class inheritedClass)
-    {
-        this.baseCode = baseCode;
-        this.name = name;
-        this.inheritedClass = inheritedClass;
+        this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+
+        InitializeClass();
     }
     public Class(string name, List<string> baseCode, Class inheritedClass)
     {
         this.baseCode = baseCode.ToArray();
         this.name = name;
-        this.inheritedClass = inheritedClass;
+        this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+
+        InitializeClass();
     }
-}
-public class Method
-{
+    #endregion
+
+    #region Methods
+    public void RunMethod(string name)
+    {
+        methods[name].TryRun();
+    }
+    public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
+    {
+        Method method = new Method(name, returnType, code, this);
+
+        methods.Add(name, method);
+
+        return method;
+    }
+    #endregion
+
+    #region Variables
+    public Variable NewVariable(string name, Type Type = Type.Bool)
+    {
+        Variable value = new Variable(name, Type);
+        variables.Add(name, value);
+        return value;
+    }
+    public Variable NewVariable(Variable variable)
+    {
+        variables.Add(variable.name, variable);
+        return variable;
+    }
+    public Variable FindVariable(string name)
+    {
+        if (variables[name] != null)
+        {
+            return variables[name];
+        } 
+        else if(inheritedClass != null)
+        {
+            inheritedClass.FindVariable(name);
+        }
+            return null;
+    }
+    #endregion
+
+    /// <summary>
+    /// initializes the class
+    /// </summary>
+    public void InitializeClass()
+    {
+        for (int i = 0; i < baseCode.Length; i++)
+        {
+            string line = baseCode[i];
+            List<string> sections = line.Split(" ").ToList();
+
+            FindAndRetainStrings(ref sections);
+
+            //Find variables & methods
+            if (ReturnType(sections[0], out Type type))
+            {
+                bool isMethod = sections[1].Contains("()");
+
+                if (!isMethod && !variables.ContainsKey(sections[1]))
+                {
+                    NewVariable(sections[1], type);
+                }
+                else if (isMethod && !methods.ContainsKey(sections[1]))
+                {
+                    List<string> methodScript = baseCode.ToList();
+
+                    FindEncapulasion(ref methodScript, i);
+
+                    NewMethod(sections[1], methodScript.ToArray(), type);
+                }
+            }
+
+
+            for (int j = 0; j < sections.Count; j++)
+            {
+                //Setting variables
+                if (sections[j] == "=")
+                {
+                    Assignment(variables[sections[j - 1]], sections[j + 1]);
+                    break;
+                }
+            }
+        }
+    }
 
 }

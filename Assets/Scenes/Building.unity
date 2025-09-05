@@ -709,6 +709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridBuilder
   grid: {fileID: 2136248694}
   ghostBuilding: {fileID: 767682362}
+  gridObjects:
+    _serializedList: []
 --- !u!4 &767682361
 Transform:
   m_ObjectHideFlags: 0

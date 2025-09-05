@@ -68,6 +68,7 @@ public class GridBuilder : MonoBehaviour
             }
             Destroy(building);
         }
-        
     }
+
+
 }

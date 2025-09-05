@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class Conveyor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] GameObject currentItem;
+    public Conveyor nextConveyor;
+
+    [SerializeField] Transform backPos;
     void Start()
     {
-        
+        ConveyorManager cm = FindFirstObjectByType<ConveyorManager>();
+        Conveyor conveyor = cm.GetConveyor(backPos.position);
+        if (nextConveyor == null) return;
+        conveyor.nextConveyor = this;
+        Debug.Log(nextConveyor.name);
     }
 
-    // Update is called once per frame
-    void Update()
+    void MoveOnTick()
     {
-        
+
     }
 }

@@ -70,5 +70,14 @@ public class GridBuilder : MonoBehaviour
         }
     }
 
-
+   public GameObject LookUpCell(Vector3 pos)
+    {
+        Vector3Int cellPos = grid.WorldToCell(pos);
+        if(gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.z), out GameObject building))
+        {
+            Debug.Log("Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
+            return building;
+        }
+        return null;
+    }
 }

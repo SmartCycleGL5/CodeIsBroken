@@ -3,13 +3,15 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Security;
 using Unity.VisualScripting;
+using AYellowpaper.SerializedCollections;
 
 public class GridBuilder : MonoBehaviour
 {
     Vector2 _lastPosition;
     [SerializeField] Grid grid;
     [SerializeField] GhostBuilding ghostBuilding;
-    public Dictionary<Vector2Int, GameObject> gridObjects = new();
+    [SerializedDictionary("Position", "Object in position")]
+    public SerializedDictionary<Vector2Int, GameObject> gridObjects = new();
     
     // Get the grid cell mouse is hovering over
     public Vector2 GetGridPosition()

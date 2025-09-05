@@ -12,6 +12,7 @@ public class GhostBuilding : MonoBehaviour
     
     [SerializeField] GridBuilder gridBuilder;
     [SerializeField] GameObject ghostPrefab;
+    private GameObject prefabToBuild;
     
     
     private bool isBuilding = false;
@@ -32,7 +33,7 @@ public class GhostBuilding : MonoBehaviour
         }
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
-            gridBuilder.PlaceBuilding(ghostPrefab);
+            gridBuilder.PlaceBuilding(prefabToBuild);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
@@ -64,6 +65,10 @@ public class GhostBuilding : MonoBehaviour
     {   
         building = ghostPrefab.GetComponent<Building>();
         canPlace = gridBuilder.IsValidPosition(building.GetBuildingPositions());
+        foreach(var renderer in renderers)
+        {
+            renderer.material = canPlace? positiveMaterial : negativeMaterial;
+        }
     }
 
     // Used for enable or disable building
@@ -76,9 +81,9 @@ public class GhostBuilding : MonoBehaviour
     private void SwapGhostBlock(GameObject newGhost)
     {
         SetBuildingStatus(true);
-        ghostPrefab = newGhost;
+        prefabToBuild = newGhost;
+        ghostPrefab = Instantiate(newGhost);
         building = ghostPrefab.GetComponent<Building>();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
-        ghostPrefab = Instantiate(ghostPrefab);
     }
 }

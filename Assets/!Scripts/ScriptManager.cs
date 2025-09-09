@@ -7,6 +7,8 @@ public class ScriptManager : MonoBehaviour
 
     public static ScriptManager scriptManager;
 
+    public static bool isRunning { get; private set; }
+
     private void Start()
     {
         scriptManager = this;

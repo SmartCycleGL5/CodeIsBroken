@@ -740,9 +740,9 @@ Canvas:
   m_GameObject: {fileID: 380598364}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1132908213}
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -894,9 +894,9 @@ Transform:
   m_GameObject: {fileID: 559254235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
     coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
-    coolFloat = 2;\n\t\tPrint(\"Hello World\")\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
+    coolFloat = 2.1;\n\n\t\tRotate45();\n\t\tMoveUp();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
     coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
@@ -1246,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727253440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 1132908214}
   - component: {fileID: 1132908213}
   - component: {fileID: 1132908212}
+  - component: {fileID: 1132908215}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1537,7 +1538,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1569,6 +1570,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1132908215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132908211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1473657920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1702,7 @@ MonoBehaviour:
             _serializedList: []
           methodCode:
           - 
+          Code: []
     baseCode: []
 --- !u!4 &1562210778
 Transform:
@@ -1811,7 +1857,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
     coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
-    coolFloat = 2;\n\t\tPrint(\"Hello World\")\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
+    coolFloat = 2.1;\n\n\t\tRotate45();\n\t\tMoveUp();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
     coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

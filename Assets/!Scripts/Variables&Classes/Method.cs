@@ -17,7 +17,7 @@ public class Method : IVariable
     public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
     public string[] methodCode;
-    public Stack<CodeSnippet> Code;
+    public List<CodeSnippet> Code = new();
 
     public Method(string name, Type returnType, string[] methodCode, Class @class)
     {
@@ -32,8 +32,13 @@ public class Method : IVariable
     {
         if (name == "Start()")
         {
-            Terminal.OnStart += TryRun;
+            Terminal.AddStart(TryRun);
             Debug.Log("Start Found");
+        }
+
+        foreach (var item in methodCode)
+        {
+            Code.Add(new CodeSnippet(item));
         }
     }
 
@@ -83,12 +88,12 @@ public class Method : IVariable
             Debug.Log(item);
         }
 
-        //foreach (var snippet in Code)
-        //{
-        //    snippet.Run();
-        //}
+        foreach (var snippet in Code)
+        {
+            snippet.Run();
+        }
 
-        //variables.Clear();
+        variables.Clear();
     }
     public Variable NewVariable(string name, Type Type = Type.Bool)
     {
@@ -116,12 +121,133 @@ public class Method : IVariable
     }
 
 }
-
+/// <summary>
+/// will be removed, just a temporary solution
+/// </summary>
 [Serializable]
 public class CodeSnippet
 {
+    public enum ToRun
+    {
+        None,
+        Reset,
+        Rotate45,
+        Rotate180,
+        Rotate270,
+        MoveUp,
+        MoveDown,
+        MoveRight,
+        MoveLeft,
+    }
+    public ToRun code;
+
+    public CodeSnippet(string snippet)
+    {
+        switch(snippet)
+        {
+            case nameof(ToRun.Reset) + "()":
+                {
+                    code = ToRun.Reset;
+                    break;
+                }
+            case nameof(ToRun.Rotate45) + "()":
+                {
+                    code = ToRun.Rotate45;
+                    break;
+                }
+            case nameof(ToRun.Rotate180) + "()":
+                {
+                    code = ToRun.Rotate180;
+                    break;
+                }
+            case nameof(ToRun.Rotate270) + "()":
+                {
+                    code = ToRun.Rotate270;
+                    break;
+                }
+            case nameof(ToRun.MoveUp) + "()":
+                {
+                    code = ToRun.MoveUp;
+                    break;
+                }
+            case nameof(ToRun.MoveDown) + "()":
+                {
+                    code = ToRun.MoveDown;
+                    break;
+                }
+            case nameof(ToRun.MoveRight) + "()":
+                {
+                    code = ToRun.MoveRight;
+                    break;
+                }
+            case nameof(ToRun.MoveLeft) + "()":
+                {
+                    code = ToRun.MoveLeft;
+                    break;
+                }
+
+        }
+    }
+
     public void Run()
     {
+        Debug.Log(code);
 
+        switch (code)
+        {
+            case ToRun.Reset:
+                {
+                    Reset();
+                    break;
+                }
+            case ToRun.Rotate45:
+                {
+                    Rotate(45);
+                    break;
+                }
+            case ToRun.Rotate180:
+                {
+                    Rotate(180);
+                    break;
+                }
+            case ToRun.Rotate270:
+                {
+                    Rotate(270);
+                    break;
+                }
+            case ToRun.MoveUp:
+                {
+                    Move(Vector3.up);
+                    break;
+                }
+            case ToRun.MoveDown:
+                {
+                    Move(Vector3.down);
+                    break;
+                }
+            case ToRun.MoveRight:
+                {
+                    Move(Vector3.right);
+                    break;
+                }
+            case ToRun.MoveLeft:
+                {
+                    Move(Vector3.left);
+                    break;
+                }
+        }
+    }
+
+    public void Reset()
+    {
+        MachineScript.Reset();
+    }
+    public void Rotate(int amount)
+    {
+        MachineScript.Rotate(amount);
+    }
+    public void Move(Vector3 dir)
+    {
+        MachineScript.Move(dir);
     }
 }

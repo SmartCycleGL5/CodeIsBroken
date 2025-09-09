@@ -10,11 +10,11 @@ public class Terminal : MonoBehaviour
 
     public MachineScript machine;
     public static event Action OnStart;
-    static List<Action> Start = new();
+    static List<Action> Starting = new();
 
     public static void AddStart(Action action)
     {
-        Start.Add(action);
+        Starting.Add(action);
         OnStart += action;
     }
 
@@ -22,7 +22,7 @@ public class Terminal : MonoBehaviour
     {
         machine.ClearMemory();
 
-        foreach (var item in Start)
+        foreach (var item in Starting)
         {
             OnStart -= item;
         }

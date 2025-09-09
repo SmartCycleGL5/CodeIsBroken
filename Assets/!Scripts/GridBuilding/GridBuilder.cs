@@ -41,10 +41,10 @@ public class GridBuilder : MonoBehaviour
     }
 
     //Places Building
-    public void PlaceBuilding(GameObject building)
+    public void PlaceBuilding(GameObject building, Quaternion rotation)
     {
         Vector2 gridPosition = GetGridPosition();
-        GameObject newBuilding = Instantiate(building, new Vector3(gridPosition.x,0,gridPosition.y), Quaternion.identity);
+        GameObject newBuilding = Instantiate(building, new Vector3(gridPosition.x,0,gridPosition.y), rotation);
         Building  buildingData = newBuilding.GetComponent<Building>();
         
         foreach (var cell in buildingData.GetBuildingPositions())

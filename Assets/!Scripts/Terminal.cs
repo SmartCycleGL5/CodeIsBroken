@@ -9,7 +9,7 @@ public class Terminal : MonoBehaviour
     public static Terminal Instance;
     public TMP_InputField input;
 
-    public MachineScript machineToEdit;
+    public MachineScript machineToEdit { get; private set; }
 
     private void Start()
     {

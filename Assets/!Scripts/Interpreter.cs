@@ -32,7 +32,7 @@ public static class Interpreter
 
                 FindEncapulasion(ref classScript, i);
 
-                Class newClass = new Class(name, classScript.ToArray());
+                Class newClass = new Class(machine, name, classScript.ToArray());
                 machine.Classes.Add(name, newClass);
             }
         }

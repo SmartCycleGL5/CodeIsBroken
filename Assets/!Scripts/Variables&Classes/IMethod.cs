@@ -9,7 +9,7 @@ public interface IMethod
     /// Runs a defined method
     /// </summary>
     /// <param name="name">name of the method</param>
-    public void RunMethod(string name);
+    public void TryRunMethod(string name);
     /// <summary>
     /// Creates a new method for this class
     /// </summary>

@@ -30,27 +30,12 @@ public class Method : IVariable
     }
     public void InitializeMethod()
     {
-        if (name == "Start()")
-        {
-            Terminal.AddStart(TryRun);
-            Debug.Log("Start Found");
-        }
-
         foreach (var item in methodCode)
         {
-            Code.Add(new CodeSnippet(item));
+            Code.Add(new CodeSnippet(item, this));
         }
     }
 
-    /// <summary>
-    /// Try to run the method
-    /// </summary>
-    /// <param name="input">the input variables</param>
-    /// <returns>returns true if it was successful</returns>
-    void TryRun()
-    {
-        TryRun(null);
-    }
     /// <summary>
     /// Try to run the method
     /// </summary>
@@ -83,10 +68,6 @@ public class Method : IVariable
     }
     void Run()
     {
-        foreach (var item in methodCode)
-        {
-            Debug.Log(item);
-        }
 
         foreach (var snippet in Code)
         {
@@ -141,10 +122,11 @@ public class CodeSnippet
         Rocket,
     }
     public ToRun code;
+    Method method;
 
-    public CodeSnippet(string snippet)
+    public CodeSnippet(string snippet, Method method)
     {
-        switch(snippet)
+        switch (snippet)
         {
             case nameof(ToRun.Reset) + "()":
                 {
@@ -193,6 +175,8 @@ public class CodeSnippet
                 }
 
         }
+
+        this.method = method;
     }
 
     public void Run()
@@ -251,18 +235,18 @@ public class CodeSnippet
 
     public void Reset()
     {
-        Terminal.Instance.machine.ResetThis();
+        method.Class.machine.ResetThis();
     }
     public void Rotate(int amount)
     {
-        _ = Terminal.Instance.machine.Rotate(amount);
+        _ = method.Class.machine.Rotate(amount);
     }
     public void Move(Vector3 dir)
     {
-        _=Terminal.Instance.machine.Move(dir);
+        _= method.Class.machine.Move(dir);
     }
     public void Rocket()
     {
-        Terminal.Instance.machine.Rocket();
+        method.Class.machine.Rocket();
     }
 }

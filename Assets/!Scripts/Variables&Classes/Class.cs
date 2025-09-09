@@ -15,6 +15,7 @@ public class Class : IVariable, IMethod
     public string name;
 
     public Class inheritedClass;
+    public MachineScript machine;
 
     [field: SerializeField, SerializedDictionary("Name", "Value")]
     public SerializedDictionary<string, Variable> variables { get; set; } = new();
@@ -25,28 +26,35 @@ public class Class : IVariable, IMethod
     public string[] baseCode;
 
     #region Class
-    public Class(string name, string[] baseCode, Class inheritedClass = null)
+    public Class(MachineScript machine, string name, string[] baseCode, Class inheritedClass = null)
     {
         this.baseCode = baseCode;
         this.name = name;
         this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+        this.machine = machine;
 
         InitializeClass();
     }
-    public Class(string name, List<string> baseCode, Class inheritedClass)
+    public Class(MachineScript machine, string name, List<string> baseCode, Class inheritedClass)
     {
         this.baseCode = baseCode.ToArray();
         this.name = name;
         this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+        this.machine = machine;
 
         InitializeClass();
     }
     #endregion
 
     #region Methods
-    public void RunMethod(string name)
+    public void TryRunMethod(string name)
     {
-        methods[name].TryRun();
+        if (methods.ContainsKey(name))
+            methods[name].TryRun();
+        else
+        {
+            Debug.LogWarning("No method of name: " + name);
+        }
     }
     public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
     {

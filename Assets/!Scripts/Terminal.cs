@@ -9,35 +9,33 @@ public class Terminal : MonoBehaviour
     public static Terminal Instance;
     public TMP_InputField input;
 
-    public MachineScript machine;
-    public static event Action OnStart;
-    static List<Action> Starting = new();
+    public MachineScript machineToEdit;
 
     private void Start()
     {
         Instance = this;
-    }
-
-    public static void AddStart(Action action)
-    {
-        Starting.Add(action);
-        OnStart += action;
+        SelectMachine(machineToEdit);
     }
 
     public void Initialize()
     {
-        machine.ClearMemory();
+        if(machineToEdit != null)
+            machineToEdit.Initialize(input.text);
+    }
+    public void SelectMachine(MachineScript machineScript)
+    {
+        machineToEdit = machineScript;
 
-        foreach (var item in Starting)
-        {
-            OnStart -= item;
-        }
-
-        Interpreter.InterperateInitialization(input.text, ref machine);
+        input.text = machineScript.machineCode;
     }
 
     public void Run()
     {
-        OnStart?.Invoke();
+        ScriptManager.StartMachines();
+    }
+    public void Save()
+    {
+        if (machineToEdit != null)
+            machineToEdit.machineCode = input.text;
     }
 }

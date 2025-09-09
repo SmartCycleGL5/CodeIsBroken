@@ -3,17 +3,36 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Windows;
+using static CodeSnippet;
 
+[DefaultExecutionOrder(100)]
 public class MachineScript : MonoBehaviour
 {
+    [ResizableTextArea] public string machineCode;
+
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
 
-    static MachineScript instance;
+    MachineScript machine;
 
     private void Start()
     {
-        instance = this;
+        machine = this;
+        Initialize(machineCode);
+        ScriptManager.instance.AddMachine(this);
+    }
+    private void OnDestroy()
+    {
+        ScriptManager.instance.RemoveMachine(this);
+    }
+
+    public void Run()
+    {
+        foreach (var Class in Classes)
+        {
+            Class.Value.TryRunMethod("Start()");
+        }
     }
 
     public void ClearMemory()
@@ -22,9 +41,16 @@ public class MachineScript : MonoBehaviour
     }
     public void ResetThis()
     {
-        instance.transform.position = new Vector3(6, 0, 0);
-        instance.transform.eulerAngles = Vector3.zero;
+        transform.position = new Vector3(6, 0, 0);
+        transform.eulerAngles = Vector3.zero;
     }
+    public void Initialize(string raw)
+    {
+        machineCode = raw;
+        Interpreter.InterperateInitialization(machineCode, ref machine);
+    }
+
+
     public async Task Rotate(int amount)
     {
         float originalAmount = transform.eulerAngles.y;

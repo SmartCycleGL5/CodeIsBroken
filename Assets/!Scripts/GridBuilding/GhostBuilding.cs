@@ -27,13 +27,13 @@ public class GhostBuilding : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             RotateBuilding();
         }
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
-            gridBuilder.PlaceBuilding(prefabToBuild);
+            gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {

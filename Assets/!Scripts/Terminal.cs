@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,7 @@ public class Terminal : MonoBehaviour
     public static Terminal Instance;
     public TMP_InputField input;
 
-    public MachineScript machineToEdit { get; private set; }
+    [field: SerializeField]public MachineScript machineToEdit { get; private set; }
 
     private void Start()
     {
@@ -26,13 +27,20 @@ public class Terminal : MonoBehaviour
     {
         machineToEdit = machineScript;
 
-        input.text = machineScript.machineCode;
+        Load();
     }
 
     public void Run()
     {
         ScriptManager.StartMachines();
     }
+    [Button]
+    public void Load()
+    {
+        if (machineToEdit != null)
+            input.text = machineToEdit.machineCode;
+    }
+    [Button]
     public void Save()
     {
         if (machineToEdit != null)

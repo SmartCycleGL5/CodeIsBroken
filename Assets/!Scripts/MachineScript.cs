@@ -1,10 +1,8 @@
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Windows;
-using static CodeSnippet;
+using Terminal.Language;
 
 [DefaultExecutionOrder(100)]
 public class MachineScript : MonoBehaviour

@@ -1,57 +1,60 @@
 using NaughtyAttributes;
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ScriptManager : MonoBehaviour
+namespace Terminal
 {
-    public static Class UniversalClass { get { return instance._UniversalClass; } }
-    public Class _UniversalClass;
+    using Language;
 
-    public static ScriptManager instance;
-
-    public static bool isRunning { get; private set; }
-
-    public List<MachineScript> machines = new();
-
-    private void Awake()
+    public class ScriptManager : MonoBehaviour
     {
-        instance = this;
-    }
+        public static Class UniversalClass { get { return instance._UniversalClass; } }
+        public Class _UniversalClass;
 
-    [Button]
-    public static void StartMachines()
-    {
-        if (isRunning) return;
-        isRunning = true;
+        public static ScriptManager instance;
 
-        foreach (var item in instance.machines)
+        public static bool isRunning { get; private set; }
+
+        public List<MachineScript> machines = new();
+
+        private void Awake()
         {
-            item.Run();
+            instance = this;
         }
-    }
-    [Button]
-    public static void StopMachines()
-    {
 
-    }
-
-    public static void Re()
-    {
-
-        foreach (var item in instance.machines)
+        [Button]
+        public static void StartMachines()
         {
-            item.ClearMemory();
-        }
-    }
+            if (isRunning) return;
+            isRunning = true;
 
-    public void AddMachine(MachineScript machine)
-    {
-        machines.Add(machine);
-    }
-    public void RemoveMachine(MachineScript machine)
-    {
-        machines.Remove(machine);
+            foreach (var item in instance.machines)
+            {
+                item.Run();
+            }
+        }
+        [Button]
+        public static void StopMachines()
+        {
+
+        }
+
+        public static void Re()
+        {
+
+            foreach (var item in instance.machines)
+            {
+                item.ClearMemory();
+            }
+        }
+
+        public void AddMachine(MachineScript machine)
+        {
+            machines.Add(machine);
+        }
+        public void RemoveMachine(MachineScript machine)
+        {
+            machines.Remove(machine);
+        }
     }
 }

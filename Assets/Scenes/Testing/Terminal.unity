@@ -710,8 +710,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3971300438126337140, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2896165064737308436}
   m_SourcePrefab: {fileID: 100100000, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+--- !u!1 &2896165064737308435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3971300438126337140, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+  m_PrefabInstance: {fileID: 2896165064737308434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2896165064737308436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896165064737308435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f4af9b52a8c624e9c11784afe6ea0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &3035244297390054797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,14 +770,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2723225572082494998, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3303774020387478874, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_text
-      value: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
-        coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
-        coolFloat = 2.1;\n\n\t\tRocket();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
-        coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;\u200B"
+      value: "\u200B"
       objectReference: {fileID: 0}
     - target: {fileID: 4895158402410693191, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_Text
@@ -769,6 +786,10 @@ PrefabInstance:
       objectReference: {fileID: 559254236}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machineToEdit
+      value: 
+      objectReference: {fileID: 559254236}
+    - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: <machineToEdit>k__BackingField
       value: 
       objectReference: {fileID: 559254236}
     - target: {fileID: 5940620731195160162, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}

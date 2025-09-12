@@ -132,12 +132,13 @@ public class CodeSnippet
         None,
         Reset,
         Rotate45,
-        Rotate180,
-        Rotate270,
+        Rotate5,
+        Rotate15,
         MoveUp,
         MoveDown,
         MoveRight,
         MoveLeft,
+        Rocket,
     }
     public ToRun code;
 
@@ -155,14 +156,14 @@ public class CodeSnippet
                     code = ToRun.Rotate45;
                     break;
                 }
-            case nameof(ToRun.Rotate180) + "()":
+            case nameof(ToRun.Rotate5) + "()":
                 {
-                    code = ToRun.Rotate180;
+                    code = ToRun.Rotate5;
                     break;
                 }
-            case nameof(ToRun.Rotate270) + "()":
+            case nameof(ToRun.Rotate15) + "()":
                 {
-                    code = ToRun.Rotate270;
+                    code = ToRun.Rotate15;
                     break;
                 }
             case nameof(ToRun.MoveUp) + "()":
@@ -185,6 +186,11 @@ public class CodeSnippet
                     code = ToRun.MoveLeft;
                     break;
                 }
+            case nameof(ToRun.Rocket) + "()":
+                {
+                    code = ToRun.Rocket;
+                    break;
+                }
 
         }
     }
@@ -205,14 +211,14 @@ public class CodeSnippet
                     Rotate(45);
                     break;
                 }
-            case ToRun.Rotate180:
+            case ToRun.Rotate5:
                 {
-                    Rotate(180);
+                    Rotate(5);
                     break;
                 }
-            case ToRun.Rotate270:
+            case ToRun.Rotate15:
                 {
-                    Rotate(270);
+                    Rotate(15);
                     break;
                 }
             case ToRun.MoveUp:
@@ -235,19 +241,28 @@ public class CodeSnippet
                     Move(Vector3.left);
                     break;
                 }
+            case ToRun.Rocket:
+                {
+                    Rocket();
+                    break;
+                }
         }
     }
 
     public void Reset()
     {
-        MachineScript.Reset();
+        Terminal.Instance.machine.ResetThis();
     }
     public void Rotate(int amount)
     {
-        MachineScript.Rotate(amount);
+        _ = Terminal.Instance.machine.Rotate(amount);
     }
     public void Move(Vector3 dir)
     {
-        MachineScript.Move(dir);
+        _=Terminal.Instance.machine.Move(dir);
+    }
+    public void Rocket()
+    {
+        Terminal.Instance.machine.Rocket();
     }
 }

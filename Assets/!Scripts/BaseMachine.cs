@@ -55,7 +55,7 @@ public class BaseMachine : MonoBehaviour
         Application.quitting -= Stop;
         isRunning = false;
 
-        ResetThis();
+        //ResetThis();
     }
 
     public void ClearMemory()

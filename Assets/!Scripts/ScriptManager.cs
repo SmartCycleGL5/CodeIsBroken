@@ -30,8 +30,9 @@ namespace Terminal
                 return false;
             } else
             {
-                BaseMachine script = gameObject.AddComponent<BaseMachine>();
-                script.machineCode.CreateScript(name);
+                BaseMachine machine = gameObject.AddComponent<BaseMachine>();
+                machine.machineCode = new();
+                machine.machineCode.CreateScript(name);
 
                 return true;
             }

@@ -7,7 +7,7 @@ public class MachineInteraction : MonoBehaviour
     [SerializeField] private GhostBuilding ghostBuilding;
     private MachineUIController currentMachineUI;
 
-    private void Update()
+    public void PlayerUpdate()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {

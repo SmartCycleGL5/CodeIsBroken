@@ -25,7 +25,7 @@ public class GhostBuilding : MonoBehaviour
         BuildingSelector.OnChangedBuilding += SwapGhostBlock;
     }
 
-    private void Update()
+    public void PlayerUpdate()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
@@ -91,5 +91,10 @@ public class GhostBuilding : MonoBehaviour
         ghostPrefab = Instantiate(newGhost);
         building = ghostPrefab.GetComponent<Building>();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
+    }
+
+    public void DestroyGhost()
+    {
+        Destroy(ghostPrefab);
     }
 }

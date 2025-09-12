@@ -14,7 +14,7 @@ public class MachineInteraction : MonoBehaviour
             Debug.Log("Looking for object to toggle");
             GameObject building = gridBuilder.LookUpCell(gridBuilder.GetGridPosition());
             Debug.Log(building);
-            if (building == null) return;
+            //if (building == null) return;
 
             if (building.TryGetComponent(out MachineUIController machineUI)) 
             {
@@ -28,10 +28,12 @@ public class MachineInteraction : MonoBehaviour
     private void SelectMachine(MachineUIController machineUI)
     {
         if (currentMachineUI != machineUI) {
-            if (currentMachineUI != null) { currentMachineUI.ToggleUI(false); }
+            if (currentMachineUI != null) 
+            { 
+                currentMachineUI.ToggleUI(false); 
+            }
             currentMachineUI = machineUI;
             currentMachineUI.ToggleUI(true);
         }
-        if (machineUI==null) { currentMachineUI.ToggleUI(false); }
     }
 }

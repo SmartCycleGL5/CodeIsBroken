@@ -4,9 +4,14 @@ using Terminal;
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
-    [SerializeField] MachineScript machine;
+    private MachineScript machine;
     bool uiEnabled;
-    
+
+    private void Start()
+    {
+        machine = GetComponent<MachineScript>();
+    }
+
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
@@ -18,7 +23,8 @@ public class MachineUIController : MonoBehaviour
     private void Update()
     {
         if (!uiEnabled) return;
-        //uiMenu.transform.LookAt(new Vector3(0, Camera.main.transform.position.y,0));
+        uiMenu.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
+                             Camera.main.transform.rotation * Vector3.up);
     }
 
     public void TerminalButton()

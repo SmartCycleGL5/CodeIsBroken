@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/style.uss?fileID=7433441132597879392&amp;guid=dd58a1a328d6d47468f38b3b58f7e1fd&amp;type=3#style" />
+    <ui:VisualElement name="Canvas" style="flex-grow: 1; width: 50%;" />
+</ui:UXML>

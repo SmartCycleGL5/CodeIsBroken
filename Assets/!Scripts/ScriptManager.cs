@@ -23,6 +23,13 @@ namespace Terminal
             instance = this;
         }
 
+        public static void CreateNewTerminal(BaseMachine machineScript)
+        {
+            Terminal newTerminal = UIManager.Instance.gameObject.AddComponent<Terminal>();
+            newTerminal.SelectMachine(machineScript);
+        }
+
+
         public static bool CreateScript(GameObject gameObject, string name)
         {
             if(gameObject.GetComponent<BaseMachine>())

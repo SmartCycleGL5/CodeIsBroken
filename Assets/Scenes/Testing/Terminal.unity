@@ -348,6 +348,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &416781699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+  m_PrefabInstance: {fileID: 3035244297390054797}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ac213d615fb074c9409451eacefbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!114 &559254236 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
@@ -580,6 +591,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1872910870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: machineCode
+      value: "class CoolMachine2\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
+        coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
+        coolFloat = 2.1;\n\n\t\tRotate15();\n\t\tMoveRight();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
+        coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: m_Name
+      value: Machine (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
 --- !u!1001 &2896165064737308434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,8 +710,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3971300438126337140, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2896165064737308436}
   m_SourcePrefab: {fileID: 100100000, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+--- !u!1 &2896165064737308435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3971300438126337140, guid: 1dc1746a1b51dde4584e798fe05e036a, type: 3}
+  m_PrefabInstance: {fileID: 2896165064737308434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2896165064737308436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896165064737308435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f4af9b52a8c624e9c11784afe6ea0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &3035244297390054797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,15 +740,56 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 380598368}
     m_Modifications:
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 416781699}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Terminal, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550521781383275177, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723225572082494998, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303774020387478874, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_text
+      value: "\u200B"
+      objectReference: {fileID: 0}
     - target: {fileID: 4895158402410693191, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_Text
-      value: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
-        coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
-        coolFloat = 2.1;\n\n\t\tRocket();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
-        coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machine
+      value: 
+      objectReference: {fileID: 559254236}
+    - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: machineToEdit
+      value: 
+      objectReference: {fileID: 559254236}
+    - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: <machineToEdit>k__BackingField
       value: 
       objectReference: {fileID: 559254236}
     - target: {fileID: 5940620731195160162, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
@@ -755,7 +891,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 274528765675701747, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -793,6 +929,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: machineCode
+      value: "class CoolMachine1\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
+        coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
+        coolFloat = 2.1;\n\n\t\tRocket();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
+        coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
+      objectReference: {fileID: 0}
     - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_Name
       value: Machine
@@ -811,4 +954,5 @@ SceneRoots:
   - {fileID: 380598368}
   - {fileID: 1708713629}
   - {fileID: 7340285161746946024}
+  - {fileID: 1872910870}
   - {fileID: 2896165064737308434}

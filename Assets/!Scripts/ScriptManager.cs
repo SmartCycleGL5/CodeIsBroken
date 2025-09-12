@@ -1,16 +1,60 @@
+using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptManager : MonoBehaviour
+namespace Terminal
 {
-    public static Class UniversalClass { get { return scriptManager._UniversalClass; } }
-    public Class _UniversalClass;
+    using Language;
 
-    public static ScriptManager scriptManager;
-
-    public static bool isRunning { get; private set; }
-
-    private void Start()
+    public class ScriptManager : MonoBehaviour
     {
-        scriptManager = this;
+        public static Class UniversalClass { get { return instance._UniversalClass; } }
+        public Class _UniversalClass;
+
+        public static ScriptManager instance;
+
+        public static bool isRunning { get; private set; }
+
+        public List<MachineScript> machines = new();
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
+        [Button]
+        public static void StartMachines()
+        {
+            if (isRunning) return;
+            isRunning = true;
+
+            foreach (var item in instance.machines)
+            {
+                item.Run();
+            }
+        }
+        [Button]
+        public static void StopMachines()
+        {
+
+        }
+
+        public static void Re()
+        {
+
+            foreach (var item in instance.machines)
+            {
+                item.ClearMemory();
+            }
+        }
+
+        public void AddMachine(MachineScript machine)
+        {
+            machines.Add(machine);
+        }
+        public void RemoveMachine(MachineScript machine)
+        {
+            machines.Remove(machine);
+        }
     }
 }

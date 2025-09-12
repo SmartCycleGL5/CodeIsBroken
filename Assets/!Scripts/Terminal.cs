@@ -32,10 +32,6 @@ public class Terminal : MonoBehaviour
         Load();
     }
 
-    public void Run()
-    {
-        ScriptManager.StartMachines();
-    }
     [Button]
     public void Load()
     {

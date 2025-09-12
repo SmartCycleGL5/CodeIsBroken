@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/style.uss?fileID=7433441132597879392&amp;guid=dd58a1a328d6d47468f38b3b58f7e1fd&amp;type=3#style" />
+    <ui:VisualElement name="Tabs" style="flex-grow: 1; min-width: 500px; max-width: 1000px; min-height: 500px; max-height: 500px;">
+        <ui:Tab label="Tab" name="Tab" />
+        <ui:VisualElement name="Terminal" class="Terminal" style="flex-grow: 1; color: rgb(0, 255, 35); visibility: visible; opacity: 1; overflow: visible; background-color: rgb(0, 0, 0);">
+            <ui:TextField label="Text Field" placeholder-text="filler text" multiline="true" auto-correction="true" hide-mobile-input="false" enabled="true" name="Input" style="-unity-text-align: middle-center; font-size: 51px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

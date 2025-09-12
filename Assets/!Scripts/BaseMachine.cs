@@ -7,14 +7,14 @@ using Terminal;
 using Unity.VisualScripting;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
-public class MachineScript : MonoBehaviour
+public class BaseMachine : MonoBehaviour
 {
     public MachineCode machineCode;
 
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
 
-    MachineScript machine;
+    BaseMachine machine;
 
     public bool isRunning { get; private set; } = false;
 

@@ -9,7 +9,7 @@ public class MachineCode
 {
     [ResizableTextArea] public string Code;
 
-    public void Initialize(ref MachineScript machine)
+    public void Initialize(ref BaseMachine machine)
     {
         Interpreter.InterperateInitialization(Code, ref machine);
     }

@@ -11,7 +11,7 @@ namespace Terminal
     [Serializable]
     public static class Interpreter
     {
-        public static void InterperateInitialization(string script, ref MachineScript machine)
+        public static void InterperateInitialization(string script, ref BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();

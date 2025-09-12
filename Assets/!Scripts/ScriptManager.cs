@@ -16,7 +16,7 @@ namespace Terminal
 
         public static bool isRunning { get; private set; }
 
-        public List<MachineScript> machines = new();
+        public List<BaseMachine> machines = new();
 
         private void Awake()
         {
@@ -25,12 +25,12 @@ namespace Terminal
 
         public static bool CreateScript(GameObject gameObject, string name)
         {
-            if(gameObject.GetComponent<MachineScript>())
+            if(gameObject.GetComponent<BaseMachine>())
             {
                 return false;
             } else
             {
-                MachineScript script = gameObject.AddComponent<MachineScript>();
+                BaseMachine script = gameObject.AddComponent<BaseMachine>();
                 script.machineCode.CreateScript(name);
 
                 return true;
@@ -69,11 +69,11 @@ namespace Terminal
             }
         }
 
-        public void AddMachine(MachineScript machine)
+        public void AddMachine(BaseMachine machine)
         {
             machines.Add(machine);
         }
-        public void RemoveMachine(MachineScript machine)
+        public void RemoveMachine(BaseMachine machine)
         {
             machines.Remove(machine);
         }

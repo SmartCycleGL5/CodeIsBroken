@@ -18,7 +18,7 @@ namespace Terminal.Language
         public string name;
 
         public Class inheritedClass;
-        public MachineScript machine;
+        public BaseMachine machine;
 
         [field: SerializeField, SerializedDictionary("Name", "Value")]
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
@@ -29,7 +29,7 @@ namespace Terminal.Language
         public string[] baseCode;
 
         #region Class
-        public Class(MachineScript machine, string name, List<string> baseCode, Class inheritedClass = null)
+        public Class(BaseMachine machine, string name, List<string> baseCode, Class inheritedClass = null)
         {
             this.baseCode = baseCode.ToArray();
             this.name = name;

@@ -12,14 +12,14 @@ public class Terminal : MonoBehaviour
     public static Terminal Instance;
     public TMP_InputField input;
 
-    [field: SerializeField]public MachineScript machineToEdit { get; private set; }
+    [field: SerializeField]public BaseMachine machineToEdit { get; private set; }
 
     private void Start()
     {
         Instance = this;
         SelectMachine(machineToEdit);
     }
-    public void SelectMachine(MachineScript machineScript)
+    public void SelectMachine(BaseMachine machineScript)
     {
         machineToEdit = machineScript;
 

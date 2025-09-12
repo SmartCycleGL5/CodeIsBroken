@@ -645,6 +645,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 380598368}
     m_Modifications:
+    - target: {fileID: 4895158402410693191, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+      propertyPath: m_Text
+      value: "class CoolClass\n{\n\tfloat something = 1.52323;\n\tint waa = 2;\n\tstring
+        coolbeans = \"cool beans but more\";\n\n\twaa = 5;\n\n\tvoid Start()\n\t{\n\t\tfloat
+        coolFloat = 2.1;\n\n\t\tRocket();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
+        coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
+      objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machine
       value: 

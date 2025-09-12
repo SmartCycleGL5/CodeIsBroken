@@ -12,7 +12,7 @@ public class BaseMachine : MonoBehaviour
     public MachineCode machineCode;
 
     [SerializedDictionary("Name", "Class")]
-    public SerializedDictionary<string, Class> Classes;
+    public SerializedDictionary<string, Class> Classes = new();
 
     BaseMachine machine;
 

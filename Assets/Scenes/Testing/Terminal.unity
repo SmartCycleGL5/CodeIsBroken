@@ -264,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &380598365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,17 +359,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55ac213d615fb074c9409451eacefbae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &559254236 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
-  m_PrefabInstance: {fileID: 7340285161746946024}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &720552715
@@ -941,6 +930,10 @@ PrefabInstance:
         coolFloat = 2.1;\n\n\t\tRotate15();\n\t\tMoveRight();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
         coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
       objectReference: {fileID: 0}
+    - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: machineCode.Code
+      value: "class machine\n{\n\tvoid  Start()\n\t{\n\t\tRocket();\n \t}\n}"
+      objectReference: {fileID: 0}
     - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_Name
       value: Machine (1)
@@ -950,6 +943,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+--- !u!114 &1872910871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+  m_PrefabInstance: {fileID: 1872910870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &2004233170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,13 +1257,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2125121203}
   - component: {fileID: 2125121202}
+  - component: {fileID: 2125121204}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: Terminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2125121202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,6 +1303,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2125121204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125121201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ac213d615fb074c9409451eacefbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Terminal.Terminal
+  <machineToEdit>k__BackingField: {fileID: 1872910871}
 --- !u!1001 &2896165064737308434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,15 +1435,15 @@ PrefabInstance:
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machine
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machineToEdit
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: <machineToEdit>k__BackingField
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 5940620731195160162, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1606,7 +1624,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Machine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

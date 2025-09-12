@@ -1,42 +1,50 @@
-using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Terminal
 {
-public class Terminal : MonoBehaviour
-{
-    public static Terminal Instance;
-    public TMP_InputField input;
-
-    [field: SerializeField]public BaseMachine machineToEdit { get; private set; }
-
-    private void Start()
+    public class Terminal : MonoBehaviour
     {
-        Instance = this;
-        SelectMachine(machineToEdit);
-    }
-    public void SelectMachine(BaseMachine machineScript)
-    {
-        machineToEdit = machineScript;
+        public static Terminal Instance;
 
-        Load();
-    }
+        [field: SerializeField] public BaseMachine machineToEdit { get; private set; }
 
-    [Button]
-    public void Load()
-    {
-        if (machineToEdit != null)
-            input.text = machineToEdit.machineCode.Code;
+        public VisualElement ui;
+        TextField input;
+        Button saveBTN;
+
+        private void Start()
+        {
+            ui = GetComponent<UIDocument>().rootVisualElement;
+            input = ui.Q<TextField>("Input");
+            saveBTN = ui.Q<Button>("Save");
+
+            input.value = machineToEdit.machineCode.Code;
+            saveBTN.clicked += Save;
+
+            Instance = this;
+            SelectMachine(machineToEdit);
+        }
+        public void SelectMachine(BaseMachine machineScript)
+        {
+            machineToEdit = machineScript;
+
+            Load();
+        }
+
+        [Button]
+        public void Load()
+        {
+            //if (machineToEdit != null)
+                //input.text = machineToEdit.machineCode.Code;
+        }
+        [Button]
+        public void Save()
+        {
+            if (machineToEdit != null)
+                machineToEdit.machineCode.Code = input.text;
+        }
     }
-    [Button]
-    public void Save()
-    {
-        if (machineToEdit != null)
-            machineToEdit.machineCode.Code = input.text;
-    }
-}
 }

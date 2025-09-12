@@ -15,7 +15,7 @@ public class GhostBuilding : MonoBehaviour
     private GameObject prefabToBuild;
     
     
-    private bool isBuilding = false;
+    public bool isBuilding = false;
 
     private Building building;
     private bool canPlace;
@@ -27,6 +27,12 @@ public class GhostBuilding : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Destroy(ghostPrefab);
+            isBuilding = false;
+        }
+        if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             RotateBuilding();

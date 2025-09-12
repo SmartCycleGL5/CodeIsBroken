@@ -932,8 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: machineCode.Code
-      value: "class machine\n{\n\tvoid  Start()\n\t{\n\t\tRocket();\n\t\tMoveLeft();\n
-        \t}\n}"
+      value: "class machine\n{\n\tvoid  Start()\n\t{\n\t\tRocket();\n \t}\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_Name

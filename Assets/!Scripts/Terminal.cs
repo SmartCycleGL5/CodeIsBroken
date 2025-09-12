@@ -7,9 +7,9 @@ namespace Terminal
 {
     public class Terminal : MonoBehaviour
     {
-        [field: SerializeField] public BaseMachine machineToEdit { get; private set; }
+        public BaseMachine machineToEdit { get; private set; }
 
-        [field: SerializeField] public VisualTreeAsset terminalAsset {  get; private set; }
+        public static VisualTreeAsset terminalAsset {  get; private set; }
 
         VisualElement canvas;
         VisualElement terminal;
@@ -18,8 +18,14 @@ namespace Terminal
         Button saveBTN;
         Button closeBTN;
 
-        private void Start()
+
+        private async void Start()
         {
+            if(terminalAsset == null)
+            {
+                terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("TerminalUI");
+            }
+
             canvas = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Canvas");
             terminal = terminalAsset.Instantiate();
             canvas.Add(terminal);
@@ -31,7 +37,7 @@ namespace Terminal
             saveBTN.clicked += Save;
             closeBTN.clicked += Close;
 
-            SelectMachine(machineToEdit);
+            Load();
         }
 
         public void Close()
@@ -44,12 +50,13 @@ namespace Terminal
         {
             machineToEdit = machineScript;
 
-            Load();
         }
 
         public void Load()
         {
             if (machineToEdit == null) return;
+
+            Debug.Log(machineToEdit.machineCode);
 
             input.value = machineToEdit.machineCode.Code;
         }

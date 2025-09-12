@@ -106,4 +106,10 @@ public class BaseMachine : MonoBehaviour
             await Move(Vector3.up);
         }
     }
+
+    [Button]
+    public void CreateTerminalForMachine()
+    {
+        ScriptManager.CreateNewTerminal(this);
+    }
 }

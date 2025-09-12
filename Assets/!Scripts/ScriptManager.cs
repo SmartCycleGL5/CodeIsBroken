@@ -14,7 +14,7 @@ namespace Terminal
 
         public static ScriptManager instance;
 
-        public static bool isRunning { get; private set; }
+        [field: SerializeField] public static bool isRunning { get; private set; }
 
         public List<BaseMachine> machines = new();
 

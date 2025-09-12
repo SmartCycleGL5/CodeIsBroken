@@ -1,4 +1,9 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
 
 public static class Utility
 {
@@ -32,5 +37,22 @@ public static class Utility
         }
 
         sections.RemoveAll(x => x == null);
+    }
+
+    public static class Addressable
+    {
+        public static async Task<T> ReturnAdressableAsset<T>(string path)
+        {
+            AsyncOperationHandle handle = Addressables.LoadAssetAsync<T>(path);
+            await handle.Task;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                return (T)handle.Result;
+            }
+
+            Debug.LogError(handle.Status);
+            return default;
+        }
     }
 }

@@ -1,15 +1,17 @@
 using UnityEngine;
 using Terminal;
+using UnityEngine.UI;
 
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
-    private MachineScript machine;
+    private BaseMachine machine;
     bool uiEnabled;
 
     private void Start()
     {
-        machine = GetComponent<MachineScript>();
+        uiEnabled = false;
+        machine = GetComponent<BaseMachine>();
     }
 
     public void ToggleUI(bool toggle)
@@ -29,10 +31,21 @@ public class MachineUIController : MonoBehaviour
 
     public void TerminalButton()
     {
+        if (gameObject.GetComponent<BaseMachine>() == null) 
+        {
+            ScriptManager.CreateScript(gameObject, "RandomClass"+Random.Range(1000, 9999));
+            OpenTerminal();
+        }
+        else { OpenTerminal(); }
+
+    }
+
+    private void OpenTerminal()
+    {
         Terminal.Terminal terminal = FindFirstObjectByType<Terminal.Terminal>(FindObjectsInactive.Include);
         Debug.Log(terminal);
         terminal.gameObject.SetActive(true);
-        terminal.SelectMachine(machine);
+        terminal.SelectMachine(gameObject.GetComponent<BaseMachine>());
     }
 
 }

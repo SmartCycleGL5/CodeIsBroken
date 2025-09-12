@@ -20,9 +20,13 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] float minZoom;
     [SerializeField] float maxZoom;
 
+    [Header("Player Options")]
+    [SerializeField] bool dragToRotate;
+
     private Vector2 moveInput;
     private Vector2 lookInput;
 
+    float screenWidth;
     public enum PlayerAction
     {
         Building,
@@ -42,7 +46,13 @@ public class PlayerInputs : MonoBehaviour
         lookInput = value.Get<Vector2>();
     }
     #endregion
-    
+
+    private void Start()
+    {
+        playerAction = PlayerAction.WorldInteraction;
+        screenWidth = Screen.width;
+    }
+
     void Update()
     {
         PlayerUpdate();
@@ -86,11 +96,24 @@ public class PlayerInputs : MonoBehaviour
 
     void MouseRotate()
     {
+        // Only rotate if Middle mouse i down
         if (!Mouse.current.middleButton.IsPressed()) return;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
         {
-            player.RotateAround(hit.point, Vector3.up, lookInput.x*rotationSpeed*Time.deltaTime);
+            // Sideways rotation
+            //Drag to rotate, rotates based on mouse movement.
+            if (dragToRotate)
+            {
+                player.RotateAround(hit.point, Vector3.up, lookInput.x * rotationSpeed * Time.deltaTime);
+            }
+            //Rotates based on which side of the screen mouse is in.
+            else
+            {
+                Vector2 mousePosition = Mouse.current.position.value;
+                float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
+                player.RotateAround(hit.point, Vector3.up, screenSide * rotationSpeed * Time.deltaTime);
+            }
         }
     }
 }

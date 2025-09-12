@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class BaseMachine : MonoBehaviour
 {
-    public MachineCode machineCode;
+    public MachineCode machineCode = new();
 
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
@@ -24,8 +24,8 @@ public class BaseMachine : MonoBehaviour
     private void Start()
     {
         machine = this;
-        machineCode.Initialize(ref machine);
         ScriptManager.instance.AddMachine(this);
+        machineCode.Initialize(this);
 
         initialPos = transform.position;
         initialRot = transform.eulerAngles;

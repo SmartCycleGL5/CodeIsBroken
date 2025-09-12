@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using NaughtyAttributes;
 using System;
 using Terminal;
@@ -8,9 +9,15 @@ using UnityEngine;
 public class MachineCode 
 {
     [ResizableTextArea] public string Code;
-
-    public void Initialize(ref BaseMachine machine)
+    BaseMachine machine;
+    public void Initialize(BaseMachine machine)
     {
+        this.machine = machine; 
+        Interpreter.InterperateInitialization(Code, ref this.machine);
+    }
+    public void UpdateCode(string code)
+    {
+        Code = code;
         Interpreter.InterperateInitialization(Code, ref machine);
     }
     public void CreateScript(string name)
@@ -22,7 +29,7 @@ public class MachineCode
                 "\t{\n" +
                 "\n\t\t" +
                 "\n\t\t" +
-                "\n\t\t" +
+                "\n\t\t\n" +
                 "\t}\n" +
                 "}";
     }

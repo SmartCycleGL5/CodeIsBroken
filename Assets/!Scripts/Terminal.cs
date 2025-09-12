@@ -36,7 +36,7 @@ public class Terminal : MonoBehaviour
     public void Save()
     {
         if (machineToEdit != null)
-            machineToEdit.machineCode.Code = input.text;
+            machineToEdit.machineCode.UpdateCode(input.text);
     }
 }
 }

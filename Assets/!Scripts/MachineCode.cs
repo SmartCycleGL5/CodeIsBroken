@@ -18,6 +18,7 @@ public class MachineCode
     public void UpdateCode(string code)
     {
         Code = code;
+        machine.ClearMemory();
         Interpreter.InterperateInitialization(Code, ref machine);
     }
     public void CreateScript(string name)

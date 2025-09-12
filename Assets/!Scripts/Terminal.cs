@@ -1,43 +1,52 @@
 using AYellowpaper.SerializedCollections;
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+namespace Terminal
+{
 public class Terminal : MonoBehaviour
 {
     public static Terminal Instance;
     public TMP_InputField input;
 
-    public MachineScript machine;
-    public static event Action OnStart;
-    static List<Action> Starting = new();
+    [field: SerializeField]public MachineScript machineToEdit { get; private set; }
 
     private void Start()
     {
         Instance = this;
-    }
-
-    public static void AddStart(Action action)
-    {
-        Starting.Add(action);
-        OnStart += action;
+        SelectMachine(machineToEdit);
     }
 
     public void Initialize()
     {
-        machine.ClearMemory();
+        if(machineToEdit != null)
+            machineToEdit.Initialize(input.text);
+    }
+    public void SelectMachine(MachineScript machineScript)
+    {
+        machineToEdit = machineScript;
 
-        foreach (var item in Starting)
-        {
-            OnStart -= item;
-        }
-
-        Interpreter.InterperateInitialization(input.text, ref machine);
+        Load();
     }
 
     public void Run()
     {
-        OnStart?.Invoke();
+        ScriptManager.StartMachines();
     }
+    [Button]
+    public void Load()
+    {
+        if (machineToEdit != null)
+            input.text = machineToEdit.machineCode;
+    }
+    [Button]
+    public void Save()
+    {
+        if (machineToEdit != null)
+            machineToEdit.machineCode = input.text;
+    }
+}
 }

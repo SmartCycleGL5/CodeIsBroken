@@ -3,129 +3,142 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static Interpreter;
 using static Utility;
 
-[Serializable]
-/// <summary>
-/// Reperesents Player made classes
-/// </summary>
-public class Class : IVariable, IMethod
+namespace Terminal.Language
 {
-    public string name;
+    using static Interpreter;
 
-    public Class inheritedClass;
-
-    [field: SerializeField, SerializedDictionary("Name", "Value")]
-    public SerializedDictionary<string, Variable> variables { get; set; } = new();
-
-    [field: SerializeField, SerializedDictionary("Name", "Value")]
-    public SerializedDictionary<string, Method> methods { get; set; } = new();
-
-    public string[] baseCode;
-
-    #region Class
-    public Class(string name, string[] baseCode, Class inheritedClass = null)
-    {
-        this.baseCode = baseCode;
-        this.name = name;
-        this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
-
-        InitializeClass();
-    }
-    public Class(string name, List<string> baseCode, Class inheritedClass)
-    {
-        this.baseCode = baseCode.ToArray();
-        this.name = name;
-        this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
-
-        InitializeClass();
-    }
-    #endregion
-
-    #region Methods
-    public void RunMethod(string name)
-    {
-        methods[name].TryRun();
-    }
-    public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
-    {
-        Method method = new Method(name, returnType, code, this);
-
-        methods.Add(name, method);
-
-        return method;
-    }
-    #endregion
-
-    #region Variables
-    public Variable NewVariable(string name, Type Type = Type.Bool)
-    {
-        Variable value = new Variable(name, Type);
-        variables.Add(name, value);
-        return value;
-    }
-    public Variable NewVariable(Variable variable)
-    {
-        variables.Add(variable.name, variable);
-        return variable;
-    }
-    public Variable FindVariable(string name)
-    {
-        if (variables[name] != null)
-        {
-            return variables[name];
-        } 
-        else if(inheritedClass != null)
-        {
-            inheritedClass.FindVariable(name);
-        }
-            return null;
-    }
-    #endregion
-
+    [Serializable]
     /// <summary>
-    /// initializes the class
+    /// Reperesents Player made classes
     /// </summary>
-    public void InitializeClass()
+    public class Class : Keyword, IVariable, IMethod
     {
-        for (int i = 0; i < baseCode.Length; i++)
+        public string name;
+
+        public Class inheritedClass;
+        public MachineScript machine;
+
+        [field: SerializeField, SerializedDictionary("Name", "Value")]
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
+
+        [field: SerializeField, SerializedDictionary("Name", "Value")]
+        public SerializedDictionary<string, Method> methods { get; set; } = new();
+
+        public string[] baseCode;
+
+        #region Class
+        public Class(MachineScript machine, string name, string[] baseCode, Class inheritedClass = null)
         {
-            string line = baseCode[i];
-            List<string> sections = line.Split(" ").ToList();
+            this.baseCode = baseCode;
+            this.name = name;
+            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+            this.machine = machine;
 
-            FindAndRetainStrings(ref sections);
+            InitializeClass();
+        }
+        public Class(MachineScript machine, string name, List<string> baseCode, Class inheritedClass)
+        {
+            this.baseCode = baseCode.ToArray();
+            this.name = name;
+            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+            this.machine = machine;
 
-            //Find variables & methods
-            if (ReturnType(sections[0], out Type type))
+            InitializeClass();
+        }
+        #endregion
+
+        #region Methods
+        public void TryRunMethod(string name)
+        {
+            if (methods.ContainsKey(name))
+                methods[name].TryRun();
+            else
             {
-                bool isMethod = sections[1].Contains("()");
-
-                if (!isMethod && !variables.ContainsKey(sections[1]))
-                {
-                    NewVariable(sections[1], type);
-                }
-                else if (isMethod && !methods.ContainsKey(sections[1]))
-                {
-                    List<string> methodScript = baseCode.ToList();
-
-                    FindEncapulasion(ref methodScript, i);
-
-                    NewMethod(sections[1], methodScript.ToArray(), type);
-                }
+                Debug.LogWarning("No method of name: " + name);
             }
+        }
+        public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
+        {
+            Method method = new Method(name, returnType, code, this);
 
+            methods.Add(name, method);
 
-            for (int j = 0; j < sections.Count; j++)
+            return method;
+        }
+        #endregion
+
+        #region Variables
+        public Variable NewVariable(string name, Type Type = Type.Bool)
+        {
+            Variable value = new Variable(name, Type);
+            variables.Add(name, value);
+            return value;
+        }
+        public Variable NewVariable(Variable variable)
+        {
+            variables.Add(variable.name, variable);
+            return variable;
+        }
+        public Variable FindVariable(string name)
+        {
+            if (variables[name] != null)
             {
-                //Setting variables
-                if (sections[j] == "=")
+                return variables[name];
+            }
+            else if (inheritedClass != null)
+            {
+                inheritedClass.FindVariable(name);
+            }
+            return null;
+        }
+        #endregion
+
+        /// <summary>
+        /// initializes the class
+        /// </summary>
+        public void InitializeClass()
+        {
+            for (int i = 0; i < baseCode.Length; i++)
+            {
+                string line = baseCode[i];
+                List<string> sections = line.Split(" ").ToList();
+
+                FindAndRetainStrings(ref sections);
+
+                //Find variables & methods
+                if (ReturnType(sections[0], out Type type))
                 {
-                    Assignment(variables[sections[j - 1]], sections[j + 1]);
-                    break;
+                    bool isMethod = sections[1].Contains("()");
+
+                    if (!isMethod && !variables.ContainsKey(sections[1]))
+                    {
+                        NewVariable(sections[1], type);
+                    }
+                    else if (isMethod && !methods.ContainsKey(sections[1]))
+                    {
+                        List<string> methodScript = baseCode.ToList();
+
+                        FindEncapulasion(ref methodScript, i);
+
+                        NewMethod(sections[1], methodScript.ToArray(), type);
+                    }
+                }
+
+
+                for (int j = 0; j < sections.Count; j++)
+                {
+                    //Setting variables
+                    if (sections[j] == "=")
+                    {
+                        Assignment(variables[sections[j - 1]], sections[j + 1]);
+                        break;
+                    }
                 }
             }
         }
-    }
 
+    }
 }
+

@@ -1,53 +1,56 @@
 using System;
 
-[Serializable]
-public class Variable
+namespace Terminal.Language
 {
-    public string name;
-
-    public Type type;
-
-    public float Float = 0;
-    public int Int = 0;
-    public string String = "";
-    public bool Bool = false;
-
-    public Variable(string name, Type type)
+    [Serializable]
+    public class Variable
     {
-        this.name = name;
-        this.type = type;
-    }
-    public void SetValue(string variable)
-    {
-        switch (type)
+        public string name;
+
+        public Type type;
+
+        public float Float = 0;
+        public int Int = 0;
+        public string String = "";
+        public bool Bool = false;
+
+        public Variable(string name, Type type)
         {
-            case Type.String:
-                {
-                    String = variable;
-                    return;
-                }
-            case Type.Bool:
-                {
-                    if (variable == "true")
+            this.name = name;
+            this.type = type;
+        }
+        public void SetValue(string variable)
+        {
+            switch (type)
+            {
+                case Type.String:
                     {
-                        Bool = true;
+                        String = variable;
+                        return;
                     }
-                    else if (variable == "false")
+                case Type.Bool:
                     {
-                        Bool = false;
+                        if (variable == "true")
+                        {
+                            Bool = true;
+                        }
+                        else if (variable == "false")
+                        {
+                            Bool = false;
+                        }
+                        return;
                     }
-                    return;
-                }
-            case Type.Float:
-                {
-                    Float = float.Parse(variable);
-                    return;
-                }
-            case Type.Int:
-                {
-                    Int = int.Parse(variable);
-                    return;
-                }
+                case Type.Float:
+                    {
+                        Float = float.Parse(variable);
+                        return;
+                    }
+                case Type.Int:
+                    {
+                        Int = int.Parse(variable);
+                        return;
+                    }
+            }
         }
     }
 }

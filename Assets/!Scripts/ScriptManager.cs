@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Terminal
 {
     using Language;
+    using System;
 
     public class ScriptManager : MonoBehaviour
     {
@@ -15,11 +16,26 @@ namespace Terminal
 
         public static bool isRunning { get; private set; }
 
-        public List<MachineScript> machines = new();
+        public List<BaseMachine> machines = new();
 
         private void Awake()
         {
             instance = this;
+        }
+
+        public static bool CreateScript(GameObject gameObject, string name)
+        {
+            if(gameObject.GetComponent<BaseMachine>())
+            {
+                return false;
+            } else
+            {
+                BaseMachine script = gameObject.AddComponent<BaseMachine>();
+                script.machineCode.CreateScript(name);
+
+                return true;
+            }
+            return false;
         }
 
         [Button]
@@ -36,7 +52,12 @@ namespace Terminal
         [Button]
         public static void StopMachines()
         {
+            foreach (var item in instance.machines)
+            {
+                item.Stop();
+            }
 
+            isRunning = false;
         }
 
         public static void Re()
@@ -48,11 +69,11 @@ namespace Terminal
             }
         }
 
-        public void AddMachine(MachineScript machine)
+        public void AddMachine(BaseMachine machine)
         {
             machines.Add(machine);
         }
-        public void RemoveMachine(MachineScript machine)
+        public void RemoveMachine(BaseMachine machine)
         {
             machines.Remove(machine);
         }

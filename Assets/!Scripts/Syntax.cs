@@ -6,6 +6,6 @@ namespace Terminal.Language.Syntax
 {
     public class Syntax
     {
-
+        //public Dictionary<string, > keywords;
     }
 }

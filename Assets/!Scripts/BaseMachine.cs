@@ -4,23 +4,33 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Terminal.Language;
 using Terminal;
+using Unity.VisualScripting;
 
-[DefaultExecutionOrder(100)]
-public class MachineScript : MonoBehaviour
+[DefaultExecutionOrder(100), DisallowMultipleComponent]
+public class BaseMachine : MonoBehaviour
 {
-    [ResizableTextArea] public string machineCode;
+    public MachineCode machineCode;
 
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
 
-    MachineScript machine;
+    BaseMachine machine;
+
+    public bool isRunning { get; private set; } = false;
+
+    Vector3 initialPos;
+    Vector3 initialRot;
 
     private void Start()
     {
         machine = this;
-        Initialize(machineCode);
+        machineCode.Initialize(ref machine);
         ScriptManager.instance.AddMachine(this);
+
+        initialPos = transform.position;
+        initialRot = transform.eulerAngles;
     }
+
     private void OnDestroy()
     {
         ScriptManager.instance.RemoveMachine(this);
@@ -28,33 +38,39 @@ public class MachineScript : MonoBehaviour
 
     public void Run()
     {
+        isRunning = true;
+
+        Application.quitting += Stop;
+
         foreach (var Class in Classes)
         {
             Class.Value.TryRunMethod("Start()");
         }
+    }
+    public void Stop()
+    {
+        Application.quitting -= Stop;
+        isRunning = false;
+
+        ResetThis();
     }
 
     public void ClearMemory()
     {
         Classes.Clear();
     }
+
+
     public void ResetThis()
     {
-        transform.position = new Vector3(6, 0, 0);
-        transform.eulerAngles = Vector3.zero;
+        transform.position = initialPos;
+        transform.eulerAngles = initialRot;
     }
-    public void Initialize(string raw)
-    {
-        machineCode = raw;
-        Interpreter.InterperateInitialization(machineCode, ref machine);
-    }
-
-
     public async Task Rotate(int amount)
     {
         float originalAmount = transform.eulerAngles.y;
 
-        while ((originalAmount + amount) - transform.eulerAngles.y > .1f)
+        while ((originalAmount + amount) - transform.eulerAngles.y > .1f && isRunning)
         {
             transform.Rotate(0, amount * Time.deltaTime, 0);
 
@@ -67,7 +83,7 @@ public class MachineScript : MonoBehaviour
     {
         Vector3 originalPos = transform.position;
 
-        while (Vector3.Distance(originalPos + dir, transform.position) > .1f)
+        while (Vector3.Distance(originalPos + dir, transform.position) > .1f && isRunning)
         {
             Debug.Log(Vector3.Distance(originalPos + dir, transform.position));
 
@@ -81,7 +97,7 @@ public class MachineScript : MonoBehaviour
 
     public async void Rocket()
     {
-        while (true)
+        while (isRunning)
         {
             _ = Rotate(360);
             await Move(Vector3.up);

@@ -13,12 +13,12 @@ namespace Terminal.Language
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
-    public class Class : /*Keyword,*/ IVariable, IMethod
+    public class Class : IVariable, IMethod
     {
         public string name;
 
         public Class inheritedClass;
-        public MachineScript machine;
+        public BaseMachine machine;
 
         [field: SerializeField, SerializedDictionary("Name", "Value")]
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
@@ -29,16 +29,7 @@ namespace Terminal.Language
         public string[] baseCode;
 
         #region Class
-        public Class(MachineScript machine, string name, string[] baseCode, Class inheritedClass = null)
-        {
-            this.baseCode = baseCode;
-            this.name = name;
-            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
-            this.machine = machine;
-
-            InitializeClass();
-        }
-        public Class(MachineScript machine, string name, List<string> baseCode, Class inheritedClass)
+        public Class(BaseMachine machine, string name, List<string> baseCode, Class inheritedClass = null)
         {
             this.baseCode = baseCode.ToArray();
             this.name = name;
@@ -98,7 +89,7 @@ namespace Terminal.Language
         /// <summary>
         /// initializes the class
         /// </summary>
-        public void InitializeClass()
+        void InitializeClass()
         {
             for (int i = 0; i < baseCode.Length; i++)
             {

@@ -13,7 +13,7 @@ namespace Terminal.Language
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
-    public class Class : IVariable, IMethod
+    public class Class : Keyword, IVariable, IMethod
     {
         public string name;
 

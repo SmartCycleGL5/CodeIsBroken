@@ -591,12 +591,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 6.33, z: -7.48}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1936841739}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -1282,7 +1282,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2136248695}
@@ -1312,7 +1312,7 @@ GameObject:
   - component: {fileID: 1430753129}
   - component: {fileID: 1430753132}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BuildingMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1733,8 +1733,11 @@ MonoBehaviour:
   buildingInput: {fileID: 767682362}
   machineInput: {fileID: 767682364}
   buildingMenu: {fileID: 1430753127}
-  player: {fileID: 0}
-  xTiltLimit: 0
+  cam: {fileID: 330585545}
+  player: {fileID: 1936841739}
+  moveSpeed: 10
+  rotationSpeed: 12
+  tiltLimit: 0
   minZoom: 0
   maxZoom: 0
   playerAction: 0
@@ -1777,10 +1780,11 @@ Transform:
   m_GameObject: {fileID: 1936841736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.20864, y: 0.01, z: -0.47588}
+  m_LocalPosition: {x: -1.20864, y: 7.19, z: -7.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136248693
@@ -1831,7 +1835,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 878547742}

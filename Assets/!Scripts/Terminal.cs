@@ -19,12 +19,6 @@ public class Terminal : MonoBehaviour
         Instance = this;
         SelectMachine(machineToEdit);
     }
-
-    public void Initialize()
-    {
-        if(machineToEdit != null)
-            machineToEdit.Initialize(input.text);
-    }
     public void SelectMachine(MachineScript machineScript)
     {
         machineToEdit = machineScript;
@@ -36,13 +30,13 @@ public class Terminal : MonoBehaviour
     public void Load()
     {
         if (machineToEdit != null)
-            input.text = machineToEdit.machineCode;
+            input.text = machineToEdit.machineCode.Code;
     }
     [Button]
     public void Save()
     {
         if (machineToEdit != null)
-            machineToEdit.machineCode = input.text;
+            machineToEdit.machineCode.Code = input.text;
     }
 }
 }

@@ -31,16 +31,7 @@ namespace Terminal
             } else
             {
                 MachineScript script = gameObject.AddComponent<MachineScript>();
-                script.machineCode =
-                    "class " + name + "\n" +
-                    "{\n" +
-                    "\tvoid Start()\n" +
-                    "\t{\n" +
-                    "\n\t\t" +
-                    "\n\t\t" +
-                    "\n\t\t" +
-                    "\t}\n" +
-                    "}";
+                script.machineCode.CreateScript(name);
 
                 return true;
             }

@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class MachineScript : MonoBehaviour
 {
-    [ResizableTextArea] public string machineCode;
+    public MachineCode machineCode;
 
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
@@ -18,22 +18,17 @@ public class MachineScript : MonoBehaviour
 
     public bool isRunning { get; private set; } = false;
 
-
     Vector3 initialPos;
     Vector3 initialRot;
+
     private void Start()
     {
         machine = this;
-        Initialize(machineCode);
+        machineCode.Initialize(ref machine);
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;
         initialRot = transform.eulerAngles;
-    }
-    public void Initialize(string raw)
-    {
-        machineCode = raw;
-        Interpreter.InterperateInitialization(machineCode, ref machine);
     }
 
     private void OnDestroy()

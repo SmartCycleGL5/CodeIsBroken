@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+namespace Terminal
+{
 public class Terminal : MonoBehaviour
 {
     public static Terminal Instance;
@@ -46,4 +48,5 @@ public class Terminal : MonoBehaviour
         if (machineToEdit != null)
             machineToEdit.machineCode = input.text;
     }
+}
 }

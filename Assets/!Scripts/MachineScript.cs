@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Threading.Tasks;
 using UnityEngine;
 using Terminal.Language;
+using Terminal;
 
 [DefaultExecutionOrder(100)]
 public class MachineScript : MonoBehaviour

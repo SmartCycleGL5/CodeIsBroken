@@ -8,10 +8,17 @@ using UnityEngine;
 public class MachineCode 
 {
     [ResizableTextArea] public string Code;
-
-    public void Initialize(ref BaseMachine machine)
+    BaseMachine machine;
+    public void Initialize(BaseMachine machine)
     {
-        Interpreter.InterperateInitialization(Code, ref machine);
+        this.machine = machine;
+        Interpreter.InterperateInitialization(Code, this.machine);
+    }
+    public void UpdateCode(string code)
+    {
+        Code = code;
+        machine.ClearMemory();
+        Interpreter.InterperateInitialization(Code, machine);
     }
     public void CreateScript(string name)
     {
@@ -22,7 +29,7 @@ public class MachineCode
                 "\t{\n" +
                 "\n\t\t" +
                 "\n\t\t" +
-                "\n\t\t" +
+                "\n\t\t\n" +
                 "\t}\n" +
                 "}";
     }

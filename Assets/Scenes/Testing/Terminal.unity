@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: machineCode.Code
-      value: "class machine\n{\n\tvoid  Start()\n\t{\n\t\tRocket();\n\t\tMoveLeft();\n
+      value: "class machine\n{\n\tvoid Start()\n\t{\n\t\tRocket();\n\t\tMoveLeft();\n
         \t}\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
@@ -1609,12 +1609,16 @@ PrefabInstance:
         coolFloat = 2.1;\n\n\t\tRocket();\n\t}\n}\nclass NotSoCoolClass\n{\n\tfloat
         coolFloat = 3.14159;\n}\n\nplease;\nremove;\nthis;"
       objectReference: {fileID: 0}
+    - target: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      propertyPath: machineCode.Code
+      value: "class machine2\n{\n\tvoid Start()\n\t{\n\t\tMoveRight();\n\t\tMoveUp();\n
+        \t}\n}"
+      objectReference: {fileID: 0}
     - target: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
       propertyPath: m_Name
       value: Machine
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

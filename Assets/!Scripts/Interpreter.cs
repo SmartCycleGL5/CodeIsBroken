@@ -11,7 +11,7 @@ namespace Terminal
     [Serializable]
     public static class Interpreter
     {
-        public static void InterperateInitialization(string script, ref BaseMachine machine)
+        public static void InterperateInitialization(string script, BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();
@@ -44,7 +44,6 @@ namespace Terminal
 
             for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
             {
-                Debug.Log(encapsulatedScript[k]);
 
                 if (encapsulations == 0)
                 {

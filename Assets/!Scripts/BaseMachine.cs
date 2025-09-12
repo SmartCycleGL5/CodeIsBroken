@@ -14,8 +14,6 @@ public class BaseMachine : MonoBehaviour
     [SerializedDictionary("Name", "Class")]
     public SerializedDictionary<string, Class> Classes;
 
-    BaseMachine machine;
-
     public bool isRunning { get; private set; } = false;
 
     Vector3 initialPos;
@@ -23,8 +21,7 @@ public class BaseMachine : MonoBehaviour
 
     private void Start()
     {
-        machine = this;
-        machineCode.Initialize(ref machine);
+        machineCode.Initialize(this);
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;

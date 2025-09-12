@@ -11,7 +11,6 @@ namespace Terminal
 
         public static VisualTreeAsset terminalAsset {  get; private set; }
 
-        VisualElement canvas;
         VisualElement terminal;
         
         TextField input;
@@ -26,9 +25,8 @@ namespace Terminal
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("TerminalUI");
             }
 
-            canvas = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Canvas");
             terminal = terminalAsset.Instantiate();
-            canvas.Add(terminal);
+            UIManager.AddWindow(terminal);
 
             input = terminal.Q<TextField>("Input");
             saveBTN = terminal.Q<Button>("Save");
@@ -64,7 +62,7 @@ namespace Terminal
         {
             if (machineToEdit == null) return;
 
-            machineToEdit.machineCode.Code = input.text;
+            machineToEdit.machineCode.UpdateCode(input.text);
         }
     }
 }

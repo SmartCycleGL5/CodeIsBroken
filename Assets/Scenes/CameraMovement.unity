@@ -2165,6 +2165,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6610026277596518571, guid: 406e52bda66b30b4e8f6ef834c8f3e83, type: 3}
   m_PrefabInstance: {fileID: 2054370600}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1116267918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4895158402410693191, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
+  m_PrefabInstance: {fileID: 731321061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
 --- !u!224 &1174579281 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7988193835223756327, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
@@ -2894,6 +2905,7 @@ MonoBehaviour:
   machineInput: {fileID: 767682364}
   buildingMenu: {fileID: 1430753127}
   cam: {fileID: 330585545}
+  terminal: {fileID: 1116267918}
   player: {fileID: 1936841739}
   moveSpeed: 10
   rotationSpeed: 12

@@ -1,4 +1,5 @@
 using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] MachineInteraction machineInput;
     [SerializeField] GameObject buildingMenu;
     [SerializeField] Camera cam;
+    [SerializeField] private TMP_InputField terminal;
 
     [SerializeField] Transform player;
 
@@ -57,6 +59,9 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
+        
+        // Block movement if terminal is being written in.
+        if (terminal.isFocused) return;
         Movement();
         MouseRotate();
     }

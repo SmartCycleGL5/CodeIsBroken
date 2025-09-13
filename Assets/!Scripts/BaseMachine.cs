@@ -77,7 +77,8 @@ public class BaseMachine : MonoBehaviour
             await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
         }
 
-        transform.eulerAngles = new Vector3(0, originalAmount + amount, 0);
+        if(isRunning)
+            transform.eulerAngles = new Vector3(0, originalAmount + amount, 0);
     }
     public async Task Move(Vector3 dir)
     {
@@ -85,14 +86,13 @@ public class BaseMachine : MonoBehaviour
 
         while (Vector3.Distance(originalPos + dir, transform.position) > .1f && isRunning)
         {
-            Debug.Log(Vector3.Distance(originalPos + dir, transform.position));
-
             transform.position += dir * Time.deltaTime;
 
             await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
         }
 
-        transform.position = originalPos + dir;
+        if (isRunning)
+            transform.position = originalPos + dir;
     }
 
     public async void Rocket()
@@ -101,6 +101,8 @@ public class BaseMachine : MonoBehaviour
         {
             _ = Rotate(360);
             await Move(Vector3.up);
+
+            Debug.Log(isRunning);
         }
     }
 

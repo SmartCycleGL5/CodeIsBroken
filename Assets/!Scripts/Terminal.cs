@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -14,8 +15,8 @@ namespace Terminal
         VisualElement terminal;
         
         TextField input;
-        Button saveBTN;
-        Button closeBTN;
+
+        Dictionary<string, Button> buttons = new();
 
 
         private async void Start()
@@ -28,20 +29,47 @@ namespace Terminal
             terminal = terminalAsset.Instantiate();
             UIManager.AddWindow(terminal);
 
-            input = terminal.Q<TextField>("Input");
-            saveBTN = terminal.Q<Button>("Save");
-            closeBTN = terminal.Q<Button>("Close");
+            buttons.Add("Close", terminal.Q<Button>("Close"));
+            buttons.Add("Save", terminal.Q<Button>("Save"));
+            buttons.Add("Run", terminal.Q<Button>("Run"));
 
-            saveBTN.clicked += Save;
-            closeBTN.clicked += Close;
+            input = terminal.Q<TextField>("Input");
+
+            buttons["Close"].clicked += Close;
+            buttons["Save"].clicked += Save;
+            buttons["Run"].clicked += RunMachine;
 
             Load();
+        }
+        private void OnDestroy()
+        {
+            buttons["Close"].clicked -= Close;
+            buttons["Save"].clicked -= Save;
+            buttons["Run"].clicked -= RunMachine;
+            buttons["Run"].clicked -= StopMachine;
         }
 
         public void Close()
         {
             terminal.RemoveFromHierarchy();
             Destroy(this);
+        }
+
+        public void RunMachine()
+        {
+            machineToEdit.Run();
+            buttons["Run"].text = "Stop";
+
+            buttons["Run"].clicked += StopMachine;
+            buttons["Run"].clicked -= RunMachine;
+        }
+        public void StopMachine()
+        {
+            machineToEdit.Stop();
+            buttons["Run"].text = "Run";
+
+            buttons["Run"].clicked += RunMachine;
+            buttons["Run"].clicked -= StopMachine;
         }
 
         public void SelectMachine(BaseMachine machineScript)

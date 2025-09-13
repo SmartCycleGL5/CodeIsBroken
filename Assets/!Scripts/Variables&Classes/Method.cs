@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
     [Serializable]
     public class Method : IVariable

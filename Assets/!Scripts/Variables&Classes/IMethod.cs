@@ -1,7 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
     public interface IMethod
     {

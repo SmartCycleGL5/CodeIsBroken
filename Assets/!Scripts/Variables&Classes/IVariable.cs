@@ -1,6 +1,6 @@
 using AYellowpaper.SerializedCollections;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
     public enum Type
     {

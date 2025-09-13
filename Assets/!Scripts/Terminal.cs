@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
 
-namespace Terminal
+namespace Coding
 {
     public class Terminal : MonoBehaviour, IWindow
     {
@@ -97,6 +97,12 @@ namespace Terminal
             if (machineToEdit == null) return;
 
             machineToEdit.machineCode.UpdateCode(input.text);
+        }
+
+        public static void NewTerminal(BaseMachine machineScript)
+        {
+            Terminal newTerminal = Instance.gameObject.AddComponent<Terminal>();
+            newTerminal.SelectMachine(machineScript);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using static Utility;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
     using static Interpreter;
 

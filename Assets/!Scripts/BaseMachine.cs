@@ -2,8 +2,8 @@ using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Threading.Tasks;
 using UnityEngine;
-using Terminal.Language;
-using Terminal;
+using Coding.Language;
+using Coding;
 using Unity.VisualScripting;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
@@ -109,6 +109,6 @@ public class BaseMachine : MonoBehaviour
     [Button]
     public void CreateTerminalForMachine()
     {
-        ScriptManager.CreateNewTerminal(this);
+        Terminal.NewTerminal(this);
     }
 }

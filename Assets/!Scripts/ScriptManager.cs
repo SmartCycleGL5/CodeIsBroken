@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Terminal
+namespace Coding
 {
     using Language;
     using System;
@@ -21,12 +21,6 @@ namespace Terminal
         private void Awake()
         {
             instance = this;
-        }
-
-        public static void CreateNewTerminal(BaseMachine machineScript)
-        {
-            Terminal newTerminal = UIManager.Instance.gameObject.AddComponent<Terminal>();
-            newTerminal.SelectMachine(machineScript);
         }
 
 

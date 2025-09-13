@@ -1,6 +1,6 @@
 using System;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
     [Serializable]
     public class Variable

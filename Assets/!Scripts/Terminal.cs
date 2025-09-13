@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UIManager;
 
 namespace Terminal
 {
-    public class Terminal : MonoBehaviour
+    public class Terminal : MonoBehaviour, IWindow
     {
         public BaseMachine machineToEdit { get; private set; }
 
@@ -18,6 +19,8 @@ namespace Terminal
 
         Dictionary<string, Button> buttons = new();
 
+        public Window window { get; set; }
+
 
         private async void Start()
         {
@@ -27,7 +30,7 @@ namespace Terminal
             }
 
             terminal = terminalAsset.Instantiate();
-            UIManager.AddWindow(machineToEdit.machineCode.name, terminal);
+            window = new Window(machineToEdit.machineCode.name, terminal, this);
 
             buttons.Add("Close", terminal.Q<Button>("Close"));
             buttons.Add("Save", terminal.Q<Button>("Save"));
@@ -51,7 +54,11 @@ namespace Terminal
 
         public void Close()
         {
-            UIManager.CloseWindow(machineToEdit.machineCode.name);
+            window.Close();
+            Destroy();
+        }
+        public void Destroy()
+        {
             Destroy(this);
         }
 
@@ -75,7 +82,6 @@ namespace Terminal
         public void SelectMachine(BaseMachine machineScript)
         {
             machineToEdit = machineScript;
-
         }
 
         public void Load()

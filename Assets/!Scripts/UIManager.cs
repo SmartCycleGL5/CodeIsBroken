@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
+using System.Linq;
 using Terminal;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,53 +25,68 @@ public class UIManager : MonoBehaviour
     [Button]
     public static void CloseAllWindows()
     {
-        foreach (var tab in OpenWindows)
+        List<KeyValuePair<string, Window>> windows = OpenWindows.ToList();
+
+        for (int i = windows.Count - 1; i >= 0; i--)
         {
-            CloseWindow(tab.Value);
+            windows[i].Value.Close();
         }
+
+        OpenWindows.Clear();
     }
 
-    public static void AddWindow(string name, VisualElement visualElement)
+    /// <summary>
+    /// Dont use this, instead do new Window()
+    /// </summary>
+    /// <param name="window">the window to add</param>
+    static void AddWindow(Window window)
     {
         try
         {
-            Tab newTab = new Tab(name);
-            newTab.AddToClassList("Tab");
-            newTab.Add(visualElement);
-            OpenWindows.Add(name, new(name, newTab));
+            OpenWindows.Add(window.name, window);
 
-            tabs.Add(newTab);
+            tabs.Add(window.element);
 
-            Debug.Log("Added new tab: " + name);
+            Debug.Log("Added new tab: " + window.name);
         } catch
         {
-            Debug.Log(name + "already added");
+            Debug.Log(window.name + "already added");
         }
     }
-    public static void CloseWindow(string name)
+    static void CloseWindow(Window windowToClose)
     {
-        CloseWindow(OpenWindows[name]);
-    }
-    public static void CloseWindow(Window windowToClose)
-    {
-        windowToClose.Close();
         OpenWindows.Remove(windowToClose.name);
-    }
-}
-
-public struct Window
-{
-    public string name;
-    public VisualElement element;
-
-    public Window(string name, VisualElement element)
-    {
-        this.name = name;
-        this.element = element;
+        tabs.Remove(windowToClose.element);
     }
 
-    public void Close()
+    public struct Window
     {
-        element.RemoveFromHierarchy();
+        public string name;
+        public Tab element;
+        public IWindow connectedWindow;
+
+        public Window(string name, VisualElement element, IWindow window = null)
+        {
+            this.name = name;
+            this.element = new Tab(name);
+            this.element.Add(element);
+            this.connectedWindow = window;
+
+            Open();
+        }
+
+        void Open()
+        {
+            AddWindow(this);
+        }
+        public void Close()
+        {
+            CloseWindow(this);
+
+            if (connectedWindow != null)
+            {
+                connectedWindow.Destroy();
+            }
+        }
     }
 }

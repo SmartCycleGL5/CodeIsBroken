@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GhostBuilding : MonoBehaviour
@@ -39,6 +41,7 @@ public class GhostBuilding : MonoBehaviour
         }
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)

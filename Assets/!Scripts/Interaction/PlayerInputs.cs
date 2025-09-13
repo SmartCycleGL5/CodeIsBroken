@@ -30,7 +30,8 @@ public class PlayerInputs : MonoBehaviour
     public enum PlayerAction
     {
         Building,
-        WorldInteraction
+        WorldInteraction,
+        TerminalInteraction
     }
     public PlayerAction playerAction;
 

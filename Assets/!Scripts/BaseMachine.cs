@@ -1,13 +1,15 @@
 using AYellowpaper.SerializedCollections;
-using NaughtyAttributes;
-using System.Threading.Tasks;
-using UnityEngine;
-using Coding.Language;
 using Coding;
+using Coding.Language;
+using NaughtyAttributes;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
+using UnityEngine;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
-public class BaseMachine : MonoBehaviour
+public abstract class BaseMachine : MonoBehaviour
 {
     public MachineCode machineCode;
 
@@ -19,7 +21,9 @@ public class BaseMachine : MonoBehaviour
     Vector3 initialPos;
     Vector3 initialRot;
 
-    private void Start()
+    public Dictionary<string, Action> IntegratedMethods = new();
+
+    protected virtual void Start()
     {
         machineCode.Initialize(name, this);
         ScriptManager.instance.AddMachine(this);
@@ -66,6 +70,14 @@ public class BaseMachine : MonoBehaviour
         transform.position = initialPos;
         transform.eulerAngles = initialRot;
     }
+
+    [Button]
+    public void OpenTerminalForMachine()
+    {
+        Terminal.NewTerminal(this);
+    }
+
+    #region Deprecated
     public async Task Rotate(int amount)
     {
         float originalAmount = transform.eulerAngles.y;
@@ -77,7 +89,7 @@ public class BaseMachine : MonoBehaviour
             await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
         }
 
-        if(isRunning)
+        if (isRunning)
             transform.eulerAngles = new Vector3(0, originalAmount + amount, 0);
     }
     public async Task Move(Vector3 dir)
@@ -105,10 +117,5 @@ public class BaseMachine : MonoBehaviour
             Debug.Log(isRunning);
         }
     }
-
-    [Button]
-    public void OpenTerminalForMachine()
-    {
-        Terminal.NewTerminal(this);
-    }
+    #endregion
 }

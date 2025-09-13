@@ -9,7 +9,7 @@ namespace Coding.Language
 {
     using static Interpreter;
 
-    [Serializable]
+    [Serializable, DefaultExecutionOrder(50),]
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
@@ -38,53 +38,6 @@ namespace Coding.Language
 
             InitializeClass();
         }
-        #endregion
-
-        #region Methods
-        public void TryRunMethod(string name)
-        {
-            if (methods.ContainsKey(name))
-                methods[name].TryRun();
-            else
-            {
-                Debug.LogWarning("No method of name: " + name);
-            }
-        }
-        public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
-        {
-            Method method = new Method(name, returnType, code, this);
-
-            methods.Add(name, method);
-
-            return method;
-        }
-        #endregion
-
-        #region Variables
-        public Variable NewVariable(string name, Type Type = Type.Bool)
-        {
-            Variable value = new Variable(name, Type);
-            variables.Add(name, value);
-            return value;
-        }
-        public Variable NewVariable(Variable variable)
-        {
-            variables.Add(variable.name, variable);
-            return variable;
-        }
-        public Variable FindVariable(string name)
-        {
-            if (variables[name] != null)
-            {
-                return variables[name];
-            }
-            else if (inheritedClass != null)
-            {
-                inheritedClass.FindVariable(name);
-            }
-            return null;
-        }
-        #endregion
 
         /// <summary>
         /// initializes the class
@@ -129,6 +82,71 @@ namespace Coding.Language
                 }
             }
         }
+        #endregion
+
+        #region Methods
+        public Method FindMethod(string name)
+        {
+            try
+            {
+                return methods[name];
+            }
+            catch 
+            { 
+                if(inheritedClass == null)
+                {
+                    return inheritedClass.methods[name];
+                }
+                else
+                {
+                    machine.IntegratedMethods[name].Invoke();
+                    return null;
+                }
+            }
+        }
+        public void TryRunMethod(string name)
+        {
+            if (methods.ContainsKey(name))
+                methods[name].TryRun();
+            else
+            {
+                Debug.LogWarning("No method of name: " + name);
+            }
+        }
+        public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
+        {
+            Method method = new Method(name, returnType, code, this);
+
+            methods.Add(name, method);
+
+            return method;
+        }
+        #endregion
+
+        #region Variables
+        public Variable NewVariable(string name, Type Type = Type.Bool)
+        {
+            Variable value = new Variable(name, Type);
+            variables.Add(name, value);
+            return value;
+        }
+        public Variable NewVariable(Variable variable)
+        {
+            variables.Add(variable.name, variable);
+            return variable;
+        }
+        public Variable FindVariable(string name)
+        {
+            try
+            {
+                return variables[name];
+            } 
+            catch
+            {
+                return inheritedClass.FindVariable(name);
+            }
+        }
+        #endregion
 
     }
 }

@@ -107,7 +107,9 @@ namespace Coding.Language
         public void TryRunMethod(string name)
         {
             if (methods.ContainsKey(name))
-                methods[name].TryRun();
+            {
+               FindMethod(name).TryRun();
+            }
             else
             {
                 Debug.LogWarning("No method of name: " + name);

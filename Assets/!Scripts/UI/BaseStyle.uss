@@ -1,0 +1,6 @@
+:root {
+}
+
+.TabHolder {
+    font-size: 300%;
+}

@@ -27,7 +27,7 @@ namespace Terminal
             }
 
             terminal = terminalAsset.Instantiate();
-            UIManager.AddWindow(terminal);
+            UIManager.AddWindow(machineToEdit.machineCode.name, terminal);
 
             buttons.Add("Close", terminal.Q<Button>("Close"));
             buttons.Add("Save", terminal.Q<Button>("Save"));
@@ -51,7 +51,7 @@ namespace Terminal
 
         public void Close()
         {
-            terminal.RemoveFromHierarchy();
+            UIManager.CloseWindow(machineToEdit.machineCode.name);
             Destroy(this);
         }
 

@@ -7,10 +7,12 @@ using UnityEngine;
 [Serializable]
 public class MachineCode 
 {
+    public string name;
     [ResizableTextArea] public string Code;
     BaseMachine machine;
-    public void Initialize(BaseMachine machine)
+    public void Initialize(string name, BaseMachine machine)
     {
+        this.name = name;
         this.machine = machine;
         Interpreter.InterperateInitialization(Code, this.machine);
     }
@@ -22,6 +24,7 @@ public class MachineCode
     }
     public void CreateScript(string name)
     {
+        this.name = name;
         Code =
                 "class " + name + "\n" +
                 "{\n" +

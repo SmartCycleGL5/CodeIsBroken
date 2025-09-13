@@ -21,7 +21,7 @@ public class BaseMachine : MonoBehaviour
 
     private void Start()
     {
-        machineCode.Initialize(this);
+        machineCode.Initialize(name, this);
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;

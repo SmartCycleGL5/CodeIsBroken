@@ -1,7 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/!Prefabs/UI/TerminalSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#TerminalSyle" />
-    <ui:VisualElement name="Terminal" enabled="true" class="Terminal Page Window" style="background-color: rgb(0, 0, 0); margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; color: rgb(255, 255, 255); font-size: 70%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; height: 100%; width: 100%;">
-        <ui:TextField multiline="true" auto-correction="true" name="Input" placeholder-text="Maybe start with a class? just a thought" vertical-scroller-visibility="Auto" select-all-on-focus="false" hide-mobile-input="true" enabled="true" style="height: auto; max-height: 100%; min-height: 500px; display: flex; visibility: visible; width: auto;" />
+    <Style src="project://database/Assets/!Scripts/UI/TerminalSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#TerminalSyle" />
+    <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+    <ui:VisualElement name="Window" class="Window Terminal" style="flex-grow: 1;">
+        <ui:TextField multiline="true" auto-correction="true" name="Input" placeholder-text="Maybe start with a class? just a thought" vertical-scroller-visibility="Auto" select-all-on-focus="false" hide-mobile-input="true" enabled="true" style="height: auto; max-height: 100%; min-height: 500px; width: auto;" />
         <ui:VisualElement name="Buttons" style="flex-grow: 1; flex-direction: row; width: 100%; max-height: 500px; min-height: 100px; position: absolute; bottom: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; justify-content: flex-end; border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px;">
             <ui:Button text="Run" name="Run" class="unity-button Bottom-Button" />
             <ui:Button text="Save" name="Save" class="unity-button Bottom-Button" />

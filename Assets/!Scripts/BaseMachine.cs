@@ -107,7 +107,7 @@ public class BaseMachine : MonoBehaviour
     }
 
     [Button]
-    public void CreateTerminalForMachine()
+    public void OpenTerminalForMachine()
     {
         Terminal.NewTerminal(this);
     }

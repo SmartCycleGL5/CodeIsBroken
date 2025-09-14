@@ -135,19 +135,19 @@ public class CodeSnippet
 
     public void Reset()
     {
-        method.Class.machine.ResetThis();
+        method.@class.machine.ResetThis();
     }
     public void Rotate(int amount)
     {
-        _ = method.Class.machine.Rotate(amount);
+        _ = method.@class.machine.Rotate(amount);
     }
     public void Move(Vector3 dir)
     {
-        _ = method.Class.machine.Move(dir);
+        _ = method.@class.machine.Move(dir);
     }
     public void Rocket()
     {
-        method.Class.machine.Rocket();
+        method.@class.machine.Rocket();
     }
 }
 

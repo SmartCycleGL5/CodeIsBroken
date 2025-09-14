@@ -1,11 +1,12 @@
 using AYellowpaper.SerializedCollections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Coding.Language
 {
     public interface IMethod
     {
-        public SerializedDictionary<string, Method> methods { get; set; }
+        public Dictionary<string, UserMethod> methods { get; set; }
 
         /// <summary>
         /// Runs a defined method
@@ -19,6 +20,6 @@ namespace Coding.Language
         /// <param name="code">the source of the method</param>
         /// <param name="returnType">type to return</param>
         /// <returns></returns>
-        public Method NewMethod(string name, string[] code, Type returnType = Type.Void);
+        public UserMethod NewMethod(string name, string[] code, Type returnType = Type.Void);
     }
 }

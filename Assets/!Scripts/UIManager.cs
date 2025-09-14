@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Dont use this, instead do new Window()
+    /// Dont use this, instead do new UIManager.Window()
     /// </summary>
     /// <param name="window">the window to add</param>
     static void AddWindow(Window window)
@@ -59,6 +59,17 @@ public class UIManager : MonoBehaviour
         tabs.Remove(windowToClose.element);
     }
 
+    [Button] 
+    async void OpenTestWindow()
+    {
+        VisualTreeAsset element = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Blue");
+        VisualElement blue = element.Instantiate();
+        new Window("Blue", blue);
+    }
+
+    /// <summary>
+    /// Defines window elements
+    /// </summary>
     public struct Window
     {
         public string name;

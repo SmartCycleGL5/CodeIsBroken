@@ -19,12 +19,9 @@ namespace Coding.Language
 
         public Class inheritedClass;
         public BaseMachine machine;
+        public Dictionary<string, Variable> variables { get; set; } = new();
 
-        [field: SerializeField, SerializedDictionary("Name", "Value")]
-        public SerializedDictionary<string, Variable> variables { get; set; } = new();
-
-        [field: SerializeField, SerializedDictionary("Name", "Value")]
-        public SerializedDictionary<string, Method> methods { get; set; } = new();
+        public Dictionary<string, UserMethod> methods { get; set; } = new();
 
         public string[] baseCode;
 
@@ -33,7 +30,7 @@ namespace Coding.Language
         {
             this.baseCode = baseCode.ToArray();
             this.name = name;
-            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+            this.inheritedClass = inheritedClass;
             this.machine = machine;
 
             InitializeClass();
@@ -93,14 +90,13 @@ namespace Coding.Language
             }
             catch 
             { 
-                if(inheritedClass == null)
+                if(inheritedClass != null)
                 {
                     return inheritedClass.methods[name];
                 }
                 else
                 {
-                    machine.IntegratedMethods[name].Invoke();
-                    return null;
+                    return machine.IntegratedMethods[name];
                 }
             }
         }
@@ -115,9 +111,9 @@ namespace Coding.Language
                 Debug.LogWarning("No method of name: " + name);
             }
         }
-        public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
+        public UserMethod NewMethod(string name, string[] code, Type returnType = Type.Void)
         {
-            Method method = new Method(name, returnType, code, this);
+            UserMethod method = new UserMethod(name, code, this, returnType);
 
             methods.Add(name, method);
 

@@ -9,9 +9,6 @@ namespace Coding
 
     public class ScriptManager : MonoBehaviour
     {
-        public static Class UniversalClass { get { return instance._UniversalClass; } }
-        public Class _UniversalClass;
-
         public static ScriptManager instance;
 
         public static bool isRunning { get; private set; }

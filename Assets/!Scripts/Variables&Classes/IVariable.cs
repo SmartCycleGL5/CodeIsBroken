@@ -1,4 +1,5 @@
 using AYellowpaper.SerializedCollections;
+using System.Collections.Generic;
 
 namespace Coding.Language
 {
@@ -12,7 +13,7 @@ namespace Coding.Language
     }
     public interface IVariable
     {
-        public SerializedDictionary<string, Variable> variables { get; set; }
+        public Dictionary<string, Variable> variables { get; set; }
 
         /// <summary>
         /// Create a new Variable

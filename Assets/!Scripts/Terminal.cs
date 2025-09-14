@@ -13,11 +13,10 @@ namespace Coding
 
         public static VisualTreeAsset terminalAsset {  get; private set; }
 
-        VisualElement terminal;
-        
-        TextField input;
-
+        //UI elements
         Dictionary<string, Button> buttons = new();
+        VisualElement terminal;
+        TextField input;
 
         public Window window { get; set; }
 
@@ -26,7 +25,7 @@ namespace Coding
         {
             if(terminalAsset == null)
             {
-                terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("TerminalUI");
+                terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
             }
 
             terminal = terminalAsset.Instantiate();

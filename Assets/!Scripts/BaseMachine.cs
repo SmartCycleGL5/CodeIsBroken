@@ -21,7 +21,7 @@ public abstract class BaseMachine : MonoBehaviour
     Vector3 initialPos;
     Vector3 initialRot;
 
-    public Dictionary<string, Action> IntegratedMethods = new();
+    public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
     protected virtual void Start()
     {
@@ -75,6 +75,20 @@ public abstract class BaseMachine : MonoBehaviour
     public void OpenTerminalForMachine()
     {
         Terminal.NewTerminal(this);
+    }
+
+    protected void AddMethodsAsIntegrated(System.Type machine)
+    {
+        foreach (var item in machine.GetMethods())
+        {
+            if (item.GetBaseDefinition() == item)
+            {
+                string name = item.Name + "()";
+                IntegratedMethods.Add(name, new IntegratedMethod(name, item, this));
+
+                Debug.Log(name);
+            }
+        }
     }
 
     #region Deprecated

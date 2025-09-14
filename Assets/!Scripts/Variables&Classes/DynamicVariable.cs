@@ -20,6 +20,11 @@ namespace Coding.Language
             this.name = name;
             this.value = value;
         }
+
+        public void SetValue(object value)
+        {
+        }
+
         //public void SetValue(string variable)
         //{
         //    switch (type)

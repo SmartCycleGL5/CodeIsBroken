@@ -11,12 +11,12 @@ public static class Utility
     /// combines "" into a single section
     /// </summary>
     /// <param name="sections"></param>
-    public static void FindAndRetainStrings(ref List<string> sections)
+    public static void FindAndRetain(ref List<string> sections, char first, char second)
     {
         int? firstSection = null;
         for (int i = 0; i < sections.Count; i++)
         {
-            if (sections[i].Contains('"'))
+            if (sections[i].Contains(first))
             {
                 if (firstSection == null)
                     firstSection = i;
@@ -37,6 +37,45 @@ public static class Utility
         }
 
         sections.RemoveAll(x => x == null);
+    }
+
+    public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint, char startEncapsulation, char endEncapsulation)
+    {
+        for (int k = startPoint + 1; k >= 0; k--)
+        {
+            encapsulatedScript[k] = "removed";
+        }
+
+        int encapsulations = 1;
+
+        for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
+        {
+
+            if (encapsulations == 0)
+            {
+                encapsulatedScript[k] = "removed";
+
+            }
+            else
+            {
+                if (encapsulatedScript[k].Contains(startEncapsulation))
+                {
+                    encapsulations++;
+                }
+                else if (encapsulatedScript[k].Contains(endEncapsulation))
+                {
+                    encapsulations--;
+
+                    if (encapsulations == 0)
+                    {
+                        encapsulatedScript[k] = "removed";
+                    }
+                }
+            }
+        }
+
+        encapsulatedScript.RemoveAll(item => item == "removed");
+        encapsulatedScript.RemoveAll(item => item == "");
     }
 
     public static class Addressable

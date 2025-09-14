@@ -7,6 +7,7 @@ namespace Coding
 {
     using Language;
     using Unity.VisualScripting;
+    using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
     [Serializable]
     public static class Interpreter
@@ -25,7 +26,7 @@ namespace Coding
 
                     List<string> classScript = scriptLines.ToList();
 
-                    FindEncapulasion(ref classScript, i);
+                    Utility.FindEncapulasion(ref classScript, i, '{', '}');
 
                     Class newClass = new Class(machine, name, classScript);
                     machine.Classes.Add(name, newClass);
@@ -33,77 +34,37 @@ namespace Coding
             }
         }
 
-        public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint)
-        {
-            for (int k = startPoint + 1; k >= 0; k--)
-            {
-                encapsulatedScript[k] = "removed";
-            }
-
-            int encapsulations = 1;
-
-            for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
-            {
-
-                if (encapsulations == 0)
-                {
-                    encapsulatedScript[k] = "removed";
-
-                }
-                else
-                {
-                    if (encapsulatedScript[k].Contains("{"))
-                    {
-                        encapsulations++;
-                    }
-                    else if (encapsulatedScript[k].Contains("}"))
-                    {
-                        encapsulations--;
-
-                        if (encapsulations == 0)
-                        {
-                            encapsulatedScript[k] = "removed";
-                        }
-                    }
-                }
-            }
-
-            encapsulatedScript.RemoveAll(item => item == "removed");
-            encapsulatedScript.RemoveAll(item => item == "");
-        }
-
         public static void DefineMethodsAndVariables(string[] code, int line, Class @class)
         {
             List<string> sections = code[line].Split(" ").ToList();
 
-            Utility.FindAndRetainStrings(ref sections);
+            Utility.FindAndRetain(ref sections);
 
             //Find variables & methods
-            if (ReturnType(sections[0], out Type type))
+            if (!ReturnType(sections[0], out Type type)) return;
+
+            string name = sections[1];
+            bool isMethod = name.Contains("(");
+
+            if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                string name = sections[1];
-                bool isMethod = name.Contains("(");
+                Variable newVariable = @class.NewVariable(name, type);
 
-                if (!isMethod && !@class.variables.ContainsKey(name))
+                //Setting variables
+                if (code[line].Contains("="))
                 {
-                    Variable newVariable = @class.NewVariable(name, type);
+                    string value = sections[3];
 
-                    //Setting variables
-                    if (code[line].Contains("="))
-                    {
-                        string value = sections[3];
-
-                        Assignment(newVariable, value);
-                    }
+                    newVariable.SetValue(value);
                 }
-                else if (isMethod && !@class.methods.ContainsKey(name))
-                {
-                    List<string> methodScript = @class.baseCode.ToList();
+            }
+            else if (isMethod && !@class.methods.ContainsKey(name))
+            {
+                List<string> methodScript = @class.baseCode.ToList();
 
-                    FindEncapulasion(ref methodScript, line);
+                Utility.FindEncapulasion(ref methodScript, line, '{', '}');
 
-                    @class.NewMethod(name, methodScript.ToArray(), type);
-                }
+                @class.NewMethod(name, methodScript.ToArray(), type);
             }
         }
 
@@ -121,10 +82,6 @@ namespace Coding
             return list;
         }
 
-        public static void Assignment(Variable variable, string toAssign)
-        {
-            //variable.SetValue(toAssign);
-        }
         public static bool ReturnType(string line, out Type type)
         {
             type = Type.Void;

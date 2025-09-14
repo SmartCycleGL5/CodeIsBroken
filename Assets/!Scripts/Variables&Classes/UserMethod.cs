@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Coding.Language
@@ -21,13 +22,22 @@ namespace Coding.Language
         {
             foreach (var line in methodCode)
             {
-                bool isMethod = line.Contains("(") && line.Contains(")");
-
-                if (isMethod)
-                {
-                    lines.Add(new MethodCall(line, @class));
-                }
+                lines.Add(ReadLine(line));
             }
+        }
+
+        public Line ReadLine(string line)
+        {
+            List<string> sections = line.Split(" ").ToList();
+            Utility.FindAndRetain(ref sections);
+
+            bool isMethod = line.Contains("(") && line.Contains(")");
+
+            if (isMethod)
+            {
+                lines.Add(new MethodCall(line, @class));
+            }
+            return null;
         }
 
         /// <summary>
@@ -62,6 +72,8 @@ namespace Coding.Language
 
             variables.Clear();
         }
+
+        #region Variable
         public Variable NewVariable(string name, object value)
         {
             Variable variable = new Variable(name, value);
@@ -86,6 +98,7 @@ namespace Coding.Language
 
             return null;
         }
+        #endregion
     }
 }
 

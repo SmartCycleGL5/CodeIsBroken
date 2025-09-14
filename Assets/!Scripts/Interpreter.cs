@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
 namespace Coding
 {
     using Language;
+    using Unity.VisualScripting;
 
     [Serializable]
     public static class Interpreter
     {
-        public static void InterperateInitialization(string script, BaseMachine machine)
+        public static void InterperateScript(string script, BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();
@@ -72,6 +72,41 @@ namespace Coding
             encapsulatedScript.RemoveAll(item => item == "");
         }
 
+        public static void DefineMethodsAndVariables(string[] code, int line, Class @class)
+        {
+            List<string> sections = code[line].Split(" ").ToList();
+
+            Utility.FindAndRetainStrings(ref sections);
+
+            //Find variables & methods
+            if (ReturnType(sections[0], out Type type))
+            {
+                string name = sections[1];
+                bool isMethod = name.Contains("(");
+
+                if (!isMethod && !@class.variables.ContainsKey(name))
+                {
+                    Variable newVariable = @class.NewVariable(name, type);
+
+                    //Setting variables
+                    if (code[line].Contains("="))
+                    {
+                        string value = sections[3];
+
+                        Assignment(newVariable, value);
+                    }
+                }
+                else if (isMethod && !@class.methods.ContainsKey(name))
+                {
+                    List<string> methodScript = @class.baseCode.ToList();
+
+                    FindEncapulasion(ref methodScript, line);
+
+                    @class.NewMethod(name, methodScript.ToArray(), type);
+                }
+            }
+        }
+
         static List<string> ExtractLines(string raw)
         {
             //removes enter
@@ -88,7 +123,7 @@ namespace Coding
 
         public static void Assignment(Variable variable, string toAssign)
         {
-            variable.SetValue(toAssign);
+            //variable.SetValue(toAssign);
         }
         public static bool ReturnType(string line, out Type type)
         {

@@ -14,13 +14,13 @@ public class MachineCode
     {
         this.name = name;
         this.machine = machine;
-        Interpreter.InterperateInitialization(Code, this.machine);
+        Interpreter.InterperateScript(Code, this.machine);
     }
     public void UpdateCode(string code)
     {
         Code = code;
         machine.ClearMemory();
-        Interpreter.InterperateInitialization(Code, machine);
+        Interpreter.InterperateScript(Code, machine);
     }
     public void CreateScript(string name)
     {

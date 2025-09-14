@@ -12,16 +12,18 @@ namespace Coding.Language
     public class MethodCall : Line
     {
         public Method MethodToCall;
-        public MethodCall(string line, Class caller)
+        public Variable[] input;
+        public MethodCall(string line, Class caller, Variable[] input = null)
         {
             MethodToCall = caller.FindMethod(line);
+            this.input = input;
         }
 
         public override void Run()
         {
             try
             {
-                MethodToCall.TryRun();
+                MethodToCall.TryRun(input);
             }
             catch (Exception e)
             {

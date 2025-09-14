@@ -21,7 +21,7 @@ namespace Coding.Language
         {
             foreach (var line in methodCode)
             {
-                bool isMethod = line.Contains("()");
+                bool isMethod = line.Contains("(") && line.Contains(")");
 
                 if (isMethod)
                 {
@@ -35,22 +35,23 @@ namespace Coding.Language
         /// </summary>
         /// <param name="input">the input variables</param>
         /// <returns>returns true if it was successful</returns>
-        public override bool TryRun(object[] input = null)
+        public override bool TryRun(Variable[] input = null)
         {
-            if (input == null)
+            if (input == null && this.input == null)
             {
-                input = new Variable[0];
+                Run(input);
+                return true;
             }
             if (input.Length == base.input.Length)
             {
 
-                Run();
+                Run(input);
                 return true;
             }
 
             return false;
         }
-        protected override void Run()
+        protected override void Run(object[] input)
         {
             Debug.Log("Running: " + name);
 
@@ -61,11 +62,11 @@ namespace Coding.Language
 
             variables.Clear();
         }
-        public Variable NewVariable(string name, Type Type = Type.Bool)
+        public Variable NewVariable(string name, object value)
         {
-            Variable value = new Variable(name, Type);
-            variables.Add(name, value);
-            return value;
+            Variable variable = new Variable(name, value);
+            variables.Add(name, variable);
+            return variable;
         }
         public Variable NewVariable(Variable variable)
         {

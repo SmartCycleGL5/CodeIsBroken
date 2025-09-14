@@ -17,9 +17,9 @@ public class Machine : BaseMachine
     {
         Debug.Log("this was called");
     }
-    public void MoveUp()
+    public void Move(int vla)
     {
-        transform.position += Vector3.up;
+        transform.position += Vector3.up * vla;
     }
     public void Rotate()
     {

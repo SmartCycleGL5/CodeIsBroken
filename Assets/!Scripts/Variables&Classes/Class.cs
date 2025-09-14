@@ -7,8 +7,6 @@ using static Utility;
 
 namespace Coding.Language
 {
-    using static Interpreter;
-
     [Serializable, DefaultExecutionOrder(50),]
     /// <summary>
     /// Reperesents Player made classes
@@ -43,40 +41,7 @@ namespace Coding.Language
         {
             for (int i = 0; i < baseCode.Length; i++)
             {
-                string line = baseCode[i];
-                List<string> sections = line.Split(" ").ToList();
-
-                FindAndRetainStrings(ref sections);
-
-                //Find variables & methods
-                if (ReturnType(sections[0], out Type type))
-                {
-                    bool isMethod = sections[1].Contains("()");
-
-                    if (!isMethod && !variables.ContainsKey(sections[1]))
-                    {
-                        NewVariable(sections[1], type);
-                    }
-                    else if (isMethod && !methods.ContainsKey(sections[1]))
-                    {
-                        List<string> methodScript = baseCode.ToList();
-
-                        FindEncapulasion(ref methodScript, i);
-
-                        NewMethod(sections[1], methodScript.ToArray(), type);
-                    }
-                }
-
-
-                for (int j = 0; j < sections.Count; j++)
-                {
-                    //Setting variables
-                    if (sections[j] == "=")
-                    {
-                        Assignment(variables[sections[j - 1]], sections[j + 1]);
-                        break;
-                    }
-                }
+                Interpreter.DefineMethodsAndVariables(baseCode, i, this);
             }
         }
         #endregion
@@ -122,11 +87,11 @@ namespace Coding.Language
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, Type Type = Type.Bool)
+        public Variable NewVariable(string name, object value)
         {
-            Variable value = new Variable(name, Type);
-            variables.Add(name, value);
-            return value;
+            Variable variable = new Variable(name, value);
+            variables.Add(name, variable);
+            return variable;
         }
         public Variable NewVariable(Variable variable)
         {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -15,15 +16,23 @@ namespace Coding.Language
             this.toRunFrom = toRunFrom;
         }
 
-        public override bool TryRun(object[] input = null)
+        public override bool TryRun(Variable[] input = null)
         {
-            Run();
+            List<object> parameters = new();
+
+            foreach (var item in input)
+            {
+                parameters.Add(item.value);
+            }
+
+            Run(parameters.ToArray());
             return true;
         }
 
-        protected override void Run()
+        protected override void Run(object[] parameters)
         {
-            toCall.Invoke(toRunFrom, null);
+            Debug.Log(toCall.GetParameters()[0]);
+            toCall.Invoke(toRunFrom, parameters);
         }
     }
 }

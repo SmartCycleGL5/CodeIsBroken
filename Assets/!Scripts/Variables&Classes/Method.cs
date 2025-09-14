@@ -8,7 +8,7 @@ namespace Coding.Language
     {
         public string name;
 
-        public object[] input = new object[0];
+        public Variable[] input = null;
         public Type returnType;
         [HideInInspector] public Class @class;
 
@@ -24,8 +24,8 @@ namespace Coding.Language
         /// </summary>
         /// <param name="input">the input variables</param>
         /// <returns>returns true if it was successful</returns>
-        public abstract bool TryRun(object[] input = null);
-        protected abstract void Run();
+        public abstract bool TryRun(Variable[] input = null);
+        protected abstract void Run(object[] input);
 
     }
 

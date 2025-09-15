@@ -4,3 +4,7 @@
 .TabHolder {
     font-size: 300%;
 }
+
+.WindowButtons {
+    height: auto;
+}

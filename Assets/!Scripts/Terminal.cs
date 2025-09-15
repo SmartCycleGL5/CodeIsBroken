@@ -37,7 +37,6 @@ namespace Coding
 
             input = terminal.Q<TextField>("Input");
 
-            buttons["Close"].clicked += Close;
             buttons["Save"].clicked += Save;
             buttons["Run"].clicked += RunMachine;
 
@@ -45,7 +44,6 @@ namespace Coding
         }
         private void OnDestroy()
         {
-            buttons["Close"].clicked -= Close;
             buttons["Save"].clicked -= Save;
             buttons["Run"].clicked -= RunMachine;
             buttons["Run"].clicked -= StopMachine;

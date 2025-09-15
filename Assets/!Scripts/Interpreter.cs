@@ -38,7 +38,7 @@ namespace Coding
         {
             List<string> sections = code[line].Split(" ").ToList();
 
-            Utility.FindAndRetain(ref sections);
+            //Utility.FindAndRetain(ref sections);
 
             //Find variables & methods
             if (!ReturnType(sections[0], out Type type)) return;

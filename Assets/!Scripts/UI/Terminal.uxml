@@ -7,6 +7,5 @@
             <ui:Button text="Run" name="Run" class="unity-button Bottom-Button TerminalButton" />
             <ui:Button text="Save" name="Save" class="unity-button Bottom-Button TerminalButton" />
         </ui:VisualElement>
-        <ui:Button text="X" name="Close" class="unity-button TerminalButton" style="white-space: pre; -unity-text-align: middle-center; color: rgb(0, 0, 0); margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; align-content: flex-start; width: 100px; height: 100px; position: absolute; right: 0; top: 0; left: auto; bottom: auto;" />
     </ui:VisualElement>
 </ui:UXML>

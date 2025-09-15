@@ -32,7 +32,7 @@ namespace Coding.Language
         protected override void Run(object[] parameters)
         {
             Debug.Log(toCall.GetParameters()[0]);
-            toCall.Invoke(toRunFrom, parameters);
+            toCall.Invoke(toRunFrom, null);
         }
     }
 }

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     public static VisualElement canvas { get; private set; }
     public static TabView tabs { get; private set; }
+    public static VisualElement windows { get; private set; }
 
     public static Dictionary<string, Window> OpenWindows { get; private set; } = new();
 
@@ -20,8 +21,17 @@ public class UIManager : MonoBehaviour
 
         canvas = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Canvas");
         tabs = canvas.Q<TabView>("Tabs");
-    }
+        windows = canvas.Q<VisualElement>("Windows");
+        windows.Q<Button>("Close").clicked += CloseCurrentWindow;
+        //windows.Q<Button>("Minimize").clicked += DisableWindow;
 
+        DisableWindow();
+    }
+    [Button]
+    public static void CloseCurrentWindow()
+    {
+        OpenWindows[tabs.activeTab.label].Close();
+    }
     [Button]
     public static void CloseAllWindows()
     {
@@ -34,6 +44,18 @@ public class UIManager : MonoBehaviour
 
         OpenWindows.Clear();
     }
+
+    static void EnableWindow()
+    {
+        windows.visible = true;
+        windows.SetEnabled(true);
+    }
+    static void DisableWindow()
+    {
+        windows.visible = false;
+        windows.SetEnabled(false);
+    }
+    
 
     /// <summary>
     /// Dont use this, instead do new UIManager.Window()
@@ -52,11 +74,21 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log(window.name + "already added");
         }
+
+        if (OpenWindows.Count > 0)
+        {
+            EnableWindow();
+        }
     }
     static void CloseWindow(Window windowToClose)
     {
         OpenWindows.Remove(windowToClose.name);
         tabs.Remove(windowToClose.element);
+
+        if (OpenWindows.Count <= 0)
+        {
+            DisableWindow();
+        }
     }
 
     [Button] 

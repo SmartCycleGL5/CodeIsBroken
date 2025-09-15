@@ -29,7 +29,7 @@ namespace Coding.Language
         public Line ReadLine(string line)
         {
             List<string> sections = line.Split(" ").ToList();
-            Utility.FindAndRetain(ref sections);
+            Utility.FindAndRetain(ref sections, '"', '"');
 
             bool isMethod = line.Contains("(") && line.Contains(")");
 

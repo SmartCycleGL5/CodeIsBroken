@@ -898,6 +898,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1750155292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+  m_PrefabInstance: {fileID: 7340285161746946024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750155297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750155292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efb229eb96df4c40b543e797cddb5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  machineCode:
+    name: 
+    Code: "class Machine()\n{\n\tvoid MyNewMethod()\n\t{\n\t\tMove();\n\t}\n\n\tvoid
+      Start()\n\t{\n\t\tMyNewMethod();\n\t}\n\t\n\tvoid Update()\n\t{\n\t\tMyNewMethod();\n\t}\n}"
+  Classes:
+    _serializedList: []
 --- !u!1001 &1872910870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1637,7 +1660,10 @@ PrefabInstance:
     - {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8684903897550795616, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750155297}
   m_SourcePrefab: {fileID: 100100000, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

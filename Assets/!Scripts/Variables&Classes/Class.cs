@@ -19,7 +19,8 @@ namespace Coding.Language
         public BaseMachine machine;
         public Dictionary<string, Variable> variables { get; set; } = new();
 
-        public Dictionary<string, UserMethod> methods { get; set; } = new();
+        [SerializedDictionary("Name", "Method")]
+        public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
 
         public string[] baseCode;
 
@@ -31,6 +32,8 @@ namespace Coding.Language
             this.inheritedClass = inheritedClass;
             this.machine = machine;
 
+            Debug.Log("[Class] New Class: " + name);
+
             InitializeClass();
         }
 
@@ -41,7 +44,9 @@ namespace Coding.Language
         {
             for (int i = 0; i < baseCode.Length; i++)
             {
-                Interpreter.DefineMethodsAndVariables(baseCode, i, this);
+                Interpreter.DefineMethodsAndVariables(baseCode, i, out int end, this);
+
+                i += end - i; //skips until after the end of the method
             }
         }
         #endregion

@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 namespace Coding
 {
     using Language;
-    using Unity.VisualScripting;
-    using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
+    using UnityEngine;
 
     [Serializable]
     public static class Interpreter
@@ -19,36 +18,37 @@ namespace Coding
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (scriptLines[i].Contains("class"))
-                {
-                    string[] sections = scriptLines[i].Split(" ");
-                    string name = sections[1];
+                if (!scriptLines[i].Contains("class")) continue;
 
-                    List<string> classScript = scriptLines.ToList();
+                string[] sections = scriptLines[i].Split(" ");
+                List<string> classScript = scriptLines.ToList();
+                Utility.FindEncapulasion(ref classScript, i, out int end, '{', '}');
 
-                    Utility.FindEncapulasion(ref classScript, i, '{', '}');
+                string name = sections[1];
 
-                    Class newClass = new Class(machine, name, classScript);
-                    machine.Classes.Add(name, newClass);
-                }
+                Class newClass = new Class(machine, name, classScript);
+                machine.Classes.Add(name, newClass);
+
+                i += end - i; //skips to the end of the class
             }
         }
 
-        public static void DefineMethodsAndVariables(string[] code, int line, Class @class)
+        public static void DefineMethodsAndVariables(string[] code, int line, out int end, Class @class)
         {
+            end = line;
+
             List<string> sections = code[line].Split(" ").ToList();
 
-            //Utility.FindAndRetain(ref sections);
-
-            //Find variables & methods
-            if (!ReturnType(sections[0], out Type type)) return;
+            Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
 
             string name = sections[1];
+            string type = sections[0];
             bool isMethod = name.Contains("(");
 
             if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                Variable newVariable = @class.NewVariable(name, type);
+                Variable newVariable = @class.NewVariable(name, null);
 
                 //Setting variables
                 if (code[line].Contains("="))
@@ -62,9 +62,9 @@ namespace Coding
             {
                 List<string> methodScript = @class.baseCode.ToList();
 
-                Utility.FindEncapulasion(ref methodScript, line, '{', '}');
+                Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
 
-                @class.NewMethod(name, methodScript.ToArray(), type);
+                @class.NewMethod(name, methodScript.ToArray(), Type.Void);
             }
         }
 
@@ -80,41 +80,6 @@ namespace Coding
             list.RemoveAll(item => item == ";");
 
             return list;
-        }
-
-        public static bool ReturnType(string line, out Type type)
-        {
-            type = Type.Void;
-            switch (line)
-            {
-                case "void":
-                    {
-                        type = Type.Void;
-                        return true;
-                    }
-                case "float":
-                    {
-                        type = Type.Float;
-                        return true;
-                    }
-                case "int":
-                    {
-                        type = Type.Int;
-                        return true;
-                    }
-                case "string":
-                    {
-                        type = Type.String;
-                        return true;
-                    }
-                case "bool":
-                    {
-                        type = Type.Bool;
-                        return true;
-                    }
-            }
-
-            return false;
         }
     }
 }

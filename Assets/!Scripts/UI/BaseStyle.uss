@@ -1,10 +1,10 @@
 :root {
 }
 
-.TabHolder {
-    font-size: 300%;
-}
-
 .WindowButtons {
     height: auto;
+}
+
+.Windows {
+    font-size: 50px;
 }

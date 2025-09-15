@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Coding.Language
 {
+    [Serializable]
     public class IntegratedMethod : Method
     {
         public MethodInfo toCall;
@@ -20,9 +21,12 @@ namespace Coding.Language
         {
             List<object> parameters = new();
 
-            foreach (var item in input)
+            if (input != null)
             {
-                parameters.Add(item.value);
+                foreach (var item in input)
+                {
+                    parameters.Add(item.value);
+                }
             }
 
             Run(parameters.ToArray());
@@ -31,8 +35,14 @@ namespace Coding.Language
 
         protected override void Run(object[] parameters)
         {
-            Debug.Log(toCall.GetParameters()[0]);
-            toCall.Invoke(toRunFrom, null);
+            try
+            {
+                toCall.Invoke(toRunFrom, new object[] { 5 });
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("wrong parameters given \n" + ex);
+            }
         }
     }
 }

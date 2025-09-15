@@ -810,8 +810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   machineCode:
     name: 
-    Code: "class Machine()\n{\n\tvoid MyNewMethod()\n\t{\n\t\tMove();\n\t}\n\n\tvoid
-      Start()\n\t{\n\t\tMyNewMethod();\n\t}\n\t\n\tvoid Update()\n\t{\n\t\tMyNewMethod();\n\t}\n}"
+    Code: "class Machine\n{\n\tvoid MyNewMethod(int amount)\n\t{\n\n\t}\n\tvoid Start()\n\t{\n\t\tMove(5);\n\t}\n\tvoid
+      Update()\n\t{\n\t\tMyNewMethod();\n\t}\n}"
   Classes:
     _serializedList: []
 --- !u!224 &1473657921 stripped
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750155292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3efb229eb96df4c40b543e797cddb5df, type: 3}
   m_Name: 

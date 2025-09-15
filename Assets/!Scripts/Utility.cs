@@ -14,62 +14,59 @@ public static class Utility
     public static void FindAndRetain(ref List<string> sections, char first, char second)
     {
         int? firstSection = null;
+
         for (int i = 0; i < sections.Count; i++)
         {
-            if (sections[i].Contains(first))
+            if (sections[i].Contains(first) && firstSection == null)
             {
-                if (firstSection == null)
-                    firstSection = i;
-                else
+                firstSection = i;
+                continue;
+            } 
+            else if (sections[i].Contains(second) && firstSection != null)
+            {
+                for (int j = (int)firstSection + 1; j < i + 1; j++)
                 {
-                    for (int j = (int)firstSection + 1; j < i + 1; j++)
-                    {
-                        sections[(int)firstSection] += " " + sections[j];
+                    sections[(int)firstSection] += " " + sections[j];
 
-                        sections[j] = null;
-                    }
-
-                    sections[(int)firstSection] = sections[(int)firstSection].Substring(1, sections[(int)firstSection].Length - 2);
-
-                    firstSection = null;
+                    sections[j] = null;
                 }
+
+                sections.RemoveAll(x => x == null);
+                return;
             }
         }
-
-        sections.RemoveAll(x => x == null);
     }
 
-    public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint, char startEncapsulation, char endEncapsulation)
+    public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint, out int endPoint, char startEncapsulation, char endEncapsulation)
     {
-        for (int k = startPoint + 1; k >= 0; k--)
+        endPoint = startPoint;
+        for (int i = startPoint + 1; i >= 0; i--)
         {
-            encapsulatedScript[k] = "removed";
+            encapsulatedScript[i] = "removed";
         }
 
         int encapsulations = 1;
 
-        for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
+        for (int i = startPoint; i < encapsulatedScript.Count; i++) 
         {
-
-            if (encapsulations == 0)
+            if (encapsulations == 0) // if encapsulation is found, will set all values to be "removed"
             {
-                encapsulatedScript[k] = "removed";
-
+                encapsulatedScript[i] = "removed";
+                continue;
             }
-            else
-            {
-                if (encapsulatedScript[k].Contains(startEncapsulation))
-                {
-                    encapsulations++;
-                }
-                else if (encapsulatedScript[k].Contains(endEncapsulation))
-                {
-                    encapsulations--;
 
-                    if (encapsulations == 0)
-                    {
-                        encapsulatedScript[k] = "removed";
-                    }
+            if (encapsulatedScript[i].Contains(startEncapsulation))
+            {
+                encapsulations++;
+            }
+            else if (encapsulatedScript[i].Contains(endEncapsulation))
+            {
+                encapsulations--;
+
+                if (encapsulations == 0)
+                {
+                    endPoint = i;
+                    encapsulatedScript[i] = "removed";
                 }
             }
         }

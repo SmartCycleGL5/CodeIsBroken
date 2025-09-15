@@ -21,14 +21,7 @@ namespace Coding.Language
 
         public override void Run()
         {
-            try
-            {
-                MethodToCall.TryRun(input);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError("Could not run method: " + MethodToCall.name + "\n\t" + e);
-            }
+            MethodToCall.TryRun(input);
         }
     }
 
@@ -41,7 +34,7 @@ namespace Coding.Language
 
         public override void Run()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

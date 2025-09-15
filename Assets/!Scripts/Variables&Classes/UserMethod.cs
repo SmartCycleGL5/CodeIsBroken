@@ -1,10 +1,12 @@
 using AYellowpaper.SerializedCollections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Coding.Language
 {
+    [Serializable]
     public class UserMethod : Method, IVariable
     {
         string[] methodCode;
@@ -30,6 +32,7 @@ namespace Coding.Language
         {
             List<string> sections = line.Split(" ").ToList();
             Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
 
             bool isMethod = line.Contains("(") && line.Contains(")");
 
@@ -65,9 +68,10 @@ namespace Coding.Language
         {
             Debug.Log("Running: " + name);
 
-            foreach (var lines in lines)
+            foreach (var line in lines)
             {
-                lines.Run();
+                if (line == null) continue;
+                line.Run();
             }
 
             variables.Clear();

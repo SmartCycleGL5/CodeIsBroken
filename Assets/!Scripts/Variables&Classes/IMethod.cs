@@ -6,7 +6,7 @@ namespace Coding.Language
 {
     public interface IMethod
     {
-        public Dictionary<string, UserMethod> methods { get; set; }
+        public SerializedDictionary<string, UserMethod> methods { get; set; }
 
         /// <summary>
         /// Runs a defined method

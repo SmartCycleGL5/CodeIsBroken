@@ -85,8 +85,6 @@ public abstract class BaseMachine : MonoBehaviour
             {
                 string name = item.Name + "()";
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item, this));
-
-                Debug.Log(name);
             }
         }
     }

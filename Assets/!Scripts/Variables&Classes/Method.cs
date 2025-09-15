@@ -14,9 +14,11 @@ namespace Coding.Language
 
         public Method(string name, Class @class = null, Type returnType = Type.Void)
         {
-            this.name = name;
+            this.name = name.Substring(0, name.IndexOf('('));
             this.@class = @class;
             this.returnType = returnType;
+
+            Debug.Log("[Method] New Method: " + this.name);
         }
 
         /// <summary>

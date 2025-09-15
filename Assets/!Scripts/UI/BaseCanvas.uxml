@@ -5,7 +5,7 @@
             <ui:TabView name="Tabs" reorderable="true" focusable="true" class="TabHolder" style="font-size: 70px;" />
             <ui:VisualElement name="WindowButtons" style="align-self: auto; align-items: flex-end; align-content: stretch; flex-direction: row-reverse; position: absolute; width: 100%;">
                 <ui:Button text="X" name="Close" class="unity-button TerminalButton" style="font-size: 50px; width: 100px;" />
-                <ui:Button text="_" name="Minimize" class="unity-button TerminalButton" style="font-size: 50px; width: 100px;" />
+                <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton" style="font-size: 50px; width: 100px;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

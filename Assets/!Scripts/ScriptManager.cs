@@ -33,7 +33,6 @@ namespace Coding
 
                 return true;
             }
-            return false;
         }
 
         [Button]

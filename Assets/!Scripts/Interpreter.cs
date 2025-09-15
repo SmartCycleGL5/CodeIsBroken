@@ -64,7 +64,11 @@ namespace Coding
 
                 Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
 
-                @class.NewMethod(name, methodScript.ToArray(), Type.Void);
+                new UserMethod(
+                    name: name.Substring(0, name.IndexOf('(')), 
+                    arguments: name.Substring(name.IndexOf('('), 0), 
+                    methodCode: methodScript.ToArray(), 
+                    @class: @class);
             }
         }
 

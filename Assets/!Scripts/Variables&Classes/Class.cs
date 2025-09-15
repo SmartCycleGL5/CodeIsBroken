@@ -70,24 +70,10 @@ namespace Coding.Language
                 }
             }
         }
-        public void TryRunMethod(string name)
-        {
-            if (methods.ContainsKey(name))
-            {
-               FindMethod(name).TryRun();
-            }
-            else
-            {
-                Debug.LogWarning("No method of name: " + name);
-            }
-        }
-        public UserMethod NewMethod(string name, string[] code, Type returnType = Type.Void)
-        {
-            UserMethod method = new UserMethod(name, code, this, returnType);
 
-            methods.Add(name, method);
-
-            return method;
+        public void AddMethod(UserMethod method)
+        {
+            methods.Add(method.name, method);
         }
         #endregion
 

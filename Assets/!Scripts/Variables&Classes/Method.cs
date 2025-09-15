@@ -12,9 +12,9 @@ namespace Coding.Language
         public Type returnType;
         [HideInInspector] public Class @class;
 
-        public Method(string name, Class @class = null, Type returnType = Type.Void)
+        public Method(string name, object[] arguments, Class @class = null, Type returnType = Type.Void)
         {
-            this.name = name.Substring(0, name.IndexOf('('));
+            this.name = name;
             this.@class = @class;
             this.returnType = returnType;
 

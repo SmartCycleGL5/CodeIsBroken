@@ -11,7 +11,7 @@ namespace Coding.Language
         public MethodInfo toCall;
         object toRunFrom;
 
-        public IntegratedMethod(string name, MethodInfo method, object toRunFrom, Class @class = null, Type returnType = Type.Void) : base(name, @class, returnType)
+        public IntegratedMethod(string name, object[] parameter, MethodInfo method, object toRunFrom, Class @class = null, Type returnType = Type.Void) : base(name, parameter, @class, returnType)
         {
             toCall = method;
             this.toRunFrom = toRunFrom;

@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
-    private BaseMachine machine;
+    private Machine machine;
     bool uiEnabled;
 
     private void Start()
     {
         uiEnabled = false;
-        machine = GetComponent<BaseMachine>();
+        machine = GetComponent<Machine>();
     }
 
     public void ToggleUI(bool toggle)
@@ -41,10 +41,7 @@ public class MachineUIController : MonoBehaviour
 
     private void OpenTerminal()
     {
-        Terminal terminal = FindFirstObjectByType<Terminal>(FindObjectsInactive.Include);
-        Debug.Log(terminal);
-        terminal.gameObject.SetActive(true);
-        terminal.SelectMachine(gameObject.GetComponent<BaseMachine>());
+        GetComponent<BaseMachine>().OpenTerminalForMachine();
     }
 
 }

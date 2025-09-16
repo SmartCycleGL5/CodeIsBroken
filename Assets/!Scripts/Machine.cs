@@ -21,8 +21,4 @@ public class Machine : BaseMachine
     {
         transform.position += Vector3.up * amount;
     }
-    public void Rotate()
-    {
-        transform.Rotate(0, 5, 0);
-    }
 }

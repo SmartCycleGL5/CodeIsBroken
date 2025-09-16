@@ -1,11 +1,7 @@
 using UnityEngine;
 
-public class Keyword
+public interface IKeyword
 {
-    public string identifier;
+    public static string identifier { get; }
 
-    public Keyword(string identifier)
-    {
-
-    }
 }

@@ -1,12 +1,19 @@
 using UnityEngine;
-using Terminal;
+using Coding;
+using UnityEngine.UI;
 
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
-    [SerializeField] MachineScript machine;
+    private Machine machine;
     bool uiEnabled;
-    
+
+    private void Start()
+    {
+        uiEnabled = false;
+        machine = GetComponent<Machine>();
+    }
+
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
@@ -18,15 +25,20 @@ public class MachineUIController : MonoBehaviour
     private void Update()
     {
         if (!uiEnabled) return;
-        //uiMenu.transform.LookAt(new Vector3(0, Camera.main.transform.position.y,0));
+        uiMenu.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
+                             Camera.main.transform.rotation * Vector3.up);
     }
 
     public void TerminalButton()
     {
-        Terminal.Terminal terminal = FindFirstObjectByType<Terminal.Terminal>(FindObjectsInactive.Include);
-        Debug.Log(terminal);
-        terminal.gameObject.SetActive(true);
-        terminal.SelectMachine(machine);
+        ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
+        OpenTerminal(); 
+
+    }
+
+    private void OpenTerminal()
+    {
+        GetComponent<BaseMachine>().OpenTerminalForMachine();
     }
 
 }

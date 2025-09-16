@@ -7,7 +7,7 @@ public class MachineInteraction : MonoBehaviour
     [SerializeField] private GhostBuilding ghostBuilding;
     private MachineUIController currentMachineUI;
 
-    private void Update()
+    public void PlayerUpdate()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -28,10 +28,12 @@ public class MachineInteraction : MonoBehaviour
     private void SelectMachine(MachineUIController machineUI)
     {
         if (currentMachineUI != machineUI) {
-            if (currentMachineUI != null) { currentMachineUI.ToggleUI(false); }
+            if (currentMachineUI != null) 
+            { 
+                currentMachineUI.ToggleUI(false); 
+            }
             currentMachineUI = machineUI;
             currentMachineUI.ToggleUI(true);
         }
-        if (machineUI==null) { currentMachineUI.ToggleUI(false); }
     }
 }

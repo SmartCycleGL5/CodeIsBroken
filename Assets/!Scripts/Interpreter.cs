@@ -2,75 +2,79 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
-namespace Terminal
+namespace Coding
 {
     using Language;
+    using UnityEngine;
 
     [Serializable]
     public static class Interpreter
     {
-        public static void InterperateInitialization(string script, ref MachineScript machine)
+        public static void InterperateScript(string script, BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (scriptLines[i].Contains("class"))
-                {
-                    string[] sections = scriptLines[i].Split(" ");
-                    string name = sections[1];
+                if (!scriptLines[i].Contains("class")) continue;
 
-                    List<string> classScript = scriptLines.ToList();
+                string[] sections = scriptLines[i].Split(" ");
+                List<string> classScript = scriptLines.ToList();
+                Utility.FindEncapulasion(ref classScript, i, out int end, '{', '}');
 
-                    FindEncapulasion(ref classScript, i);
+                string name = sections[1];
 
-                    Class newClass = new Class(machine, name, classScript.ToArray());
-                    machine.Classes.Add(name, newClass);
-                }
+                Class newClass = new Class(machine, name, classScript);
+                machine.Classes.Add(name, newClass);
+
+                i += end - i; //skips to the end of the class
             }
         }
 
-        public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint)
+        public static void DefineMethodsAndVariables(string[] code, int line, out int end, Class @class)
         {
-            for (int k = startPoint + 1; k >= 0; k--)
+            end = line;
+
+            List<string> sections = code[line].Split(" ").ToList();
+
+            Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
+
+            string name = sections[1];
+            string type = sections[0];
+            bool isMethod = name.Contains("(");
+
+            if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                encapsulatedScript[k] = "removed";
-            }
+                Variable newVariable = @class.NewVariable(name, null);
 
-            int encapsulations = 1;
-
-            for (int k = 0; k < encapsulatedScript.Count; k++) //k start at start point?
-            {
-                Debug.Log(encapsulatedScript[k]);
-
-                if (encapsulations == 0)
+                //Setting variables
+                if (code[line].Contains("="))
                 {
-                    encapsulatedScript[k] = "removed";
+                    string value = sections[3];
 
-                }
-                else
-                {
-                    if (encapsulatedScript[k].Contains("{"))
-                    {
-                        encapsulations++;
-                    }
-                    else if (encapsulatedScript[k].Contains("}"))
-                    {
-                        encapsulations--;
-
-                        if (encapsulations == 0)
-                        {
-                            encapsulatedScript[k] = "removed";
-                        }
-                    }
+                    newVariable.SetValue(value);
                 }
             }
+            else if (isMethod && !@class.methods.ContainsKey(name))
+            {
+                List<string> methodScript = @class.baseCode.ToList();
 
-            encapsulatedScript.RemoveAll(item => item == "removed");
-            encapsulatedScript.RemoveAll(item => item == "");
+                Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
+
+                string arguments = name.Substring(name.IndexOf('('), 0);
+                arguments.Replace("(", "");
+                arguments.Replace(")", "");
+                name = name.Substring(0, name.IndexOf('('));
+
+                new UserMethod(
+                    name: name,
+                    arguments: UserMethod.TranslateArguments(arguments),
+                    methodCode: methodScript.ToArray(),
+                    @class: @class);
+            }
         }
 
         static List<string> ExtractLines(string raw)
@@ -85,45 +89,6 @@ namespace Terminal
             list.RemoveAll(item => item == ";");
 
             return list;
-        }
-
-        public static void Assignment(Variable variable, string toAssign)
-        {
-            variable.SetValue(toAssign);
-        }
-        public static bool ReturnType(string line, out Type type)
-        {
-            type = Type.Void;
-            switch (line)
-            {
-                case "void":
-                    {
-                        type = Type.Void;
-                        return true;
-                    }
-                case "float":
-                    {
-                        type = Type.Float;
-                        return true;
-                    }
-                case "int":
-                    {
-                        type = Type.Int;
-                        return true;
-                    }
-                case "string":
-                    {
-                        type = Type.String;
-                        return true;
-                    }
-                case "bool":
-                    {
-                        type = Type.Bool;
-                        return true;
-                    }
-            }
-
-            return false;
         }
     }
 }

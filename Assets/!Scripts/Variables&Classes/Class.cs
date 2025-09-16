@@ -5,76 +5,84 @@ using System.Linq;
 using UnityEngine;
 using static Utility;
 
-namespace Terminal.Language
+namespace Coding.Language
 {
-    using static Interpreter;
-
-    [Serializable]
+    [Serializable, DefaultExecutionOrder(50),]
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
-    public class Class : /*Keyword,*/ IVariable, IMethod
+    public class Class : IVariable, IMethod
     {
         public string name;
 
         public Class inheritedClass;
-        public MachineScript machine;
+        public BaseMachine machine;
+        public Dictionary<string, Variable> variables { get; set; } = new();
 
-        [field: SerializeField, SerializedDictionary("Name", "Value")]
-        public SerializedDictionary<string, Variable> variables { get; set; } = new();
-
-        [field: SerializeField, SerializedDictionary("Name", "Value")]
-        public SerializedDictionary<string, Method> methods { get; set; } = new();
+        [SerializedDictionary("Name", "Method")]
+        public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
 
         public string[] baseCode;
 
         #region Class
-        public Class(MachineScript machine, string name, string[] baseCode, Class inheritedClass = null)
-        {
-            this.baseCode = baseCode;
-            this.name = name;
-            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
-            this.machine = machine;
-
-            InitializeClass();
-        }
-        public Class(MachineScript machine, string name, List<string> baseCode, Class inheritedClass)
+        public Class(BaseMachine machine, string name, List<string> baseCode, Class inheritedClass = null)
         {
             this.baseCode = baseCode.ToArray();
             this.name = name;
-            this.inheritedClass = inheritedClass == null ? ScriptManager.UniversalClass : inheritedClass;
+            this.inheritedClass = inheritedClass;
             this.machine = machine;
 
+            Debug.Log("[Class] New Class: " + name);
+
             InitializeClass();
+        }
+
+        /// <summary>
+        /// initializes the class
+        /// </summary>
+        void InitializeClass()
+        {
+            for (int i = 0; i < baseCode.Length; i++)
+            {
+                Interpreter.DefineMethodsAndVariables(baseCode, i, out int end, this);
+
+                i += end - i; //skips until after the end of the method
+            }
         }
         #endregion
 
         #region Methods
-        public void TryRunMethod(string name)
+        public Method FindMethod(string name)
         {
-            if (methods.ContainsKey(name))
-                methods[name].TryRun();
-            else
+            try
             {
-                Debug.LogWarning("No method of name: " + name);
+                return methods[name];
+            }
+            catch 
+            { 
+                if(inheritedClass != null)
+                {
+                    return inheritedClass.methods[name];
+                }
+                else
+                {
+                    return machine.IntegratedMethods[name];
+                }
             }
         }
-        public Method NewMethod(string name, string[] code, Type returnType = Type.Void)
+
+        public void AddMethod(UserMethod method)
         {
-            Method method = new Method(name, returnType, code, this);
-
-            methods.Add(name, method);
-
-            return method;
+            methods.Add(method.name, method);
         }
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, Type Type = Type.Bool)
+        public Variable NewVariable(string name, object value)
         {
-            Variable value = new Variable(name, Type);
-            variables.Add(name, value);
-            return value;
+            Variable variable = new Variable(name, value);
+            variables.Add(name, variable);
+            return variable;
         }
         public Variable NewVariable(Variable variable)
         {
@@ -83,61 +91,16 @@ namespace Terminal.Language
         }
         public Variable FindVariable(string name)
         {
-            if (variables[name] != null)
+            try
             {
                 return variables[name];
-            }
-            else if (inheritedClass != null)
+            } 
+            catch
             {
-                inheritedClass.FindVariable(name);
+                return inheritedClass.FindVariable(name);
             }
-            return null;
         }
         #endregion
-
-        /// <summary>
-        /// initializes the class
-        /// </summary>
-        public void InitializeClass()
-        {
-            for (int i = 0; i < baseCode.Length; i++)
-            {
-                string line = baseCode[i];
-                List<string> sections = line.Split(" ").ToList();
-
-                FindAndRetainStrings(ref sections);
-
-                //Find variables & methods
-                if (ReturnType(sections[0], out Type type))
-                {
-                    bool isMethod = sections[1].Contains("()");
-
-                    if (!isMethod && !variables.ContainsKey(sections[1]))
-                    {
-                        NewVariable(sections[1], type);
-                    }
-                    else if (isMethod && !methods.ContainsKey(sections[1]))
-                    {
-                        List<string> methodScript = baseCode.ToList();
-
-                        FindEncapulasion(ref methodScript, i);
-
-                        NewMethod(sections[1], methodScript.ToArray(), type);
-                    }
-                }
-
-
-                for (int j = 0; j < sections.Count; j++)
-                {
-                    //Setting variables
-                    if (sections[j] == "=")
-                    {
-                        Assignment(variables[sections[j - 1]], sections[j + 1]);
-                        break;
-                    }
-                }
-            }
-        }
 
     }
 }

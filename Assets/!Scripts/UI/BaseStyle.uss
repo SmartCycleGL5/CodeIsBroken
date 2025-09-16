@@ -1,0 +1,10 @@
+:root {
+}
+
+.WindowButtons {
+    height: auto;
+}
+
+.Windows {
+    font-size: 50px;
+}

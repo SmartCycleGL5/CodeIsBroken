@@ -1,4 +1,9 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
 
 public static class Utility
 {
@@ -6,31 +11,84 @@ public static class Utility
     /// combines "" into a single section
     /// </summary>
     /// <param name="sections"></param>
-    public static void FindAndRetainStrings(ref List<string> sections)
+    public static void FindAndRetain(ref List<string> sections, char first, char second)
     {
         int? firstSection = null;
+
         for (int i = 0; i < sections.Count; i++)
         {
-            if (sections[i].Contains('"'))
+            if (sections[i].Contains(first) && firstSection == null)
             {
-                if (firstSection == null)
-                    firstSection = i;
-                else
+                firstSection = i;
+                continue;
+            } 
+            else if (sections[i].Contains(second) && firstSection != null)
+            {
+                for (int j = (int)firstSection + 1; j < i + 1; j++)
                 {
-                    for (int j = (int)firstSection + 1; j < i + 1; j++)
-                    {
-                        sections[(int)firstSection] += " " + sections[j];
+                    sections[(int)firstSection] += " " + sections[j];
 
-                        sections[j] = null;
-                    }
+                    sections[j] = null;
+                }
 
-                    sections[(int)firstSection] = sections[(int)firstSection].Substring(1, sections[(int)firstSection].Length - 2);
+                sections.RemoveAll(x => x == null);
+                return;
+            }
+        }
+    }
 
-                    firstSection = null;
+    public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint, out int endPoint, char startEncapsulation, char endEncapsulation)
+    {
+        endPoint = startPoint;
+        for (int i = startPoint + 1; i >= 0; i--)
+        {
+            encapsulatedScript[i] = "removed";
+        }
+
+        int encapsulations = 1;
+
+        for (int i = startPoint; i < encapsulatedScript.Count; i++) 
+        {
+            if (encapsulations == 0) // if encapsulation is found, will set all values to be "removed"
+            {
+                encapsulatedScript[i] = "removed";
+                continue;
+            }
+
+            if (encapsulatedScript[i].Contains(startEncapsulation))
+            {
+                encapsulations++;
+            }
+            else if (encapsulatedScript[i].Contains(endEncapsulation))
+            {
+                encapsulations--;
+
+                if (encapsulations == 0)
+                {
+                    endPoint = i;
+                    encapsulatedScript[i] = "removed";
                 }
             }
         }
 
-        sections.RemoveAll(x => x == null);
+        encapsulatedScript.RemoveAll(item => item == "removed");
+        encapsulatedScript.RemoveAll(item => item == "");
+    }
+
+    public static class Addressable
+    {
+        public static async Task<T> ReturnAdressableAsset<T>(string path)
+        {
+            AsyncOperationHandle handle = Addressables.LoadAssetAsync<T>(path);
+            await handle.Task;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                return (T)handle.Result;
+            }
+
+            Debug.LogError(handle.Status);
+            return default;
+        }
     }
 }

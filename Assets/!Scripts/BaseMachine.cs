@@ -48,7 +48,7 @@ public abstract class BaseMachine : MonoBehaviour
 
         foreach (var Class in Classes)
         {
-            Class.Value.FindMethod("Start()").TryRun();
+            Class.Value.FindMethod("Start").TryRun();
         }
     }
     public void Stop()
@@ -83,7 +83,7 @@ public abstract class BaseMachine : MonoBehaviour
         {
             if (item.GetBaseDefinition() == item)
             {
-                string name = item.Name + "()";
+                string name = item.Name;
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }

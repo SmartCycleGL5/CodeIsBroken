@@ -26,7 +26,7 @@ namespace Coding.Language
         /// </summary>
         /// <param name="input">the input variables</param>
         /// <returns>returns true if it was successful</returns>
-        public abstract bool TryRun(Variable[] input = null);
+        public abstract bool TryRun(object[] input = null);
         protected abstract void Run(object[] input);
 
     }

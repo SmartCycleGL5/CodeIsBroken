@@ -810,8 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   machineCode:
     name: 
-    Code: "class Machine\n{\n\tvoid MyNewMethod(int amount)\n\t{\n\n\t}\n\tvoid Start()\n\t{\n\t\tMove(5);\n\t}\n\tvoid
-      Update()\n\t{\n\t\tMyNewMethod();\n\t}\n}"
+    Code: "class Machine\n{\n\tvoid Start()\n\t{\n\t\tMove(5);\n\t}\n}"
   Classes:
     _serializedList: []
 --- !u!224 &1473657921 stripped

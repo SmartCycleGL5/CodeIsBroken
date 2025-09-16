@@ -13,13 +13,13 @@ public class Machine : BaseMachine
         base.Start();
     }
 
-    public void Print()
+    public void Print(string debug)
     {
-        Debug.Log("this was called");
+        Debug.Log(debug);
     }
-    public void Move(int vla)
+    public void Move(float amount)
     {
-        transform.position += Vector3.up * vla;
+        transform.position += Vector3.up * amount;
     }
     public void Rotate()
     {

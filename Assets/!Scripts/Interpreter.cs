@@ -64,10 +64,15 @@ namespace Coding
 
                 Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
 
+                string arguments = name.Substring(name.IndexOf('('), 0);
+                arguments.Replace("(", "");
+                arguments.Replace(")", "");
+                name = name.Substring(0, name.IndexOf('('));
+
                 new UserMethod(
-                    name: name.Substring(0, name.IndexOf('(')), 
-                    arguments: name.Substring(name.IndexOf('('), 0), 
-                    methodCode: methodScript.ToArray(), 
+                    name: name,
+                    arguments: UserMethod.TranslateArguments(arguments),
+                    methodCode: methodScript.ToArray(),
                     @class: @class);
             }
         }

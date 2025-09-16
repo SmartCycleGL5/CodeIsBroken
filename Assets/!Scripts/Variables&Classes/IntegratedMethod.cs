@@ -17,19 +17,9 @@ namespace Coding.Language
             this.toRunFrom = toRunFrom;
         }
 
-        public override bool TryRun(Variable[] input = null)
+        public override bool TryRun(object[] parameters)
         {
-            List<object> parameters = new();
-
-            if (input != null)
-            {
-                foreach (var item in input)
-                {
-                    parameters.Add(item.value);
-                }
-            }
-
-            Run(parameters.ToArray());
+            Run(parameters);
             return true;
         }
 
@@ -37,11 +27,16 @@ namespace Coding.Language
         {
             try
             {
-                toCall.Invoke(toRunFrom, new object[] { 5 });
+                Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
+                foreach (var item in parameters)
+                {
+                    Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
+                }
+                toCall.Invoke(toRunFrom, parameters);
             }
             catch (Exception ex)
             {
-                Debug.LogError("wrong parameters given \n" + ex);
+                Debug.LogError("[IntegratedMethod] wrong parameters given \n" + ex);
             }
         }
     }

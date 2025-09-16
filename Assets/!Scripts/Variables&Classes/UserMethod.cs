@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Coding.Language
@@ -14,7 +15,7 @@ namespace Coding.Language
 
         public Dictionary<string, Variable> variables { get; set; } = new();
 
-        public UserMethod(string name,  arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
+        public UserMethod(string name, object[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
         {
             this.methodCode = methodCode;
 
@@ -30,6 +31,41 @@ namespace Coding.Language
             }
         }
 
+        public static object[] TranslateArguments(string args)
+        {
+            if (args == null || args == string.Empty) return null;
+
+            Debug.Log("[ArgumentTranslation] " + args);
+
+            string[] stringArgsList = Regex.Split(args, ",");
+
+            List<object> argsList = new List<object>();
+            foreach (var item in stringArgsList)
+            {
+                object toAdd = item;
+
+                try
+                {
+                    if (item.Contains('f'))
+                    {
+                        toAdd = float.Parse(item.Replace("f", ""));
+                    }
+                    else
+                    {
+                        toAdd = int.Parse(item);
+                    }
+                }
+                catch 
+                { 
+                
+                }
+
+                argsList.Add(toAdd);
+            }
+
+            return argsList.ToArray();
+        }
+
         public Line ReadLine(string line)
         {
             List<string> sections = line.Split(" ").ToList();
@@ -40,7 +76,16 @@ namespace Coding.Language
 
             if (isMethod)
             {
-                lines.Add(new MethodCall(line, @class));
+                string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
+                args = args.Replace("(", "");
+                args = args.Replace(")", "");
+                string name = line.Substring(0, line.IndexOf('('));
+
+                Debug.Log(line);
+                Debug.Log(args);
+
+
+                lines.Add(new MethodCall(name, @class, TranslateArguments(args)));
             }
             return null;
         }
@@ -50,7 +95,7 @@ namespace Coding.Language
         /// </summary>
         /// <param name="input">the input variables</param>
         /// <returns>returns true if it was successful</returns>
-        public override bool TryRun(Variable[] input = null)
+        public override bool TryRun(object[] input = null)
         {
             if (input == null && this.input == null)
             {

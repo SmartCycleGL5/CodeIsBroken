@@ -264,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &380598365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,17 +359,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55ac213d615fb074c9409451eacefbae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!114 &559254236 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 504551191812433704, guid: 56486bb3d2fda6b42a20bef781101ba1, type: 3}
-  m_PrefabInstance: {fileID: 7340285161746946024}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
 --- !u!1 &720552715 stripped
@@ -697,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2125121202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,15 +949,15 @@ PrefabInstance:
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machine
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: machineToEdit
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 4927173670700492943, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: <machineToEdit>k__BackingField
       value: 
-      objectReference: {fileID: 559254236}
+      objectReference: {fileID: 0}
     - target: {fileID: 5940620731195160162, guid: 1ef24bffa81361a47a2dd0de4c84ec34, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

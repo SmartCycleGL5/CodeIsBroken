@@ -27,7 +27,6 @@ public abstract class BaseMachine : MonoBehaviour
     {
         machineCode.Initialize(name, this);
         ScriptManager.instance.AddMachine(this);
-        machineCode.Initialize(this);
 
         initialPos = transform.position;
         initialRot = transform.eulerAngles;

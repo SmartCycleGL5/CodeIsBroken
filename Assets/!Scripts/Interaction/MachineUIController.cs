@@ -1,5 +1,5 @@
 using UnityEngine;
-using Terminal;
+using Coding;
 using UnityEngine.UI;
 
 public class MachineUIController : MonoBehaviour
@@ -41,7 +41,7 @@ public class MachineUIController : MonoBehaviour
 
     private void OpenTerminal()
     {
-        Terminal.Terminal terminal = FindFirstObjectByType<Terminal.Terminal>(FindObjectsInactive.Include);
+        Terminal terminal = FindFirstObjectByType<Terminal>(FindObjectsInactive.Include);
         Debug.Log(terminal);
         terminal.gameObject.SetActive(true);
         terminal.SelectMachine(gameObject.GetComponent<BaseMachine>());

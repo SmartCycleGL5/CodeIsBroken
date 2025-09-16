@@ -28,7 +28,7 @@ namespace Coding
                 return false;
             } else
             {
-                BaseMachine machine = gameObject.AddComponent<BaseMachine>();
+                Machine machine = gameObject.AddComponent<Machine>();
                 machine.machineCode = new();
                 machine.machineCode.CreateScript(name);
 

@@ -31,8 +31,8 @@ public abstract class BaseMachine : MonoBehaviour
         initialPos = transform.position;
         initialRot = transform.eulerAngles;
 
-        if(machineCode == null)
-            machineCode = new MachineCode();
+        //if(machineCode == null)
+        //    machineCode = new MachineCode();
     }
 
     private void OnDestroy()

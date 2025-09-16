@@ -59,9 +59,6 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
-        
-        // Block movement if terminal is being written in.
-        if (terminal.isFocused) return;
         Movement();
         MouseRotate();
     }

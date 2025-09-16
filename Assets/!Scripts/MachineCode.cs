@@ -13,7 +13,7 @@ public class MachineCode
     BaseMachine machine;
     public void Initialize(string name, BaseMachine machine)
     {
-        this.name = name;
+        //this.name = name;
         this.machine = machine;
         Interpreter.InterperateScript(Code, this.machine);
     }

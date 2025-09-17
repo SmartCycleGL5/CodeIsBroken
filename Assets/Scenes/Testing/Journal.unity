@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 4a472c8a750750d47bc8071aadd1bafe, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 55e1959a62664bd4ab41a53258cc770d, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: fc86a6cad1da7af4b924d2691b951819, type: 3}
   m_SortingOrder: 0
@@ -1757,6 +1757,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalManager
   machineEntries: []
+  factoryEntries: []
+  economyEntries: []
+  machineTabName: Machine
+  factoryTabName: Factory
+  economyTabName: Economy
   journalDoc: {fileID: 2120895630}
 --- !u!1 &2136248693
 GameObject:

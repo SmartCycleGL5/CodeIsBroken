@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,31 +9,44 @@ namespace Journal
     {
         public static JournalManager instance { get; private set; }
         public JournalEntrySO[] machineEntries;
+        public JournalEntrySO[] factoryEntries;
+        public JournalEntrySO[] economyEntries;
+        [SerializeField] string machineTabName = "Machine";
+        [SerializeField] string factoryTabName = "Factory";
+        [SerializeField] string economyTabName = "Economy";
         public UIDocument journalDoc;
         void Awake()
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
-        }
-        void OnEnable()
-        {   
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
-            List<string> machineNames = machineEntries.Select(obj => obj.name).ToList();
-            var machineDrop = journalDoc.rootVisualElement.Q<DropdownField>("MachineChoice");
-            machineDrop.choices = machineNames;
-            machineDrop.RegisterValueChangedCallback(evt => DropDownChange(machineDrop.index));
-            machineDrop.index= 0;
-            
+            factoryEntries = Resources.LoadAll<JournalEntrySO>("Journal/Factory");
+            economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
 
         }
-        void DropDownChange(int index)
+        void OnEnable()
         {
-            var machineImage = journalDoc.rootVisualElement.Q<VisualElement>("MachineImage");
-            var machineExText = journalDoc.rootVisualElement.Q<Label>("MachineExplanation");
-            var machineCodeText = journalDoc.rootVisualElement.Q<Label>("MachineCode");
-            machineImage.style.backgroundImage = machineEntries[index].showcaseI;
-            machineExText.text = machineEntries[index].explanation;
-            machineCodeText.text = machineEntries[index].codeShowcase;
+            AddEntry(machineEntries, machineTabName);
+            AddEntry(factoryEntries, factoryTabName);
+            AddEntry(economyEntries, economyTabName);
+        }
+        void AddEntry(JournalEntrySO[] entries, string nameD)
+        {
+            List<string> entryNames = entries.Select(obj => obj.name).ToList();
+            var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
+            var entryDrop = tab.Q<DropdownField>("Dropdown");
+            entryDrop.choices = entryNames;
+            entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
+            entryDrop.index= 0;
+        }
+        void DropDownChange(JournalEntrySO[] entries,Tab tab, int index)
+        {
+            var machineImage = tab.Q<VisualElement>("Image");
+            var machineExText = tab.Q<Label>("Explanation");
+            var machineCodeText = tab.Q<Label>("Code");
+            machineImage.style.backgroundImage = entries[index].showcaseI;
+            machineExText.text = entries[index].explanation;
+            machineCodeText.text = entries[index].codeShowcase;
         }
     }
 }

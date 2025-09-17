@@ -36,7 +36,7 @@ public class Tick : MonoBehaviour
 
     void DoTick()
     {
-        Debug.Log(tick);
+        //Debug.Log(tick);
         tick++;
         OnTick?.Invoke();
     }

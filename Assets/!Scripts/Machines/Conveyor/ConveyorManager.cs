@@ -6,7 +6,7 @@ public class ConveyorManager : MonoBehaviour
     
     public Conveyor GetConveyor(Vector3 pos)
     {
-        GameObject cellObject = gridBuilder.LookUpCell(pos);
+        GameObject cellObject = GridBuilder.instance.LookUpCell(pos);
         if (cellObject == null)return null;
         if(cellObject.TryGetComponent(out Conveyor conveyor))
         {

@@ -9,14 +9,20 @@ public class MaterialTube : Machine
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));
 
+        spawnLocation = transform;
+
         base.Start();
     }
 
     public void GetMaterial()
     {
-        Debug.Log("got material");
-        if (GridBuilder.instance.LookUpCell(transform.position + transform.forward).TryGetComponent(out Conveyor conveyor))
+        //Debug.Log(gameObject);      
+        Debug.Log(GridBuilder.instance);
+        GameObject ahead = GridBuilder.instance.LookUpCell(spawnLocation.position + spawnLocation.forward);
+        if (ahead == null) return;
+        if (ahead.TryGetComponent(out Conveyor conveyor))
         {
+            Debug.Log("GetMaterial");
             //add spawning on conveyor please :)))
 
             Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);

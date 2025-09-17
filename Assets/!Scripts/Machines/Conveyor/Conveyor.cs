@@ -11,8 +11,10 @@ public class Conveyor : MonoBehaviour
     [SerializeField] Transform backPos;
     void Start()
     {
+        // Check if there is conveyor behind.
         ConveyorManager cm = FindFirstObjectByType<ConveyorManager>();
         Conveyor conveyor = cm.GetConveyor(backPos.position);
+
         if (conveyor != null)
         {
             conveyor.nextConveyor = this;
@@ -25,6 +27,7 @@ public class Conveyor : MonoBehaviour
 
     void MoveOnTick()
     {
+        // Checks if last in line
         if (nextConveyor == null && recieveFrom !=null)
         {
             Debug.Log("LastInLine");
@@ -34,16 +37,21 @@ public class Conveyor : MonoBehaviour
 
     public void SendItem()
     {
-        if(currentItem == null && recieveFrom != null)
+        if(recieveFrom != null)
         {
-            Debug.Log("SentItem");
-            currentItem = recieveFrom.currentItem;
-            recieveFrom.currentItem = null;
+            if(currentItem == null)
+            {
+                Debug.Log("SentItem");
+                currentItem = recieveFrom.currentItem;
+                recieveFrom.currentItem = null;
+            }
+            recieveFrom.SendItem();
         }
+
         if (currentItem != null)
         {
             currentItem.transform.position = transform.position + new Vector3(0, 1, 0);
         }
-        recieveFrom.SendItem();
+
     }
 }

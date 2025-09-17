@@ -16,7 +16,6 @@ namespace Coding.Language
             toCall = method;
             this.toRunFrom = toRunFrom;
         }
-
         public override bool TryRun(object[] parameters)
         {
             Run(parameters);

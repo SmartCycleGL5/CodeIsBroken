@@ -17,11 +17,13 @@ public class CraneMachine : Machine
         degrees *= 90;
         Vector3 startRot = piviot.eulerAngles;
 
-        while (isRunning && timer < 1)
-        {
-            piviot.Rotate(0, degrees * Time.deltaTime, 0);
+        float timeToFinish = Tick.tickLength * .5f;
 
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
+        while (isRunning && timer < timeToFinish)
+        {
+            piviot.Rotate(0, (degrees * Time.deltaTime) / timeToFinish, 0);
+
+            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000 * timeToFinish));
             timer += Time.deltaTime;
         }
 

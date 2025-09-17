@@ -61,7 +61,7 @@ namespace Coding
 
         public void RunMachine()
         {
-            machineToEdit.Run();
+            machineToEdit.RunStart();
             buttons["Run"].text = "Stop";
 
             buttons["Run"].clicked += StopMachine;

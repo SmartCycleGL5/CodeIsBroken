@@ -3,27 +3,42 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class Tick : MonoBehaviour
 {
-    [SerializeField] private float tickTimerMax = 0.5f;
+    public static Tick Instance { get; private set; }
+    [SerializeField] private float tickTime = 0.5f;
+    public static float tickLength => Instance.tickTime;
     private int tick;
-    private float tickTimer;
-    private bool tickTimerActive;
-    
+
     public static event Action OnTick;
+    public static event Action OnStartingTick;
+    public static event Action OnEndingTick;
     
     private void Awake()
     {
         tick = 0;
+        Instance = this;
+
     }
 
-    private void Update()
+    public static void StartTick()
     {
-        tickTimer += Time.deltaTime;
-        if (tickTimer >= tickTimerMax)
-        {
-            Debug.Log(tick);
-            tickTimer = 0;
-            tick++;
-            OnTick?.Invoke();
-        }
+        OnStartingTick?.Invoke();
+        Instance.InvokeRepeating(nameof(DoTick), 0, tickLength);
+
+        Application.quitting += StopTick;
     }
+    public static void StopTick()
+    {
+        OnEndingTick?.Invoke();
+        Instance.CancelInvoke(nameof(DoTick));
+
+        Application.quitting -= StopTick;
+    }
+
+    void DoTick()
+    {
+        Debug.Log(tick);
+        tick++;
+        OnTick?.Invoke();
+    }
+
 }

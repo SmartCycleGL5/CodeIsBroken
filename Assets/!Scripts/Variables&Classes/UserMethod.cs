@@ -89,12 +89,6 @@ namespace Coding.Language
             }
             return null;
         }
-
-        /// <summary>
-        /// Try to run the method
-        /// </summary>
-        /// <param name="input">the input variables</param>
-        /// <returns>returns true if it was successful</returns>
         public override bool TryRun(object[] input = null)
         {
             if (input == null && this.input == null)

@@ -42,18 +42,13 @@ namespace Coding
             if (isRunning) return;
             isRunning = true;
 
-            foreach (var item in instance.machines)
-            {
-                item.Run();
-            }
+            Tick.StartTick();
         }
         [Button]
         public static void StopMachines()
         {
-            foreach (var item in instance.machines)
-            {
-                item.Stop();
-            }
+            if (!isRunning) return;
+            Tick.StopTick();
 
             isRunning = false;
         }

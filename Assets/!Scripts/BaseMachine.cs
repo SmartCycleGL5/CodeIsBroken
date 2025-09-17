@@ -23,6 +23,9 @@ public abstract class BaseMachine : MonoBehaviour
 
     public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
+    Method start;
+    Method update;
+
     protected virtual void Start()
     {
         machineCode.Initialize(name, this);
@@ -33,6 +36,10 @@ public abstract class BaseMachine : MonoBehaviour
 
         //if(machineCode == null)
         //    machineCode = new MachineCode();
+
+        Tick.OnStartingTick += RunStart;
+        Tick.OnTick += RunUpdate;
+        Tick.OnEndingTick += Stop;
     }
 
     private void OnDestroy()
@@ -40,17 +47,43 @@ public abstract class BaseMachine : MonoBehaviour
         ScriptManager.instance.RemoveMachine(this);
     }
 
-    public void Run()
+    public void RunStart()
     {
         isRunning = true;
 
-        Application.quitting += Stop;
-
         foreach (var Class in Classes)
         {
-            Class.Value.FindMethod("Start").TryRun();
+            try
+            {
+                start = Class.Value.FindMethod("Start");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Start not found");
+            }
         }
+
+        if (start != null)
+            start.TryRun();
     }
+    public void RunUpdate()
+    {
+        foreach (var Class in Classes)
+        {
+            try
+            {
+                update = Class.Value.FindMethod("Update");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Update not found");
+            }
+        }
+
+        if (update != null)
+            update.TryRun();
+    }
+
     public void Stop()
     {
         Application.quitting -= Stop;

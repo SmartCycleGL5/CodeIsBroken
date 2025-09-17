@@ -35,6 +35,13 @@ public class MachineCode
                 "\n\t\t" +
                 "\n\t\t\n" +
                 "\t}\n" +
+
+                "\tvoid Update()\n" +
+                "\t{\n" +
+                "\n\t\t" +
+                "\n\t\t" +
+                "\n\t\t\n" +
+                "\t}\n" +
                 "}";
     }
 }

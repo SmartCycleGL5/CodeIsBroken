@@ -7,12 +7,19 @@ using AYellowpaper.SerializedCollections;
 
 public class GridBuilder : MonoBehaviour
 {
+    public static GridBuilder instance;
+
     Vector2 _lastPosition;
     [SerializeField] Grid grid;
     [SerializeField] GhostBuilding ghostBuilding;
     [SerializedDictionary("Position", "Object in position")]
     public SerializedDictionary<Vector2Int, GameObject> gridObjects = new();
-    
+
+    private void Start()
+    {
+        instance = this;
+    }
+
     // Get the grid cell mouse is hovering over
     public Vector2 GetGridPosition()
     {

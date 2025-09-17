@@ -14,6 +14,11 @@ public class MaterialTube : Machine
 
     public void GetMaterial()
     {
-        Instantiate(materialToSpawn.gameObject, spawnLocation.position, spawnLocation.rotation);
+        if(GridBuilder.instance.LookUpCell(transform.position + transform.forward).TryGetComponent(out Conveyor conveyor))
+        {
+            //add spawning on conveyor please :)))
+
+            //Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
+        }
     }
 }

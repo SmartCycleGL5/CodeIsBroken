@@ -505,6 +505,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &293130798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293130800}
+  - component: {fileID: 293130799}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293130799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293130798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7488a46eb6c61940ae13f5e60a3305a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalManager
+  machineEntries: []
+  factoryEntries: []
+  economyEntries: []
+  machineTabName: Machine
+  factoryTabName: Factory
+  economyTabName: Economy
+  journalDoc: {fileID: 2120895630}
+--- !u!4 &293130800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293130798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 970.5, y: 641.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,14 +1749,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2120895629}
   - component: {fileID: 2120895630}
-  - component: {fileID: 2120895631}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2120895629
 Transform:
   m_ObjectHideFlags: 0
@@ -1714,7 +1764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120895628}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1733,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 55e1959a62664bd4ab41a53258cc770d, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: ea36207017cb5554e812a9a666f25c5b, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: fc86a6cad1da7af4b924d2691b951819, type: 3}
   m_SortingOrder: 0
@@ -1744,25 +1794,6 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
---- !u!114 &2120895631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120895628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7488a46eb6c61940ae13f5e60a3305a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalManager
-  machineEntries: []
-  factoryEntries: []
-  economyEntries: []
-  machineTabName: Machine
-  factoryTabName: Factory
-  economyTabName: Economy
-  journalDoc: {fileID: 2120895630}
 --- !u!1 &2136248693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,3 +1851,4 @@ SceneRoots:
   - {fileID: 419514512}
   - {fileID: 85303256}
   - {fileID: 95684230}
+  - {fileID: 293130800}

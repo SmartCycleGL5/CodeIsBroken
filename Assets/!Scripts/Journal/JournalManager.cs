@@ -19,6 +19,8 @@ namespace Journal
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
+
+            journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
             factoryEntries = Resources.LoadAll<JournalEntrySO>("Journal/Factory");
             economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
@@ -37,9 +39,9 @@ namespace Journal
             var entryDrop = tab.Q<DropdownField>("Dropdown");
             entryDrop.choices = entryNames;
             entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
-            entryDrop.index= 0;
+            entryDrop.index = 0;
         }
-        void DropDownChange(JournalEntrySO[] entries,Tab tab, int index)
+        void DropDownChange(JournalEntrySO[] entries, Tab tab, int index)
         {
             var machineImage = tab.Q<VisualElement>("Image");
             var machineExText = tab.Q<Label>("Explanation");
@@ -48,5 +50,18 @@ namespace Journal
             machineExText.text = entries[index].explanation;
             machineCodeText.text = entries[index].codeShowcase;
         }
+        public void JournalOnOff()
+        {
+            if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)
+            {
+                journalDoc.rootVisualElement.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                journalDoc.rootVisualElement.style.display = DisplayStyle.Flex;
+            }
+
+        }
+
     }
 }

@@ -698,14 +698,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3989704304939235237, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
-      propertyPath: machineCode.Code
-      value: "class Tube\n{\n\tvoid Start()\n\t{\n\t\tGetMaterial();\n\t}\n}"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3989704304939235237, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
-      propertyPath: machineCode.name
-      value: Tube
-      objectReference: {fileID: 0}
     - target: {fileID: 8018452569668254804, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
       propertyPath: m_Name
       value: MaterialTube

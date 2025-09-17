@@ -18,7 +18,7 @@ public class MaterialTube : Machine
         {
             //add spawning on conveyor please :)))
 
-            //Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
+            Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
         }
     }
 }

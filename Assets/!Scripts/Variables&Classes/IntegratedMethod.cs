@@ -26,10 +26,16 @@ namespace Coding.Language
         {
             try
             {
-                Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
-                foreach (var item in parameters)
+                if(parameters == null)
                 {
-                    Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
+                    Debug.Log("[IntegratedMethod] Running " + toCall.Name);
+                } else
+                {
+                    Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
+                    foreach (var item in parameters)
+                    {
+                        Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
+                    }
                 }
                 toCall.Invoke(toRunFrom, parameters);
             }

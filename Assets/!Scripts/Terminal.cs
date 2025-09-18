@@ -16,6 +16,7 @@ namespace Coding
         //UI elements
         Dictionary<string, Button> buttons = new();
         VisualElement terminal;
+        Label availableMethods;
         TextField input;
 
         public Window window { get; set; }
@@ -35,6 +36,7 @@ namespace Coding
             buttons.Add("Save", terminal.Q<Button>("Save"));
             buttons.Add("Run", terminal.Q<Button>("Run"));
 
+            availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
 
             buttons["Save"].clicked += Save;
@@ -88,6 +90,13 @@ namespace Coding
             Debug.Log(machineToEdit.machineCode);
 
             input.value = machineToEdit.machineCode.Code;
+
+            availableMethods.text = "Available Methods: \n";
+
+            foreach (var method in machineToEdit.IntegratedMethods)
+            {
+                availableMethods.text += "\n" + method.Value.name + "()";
+            }
         }
         public void Save()
         {

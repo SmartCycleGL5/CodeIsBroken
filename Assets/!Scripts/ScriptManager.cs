@@ -23,14 +23,12 @@ namespace Coding
 
         public static bool CreateScript(GameObject gameObject, string name)
         {
-            if(gameObject.GetComponent<BaseMachine>())
+            if(gameObject.TryGetComponent(out BaseMachine baseMachine))
             {
                 return false;
             } else
             {
-                Machine machine = gameObject.AddComponent<Machine>();
-                machine.machineCode = new();
-                machine.machineCode.CreateScript(name);
+                baseMachine.Initialize(name);
 
                 return true;
             }

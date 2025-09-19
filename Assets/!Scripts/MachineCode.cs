@@ -11,10 +11,11 @@ public class MachineCode
     public string name;
     [ResizableTextArea] public string Code;
     BaseMachine machine;
-    public void Initialize(string name, BaseMachine machine)
+
+    public MachineCode(string name, BaseMachine machine)
     {
-        //this.name = name;
-        this.machine = machine;
+        this.name = name;
+        CreateScript(name);
         Interpreter.InterperateScript(Code, this.machine);
     }
     public void UpdateCode(string code)
@@ -23,9 +24,8 @@ public class MachineCode
         machine.ClearMemory();
         Interpreter.InterperateScript(Code, machine);
     }
-    public void CreateScript(string name)
+    void CreateScript(string name)
     {
-        this.name = name;
         Code =
                 "class " + name + "\n" +
                 "{\n" +

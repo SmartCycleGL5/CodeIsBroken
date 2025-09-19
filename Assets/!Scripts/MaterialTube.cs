@@ -5,11 +5,11 @@ public class MaterialTube : Machine
     [SerializeField] Transform spawnLocation;
     [SerializeField] Item materialToSpawn;
 
-    protected override void Start()
+    protected override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));
 
-        base.Start();
+        base.Initialize(initialClassName);
     }
 
     public void GetMaterial()

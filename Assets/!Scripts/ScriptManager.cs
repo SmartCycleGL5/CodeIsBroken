@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace Coding
 {
-    using Language;
-    using System;
-
     public class ScriptManager : MonoBehaviour
     {
         public static ScriptManager instance;
@@ -23,13 +20,25 @@ namespace Coding
 
         public static BaseMachine CreateScript(GameObject gameObject, string name)
         {
-            if(gameObject.TryGetComponent(out BaseMachine baseMachine))
+            if (gameObject.TryGetComponent(out BaseMachine baseMachine))
             {
                 baseMachine.Initialize(name);
                 return baseMachine;
             }
 
             return null;
+        }
+
+        public static void ToggleMachines()
+        {
+            if (isRunning)
+            {
+                StopMachines();
+            }
+            else
+            {
+                StartMachines();
+            }
         }
 
         [Button]

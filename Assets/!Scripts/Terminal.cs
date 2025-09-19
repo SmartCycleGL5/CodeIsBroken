@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,9 @@ namespace Coding
 
         public Window window { get; set; }
 
+        Action runButtonStart { get { return ScriptManager.ToggleMachines; } }
+        Action runButtonStop { get { return ScriptManager.ToggleMachines; } }
+
 
         private async void Start()
         {
@@ -40,15 +44,15 @@ namespace Coding
             input = terminal.Q<TextField>("Input");
 
             buttons["Save"].clicked += Save;
-            buttons["Run"].clicked += RunMachine;
+            buttons["Run"].clicked += runButtonStart;
 
             Load();
         }
         private void OnDestroy()
         {
             buttons["Save"].clicked -= Save;
-            buttons["Run"].clicked -= RunMachine;
-            buttons["Run"].clicked -= StopMachine;
+            buttons["Run"].clicked -= runButtonStart;
+            //buttons["Run"].clicked -= runButtonStop;
         }
 
         public void Close()
@@ -66,16 +70,16 @@ namespace Coding
             machineToEdit.RunStart();
             buttons["Run"].text = "Stop";
 
-            buttons["Run"].clicked += StopMachine;
-            buttons["Run"].clicked -= RunMachine;
+            //buttons["Run"].clicked += runButtonStop;
+            //buttons["Run"].clicked -= runButtonStart;
         }
         public void StopMachine()
         {
             machineToEdit.Stop();
             buttons["Run"].text = "Run";
 
-            buttons["Run"].clicked += RunMachine;
-            buttons["Run"].clicked -= StopMachine;
+            //buttons["Run"].clicked += runButtonStart;
+            //buttons["Run"].clicked -= runButtonStop;
         }
 
         public void SelectMachine(BaseMachine machineScript)

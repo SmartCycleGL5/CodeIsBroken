@@ -15,8 +15,9 @@ public class MachineCode
     public MachineCode(string name, BaseMachine machine)
     {
         this.name = name;
+        this.machine = machine;
         CreateScript(name);
-        Interpreter.InterperateScript(Code, this.machine);
+        Interpreter.InterperateScript(Code, machine);
     }
     public void UpdateCode(string code)
     {

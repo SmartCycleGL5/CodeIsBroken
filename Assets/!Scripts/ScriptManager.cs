@@ -21,17 +21,15 @@ namespace Coding
         }
 
 
-        public static bool CreateScript(GameObject gameObject, string name)
+        public static BaseMachine CreateScript(GameObject gameObject, string name)
         {
             if(gameObject.TryGetComponent(out BaseMachine baseMachine))
             {
-                return false;
-            } else
-            {
                 baseMachine.Initialize(name);
-
-                return true;
+                return baseMachine;
             }
+
+            return null;
         }
 
         [Button]
@@ -40,6 +38,8 @@ namespace Coding
             if (isRunning) return;
             isRunning = true;
 
+            Debug.Log("[ScriptManager] Starting");
+
             Tick.StartTick();
         }
         [Button]
@@ -47,6 +47,8 @@ namespace Coding
         {
             if (!isRunning) return;
             Tick.StopTick();
+
+            Debug.Log("[ScriptManager] Ending");
 
             isRunning = false;
         }

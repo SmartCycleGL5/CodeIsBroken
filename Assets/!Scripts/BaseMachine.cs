@@ -28,6 +28,11 @@ public abstract class BaseMachine : MonoBehaviour
 
     public bool Initialized { get; private set; } = false;
 
+    [Button]
+    void Initialize()
+    {
+        Initialize("NewClass");
+    }
     public virtual void Initialize(string initialClassName)
     {
         if(Initialized)
@@ -36,7 +41,6 @@ public abstract class BaseMachine : MonoBehaviour
             return;
         }
 
-        machineCode = new MachineCode(name, this);
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;
@@ -48,6 +52,8 @@ public abstract class BaseMachine : MonoBehaviour
         Tick.OnStartingTick += RunStart;
         Tick.OnTick += RunUpdate;
         Tick.OnEndingTick += Stop;
+
+        machineCode = new MachineCode(initialClassName, this);
 
         Initialized = true;
     }

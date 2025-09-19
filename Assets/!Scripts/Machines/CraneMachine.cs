@@ -52,4 +52,9 @@ public class CraneMachine : Machine, IItemContainer
 
         item = conveyor.item;
     }
+
+    public void RemoveItem(Item item)
+    {
+        throw new System.NotImplementedException();
+    }
 }

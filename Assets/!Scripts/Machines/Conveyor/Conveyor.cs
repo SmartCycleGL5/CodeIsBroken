@@ -55,4 +55,9 @@ public class Conveyor : MonoBehaviour, IItemContainer
         }
 
     }
+
+    public void RemoveItem(Item item)
+    {
+        this.item = null;
+    }
 }

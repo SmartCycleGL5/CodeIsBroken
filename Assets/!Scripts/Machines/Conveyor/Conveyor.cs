@@ -10,6 +10,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     public Item item { get; set; }
 
+    Vector3 itemPosition { get { return item.transform.position = transform.position + new Vector3(0, 1, 0);  } }
+
     void Start()
     {
         UpdateConveyor();
@@ -56,7 +58,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
         // T.O. Was here
         if (item != null)
         {
-            item.transform.position = transform.position + new Vector3(0, 1, 0);
+            item.transform.position = itemPosition;
         }
 
     }
@@ -68,9 +70,10 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     public bool SetItem(Item item)
     {
-        if(item != null) return false;
+        if(this.item != null) return false;
 
         this.item = item;
+        this.item.transform.position = itemPosition;
         return true;
     }
 }

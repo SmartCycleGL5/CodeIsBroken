@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class CraneMachine : Machine//, IItemContainer
+public class CraneMachine : Machine, IItemContainer
 {
     [Space(10), SerializeField] Transform piviot;
     [SerializeField] Transform grabLocation;
@@ -59,10 +59,11 @@ public class CraneMachine : Machine//, IItemContainer
                 return;
             }
 
-            Debug.Log("[Crane] Grab");
-
-            SetItem(conveyor.item);
-            conveyor.RemoveItem();
+            if (SetItem(conveyor.item))
+            {
+                Debug.Log("[Crane] Grab");
+                conveyor.RemoveItem();
+            }
         }
         else if (conveyor.SetItem(item))
         {
@@ -74,7 +75,7 @@ public class CraneMachine : Machine//, IItemContainer
     public bool SetItem(Item item)
     {
 
-        if (item != null) return false;
+        if (this.item != null) return false;
 
         this.item = item;
         this.item.transform.parent = holdLocation;

@@ -4,6 +4,8 @@ using Coding.Language;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -125,7 +127,7 @@ public abstract class BaseMachine : MonoBehaviour
     {
         Terminal.NewTerminal(this);
     }
-
+    // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
         foreach (var item in machine.GetMethods())
@@ -133,6 +135,15 @@ public abstract class BaseMachine : MonoBehaviour
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
+
+                MethodAttributes attributes = item.Attributes;
+
+                Debug.Log(attributes);
+
+                if (item.GetCustomAttributes(false).Contains(typeof(IgnoreMethod)))
+                {
+
+                }
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }

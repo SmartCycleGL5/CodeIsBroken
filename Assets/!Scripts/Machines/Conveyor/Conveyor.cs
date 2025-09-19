@@ -63,9 +63,14 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     }
 
-    public void RemoveItem()
+    public bool RemoveItem(out Item removedItem)
     {
+        removedItem = null;
+        if(item == null) return false;
+        removedItem = item;
         item = null;
+
+        return true;
     }
 
     public bool SetItem(Item item)
@@ -75,5 +80,10 @@ public class Conveyor : MonoBehaviour, IItemContainer
         this.item = item;
         this.item.transform.position = itemPosition;
         return true;
+    }
+    [DontIntegrate]
+    public bool RemoveItem()
+    {
+        return RemoveItem(out Item item);
     }
 }

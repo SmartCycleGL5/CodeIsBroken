@@ -83,11 +83,19 @@ public class CraneMachine : Machine, IItemContainer
         return true;
     }
     [DontIntegrate]
-    public void RemoveItem()
+    public bool RemoveItem(out Item removedItem)
     {
-        if (item == null) return;
+        removedItem = null;
+        if (item == null) return false;
+        removedItem = item;
         item.transform.parent = null;
         item = null;
+        return true;
+    }
+    [DontIntegrate]
+    public bool RemoveItem()
+    {
+        return RemoveItem(out Item item);
     }
 
 }

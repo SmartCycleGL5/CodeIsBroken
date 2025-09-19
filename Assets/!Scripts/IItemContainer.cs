@@ -4,6 +4,7 @@ public interface IItemContainer
 {
     public Item item {  get; set; }
     public bool SetItem(Item item);
-    public void RemoveItem();
+    public bool RemoveItem(out Item item);
+    public bool RemoveItem();
     //Steven was here
 }

@@ -17,8 +17,4 @@ public class Machine : BaseMachine
     {
         Debug.Log(debug);
     }
-    public void Move(float amount)
-    {
-        transform.position += Vector3.up * amount;
-    }
 }

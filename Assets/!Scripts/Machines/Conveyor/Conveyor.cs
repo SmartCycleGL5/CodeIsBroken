@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Conveyor : MonoBehaviour, IItemContainer
 {
-    public GameObject currentItem;
-
     // Conveyor to send item to next
     public Conveyor nextConveyor;
     public Conveyor recieveFrom;
@@ -42,18 +40,18 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         if(recieveFrom != null)
         {
-            if(currentItem == null)
+            if(item == null)
             {
                 Debug.Log("SentItem");
-                currentItem = recieveFrom.currentItem;
-                recieveFrom.currentItem = null;
+                item = recieveFrom.item;
+                recieveFrom.item = null;
             }
             recieveFrom.SendItem();
         }
 
-        if (currentItem != null)
+        if (item != null)
         {
-            currentItem.transform.position = transform.position + new Vector3(0, 1, 0);
+            item.transform.position = transform.position + new Vector3(0, 1, 0);
         }
 
     }

@@ -130,7 +130,7 @@ public abstract class BaseMachine : MonoBehaviour
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
-        foreach (var item in machine.GetMethods(BindingFlags.Default))
+        foreach (var item in machine.GetMethods())
         {
             if (item.GetBaseDefinition() == item)
             {

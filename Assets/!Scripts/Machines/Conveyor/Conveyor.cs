@@ -12,14 +12,6 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
-        UpdateConveyor();
-        ConveyorManager.instance.UpdateCells(transform.forward);
-
-        Tick.OnTick += MoveOnTick;
-    }
-
-    public void UpdateConveyor()
-    {
         ConveyorManager cm = ConveyorManager.instance;
         Conveyor conveyor = cm.GetConveyor(backPos.position);
         if (conveyor != null)
@@ -28,6 +20,14 @@ public class Conveyor : MonoBehaviour, IItemContainer
             recieveFrom = conveyor;
             Debug.Log(conveyor.name);
         }
+        ConveyorManager.instance.UpdateCells(transform.forward);
+
+        Tick.OnTick += MoveOnTick;
+    }
+
+    public void UpdateConveyor()
+    {
+
     }
 
     void MoveOnTick()

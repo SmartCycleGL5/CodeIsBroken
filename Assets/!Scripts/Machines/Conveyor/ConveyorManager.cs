@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class ConveyorManager : MonoBehaviour
 {
-    [SerializeField] GridBuilder gridBuilder;
     public static ConveyorManager instance;
+    [SerializeField] GridBuilder gridBuilder;
+    private void Start()
+    {
+        instance = this;
+    }
     public Conveyor GetConveyor(Vector3 pos)
     {
         GameObject cellObject = GridBuilder.instance.LookUpCell(pos);

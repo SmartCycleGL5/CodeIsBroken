@@ -12,18 +12,22 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
-        // Check if there is conveyor behind.
-        ConveyorManager cm = FindFirstObjectByType<ConveyorManager>();
-        Conveyor conveyor = cm.GetConveyor(backPos.position);
+        UpdateConveyor();
+        ConveyorManager.instance.UpdateCells(transform.forward);
 
+        Tick.OnTick += MoveOnTick;
+    }
+
+    public void UpdateConveyor()
+    {
+        ConveyorManager cm = ConveyorManager.instance;
+        Conveyor conveyor = cm.GetConveyor(backPos.position);
         if (conveyor != null)
         {
             conveyor.nextConveyor = this;
             recieveFrom = conveyor;
             Debug.Log(conveyor.name);
         }
-
-        Tick.OnTick += MoveOnTick;
     }
 
     void MoveOnTick()

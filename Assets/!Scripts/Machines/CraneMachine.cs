@@ -5,6 +5,7 @@ public class CraneMachine : Machine, IItemContainer
 {
     [Space(10), SerializeField] Transform piviot;
     [SerializeField] Transform grabLocation;
+    [SerializeField] Transform holdLocation;
 
     public Item item { get; set; }
 
@@ -34,9 +35,9 @@ public class CraneMachine : Machine, IItemContainer
         piviot.transform.eulerAngles = startRot + Vector3.up * degrees;
     }
 
-    public void GrabItem()
+    public void GrabLoseItem()
     {
-        GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+        GameObject cell = GridBuilder.instance.LookUpCell(grabLocation.position);
 
         if (cell == null)
         {
@@ -50,11 +51,37 @@ public class CraneMachine : Machine, IItemContainer
             return;
         }
 
-        item = conveyor.item;
+        if (item == null)
+        {
+            Debug.Log("[Crane] Grab");
+            if (conveyor.item == null)
+                return;
+
+            SetItem(conveyor.item);
+            conveyor.RemoveItem();
+        }
+        else if (conveyor.SetItem(item))
+        {
+            RemoveItem();
+        }
+
+    }
+    [IgnoreMethod]
+    public bool SetItem(Item item)
+    {
+
+        if (item != null) return false;
+
+        this.item = item;
+        this.item.transform.parent = holdLocation;
+        return true;
+    }
+    [IgnoreMethod]
+    public void RemoveItem()
+    {
+        if (item == null) return;
+        item.transform.parent = null;
+        item = null;
     }
 
-    public void RemoveItem(Item item)
-    {
-        throw new System.NotImplementedException();
-    }
 }

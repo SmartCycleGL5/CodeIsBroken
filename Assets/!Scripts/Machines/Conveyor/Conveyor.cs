@@ -48,7 +48,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
             }
             recieveFrom.SendItem();
         }
-
+        // T.O. Was here
         if (item != null)
         {
             item.transform.position = transform.position + new Vector3(0, 1, 0);
@@ -56,8 +56,16 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem()
     {
-        this.item = null;
+        item = null;
+    }
+
+    public bool SetItem(Item item)
+    {
+        if(item != null) return false;
+
+        this.item = item;
+        return true;
     }
 }

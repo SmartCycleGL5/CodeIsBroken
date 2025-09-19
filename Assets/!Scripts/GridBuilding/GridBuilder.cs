@@ -10,6 +10,7 @@ public class GridBuilder : MonoBehaviour
     public static GridBuilder instance;
 
     Vector2 _lastPosition;
+    [SerializeField] int buildingLimit;
     [SerializeField] Grid grid;
     [SerializeField] GhostBuilding ghostBuilding;
     [SerializedDictionary("Position", "Object in position")]
@@ -40,6 +41,9 @@ public class GridBuilder : MonoBehaviour
         foreach (var pos in positions)
         {
             Vector3Int cellPos = grid.WorldToCell(pos);
+            if(-buildingLimit > cellPos.x || buildingLimit < cellPos.x) return false;
+            if (-buildingLimit > cellPos.z || buildingLimit < cellPos.z) return false;
+
             if (gridObjects.ContainsKey(new Vector2Int(cellPos.x, cellPos.z)))
             {
                 return false;

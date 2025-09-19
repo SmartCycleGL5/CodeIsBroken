@@ -28,4 +28,13 @@ public class Modification
             this.materials = materials;
         }
     }
+
+    public class Color : Modification
+    { 
+        public UnityEngine.Color color;
+        public Color(string name, UnityEngine.Color color) : base(name)
+        {
+            this.color = color;
+        }
+    }
 }

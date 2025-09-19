@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class IgnoreMethod : Attribute
+public class DontIntegrate : Attribute
 {
 
 }

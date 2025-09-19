@@ -63,6 +63,9 @@ public abstract class BaseMachine : MonoBehaviour
     private void OnDestroy()
     {
         ScriptManager.instance.RemoveMachine(this);
+        Tick.OnStartingTick -= RunStart;
+        Tick.OnTick -= RunUpdate;
+        Tick.OnEndingTick -= Stop;
     }
 
     public void RunStart()
@@ -135,7 +138,7 @@ public abstract class BaseMachine : MonoBehaviour
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
-                if (item.GetAttribute<IgnoreMethod>() != null) continue;
+                if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
 
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }

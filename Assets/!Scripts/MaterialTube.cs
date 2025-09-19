@@ -5,8 +5,6 @@ public class MaterialTube : Machine
     [SerializeField] Transform spawnLocation;
     [SerializeField] Item materialToSpawn;
 
-    public Item item { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));

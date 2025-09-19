@@ -7,7 +7,7 @@ public class CraneMachine : Machine//, IItemContainer
     [SerializeField] Transform grabLocation;
     [SerializeField] Transform holdLocation;
 
-    public Item item { get; set; }
+    [DontIntegrate] public Item item { get; set; }
 
     public override void Initialize(string initialClassName)
     {
@@ -53,9 +53,13 @@ public class CraneMachine : Machine//, IItemContainer
 
         if (item == null)
         {
-            Debug.Log("[Crane] Grab");
             if (conveyor.item == null)
+            {
+                Debug.Log("[Crane] No Item on conveyor");
                 return;
+            }
+
+            Debug.Log("[Crane] Grab");
 
             SetItem(conveyor.item);
             conveyor.RemoveItem();
@@ -66,7 +70,7 @@ public class CraneMachine : Machine//, IItemContainer
         }
 
     }
-    [IgnoreMethod]
+    [DontIntegrate]
     public bool SetItem(Item item)
     {
 
@@ -74,9 +78,10 @@ public class CraneMachine : Machine//, IItemContainer
 
         this.item = item;
         this.item.transform.parent = holdLocation;
+        this.item.transform.position = holdLocation.position;
         return true;
     }
-    [IgnoreMethod]
+    [DontIntegrate]
     public void RemoveItem()
     {
         if (item == null) return;

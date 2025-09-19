@@ -26,6 +26,7 @@ public class ConveyorManager : MonoBehaviour
         if (cellObject == null) return;
         if (cellObject.TryGetComponent(out Conveyor conveyor))
         {
+            Debug.Log("Updated Conveyor");
             conveyor.UpdateConveyor();
         }
     }

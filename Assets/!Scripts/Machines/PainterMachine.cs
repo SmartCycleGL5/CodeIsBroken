@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class PainterMachine : Machine
 {
-    [SerializeField] Item item;
+    [SerializeField] public Item item;
     [SerializeField] Material redMaterial;
     [SerializeField] Material blueMaterial;
-    [SerializeField] ConveyorItemReciever reciever;
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(PainterMachine));
@@ -13,11 +12,11 @@ public class PainterMachine : Machine
         base.Initialize(initialClassName);
     }
 
-    
 
     public void Paint(string color)
     {
-        Renderer itemColor = item.gameObject.GetComponent<Renderer>();
+        if(item == null) return;
+        Renderer itemColor = item.gameObject.GetComponentInChildren<Renderer>();
         switch (color)
         {
             case "red":

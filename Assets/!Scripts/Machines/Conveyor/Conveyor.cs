@@ -13,7 +13,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
     void Start()
     {
         UpdateConveyor();
-        ConveyorManager.instance.UpdateCells(transform.forward);
+
+        ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
 
         Tick.OnTick += MoveOnTick;
     }

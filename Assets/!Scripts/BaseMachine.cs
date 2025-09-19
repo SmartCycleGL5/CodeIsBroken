@@ -26,9 +26,21 @@ public abstract class BaseMachine : MonoBehaviour
     Method start;
     Method update;
 
-    protected virtual void Start()
+    public bool Initialized { get; private set; } = false;
+
+    [Button]
+    void Initialize()
     {
-        machineCode.Initialize(name, this);
+        Initialize("NewClass");
+    }
+    public virtual void Initialize(string initialClassName)
+    {
+        if(Initialized)
+        {
+            Debug.LogError(initialClassName + " Already initialized!");
+            return;
+        }
+
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;
@@ -40,6 +52,10 @@ public abstract class BaseMachine : MonoBehaviour
         Tick.OnStartingTick += RunStart;
         Tick.OnTick += RunUpdate;
         Tick.OnEndingTick += Stop;
+
+        machineCode = new MachineCode(initialClassName, this);
+
+        Initialized = true;
     }
 
     private void OnDestroy()

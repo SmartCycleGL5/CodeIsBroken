@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaterialTube
       objectReference: {fileID: 0}
+    - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

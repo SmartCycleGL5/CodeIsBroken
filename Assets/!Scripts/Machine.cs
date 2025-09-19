@@ -6,11 +6,11 @@ using System.Reflection;
 
 public class Machine : BaseMachine
 {
-    protected override void Start()
+    public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(Machine));
 
-        base.Start();
+        base.Initialize(initialClassName);
     }
 
     public void Print(string debug)

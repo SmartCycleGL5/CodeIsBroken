@@ -4,11 +4,11 @@ using UnityEngine;
 public class CraneMachine : Machine
 {
     [Space(10), SerializeField] Transform piviot;
-    protected override void Start()
+    public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(CraneMachine));
 
-        base.Start();
+        base.Initialize(initialClassName);
     }
 
     public async void Rotate(int degrees)

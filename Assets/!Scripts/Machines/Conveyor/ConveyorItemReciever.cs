@@ -22,7 +22,7 @@ public class ConveyorItemReciever : MonoBehaviour
     }
     public void RecieveItem()
     {
-        if (conveyor != null && conveyor.currentItem == null) return;
+        if (conveyor != null && conveyor.item == null) return;
         
     }
 }

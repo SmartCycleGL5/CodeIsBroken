@@ -31,7 +31,8 @@ public class MachineUIController : MonoBehaviour
 
     public void TerminalButton()
     {
-        ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
+        if (!gameObject.GetComponent<BaseMachine>().Initialized)
+            ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
         OpenTerminal(); 
 
     }

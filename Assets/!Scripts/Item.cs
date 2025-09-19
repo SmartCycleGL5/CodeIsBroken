@@ -18,7 +18,7 @@ public struct BaseMaterial
     public enum Materials
     {
         Wood,
-        Steel
+        Steel,
     }
 
     public Materials type;

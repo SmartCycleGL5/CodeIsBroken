@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Conveyor : MonoBehaviour
+public class Conveyor : MonoBehaviour, IItemContainer
 {
     public GameObject currentItem;
 
@@ -9,6 +9,9 @@ public class Conveyor : MonoBehaviour
     public Conveyor recieveFrom;
 
     [SerializeField] Transform backPos;
+
+    public Item item { get; set; }
+
     void Start()
     {
         // Check if there is conveyor behind.

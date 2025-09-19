@@ -27,8 +27,9 @@ public class MaterialTube : Machine
             Debug.Log("[MaterialTube] Adjacent cell not conveyor");
             return;
         }
-
+        if(conveyor.currentItem != null)return;
         Debug.Log("[MaterialTube] got material");
-        Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
+        GameObject instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
+        conveyor.currentItem = instObj;
     }
 }

@@ -3,8 +3,6 @@ using UnityEngine;
 public class PainterMachine : Machine
 {
     [SerializeField] public Item item;
-    [SerializeField] Material redMaterial;
-    [SerializeField] Material blueMaterial;
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(PainterMachine));
@@ -20,10 +18,12 @@ public class PainterMachine : Machine
         switch (color)
         {
             case "red":
-                itemColor.material = redMaterial;
+                item.Modify(new Modification.Color("ColorVariant", new Color(1, 0, 0)));
+                itemColor.material.color = new Color(1, 0, 0);
                 return;
             case "blue":
-                itemColor.material = blueMaterial;
+                item.Modify(new Modification.Color("ColorVariant", new Color(0, 1, 0)));
+                itemColor.material.color = new Color(0, 1, 0);
                 return;
             default:
                 return;

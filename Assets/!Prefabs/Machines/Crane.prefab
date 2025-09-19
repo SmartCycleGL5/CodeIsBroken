@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838160497606249941}
-  - component: {fileID: 6273454582837634827}
   m_Layer: 0
   m_Name: Crane
   m_TagString: Untagged
@@ -33,25 +32,6 @@ Transform:
   - {fileID: 90143488153404186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6273454582837634827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249872683508106563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36caac77e6fbe7f4b8c6b6590e3cf2ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  machineCode:
-    name: Crane
-    Code: "class Crane\n{\n\tvoid Start()\n\t{\n\t\tPrint(\"Hello World\")\n\t}\n\tvoid
-      Update()\n\t{\n\t\tRotate(1);\n\t}\n}"
-  Classes:
-    _serializedList: []
-  piviot: {fileID: 1885551726048624064}
 --- !u!1 &1039543419590637735
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +287,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3603682661162609573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2523711538243607702}
+  m_Layer: 0
+  m_Name: Hold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2523711538243607702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603682661162609573}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885551726048624064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6926366461006017624
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +530,7 @@ Transform:
   - {fileID: 4832038975125405786}
   - {fileID: 7127822637882077372}
   - {fileID: 2558657323093858638}
+  - {fileID: 2523711538243607702}
   m_Father: {fileID: 90143488153404186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8542242088744030361

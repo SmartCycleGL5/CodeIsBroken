@@ -130,20 +130,13 @@ public abstract class BaseMachine : MonoBehaviour
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
-        foreach (var item in machine.GetMethods())
+        foreach (var item in machine.GetMethods(BindingFlags.Default))
         {
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
+                if (item.GetAttribute<IgnoreMethod>() != null) continue;
 
-                MethodAttributes attributes = item.Attributes;
-
-                Debug.Log(attributes);
-
-                if (item.GetCustomAttributes(false).Contains(typeof(IgnoreMethod)))
-                {
-
-                }
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }

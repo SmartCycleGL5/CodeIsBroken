@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class CraneMachine : Machine, IItemContainer
+public class CraneMachine : Machine//, IItemContainer
 {
     [Space(10), SerializeField] Transform piviot;
     [SerializeField] Transform grabLocation;

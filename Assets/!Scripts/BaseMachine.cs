@@ -31,7 +31,7 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     void Initialize()
     {
-        Initialize("NewClass");
+        Initialize("NewClass" + UnityEngine.Random.Range(1, 100));
     }
     public virtual void Initialize(string initialClassName)
     {

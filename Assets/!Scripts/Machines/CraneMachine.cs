@@ -1,9 +1,13 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class CraneMachine : Machine
+public class CraneMachine : Machine, IItemContainer
 {
     [Space(10), SerializeField] Transform piviot;
+    [SerializeField] Transform grabLocation;
+
+    public Item item { get; set; }
+
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(CraneMachine));
@@ -28,5 +32,24 @@ public class CraneMachine : Machine
         }
 
         piviot.transform.eulerAngles = startRot + Vector3.up * degrees;
+    }
+
+    public void GrabItem()
+    {
+        GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+
+        if (cell == null)
+        {
+            Debug.Log("[Crane] Nothing in cell");
+            return;
+        }
+
+        if (!cell.TryGetComponent(out Conveyor conveyor))
+        {
+            Debug.Log("[Crane] Cell not conveyor");
+            return;
+        }
+
+        item = conveyor.item;
     }
 }

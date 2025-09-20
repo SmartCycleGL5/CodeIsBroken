@@ -4,6 +4,8 @@ using Coding.Language;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,9 +28,21 @@ public abstract class BaseMachine : MonoBehaviour
     Method start;
     Method update;
 
-    protected virtual void Start()
+    public bool Initialized { get; private set; } = false;
+
+    [Button]
+    void Initialize()
     {
-        machineCode.Initialize(name, this);
+        Initialize("NewClass" + UnityEngine.Random.Range(1, 100));
+    }
+    public virtual void Initialize(string initialClassName)
+    {
+        if(Initialized)
+        {
+            Debug.LogError(initialClassName + " Already initialized!");
+            return;
+        }
+
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;
@@ -40,11 +54,18 @@ public abstract class BaseMachine : MonoBehaviour
         Tick.OnStartingTick += RunStart;
         Tick.OnTick += RunUpdate;
         Tick.OnEndingTick += Stop;
+
+        machineCode = new MachineCode(initialClassName, this);
+
+        Initialized = true;
     }
 
     private void OnDestroy()
     {
         ScriptManager.instance.RemoveMachine(this);
+        Tick.OnStartingTick -= RunStart;
+        Tick.OnTick -= RunUpdate;
+        Tick.OnEndingTick -= Stop;
     }
 
     public void RunStart()
@@ -109,7 +130,7 @@ public abstract class BaseMachine : MonoBehaviour
     {
         Terminal.NewTerminal(this);
     }
-
+    // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
         foreach (var item in machine.GetMethods())
@@ -117,6 +138,8 @@ public abstract class BaseMachine : MonoBehaviour
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
+                if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
+
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }

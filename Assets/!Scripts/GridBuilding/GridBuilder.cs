@@ -23,6 +23,7 @@ public class GridBuilder : MonoBehaviour
     // Get the grid cell mouse is hovering over
     public Vector2 GetGridPosition()
     {
+        Debug.Log("Getting grid mouse posistion");
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray ,out RaycastHit hit, 100f))
         {

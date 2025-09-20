@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace Coding
 {
-    using Language;
-    using System;
-
     public class ScriptManager : MonoBehaviour
     {
         public static ScriptManager instance;
@@ -21,18 +18,26 @@ namespace Coding
         }
 
 
-        public static bool CreateScript(GameObject gameObject, string name)
+        public static BaseMachine CreateScript(GameObject gameObject, string name)
         {
-            if(gameObject.GetComponent<BaseMachine>())
+            if (gameObject.TryGetComponent(out BaseMachine baseMachine))
             {
-                return false;
-            } else
-            {
-                Machine machine = gameObject.AddComponent<Machine>();
-                machine.machineCode = new();
-                machine.machineCode.CreateScript(name);
+                baseMachine.Initialize(name);
+                return baseMachine;
+            }
 
-                return true;
+            return null;
+        }
+
+        public static void ToggleMachines()
+        {
+            if (isRunning)
+            {
+                StopMachines();
+            }
+            else
+            {
+                StartMachines();
             }
         }
 
@@ -42,6 +47,8 @@ namespace Coding
             if (isRunning) return;
             isRunning = true;
 
+            Debug.Log("[ScriptManager] Starting");
+
             Tick.StartTick();
         }
         [Button]
@@ -49,6 +56,8 @@ namespace Coding
         {
             if (!isRunning) return;
             Tick.StopTick();
+
+            Debug.Log("[ScriptManager] Ending");
 
             isRunning = false;
         }

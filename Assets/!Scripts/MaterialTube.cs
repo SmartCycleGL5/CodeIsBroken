@@ -5,27 +5,31 @@ public class MaterialTube : Machine
     [SerializeField] Transform spawnLocation;
     [SerializeField] Item materialToSpawn;
 
-    protected override void Start()
+    public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));
 
-        spawnLocation = transform;
-
-        base.Start();
+        base.Initialize(initialClassName);
     }
 
     public void GetMaterial()
     {
-        //Debug.Log(gameObject);      
-        Debug.Log(GridBuilder.instance);
-        GameObject ahead = GridBuilder.instance.LookUpCell(spawnLocation.position + spawnLocation.forward);
-        if (ahead == null) return;
-        if (ahead.TryGetComponent(out Conveyor conveyor))
-        {
-            Debug.Log("GetMaterial");
-            //add spawning on conveyor please :)))
+        GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
 
-            Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation);
+        if (cell == null)
+        {
+            Debug.Log("[MaterialTube] Nothing in adjacent cell");
+            return;
         }
+
+        if (!cell.TryGetComponent(out Conveyor conveyor))
+        {
+            Debug.Log("[MaterialTube] Adjacent cell not conveyor");
+            return;
+        }
+        if(conveyor.item != null)return;
+        Debug.Log("[MaterialTube] got material");
+        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation).GetComponent<Item>();
+        conveyor.item = instObj;
     }
 }

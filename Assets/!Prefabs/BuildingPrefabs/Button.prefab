@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 7840944722884015347}
   - component: {fileID: 3261157266507627376}
   - component: {fileID: 246284369945659622}
+  - component: {fileID: 1491932757915468129}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -285,3 +286,15 @@ MonoBehaviour:
   blockSelector: {fileID: 0}
   buttonText: {fileID: 5948137031953453317}
   buildingPrefab: {fileID: 0}
+--- !u!225 &1491932757915468129
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973821873067232629}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

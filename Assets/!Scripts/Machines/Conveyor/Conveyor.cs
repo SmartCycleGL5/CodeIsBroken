@@ -1,28 +1,36 @@
 using UnityEngine;
 
-public class Conveyor : MonoBehaviour
+public class Conveyor : MonoBehaviour, IItemContainer
 {
-    public GameObject currentItem;
-
     // Conveyor to send item to next
     public Conveyor nextConveyor;
     public Conveyor recieveFrom;
 
     [SerializeField] Transform backPos;
+
+    public Item item { get; set; }
+
+    Vector3 itemPosition { get { return item.transform.position = transform.position + new Vector3(0, 1, 0);  } }
+
     void Start()
     {
-        // Check if there is conveyor behind.
-        ConveyorManager cm = FindFirstObjectByType<ConveyorManager>();
-        Conveyor conveyor = cm.GetConveyor(backPos.position);
+        UpdateConveyor();
 
+        ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
+
+        Tick.OnTick += MoveOnTick;
+    }
+
+    public void UpdateConveyor()
+    {
+        ConveyorManager cm = ConveyorManager.instance;
+        Conveyor conveyor = cm.GetConveyor(backPos.position);
         if (conveyor != null)
         {
             conveyor.nextConveyor = this;
             recieveFrom = conveyor;
             Debug.Log(conveyor.name);
         }
-
-        Tick.OnTick += MoveOnTick;
     }
 
     void MoveOnTick()
@@ -39,19 +47,43 @@ public class Conveyor : MonoBehaviour
     {
         if(recieveFrom != null)
         {
-            if(currentItem == null)
+            if(item == null)
             {
                 Debug.Log("SentItem");
-                currentItem = recieveFrom.currentItem;
-                recieveFrom.currentItem = null;
+                item = recieveFrom.item;
+                recieveFrom.item = null;
             }
             recieveFrom.SendItem();
         }
-
-        if (currentItem != null)
+        // T.O. Was here
+        if (item != null)
         {
-            currentItem.transform.position = transform.position + new Vector3(0, 1, 0);
+            item.transform.position = itemPosition;
         }
 
+    }
+
+    public bool RemoveItem(out Item removedItem)
+    {
+        removedItem = null;
+        if(item == null) return false;
+        removedItem = item;
+        item = null;
+
+        return true;
+    }
+
+    public bool SetItem(Item item)
+    {
+        if(this.item != null) return false;
+
+        this.item = item;
+        this.item.transform.position = itemPosition;
+        return true;
+    }
+    [DontIntegrate]
+    public bool RemoveItem()
+    {
+        return RemoveItem(out Item item);
     }
 }

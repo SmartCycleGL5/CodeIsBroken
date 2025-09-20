@@ -25,13 +25,13 @@ public class SellStaton : MonoBehaviour
             if (cell == null)
             {
                 Debug.Log("[SellStation] Nothing in cell");
-                return;
+                continue;
             }
 
             if (!cell.TryGetComponent(out Conveyor conveyor))
             {
                 Debug.Log("[SellStation] Cell not conveyor");
-                return;
+                continue;
             }
 
             if(conveyor.RemoveItem(out Item removedItem))

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 93292710641116751}
   - component: {fileID: 7795922601325912963}
   m_Layer: 0
-  m_Name: Block 1x1
+  m_Name: ConveyorBelt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d499cacdeba608347a070acc31713df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Conveyor
-  currentItem: {fileID: 0}
   nextConveyor: {fileID: 0}
+  recieveFrom: {fileID: 0}
   backPos: {fileID: 8050596945886522476}
 --- !u!1 &1640526951833838978
 GameObject:
@@ -310,7 +310,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4554328583643815482}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -439,7 +439,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6229bf93a20f434b885b22a894f9ade, type: 2}
+  - {fileID: 2100000, guid: 8a41df8d00591be49bc971fa3c9c2b77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

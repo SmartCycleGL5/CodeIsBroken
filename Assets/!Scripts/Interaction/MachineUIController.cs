@@ -17,9 +17,10 @@ public class MachineUIController : MonoBehaviour
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
-        uiMenu.SetActive(toggle);
+        //uiMenu.SetActive(toggle);
         Debug.Log(uiEnabled);
-        
+        TerminalButton();
+
     }
 
     private void Update()

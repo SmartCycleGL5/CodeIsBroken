@@ -39,9 +39,14 @@ public class GhostBuilding : MonoBehaviour
         {
             RotateBuilding();
         }
+        // Block placement when over UI
+        Debug.Log(EventSystem.current.IsPointerOverGameObject());
+
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        
+
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
@@ -91,6 +96,7 @@ public class GhostBuilding : MonoBehaviour
     {
         SetBuildingStatus(true);
         prefabToBuild = newGhost;
+        DestroyGhost();
         ghostPrefab = Instantiate(newGhost);
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();

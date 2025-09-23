@@ -1,9 +1,10 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using System.Security;
 using Unity.VisualScripting;
-using AYellowpaper.SerializedCollections;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GridBuilder : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class GridBuilder : MonoBehaviour
     //Places Building
     public void PlaceBuilding(GameObject building, Quaternion rotation)
     {
+        Debug.Log("placed block when object over UI: " + EventSystem.current.IsPointerOverGameObject());
         Vector2 gridPosition = GetGridPosition();
         GameObject newBuilding = Instantiate(building, new Vector3(gridPosition.x,0,gridPosition.y), rotation);
         Building  buildingData = newBuilding.GetComponent<Building>();

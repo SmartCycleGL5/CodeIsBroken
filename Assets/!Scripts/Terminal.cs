@@ -28,10 +28,13 @@ namespace Coding
 
         private async void Start()
         {
-            if(terminalAsset == null)
+            Debug.LogError("[Terminal] getting asset");
+            if (terminalAsset == null)
             {
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
             }
+
+            Debug.LogError("[Terminal] "+ terminalAsset);
 
             terminal = terminalAsset.Instantiate();
             window = new Window(machineToEdit.machineCode.name, terminal, this);

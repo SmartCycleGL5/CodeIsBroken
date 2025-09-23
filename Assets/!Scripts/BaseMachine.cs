@@ -128,6 +128,7 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine()
     {
+        Debug.Log("[Machine] Open Terminal for " + this);
         Terminal.NewTerminal(this);
     }
     // Why is Torje breaking the code

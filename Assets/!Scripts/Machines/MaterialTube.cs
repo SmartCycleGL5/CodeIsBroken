@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MaterialTube : Machine
@@ -15,17 +16,19 @@ public class MaterialTube : Machine
     }
     private void Start()
     {
-        //Tick.OnTick += TickCounter;
+        
     }
 
     // Player controlled
     public void SpawnRate(int spawnRate)
     {
         this.spawnRate = spawnRate;
+        Tick.OnTick += GetMaterial;
     }
     
     // Not player controlled
-
+    
+    [DontIntegrate]
     public void GetMaterial()
     {
         tickCount++;

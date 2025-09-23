@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Conveyor : MonoBehaviour, IItemContainer
@@ -55,12 +56,15 @@ public class Conveyor : MonoBehaviour, IItemContainer
             }
             recieveFrom.SendItem();
         }
-        // T.O. Was here
+    }
+
+    private void OnDestroy()
+    {
+        Tick.OnTick -= MoveOnTick;
         if (item != null)
         {
-            //item.transform.position = itemPosition;
+            Destroy(item.gameObject);
         }
-
     }
 
     public bool RemoveItem(out Item removedItem)

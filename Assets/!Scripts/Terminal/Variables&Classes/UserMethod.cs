@@ -15,7 +15,7 @@ namespace Coding.Language
 
         public Dictionary<string, Variable> variables { get; set; } = new();
 
-        public UserMethod(string name, Variable[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
+        public UserMethod(string name, Class @class, Variable[] arguments, string[] methodCode, Type returnType = Type.Void) : base(name, @class, arguments, returnType)
         {
             this.methodCode = methodCode;
 

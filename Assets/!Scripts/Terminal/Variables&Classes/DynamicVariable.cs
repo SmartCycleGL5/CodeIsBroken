@@ -12,10 +12,8 @@ namespace Coding.Language
         Bool
     }
     [Serializable]
-    public class Variable
+    public class Variable : Object
     {
-        public string name;
-        public object value;
 
         //public Type type;
 
@@ -24,9 +22,8 @@ namespace Coding.Language
         //public string String = "";
         //public bool Bool = false;
 
-        public Variable(string name, object value)
+        public Variable(string name, object value) : base (name)
         {
-            this.name = name;
             this.value = value;
         }
 

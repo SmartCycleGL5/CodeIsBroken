@@ -146,7 +146,7 @@ public abstract class BaseMachine : MonoBehaviour
 
                 Debug.LogError("[BaseMachine] add " + item.Name);
 
-                IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
+                IntegratedMethods.Add(name, new IntegratedMethod(name, null, item.GetParameters(), item, this));
             }
         }
     }

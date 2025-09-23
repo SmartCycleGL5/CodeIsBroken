@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public abstract class Method
+    public abstract class Method : Object
     {
         public string name;
 
@@ -12,9 +12,8 @@ namespace Coding.Language
         public Type returnType;
         [HideInInspector] public Class @class;
 
-        public Method(string name, object[] arguments, Class @class = null, Type returnType = Type.Void)
+        public Method(string name, Class @class, object[] arguments, Type returnType = Type.Void) : base(name)
         {
-            this.name = name;
             this.@class = @class;
             this.returnType = returnType;
 

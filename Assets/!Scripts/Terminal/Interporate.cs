@@ -49,15 +49,15 @@ namespace Coding
 
             if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                Variable newVariable = @class.NewVariable(name, null);
+                Variable newVariable = @class.NewVariable(name, null, GetType(type));
 
                 //Setting variables
-                if (code[line].Contains("="))
-                {
-                    string value = sections[3];
+                //if (code[line].Contains("="))
+                //{
+                //    string value = sections[3];
 
-                    newVariable.SetValue(value);
-                }
+                //    newVariable.Set(value);
+                //}
             }
             else if (isMethod && !@class.methods.ContainsKey(name))
             {
@@ -75,6 +75,39 @@ namespace Coding
                     arguments: null,
                     methodCode: methodScript.ToArray(),
                     @class: @class);
+            }
+        }
+
+        public static Type GetType(string type)
+        {
+            switch(type)
+            {
+                case "void":
+                    {
+                        return Language.Type.Void;
+
+                    }
+                case "int":
+                    {
+                        return Language.Type.Int;
+                    }
+                case "float":
+                    {
+                        return Language.Type.Float;
+                    }
+                case "bool":
+                    {
+                        return Language.Type.Bool;
+                    }
+                case "string":
+                    {
+                        return Language.Type.String;
+                    }
+                default:
+                    {
+                        Debug.LogError("[Interporator] " + type + " is not a type");
+                        return 0;
+                    }
             }
         }
 

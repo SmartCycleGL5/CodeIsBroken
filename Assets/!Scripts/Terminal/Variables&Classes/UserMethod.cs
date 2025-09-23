@@ -13,7 +13,7 @@ namespace Coding.Language
         string[] methodCode;
         [SerializeField] List<Line> lines = new();
 
-        public Dictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
         public UserMethod(string name, Class @class, Variable[] arguments, string[] methodCode, Type returnType = Type.Void) : base(name, @class, arguments, returnType)
         {
@@ -84,9 +84,39 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, object value)
+        public Variable NewVariable(string name, object value, Type type)
         {
-            Variable variable = new Variable(name, value);
+            Variable variable = null;
+
+            switch (type)
+            {
+                case Type.Int:
+                    {
+                        variable = new Int(name, this, value);
+                        break;
+                    }
+                case Type.Float:
+                    {
+                        variable = new Float(name, this, value);
+                        break;
+                    }
+                case Type.String:
+                    {
+                        variable = new String(name, this, value);
+                        break;
+                    }
+                case Type.Bool:
+                    {
+                        variable = new Bool(name, this, value);
+                        break;
+                    }
+                default:
+                    {
+                        Debug.LogError("[Class] cannot create variable of type " + type);
+                        break;
+                    }
+            }
+
             variables.Add(name, variable);
             return variable;
         }

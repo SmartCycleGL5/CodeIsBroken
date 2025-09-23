@@ -17,9 +17,10 @@ namespace Coding.Language
 
         public Class inheritedClass;
         public BaseMachine machine;
-        public Dictionary<string, Variable> variables { get; set; } = new();
+        [field: SerializeField, SerializedDictionary("Name", "Variable")]
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
-        [SerializedDictionary("Name", "Method")]
+        [field: SerializeField, SerializedDictionary("Name", "Method")]
         public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
 
         public string[] baseCode;
@@ -78,15 +79,40 @@ namespace Coding.Language
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, object value)
+        public Variable NewVariable(string name, object value, Type type)
         {
-            Variable variable = new Variable(name, value);
+            Variable variable = null;
+
+            switch (type)
+            {
+                case Type.Void:
+                    {
+                        Debug.LogError("[Class] cannot create variable of type Void");
+                        break;
+                    }
+                case Type.Int:
+                    {
+                        variable = new Int(name, this, value);
+                        break;
+                    }
+                case Type.Float:
+                    {
+                        variable = new Float(name, this, value);
+                        break;
+                    }
+                case Type.String:
+                    {
+                        variable = new String(name, this, value);
+                        break;
+                    }
+                case Type.Bool:
+                    {
+                        variable = new Bool(name, this, value);
+                        break;
+                    }
+            }
+
             variables.Add(name, variable);
-            return variable;
-        }
-        public Variable NewVariable(Variable variable)
-        {
-            variables.Add(variable.name, variable);
             return variable;
         }
         public Variable FindVariable(string name)

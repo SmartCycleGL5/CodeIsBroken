@@ -4,19 +4,13 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public abstract class Method : Object
+    public abstract class Method : Object<IMethod>
     {
-        public string name;
-
         public Variable[] input = null;
-        public Type returnType;
         [HideInInspector] public Class @class;
 
-        public Method(string name, Class @class, object[] arguments, Type returnType = Type.Void) : base(name)
+        public Method(string name, Class @class, object[] arguments, Type returnType = Type.Void) : base(name, @class, returnType)
         {
-            this.@class = @class;
-            this.returnType = returnType;
-
             Debug.Log("[Method] New Method: " + this.name);
         }
 

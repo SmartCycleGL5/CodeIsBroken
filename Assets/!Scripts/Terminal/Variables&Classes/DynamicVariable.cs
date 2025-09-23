@@ -3,26 +3,10 @@ using UnityEngine;
 
 namespace Coding.Language
 {
-    public enum Type
-    {
-        Void,
-        Float,
-        Int,
-        String,
-        Bool
-    }
     [Serializable]
-    public class Variable : Object
+    public class Variable : Object<IVariable>
     {
-
-        //public Type type;
-
-        //public float Float = 0;
-        //public int Int = 0;
-        //public string String = "";
-        //public bool Bool = false;
-
-        public Variable(string name, object value) : base (name)
+        public Variable(string name, IVariable container, object value, Type type) : base (name, container, type)
         {
             this.value = value;
         }
@@ -31,39 +15,5 @@ namespace Coding.Language
         {
             this.value = value;
         }
-
-        //public void SetValue(string variable)
-        //{
-        //    switch (type)
-        //    {
-        //        case Type.String:
-        //            {
-        //                String = variable;
-        //                return;
-        //            }
-        //        case Type.Bool:
-        //            {
-        //                if (variable == "true")
-        //                {
-        //                    Bool = true;
-        //                }
-        //                else if (variable == "false")
-        //                {
-        //                    Bool = false;
-        //                }
-        //                return;
-        //            }
-        //        case Type.Float:
-        //            {
-        //                Float = float.Parse(variable);
-        //                return;
-        //            }
-        //        case Type.Int:
-        //            {
-        //                Int = int.Parse(variable);
-        //                return;
-        //            }
-        //    }
-        //}
     }
 }

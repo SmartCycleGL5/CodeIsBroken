@@ -1,9 +1,9 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class String : Variable
+    public class String : Variable, IGetSetAble<string>
     {
-        public String(string name, object value) : base(name, value)
+        public String(string name, IVariable container, object value, Type type = Type.String) : base(name, container, value, type)
         {
         }
 

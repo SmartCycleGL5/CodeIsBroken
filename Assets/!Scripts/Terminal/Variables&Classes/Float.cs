@@ -1,9 +1,9 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Float : Variable
+    public class Float : Variable, IGetSetAble<float>
     {
-        public Float(string name, object value) : base(name, value)
+        public Float(string name, IVariable container, object value, Type type = Type.Float) : base(name, container, value, type)
         {
         }
 

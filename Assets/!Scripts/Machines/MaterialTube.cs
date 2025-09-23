@@ -15,7 +15,7 @@ public class MaterialTube : Machine
     }
     private void Start()
     {
-        //Tick.OnTick += GetMaterial;
+        //Tick.OnTick += TickCounter;
     }
 
     // Player controlled
@@ -23,14 +23,15 @@ public class MaterialTube : Machine
     {
         this.spawnRate = spawnRate;
     }
-
+    
     // Not player controlled
+
     public void GetMaterial()
     {
         tickCount++;
-        Debug.Log(tickCount+" - "+ spawnRate);
-        if(tickCount<spawnRate) return;
-
+        if(tickCount < spawnRate) return;
+        tickCount = 0;
+        
         Debug.LogError("Reached max");
 
         GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);

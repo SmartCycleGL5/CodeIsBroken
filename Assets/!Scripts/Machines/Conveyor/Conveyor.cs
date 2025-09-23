@@ -49,7 +49,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
         {
             if(item == null)
             {
-                Debug.Log("SentItem");
+                //Debug.Log("SentItem");
                 SetItem(recieveFrom.item);
                 recieveFrom.RemoveItem();
             }

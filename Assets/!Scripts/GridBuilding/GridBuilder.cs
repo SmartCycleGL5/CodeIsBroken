@@ -24,7 +24,7 @@ public class GridBuilder : MonoBehaviour
     // Get the grid cell mouse is hovering over
     public Vector2 GetGridPosition()
     {
-        Debug.Log("Getting grid mouse posistion");
+        Debug.Log("[GridBuilder] Getting grid mouse posistion");
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray ,out RaycastHit hit, 100f))
         {
@@ -86,7 +86,7 @@ public class GridBuilder : MonoBehaviour
         Vector3Int cellPos = grid.WorldToCell(pos);
         if (gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.z), out GameObject building))
         {
-            Debug.Log("Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
+            Debug.Log("[GridBuilder] Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
             return building;
         }
         return null;

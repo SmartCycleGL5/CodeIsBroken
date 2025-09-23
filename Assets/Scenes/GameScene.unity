@@ -1658,7 +1658,7 @@ MonoBehaviour:
   terminal: {fileID: 0}
   player: {fileID: 3323748746105681420}
   moveSpeed: 10
-  rotationSpeed: 12
+  rotationSpeed: 100
   tiltLimit: 10
   minZoom: 0
   maxZoom: 0

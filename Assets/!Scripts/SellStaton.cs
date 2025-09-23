@@ -39,7 +39,7 @@ public class SellStaton : MonoBehaviour
 
             if(conveyor.RemoveItem(out Item removedItem))
             {
-                Debug.Log("[SellStation] Sold " +  removedItem);
+                //Debug.Log("[SellStation] Sold " +  removedItem);
                 cubeSold++;
                 Destroy(removedItem.gameObject);
             }

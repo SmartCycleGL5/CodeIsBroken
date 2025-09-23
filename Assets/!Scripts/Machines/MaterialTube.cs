@@ -4,6 +4,8 @@ public class MaterialTube : Machine
 {
     [SerializeField] Transform spawnLocation;
     [SerializeField] Item materialToSpawn;
+    int spawnRate;
+    int tickCount;
 
     public override void Initialize(string initialClassName)
     {
@@ -11,9 +13,26 @@ public class MaterialTube : Machine
 
         base.Initialize(initialClassName);
     }
+    private void Start()
+    {
+        //Tick.OnTick += GetMaterial;
+    }
 
+    // Player controlled
+    public void SpawnRate(int spawnRate)
+    {
+        this.spawnRate = spawnRate;
+    }
+
+    // Not player controlled
     public void GetMaterial()
     {
+        tickCount++;
+        Debug.Log(tickCount+" - "+ spawnRate);
+        if(tickCount<spawnRate) return;
+
+        Debug.LogError("Reached max");
+
         GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
 
         if (cell == null)
@@ -31,5 +50,10 @@ public class MaterialTube : Machine
         Debug.Log("[MaterialTube] got material");
         Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation).GetComponent<Item>();
         conveyor.SetItem(instObj);
+    }
+
+    private void OnDestroy()
+    {
+        Tick.OnTick -= GetMaterial;
     }
 }

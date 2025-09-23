@@ -88,7 +88,7 @@ public class GridBuilder : MonoBehaviour
         Vector3Int cellPos = grid.WorldToCell(pos);
         if (gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.z), out GameObject building))
         {
-            Debug.Log("[GridBuilder] Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
+            //Debug.Log("[GridBuilder] Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
             return building;
         }
         return null;

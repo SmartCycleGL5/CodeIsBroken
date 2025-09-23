@@ -44,7 +44,7 @@ namespace Coding.Language
         {
             for (int i = 0; i < baseCode.Length; i++)
             {
-                Interpreter.DefineMethodsAndVariables(baseCode, i, out int end, this);
+                Interporate.MethodsAndVariables(baseCode, i, out int end, this);
 
                 i += end - i; //skips until after the end of the method
             }

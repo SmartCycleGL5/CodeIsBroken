@@ -1,7 +1,16 @@
 using System;
+using UnityEngine;
 
 namespace Coding.Language
 {
+    public enum Type
+    {
+        Void,
+        Float,
+        Int,
+        String,
+        Bool
+    }
     [Serializable]
     public class Variable
     {
@@ -23,6 +32,7 @@ namespace Coding.Language
 
         public void SetValue(object value)
         {
+            Debug.Log("[Variable] set type: " + value.GetType());
         }
 
         //public void SetValue(string variable)

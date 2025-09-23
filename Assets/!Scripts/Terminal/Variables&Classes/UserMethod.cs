@@ -15,7 +15,7 @@ namespace Coding.Language
 
         public Dictionary<string, Variable> variables { get; set; } = new();
 
-        public UserMethod(string name, object[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
+        public UserMethod(string name, Variable[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
         {
             this.methodCode = methodCode;
 
@@ -29,41 +29,6 @@ namespace Coding.Language
             {
                 lines.Add(ReadLine(line));
             }
-        }
-
-        public static object[] TranslateArguments(string args)
-        {
-            if (args == null || args == string.Empty) return null;
-
-            Debug.Log("[ArgumentTranslation] " + args);
-
-            string[] stringArgsList = Regex.Split(args, ",");
-
-            List<object> argsList = new List<object>();
-            foreach (var item in stringArgsList)
-            {
-                object toAdd = item;
-
-                try
-                {
-                    if (item.Contains('f'))
-                    {
-                        toAdd = float.Parse(item.Replace("f", ""));
-                    }
-                    else
-                    {
-                        toAdd = int.Parse(item);
-                    }
-                }
-                catch 
-                { 
-                
-                }
-
-                argsList.Add(toAdd);
-            }
-
-            return argsList.ToArray();
         }
 
         public Line ReadLine(string line)
@@ -85,7 +50,7 @@ namespace Coding.Language
                 Debug.Log(args);
 
 
-                lines.Add(new MethodCall(name, @class, TranslateArguments(args)));
+                lines.Add(new MethodCall(name, @class, Interporate.TranslateArguments(args)));
             }
             return null;
         }

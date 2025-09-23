@@ -9,9 +9,9 @@ namespace Coding
     using UnityEngine;
 
     [Serializable]
-    public static class Interpreter
+    public static class Interporate
     {
-        public static void InterperateScript(string script, BaseMachine machine)
+        public static void Classes(string script, BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();
@@ -34,7 +34,7 @@ namespace Coding
             }
         }
 
-        public static void DefineMethodsAndVariables(string[] code, int line, out int end, Class @class)
+        public static void MethodsAndVariables(string[] code, int line, out int end, Class @class)
         {
             end = line;
 
@@ -72,7 +72,7 @@ namespace Coding
 
                 new UserMethod(
                     name: name,
-                    arguments: UserMethod.TranslateArguments(arguments),
+                    arguments: null,
                     methodCode: methodScript.ToArray(),
                     @class: @class);
             }
@@ -90,6 +90,47 @@ namespace Coding
             list.RemoveAll(item => item == ";");
 
             return list;
+        }
+
+        public static object Type(string value)
+        {
+            object result = value;
+            try
+            {
+                if (value.Contains('f'))
+                {
+                    result = float.Parse(value.Replace("f", ""));
+                }
+                else
+                {
+                    result = int.Parse(value);
+                }
+            }
+            catch
+            {
+
+            }
+
+
+            return new object();
+        }
+
+        public static object[] TranslateArguments(string args)
+        {
+            if (args == null || args == string.Empty) return null;
+
+            Debug.Log("[ArgumentTranslation] " + args);
+
+            string[] stringArgsList = Regex.Split(args, ",");
+
+            List<object> argsList = new List<object>();
+
+            foreach (var item in stringArgsList)
+            {
+                argsList.Add(Interporate.Type(item));
+            }
+
+            return argsList.ToArray();
         }
     }
 }

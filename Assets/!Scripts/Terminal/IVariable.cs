@@ -3,14 +3,6 @@ using System.Collections.Generic;
 
 namespace Coding.Language
 {
-    public enum Type
-    {
-        Void,
-        Float,
-        Int,
-        String,
-        Bool
-    }
     public interface IVariable
     {
         public Dictionary<string, Variable> variables { get; set; }

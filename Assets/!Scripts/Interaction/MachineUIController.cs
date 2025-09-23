@@ -32,18 +32,20 @@ public class MachineUIController : MonoBehaviour
 
     public void TerminalButton()
     {
-
+        Debug.LogError("[MachineUIController] Open Terminal plz");
 
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
-            if(!machine.Initialized)
-                ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
+            Debug.LogError("[MachineUIController] " + machine + " is " + machine.Initialized);
 
+            //if (machine.Initialized == false)
+                machine.Initialize("NewClass" + "asdasd");
 
+            Debug.LogError("[MachineUIController] opening for " + machine);
             machine.OpenTerminalForMachine();
         } else
         {
-            Debug.Log("[MachineUIController] Couldnt Find Machine");
+            Debug.LogError("[MachineUIController] Couldnt Find Machine");
         }
 
     }

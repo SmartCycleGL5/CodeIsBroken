@@ -17,18 +17,6 @@ namespace Coding
             instance = this;
         }
 
-
-        public static BaseMachine CreateScript(GameObject gameObject, string name)
-        {
-            if (gameObject.TryGetComponent(out BaseMachine baseMachine))
-            {
-                baseMachine.Initialize(name);
-                return baseMachine;
-            }
-
-            return null;
-        }
-
         public static void ToggleMachines()
         {
             if (isRunning)

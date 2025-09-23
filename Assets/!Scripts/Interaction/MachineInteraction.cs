@@ -29,13 +29,16 @@ public class MachineInteraction : MonoBehaviour
 
     private void SelectMachine(MachineUIController machineUI)
     {
+        
         if (currentMachineUI != machineUI) {
-            if (currentMachineUI != null) 
-            { 
-                currentMachineUI.ToggleUI(false); 
-            }
+            //if (currentMachineUI != null) 
+            //{ 
+            //    currentMachineUI.ToggleUI(false); 
+            //}
             currentMachineUI = machineUI;
-            currentMachineUI.ToggleUI(true);
+            //currentMachineUI.ToggleUI(true);
+            currentMachineUI.TerminalButton();
         }
+        
     }
 }

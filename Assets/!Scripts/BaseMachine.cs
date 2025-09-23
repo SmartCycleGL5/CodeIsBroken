@@ -37,9 +37,11 @@ public abstract class BaseMachine : MonoBehaviour
     }
     public virtual void Initialize(string initialClassName)
     {
+        Debug.LogError("[BaseMachine] initialize");
+
         if(Initialized)
         {
-            Debug.LogError(initialClassName + " Already initialized!");
+            Debug.LogError("[BaseMachine]" + initialClassName + " Already initialized!");
             return;
         }
 
@@ -128,12 +130,13 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine()
     {
-        Debug.Log("[Machine] Open Terminal for " + this);
+        Debug.Log("[BaseMachine] Open Terminal for " + this);
         Terminal.NewTerminal(this);
     }
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
+        Debug.LogError("[BaseMachine] add methods");
         foreach (var item in machine.GetMethods())
         {
             if (item.GetBaseDefinition() == item)
@@ -141,50 +144,10 @@ public abstract class BaseMachine : MonoBehaviour
                 string name = item.Name;
                 if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
 
+                Debug.LogError("[BaseMachine] add " + item.Name);
+
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }
     }
-
-    #region Deprecated
-    public async Task Rotate(int amount)
-    {
-        float originalAmount = transform.eulerAngles.y;
-
-        while ((originalAmount + amount) - transform.eulerAngles.y > .1f && isRunning)
-        {
-            transform.Rotate(0, amount * Time.deltaTime, 0);
-
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
-        }
-
-        if (isRunning)
-            transform.eulerAngles = new Vector3(0, originalAmount + amount, 0);
-    }
-    public async Task Move(Vector3 dir)
-    {
-        Vector3 originalPos = transform.position;
-
-        while (Vector3.Distance(originalPos + dir, transform.position) > .1f && isRunning)
-        {
-            transform.position += dir * Time.deltaTime;
-
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
-        }
-
-        if (isRunning)
-            transform.position = originalPos + dir;
-    }
-
-    public async void Rocket()
-    {
-        while (isRunning)
-        {
-            _ = Rotate(360);
-            await Move(Vector3.up);
-
-            Debug.Log(isRunning);
-        }
-    }
-    #endregion
 }

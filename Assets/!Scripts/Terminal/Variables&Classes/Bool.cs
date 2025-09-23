@@ -1,16 +1,19 @@
+using Coding.Language;
 using UnityEngine;
-
-public class Bool : MonoBehaviour
+namespace Coding.Language
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class Bool : Variable
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Bool(string name, object value) : base(name, value)
+        {
+        }
+        public bool Get()
+        {
+            return (bool)value;
+        }
+        public void Set(bool value)
+        {
+            
+        }
     }
 }

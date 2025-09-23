@@ -1,16 +1,17 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Int : MonoBehaviour
+    public class Int : Variable
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public Int(string name, object value) : base(name, value)
         {
-
         }
 
-        // Update is called once per frame
-        void Update()
+        public int Get()
+        {
+            return (int)value;
+        }
+        public void Set(int value)
         {
 
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Coding.Language
 {
-    public class Object
+    public abstract class Object
     {
         public string name { get; private set; }
         public object value;

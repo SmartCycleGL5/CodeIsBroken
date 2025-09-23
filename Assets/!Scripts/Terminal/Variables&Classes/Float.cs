@@ -1,16 +1,17 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Float : MonoBehaviour
+    public class Float : Variable
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public Float(string name, object value) : base(name, value)
         {
-
         }
 
-        // Update is called once per frame
-        void Update()
+        public float Get()
+        {
+            return (float)value;
+        }
+        public void Set(float value)
         {
 
         }

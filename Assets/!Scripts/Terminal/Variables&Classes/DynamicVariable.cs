@@ -27,9 +27,9 @@ namespace Coding.Language
             this.value = value;
         }
 
-        public void SetValue(object value)
+        protected void SetValue(object value)
         {
-            Debug.Log("[Variable] set type: " + value.GetType());
+            this.value = value;
         }
 
         //public void SetValue(string variable)

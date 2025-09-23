@@ -1,9 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using static Utility;
 
 namespace Coding.Language
 {
@@ -11,14 +9,14 @@ namespace Coding.Language
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
-    public class Class : IVariable, IMethod
+    public class Class : IVariableContainer, IMethodContainer
     {
         public string name;
 
         public Class inheritedClass;
         public BaseMachine machine;
         [field: SerializeField, SerializedDictionary("Name", "Variable")]
-        public SerializedDictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, IVariable> variables { get; set; } = new();
 
         [field: SerializeField, SerializedDictionary("Name", "Method")]
         public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
@@ -59,9 +57,9 @@ namespace Coding.Language
             {
                 return methods[name];
             }
-            catch 
-            { 
-                if(inheritedClass != null)
+            catch
+            {
+                if (inheritedClass != null)
                 {
                     return inheritedClass.methods[name];
                 }
@@ -79,9 +77,9 @@ namespace Coding.Language
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, object value, Type type)
+        public IVariable NewVariable(string name, object value, Type type)
         {
-            Variable variable = null;
+            IVariable variable = null;
 
             switch (type)
             {
@@ -115,12 +113,12 @@ namespace Coding.Language
             variables.Add(name, variable);
             return variable;
         }
-        public Variable FindVariable(string name)
+        public IVariable FindVariable(string name)
         {
             try
             {
                 return variables[name];
-            } 
+            }
             catch
             {
                 return inheritedClass.FindVariable(name);

@@ -1,9 +1,9 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Int : Variable, IGetSetAble<int>
+    public class Int : Object<IVariableContainer>, IVariable<int>
     {
-        public Int(string name, IVariable container, object value, Type type = Type.Int) : base(name, container, value, type)
+        public Int(string name, IVariableContainer container, object value, Type type = Type.Int) : base(name, container, type)
         {
         }
 
@@ -13,7 +13,7 @@ namespace Coding.Language
         }
         public void Set(int value)
         {
-
+            this.value = value;
         }
     }
 }

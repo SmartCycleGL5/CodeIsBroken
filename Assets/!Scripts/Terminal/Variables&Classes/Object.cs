@@ -18,8 +18,9 @@ namespace Coding.Language
     {
         public string name { get; private set; }
         [field: SerializeField] public Type type { get; private set; }
-        public object value;
         public T container { get; private set; }
+
+        public object value { get; protected set; }
 
         public Object(string name, T container, Type type)
         {

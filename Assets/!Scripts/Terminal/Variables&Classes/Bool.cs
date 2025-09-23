@@ -2,9 +2,9 @@ using Coding.Language;
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Bool : Variable, IGetSetAble<bool>
+    public class Bool : Object<IVariableContainer>, IVariable<bool>
     {
-        public Bool(string name, IVariable container, object value, Type type = Type.Bool) : base(name, container, value, type)
+        public Bool(string name, IVariableContainer container, object value, Type type = Type.Bool) : base(name, container, type)
         {
         }
 
@@ -14,7 +14,7 @@ namespace Coding.Language
         }
         public void Set(bool value)
         {
-            
+            this.value = value;
         }
     }
 }

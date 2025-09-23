@@ -8,14 +8,14 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public class UserMethod : Method, IVariable
+    public class UserMethod : Method, IVariableContainer
     {
         string[] methodCode;
         [SerializeField] List<Line> lines = new();
 
-        public SerializedDictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, IVariable> variables { get; set; } = new();
 
-        public UserMethod(string name, Class @class, Variable[] arguments, string[] methodCode, Type returnType = Type.Void) : base(name, @class, arguments, returnType)
+        public UserMethod(string name, Class @class, IVariable[] arguments, string[] methodCode, Type returnType = Type.Void) : base(name, @class, arguments, returnType)
         {
             this.methodCode = methodCode;
 
@@ -84,9 +84,9 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, object value, Type type)
+        public IVariable NewVariable(string name, object value, Type type)
         {
-            Variable variable = null;
+            IVariable variable = null;
 
             switch (type)
             {
@@ -120,12 +120,12 @@ namespace Coding.Language
             variables.Add(name, variable);
             return variable;
         }
-        public Variable NewVariable(Variable variable)
+        public IVariable NewVariable(IVariable variable)
         {
             variables.Add(variable.name, variable);
             return variable;
         }
-        public Variable FindVariable(string name)
+        public IVariable FindVariable(string name)
         {
             if (variables[name] != null)
             {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Coding.Language
 {
-    public interface IMethod
+    public interface IMethodContainer
     {
         public SerializedDictionary<string, UserMethod> methods { get; set; }
 

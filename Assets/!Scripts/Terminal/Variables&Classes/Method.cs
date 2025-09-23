@@ -4,9 +4,9 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public abstract class Method : Object<IMethod>
+    public abstract class Method : Object<IMethodContainer>
     {
-        public Variable[] input = null;
+        public IVariable[] input = null;
         [HideInInspector] public Class @class;
 
         public Method(string name, Class @class, object[] arguments, Type returnType = Type.Void) : base(name, @class, returnType)

@@ -36,6 +36,7 @@ public class MachineInteraction : MonoBehaviour
             }
             currentMachineUI = machineUI;
             currentMachineUI.ToggleUI(true);
+            currentMachineUI.TerminalButton();
         }
     }
 }

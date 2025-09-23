@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] bool dragToRotate;
 
     private Vector2 moveInput;
-    private Vector2 lookInput;
+    private float lookInput;
 
     float screenWidth;
     public enum PlayerAction
@@ -46,7 +47,12 @@ public class PlayerInputs : MonoBehaviour
     // Player mouse movement
     public void OnLook(InputValue value)
     {
-        lookInput = value.Get<Vector2>();
+        //lookInput = value.Get<Vector2>();
+    }
+    public void OnCameraRotate(InputValue value)
+    {
+        //Debug.Log(value.Get<Vector2>());
+        lookInput = value.Get<float>();
     }
     #endregion
 
@@ -88,6 +94,10 @@ public class PlayerInputs : MonoBehaviour
             buildingMenu.SetActive(true);
             playerAction = PlayerAction.Building;
         }
+        if (Keyboard.current.deleteKey.wasPressedThisFrame)
+        {
+            Restart();
+        }
     }
 
 
@@ -100,7 +110,7 @@ public class PlayerInputs : MonoBehaviour
     void MouseRotate()
     {
         // Only rotate if Middle mouse i down
-        if (!Mouse.current.middleButton.IsPressed()) return;
+        //if (!Mouse.current.middleButton.IsPressed()) return;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
         {
@@ -108,15 +118,21 @@ public class PlayerInputs : MonoBehaviour
             //Drag to rotate, rotates based on mouse movement.
             if (dragToRotate)
             {
-                player.RotateAround(hit.point, Vector3.up, lookInput.x * rotationSpeed * Time.deltaTime);
+                //player.RotateAround(hit.point, Vector3.up, lookInput.x * rotationSpeed * Time.deltaTime);
             }
             //Rotates based on which side of the screen mouse is in.
             else
             {
-                Vector2 mousePosition = Mouse.current.position.value;
-                float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
-                player.RotateAround(hit.point, Vector3.up, screenSide * rotationSpeed * Time.deltaTime);
+                //Vector2 mousePosition = Mouse.current.position.value;
+                //float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
+                Debug.Log("Rotating"+lookInput);
+                player.RotateAround(hit.point, Vector3.up, -lookInput * rotationSpeed * Time.deltaTime);
             }
         }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

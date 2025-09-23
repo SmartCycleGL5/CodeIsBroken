@@ -50,15 +50,15 @@ public class Conveyor : MonoBehaviour, IItemContainer
             if(item == null)
             {
                 Debug.Log("SentItem");
-                item = recieveFrom.item;
-                recieveFrom.item = null;
+                SetItem(recieveFrom.item);
+                recieveFrom.RemoveItem();
             }
             recieveFrom.SendItem();
         }
         // T.O. Was here
         if (item != null)
         {
-            item.transform.position = itemPosition;
+            //item.transform.position = itemPosition;
         }
 
     }
@@ -75,10 +75,11 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     public bool SetItem(Item item)
     {
+        if (item == null) return false;
         if(this.item != null) return false;
 
         this.item = item;
-        this.item.transform.position = itemPosition;
+        this.item.gameObject.transform.position = itemPosition;
         return true;
     }
     [DontIntegrate]

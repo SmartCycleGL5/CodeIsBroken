@@ -16,7 +16,6 @@ namespace Coding.Language
             toCall = method;
             this.toRunFrom = toRunFrom;
         }
-
         public override bool TryRun(object[] parameters)
         {
             Run(parameters);
@@ -25,19 +24,19 @@ namespace Coding.Language
 
         protected override void Run(object[] parameters)
         {
-            try
+            if (parameters == null)
+            {
+                Debug.Log("[IntegratedMethod] Running " + toCall.Name);
+            }
+            else
             {
                 Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
                 foreach (var item in parameters)
                 {
                     Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
                 }
-                toCall.Invoke(toRunFrom, parameters);
             }
-            catch (Exception ex)
-            {
-                Debug.LogError("[IntegratedMethod] wrong parameters given \n" + ex);
-            }
+            toCall.Invoke(toRunFrom, parameters);
         }
     }
 }

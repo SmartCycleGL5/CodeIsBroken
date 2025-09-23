@@ -7,5 +7,6 @@
             <ui:Button text="Run" name="Run" class="unity-button Bottom-Button TerminalButton" />
             <ui:Button text="Save" name="Save" class="unity-button Bottom-Button TerminalButton" />
         </ui:VisualElement>
+        <ui:Label text="Avilable Methods:&#10;" name="Methods" style="position: absolute; right: 0; color: rgb(0, 255, 0);" />
     </ui:VisualElement>
 </ui:UXML>

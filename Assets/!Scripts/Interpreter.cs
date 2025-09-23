@@ -27,6 +27,7 @@ namespace Coding
                 string name = sections[1];
 
                 Class newClass = new Class(machine, name, classScript);
+                Debug.Log("[Interperator] New Class for " + machine);
                 machine.Classes.Add(name, newClass);
 
                 i += end - i; //skips to the end of the class

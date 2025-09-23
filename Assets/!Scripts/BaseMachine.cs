@@ -4,6 +4,8 @@ using Coding.Language;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,9 +25,24 @@ public abstract class BaseMachine : MonoBehaviour
 
     public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
-    protected virtual void Start()
+    Method start;
+    Method update;
+
+    public bool Initialized { get; private set; } = false;
+
+    [Button]
+    void Initialize()
     {
-        machineCode.Initialize(name, this);
+        Initialize("NewClass" + UnityEngine.Random.Range(1, 100));
+    }
+    public virtual void Initialize(string initialClassName)
+    {
+        if(Initialized)
+        {
+            Debug.LogError(initialClassName + " Already initialized!");
+            return;
+        }
+
         ScriptManager.instance.AddMachine(this);
 
         initialPos = transform.position;
@@ -33,24 +50,61 @@ public abstract class BaseMachine : MonoBehaviour
 
         //if(machineCode == null)
         //    machineCode = new MachineCode();
+
+        Tick.OnStartingTick += RunStart;
+        Tick.OnTick += RunUpdate;
+        Tick.OnEndingTick += Stop;
+
+        machineCode = new MachineCode(initialClassName, this);
+
+        Initialized = true;
     }
 
     private void OnDestroy()
     {
         ScriptManager.instance.RemoveMachine(this);
+        Tick.OnStartingTick -= RunStart;
+        Tick.OnTick -= RunUpdate;
+        Tick.OnEndingTick -= Stop;
     }
 
-    public void Run()
+    public void RunStart()
     {
         isRunning = true;
 
-        Application.quitting += Stop;
-
         foreach (var Class in Classes)
         {
-            Class.Value.FindMethod("Start").TryRun();
+            try
+            {
+                start = Class.Value.FindMethod("Start");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Start not found");
+            }
         }
+
+        if (start != null)
+            start.TryRun();
     }
+    public void RunUpdate()
+    {
+        foreach (var Class in Classes)
+        {
+            try
+            {
+                update = Class.Value.FindMethod("Update");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Update not found");
+            }
+        }
+
+        if (update != null)
+            update.TryRun();
+    }
+
     public void Stop()
     {
         Application.quitting -= Stop;
@@ -76,7 +130,7 @@ public abstract class BaseMachine : MonoBehaviour
     {
         Terminal.NewTerminal(this);
     }
-
+    // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
         foreach (var item in machine.GetMethods())
@@ -84,6 +138,8 @@ public abstract class BaseMachine : MonoBehaviour
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
+                if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
+
                 IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
             }
         }

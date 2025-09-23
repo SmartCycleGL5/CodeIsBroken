@@ -17,9 +17,10 @@ public class MachineUIController : MonoBehaviour
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
-        uiMenu.SetActive(toggle);
+        //uiMenu.SetActive(toggle);
         Debug.Log(uiEnabled);
-        
+        TerminalButton();
+
     }
 
     private void Update()
@@ -31,7 +32,8 @@ public class MachineUIController : MonoBehaviour
 
     public void TerminalButton()
     {
-        ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
+        if (!gameObject.GetComponent<BaseMachine>().Initialized)
+            ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
         OpenTerminal(); 
 
     }

@@ -7,15 +7,24 @@ using AYellowpaper.SerializedCollections;
 
 public class GridBuilder : MonoBehaviour
 {
+    public static GridBuilder instance;
+
     Vector2 _lastPosition;
+    [SerializeField] int buildingLimit;
     [SerializeField] Grid grid;
     [SerializeField] GhostBuilding ghostBuilding;
     [SerializedDictionary("Position", "Object in position")]
     public SerializedDictionary<Vector2Int, GameObject> gridObjects = new();
-    
+
+    private void Start()
+    {
+        instance = this;
+    }
+
     // Get the grid cell mouse is hovering over
     public Vector2 GetGridPosition()
     {
+        Debug.Log("Getting grid mouse posistion");
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray ,out RaycastHit hit, 100f))
         {
@@ -32,6 +41,9 @@ public class GridBuilder : MonoBehaviour
         foreach (var pos in positions)
         {
             Vector3Int cellPos = grid.WorldToCell(pos);
+            if(-buildingLimit > cellPos.x || buildingLimit < cellPos.x) return false;
+            if (-buildingLimit > cellPos.z || buildingLimit < cellPos.z) return false;
+
             if (gridObjects.ContainsKey(new Vector2Int(cellPos.x, cellPos.z)))
             {
                 return false;
@@ -72,9 +84,9 @@ public class GridBuilder : MonoBehaviour
     public GameObject LookUpCell(Vector3 pos)
     {
         Vector3Int cellPos = grid.WorldToCell(pos);
-        if (gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.y), out GameObject building))
+        if (gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.z), out GameObject building))
         {
-            Debug.Log("Looked up: " + new Vector2(cellPos.x, cellPos.y)+" - "+building);
+            Debug.Log("Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
             return building;
         }
         return null;

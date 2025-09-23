@@ -93,6 +93,7 @@ public class GhostBuilding : MonoBehaviour
         prefabToBuild = newGhost;
         ghostPrefab = Instantiate(newGhost);
         building = ghostPrefab.GetComponent<Building>();
+        renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
     }
 

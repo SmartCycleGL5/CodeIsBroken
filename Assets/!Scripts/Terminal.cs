@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,9 +17,13 @@ namespace Coding
         //UI elements
         Dictionary<string, Button> buttons = new();
         VisualElement terminal;
+        Label availableMethods;
         TextField input;
 
         public Window window { get; set; }
+
+        Action runButtonStart { get { return ScriptManager.ToggleMachines; } }
+        Action runButtonStop { get { return ScriptManager.ToggleMachines; } }
 
 
         private async void Start()
@@ -35,18 +40,19 @@ namespace Coding
             buttons.Add("Save", terminal.Q<Button>("Save"));
             buttons.Add("Run", terminal.Q<Button>("Run"));
 
+            availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
 
             buttons["Save"].clicked += Save;
-            buttons["Run"].clicked += RunMachine;
+            buttons["Run"].clicked += runButtonStart;
 
             Load();
         }
         private void OnDestroy()
         {
             buttons["Save"].clicked -= Save;
-            buttons["Run"].clicked -= RunMachine;
-            buttons["Run"].clicked -= StopMachine;
+            buttons["Run"].clicked -= runButtonStart;
+            //buttons["Run"].clicked -= runButtonStop;
         }
 
         public void Close()
@@ -61,19 +67,19 @@ namespace Coding
 
         public void RunMachine()
         {
-            machineToEdit.Run();
+            machineToEdit.RunStart();
             buttons["Run"].text = "Stop";
 
-            buttons["Run"].clicked += StopMachine;
-            buttons["Run"].clicked -= RunMachine;
+            //buttons["Run"].clicked += runButtonStop;
+            //buttons["Run"].clicked -= runButtonStart;
         }
         public void StopMachine()
         {
             machineToEdit.Stop();
             buttons["Run"].text = "Run";
 
-            buttons["Run"].clicked += RunMachine;
-            buttons["Run"].clicked -= StopMachine;
+            //buttons["Run"].clicked += runButtonStart;
+            //buttons["Run"].clicked -= runButtonStop;
         }
 
         public void SelectMachine(BaseMachine machineScript)
@@ -88,6 +94,13 @@ namespace Coding
             Debug.Log(machineToEdit.machineCode);
 
             input.value = machineToEdit.machineCode.Code;
+
+            availableMethods.text = "Available Methods: \n";
+
+            foreach (var method in machineToEdit.IntegratedMethods)
+            {
+                availableMethods.text += "\n" + method.Value.name + "()";
+            }
         }
         public void Save()
         {

@@ -702,20 +702,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "c64225818abc4a4ca353421e349e1e6a"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "69b1099b2e70469fb7d5b2c90b129ee3"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "c76b3bb0085c4e68adea6b8043f67712"
                 },
                 "m_SlotId": 1
@@ -831,8 +817,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": -1272.0001220703125,
-            "y": -388.7999267578125
+            "x": -1274.4000244140625,
+            "y": -401.5999755859375
         },
         "m_Blocks": [
             {
@@ -994,8 +980,8 @@
     "m_ObjectId": "0c1d8aa665b045ee8389edc93482b627",
     "m_Title": "Base Color Sample",
     "m_Position": {
-        "x": -3737.599609375,
-        "y": -1269.60009765625
+        "x": -3741.600341796875,
+        "y": -1318.4002685546875
     }
 }
 
@@ -1053,8 +1039,8 @@
     "m_ObjectId": "0e2426cfa3294d5c80f353320a75376e",
     "m_Title": "Remap values",
     "m_Position": {
-        "x": -3799.999755859375,
-        "y": -105.5999984741211
+        "x": -3800.00048828125,
+        "y": -105.6002197265625
     }
 }
 
@@ -1142,10 +1128,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -4697.02490234375,
-            "y": -211.65098571777345,
-            "width": 208.0,
-            "height": 277.60003662109377
+            "x": -4687.99951171875,
+            "y": -166.40000915527345,
+            "width": 132.0,
+            "height": 93.60001373291016
         }
     },
     "m_Slots": [
@@ -1161,7 +1147,7 @@
         "opposite"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -1272,7 +1258,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 1.0,
+    "m_Value": 0.5099999904632568,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -1457,8 +1443,8 @@
     "m_ObjectId": "24fe8e2263e641ebac9f198786f03a52",
     "m_Title": "Get diffuse lighting value",
     "m_Position": {
-        "x": -4887.99951171875,
-        "y": -486.39996337890627
+        "x": -4933.6005859375,
+        "y": -566.4002075195313
     }
 }
 
@@ -1473,8 +1459,8 @@
     "m_ShaderOutputName": "InMinMax",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": -4.53000020980835,
-        "y": 4.5
+        "x": -1.0,
+        "y": 1.0
     },
     "m_DefaultValue": {
         "x": -1.0,
@@ -1802,8 +1788,8 @@
     "m_Color": {
         "color": {
             "r": 1.0,
-            "g": 1.0,
-            "b": 1.0,
+            "g": 0.0,
+            "b": 0.0,
             "a": 1.0
         },
         "mode": 0
@@ -2081,8 +2067,8 @@
     "m_ObjectId": "5086e36dcef949b18c1134f1711d875b",
     "m_Title": "Generate halftone grid",
     "m_Position": {
-        "x": -4230.3994140625,
-        "y": 490.39996337890627
+        "x": -4230.39990234375,
+        "y": 490.4000244140625
     }
 }
 
@@ -2814,7 +2800,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "CellDensity",
     "m_StageCapability": 3,
-    "m_Value": 12.0,
+    "m_Value": 5.0,
     "m_DefaultValue": 5.0,
     "m_Labels": []
 }
@@ -3259,10 +3245,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -4151.4248046875,
-            "y": -69.25099182128906,
-            "width": 127.2000732421875,
-            "height": 117.60006713867188
+            "x": -4155.2001953125,
+            "y": -257.60003662109377,
+            "width": 127.199951171875,
+            "height": 117.60000610351563
         }
     },
     "m_Slots": [
@@ -3621,8 +3607,8 @@
     "m_ObjectId": "91fdbfc4672e43ca85b67a7de8a84e60",
     "m_Title": "Correct screen space aspect ratio",
     "m_Position": {
-        "x": -5019.99951171875,
-        "y": 389.5999755859375
+        "x": -5020.00048828125,
+        "y": 389.59991455078127
     }
 }
 
@@ -4082,10 +4068,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -4862.625,
-            "y": -234.85096740722657,
-            "width": 160.7999267578125,
-            "height": 76.79998779296875
+            "x": -4907.99951171875,
+            "y": -110.4000015258789,
+            "width": 160.80029296875,
+            "height": 76.79997253417969
         }
     },
     "m_Slots": [
@@ -4189,10 +4175,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3712.224609375,
-            "y": -1009.2510986328125,
-            "width": 153.0,
-            "height": 34.0
+            "x": -3716.0,
+            "y": -1258.4000244140625,
+            "width": 145.599853515625,
+            "height": 104.7999267578125
         }
     },
     "m_Slots": [
@@ -4611,7 +4597,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 2.5,
+    "m_Value": 0.4399999976158142,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -4741,10 +4727,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -4763.224609375,
-            "y": -426.25103759765627,
-            "width": 206.0,
-            "height": 131.0
+            "x": -4779.2001953125,
+            "y": -506.39996337890627,
+            "width": 208.00048828125,
+            "height": 311.99993896484377
         }
     },
     "m_Slots": [
@@ -5369,8 +5355,8 @@
     "m_ObjectId": "fabc7f2bbb5542e1a7cbf4983a163b4e",
     "m_Title": "Reduce lightness of base color",
     "m_Position": {
-        "x": -2885.599609375,
-        "y": -788.0000610351563
+        "x": -2885.600341796875,
+        "y": -788.000244140625
     }
 }
 

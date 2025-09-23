@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace Journal
@@ -15,6 +16,7 @@ namespace Journal
         [SerializeField] string factoryTabName = "Factory";
         [SerializeField] string economyTabName = "Economy";
         public UIDocument journalDoc;
+        [SerializeField] Texture2D image;
         void Awake()
         {
             if (!instance) { instance = this; }
@@ -36,6 +38,7 @@ namespace Journal
         {
             List<string> entryNames = entries.Select(obj => obj.name).ToList();
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
+            tab.tabHeader.style.backgroundImage = image;
             var entryDrop = tab.Q<DropdownField>("Dropdown");
             entryDrop.choices = entryNames;
             entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
@@ -60,8 +63,13 @@ namespace Journal
             {
                 journalDoc.rootVisualElement.style.display = DisplayStyle.Flex;
             }
-
         }
-
+        void Update()
+        {
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                JournalOnOff();
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Coding
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (!scriptLines[i].Contains(keywords[key.Class])) continue;
+                if (!scriptLines[i].Contains(keywords[key.Class].word)) continue;
 
                 string[] sections = scriptLines[i].Split(" ");
                 List<string> classScript = scriptLines.ToList();
@@ -80,19 +80,19 @@ namespace Coding
 
         public static Type GetType(string type)
         {
-            if (type == keywords[key.Int])
+            if (type == keywords[key.Int].word)
             {
                 return Language.Type.Int;
             }
-            else if (type == keywords[key.String])
+            else if (type == keywords[key.String].word)
             { 
                 return Language.Type.String; 
             }
-            else if (type == keywords[key.Float])
+            else if (type == keywords[key.Float].word)
             {
                 return Language.Type.Float;
             }
-            else if (type == keywords[key.Bool])
+            else if (type == keywords[key.Bool].word)
             {
                 return Language.Type.Bool;
             } else

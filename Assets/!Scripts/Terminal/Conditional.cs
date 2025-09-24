@@ -2,26 +2,33 @@ using UnityEngine;
 
 namespace Coding.Language.Conditions
 {
-    public abstract class Conditional : Line
+    public abstract class Conditional : Encapsulation
     {
         protected bool condition;
-        protected Line[] lines;
-        public Conditional(bool condtion, Line[] lines)
+        public Conditional(bool condition, Line[] lines) : base(lines)
         {
-            this.condition = condtion;
-            this.lines = lines;
-        }
-
-        public override void Run()
-        {
-            throw new System.NotImplementedException();
+            this.condition = condition;
         }
     }
 
     public class If : Conditional
     {
-        public If(bool condtion, Line[] lines) : base(condtion, lines)
+        public Encapsulation @else;
+
+        public If(bool condtion, Line[] lines, Encapsulation @else) : base(condtion, lines)
         {
+            this.@else = @else;
+        }
+
+        public override void Run()
+        {
+            if (condition)
+            {
+            }
+            else
+            {
+                @else.Run();
+            }
         }
     }
 }

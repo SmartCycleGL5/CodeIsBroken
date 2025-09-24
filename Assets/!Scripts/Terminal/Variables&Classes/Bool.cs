@@ -4,8 +4,9 @@ namespace Coding.Language
 {
     public class Bool : Variable, ISettable<bool>, IGettable<bool>
     {
-        public Bool(string name, IVariableContainer container, object value, Type type = Type.Bool) : base(name, container, type)
+        public Bool(string name, IVariableContainer container, bool value = false, Type type = Language.Type.Bool) : base(name, container, type)
         {
+            Set(value);
         }
 
         public bool Get()
@@ -15,6 +16,11 @@ namespace Coding.Language
         public void Set(bool value)
         {
             this.value = value;
+        }
+
+        public override Type Type()
+        {
+            return Language.Type.Bool;
         }
     }
 }

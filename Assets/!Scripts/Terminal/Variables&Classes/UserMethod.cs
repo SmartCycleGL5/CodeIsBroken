@@ -85,7 +85,7 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, object value, Type type)
+        public Variable NewVariable(string name, string value, Type type)
         {
             Variable variable = null;
 
@@ -93,12 +93,12 @@ namespace Coding.Language
             {
                 case Type.Int:
                     {
-                        variable = new Int(name, this, value);
+                        variable = new Int(name, this, int.Parse(value));
                         break;
                     }
                 case Type.Float:
                     {
-                        variable = new Float(name, this, value);
+                        variable = new Float(name, this, float.Parse(value));
                         break;
                     }
                 case Type.String:
@@ -108,22 +108,17 @@ namespace Coding.Language
                     }
                 case Type.Bool:
                     {
-                        variable = new Bool(name, this, value);
+                        variable = new Bool(name, this, bool.Parse(value));
                         break;
                     }
                 default:
                     {
-                        Debug.LogError("[Class] cannot create variable of type " + type);
-                        break;
+                        Debug.LogError("[UserMethod] cannot create variable of type " + type);
+                        return null;
                     }
             }
 
             variables.Add(name, variable);
-            return variable;
-        }
-        public Variable NewVariable(Variable variable)
-        {
-            variables.Add(variable.name, variable);
             return variable;
         }
         public Variable FindVariable(string name)

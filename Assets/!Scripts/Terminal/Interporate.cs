@@ -49,15 +49,13 @@ namespace Coding
 
             if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                Variable newVariable = @class.NewVariable(name, null, GetType(type));
-
-                //Setting variables
-                if (code[line].Contains("="))
+                if (code[line].Contains("="))                //Setting variables
                 {
-                    string value = sections[3];
-
-                    //cant set rn
-                    //newVariable.Set(value);
+                    Variable newVariable = @class.NewVariable(name, sections[3], GetType(type));
+                } 
+                else
+                {
+                    Variable newVariable = @class.NewVariable(name, null, GetType(type));
                 }
             }
             else if (isMethod && !@class.methods.ContainsKey(name))

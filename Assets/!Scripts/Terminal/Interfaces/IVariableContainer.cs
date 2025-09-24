@@ -13,7 +13,7 @@ namespace Coding.Language
         /// <param name="name">The name of the variable</param>
         /// <param name="Type">The type of the variable</param>
         /// <returns>the variable</returns>
-        public Variable NewVariable(string name, object value, Type type);
+        public Variable NewVariable(string name, string value, Type type);
         /// <summary>
         /// Find a variable by name
         /// </summary>

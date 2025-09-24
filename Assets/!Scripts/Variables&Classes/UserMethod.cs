@@ -1,0 +1,149 @@
+using AYellowpaper.SerializedCollections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using UnityEngine;
+
+namespace Coding.Language
+{
+    [Serializable]
+    public class UserMethod : Method, IVariable
+    {
+        string[] methodCode;
+        [SerializeField] List<Line> lines = new();
+
+        public Dictionary<string, Variable> variables { get; set; } = new();
+
+        public UserMethod(string name, object[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
+        {
+            this.methodCode = methodCode;
+
+            @class.AddMethod(this);
+
+            InitializeMethod();
+        }
+        public void InitializeMethod()
+        {
+            foreach (var line in methodCode)
+            {
+                lines.Add(ReadLine(line));
+            }
+        }
+
+        public static object[] TranslateArguments(string args)
+        {
+            if (args == null || args == string.Empty) return null;
+
+            Debug.Log("[ArgumentTranslation] " + args);
+
+            string[] stringArgsList = Regex.Split(args, ",");
+
+            List<object> argsList = new List<object>();
+            foreach (var item in stringArgsList)
+            {
+                object toAdd = item;
+
+                try
+                {
+                    if (item.Contains('f'))
+                    {
+                        toAdd = float.Parse(item.Replace("f", ""));
+                    }
+                    else
+                    {
+                        toAdd = int.Parse(item);
+                    }
+                }
+                catch 
+                { 
+                
+                }
+
+                argsList.Add(toAdd);
+            }
+
+            return argsList.ToArray();
+        }
+
+        public Line ReadLine(string line)
+        {
+            List<string> sections = line.Split(" ").ToList();
+            Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
+
+            bool isMethod = line.Contains("(") && line.Contains(")");
+
+            if (isMethod)
+            {
+                string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
+                args = args.Replace("(", "");
+                args = args.Replace(")", "");
+                string name = line.Substring(0, line.IndexOf('('));
+
+                Debug.Log(line);
+                Debug.Log(args);
+
+
+                lines.Add(new MethodCall(name, @class, TranslateArguments(args)));
+            }
+            return null;
+        }
+        public override bool TryRun(object[] input = null)
+        {
+            if (input == null && this.input == null)
+            {
+                Run(input);
+                return true;
+            }
+            if (input.Length == base.input.Length)
+            {
+
+                Run(input);
+                return true;
+            }
+
+            return false;
+        }
+        protected override void Run(object[] input)
+        {
+            Debug.Log("Running: " + name);
+
+            foreach (var line in lines)
+            {
+                if (line == null) continue;
+                line.Run();
+            }
+
+            variables.Clear();
+        }
+
+        #region Variable
+        public Variable NewVariable(string name, object value)
+        {
+            Variable variable = new Variable(name, value);
+            variables.Add(name, variable);
+            return variable;
+        }
+        public Variable NewVariable(Variable variable)
+        {
+            variables.Add(variable.name, variable);
+            return variable;
+        }
+        public Variable FindVariable(string name)
+        {
+            if (variables[name] != null)
+            {
+                return variables[name];
+            }
+            else if (@class.variables[name] != null)
+            {
+                return @class.FindVariable(name);
+            }
+
+            return null;
+        }
+        #endregion
+    }
+}
+

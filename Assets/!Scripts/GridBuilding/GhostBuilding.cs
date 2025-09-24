@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GhostBuilding : MonoBehaviour
@@ -15,7 +17,7 @@ public class GhostBuilding : MonoBehaviour
     private GameObject prefabToBuild;
     
     
-    private bool isBuilding = false;
+    public bool isBuilding = false;
 
     private Building building;
     private bool canPlace;
@@ -25,14 +27,21 @@ public class GhostBuilding : MonoBehaviour
         BuildingSelector.OnChangedBuilding += SwapGhostBlock;
     }
 
-    private void Update()
+    public void PlayerUpdate()
     {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Destroy(ghostPrefab);
+            isBuilding = false;
+        }
+        if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             RotateBuilding();
         }
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
         if (Mouse.current.rightButton.wasPressedThisFrame)
@@ -84,6 +93,12 @@ public class GhostBuilding : MonoBehaviour
         prefabToBuild = newGhost;
         ghostPrefab = Instantiate(newGhost);
         building = ghostPrefab.GetComponent<Building>();
+        renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
+    }
+
+    public void DestroyGhost()
+    {
+        Destroy(ghostPrefab);
     }
 }

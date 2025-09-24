@@ -2,20 +2,21 @@ using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Coding.Language
 {
     [Serializable]
-    public class UserMethod : Method, IVariable
+    public class UserMethod : Method, IVariableContainer
     {
         string[] methodCode;
         [SerializeField] List<Line> lines = new();
 
-        public Dictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
-        public UserMethod(string name, object[] arguments, string[] methodCode, Class @class, Type returnType = Type.Void) : base(name, arguments, @class, returnType)
+        public UserMethod(string name, Class @class, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, @class, parameters, returnType)
         {
             this.methodCode = methodCode;
 
@@ -29,41 +30,6 @@ namespace Coding.Language
             {
                 lines.Add(ReadLine(line));
             }
-        }
-
-        public static object[] TranslateArguments(string args)
-        {
-            if (args == null || args == string.Empty) return null;
-
-            Debug.Log("[ArgumentTranslation] " + args);
-
-            string[] stringArgsList = Regex.Split(args, ",");
-
-            List<object> argsList = new List<object>();
-            foreach (var item in stringArgsList)
-            {
-                object toAdd = item;
-
-                try
-                {
-                    if (item.Contains('f'))
-                    {
-                        toAdd = float.Parse(item.Replace("f", ""));
-                    }
-                    else
-                    {
-                        toAdd = int.Parse(item);
-                    }
-                }
-                catch 
-                { 
-                
-                }
-
-                argsList.Add(toAdd);
-            }
-
-            return argsList.ToArray();
         }
 
         public Line ReadLine(string line)
@@ -85,18 +51,18 @@ namespace Coding.Language
                 Debug.Log(args);
 
 
-                lines.Add(new MethodCall(name, @class, TranslateArguments(args)));
+                lines.Add(new MethodCall(name, @class, Interporate.TranslateArguments(args)));
             }
             return null;
         }
         public override bool TryRun(object[] input = null)
         {
-            if (input == null && this.input == null)
+            if (input == null && parameters == null)
             {
                 Run(input);
                 return true;
             }
-            if (input.Length == base.input.Length)
+            if (input.Length == parameters.Length)
             {
 
                 Run(input);
@@ -119,15 +85,40 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, object value)
+        public Variable NewVariable(string name, string value, Type type)
         {
-            Variable variable = new Variable(name, value);
+            Variable variable = null;
+
+            switch (type)
+            {
+                case Type.Int:
+                    {
+                        variable = new Int(name, this, int.Parse(value));
+                        break;
+                    }
+                case Type.Float:
+                    {
+                        variable = new Float(name, this, float.Parse(value));
+                        break;
+                    }
+                case Type.String:
+                    {
+                        variable = new String(name, this, value);
+                        break;
+                    }
+                case Type.Bool:
+                    {
+                        variable = new Bool(name, this, bool.Parse(value));
+                        break;
+                    }
+                default:
+                    {
+                        Debug.LogError("[UserMethod] cannot create variable of type " + type);
+                        return null;
+                    }
+            }
+
             variables.Add(name, variable);
-            return variable;
-        }
-        public Variable NewVariable(Variable variable)
-        {
-            variables.Add(variable.name, variable);
             return variable;
         }
         public Variable FindVariable(string name)

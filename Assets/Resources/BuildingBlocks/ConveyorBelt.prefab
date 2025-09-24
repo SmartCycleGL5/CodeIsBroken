@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Building
   buildingCells:
   - {fileID: 3757148172345242447}
+  scriptsToActivate:
+  - {fileID: 7795922601325912963}
 --- !u!114 &7795922601325912963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +58,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617270430291027306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d499cacdeba608347a070acc31713df2, type: 3}
   m_Name: 

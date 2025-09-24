@@ -125,7 +125,7 @@ public class PlayerInputs : MonoBehaviour
             {
                 //Vector2 mousePosition = Mouse.current.position.value;
                 //float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
-                Debug.Log("Rotating"+lookInput);
+                //Debug.Log("Rotating"+lookInput);
                 player.RotateAround(hit.point, Vector3.up, -lookInput * rotationSpeed * Time.deltaTime);
             }
         }

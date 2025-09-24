@@ -34,6 +34,11 @@ public class GhostBuilding : MonoBehaviour
             Destroy(ghostPrefab);
             isBuilding = false;
         }
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            Debug.Log("Trying to remove building");
+            gridBuilder.RemoveBuilding();
+        }
         if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
@@ -49,10 +54,7 @@ public class GhostBuilding : MonoBehaviour
         {
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            gridBuilder.RemoveBuilding();
-        }
+
         
         if (isBuilding)
         {

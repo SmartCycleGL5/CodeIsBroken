@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Building : MonoBehaviour
 {
     [SerializeField] private List<GameObject> buildingCells;
+    [SerializeField] private List<MonoBehaviour> scriptsToActivate;
 
     public List<Vector3> GetBuildingPositions()
     {
@@ -14,5 +16,12 @@ public class Building : MonoBehaviour
             positions.Add(cell.transform.position);
         }
         return positions;
+    }
+    public void Built()
+    {
+        foreach(MonoBehaviour script in scriptsToActivate)
+        {
+            script.enabled = true;
+        }
     }
 }

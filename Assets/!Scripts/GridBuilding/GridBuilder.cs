@@ -60,7 +60,7 @@ public class GridBuilder : MonoBehaviour
         Vector2 gridPosition = GetGridPosition();
         GameObject newBuilding = Instantiate(building, new Vector3(gridPosition.x,0,gridPosition.y), rotation);
         Building  buildingData = newBuilding.GetComponent<Building>();
-        
+        buildingData.Built();
         foreach (var cell in buildingData.GetBuildingPositions())
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);

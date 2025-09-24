@@ -15,6 +15,7 @@ namespace Coding.Language
 
         public Class inheritedClass;
         public BaseMachine machine;
+
         [field: SerializeField, SerializedDictionary("Name", "Variable")]
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
@@ -31,6 +32,8 @@ namespace Coding.Language
             this.inheritedClass = inheritedClass;
             this.machine = machine;
 
+            machine.Classes.Add(name, this);
+
             Debug.Log("[Class] New Class: " + name);
 
             InitializeClass();
@@ -41,12 +44,15 @@ namespace Coding.Language
         /// </summary>
         void InitializeClass()
         {
-            for (int i = 0; i < baseCode.Length; i++)
-            {
-                Interporate.MethodsAndVariables(baseCode, i, out int end, this);
+            Interporate.Variables(this);
+            Interporate.Methods(this);
 
-                i += end - i; //skips until after the end of the method
-            }
+            //for (int i = 0; i < baseCode.Length; i++)
+            //{
+            //    Interporate.MethodsAndVariables(baseCode, i, out int end, this);
+
+            //    i += end - i; //skips until after the end of the method
+            //}
         }
         #endregion
 

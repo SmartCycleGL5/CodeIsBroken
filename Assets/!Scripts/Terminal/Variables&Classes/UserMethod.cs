@@ -9,12 +9,13 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public class UserMethod : Method, IVariableContainer
+    public class UserMethod : Method, IVariableContainer, IMethodContainer
     {
         string[] methodCode;
         [SerializeField] List<Line> lines = new();
 
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
 
         public UserMethod(string name, Class @class, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, @class, parameters, returnType)
         {
@@ -135,6 +136,11 @@ namespace Coding.Language
             return null;
         }
         #endregion
+
+        public void AddMethod(UserMethod method)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

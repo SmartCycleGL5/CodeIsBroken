@@ -37,7 +37,7 @@ public static class Utility
         }
     }
 
-    public static void FindEncapulasion(ref List<string> encapsulatedScript, int startPoint, out int endPoint, char startEncapsulation, char endEncapsulation)
+    public static List<string> FindEncapulasion(List<string> encapsulatedScript, int startPoint, out int endPoint, char startEncapsulation, char endEncapsulation)
     {
         endPoint = startPoint;
         for (int i = startPoint + 1; i >= 0; i--)
@@ -73,6 +73,8 @@ public static class Utility
 
         encapsulatedScript.RemoveAll(item => item == "removed");
         encapsulatedScript.RemoveAll(item => item == "");
+
+        return encapsulatedScript;
     }
 
     public static class Addressable

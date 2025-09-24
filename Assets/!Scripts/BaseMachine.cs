@@ -80,7 +80,7 @@ public abstract class BaseMachine : MonoBehaviour
             {
                 start = Class.Value.FindMethod("Start");
             }
-            catch (Exception e)
+            catch
             {
                 Debug.LogWarning("Start not found");
             }
@@ -97,7 +97,7 @@ public abstract class BaseMachine : MonoBehaviour
             {
                 update = Class.Value.FindMethod("Update");
             }
-            catch (Exception e)
+            catch
             {
                 Debug.LogWarning("Update not found");
             }

@@ -7,6 +7,7 @@ namespace Coding
 {
     using Language;
     using UnityEngine;
+    using static Language.Syntax;
 
     [Serializable]
     public static class Interporate
@@ -18,7 +19,7 @@ namespace Coding
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (!scriptLines[i].Contains("class")) continue;
+                if (!scriptLines[i].Contains(keywords[key.Class])) continue;
 
                 string[] sections = scriptLines[i].Split(" ");
                 List<string> classScript = scriptLines.ToList();
@@ -52,7 +53,7 @@ namespace Coding
                 if (code[line].Contains("="))                //Setting variables
                 {
                     Variable newVariable = @class.NewVariable(name, sections[3], GetType(type));
-                } 
+                }
                 else
                 {
                     Variable newVariable = @class.NewVariable(name, null, GetType(type));
@@ -79,35 +80,26 @@ namespace Coding
 
         public static Type GetType(string type)
         {
-            switch(type)
+            if (type == keywords[key.Int])
             {
-                case "void":
-                    {
-                        return Language.Type.Void;
-
-                    }
-                case "int":
-                    {
-                        return Language.Type.Int;
-                    }
-                case "float":
-                    {
-                        return Language.Type.Float;
-                    }
-                case "bool":
-                    {
-                        return Language.Type.Bool;
-                    }
-                case "string":
-                    {
-                        return Language.Type.String;
-                    }
-                default:
-                    {
-                        Debug.LogError("[Interporator] " + type + " is not a type");
-                        return 0;
-                    }
+                return Language.Type.Int;
             }
+            else if (type == keywords[key.String])
+            { 
+                return Language.Type.String; 
+            }
+            else if (type == keywords[key.Float])
+            {
+                return Language.Type.Float;
+            }
+            else if (type == keywords[key.Bool])
+            {
+                return Language.Type.Bool;
+            } else
+            {
+                return Language.Type.Fail;
+            }
+
         }
 
         static List<string> ExtractLines(string raw)

@@ -1,11 +1,30 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language.Syntax
+namespace Coding.Language
 {
-    public class Syntax
+    public enum key
     {
-        //public Dictionary<string, > keywords;
+        fail,
+        Class,
+        Void,
+        Int,
+        Float,
+        String,
+        Bool,
+        If,
+    }
+    public static class Syntax
+    {
+        public static readonly Dictionary<key, string> keywords = new()
+        {
+            { key.Class, "class" },
+            { key.Void, "void" },
+            { key.Int, "int" },
+            { key.Float, "float" },
+            { key.String, "string" },
+            { key.Bool, "bool" },
+            { key.If, "if" },
+        };
     }
 }

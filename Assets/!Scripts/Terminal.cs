@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -13,6 +14,19 @@ namespace Coding
         public BaseMachine machineToEdit { get; private set; }
 
         public static VisualTreeAsset terminalAsset {  get; private set; }
+        public static bool findingAsset;
+
+        public static List<Terminal> terminals = new();
+        public static bool focused { get {
+                foreach (var terminal in terminals)
+                {
+                    if (terminal.isFocused == null) continue;
+
+                    if((bool)terminal.isFocused)
+                        return true;
+                }
+                return false;
+            } }
 
         //UI elements
         Dictionary<string, Button> buttons = new();
@@ -20,6 +34,7 @@ namespace Coding
         Label availableMethods;
         TextField input;
 
+        public bool? isFocused { get { return input == null ? null : input.panel.focusController.focusedElement == input; } }
         public Window window { get; set; }
 
         Action runButtonStart { get { return ScriptManager.ToggleMachines; } }
@@ -29,12 +44,15 @@ namespace Coding
         private async void Start()
         {
             Debug.LogError("[Terminal] getting asset");
-            if (terminalAsset == null)
+            if (terminalAsset == null )
             {
+                findingAsset = true;
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
+                findingAsset = false;
             }
 
-            Debug.LogError("[Terminal] "+ terminalAsset);
+
+            //Debug.LogError("[Terminal] " + terminalAsset);
 
             terminal = terminalAsset.Instantiate();
             window = new Window(machineToEdit.machineCode.name, terminal, this);
@@ -48,6 +66,8 @@ namespace Coding
 
             buttons["Save"].clicked += Save;
             buttons["Run"].clicked += runButtonStart;
+
+            terminals.Add(this);
 
             Load();
         }
@@ -65,6 +85,7 @@ namespace Coding
         }
         public void Destroy()
         {
+            terminals.Remove(this);
             Destroy(this);
         }
 

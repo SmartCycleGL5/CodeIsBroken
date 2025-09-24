@@ -14,16 +14,16 @@ public class MaterialTube : Machine
 
         base.Initialize(initialClassName);
     }
-    private void Start()
+    private void OnEnable()
     {
-        
+        Tick.OnTick += GetMaterial;
     }
 
     // Player controlled
     public void SpawnRate(int spawnRate)
     {
         this.spawnRate = spawnRate;
-        Tick.OnTick += GetMaterial;
+
     }
     
     // Not player controlled
@@ -35,7 +35,7 @@ public class MaterialTube : Machine
         if(tickCount < spawnRate) return;
         tickCount = 0;
         
-        Debug.LogError("Reached max");
+        //Debug.LogError("Reached max");
 
         GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
 
@@ -56,7 +56,7 @@ public class MaterialTube : Machine
         conveyor.SetItem(instObj);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         Tick.OnTick -= GetMaterial;
     }

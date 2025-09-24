@@ -20,5 +20,8 @@ namespace Coding.Language.Conditions
 
     public class If : Conditional
     {
+        public If(bool condtion, Line[] lines) : base(condtion, lines)
+        {
+        }
     }
 }

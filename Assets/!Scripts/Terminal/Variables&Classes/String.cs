@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Coding.Language
 {
-    public class String : Object<IVariableContainer>, IVariable<string>
+    public class String : Variable, ISettable<string>, IGettable<string>
     {
         public String(string name, IVariableContainer container, object value, Type type = Type.String) : base(name, container, type)
         {

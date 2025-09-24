@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -13,9 +14,9 @@ namespace Coding.Language
         string[] methodCode;
         [SerializeField] List<Line> lines = new();
 
-        public SerializedDictionary<string, IVariable> variables { get; set; } = new();
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
-        public UserMethod(string name, Class @class, IVariable[] arguments, string[] methodCode, Type returnType = Type.Void) : base(name, @class, arguments, returnType)
+        public UserMethod(string name, Class @class, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, @class, parameters, returnType)
         {
             this.methodCode = methodCode;
 
@@ -56,12 +57,12 @@ namespace Coding.Language
         }
         public override bool TryRun(object[] input = null)
         {
-            if (input == null && this.input == null)
+            if (input == null && parameters == null)
             {
                 Run(input);
                 return true;
             }
-            if (input.Length == base.input.Length)
+            if (input.Length == parameters.Length)
             {
 
                 Run(input);
@@ -84,9 +85,9 @@ namespace Coding.Language
         }
 
         #region Variable
-        public IVariable NewVariable(string name, object value, Type type)
+        public Variable NewVariable(string name, object value, Type type)
         {
-            IVariable variable = null;
+            Variable variable = null;
 
             switch (type)
             {
@@ -120,12 +121,12 @@ namespace Coding.Language
             variables.Add(name, variable);
             return variable;
         }
-        public IVariable NewVariable(IVariable variable)
+        public Variable NewVariable(Variable variable)
         {
             variables.Add(variable.name, variable);
             return variable;
         }
-        public IVariable FindVariable(string name)
+        public Variable FindVariable(string name)
         {
             if (variables[name] != null)
             {

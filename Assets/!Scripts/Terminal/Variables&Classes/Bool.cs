@@ -2,7 +2,7 @@ using Coding.Language;
 using UnityEngine;
 namespace Coding.Language
 {
-    public class Bool : Object<IVariableContainer>, IVariable<bool>
+    public class Bool : Variable, ISettable<bool>, IGettable<bool>
     {
         public Bool(string name, IVariableContainer container, object value, Type type = Type.Bool) : base(name, container, type)
         {

@@ -16,7 +16,7 @@ namespace Coding.Language
         public Class inheritedClass;
         public BaseMachine machine;
         [field: SerializeField, SerializedDictionary("Name", "Variable")]
-        public SerializedDictionary<string, IVariable> variables { get; set; } = new();
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
         [field: SerializeField, SerializedDictionary("Name", "Method")]
         public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
@@ -77,9 +77,9 @@ namespace Coding.Language
         #endregion
 
         #region Variables
-        public IVariable NewVariable(string name, object value, Type type)
+        public Variable NewVariable(string name, object value, Type type)
         {
-            IVariable variable = null;
+            Variable variable = null;
 
             switch (type)
             {
@@ -113,7 +113,7 @@ namespace Coding.Language
             variables.Add(name, variable);
             return variable;
         }
-        public IVariable FindVariable(string name)
+        public Variable FindVariable(string name)
         {
             try
             {

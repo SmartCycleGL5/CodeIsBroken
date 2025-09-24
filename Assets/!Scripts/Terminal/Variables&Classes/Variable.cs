@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Coding.Language
 {
     //[Serializable]
-    public interface IVariable<T> : ISettable<T>, IGettable<T>
+    public class Variable : Object<IVariableContainer>
     {
         //public IVariable(string name, IVariableContainer container, object value, Type type) : base (name, container, type)
         //{
@@ -15,5 +15,8 @@ namespace Coding.Language
         //{
         //    this.value = value;
         //}
+        public Variable(string name, IVariableContainer container, Type type) : base(name, container, type)
+        {
+        }
     }
 }

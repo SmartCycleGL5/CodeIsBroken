@@ -1,16 +1,25 @@
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Coding.Language
 {
     [Serializable]
-    public abstract class Method : Object<IMethodContainer>
+    public abstract class Method
     {
-        public IVariable[] input = null;
+        public string name;
         [HideInInspector] public Class @class;
 
-        public Method(string name, Class @class, object[] arguments, Type returnType = Type.Void) : base(name, @class, returnType)
+        public ParameterInfo[] parameters;
+
+        public Method(string name, Class @class, ParameterInfo[] parameters, Type returnType = Type.Void)
         {
+            this.name = name;
+            this.@class = @class;
+
+            this.parameters = parameters;
+
             Debug.Log("[Method] New Method: " + this.name);
         }
 

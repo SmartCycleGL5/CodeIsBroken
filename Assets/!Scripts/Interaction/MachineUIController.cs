@@ -39,7 +39,7 @@ public class MachineUIController : MonoBehaviour
             Debug.LogError("[MachineUIController] " + machine + " is " + machine.Initialized);
 
             //if (machine.Initialized == false)
-                machine.Initialize("NewClass" + "asdasd");
+                machine.Initialize("NewClass" + Random.Range(100, 1000));
 
             Debug.LogError("[MachineUIController] opening for " + machine);
             machine.OpenTerminalForMachine();

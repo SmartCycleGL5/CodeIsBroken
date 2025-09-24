@@ -1,13 +1,14 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Conveyor : MonoBehaviour, IItemContainer
 {
     // Conveyor to send item to next
     public Conveyor nextConveyor;
-    public Conveyor recieveFrom;
+    public List<Conveyor> recieveFrom;
 
-    [SerializeField] Transform backPos;
+    [SerializeField] List<Transform> positions;
 
     public Item item { get; set; }
 
@@ -24,14 +25,22 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     public void UpdateConveyor()
     {
+        recieveFrom.Clear();
         ConveyorManager cm = ConveyorManager.instance;
-        Conveyor conveyor = cm.GetConveyor(backPos.position);
-        if (conveyor != null)
+        foreach(var reciever in positions)
         {
-            conveyor.nextConveyor = this;
-            recieveFrom = conveyor;
-            Debug.Log(conveyor.name);
+            Conveyor conveyor = cm.GetConveyor(reciever.position);
+            if (conveyor != null)
+            {
+                conveyor.nextConveyor = this;
+                recieveFrom.Add(conveyor);
+
+                //conveyor.nextConveyor = this;
+                //recieveFrom.Add(conveyor);
+                //Debug.Log(conveyor.name);
+            }
         }
+
     }
 
     void MoveOnTick()
@@ -48,13 +57,17 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         if(recieveFrom != null)
         {
-            if(item == null)
+            foreach (var conveyor in recieveFrom)
             {
-                //Debug.Log("SentItem");
-                SetItem(recieveFrom.item);
-                recieveFrom.RemoveItem();
+                if (conveyor == null) return;
+                if (item == null)
+                {
+                    //Debug.Log("SentItem");
+                    SetItem(conveyor.item);
+                    conveyor.RemoveItem();
+                }
+                conveyor.SendItem();
             }
-            recieveFrom.SendItem();
         }
     }
 

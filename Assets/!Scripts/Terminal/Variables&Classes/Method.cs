@@ -14,7 +14,7 @@ namespace Coding.Language
         {
             this.parameters = parameters;
 
-            Debug.Log("[Method] New Method: " + this.name);
+            Debug.Log("[Method] New Method: " + info.name);
         }
 
         /// <summary>

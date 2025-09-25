@@ -123,7 +123,7 @@ namespace Coding
 
             foreach (var method in machineToEdit.IntegratedMethods)
             {
-                availableMethods.text += "\n" + method.Value.name + "()";
+                availableMethods.text += "\n" + method.Value.info.name + "()";
             }
         }
         public void Save()

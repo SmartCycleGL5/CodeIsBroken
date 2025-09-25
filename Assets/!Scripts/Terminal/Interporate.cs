@@ -5,9 +5,12 @@ using System.Text.RegularExpressions;
 
 namespace Coding
 {
+    using Coding.Language.Actions;
+    using Coding.Language.Lines;
     using Language;
     using UnityEngine;
     using static Language.Syntax;
+    using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
     [Serializable]
     public static class Interporate
@@ -55,8 +58,19 @@ namespace Coding
                 for (int key = (int)Language.key.Int; key < (int)Language.key.Bool + 1; key++)
                 {
                     if (!LineIsType((key)key, sections, out index)) continue;
-                    
-                    Variable.NewVariable(keywords[(key)key].type, sections[index + 1], @class);
+
+                    string value = null;
+
+                    int setPos = sections.IndexOf("=");
+                    if (setPos >= 0)
+                        value = sections[setPos + 1];
+
+
+                    Variable.NewVariable(
+                        type: keywords[(key)key].type, 
+                        name: sections[index + 1], 
+                        container: @class,
+                        value: value);
                     break;
                 }
             }
@@ -92,6 +106,30 @@ namespace Coding
                     break;
                 }
             }
+        }
+        public static IRunnable Line(string line, UserMethod method)
+        {
+            List<string> sections = SplitLineIntoSections(line);
+
+            Line newLine = new Line();
+
+            for (int i = 0; i < sections.Count; i++)
+            {
+                string section = sections[i];
+
+                if(section.Contains("("))
+                {
+                    List<char> seperators = new() { '(', ')' };
+                    string[] parameters = section.Split(seperators.ToArray());
+
+                    string name = parameters[0];
+
+                    newLine.Add(new MethodCall(name, method, parameters));
+                }
+                    
+            }
+
+            return null;
         }
 
         static bool LineIsType(key key, List<string> sections, out int index)

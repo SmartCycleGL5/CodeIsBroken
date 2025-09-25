@@ -1,9 +1,8 @@
 using AYellowpaper.SerializedCollections;
+using Coding.Language.Lines;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace Coding.Language
@@ -12,7 +11,7 @@ namespace Coding.Language
     public class UserMethod : Method, IVariableContainer, IMethodContainer
     {
         string[] methodCode;
-        [SerializeField] List<Line> lines = new();
+        [SerializeField] List<IRunnable> lines = new();
 
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
         public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
@@ -20,7 +19,7 @@ namespace Coding.Language
         public UserMethod(string name, IMethodContainer container, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, container, parameters, returnType)
         {
             this.methodCode = methodCode;
-            this.container.Add(this);
+            info.container.Add(this);
 
             PrepareMethod();
         }
@@ -28,33 +27,33 @@ namespace Coding.Language
         {
             foreach (var line in methodCode)
             {
-                lines.Add(ReadLine(line));
+                lines.Add(Interporate.Line(line, this));
             }
         }
 
-        public Line ReadLine(string line)
-        {
-            List<string> sections = line.Split(" ").ToList();
-            Utility.FindAndRetain(ref sections, '"', '"');
-            Utility.FindAndRetain(ref sections, '(', ')');
+        //public Line ReadLine(string line)
+        //{
+        //    List<string> sections = line.Split(" ").ToList();
+        //    Utility.FindAndRetain(ref sections, '"', '"');
+        //    Utility.FindAndRetain(ref sections, '(', ')');
 
-            bool isMethod = line.Contains("(") && line.Contains(")");
+        //    bool isMethod = line.Contains("(") && line.Contains(")");
 
-            if (isMethod)
-            {
-                string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
-                args = args.Replace("(", "");
-                args = args.Replace(")", "");
-                string name = line.Substring(0, line.IndexOf('('));
+        //    if (isMethod)
+        //    {
+        //        string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
+        //        args = args.Replace("(", "");
+        //        args = args.Replace(")", "");
+        //        string name = line.Substring(0, line.IndexOf('('));
 
-                Debug.Log(line);
-                Debug.Log(args);
+        //        Debug.Log(line);
+        //        Debug.Log(args);
 
 
-                lines.Add(new MethodCall(name, container, Interporate.TranslateArguments(args)));
-            }
-            return null;
-        }
+        //        lines.Add(new MethodCall(name, container, Interporate.TranslateArguments(args)));
+        //    }
+        //    return null;
+        //}
         public override bool TryRun(object[] input = null)
         {
             if (input == null && parameters == null)
@@ -73,7 +72,7 @@ namespace Coding.Language
         }
         protected override void Run(object[] input)
         {
-            Debug.Log("Running: " + name);
+            Debug.Log("Running: " + info.name);
 
             foreach (var line in lines)
             {
@@ -92,11 +91,11 @@ namespace Coding.Language
             {
                 return variables[toGet];
             }
-            else if (container.GetType() == typeof(Class))
+            else if (info.container.GetType() == typeof(Class))
             {
-                Class @class = (Class)container;
+                Class @class = (Class)info.container;
 
-                if(@class.variables[name] == null) return null;
+                if (@class.variables[info.name] == null) return null;
 
                 return @class.GetVariable(toGet);
             }
@@ -106,7 +105,7 @@ namespace Coding.Language
 
         public void Add(Variable toAdd)
         {
-            variables.Add(toAdd.name, toAdd);
+            variables.Add(toAdd.info.name, toAdd);
         }
         #endregion
 

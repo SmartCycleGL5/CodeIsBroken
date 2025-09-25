@@ -25,7 +25,6 @@ namespace Coding.Language
 
         public string[] baseCode;
 
-        #region Class
         public Class(BaseMachine machine, string name, List<string> baseCode, Class inheritedClass = null)
         {
             this.baseCode = baseCode.ToArray();
@@ -47,15 +46,8 @@ namespace Coding.Language
         {
             Interporate.Variables(this);
             Interporate.Methods(this);
-
-            //for (int i = 0; i < baseCode.Length; i++)
-            //{
-            //    Interporate.MethodsAndVariables(baseCode, i, out int end, this);
-
-            //    i += end - i; //skips until after the end of the method
-            //}
         }
-        #endregion
+
 
         #region Methods
         public Method GetMethod(string toGet)
@@ -79,7 +71,7 @@ namespace Coding.Language
 
         public void Add(UserMethod toAdd)
         {
-            userMethods.Add(toAdd.name, toAdd);
+            userMethods.Add(toAdd.info.name, toAdd);
         }
         #endregion
 
@@ -97,7 +89,7 @@ namespace Coding.Language
         }
         public void Add(Variable toAdd)
         {
-            variables.Add(toAdd.name, toAdd);
+            variables.Add(toAdd.info.name, toAdd);
         }
 
         #endregion

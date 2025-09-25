@@ -1,3 +1,4 @@
+using Coding.Language.Lines;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,8 +37,8 @@ namespace Coding.Language
             { key.If, new Keyword("if", Color.blue) },
             { key.Else, new Keyword("else", Color.blue) },
 
-            { key.Return, new Keyword("return", Color.blue) },
-            { key.Continue, new Keyword("continue", Color.blue) },
+            { key.Return, new Keyword("return", Color.pink) },
+            { key.Continue, new Keyword("continue", Color.pink) },
         };
 
         public struct Keyword

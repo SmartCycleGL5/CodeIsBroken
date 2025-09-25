@@ -13,12 +13,12 @@ namespace Coding.Language
     {
         public Method MethodToCall;
         public object[] input;
-        public MethodCall(string nameOfMethod, Class caller, object[] input)
+        public MethodCall(string nameOfMethod, IMethodContainer caller, object[] input)
         {
             Debug.Log("[MethodCall] finding: " + nameOfMethod);
 
             this.input = input;
-            MethodToCall = caller.FindMethod(nameOfMethod);
+            MethodToCall = caller.GetMethod(nameOfMethod);
         }
 
         public override void Run()

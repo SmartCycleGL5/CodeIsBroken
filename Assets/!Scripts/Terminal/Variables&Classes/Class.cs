@@ -20,7 +20,8 @@ namespace Coding.Language
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
         [field: SerializeField, SerializedDictionary("Name", "Method")]
-        public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
+        public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
+
 
         public string[] baseCode;
 
@@ -57,79 +58,48 @@ namespace Coding.Language
         #endregion
 
         #region Methods
-        public Method FindMethod(string name)
+        public Method GetMethod(string toGet)
         {
             try
             {
-                return methods[name];
+                return userMethods[toGet];
             }
             catch
             {
                 if (inheritedClass != null)
                 {
-                    return inheritedClass.methods[name];
+                    return inheritedClass.GetMethod(toGet);
                 }
                 else
                 {
-                    return machine.IntegratedMethods[name];
+                    return machine.IntegratedMethods[toGet];
                 }
             }
         }
 
-        public void AddMethod(UserMethod method)
+        public void Add(UserMethod toAdd)
         {
-            methods.Add(method.name, method);
+            userMethods.Add(toAdd.name, toAdd);
         }
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, string value, Type type)
-        {
-            Variable variable = null;
-
-            switch (type)
-            {
-                case Type.Int:
-                    {
-                        variable = new Int(name, this, int.Parse(value));
-                        break;
-                    }
-                case Type.Float:
-                    {
-                        variable = new Float(name, this, float.Parse(value));
-                        break;
-                    }
-                case Type.String:
-                    {
-                        variable = new String(name, this, value);
-                        break;
-                    }
-                case Type.Bool:
-                    {
-                        variable = new Bool(name, this, bool.Parse(value));
-                        break;
-                    }
-                default:
-                    {
-                        Debug.LogError("[Class] cannot create variable of type " + type);
-                        break;
-                    }
-            }
-
-            variables.Add(name, variable);
-            return variable;
-        }
-        public Variable FindVariable(string name)
+        public Variable GetVariable(string toGet)
         {
             try
             {
-                return variables[name];
+                return variables[toGet];
             }
             catch
             {
-                return inheritedClass.FindVariable(name);
+                return inheritedClass.GetVariable(toGet);
             }
         }
+        public void Add(Variable toAdd)
+        {
+            variables.Add(toAdd.name, toAdd);
+        }
+
         #endregion
 
     }

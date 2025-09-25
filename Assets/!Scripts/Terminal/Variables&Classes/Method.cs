@@ -6,18 +6,12 @@ using UnityEngine;
 namespace Coding.Language
 {
     [Serializable]
-    public abstract class Method
+    public abstract class Method : Object<IMethodContainer>
     {
-        public string name;
-        [HideInInspector] public Class @class;
-
         public ParameterInfo[] parameters;
 
-        public Method(string name, Class @class, ParameterInfo[] parameters, Type returnType = Type.Void)
+        public Method(string name, IMethodContainer container, ParameterInfo[] parameters, Type returnType = Type.Void) : base(name, container, returnType)
         {
-            this.name = name;
-            this.@class = @class;
-
             this.parameters = parameters;
 
             Debug.Log("[Method] New Method: " + this.name);

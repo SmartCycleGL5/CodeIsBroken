@@ -15,17 +15,16 @@ namespace Coding.Language
         [SerializeField] List<Line> lines = new();
 
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
-        public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
+        public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
 
-        public UserMethod(string name, Class @class, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, @class, parameters, returnType)
+        public UserMethod(string name, IMethodContainer container, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, container, parameters, returnType)
         {
             this.methodCode = methodCode;
+            this.container.Add(this);
 
-            @class.AddMethod(this);
-
-            InitializeMethod();
+            PrepareMethod();
         }
-        public void InitializeMethod()
+        public void PrepareMethod()
         {
             foreach (var line in methodCode)
             {
@@ -52,7 +51,7 @@ namespace Coding.Language
                 Debug.Log(args);
 
 
-                lines.Add(new MethodCall(name, @class, Interporate.TranslateArguments(args)));
+                lines.Add(new MethodCall(name, container, Interporate.TranslateArguments(args)));
             }
             return null;
         }
@@ -86,58 +85,36 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, string value, Type type)
-        {
-            Variable variable = null;
 
-            switch (type)
-            {
-                case Type.Int:
-                    {
-                        variable = new Int(name, this, int.Parse(value));
-                        break;
-                    }
-                case Type.Float:
-                    {
-                        variable = new Float(name, this, float.Parse(value));
-                        break;
-                    }
-                case Type.String:
-                    {
-                        variable = new String(name, this, value);
-                        break;
-                    }
-                case Type.Bool:
-                    {
-                        variable = new Bool(name, this, bool.Parse(value));
-                        break;
-                    }
-                default:
-                    {
-                        Debug.LogError("[UserMethod] cannot create variable of type " + type);
-                        return null;
-                    }
-            }
-
-            variables.Add(name, variable);
-            return variable;
-        }
-        public Variable FindVariable(string name)
+        public Variable GetVariable(string toGet)
         {
-            if (variables[name] != null)
+            if (variables[toGet] != null)
             {
-                return variables[name];
+                return variables[toGet];
             }
-            else if (@class.variables[name] != null)
+            else if (container.GetType() == typeof(Class))
             {
-                return @class.FindVariable(name);
+                Class @class = (Class)container;
+
+                if(@class.variables[name] == null) return null;
+
+                return @class.GetVariable(toGet);
             }
 
             return null;
         }
+
+        public void Add(Variable toAdd)
+        {
+            variables.Add(toAdd.name, toAdd);
+        }
         #endregion
 
-        public void AddMethod(UserMethod method)
+        public Method GetMethod(string toGet)
+        {
+            throw new NotImplementedException();
+        }
+        public void Add(UserMethod toAdd)
         {
             throw new NotImplementedException();
         }

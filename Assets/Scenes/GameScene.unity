@@ -1071,6 +1071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4965132074932320806, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 46d0b882e82e88948afc49cbc5f29ff6, type: 2}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation

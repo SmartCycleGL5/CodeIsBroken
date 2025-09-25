@@ -78,7 +78,7 @@ public abstract class BaseMachine : MonoBehaviour
         {
             try
             {
-                start = Class.Value.FindMethod("Start");
+                start = Class.Value.GetMethod("Start");
             }
             catch
             {
@@ -95,7 +95,7 @@ public abstract class BaseMachine : MonoBehaviour
         {
             try
             {
-                update = Class.Value.FindMethod("Update");
+                update = Class.Value.GetMethod("Update");
             }
             catch
             {

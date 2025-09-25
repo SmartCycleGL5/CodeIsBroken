@@ -27,10 +27,10 @@ namespace Coding
 
                 List<string> classScript = scriptLines.ToList();
                 classScript = Utility.FindEncapulasion(
-                    encapsulatedScript: classScript, 
-                    startPoint: i, 
-                    endPoint: out int end, 
-                    startEncapsulation: '{', 
+                    encapsulatedScript: classScript,
+                    startPoint: i,
+                    endPoint: out int end,
+                    startEncapsulation: '{',
                     endEncapsulation: '}');
 
                 string className = sections[index + 1];
@@ -43,49 +43,61 @@ namespace Coding
 
         public static void Variables(Class @class)
         {
-
             string[] baseCode = @class.baseCode;
 
-            for (int i = 0; i < baseCode.Length; i++)
+            for (int line = 0; line < baseCode.Length; line++)
             {
-                if (baseCode[i].Contains('(')) continue;
+                if (baseCode[line].Contains('(')) continue;
 
-                List<string> sections = SplitLineIntoSections(baseCode[i]);
+                List<string> sections = SplitLineIntoSections(baseCode[line]);
                 int index = -1;
 
-                if (LineIsType(sections, key.Int, out index) > 0) 
-                    DefineVariable(sections, index, Language.Type.Int);
-
-                else if (LineIsType(sections, key.Float, out index) > 0)
-                    DefineVariable(sections, index, Language.Type.Float);
-
-                else if(LineIsType(sections, key.String, out index) > 0)
-                    DefineVariable(sections, index, Language.Type.String);
-
-                else if(LineIsType(sections, key.Bool, out index) > 0)
-                    DefineVariable(sections, index, Language.Type.Bool);
-            }
-
-            int LineIsType(List<string> sections, key key, out int index)
-            {
-                index = Array.IndexOf(sections.ToArray(), keywords[key].word);
-                return index;
-            }
-            void DefineVariable(List<string> sections, int index, Type type)
-            {
-                string name = sections[index + 1];
-                @class.NewVariable(name, null, Language.Type.Int);
+                for (int key = (int)Language.key.Int; key < (int)Language.key.Bool + 1; key++)
+                {
+                    if (!LineIsType((key)key, sections, out index)) continue;
+                    
+                    Variable.NewVariable(keywords[(key)key].type, sections[index + 1], @class);
+                    break;
+                }
             }
 
         }
         public static void Methods(Class @class)
         {
+            string[] baseCode = @class.baseCode;
 
-            for (int i = 0; i < @class.baseCode.Length; i++)
+            for (int line = 0; line < baseCode.Length; line++)
             {
+                if (!baseCode[line].Contains('(')) continue;
 
+                List<string> sections = SplitLineIntoSections(baseCode[line]);
+                int index = -1;
+
+                for (int key = (int)Language.key.Void; key < (int)Language.key.Bool + 1; key++)
+                {
+                    if (!LineIsType((key)key, sections, out index)) continue;
+
+                    List<string> methodScript = @class.baseCode.ToList();
+                    methodScript = Utility.FindEncapulasion(methodScript, line, out int end, '{', '}');
+
+                    new UserMethod(
+                    name: sections[index + 1],
+                    parameters: null,
+                    methodCode: methodScript.ToArray(),
+                    container: @class,
+                    returnType: keywords[(key)key].type
+                    );
+
+                    line += end - line;
+                    break;
+                }
             }
+        }
 
+        static bool LineIsType(key key, List<string> sections, out int index)
+        {
+            index = Array.IndexOf(sections.ToArray(), keywords[key].word);
+            return index >= 0;
         }
 
         public static List<string> SplitLineIntoSections(string line)
@@ -96,50 +108,6 @@ namespace Coding
 
             return sections;
         }
-
-        //public static void MethodsAndVariables(string[] code, int line, out int end, Class @class)
-        //{
-        //    end = line;
-
-        //    List<string> sections = code[line].Split(" ").ToList();
-
-        //    Utility.FindAndRetain(ref sections, '"', '"');
-        //    Utility.FindAndRetain(ref sections, '(', ')');
-
-        //    string name = sections[1];
-        //    string type = sections[0];
-        //    bool isMethod = name.Contains("(");
-
-        //    if (!isMethod && !@class.variables.ContainsKey(name))
-        //    {
-        //        if (code[line].Contains("="))                //Setting variables
-        //        {
-        //            Variable newVariable = @class.NewVariable(name, sections[3], GetType(type));
-        //        }
-        //        else
-        //        {
-        //            Variable newVariable = @class.NewVariable(name, null, GetType(type));
-        //        }
-        //    }
-        //    else if (isMethod && !@class.methods.ContainsKey(name))
-        //    {
-        //        List<string> methodScript = @class.baseCode.ToList();
-
-        //        Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
-
-        //        string arguments = name.Substring(name.IndexOf('('), 0);
-        //        arguments.Replace("(", "");
-        //        arguments.Replace(")", "");
-        //        name = name.Substring(0, name.IndexOf('('));
-
-        //        new UserMethod(
-        //            name: name,
-        //            parameters: null,
-        //            methodCode: methodScript.ToArray(),
-        //            @class: @class);
-        //    }
-        //}
-
 
         static List<string> ExtractLines(string raw)
         {

@@ -4,10 +4,9 @@ using UnityEngine;
 
 namespace Coding.Language
 {
-    public interface IMethodContainer
+    public interface IMethodContainer : IContainer<UserMethod>
     {
-        public SerializedDictionary<string, UserMethod> methods { get; set; }
-
-        public void AddMethod(UserMethod method);
+        public SerializedDictionary<string, UserMethod> userMethods { get; set; }
+        public Method GetMethod(string toGet);
     }
 }

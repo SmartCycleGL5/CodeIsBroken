@@ -1,10 +1,10 @@
-using Coding.Language;
+using Coding.SharpCube;
 using UnityEngine;
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public class Bool : Variable, ISettable<bool>, IGettable<bool>
     {
-        public Bool(string name, IVariableContainer container, bool value = false, Type type = Language.Type.Bool) : base(name, container, type)
+        public Bool(string name, IVariableContainer container, bool value = false, Type type = SharpCube.Type.Bool) : base(name, container, type)
         {
             Set(value);
         }
@@ -20,7 +20,7 @@ namespace Coding.Language
 
         public override Type Type()
         {
-            return Language.Type.Bool;
+            return SharpCube.Type.Bool;
         }
     }
 }

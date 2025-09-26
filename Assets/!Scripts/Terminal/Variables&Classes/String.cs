@@ -1,9 +1,9 @@
 using UnityEngine;
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public class String : Variable, ISettable<string>, IGettable<string>
     {
-        public String(string name, IVariableContainer container, string value = null, Type type = Language.Type.String) : base(name, container, type)
+        public String(string name, IVariableContainer container, string value = null, Type type = SharpCube.Type.String) : base(name, container, type)
         {
             Set(value);
         }
@@ -19,7 +19,7 @@ namespace Coding.Language
 
         public override Type Type()
         {
-            return Language.Type.String;
+            return SharpCube.Type.String;
         }
     }
 }

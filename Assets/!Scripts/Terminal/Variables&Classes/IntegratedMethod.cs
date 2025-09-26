@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     [Serializable]
     public class IntegratedMethod : Method
@@ -19,11 +19,6 @@ namespace Coding.Language
         }
         public override bool TryRun(object[] input)
         {
-            foreach (var item in input)
-            {
-                Debug.Log(item.GetType() + " - " + item);
-            }
-
             Run(input);
             return true;
         }

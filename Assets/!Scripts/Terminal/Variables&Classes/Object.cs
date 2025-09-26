@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public enum Type
     {

@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace Coding
 {
-    using Coding.Language.Actions;
-    using Coding.Language.Lines;
-    using Language;
+    using Coding.SharpCube.Actions;
+    using Coding.SharpCube.Lines;
+    using SharpCube;
     using UnityEngine;
-    using static Language.Syntax;
+    using static SharpCube.Syntax;
 
 
     [Serializable]
@@ -54,7 +54,7 @@ namespace Coding
                 List<string> sections = SplitLineIntoSections(baseCode[line]);
                 int index = -1;
 
-                for (int key = (int)Language.key.Int; key < (int)Language.key.Bool + 1; key++)
+                for (int key = (int)SharpCube.key.Int; key < (int)SharpCube.key.Bool + 1; key++)
                 {
                     if (!LineIsType((key)key, sections, out index)) continue;
 
@@ -86,7 +86,7 @@ namespace Coding
                 List<string> sections = SplitLineIntoSections(baseCode[line]);
                 int index = -1;
 
-                for (int key = (int)Language.key.Void; key < (int)Language.key.Bool + 1; key++)
+                for (int key = (int)SharpCube.key.Void; key < (int)SharpCube.key.Bool + 1; key++)
                 {
                     if (!LineIsType((key)key, sections, out index)) continue;
 
@@ -118,6 +118,13 @@ namespace Coding
             for (int i = 0; i < sections.Count; i++)
             {
                 string section = sections[i];
+
+                foreach (var item in keywords)
+                {
+                    if (section.Contains(item.Value.word))
+                    {
+                    }
+                }
 
                 if(section.Contains("("))
                 {

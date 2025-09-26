@@ -1,12 +1,12 @@
 using AYellowpaper.SerializedCollections;
-using Coding.Language.Lines;
+using Coding.SharpCube.Lines;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     [Serializable]
     public class UserMethod : Method, IVariableContainer, IMethodContainer

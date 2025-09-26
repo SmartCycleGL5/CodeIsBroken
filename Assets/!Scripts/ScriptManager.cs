@@ -47,12 +47,13 @@ namespace Coding
 
             Debug.Log("[ScriptManager] Ending");
 
+            for (int i = Item.items.Count -1; i >= 0; i--)
+            {
+                Destroy(Item.items[i].gameObject);
+            }
+
             isRunning = false;
 
-            for (int i = Item.items.Count; i >= 0; i--)
-            {
-                Destroy(Item.items[i]);
-            }
         }
 
         public static void Re()

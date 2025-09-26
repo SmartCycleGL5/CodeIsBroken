@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     public static Dictionary<string, Window> OpenWindows { get; private set; } = new();
 
+    Button runButton;
+
     private void Start()
     {
         Instance = this;
@@ -25,9 +27,26 @@ public class UIManager : MonoBehaviour
         tabs = canvas.Q<TabView>("Tabs");
         windows = canvas.Q<VisualElement>("Windows");
         windows.Q<Button>("Close").clicked += CloseCurrentWindow;
+
+        runButton = canvas.Q<Button>("Run");
+        runButton.clicked += ScriptManager.ToggleMachines;
         //windows.Q<Button>("Minimize").clicked += DisableWindow;
 
         DisableWindow();
+    }
+    private void Update()
+    {
+        if(ScriptManager.isRunning)
+        {
+            runButton.text = "Stop";
+        } else
+        {
+            runButton.text = "Run";
+        }
+    }
+    private void OnDestroy()
+    {
+        canvas.Q<Button>("Run").clicked -= ScriptManager.ToggleMachines;
     }
     [Button]
     public static void CloseCurrentWindow()

@@ -8,5 +8,6 @@
                 <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 20px; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:Button text="Run" name="Run" style="position: absolute; bottom: 50px; align-self: center; font-size: 100%; padding-right: 50px; padding-left: 50px;" />
     </ui:VisualElement>
 </ui:UXML>

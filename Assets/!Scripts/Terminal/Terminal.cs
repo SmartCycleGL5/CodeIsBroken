@@ -37,9 +37,6 @@ namespace Coding
         public bool? isFocused { get { return input == null ? null : input.panel.focusController.focusedElement == input; } }
         public Window window { get; set; }
 
-        Action runButtonStart { get { return ScriptManager.ToggleMachines; } }
-        Action runButtonStop { get { return ScriptManager.ToggleMachines; } }
-
 
         private async void Start()
         {
@@ -59,34 +56,20 @@ namespace Coding
 
             buttons.Add("Close", terminal.Q<Button>("Close"));
             buttons.Add("Save", terminal.Q<Button>("Save"));
-            buttons.Add("Run", terminal.Q<Button>("Run"));
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
 
             buttons["Save"].clicked += Save;
-            buttons["Run"].clicked += runButtonStart;
 
             terminals.Add(this);
 
             Load();
         }
 
-        private void Update()
-        {
-            if(ScriptManager.isRunning)
-            {
-                buttons["Run"].text = "Stop";
-            } else
-            {
-                buttons["Run"].text = "Run";
-            }
-        }
-
         private void OnDestroy()
         {
             buttons["Save"].clicked -= Save;
-            buttons["Run"].clicked -= runButtonStart;
             //buttons["Run"].clicked -= runButtonStop;
         }
 

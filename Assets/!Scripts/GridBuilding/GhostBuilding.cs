@@ -99,7 +99,7 @@ public class GhostBuilding : MonoBehaviour
         SetBuildingStatus(true);
         prefabToBuild = newGhost;
         DestroyGhost();
-        ghostPrefab = Instantiate(newGhost);
+        ghostPrefab = Instantiate(newGhost, new Vector3(0,-10,0), Quaternion.identity);
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());

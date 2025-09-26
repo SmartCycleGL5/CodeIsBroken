@@ -27,6 +27,7 @@ public class PlayerInputs : MonoBehaviour
     [Header("Player Options")]
     [SerializeField] bool dragToRotate;
 
+    bool isBuilding;
     private Vector2 moveInput;
     private float lookInput;
 
@@ -74,6 +75,28 @@ public class PlayerInputs : MonoBehaviour
 
     void PlayerUpdate()
     {
+        //Enable disable building:
+        if (Keyboard.current.bKey.wasPressedThisFrame && !isBuilding)
+        {
+            if (Terminal.focused) return;
+            isBuilding = true;
+            buildingMenu.SetActive(true);
+            playerAction = PlayerAction.Building;
+            Debug.Log("Enabled Building");
+        }
+        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding)
+        {
+            playerAction = PlayerAction.WorldInteraction;
+            isBuilding = false;
+            buildingMenu.SetActive(false);
+            buildingInput.DestroyGhost();
+            Debug.Log("Disabled Building");
+        }
+        if (Keyboard.current.deleteKey.wasPressedThisFrame)
+        {
+            Restart();
+        }
+
         // Updates The active scripts
         if (playerAction == PlayerAction.Building)
         {
@@ -81,25 +104,10 @@ public class PlayerInputs : MonoBehaviour
         }
         if (playerAction == PlayerAction.WorldInteraction)
         {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
+                UIManager.CloseAllWindows();
+            }
             machineInput.PlayerUpdate();
-        }
-
-        //Enable disable building:
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            buildingMenu.SetActive(false);
-            buildingInput.DestroyGhost();
-            playerAction = PlayerAction.WorldInteraction;
-        }
-        if (Keyboard.current.bKey.wasPressedThisFrame)
-        {
-            if (Terminal.focused) return;
-            buildingMenu.SetActive(true);
-            playerAction = PlayerAction.Building;
-        }
-        if (Keyboard.current.deleteKey.wasPressedThisFrame)
-        {
-            Restart();
         }
     }
 

@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Building
   buildingCells:
   - {fileID: 9067031396478924409}
+  scriptsToActivate: []
 --- !u!114 &-5721900430427192232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,9 +500,6 @@ MonoBehaviour:
   Classes:
     _serializedList: []
   item: {fileID: 0}
-  redMaterial: {fileID: -6629797300637803691, guid: 66ed9e48e521f1d4da8639dc5c8155d0, type: 3}
-  blueMaterial: {fileID: 2100000, guid: 9206b44997b688142ae0991e9673b0d9, type: 2}
-  reciever: {fileID: 0}
 --- !u!114 &-911345775585101580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +515,6 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   PainterMachine: {fileID: -5721900430427192232}
-  item: {fileID: 0}
 --- !u!114 &6144978722032048261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,13 +555,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5146640431562959665}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.398, z: 0}
   m_LocalScale: {x: 1, y: 0.13, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5977209401176892422}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &2860617164821295939
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -598,7 +595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -2632753719056517104, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -839,13 +836,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7785861016212817045}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5977209401176892422}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &2224617052536134606
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -879,7 +876,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8a41df8d00591be49bc971fa3c9c2b77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

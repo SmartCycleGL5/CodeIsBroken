@@ -11,6 +11,10 @@ public class Tick : MonoBehaviour
     public static event Action OnTick;
     public static event Action OnStartingTick;
     public static event Action OnEndingTick;
+
+    // Always Active tick
+    public static Action OnGameTick;
+    
     
     private void Awake()
     {
@@ -19,12 +23,14 @@ public class Tick : MonoBehaviour
 
     }
 
+
     public static void StartTick()
     {
         OnStartingTick?.Invoke();
         Instance.InvokeRepeating(nameof(DoTick), 0, tickLength);
 
         Application.quitting += StopTick;
+
     }
     public static void StopTick()
     {
@@ -32,6 +38,13 @@ public class Tick : MonoBehaviour
         Instance.CancelInvoke(nameof(DoTick));
 
         Application.quitting -= StopTick;
+
+
+    }
+
+    public static void GameTick()
+    {
+        OnGameTick?.Invoke();
     }
 
     void DoTick()

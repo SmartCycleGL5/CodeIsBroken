@@ -11,6 +11,7 @@ public class GhostBuilding : MonoBehaviour
     [SerializeField] Material negativeMaterial;
 
     private List<Renderer> renderers = new();
+    private List<Material> originalMaterial = new();
     
     [SerializeField] GridBuilder gridBuilder;
     [SerializeField] GameObject ghostPrefab;
@@ -83,9 +84,18 @@ public class GhostBuilding : MonoBehaviour
         canPlace = gridBuilder.IsValidPosition(building.GetBuildingPositions());
         foreach(var renderer in renderers)
         {
-            renderer.material = canPlace? positiveMaterial : negativeMaterial;
+            if (canPlace)
+            {
+                renderer.material.color = new Color(0, 0.5f, 0, 1);
+            }
+            else
+            {
+                renderer.material.color = new Color(0.5f, 0, 0, 1);
+            }
         }
     }
+
+
 
     // Used for enable or disable building
     public void SetBuildingStatus(bool buildingStatus)
@@ -103,6 +113,7 @@ public class GhostBuilding : MonoBehaviour
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
+        originalMaterial.AddRange(ghostPrefab.GetComponentInChildren<Renderer>().materials);
     }
 
     public void DestroyGhost()

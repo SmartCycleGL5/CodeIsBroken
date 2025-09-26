@@ -63,7 +63,13 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     }
 
     private void OnDestroy()
-    {
+    { 
         Tick.OnTick -= TakeItem;
+
+        if (item == null) return;
+        Debug.Log("Removed item from painter");
+        Destroy(item.gameObject);
+        RemoveItem();
+        
     }
 }

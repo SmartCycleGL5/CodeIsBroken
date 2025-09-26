@@ -78,7 +78,7 @@ public abstract class BaseMachine : MonoBehaviour
         {
             try
             {
-                start = Class.Value.FindMethod("Start");
+                start = Class.Value.GetMethod("Start");
             }
             catch
             {
@@ -91,20 +91,27 @@ public abstract class BaseMachine : MonoBehaviour
     }
     public void RunUpdate()
     {
-        foreach (var Class in Classes)
+        if (update == null)
         {
-            try
+            foreach (var Class in Classes)
             {
-                update = Class.Value.FindMethod("Update");
+                try
+                {
+                    update = Class.Value.GetMethod("Update");
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning("Update not found " + e);
+                    return;
+                }
             }
-            catch
-            {
-                Debug.LogWarning("Update not found");
-            }
-        }
 
-        if (update != null)
             update.TryRun();
+        } 
+        else
+        {
+            update.TryRun();
+        }
     }
 
     public void Stop()
@@ -136,15 +143,12 @@ public abstract class BaseMachine : MonoBehaviour
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
     {
-        Debug.LogError("[BaseMachine] add methods");
         foreach (var item in machine.GetMethods())
         {
             if (item.GetBaseDefinition() == item)
             {
                 string name = item.Name;
                 if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
-
-                Debug.LogError("[BaseMachine] add " + item.Name);
 
                 IntegratedMethods.Add(name, new IntegratedMethod(name, null, item.GetParameters(), item, this));
             }

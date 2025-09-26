@@ -11,11 +11,11 @@ namespace Coding.Language
 
         public bool Get()
         {
-            return (bool)value;
+            return (bool)info.value;
         }
         public void Set(bool value)
         {
-            this.value = value;
+            info.value = value;
         }
 
         public override Type Type()

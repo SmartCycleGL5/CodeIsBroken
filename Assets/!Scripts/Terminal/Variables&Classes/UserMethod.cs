@@ -1,62 +1,41 @@
 using AYellowpaper.SerializedCollections;
+using Coding.Language.Lines;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Coding.Language
 {
     [Serializable]
-    public class UserMethod : Method, IVariableContainer
+    public class UserMethod : Method, IVariableContainer, IMethodContainer
     {
         string[] methodCode;
-        [SerializeField] List<Line> lines = new();
+        [SerializeField] List<IRunnable> lines = new();
 
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
+        public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
 
-        public UserMethod(string name, Class @class, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, @class, parameters, returnType)
+        public UserMethod(string name, IMethodContainer container, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, container, parameters, returnType)
         {
             this.methodCode = methodCode;
+            info.container.Add(this);
 
-            @class.AddMethod(this);
-
-            InitializeMethod();
+            PrepareMethod();
         }
-        public void InitializeMethod()
+        public void PrepareMethod()
         {
             foreach (var line in methodCode)
             {
-                lines.Add(ReadLine(line));
+                lines.Add(Interporate.Line(line, this));
             }
         }
 
-        public Line ReadLine(string line)
-        {
-            List<string> sections = line.Split(" ").ToList();
-            Utility.FindAndRetain(ref sections, '"', '"');
-            Utility.FindAndRetain(ref sections, '(', ')');
-
-            bool isMethod = line.Contains("(") && line.Contains(")");
-
-            if (isMethod)
-            {
-                string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
-                args = args.Replace("(", "");
-                args = args.Replace(")", "");
-                string name = line.Substring(0, line.IndexOf('('));
-
-                Debug.Log(line);
-                Debug.Log(args);
-
-
-                lines.Add(new MethodCall(name, @class, Interporate.TranslateArguments(args)));
-            }
-            return null;
-        }
         public override bool TryRun(object[] input = null)
         {
+            Debug.Log("Running: " + info.name);
+
             if (input == null && parameters == null)
             {
                 Run(input);
@@ -73,8 +52,6 @@ namespace Coding.Language
         }
         protected override void Run(object[] input)
         {
-            Debug.Log("Running: " + name);
-
             foreach (var line in lines)
             {
                 if (line == null) continue;
@@ -85,56 +62,46 @@ namespace Coding.Language
         }
 
         #region Variable
-        public Variable NewVariable(string name, string value, Type type)
-        {
-            Variable variable = null;
 
-            switch (type)
-            {
-                case Type.Int:
-                    {
-                        variable = new Int(name, this, int.Parse(value));
-                        break;
-                    }
-                case Type.Float:
-                    {
-                        variable = new Float(name, this, float.Parse(value));
-                        break;
-                    }
-                case Type.String:
-                    {
-                        variable = new String(name, this, value);
-                        break;
-                    }
-                case Type.Bool:
-                    {
-                        variable = new Bool(name, this, bool.Parse(value));
-                        break;
-                    }
-                default:
-                    {
-                        Debug.LogError("[UserMethod] cannot create variable of type " + type);
-                        return null;
-                    }
-            }
-
-            variables.Add(name, variable);
-            return variable;
-        }
-        public Variable FindVariable(string name)
+        public Variable GetVariable(string toGet)
         {
-            if (variables[name] != null)
+            if (variables[toGet] != null)
             {
-                return variables[name];
+                return variables[toGet];
             }
-            else if (@class.variables[name] != null)
+            else if (info.container.GetType() == typeof(Class))
             {
-                return @class.FindVariable(name);
+                Class @class = (Class)info.container;
+
+                if (@class.variables[info.name] == null) return null;
+
+                return @class.GetVariable(toGet);
             }
 
             return null;
         }
+
+        public void Add(Variable toAdd)
+        {
+            variables.Add(toAdd.info.name, toAdd);
+        }
         #endregion
+
+        public Method GetMethod(string toGet)
+        {
+            try
+            {
+                return userMethods[toGet];
+            }
+            catch
+            {
+                return info.container.GetMethod(toGet);
+            }
+        }
+        public void Add(UserMethod toAdd)
+        {
+            userMethods.Add(toAdd.info.name, toAdd);
+        }
     }
 }
 

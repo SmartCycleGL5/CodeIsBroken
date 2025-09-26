@@ -10,11 +10,11 @@ namespace Coding.Language
 
         public string Get()
         {
-            return (string)value;
+            return (string)info.value;
         }
         public void Set(string value)
         {
-            this.value = value;
+            info.value = value;
         }
 
         public override Type Type()

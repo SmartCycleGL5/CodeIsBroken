@@ -5,9 +5,12 @@ using System.Text.RegularExpressions;
 
 namespace Coding
 {
+    using Coding.Language.Actions;
+    using Coding.Language.Lines;
     using Language;
     using UnityEngine;
     using static Language.Syntax;
+
 
     [Serializable]
     public static class Interporate
@@ -19,87 +22,132 @@ namespace Coding
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (!scriptLines[i].Contains(keywords[key.Class].word)) continue;
-
                 string[] sections = scriptLines[i].Split(" ");
+
+                int index = Array.IndexOf(sections, keywords[key.Class].word);
+                if (index < 0) continue;
+
+
                 List<string> classScript = scriptLines.ToList();
-                Utility.FindEncapulasion(ref classScript, i, out int end, '{', '}');
+                classScript = Utility.FindEncapulasion(
+                    encapsulatedScript: classScript,
+                    startPoint: i,
+                    endPoint: out int end,
+                    startEncapsulation: '{',
+                    endEncapsulation: '}');
 
-                string name = sections[1];
+                string className = sections[index + 1];
 
-                Class newClass = new Class(machine, name, classScript);
-                Debug.Log("[Interperator] New Class for " + machine);
-                machine.Classes.Add(name, newClass);
+                new Class(machine, className, classScript);
 
                 i += end - i; //skips to the end of the class
             }
         }
-
-        public static void MethodsAndVariables(string[] code, int line, out int end, Class @class)
+        public static void Variables(Class @class)
         {
-            end = line;
+            string[] baseCode = @class.baseCode;
 
-            List<string> sections = code[line].Split(" ").ToList();
-
-            Utility.FindAndRetain(ref sections, '"', '"');
-            Utility.FindAndRetain(ref sections, '(', ')');
-
-            string name = sections[1];
-            string type = sections[0];
-            bool isMethod = name.Contains("(");
-
-            if (!isMethod && !@class.variables.ContainsKey(name))
+            for (int line = 0; line < baseCode.Length; line++)
             {
-                if (code[line].Contains("="))                //Setting variables
+                if (baseCode[line].Contains('(')) continue;
+
+                List<string> sections = SplitLineIntoSections(baseCode[line]);
+                int index = -1;
+
+                for (int key = (int)Language.key.Int; key < (int)Language.key.Bool + 1; key++)
                 {
-                    Variable newVariable = @class.NewVariable(name, sections[3], GetType(type));
-                }
-                else
-                {
-                    Variable newVariable = @class.NewVariable(name, null, GetType(type));
+                    if (!LineIsType((key)key, sections, out index)) continue;
+
+                    string value = null;
+
+                    int setPos = sections.IndexOf("=");
+                    if (setPos >= 0)
+                        value = sections[setPos + 1];
+
+
+                    Variable.NewVariable(
+                        type: keywords[(key)key].type, 
+                        name: sections[index + 1], 
+                        container: @class,
+                        value: value);
+                    break;
                 }
             }
-            else if (isMethod && !@class.methods.ContainsKey(name))
+
+        }
+        public static void Methods(Class @class)
+        {
+            string[] baseCode = @class.baseCode;
+
+            for (int line = 0; line < baseCode.Length; line++)
             {
-                List<string> methodScript = @class.baseCode.ToList();
+                if (!baseCode[line].Contains('(')) continue;
 
-                Utility.FindEncapulasion(ref methodScript, line, out end, '{', '}');
+                List<string> sections = SplitLineIntoSections(baseCode[line]);
+                int index = -1;
 
-                string arguments = name.Substring(name.IndexOf('('), 0);
-                arguments.Replace("(", "");
-                arguments.Replace(")", "");
-                name = name.Substring(0, name.IndexOf('('));
+                for (int key = (int)Language.key.Void; key < (int)Language.key.Bool + 1; key++)
+                {
+                    if (!LineIsType((key)key, sections, out index)) continue;
 
-                new UserMethod(
+                    List<string> methodScript = @class.baseCode.ToList();
+                    methodScript = Utility.FindEncapulasion(methodScript, line, out int end, '{', '}');
+
+
+                    string name = sections[index + 1].Substring(0, sections[index + 1].IndexOf('('));
+
+                    new UserMethod(
                     name: name,
                     parameters: null,
                     methodCode: methodScript.ToArray(),
-                    @class: @class);
+                    container: @class,
+                    returnType: keywords[(key)key].type
+                    );
+
+                    line += end - line;
+                    break;
+                }
             }
         }
-
-        public static Type GetType(string type)
+        public static IRunnable Line(string line, UserMethod method)
         {
-            if (type == keywords[key.Int].word)
+            List<string> sections = SplitLineIntoSections(line);
+
+            Line newLine = new Line();
+
+            for (int i = 0; i < sections.Count; i++)
             {
-                return Language.Type.Int;
-            }
-            else if (type == keywords[key.String].word)
-            { 
-                return Language.Type.String; 
-            }
-            else if (type == keywords[key.Float].word)
-            {
-                return Language.Type.Float;
-            }
-            else if (type == keywords[key.Bool].word)
-            {
-                return Language.Type.Bool;
-            } else
-            {
-                return Language.Type.Fail;
+                string section = sections[i];
+
+                if(section.Contains("("))
+                {
+                    List<char> seperators = new() { '(', ')' };
+                    List<string> parameters = section.Split(seperators.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                    string name = parameters[0];
+                    parameters.RemoveAt(0);
+
+                    newLine.Add(new MethodCall(name, method, parameters.ToArray()));
+                }
+                    
             }
 
+            return newLine;
+        }
+
+        static bool LineIsType(key key, List<string> sections, out int index)
+        {
+            index = Array.IndexOf(sections.ToArray(), keywords[key].word);
+            return index >= 0;
+        }
+
+        public static List<string> SplitLineIntoSections(string line)
+        {
+            List<string> sections = line.Split(" ").ToList();
+            Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
+
+            return sections;
         }
 
         static List<string> ExtractLines(string raw)

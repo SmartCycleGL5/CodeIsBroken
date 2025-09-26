@@ -1,7 +1,24 @@
+using Coding.Language.Actions;
+using Coding.Language.Lines;
 using UnityEngine;
 
-namespace Coding.Language.Conditions
+namespace Coding.Language.Encapsulations
 {
+    public class Encapsulation : IRunnable
+    {
+        public UserMethod caller { get; set; }
+        protected Line[] lines;
+
+        public Encapsulation(Line[] lines)
+        {
+            this.lines = lines;
+        }
+
+        public virtual void Run()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
     public abstract class Conditional : Encapsulation
     {
         protected bool condition;
@@ -24,6 +41,10 @@ namespace Coding.Language.Conditions
         {
             if (condition)
             {
+                foreach (var line in lines)
+                {
+                    line.Run();
+                }
             }
             else
             {

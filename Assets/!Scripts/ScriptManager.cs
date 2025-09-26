@@ -48,6 +48,11 @@ namespace Coding
             Debug.Log("[ScriptManager] Ending");
 
             isRunning = false;
+
+            for (int i = Item.items.Count; i >= 0; i--)
+            {
+                Destroy(Item.items[i]);
+            }
         }
 
         public static void Re()

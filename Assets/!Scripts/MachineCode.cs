@@ -3,6 +3,7 @@ using System;
 using Coding;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Threading.Tasks;
 
 [Serializable]
 public class MachineCode 
@@ -18,10 +19,13 @@ public class MachineCode
         CreateScript(name);
         Interporate.Classes(Code, machine);
     }
-    public void UpdateCode(string code)
+    public async void UpdateCode(string code)
     {
         Code = code;
         machine.ClearMemory();
+
+        await Task.Delay(1000);
+
         Interporate.Classes(Code, machine);
     }
     void CreateScript(string name)

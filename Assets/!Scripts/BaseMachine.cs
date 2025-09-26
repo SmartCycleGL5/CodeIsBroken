@@ -4,9 +4,6 @@ using Coding.SharpCube;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -39,7 +36,7 @@ public abstract class BaseMachine : MonoBehaviour
     {
         Debug.LogError("[BaseMachine] initialize");
 
-        if(Initialized)
+        if (Initialized)
         {
             Debug.LogError("[BaseMachine]" + initialClassName + " Already initialized!");
             return;
@@ -53,6 +50,7 @@ public abstract class BaseMachine : MonoBehaviour
         //if(machineCode == null)
         //    machineCode = new MachineCode();
 
+        Tick.OnStartingTick += FindStartAndUpdate;
         Tick.OnStartingTick += RunStart;
         Tick.OnTick += RunUpdate;
         Tick.OnEndingTick += Stop;
@@ -65,15 +63,13 @@ public abstract class BaseMachine : MonoBehaviour
     private void OnDestroy()
     {
         ScriptManager.instance.RemoveMachine(this);
+        Tick.OnStartingTick -= FindStartAndUpdate;
         Tick.OnStartingTick -= RunStart;
         Tick.OnTick -= RunUpdate;
         Tick.OnEndingTick -= Stop;
     }
-
-    public void RunStart()
+    void FindStartAndUpdate()
     {
-        isRunning = true;
-
         foreach (var Class in Classes)
         {
             try
@@ -84,33 +80,40 @@ public abstract class BaseMachine : MonoBehaviour
             {
                 Debug.LogWarning("Start not found");
             }
-        }
 
-        if (start != null)
-            start.TryRun();
+            try
+            {
+                update = Class.Value.GetMethod("Update");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Update not found " + e);
+                return;
+            }
+        }
+    }
+    public void RunStart()
+    {
+        isRunning = true;
+
+        if (update != null)
+            Run(start);
     }
     public void RunUpdate()
     {
-        if (update == null)
+        if (update != null)
+            Run(update);
+    }
+    void Run(Method toRun)
+    {
+        try
         {
-            foreach (var Class in Classes)
-            {
-                try
-                {
-                    update = Class.Value.GetMethod("Update");
-                }
-                catch (Exception e)
-                {
-                    Debug.LogWarning("Update not found " + e);
-                    return;
-                }
-            }
-
-            update.TryRun();
-        } 
-        else
+            toRun.TryRun();
+        }
+        catch (Exception e)
         {
-            update.TryRun();
+            ScriptManager.StopMachines();
+            Debug.LogError("Couldnt run because of: \"" + e + "\"");
         }
     }
 

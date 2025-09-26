@@ -26,6 +26,8 @@ namespace Coding.SharpCube
         }
         public void PrepareMethod()
         {
+            lines.Clear();
+
             foreach (var line in methodCode)
             {
                 lines.Add(Interporate.Line(line, this));

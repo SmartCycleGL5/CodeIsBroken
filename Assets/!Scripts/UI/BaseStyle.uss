@@ -8,3 +8,43 @@
 .Windows {
     font-size: 50px;
 }
+
+.RunButton {
+    bottom: 50px;
+    position: absolute;
+    align-self: center;
+    font-size: 78px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-right: 100px;
+    padding-left: 101px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+}
+
+.RunButton:hover {
+    background-color: rgb(158, 255, 163);
+    transition-timing-function: ease-in;
+    transition-delay: 0s;
+    transition-duration: 0.1s;
+}
+
+.RunButton:active {
+    background-color: rgb(76, 255, 85);
+    transition-timing-function: ease-in;
+    transition-delay: 0s;
+    transition-duration: 0.1s;
+}

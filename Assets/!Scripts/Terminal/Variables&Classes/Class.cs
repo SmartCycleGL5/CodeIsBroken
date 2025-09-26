@@ -1,9 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using static Utility;
 
 namespace Coding.Language
 {
@@ -11,15 +9,16 @@ namespace Coding.Language
     /// <summary>
     /// Reperesents Player made classes
     /// </summary>
-    public class Class : IVariable, IMethod
+    public class Class : IVariableContainer, IMethodContainer
     {
         public string name;
 
         public Class inheritedClass;
         public BaseMachine machine;
-        public Dictionary<string, Variable> variables { get; set; } = new();
+        [field: SerializeField, SerializedDictionary("Name", "Variable")]
+        public SerializedDictionary<string, Variable> variables { get; set; } = new();
 
-        [SerializedDictionary("Name", "Method")]
+        [field: SerializeField, SerializedDictionary("Name", "Method")]
         public SerializedDictionary<string, UserMethod> methods { get; set; } = new();
 
         public string[] baseCode;
@@ -44,7 +43,7 @@ namespace Coding.Language
         {
             for (int i = 0; i < baseCode.Length; i++)
             {
-                Interpreter.DefineMethodsAndVariables(baseCode, i, out int end, this);
+                Interporate.MethodsAndVariables(baseCode, i, out int end, this);
 
                 i += end - i; //skips until after the end of the method
             }
@@ -58,9 +57,9 @@ namespace Coding.Language
             {
                 return methods[name];
             }
-            catch 
-            { 
-                if(inheritedClass != null)
+            catch
+            {
+                if (inheritedClass != null)
                 {
                     return inheritedClass.methods[name];
                 }
@@ -78,15 +77,40 @@ namespace Coding.Language
         #endregion
 
         #region Variables
-        public Variable NewVariable(string name, object value)
+        public Variable NewVariable(string name, string value, Type type)
         {
-            Variable variable = new Variable(name, value);
+            Variable variable = null;
+
+            switch (type)
+            {
+                case Type.Int:
+                    {
+                        variable = new Int(name, this, int.Parse(value));
+                        break;
+                    }
+                case Type.Float:
+                    {
+                        variable = new Float(name, this, float.Parse(value));
+                        break;
+                    }
+                case Type.String:
+                    {
+                        variable = new String(name, this, value);
+                        break;
+                    }
+                case Type.Bool:
+                    {
+                        variable = new Bool(name, this, bool.Parse(value));
+                        break;
+                    }
+                default:
+                    {
+                        Debug.LogError("[Class] cannot create variable of type " + type);
+                        break;
+                    }
+            }
+
             variables.Add(name, variable);
-            return variable;
-        }
-        public Variable NewVariable(Variable variable)
-        {
-            variables.Add(variable.name, variable);
             return variable;
         }
         public Variable FindVariable(string name)
@@ -94,7 +118,7 @@ namespace Coding.Language
             try
             {
                 return variables[name];
-            } 
+            }
             catch
             {
                 return inheritedClass.FindVariable(name);

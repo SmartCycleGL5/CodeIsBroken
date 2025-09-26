@@ -7,18 +7,19 @@ namespace Coding
 {
     using Language;
     using UnityEngine;
+    using static Language.Syntax;
 
     [Serializable]
-    public static class Interpreter
+    public static class Interporate
     {
-        public static void InterperateScript(string script, BaseMachine machine)
+        public static void Classes(string script, BaseMachine machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();
 
             for (int i = 0; i < scriptLines.Length; i++)
             {
-                if (!scriptLines[i].Contains("class")) continue;
+                if (!scriptLines[i].Contains(keywords[key.Class].word)) continue;
 
                 string[] sections = scriptLines[i].Split(" ");
                 List<string> classScript = scriptLines.ToList();
@@ -34,7 +35,7 @@ namespace Coding
             }
         }
 
-        public static void DefineMethodsAndVariables(string[] code, int line, out int end, Class @class)
+        public static void MethodsAndVariables(string[] code, int line, out int end, Class @class)
         {
             end = line;
 
@@ -49,14 +50,13 @@ namespace Coding
 
             if (!isMethod && !@class.variables.ContainsKey(name))
             {
-                Variable newVariable = @class.NewVariable(name, null);
-
-                //Setting variables
-                if (code[line].Contains("="))
+                if (code[line].Contains("="))                //Setting variables
                 {
-                    string value = sections[3];
-
-                    newVariable.SetValue(value);
+                    Variable newVariable = @class.NewVariable(name, sections[3], GetType(type));
+                }
+                else
+                {
+                    Variable newVariable = @class.NewVariable(name, null, GetType(type));
                 }
             }
             else if (isMethod && !@class.methods.ContainsKey(name))
@@ -72,10 +72,34 @@ namespace Coding
 
                 new UserMethod(
                     name: name,
-                    arguments: UserMethod.TranslateArguments(arguments),
+                    parameters: null,
                     methodCode: methodScript.ToArray(),
                     @class: @class);
             }
+        }
+
+        public static Type GetType(string type)
+        {
+            if (type == keywords[key.Int].word)
+            {
+                return Language.Type.Int;
+            }
+            else if (type == keywords[key.String].word)
+            { 
+                return Language.Type.String; 
+            }
+            else if (type == keywords[key.Float].word)
+            {
+                return Language.Type.Float;
+            }
+            else if (type == keywords[key.Bool].word)
+            {
+                return Language.Type.Bool;
+            } else
+            {
+                return Language.Type.Fail;
+            }
+
         }
 
         static List<string> ExtractLines(string raw)
@@ -90,6 +114,47 @@ namespace Coding
             list.RemoveAll(item => item == ";");
 
             return list;
+        }
+
+        public static object Type(string value)
+        {
+            object result = value;
+            try
+            {
+                if (value.Contains('f'))
+                {
+                    result = float.Parse(value.Replace("f", ""));
+                }
+                else
+                {
+                    result = int.Parse(value);
+                }
+            }
+            catch
+            {
+
+            }
+
+
+            return new object();
+        }
+
+        public static object[] TranslateArguments(string args)
+        {
+            if (args == null || args == string.Empty) return null;
+
+            Debug.Log("[ArgumentTranslation] " + args);
+
+            string[] stringArgsList = Regex.Split(args, ",");
+
+            List<object> argsList = new List<object>();
+
+            foreach (var item in stringArgsList)
+            {
+                argsList.Add(Interporate.Type(item));
+            }
+
+            return argsList.ToArray();
         }
     }
 }

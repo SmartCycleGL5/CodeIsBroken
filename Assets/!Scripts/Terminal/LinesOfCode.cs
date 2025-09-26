@@ -39,4 +39,18 @@ namespace Coding.Language
             //throw new NotImplementedException();
         }
     }
+
+    public class Encapsulation : Line
+    {
+        protected Line[] lines;
+
+        public Encapsulation(Line[] lines)
+        {
+            this.lines = lines;
+        }
+
+        public override void Run()
+        {
+        }
+    }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Coding.Language
@@ -7,16 +9,16 @@ namespace Coding.Language
     public abstract class Method
     {
         public string name;
-
-        public Variable[] input = null;
-        public Type returnType;
         [HideInInspector] public Class @class;
 
-        public Method(string name, object[] arguments, Class @class = null, Type returnType = Type.Void)
+        public ParameterInfo[] parameters;
+
+        public Method(string name, Class @class, ParameterInfo[] parameters, Type returnType = Type.Void)
         {
             this.name = name;
             this.@class = @class;
-            this.returnType = returnType;
+
+            this.parameters = parameters;
 
             Debug.Log("[Method] New Method: " + this.name);
         }

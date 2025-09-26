@@ -39,7 +39,7 @@ public class SellStaton : MonoBehaviour
 
             if(conveyor.RemoveItem(out Item removedItem))
             {
-                Debug.Log("[SellStation] Sold " +  removedItem);
+                //Debug.Log("[SellStation] Sold " +  removedItem);
                 cubeSold++;
                 Destroy(removedItem.gameObject);
             }
@@ -51,7 +51,7 @@ public class SellStaton : MonoBehaviour
         }
         else if (cubeSold > 15)
         {
-            text.text = "Try putting a painter in between two conveyors. In the update, use the command Paint(); and chose between red or blue";
+            text.text = "Try putting a painter in between two conveyors. In the update, use the command Paint(); and chose between red, blue or green";
         }
         
         else if (cubeSold > 25)
@@ -62,5 +62,6 @@ public class SellStaton : MonoBehaviour
         {
             text.text = "Create two lines going into the seller and make them two different colors";
         }
+
     }
 }

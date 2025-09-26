@@ -1,8 +1,10 @@
+using Coding;
 using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -25,8 +27,9 @@ public class PlayerInputs : MonoBehaviour
     [Header("Player Options")]
     [SerializeField] bool dragToRotate;
 
+    bool isBuilding;
     private Vector2 moveInput;
-    private Vector2 lookInput;
+    private float lookInput;
 
     float screenWidth;
     public enum PlayerAction
@@ -46,7 +49,12 @@ public class PlayerInputs : MonoBehaviour
     // Player mouse movement
     public void OnLook(InputValue value)
     {
-        lookInput = value.Get<Vector2>();
+        //lookInput = value.Get<Vector2>();
+    }
+    public void OnCameraRotate(InputValue value)
+    {
+        //Debug.Log(value.Get<Vector2>());
+        lookInput = value.Get<float>();
     }
     #endregion
 
@@ -59,6 +67,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
+        if (Terminal.focused) return;
         Movement();
         MouseRotate();
     }
@@ -66,6 +75,28 @@ public class PlayerInputs : MonoBehaviour
 
     void PlayerUpdate()
     {
+        //Enable disable building:
+        if (Keyboard.current.bKey.wasPressedThisFrame && !isBuilding)
+        {
+            if (Terminal.focused) return;
+            isBuilding = true;
+            buildingMenu.SetActive(true);
+            playerAction = PlayerAction.Building;
+            Debug.Log("Enabled Building");
+        }
+        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding)
+        {
+            playerAction = PlayerAction.WorldInteraction;
+            isBuilding = false;
+            buildingMenu.SetActive(false);
+            buildingInput.DestroyGhost();
+            Debug.Log("Disabled Building");
+        }
+        if (Keyboard.current.deleteKey.wasPressedThisFrame)
+        {
+            Restart();
+        }
+
         // Updates The active scripts
         if (playerAction == PlayerAction.Building)
         {
@@ -73,20 +104,10 @@ public class PlayerInputs : MonoBehaviour
         }
         if (playerAction == PlayerAction.WorldInteraction)
         {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
+                UIManager.CloseAllWindows();
+            }
             machineInput.PlayerUpdate();
-        }
-
-        //Enable disable building:
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            buildingMenu.SetActive(false);
-            buildingInput.DestroyGhost();
-            playerAction = PlayerAction.WorldInteraction;
-        }
-        if (Keyboard.current.bKey.wasPressedThisFrame)
-        {
-            buildingMenu.SetActive(true);
-            playerAction = PlayerAction.Building;
         }
     }
 
@@ -100,7 +121,7 @@ public class PlayerInputs : MonoBehaviour
     void MouseRotate()
     {
         // Only rotate if Middle mouse i down
-        if (!Mouse.current.middleButton.IsPressed()) return;
+        //if (!Mouse.current.middleButton.IsPressed()) return;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
         {
@@ -108,15 +129,21 @@ public class PlayerInputs : MonoBehaviour
             //Drag to rotate, rotates based on mouse movement.
             if (dragToRotate)
             {
-                player.RotateAround(hit.point, Vector3.up, lookInput.x * rotationSpeed * Time.deltaTime);
+                //player.RotateAround(hit.point, Vector3.up, lookInput.x * rotationSpeed * Time.deltaTime);
             }
             //Rotates based on which side of the screen mouse is in.
             else
             {
-                Vector2 mousePosition = Mouse.current.position.value;
-                float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
-                player.RotateAround(hit.point, Vector3.up, screenSide * rotationSpeed * Time.deltaTime);
+                //Vector2 mousePosition = Mouse.current.position.value;
+                //float screenSide = mousePosition.x < screenWidth / 2f ? -5 : 5;
+                //Debug.Log("Rotating"+lookInput);
+                player.RotateAround(hit.point, Vector3.up, -lookInput * rotationSpeed * Time.deltaTime);
             }
         }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

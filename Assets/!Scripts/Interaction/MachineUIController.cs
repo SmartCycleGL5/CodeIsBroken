@@ -17,9 +17,9 @@ public class MachineUIController : MonoBehaviour
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
-        //uiMenu.SetActive(toggle);
+        uiMenu.SetActive(toggle);
         Debug.Log(uiEnabled);
-        TerminalButton();
+        //TerminalButton();
 
     }
 
@@ -32,20 +32,18 @@ public class MachineUIController : MonoBehaviour
 
     public void TerminalButton()
     {
-        Debug.LogError("[MachineUIController] Open Terminal plz");
 
+        
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
-            Debug.LogError("[MachineUIController] " + machine + " is " + machine.Initialized);
+            if(!machine.Initialized)
+                machine.Initialize("NewClass" + UnityEngine.Random.Range(1000, 9999));
 
-            //if (machine.Initialized == false)
-                machine.Initialize("NewClass" + Random.Range(100, 1000));
-
-            Debug.LogError("[MachineUIController] opening for " + machine);
+            
             machine.OpenTerminalForMachine();
         } else
         {
-            Debug.LogError("[MachineUIController] Couldnt Find Machine");
+            Debug.Log("[MachineUIController] Couldnt Find Machine");
         }
 
     }

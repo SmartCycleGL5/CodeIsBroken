@@ -34,20 +34,27 @@ public class GhostBuilding : MonoBehaviour
             Destroy(ghostPrefab);
             isBuilding = false;
         }
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            Debug.Log("Trying to remove building");
+            gridBuilder.RemoveBuilding();
+        }
         if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             RotateBuilding();
         }
+        // Block placement when over UI
+        Debug.Log(EventSystem.current.IsPointerOverGameObject());
+
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        
+
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            gridBuilder.RemoveBuilding();
-        }
+
         
         if (isBuilding)
         {
@@ -91,7 +98,8 @@ public class GhostBuilding : MonoBehaviour
     {
         SetBuildingStatus(true);
         prefabToBuild = newGhost;
-        ghostPrefab = Instantiate(newGhost);
+        DestroyGhost();
+        ghostPrefab = Instantiate(newGhost, new Vector3(0,-10,0), Quaternion.identity);
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());

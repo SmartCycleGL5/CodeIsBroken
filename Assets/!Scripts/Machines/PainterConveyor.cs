@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PainterConveyor : MonoBehaviour
+public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     [SerializeField] Transform input;
     [SerializeField] Transform output;
     [SerializeField] PainterMachine PainterMachine;
-    [SerializeField] Item item;
+    public Item item { get; set; }
 
 
     void Start()
@@ -21,10 +21,9 @@ public class PainterConveyor : MonoBehaviour
         if(outputCell == null) return;
         if (outputCell.TryGetComponent(out Conveyor conveyorOut))
         {
-            // Change after merge.
             if (conveyorOut.item != null) return;
-            conveyorOut.item = item;
-            item = null;
+            conveyorOut.SetItem(item);
+            RemoveItem();
         }
 
         //Take in item
@@ -33,12 +32,34 @@ public class PainterConveyor : MonoBehaviour
         if(inputCell.TryGetComponent(out Conveyor conveyorIn))
         {
             if(conveyorIn.item == null) return;
-            item = conveyorIn.item;
-            item.gameObject.transform.position = transform.position;
+            SetItem(conveyorIn.item);
             conveyorIn.RemoveItem();
         }
 
         PainterMachine.item = item;
+    }
+
+    public bool RemoveItem(out Item removedItem)
+    {
+        removedItem = null;
+        if (item == null) return false;
+        removedItem = item;
+        item = null;
+
+        return true;
+    }
+
+    public bool SetItem(Item item)
+    {
+        if (this.item != null) return false;
+        this.item = item;
+        this.item.transform.position = transform.position;
+        return true;
+    }
+    [DontIntegrate]
+    public bool RemoveItem()
+    {
+        return RemoveItem(out Item item);
     }
 
     private void OnDestroy()

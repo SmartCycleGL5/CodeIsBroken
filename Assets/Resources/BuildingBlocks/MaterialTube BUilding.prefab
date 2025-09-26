@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1428020738065697817}
   - component: {fileID: 9214029674004761619}
   m_Layer: 0
-  m_Name: MaterialTube Building
+  m_Name: MaterialTube BUilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,6 +261,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Building
   buildingCells:
   - {fileID: 4569153384676419293}
+  scriptsToActivate:
+  - {fileID: 1428020738065697817}
+  - {fileID: 9214029674004761619}
 --- !u!114 &1428020738065697817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +271,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835777250307342540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3019211792bb92f4e8edcf33e14139d5, type: 3}
   m_Name: 
@@ -287,7 +290,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835777250307342540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
   m_Name: 
@@ -510,6 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3989704304939235237, guid: bf4e065f9961cbf4c916903b543a48db, type: 3}
+    - {fileID: 3989704304939235237, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

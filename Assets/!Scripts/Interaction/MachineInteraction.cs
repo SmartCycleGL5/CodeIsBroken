@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class MachineInteraction : MonoBehaviour
 {
@@ -14,7 +15,16 @@ public class MachineInteraction : MonoBehaviour
             Debug.Log("[MachineInteration] Looking for object to toggle");
             Vector2 mousePos = GridBuilder.instance.GetGridPosition();
             GameObject building = GridBuilder.instance.LookUpCell(new Vector3(mousePos.x,0,mousePos.y));
-            if (building == null) return;
+            if (building == null)
+            {
+                // If mouse clicks on empty space, and it is not the menu panel, close it.
+                if (currentMachineUI != null && !EventSystem.current.IsPointerOverGameObject())
+                { 
+                    currentMachineUI.ToggleUI(false);
+                    currentMachineUI = null;
+                }
+                return;
+            }
 
             Debug.Log("[MachineInteration] building: " + building);
 
@@ -29,16 +39,15 @@ public class MachineInteraction : MonoBehaviour
 
     private void SelectMachine(MachineUIController machineUI)
     {
-        
+        // Swaps machine with open ui panel.
         if (currentMachineUI != machineUI) {
-            //if (currentMachineUI != null) 
-            //{ 
-            //    currentMachineUI.ToggleUI(false); 
-            //}
+            if (currentMachineUI != null) 
+            { 
+                currentMachineUI.ToggleUI(false); 
+            }
             currentMachineUI = machineUI;
-            //currentMachineUI.ToggleUI(true);
-            currentMachineUI.TerminalButton();
+            currentMachineUI.ToggleUI(true);
+            //currentMachineUI.TerminalButton();
         }
-        
     }
 }

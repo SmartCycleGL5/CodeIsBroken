@@ -14,7 +14,8 @@ public class PainterMachine : Machine
 
     public void Paint(string color)
     {
-        if(item == null) return;
+        Debug.Log("Set color to: " + color);
+        if (item == null) return;
 
         switch (color)
         {

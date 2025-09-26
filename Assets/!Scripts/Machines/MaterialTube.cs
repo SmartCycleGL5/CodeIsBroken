@@ -20,9 +20,9 @@ public class MaterialTube : Machine
     }
 
     // Player controlled
-    public void SpawnRate(int spawnRate)
+    public void SpawnDelay(int delay)
     {
-        this.spawnRate = spawnRate;
+        this.spawnRate = delay;
 
     }
     

@@ -7,7 +7,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
     // Conveyor to send item to next
     public Conveyor nextConveyor;
     public List<Conveyor> recieveFrom;
-
+    public GameObject wrapper;
     [SerializeField] List<Transform> positions;
 
     public Item item { get; set; }
@@ -40,15 +40,21 @@ public class Conveyor : MonoBehaviour, IItemContainer
                 //Debug.Log(conveyor.name);
             }
         }
+        //Checks for forward conveyor
+        Conveyor conveyorForward = cm.GetConveyor(transform.position+transform.forward);
+        if (conveyorForward != null)
+        {
+            nextConveyor = conveyorForward;
+        }
 
     }
 
     void MoveOnTick()
     {
         // Checks if last in line
-        if (nextConveyor == null && recieveFrom !=null)
+        if (nextConveyor == null && recieveFrom.Count > 0)
         {
-            Debug.Log("LastInLine");
+            Debug.Log("LastInLine: "+nextConveyor);
             SendItem();
         }
     }

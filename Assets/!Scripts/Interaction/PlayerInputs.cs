@@ -93,6 +93,7 @@ public class PlayerInputs : MonoBehaviour
         }
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
+            if (Terminal.focused) return;
             buildingMenu.SetActive(true);
             playerAction = PlayerAction.Building;
         }

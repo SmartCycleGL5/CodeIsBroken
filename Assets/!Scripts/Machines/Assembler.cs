@@ -2,12 +2,13 @@ using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Assembler : MonoBehaviour
+public class Assembler : MonoBehaviour, IItemContainer
 {
     [SerializeField] int assemblerSize;
-    [SerializeField] List<Item> testingItems;
-    [SerializeField] HashSet<Item> items;
+    [SerializeField] List<Item> items;
     [SerializeField] List<CraftingRecipie> craftingRecipies;
+
+    public Item item { get; set; }
 
     public void Clear()
     {
@@ -15,19 +16,41 @@ public class Assembler : MonoBehaviour
     }
     private void Update()
     {
-        Craft();
-    }
-    public void Craft()
-    {
-        if(craftingRecipies.Count == 0 || testingItems.Count == 0) return;
-        items = new HashSet<Item>(testingItems);
-        foreach (var recipie in craftingRecipies)
-        {
-            if(recipie.itemsRequired.SetEquals(items))
-            {
-                Debug.Log("Matching");
-            }
-        }
+
     }
 
+
+
+    public void Craft()
+    {
+
+    }
+
+    public bool RemoveItem(out Item removedItem)
+    {
+        removedItem = null;
+        if (item == null) return false;
+        removedItem = item;
+        item = null;
+
+        return true;
+    }
+
+    public bool SetItem(Item item)
+    {
+        if (this.item != null) return false;
+        this.item = item;
+        this.item.transform.position = transform.position;
+        return true;
+    }
+    [DontIntegrate]
+    public bool RemoveItem()
+    {
+        return RemoveItem(out Item item);
+    }
+
+    private void OnDestroy()
+    {
+        
+    }
 }

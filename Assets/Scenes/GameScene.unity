@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4607672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,9 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assembler
   assemblerSize: 0
-  testingItems:
-  - {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
-  - {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
+  items: []
   craftingRecipies:
   - {fileID: 11400000, guid: b1c9bcdc76e2ca74694725bb08bd094d, type: 2}
 --- !u!65 &4607673

@@ -1,3 +1,4 @@
+using Coding;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -65,6 +66,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
+        if (Terminal.focused) return;
         Movement();
         MouseRotate();
     }

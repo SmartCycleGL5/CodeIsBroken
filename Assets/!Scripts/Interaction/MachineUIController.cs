@@ -37,7 +37,7 @@ public class MachineUIController : MonoBehaviour
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
             if(!machine.Initialized)
-                ScriptManager.CreateScript(gameObject, "NewClass" + UnityEngine.Random.Range(1000, 9999));
+                machine.Initialize("NewClass" + UnityEngine.Random.Range(1000, 9999));
 
             
             machine.OpenTerminalForMachine();

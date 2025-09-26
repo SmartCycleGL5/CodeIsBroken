@@ -4,7 +4,7 @@ using UnityEngine;
 public class CraftingRecipie : ScriptableObject
 {
     [Header("Materials")]
-    public HashSet<Item> itemsRequired;
+    public List<Item> itemsRequired;
     public Item craftedMaterial;
 
     [Header("Settings")]

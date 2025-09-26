@@ -15,10 +15,14 @@ namespace Coding.Language
         {
             toCall = method;
             this.toRunFrom = toRunFrom;
+            parameters = toCall.GetParameters();
         }
         public override bool TryRun(object[] input)
         {
-            if(toCall.GetParameters() != parameters) return false;
+            foreach (var item in input)
+            {
+                Debug.Log(item.GetType() + " - " + item);
+            }
 
             Run(input);
             return true;

@@ -10,7 +10,7 @@ namespace Coding
     using Language;
     using UnityEngine;
     using static Language.Syntax;
-    using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
+
 
     [Serializable]
     public static class Interporate
@@ -43,7 +43,6 @@ namespace Coding
                 i += end - i; //skips to the end of the class
             }
         }
-
         public static void Variables(Class @class)
         {
             string[] baseCode = @class.baseCode;
@@ -94,8 +93,11 @@ namespace Coding
                     List<string> methodScript = @class.baseCode.ToList();
                     methodScript = Utility.FindEncapulasion(methodScript, line, out int end, '{', '}');
 
+
+                    string name = sections[index + 1].Substring(0, sections[index + 1].IndexOf('('));
+
                     new UserMethod(
-                    name: sections[index + 1],
+                    name: name,
                     parameters: null,
                     methodCode: methodScript.ToArray(),
                     container: @class,
@@ -120,16 +122,17 @@ namespace Coding
                 if(section.Contains("("))
                 {
                     List<char> seperators = new() { '(', ')' };
-                    string[] parameters = section.Split(seperators.ToArray());
+                    List<string> parameters = section.Split(seperators.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
                     string name = parameters[0];
+                    parameters.RemoveAt(0);
 
-                    newLine.Add(new MethodCall(name, method, parameters));
+                    newLine.Add(new MethodCall(name, method, parameters.ToArray()));
                 }
                     
             }
 
-            return null;
+            return newLine;
         }
 
         static bool LineIsType(key key, List<string> sections, out int index)

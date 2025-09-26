@@ -3,6 +3,7 @@ using Coding.Language.Lines;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Coding.Language
@@ -31,31 +32,10 @@ namespace Coding.Language
             }
         }
 
-        //public Line ReadLine(string line)
-        //{
-        //    List<string> sections = line.Split(" ").ToList();
-        //    Utility.FindAndRetain(ref sections, '"', '"');
-        //    Utility.FindAndRetain(ref sections, '(', ')');
-
-        //    bool isMethod = line.Contains("(") && line.Contains(")");
-
-        //    if (isMethod)
-        //    {
-        //        string args = line.Substring(line.IndexOf('('), line.Length - line.IndexOf('('));
-        //        args = args.Replace("(", "");
-        //        args = args.Replace(")", "");
-        //        string name = line.Substring(0, line.IndexOf('('));
-
-        //        Debug.Log(line);
-        //        Debug.Log(args);
-
-
-        //        lines.Add(new MethodCall(name, container, Interporate.TranslateArguments(args)));
-        //    }
-        //    return null;
-        //}
         public override bool TryRun(object[] input = null)
         {
+            Debug.Log("Running: " + info.name);
+
             if (input == null && parameters == null)
             {
                 Run(input);
@@ -72,8 +52,6 @@ namespace Coding.Language
         }
         protected override void Run(object[] input)
         {
-            Debug.Log("Running: " + info.name);
-
             foreach (var line in lines)
             {
                 if (line == null) continue;
@@ -111,11 +89,18 @@ namespace Coding.Language
 
         public Method GetMethod(string toGet)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return userMethods[toGet];
+            }
+            catch
+            {
+                return info.container.GetMethod(toGet);
+            }
         }
         public void Add(UserMethod toAdd)
         {
-            throw new NotImplementedException();
+            userMethods.Add(toAdd.info.name, toAdd);
         }
     }
 }

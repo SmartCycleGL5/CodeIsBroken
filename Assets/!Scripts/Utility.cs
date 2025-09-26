@@ -77,6 +77,32 @@ public static class Utility
         return encapsulatedScript;
     }
 
+    public static object ConvertStringToObject(string item)
+    {
+        try
+        {
+            return int.Parse(item);
+        }
+        catch
+        {
+            try
+            {
+                return float.Parse(item);
+            }
+            catch
+            {
+                try
+                {
+                    return bool.Parse(item);
+                }
+                catch
+                {
+                    return item;
+                }
+            }
+        }
+    }
+
     public static class Addressable
     {
         public static async Task<T> ReturnAdressableAsset<T>(string path)

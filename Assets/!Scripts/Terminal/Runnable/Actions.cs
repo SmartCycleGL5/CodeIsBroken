@@ -1,5 +1,6 @@
 using Coding.Language.Lines;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Coding.Language.Actions
@@ -21,10 +22,19 @@ namespace Coding.Language.Actions
         public object[] input;
         public MethodCall(string nameOfMethod, UserMethod caller, string[] input = null) : base (caller)
         {
-            Debug.Log("[MethodCall] finding: " + nameOfMethod);
+            List<object> convertedInput = new();
+
+            foreach (var item in input)
+            {
+                try
+                {
+                    convertedInput.Add(Utility.ConvertStringToObject(item));
+                }
+                catch { }
+            }
 
             this.nameOfMethod = nameOfMethod;
-            this.input = input;
+            this.input = convertedInput.ToArray();
         }
 
         public override void Run()

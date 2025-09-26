@@ -1,8 +1,8 @@
-using Coding.Language.Actions;
-using Coding.Language.Lines;
+using Coding.SharpCube.Actions;
+using Coding.SharpCube.Lines;
 using UnityEngine;
 
-namespace Coding.Language.Encapsulations
+namespace Coding.SharpCube.Encapsulations
 {
     public class Encapsulation : IRunnable
     {

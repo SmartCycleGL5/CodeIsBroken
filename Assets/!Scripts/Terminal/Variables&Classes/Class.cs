@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     [Serializable, DefaultExecutionOrder(50),]
     /// <summary>

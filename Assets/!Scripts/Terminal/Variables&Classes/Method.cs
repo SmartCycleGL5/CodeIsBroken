@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     [Serializable]
     public abstract class Method : Object<IMethodContainer>

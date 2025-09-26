@@ -2,7 +2,7 @@ using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public interface IMethodContainer : IContainer<UserMethod>
     {

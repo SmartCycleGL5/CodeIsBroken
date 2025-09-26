@@ -1,8 +1,8 @@
-using Coding.Language.Lines;
+using Coding.SharpCube.Lines;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public enum key
     {
@@ -52,6 +52,7 @@ namespace Coding.Language
                 this.word = word;
                 this.highlightColor = highlightColor;
                 this.type = type;
+
             }
         }
     }

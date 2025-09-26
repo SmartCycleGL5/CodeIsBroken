@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     [Serializable]
     public class Variable : Object<IVariableContainer>
@@ -15,7 +15,7 @@ namespace Coding.Language
 
         public virtual Type Type()
         {
-            return Language.Type.Fail;
+            return SharpCube.Type.Fail;
         }
 
 
@@ -23,26 +23,26 @@ namespace Coding.Language
         {
             switch(type)
             {
-                case Language.Type.Int:
+                case SharpCube.Type.Int:
                     {
                         value = value != null ? value : string.Empty;
                         int intValue = int.Parse(value);
 
                         return new Int(name, container, intValue);
                     }
-                case Language.Type.Float:
+                case SharpCube.Type.Float:
                     {
                         value = value != null ? value : string.Empty;
                         float floatValue = float.Parse(value);
 
                         return new Float(name, container, floatValue);
                     }
-                case Language.Type.String:
+                case SharpCube.Type.String:
                     {
                         value = value != null ? value : string.Empty;
                         return new String(name, container, value);
                     }
-                case Language.Type.Bool:
+                case SharpCube.Type.Bool:
                     {
                         value = value != null ? value : string.Empty;
                         bool boolValue = bool.Parse(value);

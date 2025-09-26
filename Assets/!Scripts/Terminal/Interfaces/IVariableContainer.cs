@@ -1,7 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 
-namespace Coding.Language
+namespace Coding.SharpCube
 {
     public interface IVariableContainer : IContainer<Variable>
     {

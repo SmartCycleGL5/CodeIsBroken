@@ -1,8 +1,8 @@
-using Coding.Language.Actions;
+using Coding.SharpCube.Actions;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language.Lines
+namespace Coding.SharpCube.Lines
 {
     public interface IRunnable
     {

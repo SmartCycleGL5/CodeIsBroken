@@ -71,6 +71,18 @@ namespace Coding
 
             Load();
         }
+
+        private void Update()
+        {
+            if(ScriptManager.isRunning)
+            {
+                buttons["Run"].text = "Stop";
+            } else
+            {
+                buttons["Run"].text = "Run";
+            }
+        }
+
         private void OnDestroy()
         {
             buttons["Save"].clicked -= Save;

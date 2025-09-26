@@ -1,9 +1,9 @@
-using Coding.Language.Lines;
+using Coding.SharpCube.Lines;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding.Language.Actions
+namespace Coding.SharpCube.Actions
 {
     public abstract class Action : IRunnable
     {

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     public Item item { get; set; }
 
-    Vector3 itemPosition { get { return item.transform.position = transform.position + new Vector3(0, 1, 0);  } }
+    //Vector3 itemPosition { get { return transform.position + new Vector3(0, 1, 0);  } }
 
     void Start()
     {
@@ -35,9 +36,6 @@ public class Conveyor : MonoBehaviour, IItemContainer
                 conveyor.nextConveyor = this;
                 recieveFrom.Add(conveyor);
 
-                //conveyor.nextConveyor = this;
-                //recieveFrom.Add(conveyor);
-                //Debug.Log(conveyor.name);
             }
         }
         //Checks for forward conveyor
@@ -102,7 +100,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(this.item != null) return false;
 
         this.item = item;
-        this.item.gameObject.transform.position = itemPosition;
+        Debug.Log(item.transform.position + " ");
+        this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.35f);
         return true;
     }
     [DontIntegrate]

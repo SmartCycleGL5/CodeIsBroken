@@ -37,4 +37,10 @@ public class PainterMachine : Machine
         }
     }
 
+    private void OnDestroy()
+    {
+        if (item == null) return;
+        Destroy(item);
+    }
+
 }

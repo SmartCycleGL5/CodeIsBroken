@@ -19,12 +19,10 @@ public class MachineCode
         CreateScript(name);
         Interporate.Classes(Code, machine);
     }
-    public async void UpdateCode(string code)
+    public void UpdateCode(string code)
     {
         Code = code;
         machine.ClearMemory();
-
-        await Task.Delay(1000);
 
         Interporate.Classes(Code, machine);
     }

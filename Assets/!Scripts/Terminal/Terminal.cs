@@ -132,6 +132,8 @@ namespace Coding
         {
             if (machineToEdit == null) return;
 
+            if(ScriptManager.isRunning)
+                ScriptManager.StopMachines();
 
             machineToEdit.machineCode.UpdateCode(input.text);
         }

@@ -101,7 +101,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
         this.item = item;
         Debug.Log(item.transform.position + " ");
-        this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.35f);
+        this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

@@ -11,19 +11,18 @@ namespace Coding.SharpCube
         public MethodInfo toCall;
         object toRunFrom;
 
-        public IntegratedMethod(string name, Class @class, ParameterInfo[] parameter, MethodInfo method, object toRunFrom, Type returnType = Type.Void) : base(name, @class, parameter, returnType)
+        public IntegratedMethod(string name, Class @class, ParameterInfo[] parameter, MethodInfo method, object toRunFrom, VariableType returnType = VariableType.Void) : base(name, @class, parameter, returnType)
         {
             toCall = method;
             this.toRunFrom = toRunFrom;
             parameters = toCall.GetParameters();
         }
-        public override bool TryRun(object[] input)
+        public override object TryRun(object[] input)
         {
-            Run(input);
-            return true;
+            return Run(input);
         }
 
-        protected override void Run(object[] input)
+        protected override object Run(object[] input)
         {
             if (input == null)
             {
@@ -37,7 +36,7 @@ namespace Coding.SharpCube
                     Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
                 }
             }
-            toCall.Invoke(toRunFrom, input);
+            return toCall.Invoke(toRunFrom, input);
         }
     }
 }

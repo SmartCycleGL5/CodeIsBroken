@@ -3,7 +3,7 @@ namespace Coding.SharpCube
 {
     public class Float : Variable, ISettable<float>, IGettable<float>
     {
-        public Float(string name, IVariableContainer container, float value = 0f, Type type = SharpCube.Type.Float) : base(name, container, type)
+        public Float(string name, IVariableContainer container, float value = 0f, VariableType type = SharpCube.VariableType.Float) : base(name, container, type)
         {
             Set(value);
         }
@@ -17,9 +17,9 @@ namespace Coding.SharpCube
             info.value = value;
         }
 
-        public override Type Type()
+        public override VariableType Type()
         {
-            return SharpCube.Type.Float;
+            return SharpCube.VariableType.Float;
         }
     }
 }

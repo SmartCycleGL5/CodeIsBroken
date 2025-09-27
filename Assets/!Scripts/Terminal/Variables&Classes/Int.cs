@@ -3,7 +3,7 @@ namespace Coding.SharpCube
 {
     public class Int : Variable, ISettable<int>, IGettable<int>
     {
-        public Int(string name, IVariableContainer container, int value = 0, Type type = SharpCube.Type.Int) : base(name, container, type)
+        public Int(string name, IVariableContainer container, int value = 0, VariableType type = SharpCube.VariableType.Int) : base(name, container, type)
         {
             Set(value);
         }
@@ -17,9 +17,9 @@ namespace Coding.SharpCube
             info.value = value;
         }
 
-        public override Type Type()
+        public override VariableType Type()
         {
-            return SharpCube.Type.Int;
+            return SharpCube.VariableType.Int;
         }
     }
 }

@@ -1,4 +1,5 @@
 using Coding.SharpCube.Lines;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,31 +29,44 @@ namespace Coding.SharpCube
         {
             { key.Class, new Keyword("class", Color.blue) },
 
-            { key.Void, new Keyword("void", Color.blue, Type.Void) },
-            { key.Int, new Keyword("int", Color.blue, Type.Int) },
-            { key.Float, new Keyword("float", Color.blue, Type.Float) },
-            { key.String, new Keyword("string", Color.blue, Type.String) },
-            { key.Bool, new Keyword("bool", Color.blue, Type.Bool) },
+            { key.Void, new Keyword.Variable("void", Color.blue, VariableType.Void) },
+            { key.Int, new Keyword.Variable("int", Color.blue, VariableType.Int) },
+            { key.Float, new Keyword.Variable("float", Color.blue, VariableType.Float) },
+            { key.String, new Keyword.Variable("string", Color.blue, VariableType.String) },
+            { key.Bool, new Keyword.Variable("bool", Color.blue, VariableType.Bool) },
 
-            { key.If, new Keyword("if", Color.blue) },
-            { key.Else, new Keyword("else", Color.blue) },
+            { key.If, new Keyword.Encapsulation("if", Color.blue) },
+            { key.Else, new Keyword.Encapsulation("else", Color.blue) },
 
             { key.Return, new Keyword("return", Color.pink) },
             { key.Continue, new Keyword("continue", Color.pink) },
         };
+    }
 
-        public struct Keyword
+    public class Keyword
+    {
+        public string word;
+        public Color highlightColor;
+
+        public Keyword(string word, Color highlightColor)
         {
-            public string word;
-            public Color highlightColor;
-            public Type type;
+            this.word = word;
+            this.highlightColor = highlightColor;
+        }
 
-            public Keyword(string word, Color highlightColor, Type type = Type.Fail)
+        public class Variable : Keyword
+        {
+            public VariableType type;
+
+            public Variable(string word, Color highlightColor, VariableType type = VariableType.Fail) : base(word, highlightColor)
             {
-                this.word = word;
-                this.highlightColor = highlightColor;
                 this.type = type;
-
+            }
+        }
+        public class Encapsulation : Keyword
+        {
+            public Encapsulation(string word, Color highlightColor, Action action = null) : base(word, highlightColor)
+            {
             }
         }
     }

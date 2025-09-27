@@ -66,7 +66,7 @@ namespace Coding
 
 
                     Variable.NewVariable(
-                        type: keywords[(key)key].type, 
+                        type: ((Keyword.Variable)keywords[(key)key]).type, 
                         name: sections[index + 1], 
                         container: @class,
                         value: value);
@@ -101,7 +101,7 @@ namespace Coding
                     parameters: null,
                     methodCode: methodScript.ToArray(),
                     container: @class,
-                    returnType: keywords[(key)key].type
+                    returnType: ((Keyword.Variable)keywords[(key)key]).type
                     );
 
                     line += end - line;
@@ -119,22 +119,38 @@ namespace Coding
             {
                 string section = sections[i];
 
-                foreach (var item in keywords)
-                {
-                    if (section.Contains(item.Value.word))
-                    {
-                    }
-                }
-
                 if(section.Contains("("))
                 {
-                    List<char> seperators = new() { '(', ')' };
+                    List<char> seperators = new() { '(', ')', ',' };
                     List<string> parameters = section.Split(seperators.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
                     string name = parameters[0];
                     parameters.RemoveAt(0);
 
+                    bool isKey = false;
+
+                    foreach (var key in keywords)
+                    {
+                        if (name != key.Value.word) continue;
+
+                        Debug.Log("found: " + key.Value.word);
+
+                        if(key.Value is Keyword.Encapsulation)
+                        {
+                            //((Keyword.Encapsulation)key.Value).ac
+                        }
+
+
+                        isKey = true;
+                    }
+
+                    if(isKey) continue;
+
                     newLine.Add(new MethodCall(name, method, parameters.ToArray()));
+                } 
+                else
+                {
+
                 }
                     
             }

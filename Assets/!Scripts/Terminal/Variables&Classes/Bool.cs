@@ -4,7 +4,7 @@ namespace Coding.SharpCube
 {
     public class Bool : Variable, ISettable<bool>, IGettable<bool>
     {
-        public Bool(string name, IVariableContainer container, bool value = false, Type type = SharpCube.Type.Bool) : base(name, container, type)
+        public Bool(string name, IVariableContainer container, bool value = false, VariableType type = SharpCube.VariableType.Bool) : base(name, container, type)
         {
             Set(value);
         }
@@ -18,9 +18,9 @@ namespace Coding.SharpCube
             info.value = value;
         }
 
-        public override Type Type()
+        public override VariableType Type()
         {
-            return SharpCube.Type.Bool;
+            return SharpCube.VariableType.Bool;
         }
     }
 }

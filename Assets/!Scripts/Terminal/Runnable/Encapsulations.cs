@@ -19,20 +19,24 @@ namespace Coding.SharpCube.Encapsulations
             throw new System.NotImplementedException();
         }
     }
-    public abstract class Conditional : Encapsulation
+    public abstract class Conditional : IRunnable
     {
         protected bool condition;
-        public Conditional(bool condition, Line[] lines) : base(lines)
+        public UserMethod caller { get; set; }
+        public Conditional(bool condition)
         {
             this.condition = condition;
         }
+
+        public abstract void Run();
     }
 
     public class If : Conditional
     {
+        public Encapsulation statement;
         public Encapsulation @else;
 
-        public If(bool condtion, Line[] lines, Encapsulation @else) : base(condtion, lines)
+        public If(bool condtion, Line[] lines, Encapsulation @else) : base(condtion)
         {
             this.@else = @else;
         }
@@ -41,10 +45,7 @@ namespace Coding.SharpCube.Encapsulations
         {
             if (condition)
             {
-                foreach (var line in lines)
-                {
-                    line.Run();
-                }
+                statement.Run();
             }
             else
             {

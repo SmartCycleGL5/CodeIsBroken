@@ -17,7 +17,7 @@ namespace Coding.SharpCube
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
         public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
 
-        public UserMethod(string name, IMethodContainer container, ParameterInfo[] parameters, string[] methodCode, Type returnType = Type.Void) : base(name, container, parameters, returnType)
+        public UserMethod(string name, IMethodContainer container, ParameterInfo[] parameters, string[] methodCode, VariableType returnType = VariableType.Void) : base(name, container, parameters, returnType)
         {
             this.methodCode = methodCode;
             info.container.Add(this);
@@ -34,23 +34,22 @@ namespace Coding.SharpCube
             }
         }
 
-        public override bool TryRun(object[] input = null)
+        public override object TryRun(object[] input = null)
         {
             Debug.Log("Running: " + info.name);
 
             try
             {
-                Run(input);
-                return true;
+                return Run(input);
             }
             catch (Exception e)
             {
                 Debug.LogError("Couldnt run method becasue of: " + e);
             }
 
-            return false;
+            return null;
         }
-        protected override void Run(object[] input)
+        protected override object Run(object[] input)
         {
             foreach (var line in lines)
             {
@@ -59,6 +58,8 @@ namespace Coding.SharpCube
             }
 
             variables.Clear();
+
+            return null;
         }
 
         #region Variable

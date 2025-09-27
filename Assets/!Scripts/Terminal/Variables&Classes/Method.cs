@@ -9,7 +9,7 @@ namespace Coding.SharpCube
     {
         public ParameterInfo[] parameters;
 
-        public Method(string name, IMethodContainer container, ParameterInfo[] parameters, Type returnType = Type.Void) : base(name, container, returnType)
+        public Method(string name, IMethodContainer container, ParameterInfo[] parameters, VariableType returnType = VariableType.Void) : base(name, container, returnType)
         {
             this.parameters = parameters;
 
@@ -21,8 +21,8 @@ namespace Coding.SharpCube
         /// </summary>
         /// <param name="input">the input variables</param>
         /// <returns>returns true if it was successful</returns>
-        public abstract bool TryRun(object[] input = null);
-        protected abstract void Run(object[] input);
+        public abstract object TryRun(object[] input = null);
+        protected abstract object Run(object[] input);
 
     }
 

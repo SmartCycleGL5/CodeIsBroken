@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Coding.SharpCube
 {
-    public enum Type
+    public enum VariableType
     {
         Fail,
         Void,
@@ -18,7 +18,7 @@ namespace Coding.SharpCube
     {
         public ObjectInfo<T> info;
 
-        public Object(string name, T container, Type type)
+        public Object(string name, T container, VariableType type)
         {
             info.name = name;
             info.container = container;
@@ -34,11 +34,11 @@ namespace Coding.SharpCube
     public struct ObjectInfo<T>
     {
         [HideInInspector] public string name;
-        public Type type;
+        public VariableType type;
         [HideInInspector] public T container;
         [HideInInspector] public object value;
 
-        public ObjectInfo(string name, Type type, T container, object value)
+        public ObjectInfo(string name, VariableType type, T container, object value)
         {
             this.name = name;
             this.type = type;

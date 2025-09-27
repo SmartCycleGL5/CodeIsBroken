@@ -18,28 +18,21 @@ namespace Coding.SharpCube.Actions
     }
     public class MethodCall : Action
     {
-        public string nameOfMethod;
-        public object[] input;
-        public MethodCall(string nameOfMethod, UserMethod caller, string[] input = null) : base (caller)
+        string nameOfMethod;
+
+        public object @return;
+        object[] input;
+        public MethodCall(string nameOfMethod, UserMethod caller, object[] input = null) : base (caller)
         {
             List<object> convertedInput = new();
 
-            foreach (var item in input)
-            {
-                try
-                {
-                    convertedInput.Add(Utility.ConvertStringToObject(item));
-                }
-                catch { }
-            }
-
             this.nameOfMethod = nameOfMethod;
-            this.input = convertedInput.ToArray();
+            this.input = input;
         }
 
         public override void Run()
         {
-            caller.GetMethod(nameOfMethod).TryRun(input);
+            @return = caller.GetMethod(nameOfMethod).TryRun(input);
         }
     }
 

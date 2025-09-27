@@ -38,16 +38,14 @@ namespace Coding.SharpCube
         {
             Debug.Log("Running: " + info.name);
 
-            if (input == null && parameters == null)
+            try
             {
                 Run(input);
                 return true;
             }
-            if (input.Length == parameters.Length)
+            catch (Exception e)
             {
-
-                Run(input);
-                return true;
+                Debug.LogError("Couldnt run method becasue of: " + e);
             }
 
             return false;

@@ -25,6 +25,12 @@ public class MachineCode
         machine.ClearMemory();
 
         Interporate.Classes(Code, machine);
+
+        foreach (var item in machine.Classes)
+        {
+            name = item.Value.name;
+            break;
+        }
     }
     void CreateScript(string name)
     {

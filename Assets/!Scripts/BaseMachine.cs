@@ -27,6 +27,8 @@ public abstract class BaseMachine : MonoBehaviour
 
     public bool Initialized { get; private set; } = false;
 
+    public Terminal connectedTerminal;
+
     [Button]
     void Initialize()
     {
@@ -62,6 +64,7 @@ public abstract class BaseMachine : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);
         Tick.OnStartingTick -= FindStartAndUpdate;
         Tick.OnStartingTick -= RunStart;
@@ -141,7 +144,7 @@ public abstract class BaseMachine : MonoBehaviour
     public void OpenTerminalForMachine()
     {
         Debug.Log("[BaseMachine] Open Terminal for " + this);
-        Terminal.NewTerminal(this);
+        connectedTerminal = Terminal.NewTerminal(this);
     }
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)

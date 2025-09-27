@@ -54,13 +54,10 @@ namespace Coding
             terminal = terminalAsset.Instantiate();
             window = new Window(machineToEdit.machineCode.name, terminal, this);
 
-            buttons.Add("Close", terminal.Q<Button>("Close"));
-            buttons.Add("Save", terminal.Q<Button>("Save"));
-
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
 
-            buttons["Save"].clicked += Save;
+            input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
 
             terminals.Add(this);
 
@@ -69,8 +66,12 @@ namespace Coding
 
         private void OnDestroy()
         {
-            buttons["Save"].clicked -= Save;
-            //buttons["Run"].clicked -= runButtonStop;
+            input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
+        }
+        void OnLoseFocus(FocusOutEvent evt)
+        {
+            Debug.Log("deselect");
+            Save();
         }
 
         public void Close()
@@ -81,24 +82,8 @@ namespace Coding
         public void Destroy()
         {
             terminals.Remove(this);
+            Save();
             Destroy(this);
-        }
-
-        public void RunMachine()
-        {
-            machineToEdit.RunStart();
-            buttons["Run"].text = "Stop";
-
-            //buttons["Run"].clicked += runButtonStop;
-            //buttons["Run"].clicked -= runButtonStart;
-        }
-        public void StopMachine()
-        {
-            machineToEdit.Stop();
-            buttons["Run"].text = "Run";
-
-            //buttons["Run"].clicked += runButtonStart;
-            //buttons["Run"].clicked -= runButtonStop;
         }
 
         public void SelectMachine(BaseMachine machineScript)
@@ -130,18 +115,17 @@ namespace Coding
         }
         public void Save()
         {
-            if (machineToEdit == null) return;
-
-            if(ScriptManager.isRunning)
-                ScriptManager.StopMachines();
+            if (machineToEdit == null || ScriptManager.isRunning) return;
 
             machineToEdit.machineCode.UpdateCode(input.text);
+            window.Rename(machineToEdit.machineCode.name);
         }
 
-        public static void NewTerminal(BaseMachine machineScript)
+        public static Terminal NewTerminal(BaseMachine machineScript)
         {
-            Terminal newTerminal = Instance.gameObject.AddComponent<Terminal>();
+            Terminal newTerminal = machineScript.gameObject.AddComponent<Terminal>();
             newTerminal.SelectMachine(machineScript);
+            return newTerminal;
         }
     }
 }

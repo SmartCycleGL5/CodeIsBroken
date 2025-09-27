@@ -10,7 +10,7 @@ namespace Coding
 
         public static bool isRunning { get; private set; }
 
-        public List<BaseMachine> machines = new();
+        public static List<BaseMachine> machines = new();
 
         private void Awake()
         {
@@ -33,6 +33,13 @@ namespace Coding
         public static void StartMachines()
         {
             if (isRunning) return;
+
+            foreach (var machine in machines)
+            {
+                if (machine.connectedTerminal == null) continue;
+                machine.connectedTerminal.Save();
+            }
+
             isRunning = true;
 
             Debug.Log("[ScriptManager] Starting");
@@ -59,7 +66,7 @@ namespace Coding
         public static void Re()
         {
 
-            foreach (var item in instance.machines)
+            foreach (var item in machines)
             {
                 item.ClearMemory();
             }

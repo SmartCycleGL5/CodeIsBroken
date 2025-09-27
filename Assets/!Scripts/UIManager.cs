@@ -1,11 +1,12 @@
+using AYellowpaper.SerializedCollections;
+using Coding;
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Coding;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
-using AYellowpaper.SerializedCollections;
 
 public class UIManager : MonoBehaviour
 {
@@ -123,7 +124,7 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Defines window elements
     /// </summary>
-    public struct Window
+    public class Window
     {
         public string name;
         public Tab element;
@@ -151,6 +152,17 @@ public class UIManager : MonoBehaviour
             {
                 connectedWindow.Destroy();
             }
+        }
+
+        public void Rename(string name)
+        {
+            OpenWindows.Remove(this.name);
+
+            this.name = name;
+            element.name = name;
+            element.label = name;
+
+            OpenWindows.Add(name, this);
         }
     }
 }

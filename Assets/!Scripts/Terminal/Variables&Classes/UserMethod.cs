@@ -12,7 +12,7 @@ namespace Coding.SharpCube
     public class UserMethod : Method, IVariableContainer, IMethodContainer
     {
         string[] methodCode;
-        [SerializeField] List<IRunnable> lines = new();
+        public List<IRunnable> lines { get; set; } = new();
 
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
         public SerializedDictionary<string, UserMethod> userMethods { get; set; } = new();
@@ -26,11 +26,9 @@ namespace Coding.SharpCube
         }
         public void PrepareMethod()
         {
-            lines.Clear();
-
             foreach (var line in methodCode)
             {
-                lines.Add(Interporate.Line(line, this));
+                Interporate.Line(line, this);
             }
         }
 
@@ -102,6 +100,11 @@ namespace Coding.SharpCube
         public void Add(UserMethod toAdd)
         {
             userMethods.Add(toAdd.info.name, toAdd);
+        }
+
+        public void AddLine(IRunnable runnable)
+        {
+            lines.Add(runnable);
         }
     }
 }

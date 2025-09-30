@@ -23,9 +23,12 @@ namespace Coding.SharpCube.Encapsulations
     {
         protected bool condition;
         public UserMethod caller { get; set; }
-        public Conditional(bool condition)
+        public Conditional(bool condition, UserMethod caller)
         {
             this.condition = condition;
+            this.caller = caller;
+
+            caller.AddLine(this);
         }
 
         public abstract void Run();
@@ -36,7 +39,7 @@ namespace Coding.SharpCube.Encapsulations
         public Encapsulation statement;
         public Encapsulation @else;
 
-        public If(bool condtion, Line[] lines, Encapsulation @else) : base(condtion)
+        public If(bool condtion, UserMethod caller, Line[] lines, Encapsulation @else) : base(condtion, caller)
         {
             this.@else = @else;
         }

@@ -12,9 +12,15 @@ namespace Coding.SharpCube.Lines
 
     public class Line : IRunnable
     {
-        protected List<IRunnable> actions = new();
+        protected List<Action> actions = new();
 
         public  UserMethod caller { get; set; }
+
+        public Line(UserMethod caller)
+        {
+            this.caller = caller;
+            caller.AddLine(this);
+        }
 
         public virtual void Run()
         {
@@ -24,7 +30,7 @@ namespace Coding.SharpCube.Lines
             }
         }
 
-        public void Add(IRunnable toadd)
+        public void AddAction(IRunnable toadd)
         {
             if (toadd == this) return;
 

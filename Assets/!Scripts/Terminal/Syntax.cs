@@ -1,6 +1,7 @@
 using Coding.SharpCube.Lines;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Coding.SharpCube
@@ -35,7 +36,7 @@ namespace Coding.SharpCube
             { key.String, new Keyword.Variable("string", Color.blue, VariableType.String) },
             { key.Bool, new Keyword.Variable("bool", Color.blue, VariableType.Bool) },
 
-            { key.If, new Keyword.Encapsulation("if", Color.blue) },
+            { key.If, new Keyword.Encapsulation("if", Color.blue, Interporate.If) },
             { key.Else, new Keyword.Encapsulation("else", Color.blue) },
 
             { key.Return, new Keyword("return", Color.pink) },
@@ -65,9 +66,17 @@ namespace Coding.SharpCube
         }
         public class Encapsulation : Keyword
         {
-            public Encapsulation(string word, Color highlightColor, Action action = null) : base(word, highlightColor)
+            Action<object[]> interporation;
+            public Encapsulation(string word, Color highlightColor, Action<object[]> interporation = null) : base(word, highlightColor)
             {
+                this.interporation = interporation;
             }
+
+            public void Interporate(object[] parameters)
+            {
+                interporation.Invoke(parameters);
+            }
+
         }
     }
 }

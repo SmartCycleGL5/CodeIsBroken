@@ -6,10 +6,12 @@ using System.Text.RegularExpressions;
 namespace Coding
 {
     using Coding.SharpCube.Actions;
+    using Coding.SharpCube.Encapsulations;
     using Coding.SharpCube.Lines;
     using SharpCube;
     using UnityEngine;
     using static SharpCube.Syntax;
+    using static Utility;
 
 
     [Serializable]
@@ -109,11 +111,11 @@ namespace Coding
                 }
             }
         }
-        public static IRunnable Line(string line, UserMethod method)
+        public static void Line(string line, UserMethod method)
         {
             List<string> sections = SplitLineIntoSections(line);
 
-            Line newLine = new Line();
+            Line newLine = new Line(method);
 
             for (int i = 0; i < sections.Count; i++)
             {
@@ -133,20 +135,17 @@ namespace Coding
                     {
                         if (name != key.Value.word) continue;
 
-                        Debug.Log("found: " + key.Value.word);
-
                         if(key.Value is Keyword.Encapsulation)
                         {
-                            //((Keyword.Encapsulation)key.Value).ac
+                            ((Keyword.Encapsulation)key.Value).Interporate(parameters.ToArray());
                         }
-
 
                         isKey = true;
                     }
 
                     if(isKey) continue;
 
-                    newLine.Add(new MethodCall(name, method, parameters.ToArray()));
+                    newLine.AddAction(new MethodCall(name, method, parameters.ToArray()));
                 } 
                 else
                 {
@@ -154,78 +153,14 @@ namespace Coding
                 }
                     
             }
-
-            return newLine;
         }
 
-        static bool LineIsType(key key, List<string> sections, out int index)
+        public static void If(object[] parameters)
         {
-            index = Array.IndexOf(sections.ToArray(), keywords[key].word);
-            return index >= 0;
+            if (parameters.Length > 1) return;
+
+            //If statement = new If();
         }
 
-        public static List<string> SplitLineIntoSections(string line)
-        {
-            List<string> sections = line.Split(" ").ToList();
-            Utility.FindAndRetain(ref sections, '"', '"');
-            Utility.FindAndRetain(ref sections, '(', ')');
-
-            return sections;
-        }
-
-        static List<string> ExtractLines(string raw)
-        {
-            //removes enter
-            string modified = raw.Replace("\n", "");
-            //removes tab
-            modified = modified.Replace("\t", "");
-            //splits it into a string array while keeping ; { and }
-            List<string> list = Regex.Split(modified, "(;|{|})").ToList();
-            //removes ;
-            list.RemoveAll(item => item == ";");
-
-            return list;
-        }
-
-        public static object Type(string value)
-        {
-            object result = value;
-            try
-            {
-                if (value.Contains('f'))
-                {
-                    result = float.Parse(value.Replace("f", ""));
-                }
-                else
-                {
-                    result = int.Parse(value);
-                }
-            }
-            catch
-            {
-
-            }
-
-
-            return new object();
-        }
-
-        public static object[] TranslateArguments(string args)
-        {
-            if (args == null || args == string.Empty) return null;
-
-            Debug.Log("[ArgumentTranslation] " + args);
-
-            string[] stringArgsList = Regex.Split(args, ",");
-
-            List<object> argsList = new List<object>();
-
-            foreach (var item in stringArgsList)
-            {
-                argsList.Add(Interporate.Type(item));
-            }
-
-            return argsList.ToArray();
-        }
     }
 }

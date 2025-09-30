@@ -143,6 +143,7 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine()
     {
+        if (connectedTerminal != null) return;
         Debug.Log("[BaseMachine] Open Terminal for " + this);
         connectedTerminal = Terminal.NewTerminal(this);
     }

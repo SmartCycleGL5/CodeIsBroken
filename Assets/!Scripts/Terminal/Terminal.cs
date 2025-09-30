@@ -20,9 +20,7 @@ namespace Coding
                 if (terminals.Count <= 0) return false;
                 foreach (var terminal in terminals)
                 {
-                    if (terminal.isFocused == null) continue;
-
-                    if ((bool)terminal.isFocused)
+                    if (terminal.isFocused)
                         return true;
                 }
                 return false;
@@ -36,11 +34,19 @@ namespace Coding
         TextField input;
         Focusable focusedElement => input.panel.focusController.focusedElement;
 
-        public bool? isFocused
+        public bool isFocused
         {
             get
             {
-                return input == null ? null : input == focusedElement;
+                if (input == null) return false;
+                try
+                {
+                    return input == focusedElement;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
         public Window window { get; set; }
@@ -48,9 +54,10 @@ namespace Coding
 
         private async void Start()
         {
-            Debug.LogError("[Terminal] getting asset");
             if (terminalAsset == null)
             {
+                Debug.Log("[Terminal] getting asset");
+
                 findingAsset = true;
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
                 findingAsset = false;
@@ -74,8 +81,9 @@ namespace Coding
 
         private void OnDestroy()
         {
-            input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
+            machineToEdit.connectedTerminal = null;
             terminals.Remove(this);
+            input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
         void OnLoseFocus(FocusOutEvent evt)
         {
@@ -85,13 +93,8 @@ namespace Coding
 
         public void Close()
         {
-            window.Close();
-            Destroy();
-        }
-        public void Destroy()
-        {
-            terminals.Remove(this);
             Save();
+            terminals.Remove(this);
             Destroy(this);
         }
 
@@ -122,12 +125,21 @@ namespace Coding
                 availableMethods.text += ");";
             }
         }
-        public void Save()
+        public bool Save()
         {
-            if (machineToEdit == null || ScriptManager.isRunning) return;
+            if (machineToEdit == null || ScriptManager.isRunning) return false;
 
-            machineToEdit.machineCode.UpdateCode(input.text);
-            window.Rename(machineToEdit.machineCode.name);
+            try
+            {
+                machineToEdit.machineCode.UpdateCode(input.text);
+                window.Rename(machineToEdit.machineCode.name);
+                return true;
+            }
+            catch
+            {
+                Debug.LogWarning("[Terminal] Couldnt Save");
+                return false;
+            }
         }
 
         public static Terminal NewTerminal(BaseMachine machineScript)

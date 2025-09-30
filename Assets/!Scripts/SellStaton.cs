@@ -8,7 +8,7 @@ public class SellStaton : MonoBehaviour
     [SerializeField] List<Transform> sellPoints = new();
 
     Modification FavoredModification;
-    int desiredAmount;
+    [SerializeField] int desiredAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +25,6 @@ public class SellStaton : MonoBehaviour
     {
         FavoredModification = Modification.RandomModification();
         desiredAmount = Random.Range(10, 100);
-        Debug.Log(((ModColor)FavoredModification).color);
     }
 
     void CheckConveyor()
@@ -62,6 +61,7 @@ public class SellStaton : MonoBehaviour
         if (toSell.HasMod(FavoredModification))
         {
             PlayerProgression.GiveXP(3);
+            desiredAmount--;
         }
         else
         {

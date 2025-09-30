@@ -1,23 +1,38 @@
 using AYellowpaper.SerializedCollections;
+using Coding.SharpCube;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SyntaxHighlighting : MonoBehaviour
+public static class SyntaxHighlighting
 {
 
-    [SerializedDictionary("Syntax", "Color")]
-    public SerializedDictionary<string, Color> syntax;
-
-    [SerializeField] TMP_InputField input;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static string ReturnHighlightedString(string text)
     {
-        input.text = "<color=\"blue\">im blue</color>";
-    }
+        string[] splitString = text.Split(' ');
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+
+        for (int i = 0; i < splitString.Length; i++)
+        {
+            foreach (var keyword in Syntax.keywords)
+            {
+                if (splitString[i] != keyword.Value.word) continue;
+
+                string hex = keyword.Value.highlightColor.ToHexString();
+                splitString[i] = "<color=" + hex + ">" + splitString[i] + "</color>";
+
+                Debug.Log("[Highlighting] found word: " + splitString[i]);
+            }
+        }
+
+        string finalString = string.Empty;
+
+        foreach (var item in splitString)
+        {
+            finalString += item;
+        }
+
+        return finalString;
     }
 }

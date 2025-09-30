@@ -29,10 +29,10 @@ namespace Coding
             } }
 
         //UI elements
-        Dictionary<string, Button> buttons = new();
         VisualElement terminal;
         Label availableMethods;
         TextField input;
+        Label visual;
 
         public bool? isFocused { get { return input == null ? null : input.panel.focusController.focusedElement == input; } }
         public Window window { get; set; }
@@ -56,12 +56,18 @@ namespace Coding
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
+            visual = terminal.Q<Label>("Visual");
 
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
 
             terminals.Add(this);
 
             Load();
+        }
+
+        private void Update()
+        {
+            //visual.text = SyntaxHighlighting.ReturnHighlightedString(input.text);
         }
 
         private void OnDestroy()

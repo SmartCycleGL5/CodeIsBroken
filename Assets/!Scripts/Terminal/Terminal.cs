@@ -1,8 +1,4 @@
-using NaughtyAttributes;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -13,35 +9,47 @@ namespace Coding
     {
         public BaseMachine machineToEdit { get; private set; }
 
-        public static VisualTreeAsset terminalAsset {  get; private set; }
+        public static VisualTreeAsset terminalAsset { get; private set; }
         public static bool findingAsset;
 
         public static List<Terminal> terminals = new();
-        public static bool focused { get {
+        public static bool focused
+        {
+            get
+            {
+                if (terminals.Count <= 0) return false;
                 foreach (var terminal in terminals)
                 {
                     if (terminal.isFocused == null) continue;
 
-                    if((bool)terminal.isFocused)
+                    if ((bool)terminal.isFocused)
                         return true;
                 }
                 return false;
-            } }
+            }
+        }
 
         //UI elements
         Dictionary<string, Button> buttons = new();
         VisualElement terminal;
         Label availableMethods;
         TextField input;
+        Focusable focusedElement => input.panel.focusController.focusedElement;
 
-        public bool? isFocused { get { return input == null ? null : input.panel.focusController.focusedElement == input; } }
+        public bool? isFocused
+        {
+            get
+            {
+                return input == null ? null : input == focusedElement;
+            }
+        }
         public Window window { get; set; }
 
 
         private async void Start()
         {
             Debug.LogError("[Terminal] getting asset");
-            if (terminalAsset == null )
+            if (terminalAsset == null)
             {
                 findingAsset = true;
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
@@ -67,6 +75,7 @@ namespace Coding
         private void OnDestroy()
         {
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
+            terminals.Remove(this);
         }
         void OnLoseFocus(FocusOutEvent evt)
         {

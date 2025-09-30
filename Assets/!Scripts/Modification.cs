@@ -1,40 +1,56 @@
 using System;
 
-[Serializable]
-public class Modification
+public interface Modification
 {
-    public string name;
 
-    public Modification(string name)
+    public static Modification RandomModification()
     {
-        this.name = name;
-    }
+        int rng = UnityEngine.Random.Range(0, 2);
 
-    public class Heated : Modification
+        switch (rng)
+        {
+            case 0:
+                {
+                    return new ModColor(new UnityEngine.Color(1, 0, 0));
+                }
+            case 1:
+                {
+                    return new ModColor(new UnityEngine.Color(0, 1, 0));
+                }
+            case 2:
+                {
+                    return new ModColor(new UnityEngine.Color(0, 0, 1));
+                }
+        }
+
+        return null;
+    }
+}
+
+    public struct Heated : Modification
     {
         public int temperature;
 
-        public Heated(string name, int temperature) : base(name)
+        public Heated(int temperature) 
         {
             this.temperature = temperature;
         }
     }
 
-    public class Addition : Modification
+    public struct Addition : Modification
     {
         public BaseMaterial.Materials materials;
-        public Addition(string name, BaseMaterial.Materials materials) : base(name)
+        public Addition(BaseMaterial.Materials materials)
         {
             this.materials = materials;
         }
     }
 
-    public class Color : Modification
+    public struct ModColor : Modification
     { 
         public UnityEngine.Color color;
-        public Color(string name, UnityEngine.Color color) : base(name)
+        public ModColor(UnityEngine.Color color)
         {
             this.color = color;
         }
     }
-}

@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   material:
-    type: 0
-  <mods>k__BackingField: []
+    type: 1
   artRenderer: {fileID: 5373870341508210345}
+  destroyOnPause: 1

@@ -2,13 +2,22 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Flags]
+public enum Materials
+{
+    Wood = 1 << 0,
+    Steel = 1 << 1,
+}
+
 public class Item : MonoBehaviour
 {
-    public BaseMaterial material;
+    public Materials materials;
     [field: SerializeField] public List<Modification> mods { get; private set; } = new List<Modification>();
 
     public MeshRenderer artRenderer;
     public static List<Item> items = new List<Item>();
+
+    public bool destroyOnPause = true;
 
     private void Start()
     {
@@ -22,7 +31,8 @@ public class Item : MonoBehaviour
 
     public void Modify(Modification modification)
     {
-        mods.Add(modification);
+        if(!HasMod(modification))
+            mods.Add(modification);
     }
 
     public bool HasMod<T>(T toCompareWith) where T : Modification
@@ -31,30 +41,10 @@ public class Item : MonoBehaviour
         {
             if (mod is T)
             {
-                return mod.Compare(toCompareWith);
+                if(mod.Compare(toCompareWith))
+                    return true;
             }
         }
         return false;
-    }
-}
-[Serializable]
-public struct BaseMaterial
-{
-    public enum Materials
-    {
-        Wood,
-        Steel,
-    }
-
-    public Materials type;
-
-    public BaseMaterial(Materials type)
-    {
-        this.type = type;
-    }
-
-    public bool Compare(BaseMaterial mat)
-    {
-        return type == mat.type;
     }
 }

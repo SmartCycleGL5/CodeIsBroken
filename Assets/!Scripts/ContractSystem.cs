@@ -7,36 +7,44 @@ public class ContractSystem : MonoBehaviour
 {
     public static ContractSystem instance;
 
-    [SerializeField] Item DisplayItem;
+    [SerializeField] Transform displayPos;
+    Item displayItem;
     [SerializeField] TMP_Text amoundDisplay;
     public static Contract ActiveContract;
     private void Start()
     {
-        SetContract(NewContract());
+        NewContract();
         instance = this;
     }
     private void Update()
     {
+        if (ActiveContract == null) return;
         amoundDisplay.text = "X" + ActiveContract.amount;
         Debug.Log(ActiveContract.amount);
     }
-    public void SetContract(Contract contract)
+
+    void CreateDisplayItem()
     {
-        ActiveContract = contract;
+        if (displayItem != null) Destroy(displayItem.gameObject);
+
+        displayItem = Instantiate(MaterialManager.Instance.items[Materials.Wood], displayPos);
+        displayItem.destroyOnPause = false;
     }
 
-    public Contract NewContract()
+    public void NewContract()
     {
-        Contract contract = new Contract("cool contract", DisplayItem);
+        CreateDisplayItem();
+
+        Contract contract = new Contract("cool contract", displayItem);
         contract.onFinished += FinishedContract;
 
-        return contract;
+        ActiveContract = contract;
     }
     void FinishedContract(Contract contract)
     {
         if (contract != ActiveContract) return;
 
-        SetContract(NewContract());
+        NewContract();
     }
 }
 
@@ -55,14 +63,12 @@ public class Contract
         requestedItem = item;
         contractName = name;
 
-        requestedItem.material = new BaseMaterial(BaseMaterial.Materials.Wood);
-
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             Modification.RandomModification(requestedItem);
         }
 
-        amount = 10;
+        amount = UnityEngine.Random.Range(10, 20);
     }
     public void Progress()
     {
@@ -81,13 +87,15 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        if (!item.material.Compare(requestedItem.material)) return false;
+        if (item.materials != requestedItem.materials) return false;
+        if (item.mods.Count != requestedItem.mods.Count) return false;
 
+        int modsSatisfied = 0;
         foreach (var mod in requestedItem.mods)
         {
-            if (!item.HasMod(mod)) return false;
+            if (item.HasMod(mod)) modsSatisfied++;
         }
 
-        return true;
+        return modsSatisfied == requestedItem.mods.Count;
     }
 }

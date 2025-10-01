@@ -56,7 +56,8 @@ namespace Coding
 
             for (int i = Item.items.Count -1; i >= 0; i--)
             {
-                Destroy(Item.items[i].gameObject);
+                if (Item.items[i].destroyOnPause)
+                    Destroy(Item.items[i].gameObject);
             }
 
             isRunning = false;

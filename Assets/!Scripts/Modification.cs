@@ -10,7 +10,7 @@ public abstract class Modification
 
     public static Modification RandomModification(Item toMod)
     {
-        int rng = UnityEngine.Random.Range(0, 2);
+        int rng = UnityEngine.Random.Range(0, 3);
 
         switch (rng)
         {
@@ -50,8 +50,8 @@ public abstract class Modification
 
     public class Addition : Modification
     {
-        public BaseMaterial.Materials materials;
-        public Addition(Item toModify, BaseMaterial.Materials materials) : base(toModify)
+        public Materials materials;
+        public Addition(Item toModify, Materials materials) : base(toModify)
         {
             this.materials = materials;
         }

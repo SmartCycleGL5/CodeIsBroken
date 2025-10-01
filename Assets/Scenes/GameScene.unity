@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 357034589}
   - component: {fileID: 357034588}
   - component: {fileID: 357034590}
+  - component: {fileID: 357034591}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -339,6 +340,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tick
   tickTime: 1
+--- !u!114 &357034591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e9ec66e2ab1a04a8bc8ee3c658a097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  items:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
+    - Key: 2
+      Value: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,10 +1217,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4965132074932320806, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 46d0b882e82e88948afc49cbc5f29ff6, type: 2}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation
@@ -1249,7 +1264,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 732227668059638279, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 850935c14a38857418fc44720f8512ae, type: 3}
 --- !u!224 &307946093809586119
 RectTransform:

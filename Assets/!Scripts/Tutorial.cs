@@ -1,7 +1,11 @@
+using Coding;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class Tutorial : MonoBehaviour
 {
@@ -11,9 +15,16 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private GameObject buildingAreaPrefab;
     [SerializeField] private GameObject buildingAreaPrefab2;
+    [SerializeField] private GameObject replaceBlock;
+    [SerializeField] private GameObject buttons;
 
 
-     void Update()
+    private void Start()
+    {
+        Tick.OnStartingTick += TickStart;
+    }
+
+    void Update()
     {
         tutorialText.text = tutorialPrompts[tutorialLevel];
         switch (tutorialLevel)
@@ -33,10 +44,26 @@ public class Tutorial : MonoBehaviour
                 return;
             case 3:
                 buildingAreaPrefab2.SetActive(false);
-                
+                replaceBlock.SetActive(true);
+                if(!CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
+                return;
+            case 4:
+                if (CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
+                return;
+            case 5:
+                replaceBlock.SetActive(false);
+                if(Terminal.focused) tutorialLevel++;
+                return;
+            case 6:
+                buttons.SetActive(true);
                 return;
         }
        
+    }
+
+    void TickStart()
+    {
+        tutorialLevel++;
     }
 
     bool CheckBuildingArea()
@@ -58,5 +85,20 @@ public class Tutorial : MonoBehaviour
         }
         return true;
 
+    }
+    bool CheckIfCorrectBlock(GameObject gameObj)
+    {
+        GameObject cell = GridBuilder.instance.LookUpCell(gameObj.transform.position);
+        if(cell == null) return false;
+        return true;
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }

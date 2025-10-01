@@ -28,6 +28,38 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9b2a0f69775d4cc5baa505e899c1da88_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 908f2f635c08bb5428cfe513edbada43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9c865112b32b4559a5bce9ed03036143_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 908f2f635c08bb5428cfe513edbada43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a7418410faa0464fa1eeeb5f2b5d2bfe_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 908f2f635c08bb5428cfe513edbada43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c92f76b434194e5885a6a5cfdb3a0b16_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 908f2f635c08bb5428cfe513edbada43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_db6ea56028b14b24a36b8db8f473f1ce_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: f88677df267a41d6be1e7a6133e7d227, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f6492ab60cd940f084e3007342cf07ab_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 908f2f635c08bb5428cfe513edbada43, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_b1dd932abcbe4f91bf66b8d729a7631a_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_e255a48937cc41c795f17f684253cd26_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -45,15 +77,15 @@ Material:
     - LIGHTMAP_SHADOW_MIXING: 0
     - SHADOWS_SHADOWMASK: 0
     - _Attenuation: 2
-    - _CellDensity: 10
+    - _CellDensity: 3.44
     - _CircleDensity: 5
-    - _FalloffThreshHold: 3.96
-    - _LitThreshold: 3.5
+    - _FalloffThreshHold: 3.89
+    - _LitThreshold: 3.44
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rotation: 0
     - _ShadingMultiplier: 0
-    - _Softness: 0
+    - _Softness: 0.2
     - _USESCREENSPACE: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

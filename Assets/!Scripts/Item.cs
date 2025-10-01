@@ -25,11 +25,14 @@ public class Item : MonoBehaviour
         mods.Add(modification);
     }
 
-    public bool HasMod(Modification modification)
+    public bool HasMod<T>(T toCompareWith) where T : Modification
     {
         foreach (var mod in mods)
         {
-            if(mod == modification) return true;
+            if (mod is T)
+            {
+                return mod.Compare(toCompareWith);
+            }
         }
         return false;
     }

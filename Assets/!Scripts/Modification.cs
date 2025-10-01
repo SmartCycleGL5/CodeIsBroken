@@ -69,7 +69,7 @@ public abstract class Modification
         public Color(Item toModify, UnityEngine.Color color) : base(toModify)
         {
             this.color = color;
-            toModify.artRenderer.material.SetColor("_Color", color);
+            toModify.artRenderer.material.SetColor("_Color", toModify.artRenderer.material.GetColor("_Color") + color);
         }
 
         public override bool Compare(Modification toCompareWith)

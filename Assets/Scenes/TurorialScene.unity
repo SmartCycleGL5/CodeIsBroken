@@ -1198,10 +1198,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3955428084320110742, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 951126587}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation
@@ -1249,7 +1245,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 732227668059638279, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 850935c14a38857418fc44720f8512ae, type: 3}
 --- !u!224 &307946093809586119
 RectTransform:
@@ -1816,7 +1815,7 @@ Camera:
   m_GameObject: {fileID: 8092990692814723411}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2

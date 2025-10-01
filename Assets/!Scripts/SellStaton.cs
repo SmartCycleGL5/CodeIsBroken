@@ -52,8 +52,6 @@ public class SellStaton : MonoBehaviour
             ContractSystem.ActiveContract.Progress();
         }
 
-        Debug.Log(PlayerProgression.experience);
-
         Destroy(toSell.gameObject);
     }
 }

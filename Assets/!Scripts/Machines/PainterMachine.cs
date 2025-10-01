@@ -23,10 +23,10 @@ public class PainterMachine : Machine
                 new Modification.Color(item, new Color(1, 0, 0));
                 return;
             case "blue":
-                new Modification.Color(item, new Color(1, 0, 0));
+                new Modification.Color(item, new Color(0, 0, 1));
                 return;
             case "green":
-                new Modification.Color(item, new Color(1, 0, 0));
+                new Modification.Color(item, new Color(0, 1, 0));
                 return;
             default:
                 return;

@@ -1,18 +1,33 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ContractSystem : MonoBehaviour
 {
+    public static ContractSystem instance;
+
+    [SerializeField] Item DisplayItem;
+    [SerializeField] TMP_Text amoundDisplay;
     public static Contract ActiveContract;
     private void Start()
     {
-        ActiveContract = NewContract();
+        SetContract(NewContract());
+        instance = this;
+    }
+    private void Update()
+    {
+        amoundDisplay.text = "X" + ActiveContract.amount;
+        Debug.Log(ActiveContract.amount);
+    }
+    public void SetContract(Contract contract)
+    {
+        ActiveContract = contract;
     }
 
     public Contract NewContract()
     {
-        Contract contract = new Contract("cool contract");
+        Contract contract = new Contract("cool contract", DisplayItem);
         contract.onFinished += FinishedContract;
 
         return contract;
@@ -21,7 +36,7 @@ public class ContractSystem : MonoBehaviour
     {
         if (contract != ActiveContract) return;
 
-        ActiveContract = NewContract();
+        SetContract(NewContract());
     }
 }
 
@@ -29,24 +44,23 @@ public class Contract
 {
     public string contractName;
 
-    public BaseMaterial baseMaterial;
-    public Modification[] modifications;
+    public Item requestedItem;
 
     public int amount;
 
     public Action<Contract> onFinished;
 
-    public Contract(string name)
+    public Contract(string name, Item item)
     {
+        requestedItem = item;
         contractName = name;
 
-        baseMaterial = new BaseMaterial(BaseMaterial.Materials.Wood);
-        
-        List<Modification> mods = new List<Modification>();
+        requestedItem.material = new BaseMaterial(BaseMaterial.Materials.Wood);
 
-        mods.Add(Modification.RandomModification());
-
-        modifications = mods.ToArray();
+        for (int i = 0; i < 1; i++)
+        {
+            Modification.RandomModification(requestedItem);
+        }
 
         amount = 10;
     }
@@ -67,9 +81,9 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        if (!item.material.Compare(baseMaterial)) return false;
+        if (!item.material.Compare(requestedItem.material)) return false;
 
-        foreach (var mod in modifications)
+        foreach (var mod in requestedItem.mods)
         {
             if (!item.HasMod(mod)) return false;
         }

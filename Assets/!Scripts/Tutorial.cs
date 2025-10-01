@@ -1,7 +1,6 @@
 using Coding;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -35,30 +34,30 @@ public class Tutorial : MonoBehaviour
                 return;
             case 1:
                 buildingAreaPrefab.SetActive(true);
-                if(CheckBuildingArea()) tutorialLevel++;
+                if (CheckBuildingArea()) tutorialLevel++;
                 return;
             case 2:
                 buildingAreaPrefab.SetActive(false);
                 buildingAreaPrefab2.SetActive(true);
-                if(CheckBuildingArea2()) tutorialLevel++;
+                if (CheckBuildingArea2()) tutorialLevel++;
                 return;
             case 3:
                 buildingAreaPrefab2.SetActive(false);
                 replaceBlock.SetActive(true);
-                if(!CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
+                if (!CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
                 return;
             case 4:
                 if (CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
                 return;
             case 5:
                 replaceBlock.SetActive(false);
-                if(Terminal.focused) tutorialLevel++;
+                if (Terminal.focused) tutorialLevel++;
                 return;
             case 6:
                 buttons.SetActive(true);
                 return;
         }
-       
+
     }
 
     void TickStart()
@@ -89,7 +88,7 @@ public class Tutorial : MonoBehaviour
     bool CheckIfCorrectBlock(GameObject gameObj)
     {
         GameObject cell = GridBuilder.instance.LookUpCell(gameObj.transform.position);
-        if(cell == null) return false;
+        if (cell == null) return false;
         return true;
     }
 

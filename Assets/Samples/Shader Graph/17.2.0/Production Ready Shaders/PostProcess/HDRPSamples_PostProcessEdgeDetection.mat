@@ -40,7 +40,7 @@ Material:
     - _Depth_Fade: 0.018
     - _Depth_Step: 0.061
     - _Edge_Opacity: 1
-    - _Edge_Thickness: 3
+    - _Edge_Thickness: 1.81
     - _Normal_Fade: 0.104
     - _Normal_Step: 0.346
     m_Colors:

@@ -48,7 +48,8 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings: []
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - dff715e70072b154cbe715fac399ffa0: {fileID: 1438203195032932830}
 --- !u!1001 &5663480443991025380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 386697747566640484, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5152134e-10
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1892627649951726439, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -145,6 +146,17 @@ PrefabInstance:
       addedObject: {fileID: 2227571710068755518}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 6351390140230759032, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
+--- !u!114 &1438203195032932830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6732106675961067322, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
+  m_PrefabInstance: {fileID: 5663480443991025380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6983ab2008f7a9f499b3f8cd6bec328d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Formats.Alembic.Runtime::UnityEngine.Formats.Alembic.Importer.AlembicStreamPlayer
 --- !u!4 &8440649309223908634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4919183520735489026, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}

@@ -47,7 +47,7 @@ Material:
     - _Attenuation: 2
     - _CellDensity: 10
     - _CircleDensity: 5
-    - _FalloffThreshHold: 3.68
+    - _FalloffThreshHold: 3.96
     - _LitThreshold: 3.5
     - _QueueControl: 0
     - _QueueOffset: 0

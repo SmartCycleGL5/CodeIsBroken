@@ -1,14 +1,8 @@
+using System;
+
 public abstract class Modification
 {
-    protected Item toModify;
-
-    public Modification(Item toModify)
-    {
-        this.toModify = toModify;
-        toModify.Modify(this);
-    }
-
-    public static Modification RandomModification(Item toMod)
+    public static Modification RandomModification()
     {
         int rng = UnityEngine.Random.Range(0, 3);
 
@@ -16,30 +10,36 @@ public abstract class Modification
         {
             case 0:
                 {
-                    return new Color(toMod, new UnityEngine.Color(1, 0, 0));
+                    return new Color(new UnityEngine.Color(1, 0, 0));
                 }
             case 1:
                 {
-                    return new Color(toMod, new UnityEngine.Color(0, 1, 0));
+                    return new Color(new UnityEngine.Color(0, 1, 0));
                 }
             case 2:
                 {
-                    return new Color(toMod, new UnityEngine.Color(0, 0, 1));
+                    return new Color(new UnityEngine.Color(0, 0, 1));
                 }
         }
 
         return null;
     }
 
+    public abstract void Apply(Item item);
     public abstract bool Compare(Modification toCompareWith);
 
     public class Heated : Modification
     {
         public int temperature;
 
-        public Heated(Item toModify, int temperature) : base(toModify)
+        public Heated(Item toModify, int temperature)
         {
             this.temperature = temperature;
+        }
+
+        public override void Apply(Item item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override bool Compare(Modification toCompareWith) 
@@ -51,9 +51,14 @@ public abstract class Modification
     public class Addition : Modification
     {
         public Materials materials;
-        public Addition(Item toModify, Materials materials) : base(toModify)
+        public Addition(Materials materials)
         {
             this.materials = materials;
+        }
+
+        public override void Apply(Item item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override bool Compare(Modification toCompareWith)
@@ -66,10 +71,14 @@ public abstract class Modification
     {
         public UnityEngine.Color color;
 
-        public Color(Item toModify, UnityEngine.Color color) : base(toModify)
+        public Color(UnityEngine.Color color)
         {
             this.color = color;
-            toModify.artRenderer.material.SetColor("_Color", toModify.artRenderer.material.GetColor("_Color") + color);
+        }
+
+        public override void Apply(Item item)
+        {
+            item.artRenderer.material.SetColor("_Color", item.artRenderer.material.GetColor("_Color") + color);
         }
 
         public override bool Compare(Modification toCompareWith)

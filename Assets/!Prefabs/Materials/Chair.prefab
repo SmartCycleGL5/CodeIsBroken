@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adff9d16eb85484c8347d236d19e4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  material:
-    type: -1
+  definition:
+    materials: -1
   artRenderer: {fileID: 5373870341508210345}
   destroyOnPause: 1

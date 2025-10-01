@@ -20,25 +20,27 @@ public class ContractSystem : MonoBehaviour
     {
         if (ActiveContract == null) return;
         amoundDisplay.text = "X" + ActiveContract.amount;
-        Debug.Log(ActiveContract.amount);
     }
 
     void CreateDisplayItem()
     {
         if (displayItem != null) Destroy(displayItem.gameObject);
 
+        Debug.Log(MaterialManager.Instance);
+
         displayItem = Instantiate(MaterialManager.Instance.items[Materials.Wood], displayPos);
         displayItem.destroyOnPause = false;
+        displayItem.definition = ActiveContract.requestedItem;
     }
 
     public void NewContract()
     {
-        CreateDisplayItem();
-
-        Contract contract = new Contract("cool contract", displayItem);
+        Contract contract = new Contract("cool contract");
         contract.onFinished += FinishedContract;
 
         ActiveContract = contract;
+
+        CreateDisplayItem();
     }
     void FinishedContract(Contract contract)
     {
@@ -52,21 +54,24 @@ public class Contract
 {
     public string contractName;
 
-    public Item requestedItem;
+    public ItemDefinition requestedItem;
 
     public int amount;
 
     public Action<Contract> onFinished;
 
-    public Contract(string name, Item item)
+    public Contract(string name)
     {
-        requestedItem = item;
         contractName = name;
+
+        List<Modification> mods = new List<Modification>();
 
         for (int i = 0; i < 2; i++)
         {
-            Modification.RandomModification(requestedItem);
+            mods.Add(Modification.RandomModification());
         }
+
+        requestedItem = new(Materials.Wood, mods);
 
         amount = UnityEngine.Random.Range(10, 20);
     }
@@ -87,15 +92,6 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        if (item.materials != requestedItem.materials) return false;
-        if (item.mods.Count != requestedItem.mods.Count) return false;
-
-        int modsSatisfied = 0;
-        foreach (var mod in requestedItem.mods)
-        {
-            if (item.HasMod(mod)) modsSatisfied++;
-        }
-
-        return modsSatisfied == requestedItem.mods.Count;
+        return item.definition == requestedItem;
     }
 }

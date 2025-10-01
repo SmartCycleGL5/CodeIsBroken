@@ -7,7 +7,7 @@ public class MaterialManager : MonoBehaviour
     [SerializedDictionary("Name", "Prefab")]
     public SerializedDictionary<Materials, Item> items;
 
-    void Start()
+    void Awake()
     {
         Instance = this;
     }

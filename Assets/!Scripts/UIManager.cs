@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
 
     public static Dictionary<string, Window> OpenWindows { get; private set; } = new();
 
+
     Button runButton;
 
     private void Start()
@@ -91,15 +92,17 @@ public class UIManager : MonoBehaviour
 
             tabs.Add(window.element);
 
-            Debug.Log("Added new tab: " + window.name);
-        } catch
-        {
-            Debug.Log(window.name + "already added");
-        }
+            if (OpenWindows.Count > 0)
+            {
+                EnableWindow();
+            }
 
-        if (OpenWindows.Count > 0)
+            Debug.Log("[UIManager] " + "Added new tab: " + window.name);
+        } 
+        catch(Exception e)
         {
-            EnableWindow();
+            window.ForceClose();
+            Debug.LogError("[UIManager] " + window.name + ": " + e);
         }
     }
     static void CloseWindow(Window windowToClose)
@@ -111,6 +114,8 @@ public class UIManager : MonoBehaviour
         {
             DisableWindow();
         }
+
+        Debug.Log("[UIManager] " + "Closed tab: " + windowToClose.name);
     }
 
     [Button] 
@@ -124,6 +129,7 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Defines window elements
     /// </summary>
+    [Serializable]
     public class Window
     {
         public string name;
@@ -150,19 +156,26 @@ public class UIManager : MonoBehaviour
 
             if (connectedWindow != null)
             {
-                connectedWindow.Destroy();
+                connectedWindow.Close();
+            }
+        }
+        public void ForceClose()
+        {
+            if (connectedWindow != null)
+            {
+                connectedWindow.Close();
             }
         }
 
         public void Rename(string name)
         {
-            OpenWindows.Remove(this.name);
+            CloseWindow(this);
 
             this.name = name;
             element.name = name;
             element.label = name;
 
-            OpenWindows.Add(name, this);
+            AddWindow(this);
         }
     }
 }

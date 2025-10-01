@@ -24,6 +24,15 @@ public class Item : MonoBehaviour
     {
         mods.Add(modification);
     }
+
+    public bool HasMod(Modification modification)
+    {
+        foreach (var mod in mods)
+        {
+            if(mod == modification) return true;
+        }
+        return false;
+    }
 }
 [Serializable]
 public struct BaseMaterial

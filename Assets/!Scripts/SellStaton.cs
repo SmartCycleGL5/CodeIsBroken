@@ -6,17 +6,26 @@ using UnityEngine;
 public class SellStaton : MonoBehaviour
 {
     [SerializeField] List<Transform> sellPoints = new();
-    [SerializeField] private TextMeshProUGUI text;
-    private int cubeSold;
+
+    Modification FavoredModification;
+    int desiredAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Tick.OnTick += CheckConveyor;
+        SetDesire();
     }
     void OnDestroy()
     {
         Tick.OnTick -= CheckConveyor;
+    }
+
+    void SetDesire()
+    {
+        FavoredModification = Modification.RandomModification();
+        desiredAmount = Random.Range(10, 100);
+        Debug.Log(((ModColor)FavoredModification).color);
     }
 
     void CheckConveyor()
@@ -39,29 +48,28 @@ public class SellStaton : MonoBehaviour
 
             if(conveyor.RemoveItem(out Item removedItem))
             {
-                //Debug.Log("[SellStation] Sold " +  removedItem);
-                cubeSold++;
-                Destroy(removedItem.gameObject);
+                SellItem(removedItem);
             }
         }
 
-        if (cubeSold < 10)
+        if (desiredAmount <= 0)
+            SetDesire();
+
+    }
+
+    void SellItem(Item toSell)
+    {
+        if (toSell.HasMod(FavoredModification))
         {
-            text.text = "Try building a conveyor belt going into the selling station and a material tube at the other end. Use GetMaterial in update to start spawning cubes!";
+            PlayerProgression.GiveXP(3);
         }
-        else if (cubeSold > 15)
+        else
         {
-            text.text = "Try putting a painter in between two conveyors. In the update, use the command Paint(); and chose between red, blue or green";
-        }
-        
-        else if (cubeSold > 25)
-        {
-            text.text = "Create a crane between two conveyors and make it rotate and lift up items";
-        }
-        else if (cubeSold > 40)
-        {
-            text.text = "Create two lines going into the seller and make them two different colors";
+            PlayerProgression.GiveXP(1);
         }
 
+        Debug.Log(PlayerProgression.experience);
+
+        Destroy(toSell.gameObject);
     }
 }

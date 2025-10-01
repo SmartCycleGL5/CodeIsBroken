@@ -980,8 +980,8 @@
     "m_ObjectId": "0c1d8aa665b045ee8389edc93482b627",
     "m_Title": "Base Color Sample",
     "m_Position": {
-        "x": -3741.600341796875,
-        "y": -1318.4002685546875
+        "x": -3741.0,
+        "y": -1317.0
     }
 }
 
@@ -1039,8 +1039,8 @@
     "m_ObjectId": "0e2426cfa3294d5c80f353320a75376e",
     "m_Title": "Remap values",
     "m_Position": {
-        "x": -3800.00048828125,
-        "y": -105.6002197265625
+        "x": -3799.0,
+        "y": -104.0
     }
 }
 
@@ -1443,8 +1443,8 @@
     "m_ObjectId": "24fe8e2263e641ebac9f198786f03a52",
     "m_Title": "Get diffuse lighting value",
     "m_Position": {
-        "x": -4933.6005859375,
-        "y": -566.4002075195313
+        "x": -4933.0,
+        "y": -565.0
     }
 }
 
@@ -2067,8 +2067,8 @@
     "m_ObjectId": "5086e36dcef949b18c1134f1711d875b",
     "m_Title": "Generate halftone grid",
     "m_Position": {
-        "x": -4230.39990234375,
-        "y": 490.4000244140625
+        "x": -4230.0,
+        "y": 492.0
     }
 }
 
@@ -2800,7 +2800,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "CellDensity",
     "m_StageCapability": 3,
-    "m_Value": 5.0,
+    "m_Value": 108.66999816894531,
     "m_DefaultValue": 5.0,
     "m_Labels": []
 }
@@ -3607,8 +3607,8 @@
     "m_ObjectId": "91fdbfc4672e43ca85b67a7de8a84e60",
     "m_Title": "Correct screen space aspect ratio",
     "m_Position": {
-        "x": -5020.00048828125,
-        "y": 389.59991455078127
+        "x": -5019.0,
+        "y": 391.0
     }
 }
 
@@ -5355,8 +5355,8 @@
     "m_ObjectId": "fabc7f2bbb5542e1a7cbf4983a163b4e",
     "m_Title": "Reduce lightness of base color",
     "m_Position": {
-        "x": -2885.600341796875,
-        "y": -788.000244140625
+        "x": -2885.0,
+        "y": -787.0
     }
 }
 

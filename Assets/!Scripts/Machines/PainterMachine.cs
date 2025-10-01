@@ -20,16 +20,13 @@ public class PainterMachine : Machine
         switch (color)
         {
             case "red":
-                item.Modify(new Modification.Color(new Color(1, 0, 0)));
-                toColor.material.SetColor("_Color", new Color(1, 0, 0));
+                new Modification.Color(item, new Color(1, 0, 0));
                 return;
             case "blue":
-                item.Modify(new Modification.Color(new Color(0, 0, 1)));
-                toColor.material.SetColor("_Color", new Color(0, 0, 1));
+                new Modification.Color(item, new Color(1, 0, 0));
                 return;
             case "green":
-                item.Modify(new Modification.Color(new Color(0, 1, 0)));
-                toColor.material.SetColor("_Color", new Color(0, 1, 0));
+                new Modification.Color(item, new Color(1, 0, 0));
                 return;
             default:
                 return;

@@ -311,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47c1bbadcf956b41b7333fdd38a0e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coding.ScriptManager
-  machines: []
 --- !u!4 &357034589
 Transform:
   m_ObjectHideFlags: 0
@@ -1199,10 +1198,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4965132074932320806, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+    - target: {fileID: 3955428084320110742, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: text
       value: 
-      objectReference: {fileID: 2100000, guid: 46d0b882e82e88948afc49cbc5f29ff6, type: 2}
+      objectReference: {fileID: 951126587}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation
@@ -1250,48 +1249,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2121687073}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850935c14a38857418fc44720f8512ae, type: 3}
---- !u!1 &2121687069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-  m_PrefabInstance: {fileID: 2121687068}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2121687070 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5454633096169383203, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-  m_PrefabInstance: {fileID: 2121687068}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2121687071 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5178369091956960359, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-  m_PrefabInstance: {fileID: 2121687068}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2121687072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5016304657167125031, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-  m_PrefabInstance: {fileID: 2121687068}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2121687073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121687069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126363e077bab1441bb531e449288253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  sellPoints:
-  - {fileID: 2121687072}
-  - {fileID: 2121687071}
-  - {fileID: 2121687070}
-  text: {fileID: 951126587}
 --- !u!224 &307946093809586119
 RectTransform:
   m_ObjectHideFlags: 0

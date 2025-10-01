@@ -1,7 +1,14 @@
 public abstract class Modification
 {
+    protected Item toModify;
 
-    public static Modification RandomModification()
+    public Modification(Item toModify)
+    {
+        this.toModify = toModify;
+        toModify.Modify(this);
+    }
+
+    public static Modification RandomModification(Item toMod)
     {
         int rng = UnityEngine.Random.Range(0, 2);
 
@@ -9,15 +16,15 @@ public abstract class Modification
         {
             case 0:
                 {
-                    return new Color(new UnityEngine.Color(1, 0, 0));
+                    return new Color(toMod, new UnityEngine.Color(1, 0, 0));
                 }
             case 1:
                 {
-                    return new Color(new UnityEngine.Color(0, 1, 0));
+                    return new Color(toMod, new UnityEngine.Color(0, 1, 0));
                 }
             case 2:
                 {
-                    return new Color(new UnityEngine.Color(0, 0, 1));
+                    return new Color(toMod, new UnityEngine.Color(0, 0, 1));
                 }
         }
 
@@ -30,7 +37,7 @@ public abstract class Modification
     {
         public int temperature;
 
-        public Heated(int temperature)
+        public Heated(Item toModify, int temperature) : base(toModify)
         {
             this.temperature = temperature;
         }
@@ -44,7 +51,7 @@ public abstract class Modification
     public class Addition : Modification
     {
         public BaseMaterial.Materials materials;
-        public Addition(BaseMaterial.Materials materials)
+        public Addition(Item toModify, BaseMaterial.Materials materials) : base(toModify)
         {
             this.materials = materials;
         }
@@ -58,9 +65,11 @@ public abstract class Modification
     public class Color : Modification
     {
         public UnityEngine.Color color;
-        public Color(UnityEngine.Color color)
+
+        public Color(Item toModify, UnityEngine.Color color) : base(toModify)
         {
             this.color = color;
+            toModify.artRenderer.material.SetColor("_Color", color);
         }
 
         public override bool Compare(Modification toCompareWith)

@@ -52,4 +52,9 @@ public struct BaseMaterial
     {
         this.type = type;
     }
+
+    public bool Compare(BaseMaterial mat)
+    {
+        return type == mat.type;
+    }
 }

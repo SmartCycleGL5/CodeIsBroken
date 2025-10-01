@@ -29,23 +29,30 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         recieveFrom.Clear();
         ConveyorManager cm = ConveyorManager.instance;
-        foreach(var reciever in positions)
+
+        //Checks for forward conveyor
+        Conveyor conveyorForward = cm.GetConveyor(transform.position + transform.forward);
+        if (conveyorForward != null)
+        {
+            nextConveyor = conveyorForward;
+
+        }
+        else
+        {
+            nextConveyor = null;
+        }
+
+        foreach (var reciever in positions)
         {
             Conveyor conveyor = cm.GetConveyor(reciever.position);
             if (conveyor != null)
             {
-                conveyor.nextConveyor = this;
-                recieveFrom.Add(conveyor);
-
+                if(conveyor.nextConveyor = this)
+                {
+                    recieveFrom.Add(conveyor);
+                }
             }
         }
-        //Checks for forward conveyor
-        Conveyor conveyorForward = cm.GetConveyor(transform.position+transform.forward);
-        if (conveyorForward != null)
-        {
-            nextConveyor = conveyorForward;
-        }
-
     }
 
     void MoveOnTick()

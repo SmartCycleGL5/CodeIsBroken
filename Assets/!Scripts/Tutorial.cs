@@ -95,10 +95,12 @@ public class Tutorial : MonoBehaviour
 
     public void PlayAgain()
     {
+        ScriptManager.StopMachines();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Continue()
     {
+        ScriptManager.StopMachines();
         SceneManager.LoadScene("GameScene");
     }
 }

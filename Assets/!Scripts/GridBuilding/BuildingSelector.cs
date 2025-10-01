@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 using System;
+using NUnit.Framework;
 
 public class BuildingSelector : MonoBehaviour
 {
     public static event Action<GameObject> OnChangedBuilding;
-    
+
+    [SerializeField] List<BuildingSO> buildings;
     [SerializeField] private GameObject[] folderObjects;
     [SerializeField] private GameObject buildingMenuPanel;
     [SerializeField] private GameObject button;
@@ -26,5 +29,7 @@ public class BuildingSelector : MonoBehaviour
     {
         OnChangedBuilding?.Invoke(buildingBlock);
     }
+
+
 
 }

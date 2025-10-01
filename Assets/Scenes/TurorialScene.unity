@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 618225868}
   - component: {fileID: 618225867}
   m_Layer: 5
-  m_Name: PlayAgain (1)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1043,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618225868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1689120012}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &618225868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,19 +2089,19 @@ MonoBehaviour:
   - Hello, welcome to your new factory! Let's start building!  Press B to open the
     building menu!
   - Try selecting conveyors and place it along the marked area.
-  - Good Job! Now try rotatoring the conveyor by pressing R once. Then place them
-    in the highlighted area
-  - Nice! Now remove this block bu using right-click. Try placing a painter inside.
+  - Good Job! Now try rotating the conveyor by pressing R once. Then place them in
+    the highlighted area
+  - Nice! Now remove this block by using right-click.
   - Now place a painter inside
-  - Press B to close the building menu and click on the painter! Press the terminal
-    symbol to open the terminal!
+  - 'Press B to close the building menu and click on the painter! Press the terminal
+    symbol to open the terminal! Click in the '
   - Lets try coding! Write Paint(blue) inside the update section. Press run once
     the code is written
   - Play the tutorial again or continue to game!
   buildingAreaPrefab: {fileID: 792260117}
   buildingAreaPrefab2: {fileID: 1564304853}
   replaceBlock: {fileID: 426720762}
-  buttons: {fileID: 0}
+  buttons: {fileID: 2012465231}
 --- !u!4 &1689120013
 Transform:
   m_ObjectHideFlags: 0
@@ -2187,7 +2199,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1794803216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1689120012}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1794803216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,7 +2298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2012465232
 RectTransform:
   m_ObjectHideFlags: 0

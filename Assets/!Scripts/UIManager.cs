@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using Coding;
 using NaughtyAttributes;
+using NS.RomanLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ public class UIManager : MonoBehaviour
 
     public static Dictionary<string, Window> OpenWindows { get; private set; } = new();
 
+    RadialFillElement xpIndicator;
+    Label levelIndicator;
+
 
     Button runButton;
 
@@ -28,6 +32,9 @@ public class UIManager : MonoBehaviour
         canvas = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Canvas");
         tabs = canvas.Q<TabView>("Tabs");
         windows = canvas.Q<VisualElement>("Windows");
+        xpIndicator = canvas.Q<RadialFillElement>("radial-fill-element");
+        levelIndicator = canvas.Q<Label>("Level");
+        
         windows.Q<Button>("Close").clicked += CloseCurrentWindow;
 
         runButton = canvas.Q<Button>("Run");
@@ -45,6 +52,9 @@ public class UIManager : MonoBehaviour
         {
             runButton.text = "Run";
         }
+
+        levelIndicator.text = PlayerProgression.Level.ToString();
+        xpIndicator.value = PlayerProgression.apparentExperience / PlayerProgression.experienceRequired[PlayerProgression.Level];
     }
     private void OnDestroy()
     {

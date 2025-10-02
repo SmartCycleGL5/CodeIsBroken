@@ -24,11 +24,6 @@ public class Assembler : Machine,IItemContainer
 
         base.Initialize(initialClassName);
     }
-    private void Update()
-    {
-
-    }
-
 
 
     public void Craft()
@@ -56,7 +51,9 @@ public class Assembler : Machine,IItemContainer
                 if(cell == null) return;
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
-                    conveyor.SetItem(Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity));
+                    Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
+
+                    conveyor.SetItem(item);
                     RemoveItem();
                 }
             }

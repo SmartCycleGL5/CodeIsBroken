@@ -151,6 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe13188be97654185111628350c0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assembler
+  machineCode:
+    name: 
+    Code: 
+  Classes:
+    _serializedList: []
+  connectedTerminal: {fileID: 0}
   assemblerSize: 0
   items: []
   craftingRecipies:
@@ -352,12 +358,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e9ec66e2ab1a04a8bc8ee3c658a097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  items:
+  BaseMaterials:
     _serializedList:
-    - Key: 1
-      Value: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
     - Key: 2
+      Value: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
+    - Key: 8
+      Value: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+    - Key: 4
       Value: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
+  Products:
+    _serializedList:
+    - Key: 6
+      Value: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

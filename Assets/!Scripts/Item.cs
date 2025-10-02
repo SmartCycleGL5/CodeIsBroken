@@ -2,13 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Flags]
-public enum Materials
-{
-    Wood = 1 << 0,
-    Iron = 1 << 1,
-}
-
 [Serializable]
 public class ItemDefinition : IEquatable<ItemDefinition>
 {

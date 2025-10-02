@@ -26,9 +26,11 @@ public class ContractSystem : MonoBehaviour
     {
         if (displayItem != null) Destroy(displayItem.gameObject);
 
-        Debug.Log(MaterialManager.Instance);
+        bool isProduct = UnityEngine.Random.Range(0, 2) == 0;
+        Item toCreate = isProduct ? MaterialManager.Instance.BaseMaterials[MaterialManager.GetRandomMaterial(1)] : MaterialManager.Instance.BaseMaterials[MaterialManager.GetRandomMaterial(2)];
 
-        displayItem = Instantiate(MaterialManager.Instance.items[Materials.Wood], displayPos);
+        displayItem = Instantiate(toCreate, displayPos);
+
         displayItem.destroyOnPause = false;
         displayItem.definition = ActiveContract.requestedItem;
     }

@@ -17,7 +17,7 @@ public class MaterialTube : Machine
 
     private void Start()
     {
-        materialToSpawn = MaterialManager.Instance.items[Materials.Wood];
+        materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Wood];
     }
     private void OnEnable()
     {
@@ -36,12 +36,12 @@ public class MaterialTube : Machine
         {
             case "wood":
                 {
-                    materialToSpawn = MaterialManager.Instance.items[Materials.Wood];
+                    materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Wood];
                     break;
                 }
             case "iron":
                 {
-                    materialToSpawn = MaterialManager.Instance.items[Materials.Iron];
+                    materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Iron];
                     break;
                 }
         }

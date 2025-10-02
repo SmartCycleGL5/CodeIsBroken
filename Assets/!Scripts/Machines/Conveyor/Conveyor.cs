@@ -10,6 +10,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
     public List<Conveyor> recieveFrom;
     public GameObject wrapper;
     [SerializeField] List<Transform> positions;
+    private Tween moveTween;
 
     public Item item { get; set; }
 
@@ -90,7 +91,10 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(item == null) return false;
         removedItem = item;
         item = null;
-
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
         return true;
     }
 
@@ -101,7 +105,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
         this.item = item;
         Debug.Log(item.transform.position + " ");
-        this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

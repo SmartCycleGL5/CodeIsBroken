@@ -35,15 +35,16 @@ public class Assembler : Machine,IItemContainer
     {
         if(items.Count <= 0) return;
         // Materials of items currently held by conveyor
-        List<BaseMaterial> materials = new();
-        materials.AddRange(items.Select(i => i.material));
+
+        List<Materials> materials = new();
+        materials.AddRange(items.Select(i => i.definition.materials));
         
         //Loops over all recipes
         foreach (var recipe in craftingRecipies)
         {
             // Sort lists to compare them:
-            materials = materials.OrderBy(x => x.type).ToList();
-            recipe.materials = recipe.materials.OrderBy(x => x.type).ToList();
+            materials = materials.OrderBy(x => x).ToList();
+            recipe.materials = recipe.materials.OrderBy(x => x).ToList();
             
             if (materials.SequenceEqual(recipe.materials))
             {

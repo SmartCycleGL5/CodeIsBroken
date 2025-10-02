@@ -37,7 +37,7 @@ public class MachineCode
         Code =
                 "class " + name + "" +
                 "\n{" +
-                "\n\tvoid Start()" +
+                "\n\tvoid FirstTick()" +
                 "\n\t{" +
                 "\n\t\t" +
                 "\n\t\t" +
@@ -45,7 +45,7 @@ public class MachineCode
                 "\n\t}" +
                 "\n" +
 
-                "\n\tvoid Update()" +
+                "\n\tvoid OnTick()" +
                 "\n\t{" +
                 "\n\t\t" +
                 "\n\t\t" +

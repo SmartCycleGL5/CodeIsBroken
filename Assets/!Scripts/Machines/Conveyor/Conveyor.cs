@@ -18,10 +18,11 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
+        
         UpdateConveyor();
-
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
-
+        ConveyorManager.instance.UpdateCells(transform.position-transform.forward);
+        UpdateConveyor();
         Tick.OnTick += MoveOnTick;
     }
 
@@ -29,30 +30,16 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         recieveFrom.Clear();
         ConveyorManager cm = ConveyorManager.instance;
-
-        //Checks for forward conveyor
-        Conveyor conveyorForward = cm.GetConveyor(transform.position + transform.forward);
-        if (conveyorForward != null)
+        nextConveyor = cm.GetConveyor(transform.position+transform.forward);
+        foreach (var pos in positions)
         {
-            nextConveyor = conveyorForward;
-
-        }
-        else
-        {
-            nextConveyor = null;
+            Conveyor conveyor = cm.GetConveyor(pos.position);
+            if(conveyor == null) return;
+            if(conveyor.nextConveyor != this) return;
+            Debug.LogError("Found compatible conveyor");
+            recieveFrom.Add(conveyor);
         }
 
-        foreach (var reciever in positions)
-        {
-            Conveyor conveyor = cm.GetConveyor(reciever.position);
-            if (conveyor != null)
-            {
-                if(conveyor.nextConveyor = this)
-                {
-                    recieveFrom.Add(conveyor);
-                }
-            }
-        }
     }
 
     void MoveOnTick()
@@ -111,7 +98,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(this.item != null) return false;
 
         this.item = item;
-        Debug.Log(item.transform.position + " ");
+        //Debug.Log(item.transform.position + " ");
         moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MaterialTube : Machine
 {
     [SerializeField] Transform spawnLocation;
-    [SerializeField] Item materialToSpawn;
+    Item materialToSpawn;
     int spawnRate;
     int tickCount;
 
@@ -13,6 +13,11 @@ public class MaterialTube : Machine
         AddMethodsAsIntegrated(typeof(MaterialTube));
 
         base.Initialize(initialClassName);
+    }
+
+    private void Start()
+    {
+        materialToSpawn = MaterialManager.Instance.items[Materials.Wood];
     }
     private void OnEnable()
     {
@@ -24,6 +29,22 @@ public class MaterialTube : Machine
     {
         this.spawnRate = delay;
 
+    }
+    public void ChangeMaterial(string material)
+    {
+        switch(material)
+        {
+            case "wood":
+                {
+                    materialToSpawn = MaterialManager.Instance.items[Materials.Wood];
+                    break;
+                }
+            case "iron":
+                {
+                    materialToSpawn = MaterialManager.Instance.items[Materials.Iron];
+                    break;
+                }
+        }
     }
     
     // Not player controlled

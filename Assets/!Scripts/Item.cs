@@ -6,7 +6,7 @@ using UnityEngine;
 public enum Materials
 {
     Wood = 1 << 0,
-    Steel = 1 << 1,
+    Iron = 1 << 1,
 }
 
 [Serializable]
@@ -14,13 +14,15 @@ public class ItemDefinition : IEquatable<ItemDefinition>
 {
     public Materials materials;
 
-    [field: SerializeField] public List<Modification> mods { get; private set; } = new List<Modification>();
+    [field: SerializeField] public List<Modification> mods { get; private set; } = new();
     public Action<Modification> modified;
 
     public ItemDefinition(Materials materials, List<Modification> modifications = null)
     {
         this.materials = materials;
-        mods = modifications;
+
+        if(modifications != null)
+            mods = modifications;
     }
 
     public void Modify(Modification modification)
@@ -61,7 +63,7 @@ public class ItemDefinition : IEquatable<ItemDefinition>
 
 public class Item : MonoBehaviour
 {
-    public ItemDefinition definition;
+    public ItemDefinition definition = new(Materials.Wood);
 
     public MeshRenderer artRenderer;
     public static List<Item> items = new List<Item>();
@@ -83,6 +85,7 @@ public class Item : MonoBehaviour
     private void OnDestroy()
     {
         items.Remove(this);
+        definition.modified -= ApplyModifications;
     }
 
     void ApplyModifications(Modification mod)

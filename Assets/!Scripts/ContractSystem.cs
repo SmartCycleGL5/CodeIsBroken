@@ -73,7 +73,7 @@ public class Contract
 
         requestedItem = new(Materials.Wood, mods);
 
-        amount = UnityEngine.Random.Range(10, 20);
+        amount = UnityEngine.Random.Range(10, PlayerProgression.Level * 10 + 10);
     }
     public void Progress()
     {
@@ -92,6 +92,6 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        return item.definition == requestedItem;
+        return item.definition.Equals(requestedItem);
     }
 }

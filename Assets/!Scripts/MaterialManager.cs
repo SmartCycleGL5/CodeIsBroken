@@ -16,10 +16,8 @@ public class MaterialManager : MonoBehaviour
 {
     public static MaterialManager Instance;
     [SerializedDictionary("Material", "Prefab")]
-    public SerializedDictionary<Materials, Item> BaseMaterials;
-
-    [SerializedDictionary("Material", "Prefab")]
     public SerializedDictionary<Materials, Item> Products;
+
 
     void Awake()
     {

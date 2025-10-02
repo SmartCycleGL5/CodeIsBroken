@@ -27,7 +27,7 @@ public class ContractSystem : MonoBehaviour
         if (displayItem != null) Destroy(displayItem.gameObject);
 
         bool isProduct = UnityEngine.Random.Range(0, 2) == 0;
-        Item toCreate = isProduct ? MaterialManager.Instance.BaseMaterials[MaterialManager.GetRandomMaterial(1)] : MaterialManager.Instance.BaseMaterials[MaterialManager.GetRandomMaterial(2)];
+        Item toCreate = MaterialManager.Instance.Products[ActiveContract.requestedItem.materials];
 
         displayItem = Instantiate(toCreate, displayPos);
 
@@ -73,7 +73,7 @@ public class Contract
             mods.Add(Modification.RandomModification());
         }
 
-        requestedItem = new(Materials.Wood, mods);
+        requestedItem = new(MaterialManager.GetRandomMaterial(1), mods);
 
         amount = UnityEngine.Random.Range(10, PlayerProgression.Level * 10 + 10);
     }

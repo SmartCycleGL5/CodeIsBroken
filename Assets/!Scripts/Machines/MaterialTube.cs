@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class MaterialTube : Machine
 
     private void Start()
     {
-        materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Wood];
+        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
     }
     private void OnEnable()
     {
@@ -32,19 +33,7 @@ public class MaterialTube : Machine
     }
     public void ChangeMaterial(string material)
     {
-        switch(material)
-        {
-            case "wood":
-                {
-                    materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Wood];
-                    break;
-                }
-            case "iron":
-                {
-                    materialToSpawn = MaterialManager.Instance.BaseMaterials[Materials.Iron];
-                    break;
-                }
-        }
+        materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
     }
     
     // Not player controlled

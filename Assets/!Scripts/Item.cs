@@ -62,6 +62,7 @@ public class Item : MonoBehaviour
     public static List<Item> items = new List<Item>();
 
     public bool destroyOnPause = true;
+    [HideInInspector] public bool changedColor;
 
     private void Start()
     {

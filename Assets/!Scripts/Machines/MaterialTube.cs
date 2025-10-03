@@ -62,7 +62,7 @@ public class MaterialTube : Machine
         }
         if(conveyor.item != null)return;
         Debug.Log("[MaterialTube] got material");
-        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation).GetComponent<Item>();
+        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
         conveyor.SetItem(instObj);
     }
 

@@ -68,6 +68,17 @@ public class GridBuilder : MonoBehaviour
         }
     }
 
+    public void AddBuildingToGrid(Vector3 position, GameObject building)
+    {
+        Building buildingData = building.GetComponent<Building>();
+        buildingData.Built();
+        foreach (var cell in buildingData.GetBuildingPositions())
+        {
+            Vector3Int cellPosition = grid.WorldToCell(cell);
+            gridObjects.Add(new Vector2Int(cellPosition.x, cellPosition.z), building);
+        }
+    }
+
     public void RemoveBuilding()
     {
         Vector2 cellCenter = GetGridPosition();

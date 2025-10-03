@@ -6,7 +6,9 @@ public class BuildingSO : ScriptableObject
     public GameObject buildingPrefab;
     public string buildingName;
     public Sprite buildingImage;
+    [NaughtyAttributes.ResizableTextArea]
     public string buildingDesctiption;
 
     public int levelToUnlock;
+    public bool isUnloced;
 }

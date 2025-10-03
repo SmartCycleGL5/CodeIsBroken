@@ -19,13 +19,13 @@ public class PainterMachine : Machine
 
         switch (color)
         {
-            case "red":
+            case "Red":
                 item.definition.Modify(new Modification.Color(new Color(1, 0, 0)));
                 return;
-            case "blue":
+            case "Blue":
                 item.definition.Modify(new Modification.Color(new Color(0, 0, 1)));
                 return;
-            case "green":
+            case "Green":
                 item.definition.Modify(new Modification.Color(new Color(0, 1, 0)));
                 return;
             default:

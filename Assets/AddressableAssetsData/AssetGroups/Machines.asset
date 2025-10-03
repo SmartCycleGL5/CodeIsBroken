@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Machines
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Machines
+  m_GUID: aa0d0784e51992c43a627effeea74b10
+  m_SerializeEntries:
+  - m_GUID: 1d540034421db7b4f88b7ccb21a9d270
+    m_Address: Painter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28769768684a69b40acfcd7c308a170e
+    m_Address: Crane
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3199b4ac6337d6649a81a0966a9e2ead
+    m_Address: MaterialTube
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5091e44f8d6e71d48bb232ec9c459f29
+    m_Address: Assembler
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2abdcbda98005c45aabf8afca599042
+    m_Address: Conveyor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9099109e9fa79cb478ab776b5c8d5f4d, type: 2}
+    - {fileID: 11400000, guid: 415b3482df8f10244a5f1f1c6ca33717, type: 2}

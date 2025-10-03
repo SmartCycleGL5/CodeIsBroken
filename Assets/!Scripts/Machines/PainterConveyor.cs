@@ -15,7 +15,6 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 
     private void TakeItem()
     {
-        Debug.Log("TakeItem");
         // Output item
         GameObject outputCell = GridBuilder.instance.LookUpCell(transform.position+transform.forward);
         if(outputCell == null) return;

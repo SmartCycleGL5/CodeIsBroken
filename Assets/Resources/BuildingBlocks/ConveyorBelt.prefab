@@ -66,6 +66,7 @@ MonoBehaviour:
   nextConveyor: {fileID: 0}
   recieveFrom:
   - {fileID: 0}
+  wrapper: {fileID: 0}
   positions:
   - {fileID: 8050596945886522476}
   - {fileID: 4133514835888587347}

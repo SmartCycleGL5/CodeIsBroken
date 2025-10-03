@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
-  m_Name: JournalEntrySO
+  m_Name: JournalEntrySO 1
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  title: GUifvew
+  title: ',nfvre'
   showcaseI: {fileID: 2800000, guid: f88677df267a41d6be1e7a6133e7d227, type: 3}
-  explanation: FIVE
-  codeShowcase: SEVEN
+  explanation: Grirad
+  codeShowcase: Lorf
   bHintTaken: 1

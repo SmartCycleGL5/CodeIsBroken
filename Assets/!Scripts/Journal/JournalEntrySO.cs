@@ -11,5 +11,6 @@ namespace Journal
         public string explanation;
 
         public string codeShowcase;
+        public bool bHintTaken;
 }
 }

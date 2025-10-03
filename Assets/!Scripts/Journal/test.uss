@@ -1,10 +1,6 @@
 :root {
 }
 
-.unity-text-element__selectable {
-    color: rgb(255, 255, 255);
-}
-
 .unity-button {
     background-image: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&guid=283f897e4925411ebbaa758b4cb13fc2&type=3#Floor Cement");
     flex-shrink: 1;

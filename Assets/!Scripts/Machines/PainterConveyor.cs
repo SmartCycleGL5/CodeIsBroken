@@ -1,7 +1,9 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(69)]
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
+    
     [SerializeField] Transform input;
     [SerializeField] Transform output;
     [SerializeField] PainterMachine PainterMachine;

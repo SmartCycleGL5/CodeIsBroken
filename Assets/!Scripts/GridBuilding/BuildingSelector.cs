@@ -14,16 +14,27 @@ public class BuildingSelector : MonoBehaviour
     
     void Start()
     {
-        folderObjects = Resources.LoadAll<GameObject>("BuildingBlocks");
-        foreach (var t in folderObjects)
+        OnLevelUp(1);
+        PlayerProgression.onLevelUp += OnLevelUp;
+    }
+
+    public void OnLevelUp(int level)
+    {
+        Debug.Log("LevelUp: " + level);
+        for (int i = 0; i < buildings.Count; i++)
         {
+            var building = buildings[i];
+            if (building.levelToUnlock > level) continue;
+            buildings.Remove(building);
             GameObject newButton = Instantiate(button, buildingMenuPanel.transform);
             BuildingButton buildingButton = newButton.GetComponent<BuildingButton>();
-            buildingButton.buildingPrefab = t;
-            buildingButton.buttonText.text = t.name;
+            buildingButton.buildingPrefab = building.buildingPrefab;
+            buildingButton.buttonText.text = building.buildingName;
             buildingButton.blockSelector = this;
         }
+
     }
+
 
     public void UpdateBuildingBlock(GameObject buildingBlock)
     {

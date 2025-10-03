@@ -1023,7 +1023,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ee40c9616868741a60d65be2a22ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
-  buildings: []
+  buildings:
+  - {fileID: 11400000, guid: 1d540034421db7b4f88b7ccb21a9d270, type: 2}
+  - {fileID: 11400000, guid: 28769768684a69b40acfcd7c308a170e, type: 2}
+  - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
+  - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
   folderObjects: []
   buildingMenuPanel: {fileID: 929964379198931661}
   button: {fileID: 5973821873067232629, guid: b8e0a54be2caf7e4997ddd56a7b7c561, type: 3}

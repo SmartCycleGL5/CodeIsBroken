@@ -15,6 +15,7 @@ MonoBehaviour:
   buildingPrefab: {fileID: 617270430291027306, guid: 9aeb2cc37c211ef4c9b526e852ad134e, type: 3}
   buildingName: Conveyor
   buildingImage: {fileID: 0}
-  buildingDesctiption: 
+  buildingDesctiption: A conveyorbelt will move the item ontop of it forwards every
+    tick.
   levelToUnlock: 1
   isUnloced: 1

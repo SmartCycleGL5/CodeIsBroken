@@ -31,7 +31,7 @@ public class ShitJournal : MonoBehaviour, IWindow
         }
 
         windowElement = journalAsset.Instantiate();
-        journal = windowElement.Q<VisualElement>("Journal");
+        journal = windowElement.Q<ScrollView>("Journal");
 
         foreach (var item in buildings)
         {
@@ -41,6 +41,9 @@ public class ShitJournal : MonoBehaviour, IWindow
 
             VisualElement element = journalElementAsset.Instantiate();
             journal.Add(element);
+
+            element.Q<Label>("Name").text = item.buildingName;
+            element.Q<Label>("Description").text = item.buildingDesctiption;
         }
 
         window = new Window("Journal", windowElement, this);

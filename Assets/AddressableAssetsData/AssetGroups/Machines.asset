@@ -19,31 +19,31 @@ MonoBehaviour:
     m_Address: Painter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machine
+    - Machines
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28769768684a69b40acfcd7c308a170e
     m_Address: Crane
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machine
+    - Machines
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3199b4ac6337d6649a81a0966a9e2ead
     m_Address: MaterialTube
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machine
+    - Machines
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5091e44f8d6e71d48bb232ec9c459f29
     m_Address: Assembler
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machine
+    - Machines
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2abdcbda98005c45aabf8afca599042
     m_Address: Conveyor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machine
+    - Machines
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}

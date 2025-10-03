@@ -17,3 +17,4 @@ MonoBehaviour:
   buildingImage: {fileID: 0}
   buildingDesctiption: 
   levelToUnlock: 1
+  isUnloced: 1

@@ -18,10 +18,13 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
-        
+        //Checks for other conveyors and update the conveyors thats found.
         UpdateConveyor();
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
-        ConveyorManager.instance.UpdateCells(transform.position-transform.forward);
+        foreach(var pos in positions)
+        {
+            ConveyorManager.instance.UpdateCells(pos.position);
+        }
         UpdateConveyor();
         Tick.OnTick += MoveOnTick;
     }
@@ -34,8 +37,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
         foreach (var pos in positions)
         {
             Conveyor conveyor = cm.GetConveyor(pos.position);
-            if(conveyor == null) return;
-            if(conveyor.nextConveyor != this) return;
+            if(conveyor == null) continue;
+            if(conveyor.nextConveyor != this) continue;
             Debug.LogError("Found compatible conveyor");
             recieveFrom.Add(conveyor);
         }

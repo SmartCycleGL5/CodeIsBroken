@@ -6,7 +6,12 @@ public class PlaceOnStart : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        List<Vector3> position = GetComponent<Building>().GetBuildingPositions();
-        GridBuilder.instance.PlaceBuilding(this.gameObject, gameObject.transform.rotation);
+        Invoke("PlaceBuilding", 0.5f);
+    }
+
+    void PlaceBuilding()
+    {
+        Debug.Log("PlacedMaterialTube: " + gameObject);
+        GridBuilder.instance.AddBuildingToGrid(transform.position ,this.gameObject);
     }
 }

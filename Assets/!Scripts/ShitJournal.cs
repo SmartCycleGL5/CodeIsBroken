@@ -25,10 +25,7 @@ public class ShitJournal : MonoBehaviour, IWindow
         {
             journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.GameObject);
         }
-        if (buildings == null)
-        {
-            buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
-        }
+        buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
 
         windowElement = journalAsset.Instantiate();
         journal = windowElement.Q<ScrollView>("Journal");

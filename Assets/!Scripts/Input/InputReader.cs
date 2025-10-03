@@ -20,7 +20,6 @@ public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
 
     public void OnOpenJournal(InputAction.CallbackContext context)
     {
-        Debug.Log("Open Journal");
         if (!context.started) return;
         UIManager.Instance.gameObject.AddComponent<ShitJournal>();
     }

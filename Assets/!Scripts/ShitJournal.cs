@@ -24,6 +24,12 @@ public class ShitJournal : MonoBehaviour, IWindow
         }
 
         journal = journalAsset.Instantiate();
+
+        foreach (var item in transform)
+        {
+            
+        }
+
         window = new Window("Journal", journal, this);
     }
 

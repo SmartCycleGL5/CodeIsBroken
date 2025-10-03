@@ -15,17 +15,9 @@ MonoBehaviour:
   buildingPrefab: {fileID: 4985229225995930261, guid: 2930f6472bfbb264f9692b7629f353d7, type: 3}
   buildingName: Painter
   buildingImage: {fileID: 0}
-  buildingDesctiption: 'The painter acts like a conveyor belt moving items on it
-    to the next conveyor.
-
-
-    Use Paint() to paint the item in it to one of the
-    following colors:
-
-    Red, Blue, Green
-
-
-    You can also make new colors by
-    using paint multiple times.'
+  buildingDesctiption: "The painter acts like a conveyor belt moving items on it
+    to the next conveyor.\n\nUse Paint() to paint the item in it to one of the following
+    colors:\nRed, Blue, Green\n\nYou can also make new colors by using paint multiple
+    times.\n\nExample:\nvoid OnTick()\n{\n\tPaint(Red);\n}"
   levelToUnlock: 1
   isUnloced: 1

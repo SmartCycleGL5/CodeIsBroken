@@ -8,7 +8,7 @@ public class BuildingSelector : MonoBehaviour
     public static event Action<GameObject> OnChangedBuilding;
 
     [SerializeField] List<BuildingSO> buildings;
-    [SerializeField] private GameObject[] folderObjects;
+    //[SerializeField] private GameObject[] folderObjects;
     [SerializeField] private GameObject buildingMenuPanel;
     [SerializeField] private GameObject button;
     
@@ -20,12 +20,13 @@ public class BuildingSelector : MonoBehaviour
 
     public void OnLevelUp(int level)
     {
+        List<BuildingSO> buildingsToRemove = new();
         Debug.Log("LevelUp: " + level);
         for (int i = 0; i < buildings.Count; i++)
         {
             var building = buildings[i];
             if (building.levelToUnlock > level) continue;
-            buildings.Remove(building);
+            buildingsToRemove.Add(building);
             GameObject newButton = Instantiate(button, buildingMenuPanel.transform);
             BuildingButton buildingButton = newButton.GetComponent<BuildingButton>();
             buildingButton.buildingPrefab = building.buildingPrefab;
@@ -33,7 +34,14 @@ public class BuildingSelector : MonoBehaviour
             buildingButton.blockSelector = this;
         }
 
+        foreach (var building in buildingsToRemove)
+        {
+            buildings.Remove(building);
+        }
+        buildingsToRemove.Clear();
     }
+
+
 
 
     public void UpdateBuildingBlock(GameObject buildingBlock)

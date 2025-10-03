@@ -1,12 +1,9 @@
+using Coding;
 using NaughtyAttributes;
 using System;
-using Coding;
-using Unity.VisualScripting;
-using UnityEngine;
-using System.Threading.Tasks;
 
 [Serializable]
-public class MachineCode 
+public class MachineCode
 {
     public string name;
     [ResizableTextArea] public string Code;
@@ -37,20 +34,23 @@ public class MachineCode
         Code =
                 "class " + name + "" +
                 "\n{" +
-                "\n\tvoid Start()" +
-                "\n\t{" +
-                "\n\t\t" +
-                "\n\t\t" +
-                "\n\t\t" +
-                "\n\t}" +
-                "\n" +
 
-                "\n\tvoid Update()" +
+                "\n\tvoid FirstTick()" +
                 "\n\t{" +
                 "\n\t\t" +
                 "\n\t\t" +
                 "\n\t\t" +
                 "\n\t}" +
+
+                "\n\t" +
+
+                "\n\tvoid OnTick()" +
+                "\n\t{" +
+                "\n\t\t" +
+                "\n\t\t" +
+                "\n\t\t" +
+                "\n\t}" +
+
                 "\n}";
     }
 }

@@ -1,10 +1,11 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class MaterialTube : Machine
 {
     [SerializeField] Transform spawnLocation;
-    [SerializeField] Item materialToSpawn;
+    Item materialToSpawn;
     int spawnRate;
     int tickCount;
 
@@ -13,6 +14,11 @@ public class MaterialTube : Machine
         AddMethodsAsIntegrated(typeof(MaterialTube));
 
         base.Initialize(initialClassName);
+    }
+
+    private void Start()
+    {
+        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
     }
     private void OnEnable()
     {
@@ -24,6 +30,10 @@ public class MaterialTube : Machine
     {
         this.spawnRate = delay;
 
+    }
+    public void ChangeMaterial(string material)
+    {
+        materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
     }
     
     // Not player controlled

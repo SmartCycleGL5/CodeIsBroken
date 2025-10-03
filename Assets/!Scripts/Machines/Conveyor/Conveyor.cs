@@ -10,6 +10,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
     public List<Conveyor> recieveFrom;
     public GameObject wrapper;
     [SerializeField] List<Transform> positions;
+    private Tween moveTween;
 
     public Item item { get; set; }
 
@@ -17,10 +18,11 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
+        
         UpdateConveyor();
-
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
-
+        ConveyorManager.instance.UpdateCells(transform.position-transform.forward);
+        UpdateConveyor();
         Tick.OnTick += MoveOnTick;
     }
 
@@ -28,21 +30,14 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         recieveFrom.Clear();
         ConveyorManager cm = ConveyorManager.instance;
-        foreach(var reciever in positions)
+        nextConveyor = cm.GetConveyor(transform.position+transform.forward);
+        foreach (var pos in positions)
         {
-            Conveyor conveyor = cm.GetConveyor(reciever.position);
-            if (conveyor != null)
-            {
-                conveyor.nextConveyor = this;
-                recieveFrom.Add(conveyor);
-
-            }
-        }
-        //Checks for forward conveyor
-        Conveyor conveyorForward = cm.GetConveyor(transform.position+transform.forward);
-        if (conveyorForward != null)
-        {
-            nextConveyor = conveyorForward;
+            Conveyor conveyor = cm.GetConveyor(pos.position);
+            if(conveyor == null) return;
+            if(conveyor.nextConveyor != this) return;
+            Debug.LogError("Found compatible conveyor");
+            recieveFrom.Add(conveyor);
         }
 
     }
@@ -90,7 +85,10 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(item == null) return false;
         removedItem = item;
         item = null;
-
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
         return true;
     }
 
@@ -100,8 +98,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(this.item != null) return false;
 
         this.item = item;
-        Debug.Log(item.transform.position + " ");
-        this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
+        //Debug.Log(item.transform.position + " ");
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

@@ -1,8 +1,4 @@
-using NaughtyAttributes;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -13,36 +9,55 @@ namespace Coding
     {
         public BaseMachine machineToEdit { get; private set; }
 
-        public static VisualTreeAsset terminalAsset {  get; private set; }
+        public static VisualTreeAsset terminalAsset { get; private set; }
         public static bool findingAsset;
 
         public static List<Terminal> terminals = new();
-        public static bool focused { get {
+        public static bool focused
+        {
+            get
+            {
+                if (terminals.Count <= 0) return false;
                 foreach (var terminal in terminals)
                 {
-                    if (terminal.isFocused == null) continue;
-
-                    if((bool)terminal.isFocused)
+                    if (terminal.isFocused)
                         return true;
                 }
                 return false;
-            } }
+            }
+        }
 
         //UI elements
         Dictionary<string, Button> buttons = new();
         VisualElement terminal;
         Label availableMethods;
         TextField input;
+        Focusable focusedElement => input.panel.focusController.focusedElement;
 
-        public bool? isFocused { get { return input == null ? null : input.panel.focusController.focusedElement == input; } }
+        public bool isFocused
+        {
+            get
+            {
+                if (input == null) return false;
+                try
+                {
+                    return input == focusedElement;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
         public Window window { get; set; }
 
 
         private async void Start()
         {
-            Debug.LogError("[Terminal] getting asset");
-            if (terminalAsset == null )
+            if (terminalAsset == null)
             {
+                Debug.Log("[Terminal] getting asset");
+
                 findingAsset = true;
                 terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
                 findingAsset = false;
@@ -66,6 +81,8 @@ namespace Coding
 
         private void OnDestroy()
         {
+            machineToEdit.connectedTerminal = null;
+            terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
         void OnLoseFocus(FocusOutEvent evt)
@@ -76,13 +93,8 @@ namespace Coding
 
         public void Close()
         {
-            window.Close();
-            Destroy();
-        }
-        public void Destroy()
-        {
-            terminals.Remove(this);
             Save();
+            terminals.Remove(this);
             Destroy(this);
         }
 
@@ -113,12 +125,21 @@ namespace Coding
                 availableMethods.text += ");";
             }
         }
-        public void Save()
+        public bool Save()
         {
-            if (machineToEdit == null || ScriptManager.isRunning) return;
+            if (machineToEdit == null || ScriptManager.isRunning) return false;
 
-            machineToEdit.machineCode.UpdateCode(input.text);
-            window.Rename(machineToEdit.machineCode.name);
+            try
+            {
+                machineToEdit.machineCode.UpdateCode(input.text);
+                window.Rename(machineToEdit.machineCode.name);
+                return true;
+            }
+            catch
+            {
+                Debug.LogWarning("[Terminal] Couldnt Save");
+                return false;
+            }
         }
 
         public static Terminal NewTerminal(BaseMachine machineScript)

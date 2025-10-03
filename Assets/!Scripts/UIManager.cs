@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
     [Button] 
     async void OpenTestWindow()
     {
-        VisualTreeAsset element = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Blue");
+        VisualTreeAsset element = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Blue);
         VisualElement blue = element.Instantiate();
         new Window("Blue", blue);
     }

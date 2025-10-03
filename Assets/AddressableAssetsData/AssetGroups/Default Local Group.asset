@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 3d6d679b23fb6584a9a62bfdecf8640b
   m_SerializeEntries:
+  - m_GUID: 0473032e3b843ed4aba5a6f803ffded9
+    m_Address: Window/ShitJournalElement
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 368c6dce0dc5fef4fb4d40807ba6ab40
     m_Address: Window/Blue
     m_ReadOnly: 0
@@ -22,6 +27,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84a190b355bc7d746b0fe64feeac4683
     m_Address: Window/Terminal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd1a124063bdc7044a496cf76c4167a4
+    m_Address: Window/ShitJournal
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

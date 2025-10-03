@@ -1,8 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
     <ui:VisualElement name="Window" class="Window" style="flex-grow: 1;">
-        <ui:VisualElement name="Journal" style="flex-grow: 1; background-color: rgb(138, 125, 117);">
-            <ui:VisualElement style="flex-grow: 1;" />
-        </ui:VisualElement>
+        <ui:VisualElement name="Journal" style="flex-grow: 1; background-color: rgb(138, 125, 117);" />
     </ui:VisualElement>
 </ui:UXML>

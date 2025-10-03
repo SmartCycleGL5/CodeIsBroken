@@ -31,7 +31,7 @@ namespace Journal
         void OnEnable()
         {
             AddEntry(machineEntries, machineTabName);
-            AddEntry(HintEntries, hintsTabName, "");
+            AddHintEntry(HintEntries, hintsTabName);
             AddEntry(economyEntries, economyTabName);
         }
         void AddEntry(JournalEntrySO[] entries, string nameD)
@@ -56,7 +56,7 @@ namespace Journal
             // entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
             // entryDrop.index = 0;
         }
-        void AddEntry(JournalEntrySO[] entries, string nameD, string f)
+        void AddHintEntry(JournalEntrySO[] entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
@@ -70,7 +70,7 @@ namespace Journal
                 if (entry.title != string.Empty && entry.explanation != string.Empty)
                 {
                     var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI } };
-                    RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry, tButton));
+                    RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }
                 else
@@ -84,7 +84,7 @@ namespace Journal
             // entryDrop.index = 0;
         }
 
-        private void Hint(Label hintText, Tab tab, JournalEntrySO entry, Button button)
+        private void Hint(Label hintText, Tab tab, JournalEntrySO entry)
         {
             var explainT = tab.Q<Label>("Explanation");
             var codeT = tab.Q<Label>("Code");
@@ -118,7 +118,7 @@ namespace Journal
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
             var explainT = tab.Q<Label>("Explanation");
             var codeT = tab.Q<Label>("Code");
-            scrollView.verticalScroller.slider.value = 0;
+            if(scrollView != null)scrollView.verticalScroller.slider.value = 0;
             explainT.text = entry.explanation;
             codeT.text = entry.codeShowcase;
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Assembler : Machine,IItemContainer
+public class Assembler : Machine, IItemContainer
 {
     [SerializeField] int assemblerSize;
     [SerializeField] List<Item> items;
@@ -82,6 +82,7 @@ public class Assembler : Machine,IItemContainer
         items.Clear();
     }
 
+    [DontIntegrate]
     public bool RemoveItem(out Item removedItem)
     {
         removedItem = null;
@@ -91,7 +92,7 @@ public class Assembler : Machine,IItemContainer
 
         return true;
     }
-
+    [DontIntegrate]
     public bool SetItem(Item item)
     {
         if (this.item != null) return false;
@@ -105,6 +106,7 @@ public class Assembler : Machine,IItemContainer
         return RemoveItem(out Item item);
     }
 
+    [DontIntegrate]
     private void OnDestroy()
     {
         Tick.OnTick -= TakeItem;

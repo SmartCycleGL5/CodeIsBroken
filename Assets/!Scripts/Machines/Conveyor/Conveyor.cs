@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-10)]
 public class Conveyor : MonoBehaviour, IItemContainer
 {
     // Conveyor to send item to next

@@ -21,8 +21,8 @@ public class MaterialTubeProgression : MonoBehaviour
             if(entry.Key != level) continue;
             entry.Value.SetActive(true);
             Vector3 position = entry.Value.transform.position;
-            position.y = 0.5f;
-            entry.Value.transform.DOMove(position, 1);
+            position.y = 0f;
+            entry.Value.transform.DOMove(position, 2);
         }
     }
 }

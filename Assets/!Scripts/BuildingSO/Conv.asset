@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa1a356302c4c545aa7ed00cf67e913, type: 3}
   m_Name: Conv
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSO
-  buildingPrefab: {fileID: 2429047177634519899, guid: 7448add23483fe24fbc364957b8bc57d, type: 3}
+  buildingPrefab: {fileID: 919132149155446097, guid: 128c6fb16e70f3b438a587ae46489275, type: 3}
   buildingName: C
   buildingImage: {fileID: 0}
   buildingDesctiption: 

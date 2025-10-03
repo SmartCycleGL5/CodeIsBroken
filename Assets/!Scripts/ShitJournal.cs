@@ -25,19 +25,16 @@ public class ShitJournal : MonoBehaviour, IWindow
         {
             journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.GameObject);
         }
-        if (buildings == null)
-        {
-            buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
-        }
+        buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
 
         windowElement = journalAsset.Instantiate();
         journal = windowElement.Q<ScrollView>("Journal");
 
         foreach (var item in buildings)
         {
-            Debug.Log(item.isUnloced);
+            Debug.Log(item.isUnlocked);
 
-            if (!item.isUnloced) continue;
+            if (!item.isUnlocked) continue;
 
             VisualElement element = journalElementAsset.Instantiate();
             journal.Add(element);

@@ -26,7 +26,9 @@ public class BuildingSelector : MonoBehaviour
         {
             var building = buildings[i];
             if (building.levelToUnlock > level) continue;
+
             buildingsToRemove.Add(building);
+            //Instantiate and set values to button
             GameObject newButton = Instantiate(button, buildingMenuPanel.transform);
             BuildingButton buildingButton = newButton.GetComponent<BuildingButton>();
             buildingButton.buildingPrefab = building.buildingPrefab;

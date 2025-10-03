@@ -10,5 +10,5 @@ public class BuildingSO : ScriptableObject
     public string buildingDesctiption;
 
     public int levelToUnlock;
-    public bool isUnloced;
+    public bool isUnlocked => levelToUnlock <= PlayerProgression.Level;
 }

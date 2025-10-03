@@ -7,24 +7,15 @@ public class SellStaton : MonoBehaviour
 {
     [SerializeField] List<Transform> sellPoints = new();
 
-    Modification FavoredModification;
-    [SerializeField] int desiredAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Tick.OnTick += CheckConveyor;
-        SetDesire();
     }
     void OnDestroy()
     {
         Tick.OnTick -= CheckConveyor;
-    }
-
-    void SetDesire()
-    {
-        FavoredModification = Modification.RandomModification();
-        desiredAmount = Random.Range(10, 100);
     }
 
     void CheckConveyor()
@@ -51,24 +42,15 @@ public class SellStaton : MonoBehaviour
             }
         }
 
-        if (desiredAmount <= 0)
-            SetDesire();
-
     }
 
     void SellItem(Item toSell)
     {
-        if (toSell.HasMod(FavoredModification))
-        {
-            PlayerProgression.GiveXP(3);
-            desiredAmount--;
-        }
-        else
-        {
-            PlayerProgression.GiveXP(1);
-        }
 
-        Debug.Log(PlayerProgression.experience);
+        if (ContractSystem.ActiveContract.SatisfiesContract(toSell))
+        {
+            ContractSystem.ActiveContract.Progress();
+        }
 
         Destroy(toSell.gameObject);
     }

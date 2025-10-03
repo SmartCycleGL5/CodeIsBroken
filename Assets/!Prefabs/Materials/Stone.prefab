@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4898267369210586811}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &5373870341508210345
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78f69d4ae8e56fb419db2ad6dd0af862, type: 2}
+  - {fileID: 2100000, guid: a8fde2c1e3f30e941a7bf108c28fafdc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6532510164964057276}
   - component: {fileID: 1137379969359589219}
   m_Layer: 0
-  m_Name: Chair
+  m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 7246625453717084734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1, z: 4.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   definition:
-    materials: 6
+    materials: 8
   artRenderer: {fileID: 5373870341508210345}
   destroyOnPause: 1

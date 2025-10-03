@@ -1,9 +1,10 @@
+using System;
+
 public abstract class Modification
 {
-
     public static Modification RandomModification()
     {
-        int rng = UnityEngine.Random.Range(0, 2);
+        int rng = UnityEngine.Random.Range(0, 3);
 
         switch (rng)
         {
@@ -24,15 +25,21 @@ public abstract class Modification
         return null;
     }
 
+    public abstract void Apply(Item item);
     public abstract bool Compare(Modification toCompareWith);
 
     public class Heated : Modification
     {
         public int temperature;
 
-        public Heated(int temperature)
+        public Heated(Item toModify, int temperature)
         {
             this.temperature = temperature;
+        }
+
+        public override void Apply(Item item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override bool Compare(Modification toCompareWith) 
@@ -43,10 +50,15 @@ public abstract class Modification
 
     public class Addition : Modification
     {
-        public BaseMaterial.Materials materials;
-        public Addition(BaseMaterial.Materials materials)
+        public Materials materials;
+        public Addition(Materials materials)
         {
             this.materials = materials;
+        }
+
+        public override void Apply(Item item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override bool Compare(Modification toCompareWith)
@@ -58,9 +70,21 @@ public abstract class Modification
     public class Color : Modification
     {
         public UnityEngine.Color color;
+
         public Color(UnityEngine.Color color)
         {
             this.color = color;
+        }
+
+        public override void Apply(Item item)
+        {
+            if(!item.changedColor)
+            {
+                item.artRenderer.material.SetColor("_Color", new UnityEngine.Color(0, 0, 0, 1));
+                item.changedColor = true;
+            }
+
+            item.artRenderer.material.SetColor("_Color", item.artRenderer.material.GetColor("_Color") + color);
         }
 
         public override bool Compare(Modification toCompareWith)

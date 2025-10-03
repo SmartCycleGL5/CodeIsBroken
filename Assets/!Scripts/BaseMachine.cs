@@ -77,20 +77,20 @@ public abstract class BaseMachine : MonoBehaviour
         {
             try
             {
-                start = Class.Value.GetMethod("Start");
+                start = Class.Value.GetMethod("FirstTick");
             }
             catch
             {
-                Debug.LogWarning("Start not found");
+                Debug.LogWarning("FistTick not found");
             }
 
             try
             {
-                update = Class.Value.GetMethod("Update");
+                update = Class.Value.GetMethod("OnTick");
             }
             catch (Exception e)
             {
-                Debug.LogWarning("Update not found " + e);
+                Debug.LogWarning("OnTick not found " + e);
                 return;
             }
         }

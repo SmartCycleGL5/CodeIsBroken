@@ -52,7 +52,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     {
         if (this.item != null) return false;
         this.item = item;
-        this.item.transform.position = transform.position;
+        this.item.transform.position = transform.position+new Vector3(0,1,0);
         return true;
     }
     [DontIntegrate]

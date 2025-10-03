@@ -59,7 +59,7 @@ namespace Coding
                 Debug.Log("[Terminal] getting asset");
 
                 findingAsset = true;
-                terminalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/Terminal");
+                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.GameObject);
                 findingAsset = false;
             }
 

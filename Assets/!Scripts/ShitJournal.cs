@@ -1,4 +1,4 @@
-using Coding;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -6,31 +6,44 @@ using static UIManager;
 public class ShitJournal : MonoBehaviour, IWindow
 {
 
-    public VisualTreeAsset journalAsset { get; private set; }
-    public VisualTreeAsset journalElementAsset { get; private set; }
+    public static VisualTreeAsset journalAsset { get; private set; }
+    public static VisualTreeAsset journalElementAsset { get; private set; }
     public UIManager.Window window { get; set; }
 
+    VisualElement windowElement;
     VisualElement journal;
+
+    static List<BuildingSO> buildings;
 
     private async void Start()
     {
         if (journalAsset == null)
         {
-            journalAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/ShitJournal");
+            journalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournal, AddressableToLoad.GameObject);
         }
         if (journalElementAsset == null)
         {
-            journalElementAsset = await Utility.Addressable.ReturnAdressableAsset<VisualTreeAsset>("Window/ShitJournalElement");
+            journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.GameObject);
         }
-
-        journal = journalAsset.Instantiate();
-
-        foreach (var item in transform)
+        if (buildings == null)
         {
-            
+            buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
         }
 
-        window = new Window("Journal", journal, this);
+        windowElement = journalAsset.Instantiate();
+        journal = windowElement.Q<VisualElement>("Journal");
+
+        foreach (var item in buildings)
+        {
+            Debug.Log(item.isUnloced);
+
+            if (!item.isUnloced) continue;
+
+            VisualElement element = journalElementAsset.Instantiate();
+            journal.Add(element);
+        }
+
+        window = new Window("Journal", windowElement, this);
     }
 
     public void Close()

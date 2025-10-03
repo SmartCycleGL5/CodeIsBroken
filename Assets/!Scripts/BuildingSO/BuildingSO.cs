@@ -9,4 +9,5 @@ public class BuildingSO : ScriptableObject
     public string buildingDesctiption;
 
     public int levelToUnlock;
+    public bool isUnloced;
 }

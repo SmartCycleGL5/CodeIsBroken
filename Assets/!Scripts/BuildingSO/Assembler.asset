@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa1a356302c4c545aa7ed00cf67e913, type: 3}
+  m_Name: Assembler
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingSO
+  buildingPrefab: {fileID: 617270430291027306, guid: 7ce794b8f8ce3d745927903d1db371f5, type: 3}
+  buildingName: Assembler
+  buildingImage: {fileID: 0}
+  buildingDesctiption: 
+  levelToUnlock: 2

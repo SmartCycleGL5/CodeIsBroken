@@ -24,24 +24,34 @@ public class MaterialManager : MonoBehaviour
         Instance = this;
     }
 
-    public static Materials GetRandomMaterial(int amount = 1)
+    public static Materials GetRandomProduct(int complexity = 1)
     {
-        Materials materials = Materials.None;
-
-        for (int i = 0; i < amount; i++)
+        Materials materials;
+        
+        while(true)
         {
-            materials |= RandomMaterial();
+            materials = Materials.None;
+
+            for (int i = 0; i < complexity; i++)
+            {
+                materials |= RandomMaterial();
+            }
+
+            if (Instance.Products.ContainsKey(materials))
+            {
+                break;
+            }
         }
 
         return materials;
+    }
 
-        Materials RandomMaterial()
-        {
-            Array materials = Enum.GetValues(typeof(Materials));
+    public static Materials RandomMaterial()
+    {
+        Array materials = Enum.GetValues(typeof(Materials));
 
-            int rng = UnityEngine.Random.Range(1, materials.Length);
+        int rng = UnityEngine.Random.Range(1, materials.Length);
 
-            return (Materials)materials.GetValue(rng);
-        }
+        return (Materials)materials.GetValue(rng);
     }
 }

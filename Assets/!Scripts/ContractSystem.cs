@@ -23,7 +23,18 @@ public class ContractSystem : MonoBehaviour
     {
         NewContract();
         instance = this;
+
+        PlayerProgression.onLevelUp += UpdateContractComplexity;
     }
+
+    private void UpdateContractComplexity(int lvl)
+    {
+        if(lvl == 3)
+        {
+            complexity.y++;
+        }
+    }
+
     private void Update()
     {
         if (ActiveContract == null) return;
@@ -45,7 +56,7 @@ public class ContractSystem : MonoBehaviour
 
     public void NewContract()
     {
-        Contract contract = new Contract("cool contract", amountOfModifications, Mathf.RoundToInt(UnityEngine.Random.Range(complexity.x, complexity.y)));
+        Contract contract = new Contract("cool contract", amountOfModifications, Mathf.RoundToInt(UnityEngine.Random.Range(complexity.x, complexity.y + 1)));
         contract.onFinished += FinishedContract;
 
         ActiveContract = contract;
@@ -58,6 +69,8 @@ public class ContractSystem : MonoBehaviour
 
         NewContract();
     }
+
+
 }
 
 public class Contract
@@ -91,7 +104,7 @@ public class Contract
             mods.Add(newMod);
         }
 
-        requestedItem = new(MaterialManager.GetRandomMaterial(complexity), mods);
+        requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
 
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 1.5f));
 

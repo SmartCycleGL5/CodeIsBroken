@@ -7,7 +7,7 @@ public class BuildingSelector : MonoBehaviour
 {
     public static event Action<GameObject> OnChangedBuilding;
 
-    [SerializeField] List<BuildingSO> buildings;
+    public List<BuildingSO> buildings;
     //[SerializeField] private GameObject[] folderObjects;
     [SerializeField] private GameObject buildingMenuPanel;
     [SerializeField] private GameObject button;

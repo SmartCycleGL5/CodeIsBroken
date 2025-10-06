@@ -19,7 +19,7 @@ public class ContractSystem : MonoBehaviour
     private void Update()
     {
         if (ActiveContract == null) return;
-        amoundDisplay.text = "X" + ActiveContract.amount;
+        amoundDisplay.text = "X" + ActiveContract.amount+" - "+ActiveContract.requestedItem.materials;
     }
 
     void CreateDisplayItem()

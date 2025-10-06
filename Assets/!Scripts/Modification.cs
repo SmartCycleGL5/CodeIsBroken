@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public abstract class Modification
 {
@@ -90,6 +91,7 @@ public abstract class Modification
         public override bool Compare(Modification toCompareWith)
         {
             return ((Color)toCompareWith).color == color;
+            
         }
     }
 }

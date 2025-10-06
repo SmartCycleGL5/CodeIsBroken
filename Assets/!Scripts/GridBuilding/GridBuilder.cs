@@ -1,3 +1,4 @@
+using System;
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using System.Security;
@@ -103,5 +104,16 @@ public class GridBuilder : MonoBehaviour
             return building;
         }
         return null;
+    }
+
+    private void OnDestroy()
+    {
+        if(gridObjects == null) return;
+        foreach (var gameObj in gridObjects)
+        {
+            if(gameObj.Value == null) return;
+            Destroy(gameObj.Value);
+        }
+        instance = null;
     }
 }

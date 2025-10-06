@@ -829,6 +829,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 1507137598}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &530955619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9214029674004761619, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 1507137598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530955613}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
+--- !u!114 &530955620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 1507137598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530955613}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3019211792bb92f4e8edcf33e14139d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &557035048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,8 +1202,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: scriptsToActivate.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: 'scriptsToActivate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 530955620}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: 'scriptsToActivate.Array.data[1]'
+      value: 
+      objectReference: {fileID: 530955619}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1202,7 +1232,7 @@ GameObject:
   - component: {fileID: 1592860296}
   - component: {fileID: 1592860295}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: LevelUpPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1225,7 +1255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 431.21}
+  m_AnchoredPosition: {x: 0, y: 1000}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592860295
@@ -1485,6 +1515,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: m_fontSize
+      value: 8.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: m_margin.x
+      value: -0.90362453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: m_margin.z
+      value: -1.1141948
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416385802744420845, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416385802744420845, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.89
+      objectReference: {fileID: 0}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation
@@ -1571,7 +1621,6 @@ MonoBehaviour:
   buildings:
   - {fileID: 11400000, guid: 1d540034421db7b4f88b7ccb21a9d270, type: 2}
   - {fileID: 11400000, guid: 28769768684a69b40acfcd7c308a170e, type: 2}
-  - {fileID: 11400000, guid: 3199b4ac6337d6649a81a0966a9e2ead, type: 2}
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
   buildingMenuPanel: {fileID: 929964379198931661}

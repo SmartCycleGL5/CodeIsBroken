@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class LevelUpNotification : MonoBehaviour
 {
@@ -8,11 +9,27 @@ public class LevelUpNotification : MonoBehaviour
     [SerializeField] TextMeshProUGUI notification;
     private void Start()
     {
-        Invoke("Notify", 2);
+        Invoke(nameof(NotifyMessage), 2);
+        PlayerProgression.onLevelUp += NotifyLevelUp;
     }
 
-    void Notify()
+    void NotifyMessage()
     {
-        panelObj.DOJumpAnchorPos(new Vector2(0, 1000),3f, 1,0.1f);
+        notification.text = "Press J to open Journal. The journal will explain how to use the machines!";
+        panelObj.DOJumpAnchorPos(new Vector2(0, 431),3f, 1,0.3f);
+        Invoke("HideUI", 9);
+    }
+    
+    void NotifyLevelUp(int level)
+    {
+        int timeFromStart = (int)Time.time;
+        notification.text = $"Good job! You reached level {level} in {timeFromStart} seconds.";
+        panelObj.DOJumpAnchorPos(new Vector2(0, 431),3f, 1,0.3f);
+        Invoke("HideUI", 9);
+    }
+
+    void HideUI()
+    {
+        panelObj.DOJumpAnchorPos(new Vector2(0, 1000),3f, 1,0.2f);
     }
 }

@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,13 @@ public class ContractSystem : MonoBehaviour
     Item displayItem;
     [SerializeField] TMP_Text amoundDisplay;
     public static Contract ActiveContract;
+
+    [Header("Contract Settings")]
+    public int amountOfModifications = 2;
+    [MinMaxSlider(1, 10)]
+    [SerializeField] Vector2Int complexity = new Vector2Int(1, 1);
+
+
     private void Start()
     {
         NewContract();
@@ -37,7 +45,7 @@ public class ContractSystem : MonoBehaviour
 
     public void NewContract()
     {
-        Contract contract = new Contract("cool contract");
+        Contract contract = new Contract("cool contract", amountOfModifications, Mathf.RoundToInt(UnityEngine.Random.Range(complexity.x, complexity.y)));
         contract.onFinished += FinishedContract;
 
         ActiveContract = contract;
@@ -55,27 +63,48 @@ public class ContractSystem : MonoBehaviour
 public class Contract
 {
     public string contractName;
-
     public ItemDefinition requestedItem;
-
     public int amount;
 
     public Action<Contract> onFinished;
 
-    public Contract(string name)
+
+
+    public Contract(string name, int amountOfMods, int complexity)
     {
         contractName = name;
 
         List<Modification> mods = new List<Modification>();
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < amountOfMods; i++)
         {
-            mods.Add(Modification.RandomModification());
+            Modification newMod = Modification.RandomModification();
+
+
+            if (AlreadyHasMod(newMod))
+            {
+                Debug.Log("already has mod");
+                continue;
+            }
+
+            Debug.Log(newMod);
+            mods.Add(newMod);
         }
 
-        requestedItem = new(MaterialManager.GetRandomMaterial(1), mods);
+        requestedItem = new(MaterialManager.GetRandomMaterial(complexity), mods);
 
-        amount = UnityEngine.Random.Range(10, PlayerProgression.Level * 10 + 10);
+        amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 1.5f));
+
+
+        bool AlreadyHasMod(Modification newMod)
+        {
+            foreach (var mod in mods)
+            {
+                if (mod.Compare(newMod)) return true;
+            }
+
+            return false;
+        }
     }
     public void Progress()
     {

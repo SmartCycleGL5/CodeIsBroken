@@ -20,7 +20,11 @@ public class ItemDefinition : IEquatable<ItemDefinition>
 
     public void Modify(Modification modification)
     {
-        if (HasMod(modification)) return;
+        if (HasMod(modification))
+        {
+            Debug.Log("Already has mod");
+            return;
+        }
 
         mods.Add(modification);
         modified?.Invoke(modification);

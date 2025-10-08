@@ -354,6 +354,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       insertIndex: -1
       addedObject: {fileID: 320552226}
+    - targetCorrespondingSourceObject: {fileID: 2432799470729838840, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027843664}
+    - targetCorrespondingSourceObject: {fileID: 5065449716560485296, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1786978462}
   m_SourcePrefab: {fileID: 100100000, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
 --- !u!1 &320552225 stripped
 GameObject:
@@ -1393,6 +1399,23 @@ RectTransform:
   m_AnchoredPosition: {x: -2.020298, y: 56.202972}
   m_SizeDelta: {x: 876.7514, y: 287.5941}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1027843660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2432799470729838840, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 218100234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027843664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027843660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d640eaa6e113dd44aa5d618ae2add5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCam
 --- !u!1 &1235912650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +2005,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1786978458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5065449716560485296, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 218100234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786978462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786978458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d640eaa6e113dd44aa5d618ae2add5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCam
 --- !u!1 &1794803213
 GameObject:
   m_ObjectHideFlags: 0

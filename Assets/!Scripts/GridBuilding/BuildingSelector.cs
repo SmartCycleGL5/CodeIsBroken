@@ -7,7 +7,7 @@ public class BuildingSelector : MonoBehaviour
 {
     public static event Action<GameObject> OnChangedBuilding;
 
-    [SerializeField] List<BuildingSO> buildings;
+    public List<BuildingSO> buildings;
     //[SerializeField] private GameObject[] folderObjects;
     [SerializeField] private GameObject buildingMenuPanel;
     [SerializeField] private GameObject button;
@@ -26,7 +26,9 @@ public class BuildingSelector : MonoBehaviour
         {
             var building = buildings[i];
             if (building.levelToUnlock > level) continue;
+
             buildingsToRemove.Add(building);
+            //Instantiate and set values to button
             GameObject newButton = Instantiate(button, buildingMenuPanel.transform);
             BuildingButton buildingButton = newButton.GetComponent<BuildingButton>();
             buildingButton.buildingPrefab = building.buildingPrefab;

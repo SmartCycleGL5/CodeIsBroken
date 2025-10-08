@@ -16,6 +16,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject buildingAreaPrefab2;
     [SerializeField] private GameObject replaceBlock;
     [SerializeField] private GameObject buttons;
+    [SerializeField] private BuildingSO painterSO;
+    [SerializeField] private BuildingSelector selector;
+
+    [SerializeField] private List<GameObject> scriptsToDelete;
 
 
     private void Start()
@@ -47,6 +51,7 @@ public class Tutorial : MonoBehaviour
                 if (!CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
                 return;
             case 4:
+                selector.OnLevelUp(2);
                 if (CheckIfCorrectBlock(replaceBlock)) tutorialLevel++;
                 return;
             case 5:
@@ -99,6 +104,10 @@ public class Tutorial : MonoBehaviour
     }
     public void Continue()
     {
+        foreach (var scripts in scriptsToDelete)
+        {
+            Destroy(scripts.gameObject);
+        }
         ScriptManager.StopMachines();
         SceneManager.LoadScene("GameScene");
     }

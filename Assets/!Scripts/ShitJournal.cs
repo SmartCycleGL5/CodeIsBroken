@@ -32,9 +32,9 @@ public class ShitJournal : MonoBehaviour, IWindow
 
         foreach (var item in buildings)
         {
-            Debug.Log(item.isUnloced);
+            Debug.Log(item.isUnlocked);
 
-            if (!item.isUnloced) continue;
+            if (!item.isUnlocked) continue;
 
             VisualElement element = journalElementAsset.Instantiate();
             journal.Add(element);

@@ -30,6 +30,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         //Take in item
         if (item != null) return;
         GameObject inputCell = GridBuilder.instance.LookUpCell(transform.position - transform.forward);
+        if(inputCell == null) return;
         if(inputCell.TryGetComponent(out Conveyor conveyorIn))
         {
             if(conveyorIn.item == null) return;

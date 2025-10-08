@@ -15,9 +15,6 @@ public class UserErrorLogger : MonoBehaviour
     {
         timer+=Time.deltaTime;
         if(timer>1) RemoveDebug();
-        if (!parentPanel.activeSelf) return;
-        parentPanel.transform.LookAt(Camera.main.transform);
-        
     }
 
     public void DisplayError(string msg)

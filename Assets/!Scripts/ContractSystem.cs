@@ -21,10 +21,23 @@ public class ContractSystem : MonoBehaviour
 
     private void Start()
     {
-        NewContract();
         instance = this;
 
+        List<Contract> contracts = new();
+
+        for (int i = 0; i < 3; i++)
+        {
+            contracts.Add(NewContract());
+        }
+
+        ContracUIManager.DisplayContract(contracts.ToArray());
+
         PlayerProgression.onLevelUp += UpdateContractComplexity;
+    }
+    private void Update()
+    {
+        if (ActiveContract == null) return;
+        amoundDisplay.text = "X" + ActiveContract.amount + " - " + ActiveContract.requestedItem.materials;
     }
 
     private void UpdateContractComplexity(int lvl)
@@ -34,11 +47,29 @@ public class ContractSystem : MonoBehaviour
             complexity.y++;
         }
     }
-
-    private void Update()
+    public static void SelectContract(Contract toSelect)
     {
-        if (ActiveContract == null) return;
-        amoundDisplay.text = "X" + ActiveContract.amount+" - "+ActiveContract.requestedItem.materials;
+        //toSelect.onFinished += instance.FinishedContract;
+
+        ActiveContract = toSelect;
+
+        instance.CreateDisplayItem();
+    }
+
+    public static Contract NewContract()
+    {
+        Contract contract = new Contract(
+            "cool contract", 
+            instance.amountOfModifications, 
+            Mathf.RoundToInt(UnityEngine.Random.Range(instance.complexity.x, instance.complexity.y + 1)));
+
+        return contract;
+    }
+    void FinishedContract(Contract contract)
+    {
+        if (contract != ActiveContract) return;
+
+        NewContract();
     }
 
     void CreateDisplayItem()
@@ -53,24 +84,6 @@ public class ContractSystem : MonoBehaviour
         displayItem.destroyOnPause = false;
         displayItem.definition = ActiveContract.requestedItem;
     }
-
-    public void NewContract()
-    {
-        Contract contract = new Contract("cool contract", amountOfModifications, Mathf.RoundToInt(UnityEngine.Random.Range(complexity.x, complexity.y + 1)));
-        contract.onFinished += FinishedContract;
-
-        ActiveContract = contract;
-
-        CreateDisplayItem();
-    }
-    void FinishedContract(Contract contract)
-    {
-        if (contract != ActiveContract) return;
-
-        NewContract();
-    }
-
-
 }
 
 public class Contract
@@ -81,11 +94,18 @@ public class Contract
 
     public Action<Contract> onFinished;
 
-
+    readonly string[] names = new string[]
+    {
+        "Morning Wood",
+        "Rock Hard",
+        "Iron Patience",
+        "Wood Carvers",
+        "Stone Carvers"
+    };
 
     public Contract(string name, int amountOfMods, int complexity)
     {
-        contractName = name;
+        contractName = names[UnityEngine.Random.Range(0, names.Length -1)];
 
         List<Modification> mods = new List<Modification>();
 

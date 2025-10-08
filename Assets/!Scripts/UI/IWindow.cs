@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UIManager;
+using static WindowManager;
 
 public interface IWindow
 {

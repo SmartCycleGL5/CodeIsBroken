@@ -8,6 +8,8 @@ public enum AddressableAsset
 {
     ShitJournal,
     ShitJournalElement,
+    Contract,
+    ContractModifierElement,
     Blue,
     Terminal
 }
@@ -34,6 +36,8 @@ public static class Addressable
             {
                 { AddressableAsset.ShitJournal, "Window/ShitJournal" },
                 { AddressableAsset.ShitJournalElement, "Window/ShitJournalElement" },
+                { AddressableAsset.Contract, "UI/Contract" },
+                { AddressableAsset.ContractModifierElement, "UI/ContactModifierElement" },
                 { AddressableAsset.Blue,  "Window/Blue" },
                 { AddressableAsset.Terminal,  "Window/Terminal" },
             };

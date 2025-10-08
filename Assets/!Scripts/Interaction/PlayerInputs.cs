@@ -105,7 +105,7 @@ public class PlayerInputs : MonoBehaviour
         if (playerAction == PlayerAction.WorldInteraction)
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
-                UIManager.CloseAllWindows();
+                WindowManager.CloseAllWindows();
             }
             machineInput.PlayerUpdate();
         }

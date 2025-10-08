@@ -3,6 +3,15 @@ using UnityEngine;
 
 public abstract class Modification
 {
+    public string Name {  get; private set; }
+    public string Description {  get; private set; }
+
+    public Modification(string Name, string Description)
+    {
+        this.Name = Name;
+        this.Description = Description;
+    }
+
     public static Modification RandomModification()
     {
         int rng = UnityEngine.Random.Range(0, 3);
@@ -29,50 +38,11 @@ public abstract class Modification
     public abstract void Apply(Item item);
     public abstract bool Compare(Modification toCompareWith);
 
-    public class Heated : Modification
-    {
-        public int temperature;
-
-        public Heated(Item toModify, int temperature)
-        {
-            this.temperature = temperature;
-        }
-
-        public override void Apply(Item item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool Compare(Modification toCompareWith) 
-        {
-            return false;
-        }
-    }
-
-    public class Addition : Modification
-    {
-        public Materials materials;
-        public Addition(Materials materials)
-        {
-            this.materials = materials;
-        }
-
-        public override void Apply(Item item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool Compare(Modification toCompareWith)
-        {
-            return false;
-        }
-    }
-
     public class Color : Modification
     {
         public UnityEngine.Color color;
 
-        public Color(UnityEngine.Color color)
+        public Color(UnityEngine.Color color) : base("Color", color.ToString())
         {
             this.color = color;
         }

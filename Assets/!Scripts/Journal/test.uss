@@ -17,4 +17,5 @@
     border-top-width: 0;
     border-bottom-width: 0;
     background-size: 45% 100%;
+    white-space: pre-wrap;
 }

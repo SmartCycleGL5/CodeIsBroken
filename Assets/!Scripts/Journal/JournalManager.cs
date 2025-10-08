@@ -40,9 +40,9 @@ namespace Journal
             var scrollView = tab.Q<ScrollView>("ScrollView");
             foreach (var entry in entries)
             {
-                if (entry.title != string.Empty && entry.explanation != string.Empty && entry.showcaseI != null)
+                if (entry.title != string.Empty && entry.explanation != string.Empty /*&& entry.showcaseI != null*/)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI } };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.PreWrap} };
                     RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -69,7 +69,7 @@ namespace Journal
             {
                 if (entry.title != string.Empty && entry.explanation != string.Empty)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI } };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.PreWrap} };
                     RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }

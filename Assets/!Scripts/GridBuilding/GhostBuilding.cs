@@ -124,4 +124,9 @@ public class GhostBuilding : MonoBehaviour
     {
         Destroy(ghostPrefab);
     }
+
+    private void OnDestroy()
+    {
+        BuildingSelector.OnChangedBuilding -= SwapGhostBlock;
+    }
 }

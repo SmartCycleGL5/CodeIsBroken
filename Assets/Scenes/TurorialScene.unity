@@ -1966,12 +1966,7 @@ MonoBehaviour:
   buttons: {fileID: 2012465231}
   painterSO: {fileID: 11400000, guid: 1d540034421db7b4f88b7ccb21a9d270, type: 2}
   selector: {fileID: 328219575267175939}
-  scriptsToDelete:
-  - {fileID: 2271814198263393798}
-  - {fileID: 357034587}
-  - {fileID: 8332630410640430040}
-  - {fileID: 1994596629}
-  - {fileID: 320552225}
+  scriptsToDelete: []
 --- !u!4 &1689120013
 Transform:
   m_ObjectHideFlags: 0

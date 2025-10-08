@@ -114,6 +114,10 @@ public class GridBuilder : MonoBehaviour
             if(gameObj.Value == null) return;
             Destroy(gameObj.Value);
         }
-        instance = null;
+
+        if (instance == this)
+        {
+            instance = null;   
+        }
     }
 }

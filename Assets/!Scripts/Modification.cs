@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Drawing.Imaging;
 using UnityEngine;
 
 public abstract class Modification
@@ -40,9 +42,16 @@ public abstract class Modification
 
     public class Color : Modification
     {
+        static readonly Dictionary<UnityEngine.Color, string> colorMap = new Dictionary<UnityEngine.Color, string>()
+        {
+            {UnityEngine.Color.red, "Red"},
+            {UnityEngine.Color.blue, "Blue"},
+            {UnityEngine.Color.green, "Green"},
+        };
+
         public UnityEngine.Color color;
 
-        public Color(UnityEngine.Color color) : base("Color", color.ToString())
+        public Color(UnityEngine.Color color) : base("Color", colorMap[color])
         {
             this.color = color;
         }

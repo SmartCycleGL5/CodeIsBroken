@@ -23,14 +23,7 @@ public class ContractSystem : MonoBehaviour
     {
         instance = this;
 
-        List<Contract> contracts = new();
-
-        for (int i = 0; i < 3; i++)
-        {
-            contracts.Add(NewContract());
-        }
-
-        ContracUIManager.DisplayContract(contracts.ToArray());
+        GetContractOptions();
 
         PlayerProgression.onLevelUp += UpdateContractComplexity;
     }
@@ -49,7 +42,7 @@ public class ContractSystem : MonoBehaviour
     }
     public static void SelectContract(Contract toSelect)
     {
-        //toSelect.onFinished += instance.FinishedContract;
+        toSelect.onFinished += instance.FinishedContract;
 
         ActiveContract = toSelect;
 
@@ -69,7 +62,7 @@ public class ContractSystem : MonoBehaviour
     {
         if (contract != ActiveContract) return;
 
-        NewContract();
+        GetContractOptions();
     }
 
     void CreateDisplayItem()
@@ -83,6 +76,18 @@ public class ContractSystem : MonoBehaviour
 
         displayItem.destroyOnPause = false;
         displayItem.definition = ActiveContract.requestedItem;
+    }
+
+    void GetContractOptions()
+    {
+        List<Contract> contracts = new();
+
+        for (int i = 0; i < 3; i++)
+        {
+            contracts.Add(NewContract());
+        }
+
+        ContracUIManager.DisplayContract(contracts.ToArray());
     }
 }
 
@@ -126,7 +131,7 @@ public class Contract
 
         requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
 
-        amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 1.5f));
+        amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
         bool AlreadyHasMod(Modification newMod)

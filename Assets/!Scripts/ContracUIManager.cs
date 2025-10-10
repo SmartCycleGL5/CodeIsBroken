@@ -45,7 +45,7 @@ public class ContracUIManager : MonoBehaviour
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
-        contractbutton.Q<Label>("ContractName").text = contract.contractName;
+        contractbutton.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
         contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
 

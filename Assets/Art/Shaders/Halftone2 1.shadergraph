@@ -3837,8 +3837,8 @@
     "m_ObjectId": "73f66ca1a31448fcb8e112a1df092f4e",
     "m_Title": "Generate Halftone Grid",
     "m_Position": {
-        "x": -1691.0,
-        "y": 988.9998779296875
+        "x": -1691.3333740234375,
+        "y": 989.3333129882813
     }
 }
 
@@ -3848,8 +3848,8 @@
     "m_ObjectId": "74d33cf5e03a437284549f22551f88eb",
     "m_Title": "Remap Values",
     "m_Position": {
-        "x": -1496.0,
-        "y": 488.99993896484377
+        "x": -1496.666748046875,
+        "y": 489.33331298828127
     }
 }
 
@@ -4034,8 +4034,8 @@
     "m_ObjectId": "82d0aa96f62549a4934ff4378c8a6c0a",
     "m_Title": "Correct screen space aspect ratio",
     "m_Position": {
-        "x": -2382.0,
-        "y": 887.9999389648438
+        "x": -2382.66650390625,
+        "y": 888.6666870117188
     }
 }
 
@@ -4188,8 +4188,8 @@
     "m_ObjectId": "848f5d29e2b74190a1b12ed7281d77af",
     "m_Title": "Get Diffuse lighting value",
     "m_Position": {
-        "x": -2829.0,
-        "y": 45.00004959106445
+        "x": -2829.333251953125,
+        "y": 45.33331298828125
     }
 }
 
@@ -4806,8 +4806,8 @@
     "m_ObjectId": "9b3679ba3e3746fab2376d6105fcd91c",
     "m_Title": "Base Color Sample",
     "m_Position": {
-        "x": -2169.0,
-        "y": -268.0
+        "x": -2169.333251953125,
+        "y": -267.33331298828127
     }
 }
 
@@ -5500,8 +5500,8 @@
     "m_ObjectId": "c3cb70f20ea443bd8ceee40f0c829029",
     "m_Title": "Reduce Lightness of base color",
     "m_Position": {
-        "x": -1424.0,
-        "y": -270.0
+        "x": -1424.6668701171875,
+        "y": -269.33331298828127
     }
 }
 

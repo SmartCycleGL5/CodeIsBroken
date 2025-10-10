@@ -51,7 +51,7 @@ public abstract class Modification
 
         public UnityEngine.Color color;
 
-        public Color(UnityEngine.Color color) : base("Color", colorMap[color])
+        public Color(UnityEngine.Color color) : base("Painter: Color", colorMap[color])
         {
             this.color = color;
         }

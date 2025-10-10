@@ -10,9 +10,13 @@ public class ContracUIManager : MonoBehaviour
     static VisualTreeAsset contractUI;
     static VisualTreeAsset contractModifierUI;
 
+    public static bool readyToTakeContacts;
+
     private async void Start()
     {
         contractHolder = canvas.Q<VisualElement>("ContractHolder");
+        contractHolder.SetEnabled(false);
+        readyToTakeContacts = false;
 
         if (contractUI == null)
         {
@@ -22,26 +26,22 @@ public class ContracUIManager : MonoBehaviour
         {
             contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.GameObject);
         }
+
+        readyToTakeContacts = true;
     }
 
-    public static async void DisplayContract(Contract[] contracts)
+    public static void DisplayContract(Contract[] contracts)
     {
+        contractHolder.SetEnabled(true);
+
         foreach (var contract in contracts)
         {
-            await CreateContract(contract);
+            CreateContract(contract);
         }
     }
 
-    async static Task CreateContract(Contract contract)
+    static void CreateContract(Contract contract)
     {
-        while(contractUI == null)
-        {
-            await Task.Delay(10);
-        }
-        while (contractModifierUI == null)
-        {
-            await Task.Delay(10);
-        }
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
@@ -70,7 +70,9 @@ public class ContracUIManager : MonoBehaviour
             for (int i = contractContainer.childCount + 1; i >= 0; i--) { 
             
                 contractHolder.RemoveAt(i);
-            } 
+            }
+
+            contractHolder.SetEnabled(false);
         };
     }
 }

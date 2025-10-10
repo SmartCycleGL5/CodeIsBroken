@@ -20,12 +20,12 @@ public class PainterMachine : Machine
         
     }
 
-    public void Paint(string color)
+    public void Paint(string PrimaryColor)
     {
-        Debug.Log("Set color to: " + color);
+        Debug.Log("Set color to: " + PrimaryColor);
         if (item == null) return;
 
-        switch (color)
+        switch (PrimaryColor)
         {
             case "Red":
                 item.definition.Modify(new Modification.Color(new Color(1, 0, 0)));

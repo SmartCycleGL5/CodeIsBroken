@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UIManager;
+using static WindowManager;
 
 namespace Coding
 {
@@ -9,7 +9,7 @@ namespace Coding
     {
         public BaseMachine machineToEdit { get; private set; }
 
-        public static VisualTreeAsset terminalAsset { get; private set; }
+        static VisualTreeAsset terminalAsset;
         public static bool findingAsset;
 
         public static List<Terminal> terminals = new();

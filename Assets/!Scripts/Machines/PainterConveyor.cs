@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[DefaultExecutionOrder(69)]
+[DefaultExecutionOrder(10)]
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     

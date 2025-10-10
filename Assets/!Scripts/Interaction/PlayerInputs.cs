@@ -84,7 +84,7 @@ public class PlayerInputs : MonoBehaviour
             playerAction = PlayerAction.Building;
             Debug.Log("Enabled Building");
         }
-        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding)
+        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding || Keyboard.current.escapeKey.wasPressedThisFrame && isBuilding)
         {
             playerAction = PlayerAction.WorldInteraction;
             isBuilding = false;
@@ -105,7 +105,7 @@ public class PlayerInputs : MonoBehaviour
         if (playerAction == PlayerAction.WorldInteraction)
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
-                UIManager.CloseAllWindows();
+                WindowManager.CloseAllWindows();
             }
             machineInput.PlayerUpdate();
         }

@@ -1,8 +1,19 @@
 using System;
+using System.Collections.Generic;
+using System.Drawing.Imaging;
 using UnityEngine;
 
 public abstract class Modification
 {
+    public string Name {  get; private set; }
+    public string Description {  get; private set; }
+
+    public Modification(string Name, string Description)
+    {
+        this.Name = Name;
+        this.Description = Description;
+    }
+
     public static Modification RandomModification()
     {
         int rng = UnityEngine.Random.Range(0, 3);
@@ -27,52 +38,38 @@ public abstract class Modification
     }
 
     public abstract void Apply(Item item);
-    public abstract bool Compare(Modification toCompareWith);
-
-    public class Heated : Modification
+    public virtual bool Compare(Modification toCompareWith)
     {
-        public int temperature;
+        bool sameName = Name == toCompareWith.Name;
+        bool sameDescription = Description == toCompareWith.Description;
 
-        public Heated(Item toModify, int temperature)
-        {
-            this.temperature = temperature;
-        }
-
-        public override void Apply(Item item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool Compare(Modification toCompareWith) 
-        {
-            return false;
-        }
+        return sameName && sameDescription;
     }
 
-    public class Addition : Modification
+    public class Assemble : Modification
     {
-        public Materials materials;
-        public Addition(Materials materials)
+        public Assemble(string Name) : base("Assembler: Craft", Name)
         {
-            this.materials = materials;
         }
 
         public override void Apply(Item item)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool Compare(Modification toCompareWith)
-        {
-            return false;
+            //its okay this doesnt need to do anything :)
         }
     }
 
     public class Color : Modification
     {
+        static readonly Dictionary<UnityEngine.Color, string> colorMap = new Dictionary<UnityEngine.Color, string>()
+        {
+            {UnityEngine.Color.red, "Red"},
+            {UnityEngine.Color.blue, "Blue"},
+            {UnityEngine.Color.green, "Green"},
+        };
+
         public UnityEngine.Color color;
 
-        public Color(UnityEngine.Color color)
+        public Color(UnityEngine.Color color) : base("Painter: Color", colorMap[color])
         {
             this.color = color;
         }
@@ -91,7 +88,6 @@ public abstract class Modification
         public override bool Compare(Modification toCompareWith)
         {
             return ((Color)toCompareWith).color == color;
-            
         }
     }
 }

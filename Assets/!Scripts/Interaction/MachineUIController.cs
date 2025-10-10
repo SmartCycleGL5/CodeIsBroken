@@ -23,13 +23,6 @@ public class MachineUIController : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (!uiEnabled) return;
-        uiMenu.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-                             Camera.main.transform.rotation * Vector3.up);
-    }
-
     public void TerminalButton()
     {
 

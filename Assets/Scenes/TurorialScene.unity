@@ -354,6 +354,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       insertIndex: -1
       addedObject: {fileID: 320552226}
+    - targetCorrespondingSourceObject: {fileID: 2432799470729838840, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027843664}
+    - targetCorrespondingSourceObject: {fileID: 5065449716560485296, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1786978462}
   m_SourcePrefab: {fileID: 100100000, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
 --- !u!1 &320552225 stripped
 GameObject:
@@ -1393,6 +1399,23 @@ RectTransform:
   m_AnchoredPosition: {x: -2.020298, y: 56.202972}
   m_SizeDelta: {x: 876.7514, y: 287.5941}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1027843660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2432799470729838840, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 218100234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027843664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027843660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d640eaa6e113dd44aa5d618ae2add5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCam
 --- !u!1 &1235912650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1978,7 @@ MonoBehaviour:
     the highlighted area
   - Nice! Now remove this block by using right-click.
   - Now place a painter inside
-  - Press B to close the building menu and click on the painter! Press the terminal
+  - Press B to close the building menu and click on the painter! Click the terminal
     symbol to open the terminal! Click inside the OnTick
   - Lets try coding! Write Paint(Blue) inside the OnTick section. Press run once
     the code is written
@@ -1966,12 +1989,7 @@ MonoBehaviour:
   buttons: {fileID: 2012465231}
   painterSO: {fileID: 11400000, guid: 1d540034421db7b4f88b7ccb21a9d270, type: 2}
   selector: {fileID: 328219575267175939}
-  scriptsToDelete:
-  - {fileID: 2271814198263393798}
-  - {fileID: 357034587}
-  - {fileID: 8332630410640430040}
-  - {fileID: 1994596629}
-  - {fileID: 320552225}
+  scriptsToDelete: []
 --- !u!4 &1689120013
 Transform:
   m_ObjectHideFlags: 0
@@ -1987,6 +2005,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1786978458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5065449716560485296, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 218100234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786978462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786978458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d640eaa6e113dd44aa5d618ae2add5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCam
 --- !u!1 &1794803213
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Assembler : Machine, IItemContainer
     [SerializeField] int assemblerSize;
     [SerializeField] List<Item> items;
     [SerializeField] List<CraftingRecipie> craftingRecipies;
+    private UserErrorLogger errorLogger;
 
     public Item item { get; set; }
 
@@ -16,6 +17,7 @@ public class Assembler : Machine, IItemContainer
     {
         Tick.OnTick += TakeItem;
         Tick.OnEndingTick += ClearMachine;
+        errorLogger = GetComponent<UserErrorLogger>();
     }
 
     public override void Initialize(string initialClassName)
@@ -52,9 +54,17 @@ public class Assembler : Machine, IItemContainer
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
                     Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
+                    //item.definition.Modify(new Modification.Assemble(recipe.name));
 
                     conveyor.SetItem(item);
                     RemoveItem();
+                }
+            }
+            else
+            {
+                if (materials.Count == assemblerSize)
+                {
+                    errorLogger.DisplayWarning("Materials does not match any recipe's");
                 }
             }
         }

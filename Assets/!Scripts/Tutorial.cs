@@ -29,6 +29,7 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("TutorialRunning");
         tutorialText.text = tutorialPrompts[tutorialLevel];
         switch (tutorialLevel)
         {
@@ -110,5 +111,6 @@ public class Tutorial : MonoBehaviour
         }
         ScriptManager.StopMachines();
         SceneManager.LoadScene("GameScene");
+        
     }
 }

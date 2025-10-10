@@ -1,6 +1,8 @@
+using Coding;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -21,10 +23,16 @@ public class ContractSystem : MonoBehaviour
 
     private void Start()
     {
-        NewContract();
         instance = this;
 
+        GetContractOptions();
+
         PlayerProgression.onLevelUp += UpdateContractComplexity;
+    }
+    private void Update()
+    {
+        if (ActiveContract == null) return;
+        amoundDisplay.text = "X" + ActiveContract.amount + " - " + ActiveContract.requestedItem.materials;
     }
 
     private void UpdateContractComplexity(int lvl)
@@ -34,11 +42,32 @@ public class ContractSystem : MonoBehaviour
             complexity.y++;
         }
     }
-
-    private void Update()
+    public static void SelectContract(Contract toSelect)
     {
-        if (ActiveContract == null) return;
-        amoundDisplay.text = "X" + ActiveContract.amount+" - "+ActiveContract.requestedItem.materials;
+        toSelect.onFinished += instance.FinishedContract;
+
+        ActiveContract = toSelect;
+
+        instance.CreateDisplayItem();
+    }
+
+    public static Contract NewContract()
+    {
+        Contract contract = new Contract(
+            "cool contract", 
+            instance.amountOfModifications, 
+            Mathf.RoundToInt(UnityEngine.Random.Range(instance.complexity.x, instance.complexity.y + 1)));
+
+        return contract;
+    }
+    void FinishedContract(Contract contract)
+    {
+        if (contract != ActiveContract) return;
+
+        ActiveContract.onFinished -= instance.FinishedContract;
+        ActiveContract = null;
+
+        GetContractOptions();
     }
 
     void CreateDisplayItem()
@@ -54,23 +83,20 @@ public class ContractSystem : MonoBehaviour
         displayItem.definition = ActiveContract.requestedItem;
     }
 
-    public void NewContract()
+    async void GetContractOptions()
     {
-        Contract contract = new Contract("cool contract", amountOfModifications, Mathf.RoundToInt(UnityEngine.Random.Range(complexity.x, complexity.y + 1)));
-        contract.onFinished += FinishedContract;
+        ScriptManager.StopMachines();
+        List<Contract> contracts = new();
 
-        ActiveContract = contract;
+        for (int i = 0; i < 3; i++)
+        {
+            contracts.Add(NewContract());
+        }
 
-        CreateDisplayItem();
+        while(!ContracUIManager.readyToTakeContacts) await Task.Delay(100);
+
+        ContracUIManager.DisplayContract(contracts.ToArray());
     }
-    void FinishedContract(Contract contract)
-    {
-        if (contract != ActiveContract) return;
-
-        NewContract();
-    }
-
-
 }
 
 public class Contract
@@ -81,11 +107,18 @@ public class Contract
 
     public Action<Contract> onFinished;
 
-
+    readonly string[] names = new string[]
+    {
+        "Morning Wood",
+        "Rock Hard",
+        "Iron Patience",
+        "Wood Carvers",
+        "Stone Carvers"
+    };
 
     public Contract(string name, int amountOfMods, int complexity)
     {
-        contractName = name;
+        contractName = names[UnityEngine.Random.Range(0, names.Length -1)];
 
         List<Modification> mods = new List<Modification>();
 
@@ -106,7 +139,7 @@ public class Contract
 
         requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
 
-        amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 1.5f));
+        amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
         bool AlreadyHasMod(Modification newMod)

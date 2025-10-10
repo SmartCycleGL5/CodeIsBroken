@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class Assembler : Machine, IItemContainer
@@ -10,7 +11,8 @@ public class Assembler : Machine, IItemContainer
     [SerializeField] List<Item> items;
     [SerializeField] List<CraftingRecipie> craftingRecipies;
     private UserErrorLogger errorLogger;
-
+    
+    Tweener moveTween;
     public Item item { get; set; }
 
     private void Start()
@@ -99,6 +101,10 @@ public class Assembler : Machine, IItemContainer
         if (item == null) return false;
         removedItem = item;
         item = null;
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
 
         return true;
     }
@@ -107,7 +113,7 @@ public class Assembler : Machine, IItemContainer
     {
         if (this.item != null) return false;
         this.item = item;
-        this.item.transform.position = transform.position;
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

@@ -158,6 +158,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   definition:
     materials: 6
+    <mods>k__BackingField:
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
   icon: {fileID: 21300000, guid: ea489d96afd7e624ea053b9264dee780, type: 3}
   artRenderer: {fileID: 5373870341508210345}
   destroyOnPause: 1

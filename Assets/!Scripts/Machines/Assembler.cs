@@ -56,7 +56,7 @@ public class Assembler : Machine, IItemContainer
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
                     Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
-                    //item.definition.Modify(new Modification.Assemble(recipe.name));
+                    item.definition.Modify(new Modification.Assemble(recipe.name));
 
                     conveyor.SetItem(item);
                     RemoveItem();

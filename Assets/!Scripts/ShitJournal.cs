@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UIManager;
+using static WindowManager;
 
 public class ShitJournal : MonoBehaviour, IWindow
 {
 
     public static VisualTreeAsset journalAsset { get; private set; }
     public static VisualTreeAsset journalElementAsset { get; private set; }
-    public UIManager.Window window { get; set; }
+    public Window window { get; set; }
 
     VisualElement windowElement;
     VisualElement journal;

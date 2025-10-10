@@ -61,6 +61,7 @@ public class ItemDefinition : IEquatable<ItemDefinition>
 public class Item : MonoBehaviour
 {
     public ItemDefinition definition = new(Materials.Wood);
+    public Sprite icon;
 
     public MeshRenderer artRenderer;
     public static List<Item> items = new List<Item>();

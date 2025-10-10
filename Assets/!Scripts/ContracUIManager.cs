@@ -6,6 +6,7 @@ using static UIManager;
 public class ContracUIManager : MonoBehaviour
 {
     static VisualElement contractHolder;
+    static VisualElement selectText;
 
     static VisualTreeAsset contractUI;
     static VisualTreeAsset contractModifierUI;
@@ -15,8 +16,10 @@ public class ContracUIManager : MonoBehaviour
     private async void Start()
     {
         contractHolder = canvas.Q<VisualElement>("ContractHolder");
+        selectText = canvas.Q<Label>("Select");
         contractHolder.SetEnabled(false);
         readyToTakeContacts = false;
+        selectText.style.opacity = 0;
 
         if (contractUI == null)
         {
@@ -33,6 +36,7 @@ public class ContracUIManager : MonoBehaviour
     public static void DisplayContract(Contract[] contracts)
     {
         contractHolder.SetEnabled(true);
+        selectText.style.opacity = 1;
 
         foreach (var contract in contracts)
         {
@@ -47,6 +51,7 @@ public class ContracUIManager : MonoBehaviour
         Button contractbutton = contractContainer.Q<Button>("Contract");
         contractbutton.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
+        contractbutton.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
         contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
 
         ScrollView mods = contractbutton.Q<ScrollView>("Amount");
@@ -66,13 +71,14 @@ public class ContracUIManager : MonoBehaviour
 
         //such a ass solutuion, please try something else instead.
         contractbutton.clicked += () => { 
-            ContractSystem.SelectContract(contract); 
+            ContractSystem.instance.SelectContract(contract);
+            contractHolder.SetEnabled(false);
+            selectText.style.opacity = 0;
+
             for (int i = contractContainer.childCount + 1; i >= 0; i--) { 
             
                 contractHolder.RemoveAt(i);
             }
-
-            contractHolder.SetEnabled(false);
         };
     }
 }

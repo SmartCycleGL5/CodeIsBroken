@@ -46,11 +46,19 @@ public class SellStaton : MonoBehaviour
 
     void SellItem(Item toSell)
     {
-
-        if (ContractSystem.ActiveContract.SatisfiesContract(toSell))
+        try
         {
-            ContractSystem.ActiveContract.Progress();
+            if (ContractSystem.ActiveContract.SatisfiesContract(toSell))
+            {
+                ContractSystem.ActiveContract.Progress();
+            }
         }
+        catch
+        {
+            Debug.LogWarning("No Contract");
+        }
+
+        PlayerProgression.GiveXP(1);
 
         Destroy(toSell.gameObject);
     }

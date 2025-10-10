@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Machines
   m_GUID: aa0d0784e51992c43a627effeea74b10
   m_SerializeEntries:
+  - m_GUID: 0df275387f2da9d4c89fa7e9baf6197b
+    m_Address: Assets/!Scripts/BuildingSO/Descriptions/Methods.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d540034421db7b4f88b7ccb21a9d270
     m_Address: Painter
     m_ReadOnly: 0
@@ -41,6 +47,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5091e44f8d6e71d48bb232ec9c459f29
     m_Address: Assembler
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89d4265f2ec6c094ab549149033fbcac
+    m_Address: Assets/!Scripts/BuildingSO/Descriptions/Variables.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Machines

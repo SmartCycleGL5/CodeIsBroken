@@ -8,9 +8,9 @@ public static class PlayerProgression
     public static Dictionary<int, int> experienceRequired = new()
     {
         { 1, 10 },
-        { 2, 30 },
-        { 3, 60 },
-        { 4, 100 },
+        { 2, 100 },
+        { 3, 300 },
+        { 4, 500 },
     };
 
     public static int Level { get; private set; } = 1;
@@ -26,23 +26,24 @@ public static class PlayerProgression
         apparentExperience = 0;
         onLevelUp?.Invoke(Level);
     }
+
+    static bool gettingXP;
     
     public static async void GiveXP(int amount)
     {
-        apparentExperience = experience;
         experience += amount;
 
-        Debug.Log(apparentExperience < experience);
+        if (gettingXP) return;
 
         while(apparentExperience < experience)
         {
+            gettingXP = true;
             apparentExperience += Time.deltaTime * 5;
             await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
         }
+        gettingXP = false;
 
         apparentExperience = experience;
-
-        Debug.Log(experience + " - " + experienceRequired[Level]);
 
         if (experience >= experienceRequired[Level])
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Imaging;
 using UnityEngine;
 
-public abstract class Modification
+public class Modification
 {
     public string Name {  get; private set; }
     public string Description {  get; private set; }
@@ -37,7 +37,10 @@ public abstract class Modification
         return null;
     }
 
-    public abstract void Apply(Item item);
+    public virtual void Apply(Item item)
+    {
+
+    }
     public virtual bool Compare(Modification toCompareWith)
     {
         bool sameName = Name == toCompareWith.Name;
@@ -45,7 +48,6 @@ public abstract class Modification
 
         return sameName && sameDescription;
     }
-
     public class Assemble : Modification
     {
         public Assemble(string Name) : base("Assembler: Craft", Name)

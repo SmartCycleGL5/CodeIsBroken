@@ -18,4 +18,4 @@ MonoBehaviour:
   buildingDesctiption: A conveyorbelt will move the item ontop of it forwards every
     tick.
   levelToUnlock: 1
-  isUnloced: 1
+  sortingOrder: 1

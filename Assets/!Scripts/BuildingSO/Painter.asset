@@ -20,4 +20,4 @@ MonoBehaviour:
     colors:\nRed, Blue, Green\n\nYou can also make new colors by using paint multiple
     times.\n\nExample:\nvoid OnTick()\n{\n\tPaint(Red);\n}"
   levelToUnlock: 1
-  isUnloced: 1
+  sortingOrder: 1

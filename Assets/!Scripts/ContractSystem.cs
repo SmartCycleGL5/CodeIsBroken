@@ -120,7 +120,7 @@ public class Contract
 
     public Action<Contract> onFinished;
 
-    public int xpToGive => amount * 6;
+    public int xpToGive;
 
     readonly string[] names = new string[]
     {
@@ -155,6 +155,8 @@ public class Contract
         requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
 
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
+
+        xpToGive = amount * 6;
 
 
         bool AlreadyHasMod(Modification newMod)

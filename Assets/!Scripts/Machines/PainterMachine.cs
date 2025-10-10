@@ -1,8 +1,11 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PainterMachine : Machine
 {
     [SerializeField] public Item item;
+    private UserErrorLogger errorLogger;
     Renderer toColor { get { return item.artRenderer; } }
     public override void Initialize(string initialClassName)
     {
@@ -11,6 +14,11 @@ public class PainterMachine : Machine
         base.Initialize(initialClassName);
     }
 
+    private void OnEnable()
+    {
+        errorLogger = GetComponent<UserErrorLogger>();
+        
+    }
 
     public void Paint(string color)
     {
@@ -29,6 +37,7 @@ public class PainterMachine : Machine
                 item.definition.Modify(new Modification.Color(new Color(0, 1, 0)));
                 return;
             default:
+                errorLogger.DisplayError("Not a valid color!");
                 return;
 
         }

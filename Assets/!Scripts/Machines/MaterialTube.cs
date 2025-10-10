@@ -8,6 +8,7 @@ public class MaterialTube : Machine
     Item materialToSpawn;
     int spawnRate;
     int tickCount;
+    UserErrorLogger errorLogger;
 
     public override void Initialize(string initialClassName)
     {
@@ -22,6 +23,7 @@ public class MaterialTube : Machine
     }
     private void OnEnable()
     {
+        errorLogger = GetComponent<UserErrorLogger>();
         Tick.OnTick += GetMaterial;
     }
 
@@ -52,6 +54,7 @@ public class MaterialTube : Machine
         if (cell == null)
         {
             Debug.Log("[MaterialTube] Nothing in adjacent cell");
+            errorLogger.DisplayWarning("No conveyor found!");
             return;
         }
 

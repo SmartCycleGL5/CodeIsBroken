@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static WindowManager;
@@ -26,7 +27,11 @@ public class ShitJournal : MonoBehaviour, IWindow
             journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.GameObject);
         }
         buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
+        
+        // Sort list from int
+        buildings = buildings.OrderBy(so => so.sortingOrder).ToList();
 
+        
         windowElement = journalAsset.Instantiate();
         journal = windowElement.Q<ScrollView>("Journal");
 

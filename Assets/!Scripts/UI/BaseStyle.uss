@@ -48,3 +48,17 @@
     transition-delay: 0s;
     transition-duration: 0.1s;
 }
+
+.ContractHolder {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    flex-direction: row;
+    align-self: center;
+    left: 0;
+    bottom: 182px;
+    right: 0;
+    align-content: auto;
+    justify-content: center;
+    align-items: center;
+}

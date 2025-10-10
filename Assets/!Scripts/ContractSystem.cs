@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -78,7 +79,7 @@ public class ContractSystem : MonoBehaviour
         displayItem.definition = ActiveContract.requestedItem;
     }
 
-    void GetContractOptions()
+    async void GetContractOptions()
     {
         List<Contract> contracts = new();
 
@@ -86,6 +87,8 @@ public class ContractSystem : MonoBehaviour
         {
             contracts.Add(NewContract());
         }
+
+        while(!ContracUIManager.readyToTakeContacts) await Task.Delay(100);
 
         ContracUIManager.DisplayContract(contracts.ToArray());
     }

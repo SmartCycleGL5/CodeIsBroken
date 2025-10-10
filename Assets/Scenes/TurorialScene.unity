@@ -1978,7 +1978,7 @@ MonoBehaviour:
     the highlighted area
   - Nice! Now remove this block by using right-click.
   - Now place a painter inside
-  - Press B to close the building menu and click on the painter! Press the terminal
+  - Press B to close the building menu and click on the painter! Click the terminal
     symbol to open the terminal! Click inside the OnTick
   - Lets try coding! Write Paint(Blue) inside the OnTick section. Press run once
     the code is written

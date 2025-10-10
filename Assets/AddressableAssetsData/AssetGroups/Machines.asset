@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Machines
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38339965888ef764f9aea3a93f2968eb
+    m_Address: Recepies
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Machines
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5091e44f8d6e71d48bb232ec9c459f29
     m_Address: Assembler
     m_ReadOnly: 0

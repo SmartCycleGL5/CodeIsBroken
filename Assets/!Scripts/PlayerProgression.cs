@@ -21,21 +21,40 @@ public static class PlayerProgression
 
     public static void LevelUp()
     {
-        Level++;
-        experience = 0;
+        experience -= experienceRequired[Level];
         apparentExperience = 0;
+
+        Level++;
+
         onLevelUp?.Invoke(Level);
     }
 
     static bool gettingXP;
     
-    public static async void GiveXP(int amount)
+    public static void GiveXP(int amount)
     {
+        Debug.Log("GOT XP " + amount);
         experience += amount;
+        apparentExperience = experience;
 
-        if (gettingXP) return;
+        if (experience >= experienceRequired[Level])
+        {
+            LevelUp();
 
-        while(apparentExperience < experience)
+            //if (gettingXP) return;
+            //UpdateXP(Level -1);
+
+            return;
+        }
+
+        //if (gettingXP) return;
+        //UpdateXP(Level);
+    }
+
+    static async void UpdateXP(int level)
+    {
+
+        while (apparentExperience < experienceRequired[level])
         {
             gettingXP = true;
             apparentExperience += Time.deltaTime * 5;
@@ -44,10 +63,5 @@ public static class PlayerProgression
         gettingXP = false;
 
         apparentExperience = experience;
-
-        if (experience >= experienceRequired[Level])
-        {
-            LevelUp();
-        }
     }
 }

@@ -1,3 +1,4 @@
+using Coding;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,9 @@ public class ContractSystem : MonoBehaviour
     {
         if (contract != ActiveContract) return;
 
+        ActiveContract.onFinished -= instance.FinishedContract;
+        ActiveContract = null;
+
         GetContractOptions();
     }
 
@@ -81,6 +85,7 @@ public class ContractSystem : MonoBehaviour
 
     async void GetContractOptions()
     {
+        ScriptManager.StopMachines();
         List<Contract> contracts = new();
 
         for (int i = 0; i < 3; i++)

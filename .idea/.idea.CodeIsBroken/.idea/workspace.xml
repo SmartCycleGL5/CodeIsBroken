@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" afterDir="false" />
-    </list>
+    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +133,7 @@
       <workItem from="1759724705360" duration="2139000" />
       <workItem from="1759909287608" duration="8564000" />
       <workItem from="1759918010232" duration="830000" />
-      <workItem from="1760083210286" duration="2031000" />
+      <workItem from="1760083210286" duration="2646000" />
     </task>
     <servers />
   </component>

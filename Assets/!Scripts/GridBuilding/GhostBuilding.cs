@@ -53,6 +53,7 @@ public class GhostBuilding : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
+            if(ghostPrefab == null) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
 
@@ -67,6 +68,7 @@ public class GhostBuilding : MonoBehaviour
     // Updates position of GhostBlock
     void SetGhostPosition()
     {
+        if(ghostPrefab == null) return;
         Vector2 gridPosition = gridBuilder.GetGridPosition();
         ghostPrefab.transform.position = new Vector3(gridPosition.x, 0, gridPosition.y);
 
@@ -80,6 +82,7 @@ public class GhostBuilding : MonoBehaviour
     // Checks if cell is available
     void BuildingCollisions()
     {   
+        if(ghostPrefab == null) return;
         building = ghostPrefab.GetComponent<Building>();
         canPlace = gridBuilder.IsValidPosition(building.GetBuildingPositions());
         foreach(var renderer in renderers)

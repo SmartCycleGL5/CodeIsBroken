@@ -38,7 +38,25 @@ public abstract class Modification
     }
 
     public abstract void Apply(Item item);
-    public abstract bool Compare(Modification toCompareWith);
+    public virtual bool Compare(Modification toCompareWith)
+    {
+        bool sameName = Name == toCompareWith.Name;
+        bool sameDescription = Description == toCompareWith.Description;
+
+        return sameName && sameDescription;
+    }
+
+    public class Assemble : Modification
+    {
+        public Assemble(string Name) : base("Assembler: Craft", Name)
+        {
+        }
+
+        public override void Apply(Item item)
+        {
+            //its okay this doesnt need to do anything :)
+        }
+    }
 
     public class Color : Modification
     {
@@ -70,7 +88,6 @@ public abstract class Modification
         public override bool Compare(Modification toCompareWith)
         {
             return ((Color)toCompareWith).color == color;
-            
         }
     }
 }

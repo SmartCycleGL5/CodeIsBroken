@@ -18,4 +18,4 @@ MonoBehaviour:
   buildingDesctiption: "Use Rotate() to rotate the crane an amount.\nUse GrabLoseItem()
     to Grab and Release items.\n\nExample:\nvoid OnTick()\n{\n\tGrabLoseItem();\n\tRotate(180);\n}"
   levelToUnlock: 2
-  isUnloced: 0
+  sortingOrder: 1

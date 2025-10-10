@@ -18,4 +18,5 @@ MonoBehaviour:
   buildingDesctiption: "Holds items put into it until it crafts something.\nUse Craft()
     to craft something if it has a valid combination.\n\nExample:\nvoid OnTick()\n{\n\tCraft();\n}\n\nRecepies:
     \nIron + Wood = Chair"
-  levelToUnlock: 1
+  levelToUnlock: 2
+  sortingOrder: 1

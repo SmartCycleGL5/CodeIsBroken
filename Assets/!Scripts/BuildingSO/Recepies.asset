@@ -18,3 +18,4 @@ MonoBehaviour:
   buildingDesctiption: "Modifications are changes you do to objects by using machines.\n\nModification:\n\tColor
     = Use painter\n\nAssembler:\n\tWood + Iron = Chair\n"
   levelToUnlock: 0
+  sortingOrder: 0

@@ -10,6 +10,7 @@ public class Machine : BaseMachine
     {
         Tick.OnEndingTick += Reset;
     }
+    
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(Machine));
@@ -27,4 +28,9 @@ public class Machine : BaseMachine
 
     }
     
+    protected virtual void OnDestroy()
+    {
+        base.OnDestroy();
+        Tick.OnEndingTick -= Reset;
+    }
 }

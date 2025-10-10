@@ -127,7 +127,7 @@ public class Assembler : Machine, IItemContainer
     }
 
     [DontIntegrate]
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         Tick.OnTick -= TakeItem;
     }

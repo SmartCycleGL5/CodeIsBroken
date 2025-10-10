@@ -1,5 +1,3 @@
-using System.Net.Configuration;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -23,6 +21,8 @@ namespace Journal
             else { Destroy(gameObject); }
 
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
+            var tabView = journalDoc.rootVisualElement.Q<TabView>();
+            tabView.activeTabChanged += TabChange;
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
             HintEntries = Resources.LoadAll<JournalEntrySO>("Journal/Hints");
             economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
@@ -51,19 +51,13 @@ namespace Journal
                     Debug.LogError("Missing Information for : " + entry.name + "\nButton Not Added");
                 }
             }
-            // var entryDrop = tab.Q<Dropdown Field>("Dropdown");
-            // entryDrop.choices = entryNames;
-            // entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
-            // entryDrop.index = 0;
         }
         void AddHintEntry(JournalEntrySO[] entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
-            var tabView = journalDoc.rootVisualElement.Q<TabView>();
             var hidden = tab.Q<VisualElement>("HideHint");
             var scrollView = tab.Q<ScrollView>();
             var hintText = tab.Q<Label>("HintText");
-            tabView.activeTabChanged += TabChange;
             hintText.visible = false;
             foreach (var entry in entries)
             {
@@ -81,10 +75,6 @@ namespace Journal
                     Debug.LogError("Missing Information for : " + entry.name + "\nButton Not Added");
                 }
             }
-            // var entryDrop = tab.Q<Dropdown Field>("Dropdown");
-            // entryDrop.choices = entryNames;
-            // entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
-            // entryDrop.index = 0;
         }
 
         private void Hint(Label hintText, Tab tab, JournalEntrySO entry)
@@ -136,7 +126,7 @@ namespace Journal
             entry.bHintTaken = true;
             UnRegisterUICallback(hintText, tHintEvent);
             tHintEvent = null;
-            
+
         }
         void TurnCodeVisualsOnOff(JournalEntrySO entry, Label codeT, VisualElement windowE)
         {

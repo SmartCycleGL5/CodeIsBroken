@@ -25,7 +25,7 @@ public class MachineInteraction : MonoBehaviour
             //     }
             //     return;
             // }
-
+            if(EventSystem.current.IsPointerOverGameObject()) return;
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100))

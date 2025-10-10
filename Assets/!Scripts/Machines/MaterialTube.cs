@@ -17,8 +17,15 @@ public class MaterialTube : Machine
         base.Initialize(initialClassName);
     }
 
-    private void Start()
+    public override void Reset()
     {
+        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+        spawnRate = 0;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
         materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
     }
     private void OnEnable()

@@ -46,8 +46,7 @@ public class GhostBuilding : MonoBehaviour
             RotateBuilding();
         }
         // Block placement when over UI
-        Debug.Log(EventSystem.current.IsPointerOverGameObject());
-
+        
         if (EventSystem.current.IsPointerOverGameObject()) return;
         
 

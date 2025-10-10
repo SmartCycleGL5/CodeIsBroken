@@ -15,10 +15,10 @@ public class Assembler : Machine, IItemContainer
     Tweener moveTween;
     public Item item { get; set; }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         Tick.OnTick += TakeItem;
-        Tick.OnEndingTick += ClearMachine;
         errorLogger = GetComponent<UserErrorLogger>();
     }
 
@@ -29,6 +29,10 @@ public class Assembler : Machine, IItemContainer
         base.Initialize(initialClassName);
     }
 
+    public override void Reset()
+    {
+        ClearMachine();
+    }
 
     public void Craft()
     {
@@ -126,6 +130,5 @@ public class Assembler : Machine, IItemContainer
     private void OnDestroy()
     {
         Tick.OnTick -= TakeItem;
-        Tick.OnEndingTick -= ClearMachine;
     }
 }

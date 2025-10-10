@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
-  m_Name: Furnace
+  m_Name: Crane
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  title: 
+  title: Crane
   showcaseI: {fileID: 0}
-  explanation: 
-  codeShowcase: 
+  explanation: 'Use Rotate() to rotate the crane an amount.
+
+    Use GrabLoseItem()
+    to Grab and Release items.'
+  codeShowcase: "void OnTick()\n{\n\tGrabLoseItem();\n\tRotate(180);\n}"
   bHintTaken: 0

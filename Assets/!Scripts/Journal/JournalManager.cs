@@ -1,5 +1,5 @@
-using System;
-using Coding.SharpCube.Encapsulations;
+using System.Net.Configuration;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -42,7 +42,7 @@ namespace Journal
             {
                 if (entry.title != string.Empty && entry.explanation != string.Empty /*&& entry.showcaseI != null*/)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.PreWrap} };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.Pre } };
                     RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -63,13 +63,16 @@ namespace Journal
             var hidden = tab.Q<VisualElement>("HideHint");
             var scrollView = tab.Q<ScrollView>();
             var hintText = tab.Q<Label>("HintText");
-            tabView.activeTabChanged += tabChange;
+            tabView.activeTabChanged += TabChange;
             hintText.visible = false;
             foreach (var entry in entries)
             {
+#if UNITY_EDITOR
+                entry.bHintTaken = false;
+#endif
                 if (entry.title != string.Empty && entry.explanation != string.Empty)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.PreWrap} };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, whiteSpace = WhiteSpace.PreWrap } };
                     RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -88,10 +91,12 @@ namespace Journal
         {
             var explainT = tab.Q<Label>("Explanation");
             var codeT = tab.Q<Label>("Code");
+            var windowE = tab.Q<VisualElement>("Window");
             explainT.text = string.Empty;
             codeT.text = string.Empty;
             UnRegisterUICallback(hintText, tHintEvent);
             tHintEvent = null;
+            windowE.style.visibility = Visibility.Hidden;
             if (!entry.bHintTaken && tHintEvent == null)
             {
                 EventCallback<MouseUpEvent> tCallBack = (evt) => ChangeEntry(tab, entry, hintText);
@@ -101,7 +106,7 @@ namespace Journal
             }
             else if (entry.bHintTaken)
             {
-                ChangeEntry(tab, entry, hintText, "");
+                ChangeEntry(tab, entry, hintText);
             }
         }
         private void RegisterUICallback(TextElement uiElement, EventCallback<MouseUpEvent> eventCallback)
@@ -118,32 +123,33 @@ namespace Journal
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
             var explainT = tab.Q<Label>("Explanation");
             var codeT = tab.Q<Label>("Code");
-            if(scrollView != null)scrollView.verticalScroller.slider.value = 0;
+            var windowE = tab.Q<VisualElement>("Window");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
             explainT.text = entry.explanation;
-            codeT.text = entry.codeShowcase;
+            TurnCodeVisualsOnOff(entry, codeT, windowE);
+
         }
         private void ChangeEntry(Tab tab, JournalEntrySO entry, Label hintText)
         {
-            var explainT = tab.Q<Label>("Explanation");
-            var codeT = tab.Q<Label>("Code");
-            explainT.text = entry.explanation;
-            codeT.text = entry.codeShowcase;
+            ChangeEntry(tab, entry);
             hintText.visible = false;
             entry.bHintTaken = true;
             UnRegisterUICallback(hintText, tHintEvent);
             tHintEvent = null;
+            
         }
-        private void ChangeEntry(Tab tab, JournalEntrySO entry, Label hintText, string p)
+        void TurnCodeVisualsOnOff(JournalEntrySO entry, Label codeT, VisualElement windowE)
         {
-            var explainT = tab.Q<Label>("Explanation");
-            var codeT = tab.Q<Label>("Code");
-            hintText.visible = false;
-            explainT.text = entry.explanation;
-            codeT.text = entry.codeShowcase;
-            UnRegisterUICallback(hintText, tHintEvent);
-            tHintEvent = null;
+            if (entry.codeShowcase != string.Empty)
+            {
+                windowE.style.visibility = Visibility.Visible;
+                codeT.text = entry.codeShowcase;
+            }
+            else
+            {
+                windowE.style.visibility = Visibility.Hidden;
+            }
         }
-
         public void JournalOnOff()
         {
             if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)
@@ -162,14 +168,16 @@ namespace Journal
                 JournalOnOff();
             }
         }
-        private void tabChange(Tab tab1, Tab tab2)
+        private void TabChange(Tab tab1, Tab tab2)
         {
             var explainT = tab1.Q<Label>("Explanation");
             var codeT = tab1.Q<Label>("Code");
             var hintText = tab1.Q<Label>("HintText");
+            var windowE = tab1.Q<VisualElement>("Window");
             if (explainT != null) explainT.text = string.Empty;
-            if(codeT != null)codeT.text = string.Empty;
-            if(hintText != null)hintText.visible = false;
+            if (codeT != null) codeT.text = string.Empty;
+            if (hintText != null) hintText.visible = false;
+            if (windowE != null) windowE.visible = false;
         }
     }
 }

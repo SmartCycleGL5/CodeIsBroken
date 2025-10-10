@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
   m_Name: MaterialTube
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  title: 
+  title: 'Material
+
+    Tube '
   showcaseI: {fileID: 0}
-  explanation: 
-  codeShowcase: 
+  explanation: 'The material tube places a material on the tube ahead of it every
+    tick.
+
+
+    Use ChangeMateral() to change the produced material to one of the
+    following:
+
+    Wood, Iron or Stone
+
+
+    Use SpawnDelay() change how often it
+    produces a material.'
+  codeShowcase: "void StartTick()\n{\n\tChangeMaterial(Iron);\n\tSpawnDelay(2);\n}"
   bHintTaken: 0

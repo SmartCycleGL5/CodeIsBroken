@@ -3,19 +3,19 @@
 
 .unity-button {
     background-image: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&guid=283f897e4925411ebbaa758b4cb13fc2&type=3#Floor Cement");
-    flex-shrink: 1;
+    flex-shrink: 0;
     -unity-background-scale-mode: scale-to-fit;
-    height: 176px;
-    width: 420px;
+    height: 200px;
+    width: 345px;
     background-position-x: left 0;
     padding-left: 185px;
     padding-right: 12px;
     -unity-text-align: middle-center;
-    background-color: rgba(255, 255, 255, 0);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
     background-size: 45% 100%;
     white-space: pre-wrap;
+    background-color: rgba(255, 232, 232, 0);
 }

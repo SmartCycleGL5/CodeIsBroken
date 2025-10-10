@@ -1,46 +1,50 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/!Scripts/Journal/test.uss?fileID=7433441132597879392&amp;guid=4a3ba5da60223f742aaf7f0c986a37ff&amp;type=3#test" />
-    <ui:VisualElement enabled="true" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Textures/Brushed%20Metal%203.jpg?fileID=2800000&amp;guid=f88677df267a41d6be1e7a6133e7d227&amp;type=3#Brushed Metal 3&quot;); width: 859px; height: 812px; align-self: flex-end; align-content: flex-start; align-items: auto; justify-content: center; flex-shrink: 0; bottom: auto; top: 10%; left: auto; right: auto; position: relative; margin-left: 0; background-size: 100% 94%; transform-origin: center; visibility: visible; overflow: visible; flex-basis: auto; border-left-width: 0; translate: 0 0; flex-direction: column; display: flex; max-width: initial; max-height: initial; opacity: 1; background-position-x: center; background-position-y: bottom 0;">
-        <ui:TabView usage-hints="None" style="top: 0%; left: auto; position: absolute; align-items: flex-start; align-content: flex-start; justify-content: flex-start; align-self: flex-end; font-size: 30px; height: 811px; width: 854px;">
-            <ui:Tab label="Machine" name="Machine" closeable="false" style="top: 2%; position: relative; align-items: flex-start; justify-content: flex-start; align-self: center; align-content: flex-start; height: 740px; width: 850px; flex-shrink: 0; max-width: none; max-height: none; min-width: auto; min-height: auto; right: auto; flex-basis: auto; flex-direction: column-reverse; overflow: visible; flex-wrap: nowrap; flex-grow: 0;">
-                <ui:GroupBox style="flex-direction: row;">
-                    <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="height: 735px; width: 368px; left: auto; flex-grow: 0; align-items: center; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start;" />
-                    <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollExpla" style="height: 735px; width: 469px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 2px; padding-bottom: 0; padding-left: 2px; -unity-text-align: upper-center; white-space: normal;">
-                        <ui:VisualElement style="flex-grow: 1;">
-                            <ui:Label name="Explanation" style="flex-wrap: wrap; white-space: normal;" />
+    <ui:TabView usage-hints="None" style="align-items: flex-start; align-content: flex-start; justify-content: flex-start; align-self: flex-end; font-size: 50%; position: relative; right: 10px; top: 10%;">
+        <ui:Tab name="Machine" label="Machine" style="top: auto; position: relative; align-items: flex-start; justify-content: flex-start; align-self: center; align-content: flex-start; height: 800px; width: 850px; flex-shrink: 0; max-width: none; max-height: none; min-width: auto; min-height: auto; right: auto; flex-basis: auto; flex-direction: column-reverse; overflow: visible; flex-wrap: nowrap; flex-grow: 0; background-image: none; background-color: rgb(248, 175, 124);">
+            <ui:GroupBox style="flex-direction: row; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="width: 380px; flex-grow: 0; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start; height: 800px; align-items: center;" />
+                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollExpla" style="width: 470px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 2px; padding-bottom: 0; padding-left: 2px; -unity-text-align: upper-center; white-space: normal;">
+                    <ui:Label name="Explanation" style="flex-wrap: wrap; white-space: normal; -unity-text-align: upper-left;" />
+                    <ui:VisualElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" template="Terminal">
+                        <Style src="project://database/Assets/!Scripts/UI/TerminalSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#TerminalSyle" />
+                        <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+                        <ui:VisualElement name="Window" class="Window Terminal" style="flex-grow: 1; visibility: hidden;">
+                            <ui:Label name="Code" selectable="true" focusable="true" double-click-selects-word="true" style="align-items: stretch; white-space: normal; flex-wrap: wrap; color: rgb(255, 255, 255); -unity-text-align: upper-left;" />
                         </ui:VisualElement>
-                        <ui:VisualElement style="flex-grow: 1;">
-                            <ui:Label name="Code" style="align-items: stretch; white-space: normal; flex-wrap: wrap;" />
-                        </ui:VisualElement>
-                    </ui:ScrollView>
-                </ui:GroupBox>
-            </ui:Tab>
-            <ui:Tab label="Hints" name="Hints" closeable="false">
-                <ui:GroupBox style="flex-direction: row;">
-                    <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="height: 735px; width: 445px; left: auto; flex-grow: 0; align-items: center; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start;" />
-                    <ui:VisualElement name="HIdeHint" style="flex-grow: 1; align-items: center; justify-content: center;">
-                        <ui:Label text="Label" selectable="true" focusable="true" name="HintText" enabled="true" style="-unity-text-align: middle-center; white-space: normal; width: auto; height: 14%; justify-content: center; align-items: auto; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgba(207, 207, 207, 0.75);">
-                            <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" style="height: 735px; width: 400px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 2px; padding-bottom: 0; padding-left: 2px; -unity-text-align: upper-center; white-space: normal;">
-                                <ui:VisualElement style="flex-grow: 1;">
-                                    <ui:Label name="Explanation" style="flex-wrap: wrap; white-space: normal; color: rgb(27, 27, 27);" />
-                                </ui:VisualElement>
-                                <ui:VisualElement style="flex-grow: 1;">
-                                    <ui:Label name="Code" style="align-items: stretch; white-space: normal; flex-wrap: wrap; color: rgb(27, 27, 27);" />
-                                </ui:VisualElement>
-                            </ui:ScrollView>
-                        </ui:Label>
                     </ui:VisualElement>
-                </ui:GroupBox>
-            </ui:Tab>
-            <ui:Tab label="Tab" name="Economy" closeable="false">
-                <ui:DropdownField label="Dropdown" name="Dropdown" index="0" />
-                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&amp;guid=283f897e4925411ebbaa758b4cb13fc2&amp;type=3#Floor Cement&quot;); background-color: rgb(0, 0, 0); width: 100%; background-size: 100% 100%; transform-origin: center; height: 100px;" />
-                <ui:Label text="Label" name="Explanation" />
-                <ui:Label text="Label" name="Code">
-                    <ui:VisualElement style="flex-grow: 1;" />
-                </ui:Label>
-            </ui:Tab>
-            <ui:Tab label="Settings" name="Settings" />
-        </ui:TabView>
-    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:GroupBox>
+        </ui:Tab>
+        <ui:Tab name="Hints" closeable="false" label="Hints" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);">
+            <ui:GroupBox style="flex-direction: row; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="height: 800px; width: 370px; left: auto; flex-grow: 0; align-items: center; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start;" />
+                <ui:VisualElement name="HIdeHint" style="flex-grow: 1; align-items: center; justify-content: center;">
+                    <ui:Label text="Click For Hint" selectable="true" focusable="true" name="HintText" enabled="true" style="-unity-text-align: middle-center; white-space: normal; height: 14%; justify-content: center; align-items: auto; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgba(207, 207, 207, 0.75); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+                        <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" style="height: 800px; width: 470px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; overflow: visible; visibility: visible; -unity-text-align: upper-center; white-space: normal; padding-left: 2px; padding-right: 2px;">
+                            <ui:VisualElement style="flex-grow: 1;">
+                                <ui:Label name="Explanation" style="flex-wrap: wrap; white-space: normal; color: rgb(27, 27, 27); -unity-text-align: upper-left;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" template="Terminal">
+                                <Style src="project://database/Assets/!Scripts/UI/TerminalSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#TerminalSyle" />
+                                <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+                                <ui:VisualElement name="Window" class="Window Terminal" style="flex-grow: 1; visibility: hidden;">
+                                    <ui:Label name="Code" selectable="true" focusable="true" double-click-selects-word="true" style="align-items: stretch; white-space: normal; flex-wrap: wrap; color: rgb(255, 255, 255); -unity-text-align: upper-left;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:ScrollView>
+                    </ui:Label>
+                </ui:VisualElement>
+            </ui:GroupBox>
+        </ui:Tab>
+        <ui:Tab name="Economy" closeable="false" label="E" style="background-color: rgb(248, 175, 124); width: 850px; height: 800px;">
+            <ui:DropdownField label="Dropdown" name="Dropdown" index="0" />
+            <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&amp;guid=283f897e4925411ebbaa758b4cb13fc2&amp;type=3#Floor Cement&quot;); background-color: rgb(0, 0, 0); width: 100%; background-size: 100% 100%; transform-origin: center; height: 100px;" />
+            <ui:Label text="Label" name="Explanation" />
+            <ui:Label text="Label" name="Code">
+                <ui:VisualElement style="flex-grow: 1;" />
+            </ui:Label>
+        </ui:Tab>
+        <ui:Tab name="Settings" label="Settings" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);" />
+    </ui:TabView>
 </ui:UXML>

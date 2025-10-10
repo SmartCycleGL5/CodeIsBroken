@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
-  m_Name: TruckDockingStation
+  m_Name: Painter
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  title: 'Truck
+  title: Painter
+  showcaseI: {fileID: 2800000, guid: 178c9f1e6e92d2445a7263b7a2cd547b, type: 3}
+  explanation: 'The painter acts like a conveyor belt moving items on it to the next
+    conveyor.
 
-    Docking
 
-    Station '
-  showcaseI: {fileID: 0}
-  explanation: 'Where you sell the items. Items have to be transported to the truck
-    docking station located along the walls. When the item goes into the station
-    the user will receive money/complete contract.
+    Use Paint() to paint the item in it to one of the following colors:
 
-'
-  codeShowcase: 
+    Red,
+    Blue, Green
+
+
+    You can also make new colors by using paint multiple times.'
+  codeShowcase: "void OnTick()\n{\n\tPaint(Red);\n}"
   bHintTaken: 0

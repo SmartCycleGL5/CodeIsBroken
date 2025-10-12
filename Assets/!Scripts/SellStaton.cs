@@ -6,6 +6,7 @@ using UnityEngine;
 public class SellStaton : MonoBehaviour
 {
     [SerializeField] List<Transform> sellPoints = new();
+    [SerializeField] private bool isTutorial;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,8 +58,13 @@ public class SellStaton : MonoBehaviour
         {
             Debug.LogWarning("No Contract");
         }
-
-        PlayerProgression.GiveXP(1);
+        
+        //Remove is tutorial
+        if (!isTutorial)
+        {
+            PlayerProgression.GiveXP(1);
+        }
+        
 
         Destroy(toSell.gameObject);
     }

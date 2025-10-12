@@ -24,7 +24,7 @@ public class LevelUpNotification : MonoBehaviour
     {
         int timeFromStart = (int)Time.time;
         notification.text = $"Good job! You reached level {level} in {timeFromStart} seconds. Press J to check journal for new machines!";
-        panelObj.DOJumpAnchorPos(new Vector2(0, 431),3f, 1,0.3f);
+        panelObj.DOJumpAnchorPos(new Vector2(0, 650),3f, 1,0.3f);
         Invoke("HideUI", 9);
     }
 

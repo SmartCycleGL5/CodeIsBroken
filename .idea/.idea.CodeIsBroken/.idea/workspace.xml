@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Saw.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Saw.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Crane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Crane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/MaterialTube.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/MaterialTube.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Painter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Painter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TurorialScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TurorialScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +52,11 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/MonoBuild2\CodeIsBroken.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/CodeIsBroken.2\CodeIsBroken.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\noasj\Desktop\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="ENV_FILE_PATHS" value="" />
-      <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
@@ -68,10 +65,6 @@
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="ENV_FILE_PATHS" value="" />
-      <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
@@ -80,10 +73,6 @@
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="ENV_FILE_PATHS" value="" />
-      <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -91,13 +80,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
-      <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -105,13 +90,9 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="projectPathOnTarget" />
-      <option name="runtimes">
-        <list />
-      </option>
       <option name="selectedOptions">
         <list />
       </option>
-      <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Device" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
@@ -144,6 +125,7 @@
       <workItem from="1759909287608" duration="8564000" />
       <workItem from="1759918010232" duration="830000" />
       <workItem from="1760083210286" duration="2646000" />
+      <workItem from="1760277609375" duration="977000" />
     </task>
     <servers />
   </component>

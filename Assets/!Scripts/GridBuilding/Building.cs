@@ -23,5 +23,14 @@ public class Building : MonoBehaviour
         {
             script.enabled = true;
         }
+        
+        Collider[] collider = GetComponentsInChildren<Collider>();
+        foreach (var col in collider)
+        {
+            col.enabled = true;
+        }
+        {
+            
+        }
     }
 }

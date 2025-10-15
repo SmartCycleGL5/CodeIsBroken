@@ -20,4 +20,4 @@ MonoBehaviour:
     of the following:\nWood, Iron or Stone\n\nUse SpawnDelay() change how often it
     produces a material.\n\nExample:\n\nvoid StartTick()\n{\n\tChangeMaterial(Iron);\n\tSpawnDelay(2);\n}"
   levelToUnlock: 1
-  isUnloced: 1
+  sortingOrder: 1

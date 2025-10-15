@@ -15,16 +15,16 @@ public class LevelUpNotification : MonoBehaviour
 
     void NotifyMessage()
     {
-        notification.text = "Press J to open Journal. The journal will explain how to use the machines!";
-        panelObj.DOJumpAnchorPos(new Vector2(0, 431),3f, 1,0.3f);
+        notification.text = "Deliver any item into the seller!";
+        panelObj.DOJumpAnchorPos(new Vector2(0, 650),3f, 1,0.3f);
         Invoke("HideUI", 9);
     }
     
     void NotifyLevelUp(int level)
     {
         int timeFromStart = (int)Time.time;
-        notification.text = $"Good job! You reached level {level} in {timeFromStart} seconds.";
-        panelObj.DOJumpAnchorPos(new Vector2(0, 431),3f, 1,0.3f);
+        notification.text = $"Good job! You reached level {level} in {timeFromStart} seconds. Press J to check journal for new machines!";
+        panelObj.DOJumpAnchorPos(new Vector2(0, 650),3f, 1,0.3f);
         Invoke("HideUI", 9);
     }
 

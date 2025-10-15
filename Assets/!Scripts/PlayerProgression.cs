@@ -8,9 +8,9 @@ public static class PlayerProgression
     public static Dictionary<int, int> experienceRequired = new()
     {
         { 1, 10 },
-        { 2, 30 },
-        { 3, 60 },
-        { 4, 100 },
+        { 2, 100 },
+        { 3, 300 },
+        { 4, 500 },
     };
 
     public static int Level { get; private set; } = 1;
@@ -21,32 +21,47 @@ public static class PlayerProgression
 
     public static void LevelUp()
     {
-        Level++;
-        experience = 0;
+        experience -= experienceRequired[Level];
         apparentExperience = 0;
+
+        Level++;
+
         onLevelUp?.Invoke(Level);
     }
+
+    static bool gettingXP;
     
-    public static async void GiveXP(int amount)
+    public static void GiveXP(int amount)
     {
-        apparentExperience = experience;
+        Debug.Log("GOT XP " + amount);
         experience += amount;
-
-        Debug.Log(apparentExperience < experience);
-
-        while(apparentExperience < experience)
-        {
-            apparentExperience += Time.deltaTime * 5;
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
-        }
-
         apparentExperience = experience;
-
-        Debug.Log(experience + " - " + experienceRequired[Level]);
 
         if (experience >= experienceRequired[Level])
         {
             LevelUp();
+
+            //if (gettingXP) return;
+            //UpdateXP(Level -1);
+
+            return;
         }
+
+        //if (gettingXP) return;
+        //UpdateXP(Level);
+    }
+
+    static async void UpdateXP(int level)
+    {
+
+        while (apparentExperience < experienceRequired[level])
+        {
+            gettingXP = true;
+            apparentExperience += Time.deltaTime * 5;
+            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
+        }
+        gettingXP = false;
+
+        apparentExperience = experience;
     }
 }

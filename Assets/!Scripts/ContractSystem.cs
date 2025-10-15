@@ -24,8 +24,7 @@ public class ContractSystem : MonoBehaviour
     private void Start()
     {
         instance = this;
-
-        GetContractOptions();
+        amoundDisplay.enabled = false;
 
         PlayerProgression.onLevelUp += UpdateContractComplexity;
     }
@@ -37,13 +36,24 @@ public class ContractSystem : MonoBehaviour
 
     private void UpdateContractComplexity(int lvl)
     {
-        if(lvl == 3)
+        switch(lvl)
         {
-            complexity.y++;
+            case 2:
+                {
+                    GetContractOptions();
+                    break;
+                }
+            case 3:
+                {
+                    complexity.y++;
+                    break;
+                }
         }
     }
-    public static void SelectContract(Contract toSelect)
+    public void SelectContract(Contract toSelect)
     {
+        amoundDisplay.enabled = true;
+
         toSelect.onFinished += instance.FinishedContract;
 
         ActiveContract = toSelect;
@@ -63,6 +73,9 @@ public class ContractSystem : MonoBehaviour
     void FinishedContract(Contract contract)
     {
         if (contract != ActiveContract) return;
+
+        Destroy(displayItem);
+        amoundDisplay.enabled = false;
 
         ActiveContract.onFinished -= instance.FinishedContract;
         ActiveContract = null;
@@ -107,6 +120,8 @@ public class Contract
 
     public Action<Contract> onFinished;
 
+    public int xpToGive;
+
     readonly string[] names = new string[]
     {
         "Morning Wood",
@@ -141,6 +156,8 @@ public class Contract
 
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
+        xpToGive = amount * 6;
+
 
         bool AlreadyHasMod(Modification newMod)
         {
@@ -163,7 +180,7 @@ public class Contract
     }
     public void Finish()
     {
-        PlayerProgression.GiveXP(10);
+        PlayerProgression.GiveXP(xpToGive);
         onFinished?.Invoke(this);
     }
 

@@ -62,7 +62,7 @@ public abstract class BaseMachine : MonoBehaviour
         Initialized = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);

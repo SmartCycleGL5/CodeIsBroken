@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.FullScreenPassRendererFeature
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 450
   fetchColorBuffer: 1
   requirements: 0
   passMaterial: {fileID: 2100000, guid: a3d8152718cd30c45916b66ba584dbbe, type: 2}
@@ -128,10 +128,10 @@ MonoBehaviour:
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 1
-    stencilCompareFunction: 0
-    passOperation: 2
-    failOperation: 0
-    zFailOperation: 0
+    stencilCompareFunction: 5
+    passOperation: 1
+    failOperation: 1
+    zFailOperation: 1
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
   m_DepthPrimingMode: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: RenderObjects
-    Event: 500
+    Event: 450
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -230,7 +230,7 @@ MonoBehaviour:
     overrideShaderPassIndex: 0
     overrideMode: 1
     overrideDepthState: 0
-    depthCompareFunction: 4
+    depthCompareFunction: 1
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0

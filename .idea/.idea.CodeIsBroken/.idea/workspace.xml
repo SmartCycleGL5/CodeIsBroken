@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Movement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +147,7 @@
       <workItem from="1759918010232" duration="830000" />
       <workItem from="1760083210286" duration="2646000" />
       <workItem from="1760277609375" duration="977000" />
-      <workItem from="1760687344629" duration="305000" />
+      <workItem from="1760687344629" duration="3124000" />
     </task>
     <servers />
   </component>

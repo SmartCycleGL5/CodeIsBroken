@@ -53,6 +53,8 @@ public class Metrics : MonoBehaviour
 
     private void OnDestroy()
     {
+        PlayerProgression.onLevelUp -= TimeLevelUp;
+        PlayerProgression.onLevelUp -= ElectricityLevelUp;
         instance = null;
     }
 }

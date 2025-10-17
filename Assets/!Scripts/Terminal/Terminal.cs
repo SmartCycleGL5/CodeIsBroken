@@ -94,7 +94,6 @@ namespace Coding
         public void Close()
         {
             Save();
-            terminals.Remove(this);
             Destroy(this);
         }
 

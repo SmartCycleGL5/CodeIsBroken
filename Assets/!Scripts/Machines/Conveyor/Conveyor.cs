@@ -1,44 +1,57 @@
+using DG.Tweening;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-10)]
 public class Conveyor : MonoBehaviour, IItemContainer
 {
     // Conveyor to send item to next
     public Conveyor nextConveyor;
-    public Conveyor recieveFrom;
-
-    [SerializeField] Transform backPos;
+    public List<Conveyor> recieveFrom;
+    public GameObject wrapper;
+    [SerializeField] List<Transform> positions;
+    private Tween moveTween;
 
     public Item item { get; set; }
 
-    Vector3 itemPosition { get { return item.transform.position = transform.position + new Vector3(0, 1, 0);  } }
+    //Vector3 itemPosition { get { return transform.position + new Vector3(0, 1, 0);  } }
 
     void Start()
     {
+        //Checks for other conveyors and update the conveyors thats found.
         UpdateConveyor();
-
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
-
+        foreach(var pos in positions)
+        {
+            ConveyorManager.instance.UpdateCells(pos.position);
+        }
+        UpdateConveyor();
         Tick.OnTick += MoveOnTick;
     }
 
     public void UpdateConveyor()
     {
+        recieveFrom.Clear();
         ConveyorManager cm = ConveyorManager.instance;
-        Conveyor conveyor = cm.GetConveyor(backPos.position);
-        if (conveyor != null)
+        nextConveyor = cm.GetConveyor(transform.position+transform.forward);
+        foreach (var pos in positions)
         {
-            conveyor.nextConveyor = this;
-            recieveFrom = conveyor;
-            Debug.Log(conveyor.name);
+            Conveyor conveyor = cm.GetConveyor(pos.position);
+            if(conveyor == null) continue;
+            if(conveyor.nextConveyor != this) continue;
+            Debug.LogError("Found compatible conveyor");
+            recieveFrom.Add(conveyor);
         }
+
     }
 
     void MoveOnTick()
     {
         // Checks if last in line
-        if (nextConveyor == null && recieveFrom !=null)
+        if (nextConveyor == null && recieveFrom.Count > 0)
         {
-            Debug.Log("LastInLine");
+            Debug.Log("LastInLine: "+nextConveyor);
             SendItem();
         }
     }
@@ -47,20 +60,27 @@ public class Conveyor : MonoBehaviour, IItemContainer
     {
         if(recieveFrom != null)
         {
-            if(item == null)
+            foreach (var conveyor in recieveFrom)
             {
-                Debug.Log("SentItem");
-                item = recieveFrom.item;
-                recieveFrom.item = null;
+                if (conveyor == null) return;
+                if (item == null)
+                {
+                    //Debug.Log("SentItem");
+                    SetItem(conveyor.item);
+                    conveyor.RemoveItem();
+                }
+                conveyor.SendItem();
             }
-            recieveFrom.SendItem();
         }
-        // T.O. Was here
+    }
+
+    private void OnDestroy()
+    {
+        Tick.OnTick -= MoveOnTick;
         if (item != null)
         {
-            item.transform.position = itemPosition;
+            Destroy(item.gameObject);
         }
-
     }
 
     public bool RemoveItem(out Item removedItem)
@@ -69,16 +89,21 @@ public class Conveyor : MonoBehaviour, IItemContainer
         if(item == null) return false;
         removedItem = item;
         item = null;
-
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
         return true;
     }
 
     public bool SetItem(Item item)
     {
+        if (item == null) return false;
         if(this.item != null) return false;
 
         this.item = item;
-        this.item.transform.position = itemPosition;
+        //Debug.Log(item.transform.position + " ");
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

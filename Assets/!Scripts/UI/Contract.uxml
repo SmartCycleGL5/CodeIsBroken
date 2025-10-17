@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Scripts/UI/Contract.uss?fileID=7433441132597879392&amp;guid=297c467e3db2ff643bf064e81d0f4692&amp;type=3#Contract" />
+    <ui:Button name="Contract" class="Contract" style="width: 490px; height: 630px; margin-top: 30px; margin-right: 30px; margin-bottom: 30px; margin-left: 30px; padding-top: 29px; padding-right: 29px; padding-bottom: 29px; padding-left: 29px;">
+        <ui:Label text="CoolName" name="ContractName" style="height: 10%;" />
+        <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; max-height: 40%;">
+            <ui:Label text="10X" name="Amount" style="width: 40%; height: auto; align-self: auto; -unity-text-align: middle-right; font-size: 70%;" />
+            <ui:VisualElement name="Icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Packages/NaughtyAttributes/Samples/DemoScene/TestAssets/icon-github.png?fileID=21300000&amp;guid=005888ede18a58e4db8d069cfa3007cb&amp;type=3#icon-github&quot;); -unity-background-scale-mode: scale-to-fit; margin-top: 10px; margin-right: 30px; margin-bottom: 30px; margin-left: 30px;" />
+        </ui:VisualElement>
+        <ui:Label text="Modifications" style="font-size: 30px;" />
+        <ui:ScrollView name="Amount" />
+        <ui:Label text="XP: 10" name="XP" style="font-size: 30px; position: absolute; bottom: 0; right: 0;" />
+    </ui:Button>
+</ui:UXML>

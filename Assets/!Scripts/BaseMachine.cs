@@ -1,12 +1,9 @@
 using AYellowpaper.SerializedCollections;
 using Coding;
-using Coding.Language;
+using Coding.SharpCube;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -30,6 +27,8 @@ public abstract class BaseMachine : MonoBehaviour
 
     public bool Initialized { get; private set; } = false;
 
+    public Terminal connectedTerminal;
+
     [Button]
     void Initialize()
     {
@@ -37,9 +36,11 @@ public abstract class BaseMachine : MonoBehaviour
     }
     public virtual void Initialize(string initialClassName)
     {
-        if(Initialized)
+        Debug.LogError("[BaseMachine] initialize");
+
+        if (Initialized)
         {
-            Debug.LogError(initialClassName + " Already initialized!");
+            Debug.LogError("[BaseMachine]" + initialClassName + " Already initialized!");
             return;
         }
 
@@ -51,6 +52,7 @@ public abstract class BaseMachine : MonoBehaviour
         //if(machineCode == null)
         //    machineCode = new MachineCode();
 
+        Tick.OnStartingTick += FindStartAndUpdate;
         Tick.OnStartingTick += RunStart;
         Tick.OnTick += RunUpdate;
         Tick.OnEndingTick += Stop;
@@ -60,49 +62,62 @@ public abstract class BaseMachine : MonoBehaviour
         Initialized = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
+        if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);
+        Tick.OnStartingTick -= FindStartAndUpdate;
         Tick.OnStartingTick -= RunStart;
         Tick.OnTick -= RunUpdate;
         Tick.OnEndingTick -= Stop;
     }
+    void FindStartAndUpdate()
+    {
+        foreach (var Class in Classes)
+        {
+            try
+            {
+                start = Class.Value.GetMethod("FirstTick");
+            }
+            catch
+            {
+                Debug.LogWarning("FistTick not found");
+            }
 
+            try
+            {
+                update = Class.Value.GetMethod("OnTick");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("OnTick not found " + e);
+                return;
+            }
+        }
+    }
     public void RunStart()
     {
         isRunning = true;
 
-        foreach (var Class in Classes)
-        {
-            try
-            {
-                start = Class.Value.FindMethod("Start");
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning("Start not found");
-            }
-        }
-
-        if (start != null)
-            start.TryRun();
+        if (update != null)
+            Run(start);
     }
     public void RunUpdate()
     {
-        foreach (var Class in Classes)
-        {
-            try
-            {
-                update = Class.Value.FindMethod("Update");
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning("Update not found");
-            }
-        }
-
         if (update != null)
-            update.TryRun();
+            Run(update);
+    }
+    void Run(Method toRun)
+    {
+        try
+        {
+            toRun.TryRun();
+        }
+        catch (Exception e)
+        {
+            ScriptManager.StopMachines();
+            Debug.LogError("Couldnt run because of: \"" + e + "\"");
+        }
     }
 
     public void Stop()
@@ -128,8 +143,9 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine()
     {
-        Debug.Log("[Machine] Open Terminal for " + this);
-        Terminal.NewTerminal(this);
+        if (connectedTerminal != null) return;
+        Debug.Log("[BaseMachine] Open Terminal for " + this);
+        connectedTerminal = Terminal.NewTerminal(this);
     }
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)
@@ -141,50 +157,8 @@ public abstract class BaseMachine : MonoBehaviour
                 string name = item.Name;
                 if (item.GetAttribute<DontIntegrate>() != null || item.IsSpecialName) continue;
 
-                IntegratedMethods.Add(name, new IntegratedMethod(name, item.GetParameters(), item, this));
+                IntegratedMethods.Add(name, new IntegratedMethod(name, null, item.GetParameters(), item, this));
             }
         }
     }
-
-    #region Deprecated
-    public async Task Rotate(int amount)
-    {
-        float originalAmount = transform.eulerAngles.y;
-
-        while ((originalAmount + amount) - transform.eulerAngles.y > .1f && isRunning)
-        {
-            transform.Rotate(0, amount * Time.deltaTime, 0);
-
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
-        }
-
-        if (isRunning)
-            transform.eulerAngles = new Vector3(0, originalAmount + amount, 0);
-    }
-    public async Task Move(Vector3 dir)
-    {
-        Vector3 originalPos = transform.position;
-
-        while (Vector3.Distance(originalPos + dir, transform.position) > .1f && isRunning)
-        {
-            transform.position += dir * Time.deltaTime;
-
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000));
-        }
-
-        if (isRunning)
-            transform.position = originalPos + dir;
-    }
-
-    public async void Rocket()
-    {
-        while (isRunning)
-        {
-            _ = Rotate(360);
-            await Move(Vector3.up);
-
-            Debug.Log(isRunning);
-        }
-    }
-    #endregion
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
-using static UIManager;
+using static WindowManager;
 
 public interface IWindow
 {
     public Window window { get; set; }
-    public void Destroy();
+    public void Close();
 }

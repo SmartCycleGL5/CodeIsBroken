@@ -1,11 +1,9 @@
+using Coding;
 using NaughtyAttributes;
 using System;
-using Coding;
-using Unity.VisualScripting;
-using UnityEngine;
 
 [Serializable]
-public class MachineCode 
+public class MachineCode
 {
     public string name;
     [ResizableTextArea] public string Code;
@@ -16,32 +14,43 @@ public class MachineCode
         this.name = name;
         this.machine = machine;
         CreateScript(name);
-        Interpreter.InterperateScript(Code, machine);
+        Interporate.Classes(Code, machine);
     }
     public void UpdateCode(string code)
     {
         Code = code;
         machine.ClearMemory();
-        Interpreter.InterperateScript(Code, machine);
+
+        Interporate.Classes(Code, machine);
+
+        foreach (var item in machine.Classes)
+        {
+            name = item.Value.name;
+            break;
+        }
     }
     void CreateScript(string name)
     {
         Code =
-                "class " + name + "\n" +
-                "{\n" +
-                "\tvoid Start()\n" +
-                "\t{\n" +
-                "\n\t\t" +
-                "\n\t\t" +
-                "\n\t\t\n" +
-                "\t}\n" +
+                "class " + name + "" +
+                "\n{" +
 
-                "\tvoid Update()\n" +
-                "\t{\n" +
+                "\n\tvoid FirstTick()" +
+                "\n\t{" +
                 "\n\t\t" +
                 "\n\t\t" +
-                "\n\t\t\n" +
-                "\t}\n" +
-                "}";
+                "\n\t\t" +
+                "\n\t}" +
+
+                "\n\t" +
+
+                "\n\tvoid OnTick()" +
+                "\n\t{" +
+                "\n\t\t" +
+                "\n\t\t" +
+                "\n\t\t" +
+                "\n\t}" +
+
+                "\n}";
     }
 }

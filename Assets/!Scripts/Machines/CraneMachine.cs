@@ -19,7 +19,6 @@ public class CraneMachine : Machine, IItemContainer
     public async void Rotate(int degrees)
     {
         float timer = 0;
-        degrees *= 90;
         Vector3 startRot = piviot.eulerAngles;
 
         float timeToFinish = Tick.tickLength * .5f;

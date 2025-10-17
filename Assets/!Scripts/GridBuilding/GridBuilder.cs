@@ -1,9 +1,11 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+using System;
+using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using System.Security;
 using Unity.VisualScripting;
-using AYellowpaper.SerializedCollections;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GridBuilder : MonoBehaviour
 {
@@ -55,14 +57,26 @@ public class GridBuilder : MonoBehaviour
     //Places Building
     public void PlaceBuilding(GameObject building, Quaternion rotation)
     {
+        Debug.Log("placed block when object over UI: " + EventSystem.current.IsPointerOverGameObject());
         Vector2 gridPosition = GetGridPosition();
         GameObject newBuilding = Instantiate(building, new Vector3(gridPosition.x,0,gridPosition.y), rotation);
         Building  buildingData = newBuilding.GetComponent<Building>();
-        
+        buildingData.Built();
         foreach (var cell in buildingData.GetBuildingPositions())
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);
             gridObjects.Add(new Vector2Int(cellPosition.x,cellPosition.z), newBuilding);
+        }
+    }
+
+    public void AddBuildingToGrid(Vector3 position, GameObject building)
+    {
+        Building buildingData = building.GetComponent<Building>();
+        buildingData.Built();
+        foreach (var cell in buildingData.GetBuildingPositions())
+        {
+            Vector3Int cellPosition = grid.WorldToCell(cell);
+            gridObjects.Add(new Vector2Int(cellPosition.x, cellPosition.z), building);
         }
     }
 
@@ -86,9 +100,24 @@ public class GridBuilder : MonoBehaviour
         Vector3Int cellPos = grid.WorldToCell(pos);
         if (gridObjects.TryGetValue(new Vector2Int(cellPos.x, cellPos.z), out GameObject building))
         {
-            Debug.Log("[GridBuilder] Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
+            //Debug.Log("[GridBuilder] Looked up: " + new Vector2(cellPos.x, cellPos.z)+" - "+building);
             return building;
         }
         return null;
+    }
+
+    private void OnDestroy()
+    {
+        if(gridObjects == null) return;
+        foreach (var gameObj in gridObjects)
+        {
+            if(gameObj.Value == null) return;
+            Destroy(gameObj.Value);
+        }
+
+        if (instance == this)
+        {
+            instance = null;   
+        }
     }
 }

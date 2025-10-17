@@ -1,8 +1,11 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PainterMachine : Machine
 {
     [SerializeField] public Item item;
+    private UserErrorLogger errorLogger;
     Renderer toColor { get { return item.artRenderer; } }
     public override void Initialize(string initialClassName)
     {
@@ -11,29 +14,39 @@ public class PainterMachine : Machine
         base.Initialize(initialClassName);
     }
 
-
-    public void Paint(string color)
+    private void OnEnable()
     {
-        if(item == null) return;
+        errorLogger = GetComponent<UserErrorLogger>();
+        
+    }
 
-        switch (color)
+    public void Paint(string PrimaryColor)
+    {
+        Debug.Log("Set color to: " + PrimaryColor);
+        if (item == null) return;
+
+        switch (PrimaryColor)
         {
-            case "red":
-                item.Modify(new Modification.Color("ColorVariant", new Color(1, 0, 0)));
-                toColor.material.SetColor("_Color", new Color(1, 0, 0));
+            case "Red":
+                item.definition.Modify(new Modification.Color(new Color(1, 0, 0)));
                 return;
-            case "blue":
-                item.Modify(new Modification.Color("ColorVariant", new Color(0, 0, 1)));
-                toColor.material.SetColor("_Color", new Color(0, 0, 1));
+            case "Blue":
+                item.definition.Modify(new Modification.Color(new Color(0, 0, 1)));
                 return;
-            case "green":
-                item.Modify(new Modification.Color("ColorVariant", new Color(0, 1, 0)));
-                toColor.material.SetColor("_Color", new Color(0, 1, 0));
+            case "Green":
+                item.definition.Modify(new Modification.Color(new Color(0, 1, 0)));
                 return;
             default:
+                errorLogger.DisplayError("Not a valid color!");
                 return;
 
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (item == null) return;
+        Destroy(item);
     }
 
 }

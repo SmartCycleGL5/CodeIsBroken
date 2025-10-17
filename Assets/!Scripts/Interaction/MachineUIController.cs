@@ -17,29 +17,22 @@ public class MachineUIController : MonoBehaviour
     public void ToggleUI(bool toggle)
     {
         uiEnabled = toggle;
-        //uiMenu.SetActive(toggle);
+        uiMenu.SetActive(toggle);
         Debug.Log(uiEnabled);
-        TerminalButton();
+        //TerminalButton();
 
-    }
-
-    private void Update()
-    {
-        if (!uiEnabled) return;
-        uiMenu.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
-                             Camera.main.transform.rotation * Vector3.up);
     }
 
     public void TerminalButton()
     {
 
-
+        
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
             if(!machine.Initialized)
-                ScriptManager.CreateScript(gameObject, "NewClass" + Random.Range(1000, 9999));
+                machine.Initialize("NewClass" + UnityEngine.Random.Range(1000, 9999));
 
-
+            
             machine.OpenTerminalForMachine();
         } else
         {

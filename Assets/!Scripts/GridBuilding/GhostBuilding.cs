@@ -11,6 +11,7 @@ public class GhostBuilding : MonoBehaviour
     [SerializeField] Material negativeMaterial;
 
     private List<Renderer> renderers = new();
+    private List<Material> originalMaterial = new();
     
     [SerializeField] GridBuilder gridBuilder;
     [SerializeField] GameObject ghostPrefab;
@@ -34,20 +35,27 @@ public class GhostBuilding : MonoBehaviour
             Destroy(ghostPrefab);
             isBuilding = false;
         }
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            Debug.Log("Trying to remove building");
+            gridBuilder.RemoveBuilding();
+        }
         if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             RotateBuilding();
         }
+        // Block placement when over UI
+        
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        
+
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
+            if(ghostPrefab == null) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            gridBuilder.RemoveBuilding();
-        }
+
         
         if (isBuilding)
         {
@@ -59,6 +67,7 @@ public class GhostBuilding : MonoBehaviour
     // Updates position of GhostBlock
     void SetGhostPosition()
     {
+        if(ghostPrefab == null) return;
         Vector2 gridPosition = gridBuilder.GetGridPosition();
         ghostPrefab.transform.position = new Vector3(gridPosition.x, 0, gridPosition.y);
 
@@ -72,13 +81,23 @@ public class GhostBuilding : MonoBehaviour
     // Checks if cell is available
     void BuildingCollisions()
     {   
+        if(ghostPrefab == null) return;
         building = ghostPrefab.GetComponent<Building>();
         canPlace = gridBuilder.IsValidPosition(building.GetBuildingPositions());
         foreach(var renderer in renderers)
         {
-            renderer.material = canPlace? positiveMaterial : negativeMaterial;
+            if (canPlace)
+            {
+                renderer.material.color = new Color(0, 0.5f, 0, 1);
+            }
+            else
+            {
+                renderer.material.color = new Color(0.5f, 0, 0, 1);
+            }
         }
     }
+
+
 
     // Used for enable or disable building
     public void SetBuildingStatus(bool buildingStatus)
@@ -91,14 +110,25 @@ public class GhostBuilding : MonoBehaviour
     {
         SetBuildingStatus(true);
         prefabToBuild = newGhost;
-        ghostPrefab = Instantiate(newGhost);
+        DestroyGhost();
+        ghostPrefab = Instantiate(newGhost, new Vector3(0,1,0), Quaternion.identity);
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
+        originalMaterial.AddRange(ghostPrefab.GetComponentInChildren<Renderer>().materials);
+        foreach (var renderer in renderers)
+        {
+            renderer.material.color = new Color(0.5f, 0.5f, 0, 1);
+        }
     }
 
     public void DestroyGhost()
     {
         Destroy(ghostPrefab);
+    }
+
+    private void OnDestroy()
+    {
+        BuildingSelector.OnChangedBuilding -= SwapGhostBlock;
     }
 }

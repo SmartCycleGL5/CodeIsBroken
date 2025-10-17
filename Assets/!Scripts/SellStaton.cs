@@ -6,8 +6,8 @@ using UnityEngine;
 public class SellStaton : MonoBehaviour
 {
     [SerializeField] List<Transform> sellPoints = new();
-    [SerializeField] private TextMeshProUGUI text;
-    private int cubeSold;
+    [SerializeField] private bool isTutorial;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,29 +39,33 @@ public class SellStaton : MonoBehaviour
 
             if(conveyor.RemoveItem(out Item removedItem))
             {
-                //Debug.Log("[SellStation] Sold " +  removedItem);
-                cubeSold++;
-                Destroy(removedItem.gameObject);
+                SellItem(removedItem);
             }
         }
 
-        if (cubeSold < 10)
+    }
+
+    void SellItem(Item toSell)
+    {
+        try
         {
-            text.text = "Try building a conveyor belt going into the selling station and a material tube at the other end. Use GetMaterial in update to start spawning cubes!";
+            if (ContractSystem.ActiveContract.SatisfiesContract(toSell))
+            {
+                ContractSystem.ActiveContract.Progress();
+            }
         }
-        else if (cubeSold > 15)
+        catch
         {
-            text.text = "Try putting a painter in between two conveyors. In the update, use the command Paint(); and chose between red, blue or green";
+            Debug.LogWarning("No Contract");
         }
         
-        else if (cubeSold > 25)
+        //Remove is tutorial
+        if (!isTutorial)
         {
-            text.text = "Create a crane between two conveyors and make it rotate and lift up items";
+            PlayerProgression.GiveXP(1);
         }
-        else if (cubeSold > 40)
-        {
-            text.text = "Create two lines going into the seller and make them two different colors";
-        }
+        
 
+        Destroy(toSell.gameObject);
     }
 }

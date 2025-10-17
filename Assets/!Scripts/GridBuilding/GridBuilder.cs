@@ -1,3 +1,4 @@
+using System;
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using System.Security;
@@ -68,6 +69,17 @@ public class GridBuilder : MonoBehaviour
         }
     }
 
+    public void AddBuildingToGrid(Vector3 position, GameObject building)
+    {
+        Building buildingData = building.GetComponent<Building>();
+        buildingData.Built();
+        foreach (var cell in buildingData.GetBuildingPositions())
+        {
+            Vector3Int cellPosition = grid.WorldToCell(cell);
+            gridObjects.Add(new Vector2Int(cellPosition.x, cellPosition.z), building);
+        }
+    }
+
     public void RemoveBuilding()
     {
         Vector2 cellCenter = GetGridPosition();
@@ -92,5 +104,20 @@ public class GridBuilder : MonoBehaviour
             return building;
         }
         return null;
+    }
+
+    private void OnDestroy()
+    {
+        if(gridObjects == null) return;
+        foreach (var gameObj in gridObjects)
+        {
+            if(gameObj.Value == null) return;
+            Destroy(gameObj.Value);
+        }
+
+        if (instance == this)
+        {
+            instance = null;   
+        }
     }
 }

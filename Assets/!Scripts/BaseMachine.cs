@@ -62,7 +62,7 @@ public abstract class BaseMachine : MonoBehaviour
         Initialized = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);
@@ -77,20 +77,20 @@ public abstract class BaseMachine : MonoBehaviour
         {
             try
             {
-                start = Class.Value.GetMethod("Start");
+                start = Class.Value.GetMethod("FirstTick");
             }
             catch
             {
-                Debug.LogWarning("Start not found");
+                Debug.LogWarning("FistTick not found");
             }
 
             try
             {
-                update = Class.Value.GetMethod("Update");
+                update = Class.Value.GetMethod("OnTick");
             }
             catch (Exception e)
             {
-                Debug.LogWarning("Update not found " + e);
+                Debug.LogWarning("OnTick not found " + e);
                 return;
             }
         }
@@ -143,6 +143,7 @@ public abstract class BaseMachine : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine()
     {
+        if (connectedTerminal != null) return;
         Debug.Log("[BaseMachine] Open Terminal for " + this);
         connectedTerminal = Terminal.NewTerminal(this);
     }

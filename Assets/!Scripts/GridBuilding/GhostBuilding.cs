@@ -46,13 +46,13 @@ public class GhostBuilding : MonoBehaviour
             RotateBuilding();
         }
         // Block placement when over UI
-        Debug.Log(EventSystem.current.IsPointerOverGameObject());
-
+        
         if (EventSystem.current.IsPointerOverGameObject()) return;
         
 
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
+            if(ghostPrefab == null) return;
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
 
@@ -67,6 +67,7 @@ public class GhostBuilding : MonoBehaviour
     // Updates position of GhostBlock
     void SetGhostPosition()
     {
+        if(ghostPrefab == null) return;
         Vector2 gridPosition = gridBuilder.GetGridPosition();
         ghostPrefab.transform.position = new Vector3(gridPosition.x, 0, gridPosition.y);
 
@@ -80,6 +81,7 @@ public class GhostBuilding : MonoBehaviour
     // Checks if cell is available
     void BuildingCollisions()
     {   
+        if(ghostPrefab == null) return;
         building = ghostPrefab.GetComponent<Building>();
         canPlace = gridBuilder.IsValidPosition(building.GetBuildingPositions());
         foreach(var renderer in renderers)
@@ -109,15 +111,24 @@ public class GhostBuilding : MonoBehaviour
         SetBuildingStatus(true);
         prefabToBuild = newGhost;
         DestroyGhost();
-        ghostPrefab = Instantiate(newGhost, new Vector3(0,-10,0), Quaternion.identity);
+        ghostPrefab = Instantiate(newGhost, new Vector3(0,1,0), Quaternion.identity);
         building = ghostPrefab.GetComponent<Building>();
         renderers.Clear();
         renderers.AddRange(ghostPrefab.GetComponentsInChildren<Renderer>());
         originalMaterial.AddRange(ghostPrefab.GetComponentInChildren<Renderer>().materials);
+        foreach (var renderer in renderers)
+        {
+            renderer.material.color = new Color(0.5f, 0.5f, 0, 1);
+        }
     }
 
     public void DestroyGhost()
     {
         Destroy(ghostPrefab);
+    }
+
+    private void OnDestroy()
+    {
+        BuildingSelector.OnChangedBuilding -= SwapGhostBlock;
     }
 }

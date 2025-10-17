@@ -1,46 +1,123 @@
+using System;
 using NUnit.Framework.Constraints;
 using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
-public class Assembler : MonoBehaviour, IItemContainer
+public class Assembler : Machine, IItemContainer
 {
     [SerializeField] int assemblerSize;
     [SerializeField] List<Item> items;
     [SerializeField] List<CraftingRecipie> craftingRecipies;
-
+    private UserErrorLogger errorLogger;
+    
+    Tweener moveTween;
     public Item item { get; set; }
 
-    public void Clear()
+    protected override void Start()
     {
-        items.Clear();
-    }
-    private void Update()
-    {
-
+        base.Start();
+        Tick.OnTick += TakeItem;
+        errorLogger = GetComponent<UserErrorLogger>();
     }
 
+    public override void Initialize(string initialClassName)
+    {
+        AddMethodsAsIntegrated(typeof(Assembler));
 
+        base.Initialize(initialClassName);
+    }
+
+    public override void Reset()
+    {
+        ClearMachine();
+    }
 
     public void Craft()
     {
+        if(items.Count <= 0) return;
+        // Materials of items currently held by conveyor
 
+        List<Materials> materials = new();
+        materials.AddRange(items.Select(i => i.definition.materials));
+        
+        //Loops over all recipes
+        foreach (var recipe in craftingRecipies)
+        {
+            // Sort lists to compare them:
+            materials = materials.OrderBy(x => x).ToList();
+            recipe.materials = recipe.materials.OrderBy(x => x).ToList();
+            
+            if (materials.SequenceEqual(recipe.materials))
+            {
+                ClearMachine();
+                Debug.Log("Valid recipe");
+                
+                // output item to next conveyor
+                GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+                if(cell == null) return;
+                if (cell.TryGetComponent(out Conveyor conveyor))
+                {
+                    Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
+                    item.definition.Modify(new Modification.Assemble(recipe.name));
+
+                    conveyor.SetItem(item);
+                    RemoveItem();
+                }
+            }
+            else
+            {
+                if (materials.Count == assemblerSize)
+                {
+                    errorLogger.DisplayWarning("Materials does not match any recipe's");
+                }
+            }
+        }
     }
 
+    [DontIntegrate]
+    private void TakeItem()
+    {
+        Debug.Log("TakeItem");
+        if(items.Count >= assemblerSize) return;
+        GameObject cell = GridBuilder.instance.LookUpCell(transform.position - transform.forward);
+        if (cell == null) return;
+        if (cell.TryGetComponent(out Conveyor conveyor))
+        {
+            item = conveyor.item;
+            if(item == null) return;
+            item.transform.position = transform.position;
+            items.Add(item);
+            conveyor.RemoveItem();
+        }
+    }
+
+    public void ClearMachine()
+    {
+        items.Clear();
+    }
+
+    [DontIntegrate]
     public bool RemoveItem(out Item removedItem)
     {
         removedItem = null;
         if (item == null) return false;
         removedItem = item;
         item = null;
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
 
         return true;
     }
-
+    [DontIntegrate]
     public bool SetItem(Item item)
     {
         if (this.item != null) return false;
         this.item = item;
-        this.item.transform.position = transform.position;
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]
@@ -49,8 +126,9 @@ public class Assembler : MonoBehaviour, IItemContainer
         return RemoveItem(out Item item);
     }
 
-    private void OnDestroy()
+    [DontIntegrate]
+    protected override void OnDestroy()
     {
-        
+        Tick.OnTick -= TakeItem;
     }
 }

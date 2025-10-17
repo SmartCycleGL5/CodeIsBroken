@@ -1,10 +1,15 @@
+using DG.Tweening;
 using UnityEngine;
 
+[DefaultExecutionOrder(10)]
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
+    
     [SerializeField] Transform input;
     [SerializeField] Transform output;
     [SerializeField] PainterMachine PainterMachine;
+    
+    Tweener moveTween;
     public Item item { get; set; }
 
 
@@ -15,7 +20,6 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 
     private void TakeItem()
     {
-        Debug.Log("TakeItem");
         // Output item
         GameObject outputCell = GridBuilder.instance.LookUpCell(transform.position+transform.forward);
         if(outputCell == null) return;
@@ -29,6 +33,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         //Take in item
         if (item != null) return;
         GameObject inputCell = GridBuilder.instance.LookUpCell(transform.position - transform.forward);
+        if(inputCell == null) return;
         if(inputCell.TryGetComponent(out Conveyor conveyorIn))
         {
             if(conveyorIn.item == null) return;
@@ -45,7 +50,10 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         if (item == null) return false;
         removedItem = item;
         item = null;
-
+        if (moveTween != null)
+        {
+            moveTween.Kill();
+        }
         return true;
     }
 
@@ -53,7 +61,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     {
         if (this.item != null) return false;
         this.item = item;
-        this.item.transform.position = transform.position;
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
         return true;
     }
     [DontIntegrate]

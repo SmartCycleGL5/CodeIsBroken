@@ -1,40 +1,95 @@
 using System;
+using System.Collections.Generic;
+using System.Drawing.Imaging;
+using UnityEngine;
 
-[Serializable]
 public class Modification
 {
-    public string name;
+    public string Name {  get; private set; }
+    public string Description {  get; private set; }
 
-    public Modification(string name)
+    public Modification(string Name, string Description)
     {
-        this.name = name;
+        this.Name = Name;
+        this.Description = Description;
     }
 
-    public class Heated : Modification
+    public static Modification RandomModification()
     {
-        public int temperature;
+        int rng = UnityEngine.Random.Range(0, 3);
 
-        public Heated(string name, int temperature) : base(name)
+        switch (rng)
         {
-            this.temperature = temperature;
+            case 0:
+                {
+                    return new Color(new UnityEngine.Color(1, 0, 0));
+                }
+            case 1:
+                {
+                    return new Color(new UnityEngine.Color(0, 1, 0));
+                }
+            case 2:
+                {
+                    return new Color(new UnityEngine.Color(0, 0, 1));
+                }
         }
+
+        return null;
     }
 
-    public class Addition : Modification
+    public virtual void Apply(Item item)
     {
-        public BaseMaterial.Materials materials;
-        public Addition(string name, BaseMaterial.Materials materials) : base(name)
+
+    }
+    public virtual bool Compare(Modification toCompareWith)
+    {
+        bool sameName = Name == toCompareWith.Name;
+        bool sameDescription = Description == toCompareWith.Description;
+
+        return sameName && sameDescription;
+    }
+    public class Assemble : Modification
+    {
+        public Assemble(string Name) : base("Assembler: Craft", Name)
         {
-            this.materials = materials;
+        }
+
+        public override void Apply(Item item)
+        {
+            //its okay this doesnt need to do anything :)
         }
     }
 
     public class Color : Modification
-    { 
+    {
+        static readonly Dictionary<UnityEngine.Color, string> colorMap = new Dictionary<UnityEngine.Color, string>()
+        {
+            {UnityEngine.Color.red, "Red"},
+            {UnityEngine.Color.blue, "Blue"},
+            {UnityEngine.Color.green, "Green"},
+        };
+
         public UnityEngine.Color color;
-        public Color(string name, UnityEngine.Color color) : base(name)
+
+        public Color(UnityEngine.Color color) : base("Painter: Color", colorMap[color])
         {
             this.color = color;
+        }
+
+        public override void Apply(Item item)
+        {
+            if(!item.changedColor)
+            {
+                item.artRenderer.material.SetColor("_Color", new UnityEngine.Color(0, 0, 0, 1));
+                item.changedColor = true;
+            }
+
+            item.artRenderer.material.SetColor("_Color", item.artRenderer.material.GetColor("_Color") + color);
+        }
+
+        public override bool Compare(Modification toCompareWith)
+        {
+            return ((Color)toCompareWith).color == color;
         }
     }
 }

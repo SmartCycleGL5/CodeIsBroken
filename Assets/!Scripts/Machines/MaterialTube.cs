@@ -1,12 +1,14 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class MaterialTube : Machine
 {
     [SerializeField] Transform spawnLocation;
-    [SerializeField] Item materialToSpawn;
+    Item materialToSpawn;
     int spawnRate;
     int tickCount;
+    UserErrorLogger errorLogger;
 
     public override void Initialize(string initialClassName)
     {
@@ -14,8 +16,21 @@ public class MaterialTube : Machine
 
         base.Initialize(initialClassName);
     }
+
+    public override void Reset()
+    {
+        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+        spawnRate = 0;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+    }
     private void OnEnable()
     {
+        errorLogger = GetComponent<UserErrorLogger>();
         Tick.OnTick += GetMaterial;
     }
 
@@ -24,6 +39,10 @@ public class MaterialTube : Machine
     {
         this.spawnRate = delay;
 
+    }
+    public void ChangeMaterial(string material)
+    {
+        materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
     }
     
     // Not player controlled
@@ -42,6 +61,7 @@ public class MaterialTube : Machine
         if (cell == null)
         {
             Debug.Log("[MaterialTube] Nothing in adjacent cell");
+            errorLogger.DisplayWarning("No conveyor found!");
             return;
         }
 
@@ -52,7 +72,7 @@ public class MaterialTube : Machine
         }
         if(conveyor.item != null)return;
         Debug.Log("[MaterialTube] got material");
-        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position, conveyor.transform.rotation).GetComponent<Item>();
+        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
         conveyor.SetItem(instObj);
     }
 

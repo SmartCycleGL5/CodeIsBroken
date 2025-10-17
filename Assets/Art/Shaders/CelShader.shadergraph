@@ -116,9 +116,6 @@
         },
         {
             "m_Id": "28c2b46528304c84ba6805cdebcd8005"
-        },
-        {
-            "m_Id": "3ea0356292b3483bb8aaf2a5570d91ba"
         }
     ],
     "m_GroupDatas": [],
@@ -668,9 +665,6 @@
         "m_Blocks": [
             {
                 "m_Id": "539987fcc4b1455fa3bdcc246c8a81ee"
-            },
-            {
-                "m_Id": "3ea0356292b3483bb8aaf2a5570d91ba"
             }
         ]
     },
@@ -1279,21 +1273,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "31bfabd55a9c4e5a918ac9845ec7789c",
-    "m_Id": 0,
-    "m_DisplayName": "Alpha",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Alpha",
-    "m_StageCapability": 2,
-    "m_Value": 1.0,
-    "m_DefaultValue": 1.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "31ebae010528480fba658518c06248c7",
     "m_Group": {
@@ -1555,7 +1534,7 @@
         "m_Id": "601d879161de450c8e01897d347d4752"
     },
     "m_AllowMaterialOverride": false,
-    "m_SurfaceType": 1,
+    "m_SurfaceType": 0,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 3,
@@ -1632,40 +1611,6 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "3ea0356292b3483bb8aaf2a5570d91ba",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.Alpha",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "31bfabd55a9c4e5a918ac9845ec7789c"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
 }
 
 {

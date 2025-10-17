@@ -130,7 +130,7 @@ namespace Coding
 
             try
             {
-                machineToEdit.machineCode.UpdateCode(input.text);
+                machineToEdit.machineCode.Compile(input.text);
                 window.Rename(machineToEdit.machineCode.name);
                 return true;
             }

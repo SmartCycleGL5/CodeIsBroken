@@ -1,12 +1,22 @@
+using AYellowpaper.SerializedCollections;
 using Coding;
 using NaughtyAttributes;
+using SharpCube;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class MachineCode
 {
     public string name;
+
+    [Header("Code")]
     [ResizableTextArea] public string Code;
+
+    [SerializedDictionary("Name", "Class")]
+    public SerializedDictionary<string, Class> Classes = new();
+
     BaseMachine machine;
 
     public MachineCode(string name, BaseMachine machine)
@@ -16,14 +26,14 @@ public class MachineCode
         CreateScript(name);
         Interporate.Classes(Code, machine);
     }
-    public void UpdateCode(string code)
+    public void Compile(string code)
     {
         Code = code;
         machine.ClearMemory();
 
-        Interporate.Classes(Code, machine);
+        Compiler.Compile(this);
 
-        foreach (var item in machine.Classes)
+        foreach (var item in Classes)
         {
             name = item.Value.name;
             break;

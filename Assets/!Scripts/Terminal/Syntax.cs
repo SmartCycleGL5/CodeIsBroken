@@ -36,7 +36,7 @@ namespace Coding.SharpCube
             { key.String, new Keyword.Variable("string", Color.blue, VariableType.String) },
             { key.Bool, new Keyword.Variable("bool", Color.blue, VariableType.Bool) },
 
-            { key.If, new Keyword.Encapsulation("if", Color.blue, Interporate.If) },
+            { key.If, new Keyword.Encapsulation("if", Color.blue /*,Interporate.If*/) },
             { key.Else, new Keyword.Encapsulation("else", Color.blue) },
 
             { key.Return, new Keyword("return", Color.pink) },

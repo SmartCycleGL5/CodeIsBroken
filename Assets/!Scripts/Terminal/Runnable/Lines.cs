@@ -34,7 +34,7 @@ namespace Coding.SharpCube.Lines
         {
             if (toadd == this) return;
 
-            actions.Add(toadd);
+            //actions.Add(toadd);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Coding.SharpCube
             this.inheritedClass = inheritedClass;
             this.machine = machine;
 
-            machine.Classes.Add(name, this);
+            //machine.machineCode.Classes.Add(name, this);
 
             Debug.Log("[Class] New Class: " + name);
 

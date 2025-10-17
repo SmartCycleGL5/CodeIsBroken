@@ -6,12 +6,10 @@ using System.Text.RegularExpressions;
 namespace Coding
 {
     using Coding.SharpCube.Actions;
-    using Coding.SharpCube.Encapsulations;
     using Coding.SharpCube.Lines;
     using SharpCube;
     using UnityEngine;
     using static SharpCube.Syntax;
-    using static Utility;
 
 
     [Serializable]
@@ -67,11 +65,11 @@ namespace Coding
                         value = sections[setPos + 1];
 
 
-                    Variable.NewVariable(
-                        type: ((Keyword.Variable)keywords[(key)key]).type, 
-                        name: sections[index + 1], 
-                        container: @class,
-                        value: value);
+                    //Variable.NewVariable(
+                    //    type: keywords[(key)key]. type,
+                    //    name: sections[index + 1],
+                    //    container: @class,
+                    //    value: value);
                     break;
                 }
             }
@@ -98,20 +96,20 @@ namespace Coding
 
                     string name = sections[index + 1].Substring(0, sections[index + 1].IndexOf('('));
 
-                    new UserMethod(
-                    name: name,
-                    parameters: null,
-                    methodCode: methodScript.ToArray(),
-                    container: @class,
-                    returnType: ((Keyword.Variable)keywords[(key)key]).type
-                    );
+                    //new UserMethod(
+                    //name: name,
+                    //parameters: null,
+                    //methodCode: methodScript.ToArray(),
+                    //container: @class,
+                    //returnType: keywords[(key)key].type
+                    //);
 
                     line += end - line;
                     break;
                 }
             }
         }
-        public static void Line(string line, UserMethod method)
+        public static IRunnable Line(string line, UserMethod method)
         {
             List<string> sections = SplitLineIntoSections(line);
 
@@ -121,46 +119,97 @@ namespace Coding
             {
                 string section = sections[i];
 
-                if(section.Contains("("))
+                foreach (var item in keywords)
                 {
-                    List<char> seperators = new() { '(', ')', ',' };
+                    if (section.Contains(item.Value.word))
+                    {
+                    }
+                }
+
+                if (section.Contains("("))
+                {
+                    List<char> seperators = new() { '(', ')' };
                     List<string> parameters = section.Split(seperators.ToArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
                     string name = parameters[0];
                     parameters.RemoveAt(0);
 
-                    bool isKey = false;
-
-                    foreach (var key in keywords)
-                    {
-                        if (name != key.Value.word) continue;
-
-                        if(key.Value is Keyword.Encapsulation)
-                        {
-                            ((Keyword.Encapsulation)key.Value).Interporate(parameters.ToArray());
-                        }
-
-                        isKey = true;
-                    }
-
-                    if(isKey) continue;
-
                     newLine.AddAction(new MethodCall(name, method, parameters.ToArray()));
-                } 
+                }
+
+            }
+
+            return newLine;
+        }
+
+        static bool LineIsType(key key, List<string> sections, out int index)
+        {
+            index = Array.IndexOf(sections.ToArray(), keywords[key].word);
+            return index >= 0;
+        }
+
+        public static List<string> SplitLineIntoSections(string line)
+        {
+            List<string> sections = line.Split(" ").ToList();
+            Utility.FindAndRetain(ref sections, '"', '"');
+            Utility.FindAndRetain(ref sections, '(', ')');
+
+            return sections;
+        }
+
+        static List<string> ExtractLines(string raw)
+        {
+            //removes enter
+            string modified = raw.Replace("\n", "");
+            //removes tab
+            modified = modified.Replace("\t", "");
+            //splits it into a string array while keeping ; { and }
+            List<string> list = Regex.Split(modified, "(;|{|})").ToList();
+            //removes ;
+            list.RemoveAll(item => item == ";");
+
+            return list;
+        }
+
+        public static object Type(string value)
+        {
+            object result = value;
+            try
+            {
+                if (value.Contains('f'))
+                {
+                    result = float.Parse(value.Replace("f", ""));
+                }
                 else
                 {
-
+                    result = int.Parse(value);
                 }
-                    
             }
+            catch
+            {
+
+            }
+
+
+            return new object();
         }
 
-        public static void If(object[] parameters)
+        public static object[] TranslateArguments(string args)
         {
-            if (parameters.Length > 1) return;
+            if (args == null || args == string.Empty) return null;
 
-            //If statement = new If();
+            Debug.Log("[ArgumentTranslation] " + args);
+
+            string[] stringArgsList = Regex.Split(args, ",");
+
+            List<object> argsList = new List<object>();
+
+            foreach (var item in stringArgsList)
+            {
+                argsList.Add(Interporate.Type(item));
+            }
+
+            return argsList.ToArray();
         }
-
     }
 }

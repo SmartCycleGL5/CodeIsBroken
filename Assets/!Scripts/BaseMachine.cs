@@ -10,17 +10,14 @@ using UnityEngine;
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public abstract class BaseMachine : MonoBehaviour
 {
-    public MachineCode machineCode;
+    public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
-    [SerializedDictionary("Name", "Class")]
-    public SerializedDictionary<string, Class> Classes = new();
+    public MachineCode machineCode;
 
     public bool isRunning { get; private set; } = false;
 
     Vector3 initialPos;
     Vector3 initialRot;
-
-    public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
     Method start;
     Method update;
@@ -73,27 +70,27 @@ public abstract class BaseMachine : MonoBehaviour
     }
     void FindStartAndUpdate()
     {
-        foreach (var Class in Classes)
-        {
-            try
-            {
-                start = Class.Value.GetMethod("FirstTick");
-            }
-            catch
-            {
-                Debug.LogWarning("FistTick not found");
-            }
+        //foreach (var Class in machineCode.Classes)
+        //{
+        //    try
+        //    {
+        //        start = Class.Value.GetMethod("FirstTick");
+        //    }
+        //    catch
+        //    {
+        //        Debug.LogWarning("FistTick not found");
+        //    }
 
-            try
-            {
-                update = Class.Value.GetMethod("OnTick");
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning("OnTick not found " + e);
-                return;
-            }
-        }
+        //    try
+        //    {
+        //        update = Class.Value.GetMethod("OnTick");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Debug.LogWarning("OnTick not found " + e);
+        //        return;
+        //    }
+        //}
     }
     public void RunStart()
     {
@@ -130,7 +127,7 @@ public abstract class BaseMachine : MonoBehaviour
 
     public void ClearMemory()
     {
-        Classes.Clear();
+        machineCode.Classes.Clear();
     }
 
 

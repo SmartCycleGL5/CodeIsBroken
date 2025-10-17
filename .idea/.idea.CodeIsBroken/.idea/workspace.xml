@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/CraneMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/CraneMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/MenuController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MoveTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MoveTest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ArtScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ArtScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -148,7 +154,7 @@
       <workItem from="1759918010232" duration="830000" />
       <workItem from="1760083210286" duration="2646000" />
       <workItem from="1760277609375" duration="977000" />
-      <workItem from="1760687344629" duration="13078000" />
+      <workItem from="1760687344629" duration="14303000" />
     </task>
     <servers />
   </component>

@@ -36,6 +36,7 @@ public class Assembler : Machine, IItemContainer
 
     public void Craft()
     {
+        Metrics.instance.UseElectricity(1);
         if(items.Count <= 0) return;
         // Materials of items currently held by conveyor
 

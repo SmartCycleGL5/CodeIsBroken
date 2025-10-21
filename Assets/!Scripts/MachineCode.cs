@@ -3,6 +3,7 @@ using SharpCube;
 using SharpCube.keyword;
 using System;
 using UnityEngine;
+using Class = SharpCube.keyword.Class;
 
 [Serializable]
 public class MachineCode
@@ -12,7 +13,7 @@ public class MachineCode
     [Header("Code")]
     [ResizableTextArea] public string Code;
 
-    public Memory<@class> classes;
+    public Memory<Class> classes;
 
     BaseMachine machine;
 

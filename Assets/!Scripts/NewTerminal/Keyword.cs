@@ -5,6 +5,7 @@ public struct Keyword
 {
     public string name;
     public Color color;
+    //public 
 
     public Keyword(string name, Color color)
     {

@@ -24,7 +24,7 @@ public abstract class BaseMachine : MonoBehaviour
 
     public bool Initialized { get; private set; } = false;
 
-    public Terminal connectedTerminal;
+    [HideInInspector] public Terminal connectedTerminal;
 
     [Button]
     void Initialize()
@@ -127,7 +127,7 @@ public abstract class BaseMachine : MonoBehaviour
 
     public void ClearMemory()
     {
-        machineCode.Classes.Clear();
+        machineCode.classes.Clear();
     }
 
 

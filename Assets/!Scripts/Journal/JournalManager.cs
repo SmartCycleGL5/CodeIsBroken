@@ -15,24 +15,27 @@ namespace Journal
         [SerializeField] string economyTabName = "Economy";
         private EventCallback<MouseUpEvent> tHintEvent;
         public UIDocument journalDoc;
+        public StyleSheet styleSheet;
+        private VisualElement windowElement;
+        private Label codeT;
+        private Label explainT;
         void Awake()
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
-
+            
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
             HintEntries = Resources.LoadAll<JournalEntrySO>("Journal/Hints");
             economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
-
         }
         void OnEnable()
         {
             AddEntry(machineEntries, machineTabName);
             AddHintEntry(HintEntries, hintsTabName);
-            AddEntry(economyEntries, economyTabName);
+            AddEntry(economyEntries, economyTabName );
         }
         void AddEntry(JournalEntrySO[] entries, string nameD)
         {
@@ -79,14 +82,12 @@ namespace Journal
 
         private void Hint(Label hintText, Tab tab, JournalEntrySO entry)
         {
-            var explainT = tab.Q<Label>("Explanation");
-            var codeT = tab.Q<Label>("Code");
-            var windowE = tab.Q<VisualElement>("Window");
-            explainT.text = string.Empty;
-            codeT.text = string.Empty;
+            var scrollView = tab.Q<ScrollView>("ScrollExpla");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
+            if(scrollView.childCount >0)
+            {scrollView.Clear();}
             UnRegisterUICallback(hintText, tHintEvent);
             tHintEvent = null;
-            windowE.style.visibility = Visibility.Hidden;
             if (!entry.bHintTaken && tHintEvent == null)
             {
                 EventCallback<MouseUpEvent> tCallBack = (evt) => ChangeEntry(tab, entry, hintText);
@@ -111,12 +112,29 @@ namespace Journal
         private void ChangeEntry(Tab tab, JournalEntrySO entry)
         {
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
-            var explainT = tab.Q<Label>("Explanation");
-            var codeT = tab.Q<Label>("Code");
-            var windowE = tab.Q<VisualElement>("Window");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
-            explainT.text = entry.explanation;
-            TurnCodeVisualsOnOff(entry, codeT, windowE);
+            if(scrollView.childCount >0)
+            {scrollView.Clear();}
+            foreach(var a in entry.jText)
+            {
+                if (a.Key == JournalStyle.explanation)
+                {
+                    explainT = new();
+                    explainT.AddToClassList("explanation_text");
+                    explainT.text = a.Value.text;
+                    scrollView.Add(explainT);
+                }
+                else
+                {  
+                    windowElement = new();
+                    codeT = new();
+                    windowElement.AddToClassList("Window");
+                    codeT.AddToClassList("code_text");
+                    codeT.text = a.Value.text;
+                    scrollView.Add(windowElement);
+                    windowElement.Add(codeT);
+                }
+            }
 
         }
         private void ChangeEntry(Tab tab, JournalEntrySO entry, Label hintText)
@@ -128,18 +146,18 @@ namespace Journal
             tHintEvent = null;
 
         }
-        void TurnCodeVisualsOnOff(JournalEntrySO entry, Label codeT, VisualElement windowE)
-        {
-            if (entry.codeShowcase != string.Empty)
-            {
-                windowE.style.visibility = Visibility.Visible;
-                codeT.text = entry.codeShowcase;
-            }
-            else
-            {
-                windowE.style.visibility = Visibility.Hidden;
-            }
-        }
+        // void TurnCodeVisualsOnOff(JournalEntrySO entry, Label codeT, VisualElement windowE)
+        // {
+        //     if (entry.codeShowcase != string.Empty)
+        //     {
+        //         windowE.style.visibility = Visibility.Visible;
+        //         codeT.text = entry.codeShowcase;
+        //     }
+        //     else
+        //     {
+        //         windowE.style.visibility = Visibility.Hidden;
+        //     }
+        // }
         public void JournalOnOff()
         {
             if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)
@@ -160,14 +178,10 @@ namespace Journal
         }
         private void TabChange(Tab tab1, Tab tab2)
         {
-            var explainT = tab1.Q<Label>("Explanation");
-            var codeT = tab1.Q<Label>("Code");
-            var hintText = tab1.Q<Label>("HintText");
-            var windowE = tab1.Q<VisualElement>("Window");
-            if (explainT != null) explainT.text = string.Empty;
-            if (codeT != null) codeT.text = string.Empty;
-            if (hintText != null) hintText.visible = false;
-            if (windowE != null) windowE.visible = false;
+             var scrollView = tab1.Q<ScrollView>("ScrollExpla");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
+            if(scrollView?.childCount >0)
+            {scrollView?.Clear();}
         }
     }
 }

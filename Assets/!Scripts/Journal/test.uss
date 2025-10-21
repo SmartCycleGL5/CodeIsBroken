@@ -19,3 +19,41 @@
     white-space: pre-wrap;
     background-color: rgba(255, 232, 232, 0);
 }
+
+.Window {
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+.code_text {
+    align-items: stretch;
+    white-space: normal;
+    flex-wrap: wrap;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-left;
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    padding-top: 4px;
+    padding-right: 2px;
+    padding-bottom: 4px;
+    padding-left: 1px;
+}
+
+.explanation_text {
+    flex-wrap: wrap;
+    white-space: normal;
+    -unity-text-align: upper-left;
+}

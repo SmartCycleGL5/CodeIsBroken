@@ -27,3 +27,14 @@ MonoBehaviour:
     You can also make new colors by using paint multiple times.'
   codeShowcase: "void OnTick()\n{\n\tPaint(Red);\n}"
   bHintTaken: 0
+  jText:
+    _serializedList:
+    - Key: 0
+      Value:
+        text: rf
+    - Key: 1
+      Value:
+        text: fr
+    - Key: 1
+      Value:
+        text: fertg

@@ -17,3 +17,11 @@ MonoBehaviour:
   explanation: FIVE
   codeShowcase: SEVEN
   bHintTaken: 1
+  jText:
+    _serializedList:
+    - Key: 0
+      Value:
+        text: tg
+    - Key: 1
+      Value:
+        text: 4

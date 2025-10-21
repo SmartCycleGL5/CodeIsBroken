@@ -20,3 +20,11 @@ MonoBehaviour:
     to Grab and Release items.'
   codeShowcase: "void OnTick()\n{\n\tGrabLoseItem();\n\tRotate(180);\n}"
   bHintTaken: 0
+  jText:
+    _serializedList:
+    - Key: 0
+      Value:
+        text: frfrfrf
+    - Key: 1
+      Value:
+        text: frfrr

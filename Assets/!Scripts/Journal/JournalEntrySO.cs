@@ -1,4 +1,7 @@
 
+using System;
+using AYellowpaper.SerializedCollections;
+using NaughtyAttributes;
 using UnityEngine;
 namespace Journal
 {
@@ -6,14 +9,29 @@ namespace Journal
     [CreateAssetMenu(fileName = "JournalEntrySO", menuName = "Scriptable Objects/JournalEntrySO")]
     public class JournalEntrySO : ScriptableObject
     {
-        [NaughtyAttributes.ResizableTextArea]
+        [ResizableTextArea]
         public string title;
-        [NaughtyAttributes.ShowAssetPreview]
+        [ShowAssetPreview]
         public Texture2D showcaseI;
-        [NaughtyAttributes.ResizableTextArea]
+        [ResizableTextArea]
         public string explanation;
-        [NaughtyAttributes.ResizableTextArea]
+
+        [ResizableTextArea]
         public string codeShowcase;
         public bool bHintTaken;
-}
+        [SerializedDictionary("Style", "Text")]
+        public SerializedDictionary<JournalStyle,JournalText> jText;
+
+    }
+    public enum JournalStyle
+    {
+        explanation,
+        code
+    }
+    [Serializable]
+    public struct JournalText
+    {
+        [ResizableTextArea]
+        public string text;
+    }
 }

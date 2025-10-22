@@ -9,6 +9,7 @@ public class CraneMachine : Machine, IItemContainer
 
     [DontIntegrate] public Item item { get; set; }
 
+
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(CraneMachine));

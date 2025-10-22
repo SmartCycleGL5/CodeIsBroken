@@ -15,6 +15,7 @@ public class Assembler : Machine, IItemContainer
     Tweener moveTween;
     public Item item { get; set; }
 
+
     protected override void Start()
     {
         base.Start();

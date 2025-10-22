@@ -1,9 +1,8 @@
 using NaughtyAttributes;
 using SharpCube;
-using SharpCube.keyword;
+using SharpCube.Object;
 using System;
 using UnityEngine;
-using Class = SharpCube.keyword.Class;
 
 [Serializable]
 public class MachineCode
@@ -28,7 +27,7 @@ public class MachineCode
         Code = code;
         machine.ClearMemory();
 
-        Compiler.Compile(this);
+        Compiler.Interporate(this);
 
         foreach (var item in classes.@private)
         {

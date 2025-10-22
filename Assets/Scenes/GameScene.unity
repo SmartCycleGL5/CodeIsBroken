@@ -218,8 +218,11 @@ MonoBehaviour:
   machineCode:
     name: 
     Code: 
-  Classes:
-    _serializedList: []
+    classes:
+      public:
+        _serializedList: []
+      private:
+        _serializedList: []
   connectedTerminal: {fileID: 0}
   assemblerSize: 0
   items: []

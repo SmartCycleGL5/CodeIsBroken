@@ -1,6 +1,5 @@
 using AYellowpaper.SerializedCollections;
 using System;
-using UnityEngine;
 
 public enum Privilege
 {
@@ -11,7 +10,7 @@ public enum Privilege
 [Serializable]
 public class Memory<T>
 {
-    [SerializedDictionary("Name", "Value" )]
+    [SerializedDictionary("Name", "Value")]
     public SerializedDictionary<string, T> @public = new();
 
     [SerializedDictionary("Name", "Value")]
@@ -26,6 +25,23 @@ public class Memory<T>
         else if (privilege >= Privilege.Public && @public.ContainsKey(name)) return @public[name];
 
         return default(T);
+    }
+
+    public void Add(string name, T toAdd, Privilege privilege)
+    {
+        switch (privilege)
+        {
+            case Privilege.Private:
+                {
+                    @private.Add(name, toAdd);
+                    break;
+                }
+            case Privilege.Public:
+                {
+                    @public.Add(name, toAdd);
+                    break;
+                }
+        }
     }
 
     public void Clear()

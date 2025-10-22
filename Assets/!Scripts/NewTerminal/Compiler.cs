@@ -1,64 +1,71 @@
-using System;
+using SharpCube.Object;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using SharpCube.keyword;
 using UnityEngine;
 
 namespace SharpCube
 {
     public static partial class Compiler
     {
-        public readonly static Dictionary<string, Keyword> Objects = new()
+        public readonly static Dictionary<string, IKeyword> Keywords = new()
         {
-            { "class", new Keyword("class", Color.blue) },
-            { "struct", new Keyword("struct", Color.blue) },
-        };
-        public readonly static Dictionary<string, Keyword> Types = new()
-        {
-            { "void", new Keyword("void", Color.blue) },
-            { "int", new Keyword("int", Color.blue) },
-            { "float", new Keyword("float", Color.blue) },
-            { "string", new Keyword("string", Color.blue) },
-            { "bool", new Keyword("bool", Color.blue) },
-        };
-        public readonly static Dictionary<string, Keyword> SelectionStatements = new()
-        {
-            { "if", new Keyword("if", Color.blue) },
-            { "else", new Keyword("else", Color.blue) },
+            { "class", new Encapsulation(Keyword.Class, Color.blue, Class.Create) },
+            { "struct", new Encapsulation(Keyword.Struct, Color.blue, Class.Create) },
+
+            //{ "void", new IKeyword("void", Color.blue) },
+            //{ "int", new IKeyword("int", Color.blue) },
+            //{ "float", new IKeyword("float", Color.blue) },
+            //{ "string", new IKeyword("string", Color.blue) },
+            //{ "bool", new IKeyword("bool", Color.blue) },
+
+            //{ "if", new IKeyword("if", Color.blue) },
+            //{ "else", new IKeyword("else", Color.blue) },
         };
 
-        public static void Compile(MachineCode machineCode)
+        public static MachineCode toCompile;
+        public static List<string> convertedCode;
+
+
+        /// <summary>
+        /// Creates Classes, variables & methods
+        /// </summary>
+        /// <param name="machineCode"></param>
+        public static void Interporate(MachineCode machineCode)
         {
+            toCompile = machineCode;
+
             Debug.Log("[Compiler] Compile");
 
             string rawCode = machineCode.Code;
+            if (!ConvertCode(rawCode, out convertedCode)) return;
 
-            List<string> code = Regex.Split(rawCode, "( |\t|\n|;|}|{)").ToList();
-            code.RemoveAll(x => x == "\t" || x == "\n" || x == " " || x == "");
-
-            ConvertCode(code, out List<object> convetedCode);
-
-            for (int i = 0; i < code.Count; i++)
+            for (int i = 0; i < convertedCode.Count; i++)
             {
-                string word = code[i];
-                if (!Objects.ContainsKey(word)) continue;
+                string word = convertedCode[i];
 
-
-                Debug.Log("[Compiler] Found " + word);
+                if (Keywords.ContainsKey(word))
+                {
+                    Keywords[word].create.Invoke(i);
+                }
             }
+        }
 
-            Debug.Log("[Compiler] Finished Compile");
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void Compile()
+        {
+
         }
 
 
-        static void ConvertCode(List<string> code, out List<object> convertedCode)
+        static bool ConvertCode(string raw, out List<string> convertedCode)
         {
-            convertedCode = new List<object>();
-            foreach (string line in code)
-            {
-                convertedCode.Add(line);
-            }
+            convertedCode = Regex.Split(raw, "( |\t|\n|;|}|{)").ToList();
+            convertedCode.RemoveAll(x => x == "\t" || x == "\n" || x == " " || x == "");      
+
+            return true;
         }
     }
 }

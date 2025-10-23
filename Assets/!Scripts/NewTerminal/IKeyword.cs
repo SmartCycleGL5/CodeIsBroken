@@ -35,4 +35,14 @@ namespace SharpCube
             this.privilege = privilege;
         }
     }
+    public struct Type<T> : IKeyword
+    {
+        public string key { get; set; }
+        public Color color { get; set; }
+
+        T GetType()
+        {
+            return default; 
+        }
+    }
 }

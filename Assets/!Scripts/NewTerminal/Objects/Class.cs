@@ -3,11 +3,11 @@ using UnityEngine;
 namespace SharpCube.Object
 {
     [Serializable]
-    public class Class : IObject
+    public class Class : IObject, IContainer
     {
         public string name { get; set; }
 
-        public Memory<object> variables;
+        public Memory<object> variables { get; set; }
 
         public Class(string name, Properties properties)
         {

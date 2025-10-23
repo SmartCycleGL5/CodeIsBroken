@@ -1,4 +1,5 @@
 using SharpCube.Object;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -27,15 +28,14 @@ namespace SharpCube
                 { "private", new Accessibility("private", Color.aliceBlue, Privilege.Private) },
                 { "public",  new Accessibility("public", Color.aliceBlue, Privilege.Public) },
             } },
-/*
+
             { KeywordType.Type, new()
             {
-                { "void",  },
-                { "bool", },
-                { "int", },
-                { "float", },
-                { "string", },
-            } },*/
+                { "bool", new Type<bool>() },
+                { "int", new Type<int>() },
+                { "float", new Type<float>() },
+                { "string", new Type<string>() },
+            } },
         };
 
         public static Script toCompile;
@@ -63,6 +63,11 @@ namespace SharpCube
                     Encapsulation encapsulation = (Encapsulation)Keywords[KeywordType.Object][word];
 
                     encapsulation.create.Invoke(i);
+                }
+
+                if(Keywords[KeywordType.Type].ContainsKey(word))
+                {
+                    Debug.Log(Keywords[KeywordType.Type][word].GetType());
                 }
             }
         }

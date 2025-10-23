@@ -14,5 +14,8 @@
         <ui:Label text="0" name="Level" style="bottom: 50px; right: 50px; width: 150px; height: 150px; position: absolute; -unity-text-align: middle-center; font-size: 112px;" />
         <ui:VisualElement name="ContractHolder" enabled="false" picking-mode="Ignore" class="ContractHolder" style="bottom: 0;" />
         <ui:Label text="Select Contract" name="Select" style="position: absolute; top: 200px; color: rgb(255, 255, 255); font-size: 96px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 3px; align-self: center; background-color: rgba(168, 95, 95, 0);" />
+        <ui:VisualElement name="BuildingMenu" style="flex-grow: 0; width: 68%; height: 33%; min-width: auto; min-height: auto; flex-basis: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; position: absolute; bottom: 0%; background-color: rgb(53, 53, 53);">
+            <ui:ScrollView name="MenuScroll" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,55 +1,59 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System;
-using NUnit.Framework;
+using UnityEngine.UI;
+using Button = UnityEngine.UIElements.Button;
 
 public class BuildingSelector : MonoBehaviour
 {
     public static event Action<GameObject> OnChangedBuilding;
 
-    public List<BuildingSO> buildings;
-    //[SerializeField] private GameObject[] folderObjects;
-    [SerializeField] private GameObject buildingMenuPanel;
-    [SerializeField] private GameObject button;
-    
+    [SerializeField] private List<BuildingSO> buildings;
+    [SerializeField] private VisualTreeAsset buildingButtonTemplate; // drag BuildingButtonTemplate.uxml hit
+    private VisualElement buildingMenuPanel;
+    [SerializeField] UIDocument uiDoc;
+
     void Start()
     {
+        var root = uiDoc.rootVisualElement;
+
+        // finner scrollview fra MainUI.uxml
+        buildingMenuPanel = uiDoc.rootVisualElement.Q<VisualElement>("BuildingMenu");
+
+        // Simuler level-up
         OnLevelUp(1);
         PlayerProgression.onLevelUp += OnLevelUp;
     }
 
     public void OnLevelUp(int level)
     {
-        List<BuildingSO> buildingsToRemove = new();
-        Debug.Log("LevelUp: " + level);
-        for (int i = 0; i < buildings.Count; i++)
+        List<BuildingSO> unlocked = new();
+
+        foreach (var building in buildings)
         {
-            var building = buildings[i];
             if (building.levelToUnlock > level) continue;
-
-            buildingsToRemove.Add(building);
-            //Instantiate and set values to button
-            GameObject newButton = Instantiate(button, buildingMenuPanel.transform);
-            BuildingButton buildingButton = newButton.GetComponent<BuildingButton>();
-            buildingButton.buildingPrefab = building.buildingPrefab;
-            buildingButton.buttonText.text = building.buildingName;
-            buildingButton.blockSelector = this;
+            unlocked.Add(building);
+            
+            var newButton = buildingButtonTemplate.CloneTree();
+            Debug.Log(newButton);
+            var button = newButton.Q<Button>("Button");
+            Debug.Log(button);
+            
+            button.text = building.buildingName;
+            
+            button.clicked += () => UpdateBuildingBlock(building.buildingPrefab);
+            
+            buildingMenuPanel.Add(newButton);
         }
 
-        foreach (var building in buildingsToRemove)
-        {
-            buildings.Remove(building);
-        }
-        buildingsToRemove.Clear();
+        // Fjern bygninger som allerede er lagt til
+        foreach (var b in unlocked)
+            buildings.Remove(b);
     }
-
-
-
 
     public void UpdateBuildingBlock(GameObject buildingBlock)
     {
         OnChangedBuilding?.Invoke(buildingBlock);
     }
-
-
 }

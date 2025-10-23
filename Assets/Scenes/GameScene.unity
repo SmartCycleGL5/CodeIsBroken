@@ -2278,8 +2278,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28769768684a69b40acfcd7c308a170e, type: 2}
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
-  buildingMenuPanel: {fileID: 929964379198931661}
-  button: {fileID: 5973821873067232629, guid: b8e0a54be2caf7e4997ddd56a7b7c561, type: 3}
+  buildingButtonTemplate: {fileID: 0}
 --- !u!156049354 &493899198845114267
 Grid:
   m_ObjectHideFlags: 0

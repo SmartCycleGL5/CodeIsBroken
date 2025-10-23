@@ -10,18 +10,16 @@ public class BuildingSelector : MonoBehaviour
     public static event Action<GameObject> OnChangedBuilding;
 
     [SerializeField] private List<BuildingSO> buildings;
-    [SerializeField] private VisualTreeAsset buildingButtonTemplate; // drag BuildingButtonTemplate.uxml hit
+    [SerializeField] private VisualTreeAsset buildingButtonTemplate;
     private VisualElement buildingMenuPanel;
     [SerializeField] UIDocument uiDoc;
 
     void Start()
     {
         var root = uiDoc.rootVisualElement;
-
-        // finner scrollview fra MainUI.uxml
+        
         buildingMenuPanel = uiDoc.rootVisualElement.Q<VisualElement>("BuildingMenu");
-
-        // Simuler level-up
+        
         OnLevelUp(1);
         PlayerProgression.onLevelUp += OnLevelUp;
     }

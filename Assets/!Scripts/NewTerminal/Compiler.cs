@@ -9,7 +9,8 @@ namespace SharpCube
     public enum KeywordType
     {
         Object,
-        Accessibility
+        Accessibility,
+        Type
     }
     public static partial class Compiler
     {
@@ -18,14 +19,23 @@ namespace SharpCube
             { KeywordType.Object, new()
             {
                 { "class", new Encapsulation("class", Color.blue, Class.Create) },
-                { "struct", new Encapsulation("struct", Color.blue, Class.Create) }, 
+                { "struct", new Encapsulation("struct", Color.blue, Class.Create) },
             } },
+
+            { KeywordType.Accessibility, new()
             {
-                KeywordType.Accessibility, new()
-                {
-                    { "private", new Accessibility("private", Color.aliceBlue, Privilege.Private) },
-                    { "public",  new Accessibility("public", Color.aliceBlue, Privilege.Public) },
-                } },
+                { "private", new Accessibility("private", Color.aliceBlue, Privilege.Private) },
+                { "public",  new Accessibility("public", Color.aliceBlue, Privilege.Public) },
+            } },
+/*
+            { KeywordType.Type, new()
+            {
+                { "void",  },
+                { "bool", },
+                { "int", },
+                { "float", },
+                { "string", },
+            } },*/
         };
 
         public static Script toCompile;
@@ -41,7 +51,7 @@ namespace SharpCube
 
             toCompile = machineCode;
 
-            string rawCode = machineCode.Code;
+            string rawCode = machineCode.rawCode;
             if (!ConvertCode(rawCode, out convertedCode)) return;
 
             for (int i = 0; i < convertedCode.Count; i++)

@@ -7,7 +7,7 @@ namespace WindowSystem
 {
     public class Terminal : MonoBehaviour, IWindow
     {
-        public BaseMachine machineToEdit { get; private set; }
+        public Script scriptToEdit { get; private set; }
 
         static VisualTreeAsset terminalAsset;
         public static bool findingAsset;
@@ -67,7 +67,7 @@ namespace WindowSystem
             //Debug.LogError("[Terminal] " + terminalAsset);
 
             terminal = terminalAsset.Instantiate();
-            window = new Window(machineToEdit.attachedScripts[0].name, terminal, this);
+            window = new Window(scriptToEdit.name, terminal, this);
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
@@ -81,7 +81,6 @@ namespace WindowSystem
 
         private void OnDestroy()
         {
-            machineToEdit.connectedTerminal = null;
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
@@ -97,22 +96,22 @@ namespace WindowSystem
             Destroy(this);
         }
 
-        public void SelectMachine(BaseMachine machineScript)
-        {
-            machineToEdit = machineScript;
-        }
-
         public void Load()
         {
-            if (machineToEdit == null) return;
+            if (scriptToEdit == null) return;
 
-            Debug.Log(machineToEdit.attachedScripts);
+            Debug.Log(scriptToEdit);
 
-            input.value = machineToEdit.attachedScripts[0].Code;
+            input.value = scriptToEdit.rawCode;
 
             availableMethods.text = "Available Methods: \n";
 
-            foreach (var method in machineToEdit.IntegratedMethods)
+            if(scriptToEdit.connectedMachine != null)
+                DisplayIntegratedMethods();
+        }
+        void DisplayIntegratedMethods()
+        {
+            foreach (var method in scriptToEdit.connectedMachine.IntegratedMethods)
             {
                 availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
 
@@ -124,14 +123,15 @@ namespace WindowSystem
                 availableMethods.text += ");";
             }
         }
+
         public bool Save()
         {
-            if (machineToEdit == null || ScriptManager.isRunning) return false;
+            if (scriptToEdit == null || ScriptManager.isRunning) return false;
 
             try
             {
-                machineToEdit.attachedScripts[0].Compile(input.text);
-                window.Rename(machineToEdit.attachedScripts[0].name);
+                scriptToEdit.Compile(input.text);
+                window.Rename(scriptToEdit.name);
                 return true;
             }
             catch
@@ -141,10 +141,12 @@ namespace WindowSystem
             }
         }
 
-        public static Terminal NewTerminal(BaseMachine machineScript)
+        public static Terminal NewTerminal(Script script)
         {
-            Terminal newTerminal = machineScript.gameObject.AddComponent<Terminal>();
-            newTerminal.SelectMachine(machineScript);
+            Terminal newTerminal = UIManager.Instance.gameObject.AddComponent<Terminal>();
+
+            newTerminal.scriptToEdit = script;
+
             return newTerminal;
         }
     }

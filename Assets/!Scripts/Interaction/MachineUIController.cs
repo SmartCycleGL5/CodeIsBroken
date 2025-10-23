@@ -29,7 +29,7 @@ public class MachineUIController : MonoBehaviour
         
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
-            if(!machine.Initialized)
+            if(machine.attachedScripts.Count == 0)
                 machine.AddScript(new Script("NewClass" + UnityEngine.Random.Range(1000, 9999)));
 
             

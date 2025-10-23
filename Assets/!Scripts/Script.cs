@@ -5,14 +5,16 @@ using SharpCube.Object;
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using WindowSystem;
 
 [Serializable]
 public class Script
 {
     public string name;
+    public BaseMachine connectedMachine;
 
     [Header("Code")]
-    [ResizableTextArea] public string Code;
+    [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     string DefaultCode =>
             $"public class {name}" +
             "\n{" +
@@ -37,15 +39,18 @@ public class Script
 
     public Memory<Class> classes = new();
 
-    public Script(string name, string code = null)
+    public Script(string name, string code = null, BaseMachine machine = null)
     {
         this.name = name;
+        connectedMachine = machine;
+        ScriptManager.instance.playerScripts.Add(name, this);
 
         Compile(code == null ? DefaultCode : code);
     }
 
     public void Run()
     {
+        Debug.Log($"[Script {name}] running");
         //find start & update
 
         //Tick.OnTick += RunUpdate;
@@ -56,12 +61,17 @@ public class Script
 
     }
 
+    public void Edit()
+    {
+        Terminal.NewTerminal(this);
+    }
+
     public void Compile(string code)
     {
         Debug.Log("try compile");
         classes.Clear();
 
-        Code = code;
+        rawCode = code;
 
         Compiler.Interporate(this);
 

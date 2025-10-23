@@ -18,8 +18,6 @@ public abstract class BaseMachine : MonoBehaviour
 
     public bool Initialized { get; private set; } = false;
 
-    [HideInInspector] public Terminal connectedTerminal;
-
     [Button]
     void AddScript()
     {
@@ -27,6 +25,7 @@ public abstract class BaseMachine : MonoBehaviour
     }
     public virtual void AddScript(Script script)
     {
+        script.connectedMachine = this;
         attachedScripts.Add(script);
     }
 
@@ -70,11 +69,9 @@ public abstract class BaseMachine : MonoBehaviour
 
 
     [Button]
-    public void OpenTerminalForMachine()
+    public void OpenTerminalForMachine(int script = 0)
     {
-        if (connectedTerminal != null) return;
-        Debug.Log("[BaseMachine] Open Terminal for " + this);
-        connectedTerminal = Terminal.NewTerminal(this);
+        attachedScripts[script].Edit();
     }
     // Why is Torje breaking the code
     protected void AddMethodsAsIntegrated(System.Type machine)

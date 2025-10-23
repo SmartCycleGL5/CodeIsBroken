@@ -1,9 +1,11 @@
+using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptManager : MonoBehaviour
 {
+    public SerializedDictionary<string, Script> playerScripts = new();
     public static ScriptManager instance;
 
     public static bool isRunning { get; private set; }
@@ -32,10 +34,9 @@ public class ScriptManager : MonoBehaviour
     {
         if (isRunning) return;
 
-        foreach (var machine in machines)
+        foreach (var script in instance.playerScripts)
         {
-            if (machine.connectedTerminal == null) continue;
-            machine.connectedTerminal.Save();
+            script.Value.Run();
         }
 
         isRunning = true;

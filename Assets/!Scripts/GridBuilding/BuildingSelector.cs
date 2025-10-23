@@ -46,8 +46,7 @@ public class BuildingSelector : MonoBehaviour
             
             buildingMenuPanel.Add(newButton);
         }
-
-        // Fjern bygninger som allerede er lagt til
+        
         foreach (var b in unlocked)
             buildings.Remove(b);
     }

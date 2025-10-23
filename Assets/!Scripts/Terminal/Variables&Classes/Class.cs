@@ -64,7 +64,7 @@ namespace Coding.SharpCube
                 }
                 else
                 {
-                    return machine.IntegratedMethods[toGet];
+                    return null;//machine.IntegratedMethods[toGet];
                 }
             }
         }

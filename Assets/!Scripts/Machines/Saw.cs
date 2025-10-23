@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class Saw : Machine
 {
-    public override void Initialize(string initialClassName)
+    protected override void Start()
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));
-
-        base.Initialize(initialClassName);
+        base.Start();
     }
-
-
-
-
 }

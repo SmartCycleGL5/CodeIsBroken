@@ -3,11 +3,11 @@ using UnityEngine;
 public class Laser : Machine
 {
     [SerializeField] Transform cell;
-    public override void Initialize(string initialClassName)
+
+    protected override void Start()
     {
         AddMethodsAsIntegrated(typeof(MaterialTube));
-
-        base.Initialize(initialClassName);
+        base.Start();
     }
 
     public bool Item()

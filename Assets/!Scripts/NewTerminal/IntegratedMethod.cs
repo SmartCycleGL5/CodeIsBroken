@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
+using SharpCube.Object;
+
+namespace SharpCube
+{
+    [Serializable]
+    public class IntegratedMethod 
+    {
+        public MethodInfo toCall;
+        object toRunFrom;
+
+        public IntegratedMethod(string name, Class @class, ParameterInfo[] parameter, MethodInfo method, object toRunFrom)
+        {
+            toCall = method;
+            this.toRunFrom = toRunFrom;
+            //parameters = toCall.GetParameters();
+        }
+        //public override object TryRun(object[] input)
+        //{
+        //    return Run(input);
+        //}
+
+        protected object Run(object[] input)
+        {
+            if (input == null)
+            {
+                Debug.Log("[IntegratedMethod] Running " + toCall.Name);
+            }
+            else
+            {
+                Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
+                foreach (var item in input)
+                {
+                    Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
+                }
+            }
+            return toCall.Invoke(toRunFrom, input);
+        }
+    }
+}

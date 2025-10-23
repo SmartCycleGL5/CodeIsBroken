@@ -2,84 +2,81 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Coding
+public class ScriptManager : MonoBehaviour
 {
-    public class ScriptManager : MonoBehaviour
+    public static ScriptManager instance;
+
+    public static bool isRunning { get; private set; }
+
+    public static List<BaseMachine> machines = new();
+
+    private void Awake()
     {
-        public static ScriptManager instance;
+        instance = this;
+    }
 
-        public static bool isRunning { get; private set; }
-
-        public static List<BaseMachine> machines = new();
-
-        private void Awake()
+    public static void ToggleMachines()
+    {
+        if (isRunning)
         {
-            instance = this;
+            StopMachines();
+        }
+        else
+        {
+            StartMachines();
+        }
+    }
+
+    [Button]
+    public static void StartMachines()
+    {
+        if (isRunning) return;
+
+        foreach (var machine in machines)
+        {
+            if (machine.connectedTerminal == null) continue;
+            machine.connectedTerminal.Save();
         }
 
-        public static void ToggleMachines()
+        isRunning = true;
+
+        Debug.Log("[ScriptManager] Starting");
+
+        Tick.StartTick();
+    }
+    [Button]
+    public static void StopMachines()
+    {
+        if (!isRunning) return;
+        Tick.StopTick();
+
+        Debug.Log("[ScriptManager] Ending");
+
+        for (int i = Item.items.Count - 1; i >= 0; i--)
         {
-            if (isRunning)
-            {
-                StopMachines();
-            }
-            else
-            {
-                StartMachines();
-            }
+            if (Item.items[i].destroyOnPause)
+                Destroy(Item.items[i].gameObject);
         }
 
-        [Button]
-        public static void StartMachines()
+        isRunning = false;
+
+    }
+
+    public static void Re()
+    {
+
+        foreach (var item in machines)
         {
-            if (isRunning) return;
-
-            foreach (var machine in machines)
-            {
-                if (machine.connectedTerminal == null) continue;
-                machine.connectedTerminal.Save();
-            }
-
-            isRunning = true;
-
-            Debug.Log("[ScriptManager] Starting");
-
-            Tick.StartTick();
+            item.ClearScripts();
         }
-        [Button]
-        public static void StopMachines()
-        {
-            if (!isRunning) return;
-            Tick.StopTick();
+    }
 
-            Debug.Log("[ScriptManager] Ending");
-
-            for (int i = Item.items.Count -1; i >= 0; i--)
-            {
-                if (Item.items[i].destroyOnPause)
-                    Destroy(Item.items[i].gameObject);
-            }
-
-            isRunning = false;
-
-        }
-
-        public static void Re()
-        {
-
-            foreach (var item in machines)
-            {
-                item.ClearMemory();
-            }
-        }
-
-        public void AddMachine(BaseMachine machine)
-        {
-            machines.Add(machine);
-        }
-        public void RemoveMachine(BaseMachine machine)
-        {
-            machines.Remove(machine);
-        }
+    public void AddMachine(BaseMachine machine)
+    {
+        machines.Add(machine);
+    }
+    public void RemoveMachine(BaseMachine machine)
+    {
+        machines.Remove(machine);
     }
 }

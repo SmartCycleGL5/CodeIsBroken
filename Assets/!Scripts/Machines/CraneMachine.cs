@@ -9,11 +9,10 @@ public class CraneMachine : Machine, IItemContainer
 
     [DontIntegrate] public Item item { get; set; }
 
-    public override void Initialize(string initialClassName)
+    protected override void Start()
     {
         AddMethodsAsIntegrated(typeof(CraneMachine));
-
-        base.Initialize(initialClassName);
+        base.Start();
     }
 
     public async void Rotate(int degrees)

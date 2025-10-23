@@ -6,36 +6,40 @@ using UnityEngine;
 
 namespace SharpCube
 {
+    public enum KeywordType
+    {
+        Object,
+        Accessibility
+    }
     public static partial class Compiler
     {
-        public readonly static Dictionary<string, IKeyword> Keywords = new()
+        public readonly static Dictionary<KeywordType, Dictionary<string, IKeyword>> Keywords = new()
         {
-            { "class", new Encapsulation(Keyword.Class, Color.blue, Class.Create) },
-            { "struct", new Encapsulation(Keyword.Struct, Color.blue, Class.Create) },
-
-            //{ "void", new IKeyword("void", Color.blue) },
-            //{ "int", new IKeyword("int", Color.blue) },
-            //{ "float", new IKeyword("float", Color.blue) },
-            //{ "string", new IKeyword("string", Color.blue) },
-            //{ "bool", new IKeyword("bool", Color.blue) },
-
-            //{ "if", new IKeyword("if", Color.blue) },
-            //{ "else", new IKeyword("else", Color.blue) },
+            { KeywordType.Object, new()
+            {
+                { "class", new Encapsulation("class", Color.blue, Class.Create) },
+                { "struct", new Encapsulation("struct", Color.blue, Class.Create) }, 
+            } },
+            {
+                KeywordType.Accessibility, new()
+                {
+                    { "private", new Accessibility("private", Color.aliceBlue, Privilege.Private) },
+                    { "public",  new Accessibility("public", Color.aliceBlue, Privilege.Public) },
+                } },
         };
 
-        public static MachineCode toCompile;
+        public static Script toCompile;
         public static List<string> convertedCode;
-
 
         /// <summary>
         /// Creates Classes, variables & methods
         /// </summary>
         /// <param name="machineCode"></param>
-        public static void Interporate(MachineCode machineCode)
+        public static void Interporate(Script machineCode)
         {
-            toCompile = machineCode;
-
             Debug.Log("[Compiler] Compile");
+
+            toCompile = machineCode;
 
             string rawCode = machineCode.Code;
             if (!ConvertCode(rawCode, out convertedCode)) return;
@@ -44,9 +48,11 @@ namespace SharpCube
             {
                 string word = convertedCode[i];
 
-                if (Keywords.ContainsKey(word))
+                if (Keywords[KeywordType.Object].ContainsKey(word))
                 {
-                    Keywords[word].create.Invoke(i);
+                    Encapsulation encapsulation = (Encapsulation)Keywords[KeywordType.Object][word];
+
+                    encapsulation.create.Invoke(i);
                 }
             }
         }

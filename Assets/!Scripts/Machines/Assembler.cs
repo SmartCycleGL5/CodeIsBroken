@@ -17,16 +17,10 @@ public class Assembler : Machine, IItemContainer
 
     protected override void Start()
     {
+        AddMethodsAsIntegrated(typeof(Assembler));
         base.Start();
         Tick.OnTick += TakeItem;
         errorLogger = GetComponent<UserErrorLogger>();
-    }
-
-    public override void Initialize(string initialClassName)
-    {
-        AddMethodsAsIntegrated(typeof(Assembler));
-
-        base.Initialize(initialClassName);
     }
 
     public override void Reset()

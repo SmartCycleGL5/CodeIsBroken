@@ -3,9 +3,9 @@ using UnityEngine;
 namespace SharpCube.Object
 {
     [Serializable]
-    public class Class
+    public class Class : IObject
     {
-        public string name;
+        public string name { get; set; }
 
         public Memory<object> variables;
 
@@ -24,7 +24,11 @@ namespace SharpCube.Object
 
             for (int i = line; i >= 0; i--)
             {
-                if (Compiler.convertedCode[i] == "private") return;
+                if (Compiler.Keywords[KeywordType.Accessibility].ContainsKey(Compiler.convertedCode[i]))
+                {
+                    properties.privilege = ((Accessibility)Compiler.Keywords[KeywordType.Accessibility][Compiler.convertedCode[i]]).privilege;
+                    break;
+                }
             }
 
             new Class(Compiler.convertedCode[line + 1], properties);

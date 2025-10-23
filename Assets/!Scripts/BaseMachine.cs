@@ -1,6 +1,6 @@
 using AYellowpaper.SerializedCollections;
-using Coding;
-using Coding.SharpCube;
+using WindowSystem;
+using SharpCube;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -12,103 +12,38 @@ public abstract class BaseMachine : MonoBehaviour
 {
     public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
-    public MachineCode machineCode;
+    public List<Script> attachedScripts = new();
 
     public bool isRunning { get; private set; } = false;
-
-    Vector3 initialPos;
-    Vector3 initialRot;
-
-    Method start;
-    Method update;
 
     public bool Initialized { get; private set; } = false;
 
     [HideInInspector] public Terminal connectedTerminal;
 
     [Button]
-    void Initialize()
+    void AddScript()
     {
-        Initialize("NewClass" + UnityEngine.Random.Range(1, 100));
+        AddScript(new Script("NewClass" + UnityEngine.Random.Range(1, 100)));
     }
-    public virtual void Initialize(string initialClassName)
+    public virtual void AddScript(Script script)
     {
-        Debug.LogError("[BaseMachine] initialize");
-
-        if (Initialized)
-        {
-            Debug.LogError("[BaseMachine]" + initialClassName + " Already initialized!");
-            return;
-        }
-
-        ScriptManager.instance.AddMachine(this);
-
-        initialPos = transform.position;
-        initialRot = transform.eulerAngles;
-
-        //if(machineCode == null)
-        //    machineCode = new MachineCode();
-
-        Tick.OnStartingTick += FindStartAndUpdate;
-        Tick.OnStartingTick += RunStart;
-        Tick.OnTick += RunUpdate;
-        Tick.OnEndingTick += Stop;
-
-        machineCode = new MachineCode(initialClassName, this);
-
-        Initialized = true;
+        attachedScripts.Add(script);
     }
 
     protected virtual void OnDestroy()
     {
         if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);
-        Tick.OnStartingTick -= FindStartAndUpdate;
-        Tick.OnStartingTick -= RunStart;
-        Tick.OnTick -= RunUpdate;
-        Tick.OnEndingTick -= Stop;
     }
-    void FindStartAndUpdate()
-    {
-        //foreach (var Class in machineCode.Classes)
-        //{
-        //    try
-        //    {
-        //        start = Class.Value.GetMethod("FirstTick");
-        //    }
-        //    catch
-        //    {
-        //        Debug.LogWarning("FistTick not found");
-        //    }
 
-        //    try
-        //    {
-        //        update = Class.Value.GetMethod("OnTick");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Debug.LogWarning("OnTick not found " + e);
-        //        return;
-        //    }
-        //}
-    }
-    public void RunStart()
-    {
-        isRunning = true;
-
-        if (update != null)
-            Run(start);
-    }
-    public void RunUpdate()
-    {
-        if (update != null)
-            Run(update);
-    }
-    void Run(Method toRun)
+    void Run()
     {
         try
         {
-            toRun.TryRun();
+            foreach (var script in attachedScripts)
+            {
+                script.Run();
+            }
         }
         catch (Exception e)
         {
@@ -125,17 +60,14 @@ public abstract class BaseMachine : MonoBehaviour
         //ResetThis();
     }
 
-    public void ClearMemory()
+    public void ClearScripts()
     {
-        machineCode.classes.Clear();
+        foreach (var script in attachedScripts)
+        {
+            script.Clear();
+        }
     }
 
-
-    public void ResetThis()
-    {
-        transform.position = initialPos;
-        transform.eulerAngles = initialRot;
-    }
 
     [Button]
     public void OpenTerminalForMachine()

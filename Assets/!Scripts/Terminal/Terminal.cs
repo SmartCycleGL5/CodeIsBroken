@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static WindowManager;
 
-namespace Coding
+namespace WindowSystem
 {
     public class Terminal : MonoBehaviour, IWindow
     {
@@ -67,7 +67,7 @@ namespace Coding
             //Debug.LogError("[Terminal] " + terminalAsset);
 
             terminal = terminalAsset.Instantiate();
-            window = new Window(machineToEdit.machineCode.name, terminal, this);
+            window = new Window(machineToEdit.attachedScripts[0].name, terminal, this);
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
@@ -106,17 +106,17 @@ namespace Coding
         {
             if (machineToEdit == null) return;
 
-            Debug.Log(machineToEdit.machineCode);
+            Debug.Log(machineToEdit.attachedScripts);
 
-            input.value = machineToEdit.machineCode.Code;
+            input.value = machineToEdit.attachedScripts[0].Code;
 
             availableMethods.text = "Available Methods: \n";
 
             foreach (var method in machineToEdit.IntegratedMethods)
             {
-                availableMethods.text += "\n" + method.Value.info.type + " " + method.Value.info.name + "(";
+                availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
 
-                foreach (var item in method.Value.parameters)
+                foreach (var item in method.Value.toCall.GetParameters())
                 {
                     availableMethods.text += item.ParameterType.Name + " " + item.Name;
                 }
@@ -130,8 +130,8 @@ namespace Coding
 
             try
             {
-                machineToEdit.machineCode.Compile(input.text);
-                window.Rename(machineToEdit.machineCode.name);
+                machineToEdit.attachedScripts[0].Compile(input.text);
+                window.Rename(machineToEdit.attachedScripts[0].name);
                 return true;
             }
             catch

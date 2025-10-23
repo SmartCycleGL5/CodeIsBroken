@@ -7,11 +7,11 @@ public class PainterMachine : Machine
     [SerializeField] public Item item;
     private UserErrorLogger errorLogger;
     Renderer toColor { get { return item.artRenderer; } }
-    public override void Initialize(string initialClassName)
+
+    protected override void Start()
     {
         AddMethodsAsIntegrated(typeof(PainterMachine));
-
-        base.Initialize(initialClassName);
+        base.Start();
     }
 
     private void OnEnable()

@@ -3,8 +3,8 @@ using System;
 
 public enum Privilege
 {
-    Public = 0,
-    Private = 1,
+    Private = 0,
+    Public = 1,
 }
 
 [Serializable]
@@ -46,6 +46,6 @@ public class Memory<T>
 
     public void Clear()
     {
-        @public.Clear(); @public.Clear();
+        @public.Clear(); @private.Clear();
     }
 }

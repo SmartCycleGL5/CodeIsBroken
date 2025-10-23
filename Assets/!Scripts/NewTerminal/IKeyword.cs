@@ -3,30 +3,36 @@ using UnityEngine;
 
 namespace SharpCube
 {
-    public enum Keyword
-    {
-        Class,
-        Struct
-    }
-
     public interface IKeyword
     {
-        public Keyword key { get; set; }
+        public string key { get; set; }
         public Color color {  get; set; }
-        public Action<int> create { get; set; }
     }
 
     public struct Encapsulation : IKeyword
     {
-        public Keyword key { get; set; }
+        public string key { get; set; }
         public Color color { get; set; }
         public Action<int> create { get; set; }
 
-        public Encapsulation(Keyword key, Color color, Action<int> create)
+        public Encapsulation(string key, Color color, Action<int> create)
         {
             this.key = key;
             this.color = color;
             this.create = create;
+        }
+    }
+    public struct Accessibility : IKeyword
+    {
+        public string key { get; set; }
+        public Color color { get; set; }
+        public Privilege privilege { get; set; }
+
+        public Accessibility(string key, Color color, Privilege privilege)
+        {
+            this.key = key;
+            this.color = color;
+            this.privilege = privilege;
         }
     }
 }

@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BuildingMenu" src="project://database/Assets/BuildingMenu.uxml?fileID=9197481963319205126&amp;guid=fb23224fae21f474d8ccd51561220d70&amp;type=3#BuildingMenu" />
     <Style src="project://database/Assets/!Scripts/UI/BaseStyle.uss?fileID=7433441132597879392&amp;guid=dd58a1a328d6d47468f38b3b58f7e1fd&amp;type=3#BaseStyle" />
     <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
     <ui:VisualElement name="Canvas" picking-mode="Ignore" style="flex-grow: 1; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; visibility: visible;">
@@ -14,9 +15,16 @@
         <ui:Label text="0" name="Level" style="bottom: 50px; right: 50px; width: 150px; height: 150px; position: absolute; -unity-text-align: middle-center; font-size: 112px;" />
         <ui:VisualElement name="ContractHolder" enabled="false" picking-mode="Ignore" class="ContractHolder" style="bottom: 0;" />
         <ui:Label text="Select Contract" name="Select" style="position: absolute; top: 200px; color: rgb(255, 255, 255); font-size: 96px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 3px; align-self: center; background-color: rgba(168, 95, 95, 0);" />
+        <ui:Instance template="BuildingMenu" name="BuildingMenu" style="bottom: -1270px; height: 400px; width: 1400px; align-self: center; transition-duration: 0.2s;" />
     </ui:VisualElement>
-    <ui:VisualElement name="BuildingMenu" style="flex-grow: 1; top: auto; width: 70%; height: 23%; position: absolute; bottom: -287px; left: auto; right: auto; align-self: center; transition-duration: 0.2s;">
-        <ui:VisualElement name="ButtonHolder" picking-mode="Ignore" style="flex-grow: 0; width: 1712px; height: 283px; min-width: auto; min-height: auto; flex-basis: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; position: absolute; bottom: 0; background-color: rgb(53, 53, 53); flex-direction: row; left: auto; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
-        <ui:Button name="BuildingMenuToggle" style="width: 4%; height: 20%; align-self: center; translate: 0 -44px; scale: 1.3 1.3 2;" />
+    <ui:VisualElement name="GraphHolder" enabled="true" style="flex-grow: 1; position: absolute; width: 60%; height: 60%; align-self: center; top: auto; right: auto; bottom: 337px; background-color: rgb(41, 41, 41); opacity: 1; visibility: hidden; display: flex;">
+        <ui:VisualElement name="electricityHolder" style="flex-grow: 1; bottom: auto; height: auto; position: relative;">
+            <ui:VisualElement name="ElectricityGraph" style="flex-grow: 1; width: 90%; height: 241px; align-self: center; position: absolute; top: 61px;" />
+            <ui:Label text="Electricity use&#10;" name="ElectricityLabel" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); height: 46px; width: 206px; left: 0; font-size: 30px; -unity-text-align: upper-center; align-self: center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="timeHolder" style="flex-grow: 1; bottom: auto; height: auto; position: relative;">
+            <ui:VisualElement name="TimeGraph" style="flex-grow: 1; width: 90%; height: 241px; align-self: center; position: absolute; top: 61px;" />
+            <ui:Label text="Time" name="TimeLabel" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); height: 46px; width: 206px; left: 0; font-size: 30px; -unity-text-align: upper-center; align-self: center;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

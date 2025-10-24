@@ -14,14 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: GUifvew
   showcaseI: {fileID: 2800000, guid: f88677df267a41d6be1e7a6133e7d227, type: 3}
-  explanation: FIVE
-  codeShowcase: SEVEN
-  bHintTaken: 1
-  jText:
-    _serializedList:
-    - Key: 0
-      Value:
-        text: tg
-    - Key: 1
-      Value:
-        text: 4
+  bHintTaken: 0
+  journalTexts: []

@@ -14,26 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: 'Assembler '
   showcaseI: {fileID: 0}
-  explanation: 'The assembler holds materials put into it until it is able to craft.
-
-    If
-    the assembler is unable to craft, the assembler will halt until it is able to
-    craft and materials put into the assembler can not be removed until the code
-    is stopped.
-
-    Once the materials are crafted the finished product can be
-    moved with conveyors.
-
-    If the assembler has no valid crafting recipe it
-    will stop working, it is therefore recommended to make sure the assembler has
-    the correct materials put into it to avoid any blockage.
-
-    Use the method
-    Craft() to craft something if it has a valid combination.
-
-    Recipes:
-
-    Iron
-    + Wood = Chair'
-  codeShowcase: "void OnTick()\n{\n\tCraft();\n}"
   bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: 'The assembler holds materials put into it until it is able to craft.
+
+      If
+      the assembler is unable to craft, the assembler will halt until it is able
+      to craft, and materials put into the assembler are not removed until the code
+      is stopped.
+
+      If the assembler has no valid crafting recipe it will stop
+      working, it is therefore recommended to make sure the assembler has the correct
+      materials put into it to avoid any blockages.
+
+      Use the method Craft()
+      to craft something if it has a valid combination.For example you can use iron
+      and wood to create a chair. To learn more recipes check Recipes under Concepts.'
+  - style: 1
+    text: 'void OnTick()
+
+      {
+
+      Craft();
+
+      }'

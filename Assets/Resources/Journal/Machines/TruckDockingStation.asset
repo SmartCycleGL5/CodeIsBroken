@@ -18,10 +18,9 @@ MonoBehaviour:
 
     Station '
   showcaseI: {fileID: 0}
-  explanation: 'Where you sell the items. Items have to be transported to the truck
-    docking station located along the walls. When the item goes into the station
-    the user will receive money/complete contract.
-
-'
-  codeShowcase: 
   bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: Where you sell objects. Objects have to be transported to the truck docking
+      station located along the walls. When the object goes into the station the
+      user will receive money/complete a contract.

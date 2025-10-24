@@ -16,17 +16,18 @@ MonoBehaviour:
 
     Tube '
   showcaseI: {fileID: 0}
-  explanation: 'The material tube places a material on the tube ahead of it every
-    tick.
-
-
-    Use ChangeMateral() to change the produced material to one of the
-    following:
-
-    Wood, Iron or Stone
-
-
-    Use SpawnDelay() change how often it
-    produces a material.'
-  codeShowcase: "void StartTick()\n{\n\tChangeMaterial(Iron);\n\tSpawnDelay(2);\n}"
   bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: 'The material tube places a material on the Conveyor ahead of it every
+      tick.
+
+      Use ChangeMaterial() to change the produced material to one of
+      the following:
+
+      Wood, Iron, or Stone
+
+      Use SpawnDelay() to add
+      a delay to the production of the material.'
+  - style: 1
+    text: "void StartTick()\r\n{\r\n\tChangeMaterial(Iron);\r\n\tSpawnDelay(2);\r\n}"

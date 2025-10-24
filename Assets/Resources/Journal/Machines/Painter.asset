@@ -14,27 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Painter
   showcaseI: {fileID: 2800000, guid: 178c9f1e6e92d2445a7263b7a2cd547b, type: 3}
-  explanation: 'The painter acts like a conveyor belt moving items on it to the next
-    conveyor.
-
-
-    Use Paint() to paint the item in it to one of the following colors:
-
-    Red,
-    Blue, Green
-
-
-    You can also make new colors by using paint multiple times.'
-  codeShowcase: "void OnTick()\n{\n\tPaint(Red);\n}"
   bHintTaken: 0
-  jText:
-    _serializedList:
-    - Key: 0
-      Value:
-        text: rf
-    - Key: 1
-      Value:
-        text: fr
-    - Key: 1
-      Value:
-        text: fertg
+  journalTexts:
+  - style: 0
+    text: 'Use Paint() to paint the item in it to one of the following colors:
+
+      Red,
+      Blue, or Green
+
+      You can also make new colors by using paint multiple
+      times, like yellow being Green and Red, purple being Red and Blue, and cyan
+      being Blue and Green.'
+  - style: 1
+    text: "void OnTick()\r\n{\r\n\tPaint(Red);\r\n}"

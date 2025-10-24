@@ -10,19 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
-  m_Name: Crane
+  m_Name: Variables
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  title: Crane
+  title: Variables
   showcaseI: {fileID: 0}
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: 'The crane can grab and move objects from any conveyor belt in range to
-      any conveyor belt in range.
+    text: 'Supported Types: int, float, string, bool
 
-      Use Rotate() to rotate the crane an amount
-      in degrees.
+      Creating Variables
 
-      Use GrabLoseItem() to grab and release the object.'
+      To
+      create a variable: [Type] variableName;
+
+      example:'
   - style: 1
-    text: "void OnTick()\r\n{\r\n\tGrabLoseItem();\r\n\tRotate(180);\r\n}"
+    text: "class Example\r\n{\r\n\tint myInt = 5;\r\n}"
+  - style: 0
+    text: 'Calling Variables
+
+      to call a variable: variableName;
+
+      example:'
+  - style: 1
+    text: "class Example\r\n{\r\n\tint myInt = 5;\r\n\r\n\tvoid StartTick()\r\n\t{\r\n\t\tmyInt
+      = 2;\r\n\t}\r\n}"

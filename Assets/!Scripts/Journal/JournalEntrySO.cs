@@ -1,6 +1,5 @@
-
 using System;
-using AYellowpaper.SerializedCollections;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 namespace Journal
@@ -13,14 +12,8 @@ namespace Journal
         public string title;
         [ShowAssetPreview]
         public Texture2D showcaseI;
-        [ResizableTextArea]
-        public string explanation;
-
-        [ResizableTextArea]
-        public string codeShowcase;
         public bool bHintTaken;
-        [SerializedDictionary("Style", "Text")]
-        public SerializedDictionary<JournalStyle,JournalText> jText;
+        public List<JournalText> journalTexts;
 
     }
     public enum JournalStyle
@@ -31,6 +24,7 @@ namespace Journal
     [Serializable]
     public struct JournalText
     {
+        public JournalStyle style;
         [ResizableTextArea]
         public string text;
     }

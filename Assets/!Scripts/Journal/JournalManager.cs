@@ -1,5 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace Journal
@@ -9,10 +14,10 @@ namespace Journal
         public static JournalManager instance { get; private set; }
         public JournalEntrySO[] machineEntries;
         public JournalEntrySO[] HintEntries;
-        public JournalEntrySO[] economyEntries;
+        public JournalEntrySO[] ConceptEntries;
         [SerializeField] string machineTabName = "Machine";
         [SerializeField] string hintsTabName = "Hints";
-        [SerializeField] string economyTabName = "Economy";
+        [SerializeField] string conceptsTabName = "Concepts";
         private EventCallback<MouseUpEvent> tHintEvent;
         public UIDocument journalDoc;
         public StyleSheet styleSheet;
@@ -29,13 +34,13 @@ namespace Journal
             tabView.activeTabChanged += TabChange;
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
             HintEntries = Resources.LoadAll<JournalEntrySO>("Journal/Hints");
-            economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
+            ConceptEntries = Resources.LoadAll<JournalEntrySO>("Journal/Concepts");
         }
         void OnEnable()
         {
             AddEntry(machineEntries, machineTabName);
             AddHintEntry(HintEntries, hintsTabName);
-            AddEntry(economyEntries, economyTabName );
+            AddEntry(ConceptEntries, conceptsTabName );
         }
         void AddEntry(JournalEntrySO[] entries, string nameD)
         {
@@ -43,9 +48,11 @@ namespace Journal
             var scrollView = tab.Q<ScrollView>("ScrollView");
             foreach (var entry in entries)
             {
-                if (entry.title != string.Empty && entry.explanation != string.Empty /*&& entry.showcaseI != null*/)
+                RemoveEmptyEntries(entry);
+                if (entry.title != string.Empty && entry.journalTexts.Count > 0 /*&& entry.showcaseI != null*/)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, width = 345, height = 135, whiteSpace = WhiteSpace.Pre } };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI,} };
+                    tButton.AddToClassList("journal-button");
                     RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -64,12 +71,14 @@ namespace Journal
             hintText.visible = false;
             foreach (var entry in entries)
             {
+                RemoveEmptyEntries(entry);
 #if UNITY_EDITOR
                 entry.bHintTaken = false;
 #endif
-                if (entry.title != string.Empty && entry.explanation != string.Empty)
+                if (entry.title != string.Empty && entry.journalTexts.Count > 0)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI, whiteSpace = WhiteSpace.PreWrap } };
+                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI} };
+                    tButton.AddToClassList("journal-button");
                     RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -115,22 +124,23 @@ namespace Journal
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
             if(scrollView.childCount >0)
             {scrollView.Clear();}
-            foreach(var a in entry.jText)
+            foreach(var a in entry.journalTexts)
             {
-                if (a.Key == JournalStyle.explanation)
+                if (a.style == JournalStyle.explanation)
                 {
                     explainT = new();
                     explainT.AddToClassList("explanation_text");
-                    explainT.text = a.Value.text;
+                    explainT.text = a.text;
                     scrollView.Add(explainT);
                 }
                 else
-                {  
+                {
                     windowElement = new();
                     codeT = new();
+                    codeT.selection.isSelectable  = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
-                    codeT.text = a.Value.text;
+                    codeT.text = a.text;
                     scrollView.Add(windowElement);
                     windowElement.Add(codeT);
                 }
@@ -178,10 +188,18 @@ namespace Journal
         }
         private void TabChange(Tab tab1, Tab tab2)
         {
-             var scrollView = tab1.Q<ScrollView>("ScrollExpla");
+            var scrollView = tab1.Q<ScrollView>("ScrollExpla");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
-            if(scrollView?.childCount >0)
-            {scrollView?.Clear();}
+            if (scrollView?.childCount > 0)
+            { scrollView?.Clear(); }
+        }
+        private void RemoveEmptyEntries(JournalEntrySO entry)
+        {
+            entry.journalTexts.RemoveAll(EmptyEntry);
+        }
+        private static bool EmptyEntry(JournalText journalText)
+        {
+            return journalText.text == string.Empty;
         }
     }
 }

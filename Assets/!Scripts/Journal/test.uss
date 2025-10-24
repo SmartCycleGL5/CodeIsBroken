@@ -1,7 +1,7 @@
 :root {
 }
 
-.unity-button {
+.journal-button {
     background-image: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&guid=283f897e4925411ebbaa758b4cb13fc2&type=3#Floor Cement");
     flex-shrink: 0;
     -unity-background-scale-mode: scale-to-fit;
@@ -56,4 +56,21 @@
     flex-wrap: wrap;
     white-space: normal;
     -unity-text-align: upper-left;
+}
+
+.unity-slider {
+}
+
+.unity-scroller__low-button {
+}
+
+.unity-scroller__high-button {
+}
+
+.unity-base-slider__dragger {
+}
+
+.unity-base-slider__tracker {
+    border-top-width: 0;
+    border-top-left-radius: 0;
 }

@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,7 +13,7 @@ public class LineGraphElement : VisualElement
 {
     
     // Public styling options
-    public Color gridColor = new Color(1f,1f,1f,1f);
+    public Color gridColor = new Color(1f,1f,1f,0.67f);
     public Color axisColor = new Color(1f,1f,1f,0.25f);
     public float lineWidth = 5;
     public float pointRadius = 3f;
@@ -42,15 +43,16 @@ public class LineGraphElement : VisualElement
 
     void RecalculateMinMax()
     {
-        if (m_Data == null || m_Data.Count == 0)
+        m_Min = 0;
+        List<int> highestValue = m_Data.Max() > m_DataBaseline.Max() ? m_Data : m_DataBaseline;
+        if (highestValue == null || highestValue.Count == 0)
         {
             m_Min = 0f; m_Max = 1f; return;
         }
-        m_Min = m_Max = m_Data[0];
-        for (int i = 1; i < m_Data.Count; i++)
+        m_Max = highestValue[0];
+        for (int i = 1; i < highestValue.Count; i++)
         {
-            if (m_Data[i] < m_Min) m_Min = m_Data[i];
-            if (m_Data[i] > m_Max) m_Max = m_Data[i];
+            if (highestValue[i] > m_Max) m_Max = highestValue[i];
         }
         if (Mathf.Approximately(m_Min, m_Max)) { m_Min -= 0.5f; m_Max += 0.5f; }
     }
@@ -104,16 +106,19 @@ public class LineGraphElement : VisualElement
             painter.LineTo(ToPoint(i, m_Data[i]));
         painter.Stroke();
         
-        painter.strokeColor = Color.blue;
+        painter.strokeColor = Color.cyan;
         // Plot for baseline
         painter.BeginPath();
         painter.MoveTo(ToPoint(0, m_DataBaseline[0]));
         for (int i = 1; i < m_DataBaseline.Count; i++)
+        {
+            if (i > m_Data.Count-1) break;
             painter.LineTo(ToPoint(i, m_DataBaseline[i]));
+        }
         painter.Stroke();
 
         // Draw points
-        painter.fillColor = Color.red;
+        painter.fillColor = Color.green;
         for (int i = 0; i < m_Data.Count; i++)
         {
             var p = ToPoint(i, m_Data[i]);
@@ -123,7 +128,7 @@ public class LineGraphElement : VisualElement
             painter.Fill();
         }
         // Draw point baseline
-        painter.fillColor = Color.blue;
+        painter.fillColor = Color.cyan;
         for (int i = 0; i < m_DataBaseline.Count; i++)
         {
             var p = ToPoint(i, m_DataBaseline[i]);
@@ -170,6 +175,8 @@ public class GraphDrawer : MonoBehaviour
 
     private void Start()
     {
+        HideGraphs();   
+        uiDocument.rootVisualElement.Q<Button>("ContinueButton").clicked += HideGraphs;
         instance = this;
     }
 
@@ -192,11 +199,18 @@ public class GraphDrawer : MonoBehaviour
 
             // Example data
             var data = args[i];
-            var dataBaseline = new List<int>() { 30,60,120};
+            var dataBaseline = new List<int>() { 30,60,120, 200, 320};
             graph.SetData(data, dataBaseline);
-
+            container.Clear();
             container.Add(graph);
         }
         
     }
+
+    public void HideGraphs()
+    {
+        uiDocument.rootVisualElement.Q<VisualElement>("GraphHolder").style.visibility = Visibility.Hidden;
+    }
 }
+
+

@@ -7,9 +7,10 @@
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BuildingMenu.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BuildingMenu.uxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/buildingButton.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/buildingButton.uxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +165,7 @@
       <workItem from="1761233947480" duration="1729000" />
       <workItem from="1761291763874" duration="4934000" />
       <workItem from="1761298373761" duration="17000" />
-      <workItem from="1761298392700" duration="11740000" />
+      <workItem from="1761298392700" duration="16169000" />
     </task>
     <servers />
   </component>

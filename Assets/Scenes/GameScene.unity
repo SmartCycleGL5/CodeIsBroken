@@ -794,6 +794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c103d3643d5029344b8dfbd83526f304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Metrics
+  electricityLevel: 
+  timeUsed: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,8 +1538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GraphDrawer
   graphs:
-  - TimeGraph, ElectricityGraph
-  uiDocument: {fileID: 0}
+  - ElectricityGraph
+  - TimeGraph
+  uiDocument: {fileID: 1291140323}
 --- !u!1001 &1507137598
 PrefabInstance:
   m_ObjectHideFlags: 0

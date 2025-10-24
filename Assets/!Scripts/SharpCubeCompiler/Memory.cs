@@ -16,7 +16,13 @@ public class Memory<T>
     [SerializedDictionary("Name", "Value")]
     public SerializedDictionary<string, T> @private = new();
 
+    public bool Contains(string key)
+    {
+        if(@public.ContainsKey(key)) return true;
+        if(@private.ContainsKey(key)) return true;
 
+        return false;
+    }
     public T Get(Privilege privilege, string name)
     {
         if (privilege == Privilege.Private && @private.ContainsKey(name)) return @private[name];

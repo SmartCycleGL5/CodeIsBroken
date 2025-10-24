@@ -4,35 +4,39 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public static class SyntaxHighlighting
+namespace Coding
 {
-
-    public static string ReturnHighlightedString(string text)
+    public static class SyntaxHighlighting
     {
-        string[] splitString = text.Split(' ');
 
-
-
-        for (int i = 0; i < splitString.Length; i++)
+        public static string ReturnHighlightedString(string text)
         {
-            foreach (var keyword in Syntax.keywords)
+            string[] splitString = text.Split(' ');
+
+
+
+            for (int i = 0; i < splitString.Length; i++)
             {
-                if (splitString[i] != keyword.Value.word) continue;
+                foreach (var keyword in Syntax.keywords)
+                {
+                    if (splitString[i] != keyword.Value.word) continue;
 
-                string hex = keyword.Value.highlightColor.ToHexString();
-                splitString[i] = "<color=" + hex + ">" + splitString[i] + "</color>";
+                    string hex = keyword.Value.highlightColor.ToHexString();
+                    splitString[i] = "<color=" + hex + ">" + splitString[i] + "</color>";
 
-                Debug.Log("[Highlighting] found word: " + splitString[i]);
+                    Debug.Log("[Highlighting] found word: " + splitString[i]);
+                }
             }
+
+            string finalString = string.Empty;
+
+            foreach (var item in splitString)
+            {
+                finalString += item;
+            }
+
+            return finalString;
         }
-
-        string finalString = string.Empty;
-
-        foreach (var item in splitString)
-        {
-            finalString += item;
-        }
-
-        return finalString;
     }
+
 }

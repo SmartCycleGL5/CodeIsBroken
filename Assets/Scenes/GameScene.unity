@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47c1bbadcf956b41b7333fdd38a0e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coding.ScriptManager
+  playerScripts:
+    _serializedList: []
 --- !u!4 &357034589
 Transform:
   m_ObjectHideFlags: 0

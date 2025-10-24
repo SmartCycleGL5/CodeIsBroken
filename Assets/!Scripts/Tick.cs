@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class Tick : MonoBehaviour
 {
     public static Tick Instance { get; private set; }
     [SerializeField] private float tickTime = 0.5f;
     public static float tickLength => Instance.tickTime;
-    private int tick;
+    public static int tick;
 
     public static event Action OnTick;
     public static event Action OnStartingTick;
@@ -26,6 +27,7 @@ public class Tick : MonoBehaviour
 
     public static void StartTick()
     {
+        tick = 0;
         OnStartingTick?.Invoke();
         Instance.InvokeRepeating(nameof(DoTick), 0, tickLength);
 

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using Coding.SharpCube;
-using System.Reflection;
+using SharpCube;
 
 public class Machine : BaseMachine
 {
@@ -12,16 +8,16 @@ public class Machine : BaseMachine
         AddMethodsAsIntegrated(typeof(Machine));
     }
 
-    public void Print(string debug)
+    public void Print(object debug)
     {
-        Debug.Log(debug);
+        PlayerConsole.Log(debug);
     }
 
     public virtual void Reset()
     {
 
     }
-    
+
     protected virtual void OnDestroy()
     {
         base.OnDestroy();

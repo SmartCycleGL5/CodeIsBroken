@@ -27,14 +27,14 @@ namespace SharpCube
         {
             if (input == null)
             {
-                Debug.Log("[IntegratedMethod] Running " + toCall.Name);
+                UnityEngine.Debug.Log("[IntegratedMethod] Running " + toCall.Name);
             }
             else
             {
-                Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
+                UnityEngine.Debug.Log("[IntegratedMethod] Running " + toCall.Name + " with the following parameters:");
                 foreach (var item in input)
                 {
-                    Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
+                    UnityEngine.Debug.Log("[IntegratedMethod] " + item + " " + item.GetType());
                 }
             }
             return toCall.Invoke(toRunFrom, input);

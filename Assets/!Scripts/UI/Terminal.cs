@@ -1,3 +1,6 @@
+using SharpCube;
+using SharpCube.Highlighting;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -32,6 +35,7 @@ namespace WindowSystem
         VisualElement terminal;
         Label availableMethods;
         TextField input;
+        Label console;
         Focusable focusedElement => input.panel.focusController.focusedElement;
 
         public bool isFocused
@@ -71,12 +75,28 @@ namespace WindowSystem
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
+            console = terminal.Q<Label>("Output");
 
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
 
+            input.labelElement.enableRichText = true;
+
             terminals.Add(this);
 
+            PlayerConsole.LogEvent += ConsoleLog;
+
             Load();
+        }
+        private void Update()
+        {
+            //if (!isFocused) return;
+
+            input.value = SyntaxHighlighting.HighlightCode(input.text);
+        }
+
+        private void ConsoleLog(object obj)
+        {
+            console.text += obj+ "\n";
         }
 
         private void OnDestroy()
@@ -132,11 +152,15 @@ namespace WindowSystem
             {
                 scriptToEdit.Compile(input.text);
                 window.Rename(scriptToEdit.name);
+
+                console.text = "";
+
                 return true;
             }
-            catch
+            catch (Exception e) 
             {
-                Debug.LogWarning("[Terminal] Couldnt Save");
+                PlayerConsole.LogWarning("Save failed");
+                Debug.LogError(e);
                 return false;
             }
         }

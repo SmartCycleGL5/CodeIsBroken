@@ -1,4 +1,7 @@
+
 using SharpCube.Object;
+
+using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,24 +17,27 @@ namespace SharpCube
     }
     public static partial class Compiler
     {
+        public static string initializerColor = "#5397D0";
+        public static string modifierColor = "#5397D0";
+
         public readonly static Dictionary<KeywordType, Dictionary<string, IKeyword>> Keywords = new()
         {
             { KeywordType.Initializer, new()
             {
-                { "class", new Initializer(Color.blue, Class.Create) },
+                { "class", new Initializer(initializerColor, Class.Create) },
                 //{ "struct", new Initializer(Color.blue, Class.Create) },
 
-                { "void", new Initializer(Color.blue, IType.Create)  },
-                { "bool", new Initializer(Color.blue, IType.Create)  },
-                { "int", new Initializer(Color.blue, IType.Create)  },
-                { "float", new Initializer(Color.blue, IType.Create) },
-                { "string", new Initializer(Color.blue, IType.Create)  },
+                { "void", new Initializer(initializerColor, IType.Create)  },
+                { "bool", new Initializer(initializerColor, IType.Create)  },
+                { "int", new Initializer(initializerColor, IType.Create)  },
+                { "float", new Initializer(initializerColor, IType.Create) },
+                { "string", new Initializer(initializerColor, IType.Create)  },
             } },
 
             { KeywordType.Modifier, new()
             {
-                { "private", new Modifier(Color.aliceBlue, Privilege.Private) },
-                { "public",  new Modifier(Color.aliceBlue, Privilege.Public) },
+                { "private", new Modifier(modifierColor, Privilege.Private) },
+                { "public",  new Modifier(modifierColor, Privilege.Public) },
             } },
         };
 

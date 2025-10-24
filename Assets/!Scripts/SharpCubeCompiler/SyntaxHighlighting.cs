@@ -1,43 +1,38 @@
 using SharpCube.Object;
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace SharpCube.Highlighting
 {
     public static class SyntaxHighlighting
     {
-        public static void RemoveHighlight(ref string code)
-        {
 
+
+        public static string RemoveHighlight(string code)
+        {
+            return Regex.Replace(code, "<.*?>", String.Empty);
         }
         public static string HighlightCode(string code)
         {
-            string[] splitCode = code.Split(" ");
+            string newCode = code;
 
-            for (int i = 0; i < splitCode.Length; i++)
+            foreach (var type in Enum.GetValues(typeof(KeywordType)))
             {
-                foreach (var key in Enum.GetValues(typeof(KeywordType)))
+
+                foreach (var keyword in Compiler.Keywords[(KeywordType)type])
                 {
-                    if (!Compiler.Keywords[(KeywordType)key].ContainsKey(splitCode[i])) break;
+                    string color = keyword.Value.color;
 
-                    string hexColor = ColorUtility.ToHtmlStringRGB(Compiler.Keywords[(KeywordType)key][splitCode[i]].color);
+                    Debug.Log(color);
 
-                    splitCode[i] = $"<color=#{hexColor}>{splitCode[i]}</color>";
-                    continue;
-                }
-
-                if (Class.initializedClasses.@public.ContainsKey(splitCode[i]))
-                {
-                    continue;
+                    newCode = Regex.Replace(newCode, keyword.Key, $"<color={color}>{keyword.Key}</color>");
                 }
             }
-            string newString = "";
 
-            foreach (var item in splitCode)
-            {
-                newString += item + " ";
-            }
-            return newString;
+            Debug.Log(newCode);
+
+            return newCode;
         }
     }
 

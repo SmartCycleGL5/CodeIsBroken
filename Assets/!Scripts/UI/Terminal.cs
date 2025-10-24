@@ -79,19 +79,13 @@ namespace WindowSystem
 
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
 
-            input.labelElement.enableRichText = true;
+            input.Q<TextElement>().enableRichText = true;
 
             terminals.Add(this);
 
             PlayerConsole.LogEvent += ConsoleLog;
 
             Load();
-        }
-        private void Update()
-        {
-            //if (!isFocused) return;
-
-            input.value = SyntaxHighlighting.HighlightCode(input.text);
         }
 
         private void ConsoleLog(object obj)
@@ -126,8 +120,10 @@ namespace WindowSystem
 
             availableMethods.text = "Available Methods: \n";
 
-            if(scriptToEdit.connectedMachine != null)
+            if (scriptToEdit.connectedMachine != null)
                 DisplayIntegratedMethods();
+
+            HighlightCode();
         }
         void DisplayIntegratedMethods()
         {
@@ -148,6 +144,8 @@ namespace WindowSystem
         {
             if (scriptToEdit == null || ScriptManager.isRunning) return false;
 
+            RemoveHighlight();
+
             try
             {
                 scriptToEdit.Compile(input.text);
@@ -155,6 +153,7 @@ namespace WindowSystem
 
                 console.text = "";
 
+                HighlightCode();
                 return true;
             }
             catch (Exception e) 
@@ -163,6 +162,7 @@ namespace WindowSystem
                 Debug.LogError(e);
                 return false;
             }
+            
         }
 
         public static Terminal NewTerminal(Script script)
@@ -172,6 +172,17 @@ namespace WindowSystem
             newTerminal.scriptToEdit = script;
 
             return newTerminal;
+        }
+
+        void HighlightCode()
+        {
+            Debug.Log(input.labelElement.enableRichText);
+            input.value = SyntaxHighlighting.HighlightCode(input.text);
+        }
+        void RemoveHighlight()
+        {
+            Debug.Log(input.labelElement.enableRichText);
+            input.value = SyntaxHighlighting.RemoveHighlight(input.text);
         }
     }
 }

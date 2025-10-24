@@ -37,8 +37,6 @@ public class ShitJournal : MonoBehaviour, IWindow
 
         foreach (var item in buildings)
         {
-            Debug.Log(item.isUnlocked);
-
             if (!item.isUnlocked) continue;
 
             VisualElement element = journalElementAsset.Instantiate();

@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
+    public static PlayerInputs instance;
+    
     [Header("References")]
     [SerializeField] GhostBuilding buildingInput;
     [SerializeField] MachineInteraction machineInput;
-    [SerializeField] GameObject buildingMenu;
     [SerializeField] Camera cam;
     [SerializeField] private TMP_InputField terminal;
 
@@ -60,6 +61,7 @@ public class PlayerInputs : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         playerAction = PlayerAction.WorldInteraction;
         screenWidth = Screen.width;
     }
@@ -72,26 +74,26 @@ public class PlayerInputs : MonoBehaviour
         MouseRotate();
     }
 
-
-    void PlayerUpdate()
+    public void BuildingMenu(bool isBuilding)
     {
-        //Enable disable building:
-        if (Keyboard.current.bKey.wasPressedThisFrame && !isBuilding)
+        if (isBuilding)
         {
             if (Terminal.focused) return;
             isBuilding = true;
-            buildingMenu.SetActive(true);
             playerAction = PlayerAction.Building;
             Debug.Log("Enabled Building");
         }
-        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding || Keyboard.current.escapeKey.wasPressedThisFrame && isBuilding)
+        else
         {
             playerAction = PlayerAction.WorldInteraction;
             isBuilding = false;
-            buildingMenu.SetActive(false);
             buildingInput.DestroyGhost();
             Debug.Log("Disabled Building");
         }
+    }
+
+    void PlayerUpdate()
+    {
         if (Keyboard.current.deleteKey.wasPressedThisFrame)
         {
             Restart();

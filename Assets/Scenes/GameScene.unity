@@ -1234,6 +1234,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &970017184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5631336514476434366, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
+  m_PrefabInstance: {fileID: 1291140318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &973924509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1506,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5631336514476434366, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1291140327}
   m_SourcePrefab: {fileID: 100100000, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
 --- !u!4 &1291140319 stripped
 Transform:
@@ -1513,12 +1521,24 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5033067179267461368, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
   m_PrefabInstance: {fileID: 1291140318}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 970017184}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+--- !u!114 &1291140327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970017184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863b3680778a6d84fa49aed42ec294fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GraphDrawer
 --- !u!1001 &1507137598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2291,6 +2311,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
   buildingButtonTemplate: {fileID: 9197481963319205126, guid: 059ab6987b8ea384fa556a041657d4f0, type: 3}
   uiDoc: {fileID: 1291140323}
+  arrowDown: {fileID: 21300000, guid: 7cb2c98cf348c7d489482d7ac1ac8f96, type: 3}
+  arrowUp: {fileID: 21300000, guid: 92936c042e0d3534586452e2fbe92515, type: 3}
 --- !u!156049354 &493899198845114267
 Grid:
   m_ObjectHideFlags: 0
@@ -2689,7 +2711,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputs
   buildingInput: {fileID: 5631033168589675713}
   machineInput: {fileID: 5962536211833835727}
-  buildingMenu: {fileID: 929964379198931661}
   cam: {fileID: 8561771419572170403}
   terminal: {fileID: 0}
   player: {fileID: 3323748746105681420}

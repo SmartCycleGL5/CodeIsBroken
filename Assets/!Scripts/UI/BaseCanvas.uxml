@@ -9,13 +9,14 @@
                 <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 20px; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Button text="Run" name="Run" class="RunButton" />
+        <ui:Button text="Run" name="Run" class="RunButton" style="bottom: 100px;" />
         <NS.RomanLib.RadialFillElement name="XP" angle-offset="0.93" value="1" fill-color="#83FF91FF" width="150" height="150" fill-direction="Clockwise" overlay-image-scale="0" style="position: absolute; bottom: 50px; right: 50px; overflow: hidden; border-top-left-radius: 90px; border-top-right-radius: 90px; border-bottom-right-radius: 90px; border-bottom-left-radius: 90px; background-color: rgb(255, 255, 255); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
         <ui:Label text="0" name="Level" style="bottom: 50px; right: 50px; width: 150px; height: 150px; position: absolute; -unity-text-align: middle-center; font-size: 112px;" />
         <ui:VisualElement name="ContractHolder" enabled="false" picking-mode="Ignore" class="ContractHolder" style="bottom: 0;" />
         <ui:Label text="Select Contract" name="Select" style="position: absolute; top: 200px; color: rgb(255, 255, 255); font-size: 96px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 3px; align-self: center; background-color: rgba(168, 95, 95, 0);" />
-        <ui:VisualElement name="BuildingMenu" style="flex-grow: 0; width: 68%; height: 33%; min-width: auto; min-height: auto; flex-basis: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; position: absolute; bottom: 0%; background-color: rgb(53, 53, 53);">
-            <ui:ScrollView name="MenuScroll" />
-        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="BuildingMenu" style="flex-grow: 1; top: auto; width: 70%; height: 23%; position: absolute; bottom: -287px; left: auto; right: auto; align-self: center; transition-duration: 0.2s;">
+        <ui:VisualElement name="ButtonHolder" picking-mode="Ignore" style="flex-grow: 0; width: 1712px; height: 283px; min-width: auto; min-height: auto; flex-basis: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; position: absolute; bottom: 0; background-color: rgb(53, 53, 53); flex-direction: row; left: auto; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;" />
+        <ui:Button name="BuildingMenuToggle" style="width: 4%; height: 20%; align-self: center; translate: 0 -44px; scale: 1.3 1.3 2;" />
     </ui:VisualElement>
 </ui:UXML>

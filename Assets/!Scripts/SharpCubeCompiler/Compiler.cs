@@ -14,11 +14,14 @@ namespace SharpCube
     {
         Initializer,
         Modifier,
+        Valid
     }
+
     public static partial class Compiler
     {
         public static string initializerColor = "#5397D0";
         public static string modifierColor = "#5397D0";
+        public static string defaultColor = "#ffffff";
 
         public readonly static Dictionary<KeywordType, Dictionary<string, IKeyword>> Keywords = new()
         {
@@ -26,7 +29,7 @@ namespace SharpCube
             {
                 { "class", new Initializer(initializerColor, Class.Create) },
                 //{ "struct", new Initializer(Color.blue, Class.Create) },
-
+                
                 { "void", new Initializer(initializerColor, IType.Create)  },
                 { "bool", new Initializer(initializerColor, IType.Create)  },
                 { "int", new Initializer(initializerColor, IType.Create)  },
@@ -38,6 +41,12 @@ namespace SharpCube
             {
                 { "private", new Modifier(modifierColor, Privilege.Private) },
                 { "public",  new Modifier(modifierColor, Privilege.Public) },
+            } },
+            
+            { KeywordType.Valid, new()
+            {
+                { "{", new Keyword(defaultColor) },
+                { "}",  new Keyword(defaultColor) },
             } },
         };
 
@@ -64,16 +73,19 @@ namespace SharpCube
             for (int i = 0; i < convertedCode.Count; i++)
             {
                 string word = convertedCode[i];
+                
+                Debug.Log($"[Compiler] {word}");
 
                 if(!ValidKeyword(word))
                 {
-                    PlayerConsole.LogError($"The name {word} does not exist in the current context");
-                    continue;
+                    PlayerConsole.LogError($"{word} does not exist in the current context");
+                    return;
                 }
 
                 if(Keywords[KeywordType.Modifier].ContainsKey(word))
                 {
                     currentModifiers.privilege = ((Modifier)Keywords[KeywordType.Modifier][word]).privilege;
+                    continue;
                 }
 
                 if (Keywords[KeywordType.Initializer].ContainsKey(word))
@@ -82,15 +94,10 @@ namespace SharpCube
 
                     encapsulation.create.Invoke(i, currentModifiers);
                     currentModifiers = new();
+
+                    i++;
                     continue;
                 }
-
-                //if (Keywords[KeywordType.Type].ContainsKey(word))
-                //{
-                //    Debug.Log("[Compiler] " + $"Found new variable {convertedCode[i + 1]}");
-                //    //Debug.Log("[Compiler] " + Keywords[KeywordType.Type][word].);
-                //    continue;
-                //}
             }
         }
 

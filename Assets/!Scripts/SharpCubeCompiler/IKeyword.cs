@@ -8,6 +8,16 @@ namespace SharpCube
         public string color {  get; set; }
     }
 
+    public struct Keyword : IKeyword
+    {
+        public string color { get; set; }
+
+        public Keyword(string color)
+        {
+            this.color = color;
+        }
+    }
+
     public struct Initializer : IKeyword
     {
         public string color { get; set; }
@@ -35,13 +45,11 @@ namespace SharpCube
     {
         public Privilege privilege;
         public bool @static;
-        public bool @abstract;
 
-        public Properties(Privilege privilege, bool @static, bool @abstract)
+        public Properties(Privilege privilege, bool @static)
         {
             this.privilege = privilege;
             this.@static = @static;
-            this.@abstract = @abstract;
         }
     }
 }

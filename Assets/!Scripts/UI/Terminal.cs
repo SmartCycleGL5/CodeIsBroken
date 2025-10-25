@@ -91,10 +91,13 @@ namespace WindowSystem
         private void ConsoleLog(object obj)
         {
             console.text += obj+ "\n";
+            
+            Debug.Log("Console " + console.text);
         }
 
         private void OnDestroy()
         {
+            PlayerConsole.LogEvent -= ConsoleLog;
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
@@ -129,12 +132,12 @@ namespace WindowSystem
         {
             foreach (var method in scriptToEdit.connectedMachine.IntegratedMethods)
             {
-                availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
-
+                availableMethods.text += "\n" + /*method.Value.toCall.ReturnType.Name + " " + */method.Value.toCall.Name + "(";
+/*
                 foreach (var item in method.Value.toCall.GetParameters())
                 {
                     availableMethods.text += item.ParameterType.Name + " " + item.Name;
-                }
+                }*/
 
                 availableMethods.text += ");";
             }
@@ -142,16 +145,28 @@ namespace WindowSystem
 
         public bool Save()
         {
-            if (scriptToEdit == null || ScriptManager.isRunning) return false;
+            if (scriptToEdit == null) return false;
+
+            if (ScriptManager.isRunning)
+            {
+                ScriptManager.StopMachines();
+            }
 
             RemoveHighlight();
 
+            if (scriptToEdit.rawCode == input.text)
+            {
+                Debug.Log("No thing to save");
+                HighlightCode();
+                return true;
+            }
+
             try
             {
+                //console.text = "";
+                
                 scriptToEdit.Compile(input.text);
                 window.Rename(scriptToEdit.name);
-
-                console.text = "";
 
                 HighlightCode();
                 return true;

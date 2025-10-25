@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+
 namespace SharpCube.Object
 {
     [Serializable]
-    public class Class : IObject, IContainer
+    public class Class : IObject
     {
         public string name { get; set; }
+        public Encapsulation Encapsulation { get; set; }
 
         public static Memory<Class> initializedClasses { get; private set; } = new();
 
-        [field: SerializeField] public Memory<Variable> variables { get; set; }
 
         public Class(string name, Properties properties)
         {

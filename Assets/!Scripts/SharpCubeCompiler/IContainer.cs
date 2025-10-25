@@ -1,5 +1,9 @@
 using SharpCube.Object;
-public interface IContainer
+namespace SharpCube
+{
+ public interface IContainer
 {
     public Memory<Variable> variables { get; set; }
+}
+   
 }

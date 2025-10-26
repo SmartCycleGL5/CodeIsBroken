@@ -45,7 +45,8 @@ public class Script
         connectedMachine = machine;
         ScriptManager.instance.playerScripts.Add(name, this);
 
-        Compile(code == null ? DefaultCode : code);
+        Save(code == null ? DefaultCode : code);
+        Compile();
     }
 
     public void Run()
@@ -66,22 +67,35 @@ public class Script
         Terminal.NewTerminal(this);
     }
 
-    public void Compile(string code)
+    public void Save(string code)
     {
-        Debug.Log("try compile");
-        classes.Clear();
-
         rawCode = code;
-
-        Compiler.Interporate(this);
-
-        foreach (var item in classes.@private)
+    }
+    public bool Compile()
+    {
+        Memory<Class> oldClasses = classes;
+        classes.Clear();
+        
+        try
         {
-            name = item.Value.name;
-            break;
-        }
+            Compiler.StartCompile(this);
 
-        Debug.Log("Finished compile");
+            foreach (var item in classes.@private)
+            {
+                name = item.Value.name;
+                break;
+            }
+            return true;
+        }
+        catch (Exception e) 
+        {
+            PlayerConsole.LogWarning("Failed to compile");
+            Debug.LogError(e.Source + " " + e);
+            
+            classes = oldClasses;
+            
+            return false;
+        }
     }
 
     internal void Clear()

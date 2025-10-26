@@ -16,13 +16,13 @@ namespace SharpCube
         public static void LogWarning(object message)
         {
             object msg = $"[{Tick.tick}] <color=yellow>{message}</color>";
-            Debug.Log("[PlayerConsole] " + message);
+            Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
         public static void LogError(object message)
         {
             object msg = $"[{Tick.tick}] <color=red>{message}</color>";
-            Debug.Log("[PlayerConsole] " + message);
+            Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
     }

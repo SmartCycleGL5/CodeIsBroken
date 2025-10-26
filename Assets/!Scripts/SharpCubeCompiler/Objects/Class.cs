@@ -6,17 +6,18 @@ namespace SharpCube.Object
     [Serializable]
     public class Class : IObject
     {
-        public string name { get; set; }
-        public Encapsulation Encapsulation { get; set; }
+        [field:SerializeField] public string name { get; set; }
+        [field:SerializeField] public Encapsulation Encapsulation { get; set; }
 
         public static Memory<Class> initializedClasses { get; private set; } = new();
 
 
-        public Class(string name, Properties properties)
+        public Class(string name, Properties properties, Encapsulation encapsulation)
         {
             Debug.Log($"[Class] new class {name}");
 
             this.name = name;
+            this.Encapsulation = encapsulation;
 
             initializedClasses.Add(name, this, properties.privilege);
             Compiler.toCompile.classes.Add(name, this, properties.privilege);
@@ -32,7 +33,7 @@ namespace SharpCube.Object
                 throw new Exception("Player error");
             }
 
-            new Class(name, properties);
+            new Class(name, properties, new Encapsulation(line));
         }
 
         public static void ClearClasses()

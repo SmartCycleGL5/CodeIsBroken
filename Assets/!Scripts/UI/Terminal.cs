@@ -91,8 +91,6 @@ namespace WindowSystem
         private void ConsoleLog(object obj)
         {
             console.text += obj+ "\n";
-            
-            Debug.Log("Console " + console.text);
         }
 
         private void OnDestroy()
@@ -125,7 +123,8 @@ namespace WindowSystem
 
             if (scriptToEdit.connectedMachine != null)
                 DisplayIntegratedMethods();
-
+            
+            scriptToEdit.Compile();
             HighlightCode();
         }
         void DisplayIntegratedMethods()
@@ -140,44 +139,34 @@ namespace WindowSystem
                 }*/
 
                 availableMethods.text += ");";
+                
             }
         }
 
-        public bool Save()
+        public void Save()
         {
-            if (scriptToEdit == null) return false;
+            if (scriptToEdit == null) return;
 
             if (ScriptManager.isRunning)
             {
                 ScriptManager.StopMachines();
             }
 
+            console.text = "";
+
             RemoveHighlight();
 
-            if (scriptToEdit.rawCode == input.text)
+            if (scriptToEdit.rawCode != input.text)
             {
-                Debug.Log("No thing to save");
-                HighlightCode();
-                return true;
-            }
-
-            try
-            {
-                //console.text = "";
-                
-                scriptToEdit.Compile(input.text);
-                window.Rename(scriptToEdit.name);
-
-                HighlightCode();
-                return true;
-            }
-            catch (Exception e) 
-            {
-                PlayerConsole.LogWarning("Save failed");
-                Debug.LogError(e);
-                return false;
+                scriptToEdit.Save(input.text);
+                PlayerConsole.Log("Saved!");    
             }
             
+            
+            scriptToEdit.Compile();
+            window.Rename(scriptToEdit.name);
+
+            HighlightCode();
         }
 
         public static Terminal NewTerminal(Script script)

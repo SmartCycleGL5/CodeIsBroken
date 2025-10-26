@@ -3,40 +3,34 @@ using UnityEngine;
 
 namespace SharpCube
 {
-    public interface IKeyword
-    {
-        public string color {  get; set; }
-    }
 
-    public struct Keyword : IKeyword
+    public class Keyword
     {
+        public string key { get; set; }
         public string color { get; set; }
 
-        public Keyword(string color)
+        public Keyword(string key, string color)
         {
+            this.key = key;
             this.color = color;
         }
     }
 
-    public struct Initializer : IKeyword
+    public class Initializer : Keyword
     {
-        public string color { get; set; }
         public Action<int, Properties> create { get; set; }
 
-        public Initializer(string color, Action<int, Properties> create)
+        public Initializer(string key, string color, Action<int, Properties> create) : base(key, color)
         {
-            this.color = color;
             this.create = create;
         }
     }
-    public struct Modifier : IKeyword
+    public class Modifier : Keyword
     {
-        public string color { get; set; }
         public Privilege privilege { get; set; }
 
-        public Modifier(string color, Privilege privilege)
+        public Modifier(string key, string color, Privilege privilege): base(key, color)
         {
-            this.color = color;
             this.privilege = privilege;
         }
     }

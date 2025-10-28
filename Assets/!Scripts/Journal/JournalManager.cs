@@ -35,6 +35,9 @@ namespace Journal
             machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
             HintEntries = Resources.LoadAll<JournalEntrySO>("Journal/Hints");
             ConceptEntries = Resources.LoadAll<JournalEntrySO>("Journal/Concepts");
+            Array.Sort(machineEntries);
+            Array.Sort(HintEntries);
+            Array.Sort(ConceptEntries);
         }
         void OnEnable()
         {
@@ -156,18 +159,6 @@ namespace Journal
             tHintEvent = null;
 
         }
-        // void TurnCodeVisualsOnOff(JournalEntrySO entry, Label codeT, VisualElement windowE)
-        // {
-        //     if (entry.codeShowcase != string.Empty)
-        //     {
-        //         windowE.style.visibility = Visibility.Visible;
-        //         codeT.text = entry.codeShowcase;
-        //     }
-        //     else
-        //     {
-        //         windowE.style.visibility = Visibility.Hidden;
-        //     }
-        // }
         public void JournalOnOff()
         {
             if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)

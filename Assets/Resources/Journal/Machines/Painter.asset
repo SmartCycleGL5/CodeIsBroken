@@ -27,3 +27,4 @@ MonoBehaviour:
       being Blue and Green.'
   - style: 1
     text: "void OnTick()\r\n{\r\n\tPaint(Red);\r\n}"
+  sortOrder: 6

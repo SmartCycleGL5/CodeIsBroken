@@ -27,7 +27,8 @@ MonoBehaviour:
 
       Wood, Iron, or Stone
 
-      Use SpawnDelay() to add
-      a delay to the production of the material.'
+      Use SpawnDelay() to add a
+      delay to the production of the material.'
   - style: 1
     text: "void StartTick()\r\n{\r\n\tChangeMaterial(Iron);\r\n\tSpawnDelay(2);\r\n}"
+  sortOrder: 0

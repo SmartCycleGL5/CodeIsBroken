@@ -20,3 +20,4 @@ MonoBehaviour:
     text: "Used to melt/heat metals so that they are ready to be shaped and molded.
       \r\nThe furnace can take one input and outputs the processed item after a time
       delay."
+  sortOrder: 5

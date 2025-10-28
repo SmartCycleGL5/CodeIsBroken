@@ -22,6 +22,7 @@ public class PainterMachine : Machine
 
     public void Paint(string PrimaryColor)
     {
+        Metrics.instance.UseElectricity(1);
         Debug.Log("Set color to: " + PrimaryColor);
         if (item == null) return;
 

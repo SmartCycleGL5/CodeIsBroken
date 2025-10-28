@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SharpCube
@@ -18,9 +19,9 @@ namespace SharpCube
 
     public class Initializer : Keyword
     {
-        public Action<int, Properties> create { get; set; }
+        public Action<Encapsulation, List<string>, int, Properties> create { get; set; }
 
-        public Initializer(string key, string color, Action<int, Properties> create) : base(key, color)
+        public Initializer(string key, string color, Action<Encapsulation, List<string>, int, Properties> create) : base(key, color)
         {
             this.create = create;
         }

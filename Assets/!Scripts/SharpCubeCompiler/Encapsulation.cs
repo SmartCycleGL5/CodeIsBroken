@@ -5,30 +5,39 @@ using SharpCube.Object;
 namespace SharpCube
 {
     [System.Serializable]
-    public class Encapsulation : IContainer
+    public class Encapsulation
     {
         [field: SerializeField] public Memory<Variable> variables { get; set; } = new Memory<Variable>();
         
         [field: SerializeField] public List<string> content { get; set; } = new List<string>();
 
-        public Encapsulation(int location)
+        public Encapsulation(int location, List<string> context)
         {
             location += 2;
+            int end = FindEndOfEndEncapsulation(location, context);
+            
+            if(end == -1) throw new System.Exception("couldn't get encapsulation");
+            
 
-            for (int i = location + 1; i < FindEndOfEndEncapsulation(location); i++)
+            for (int i = location; i <= end; i++)
             {
-                content.Add(Compiler.convertedCode[i]);
+                Debug.Log(context[i]);
+                content.Add(context[i]);
             }
             
-            Compiler.Compile(content);
+            content.RemoveAt(0);
+            content.RemoveAt(content.Count - 1);
+            
+            if(content.Count > 0)
+                Compiler.Compile(content, this);
         }
 
-        public static int FindEndOfEndEncapsulation(int startEncapsulation)
+        public static int FindEndOfEndEncapsulation(int startEncapsulation, List<string> context)
         {
             string start = Compiler.Keywords[KeywordType.Valid]["{"].key;
             string end = Compiler.Keywords[KeywordType.Valid]["}"].key;
 
-            if (Compiler.convertedCode[startEncapsulation] != start)
+            if (context[startEncapsulation] != start)
             {
                 PlayerConsole.LogError("{ expected");
                 PlayerConsole.LogError("} expected");
@@ -38,9 +47,9 @@ namespace SharpCube
             startEncapsulation++;
             int encapsulations = 1;
 
-            for (int i = startEncapsulation; i < Compiler.convertedCode.Count; i++)
+            for (int i = startEncapsulation; i < context.Count; i++)
             {
-                string current = Compiler.convertedCode[i];
+                string current = context[i];
                 
                 if (current == start)
                 {
@@ -58,6 +67,7 @@ namespace SharpCube
                 }
             }
             
+            PlayerConsole.LogError("} expected");
             return -1;
         }
     }   

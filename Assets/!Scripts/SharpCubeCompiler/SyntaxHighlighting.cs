@@ -26,6 +26,11 @@ namespace SharpCube.Highlighting
                     
                     newCode = Regex.Replace(newCode, keyword.Key, $"<color={color}>{keyword.Key}</color>");
                 }
+                
+                foreach (var keyword in Class.initializedClasses.inMemory)
+                {
+                    newCode = Regex.Replace(newCode, keyword.Key, $"<color=green>{keyword.Key}</color>");
+                }
             }
 
             Debug.Log(newCode);

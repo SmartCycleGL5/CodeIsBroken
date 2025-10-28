@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SharpCube.Object
@@ -6,6 +7,10 @@ namespace SharpCube.Object
     [Serializable]
     public class Class : IObject
     {
+        class whatever
+        {
+            
+        }
         [field:SerializeField] public string name { get; set; }
         [field:SerializeField] public Encapsulation Encapsulation { get; set; }
 
@@ -23,9 +28,14 @@ namespace SharpCube.Object
             Compiler.toCompile.classes.Add(name, this, properties.privilege);
         }
 
-        public static void Create(int line, Properties properties)
+        public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
         {
-            string name = Compiler.convertedCode[line + 1];
+            if (encapsulation != null)
+            {
+                PlayerConsole.LogError($"Cannot create a class within another class");
+                throw new Exception("Player error");
+            }
+            string name = context[line + 1];
 
             if (initializedClasses.Contains(name))
             {
@@ -33,7 +43,7 @@ namespace SharpCube.Object
                 throw new Exception("Player error");
             }
 
-            new Class(name, properties, new Encapsulation(line));
+            new Class(name, properties, new Encapsulation(line, context));
         }
 
         public static void ClearClasses()

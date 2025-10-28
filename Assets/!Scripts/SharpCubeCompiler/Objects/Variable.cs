@@ -1,5 +1,6 @@
 using SharpCube.Object;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SharpCube.Object
@@ -12,9 +13,14 @@ namespace SharpCube.Object
 
         public object value { get; set; }
 
-        public static void Create(int line, Properties properties)
+        public Variable(object value = default)
         {
-            new Variable();
+            
+        }
+
+        public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
+        {
+            encapsulation.variables.Add(context[line + 1], new Variable(), properties.privilege);
         }
     }
 }

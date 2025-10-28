@@ -1,6 +1,7 @@
 using SharpCube;
 using SharpCube.Object;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface IType
@@ -11,8 +12,8 @@ public interface IType
         return type;
     }
 
-    public static void Create(int line, Properties properties)
+    public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
     {
-        Variable.Create(line, properties);
+        Variable.Create(encapsulation, context, line, properties);
     }
 }

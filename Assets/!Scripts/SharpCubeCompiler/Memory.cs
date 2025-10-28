@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using System;
+using System.Collections.Generic;
 
 public enum Privilege
 {
@@ -10,6 +11,7 @@ public enum Privilege
 [Serializable]
 public class Memory<T>
 {
+    public Dictionary<string, T> inMemory = new();
     [SerializedDictionary("Name", "Value")]
     public SerializedDictionary<string, T> @public = new();
 
@@ -35,6 +37,8 @@ public class Memory<T>
 
     public void Add(string name, T toAdd, Privilege privilege)
     {
+        inMemory.Add(name, toAdd);
+        
         switch (privilege)
         {
             case Privilege.Private:
@@ -52,6 +56,6 @@ public class Memory<T>
 
     public void Clear()
     {
-        @public.Clear(); @private.Clear();
+        @public.Clear(); @private.Clear(); inMemory.Clear();
     }
 }

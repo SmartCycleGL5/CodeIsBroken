@@ -53,7 +53,6 @@ namespace SharpCube
         };
 
         public static Script toCompile;
-        public static List<string> convertedCode;
 
         /// <summary>
         /// Prepare Compiling
@@ -68,7 +67,7 @@ namespace SharpCube
             toCompile = script;
 
             string rawCode = script.rawCode;
-            if (!ConvertCode(rawCode, out convertedCode)) return;
+            if (!ConvertCode(rawCode, out List<string> convertedCode)) return;
             
             Compile(convertedCode);
         }
@@ -76,13 +75,13 @@ namespace SharpCube
         /// <summary>
         /// 
         /// </summary>
-        public static void Compile(List<string> toCompile)
+        public static void Compile(List<string> context, Encapsulation container = null)
         {
             Properties currentModifiers = new();
             
-            for (int i = 0; i < convertedCode.Count; i++)
+            for (int i = 0; i < context.Count; i++)
             {
-                string word = toCompile[i];
+                string word = context[i];
                 
                 Debug.Log($"[Compiler] {word}");
 
@@ -99,7 +98,7 @@ namespace SharpCube
 
                 if (word == Keywords[KeywordType.Valid]["{"].key)
                 {
-                    i = Encapsulation.FindEndOfEndEncapsulation(i) ;
+                    i = Encapsulation.FindEndOfEndEncapsulation(i, context);
                     continue;
                 }
 
@@ -113,7 +112,7 @@ namespace SharpCube
                 {
                     Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
 
-                    encapsulation.create.Invoke(i, currentModifiers);
+                    encapsulation.create.Invoke(container, context, i, currentModifiers);
                     currentModifiers = new();
 
                     i++;

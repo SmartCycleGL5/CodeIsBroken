@@ -28,22 +28,18 @@ namespace SharpCube.Object
             Compiler.toCompile.classes.Add(name, this, properties.privilege);
         }
 
-        public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
+        public static void Create(Encapsulation encapsulation, Line line, Properties properties)
         {
             if (encapsulation != null)
-            {
                 PlayerConsole.LogError($"Cannot create a class within another class");
-                throw new Exception("Player error");
-            }
-            string name = context[line + 1];
+
+            string name = line.sections[line.sections.Length - 2];
 
             if (initializedClasses.Contains(name))
-            {
                 PlayerConsole.LogError($"The class {name} is already in use");
-                throw new Exception("Player error");
-            }
 
-            new Class(name, properties, new Encapsulation(line, context));
+
+            new Class(name, properties, new Encapsulation(Compiler.currentContext.IndexOf(line) + 1));
         }
 
         public static void ClearClasses()

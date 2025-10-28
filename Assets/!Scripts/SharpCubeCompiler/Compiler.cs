@@ -17,13 +17,23 @@ namespace SharpCube
         Valid
     }
 
-    public static partial class Compiler
+    [Serializable]
+    public struct Line
+    {
+        public string[] sections; 
+        public Line(string[] sections)
+        {
+            this.sections = sections;
+        }
+    }
+
+    public static class Compiler
     {
         
         public static string initializerColor = "#5397D0";
         public static string modifierColor = "#5397D0";
         public static string defaultColor = "#ffffff";
-
+        
         public static readonly Dictionary<KeywordType, Dictionary<string, Keyword>> Keywords = new()
         {
             { KeywordType.Initializer, new()
@@ -67,58 +77,60 @@ namespace SharpCube
             toCompile = script;
 
             string rawCode = script.rawCode;
-            if (!ConvertCode(rawCode, out List<string> convertedCode)) return;
+            if (!ConvertCode(rawCode, out List<Line> convertedCode)) return;
             
             Compile(convertedCode);
         }
 
+        public static List<Line> currentContext;
         /// <summary>
         /// 
         /// </summary>
-        public static void Compile(List<string> context, Encapsulation container = null)
+        public static void Compile(List<Line> context, Encapsulation container = null)
         {
+            currentContext = context;
             Properties currentModifiers = new();
-            
-            for (int i = 0; i < context.Count; i++)
+
+            for (int line = 0; line < context.Count; line++)
             {
-                string word = context[i];
-                
-                Debug.Log($"[Compiler] {word}");
-
-                if(!ValidKeyword(word))
+                for (int section = 0; section < context[line].sections.Length; section++)
                 {
-                    PlayerConsole.LogError($"{word} does not exist in the current context");
-                    return;
-                }
-                if (word == Keywords[KeywordType.Valid]["}"].key)
-                {
-                    PlayerConsole.LogError("Unexpected token \"}\"");
-                    return;
-                }
+                    string word = context[line].sections[section];
+                    
+                    if (!ValidKeyword(word))
+                    {
+                        PlayerConsole.LogError($"{word} does not exist in the current context");
+                    }
+                    if (word == Keywords[KeywordType.Valid]["}"].key)
+                    {
+                        PlayerConsole.LogError("Unexpected token \"}\"");
+                    }
 
-                if (word == Keywords[KeywordType.Valid]["{"].key)
-                {
-                    i = Encapsulation.FindEndOfEndEncapsulation(i, context);
-                    continue;
-                }
+                    if (word == Keywords[KeywordType.Valid]["{"].key)
+                    {
+                        line = Encapsulation.FindEndOfEndEncapsulation(line, context);
+                        break;
+                    }
 
-                if(Keywords[KeywordType.Modifier].ContainsKey(word))
-                {
-                    currentModifiers.privilege = ((Modifier)Keywords[KeywordType.Modifier][word]).privilege;
-                    continue;
-                }
+                    if (Keywords[KeywordType.Modifier].ContainsKey(word))
+                    {
+                        currentModifiers.privilege = ((Modifier)Keywords[KeywordType.Modifier][word]).privilege;
+                        continue;
+                    }
 
-                if (Keywords[KeywordType.Initializer].ContainsKey(word))
-                {
-                    Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
+                    if (Keywords[KeywordType.Initializer].ContainsKey(word))
+                    {
+                        Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
 
-                    encapsulation.create.Invoke(container, context, i, currentModifiers);
-                    currentModifiers = new();
+                        encapsulation.create.Invoke(container, context[line], currentModifiers);
+                        currentModifiers = new();
 
-                    i++;
-                    continue;
+                        line++;
+                        continue;
+                    }
                 }
             }
+            
         }
 
         static bool ValidKeyword(string word)
@@ -129,17 +141,49 @@ namespace SharpCube
                     return true;
             }
 
-            if(Class.initializedClasses.@public.ContainsKey(word))
+            if (Class.initializedClasses.inMemory.ContainsKey(word))
             {
                 return true;
+            }
+            
+            foreach(var @class in Class.initializedClasses.inMemory)
+            {
+                if(@class.Value.Encapsulation.variables.Contains(word))
+                {
+                    return true;
+                }   
+
             }
             return false;
         }
 
-        static bool ConvertCode(string raw, out List<string> convertedCode)
+        static bool ConvertCode(string raw, out List<Line> convertedCode)
         {
-            convertedCode = Regex.Split(raw, "( |\t|\n|;|}|{)").ToList();
-            convertedCode.RemoveAll(x => x == "\t" || x == "\n" || x == " " || x == "");
+            convertedCode = new();
+            List<string> rawSplit = Regex.Split(raw, "( |\t|\n|;|}|{)").ToList();
+            rawSplit.RemoveAll(x => x == "\t" || x == "\n" || x == " " || x == "");
+
+            List<string> toAdd = new();
+            foreach (var item in rawSplit)
+            {
+                if (item == ";")
+                {
+                    toAdd.Add(item);
+                    convertedCode.Add(new Line(toAdd.ToArray()));
+                    toAdd.Clear();
+                    continue;
+                }
+
+                if (item == "{" || item == "}")
+                {
+                    convertedCode.Add(new Line(toAdd.ToArray()));
+                    convertedCode.Add(new Line(new string[]{item}));
+                    toAdd.Clear();
+                    continue;
+                }
+                
+                toAdd.Add(item);
+            }
 
             return true;
         }

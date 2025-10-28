@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SharpCube.Object;
+using System.Linq;
 
 namespace SharpCube
 {
@@ -9,38 +10,30 @@ namespace SharpCube
     {
         [field: SerializeField] public Memory<Variable> variables { get; set; } = new Memory<Variable>();
         
-        [field: SerializeField] public List<string> content { get; set; } = new List<string>();
+        [field: SerializeField] public List<Line> content { get; set; } = new();
 
-        public Encapsulation(int location, List<string> context)
+        public Encapsulation(int line)
         {
-            location += 2;
-            int end = FindEndOfEndEncapsulation(location, context);
-            
-            if(end == -1) throw new System.Exception("couldn't get encapsulation");
-            
+            int end = FindEndOfEndEncapsulation(line, Compiler.currentContext);
 
-            for (int i = location; i <= end; i++)
+            for (int i = line + 1; i < end - 1; i++)
             {
-                Debug.Log(context[i]);
-                content.Add(context[i]);
+                content.Add(Compiler.currentContext[i]);
             }
-            
-            content.RemoveAt(0);
-            content.RemoveAt(content.Count - 1);
             
             if(content.Count > 0)
                 Compiler.Compile(content, this);
         }
 
-        public static int FindEndOfEndEncapsulation(int startEncapsulation, List<string> context)
+        public static int FindEndOfEndEncapsulation(int startEncapsulation, List<Line> context)
         {
             string start = Compiler.Keywords[KeywordType.Valid]["{"].key;
             string end = Compiler.Keywords[KeywordType.Valid]["}"].key;
 
-            if (context[startEncapsulation] != start)
+            if (context[startEncapsulation].sections[0] != start)
             {
+                Debug.Log(context[startEncapsulation].sections[0]);
                 PlayerConsole.LogError("{ expected");
-                PlayerConsole.LogError("} expected");
                 return -1;
             }
             
@@ -49,14 +42,12 @@ namespace SharpCube
 
             for (int i = startEncapsulation; i < context.Count; i++)
             {
-                string current = context[i];
-                
-                if (current == start)
+                if (context[i].sections.Contains(start))
                 {
                     encapsulations++;
                     continue;
                 }
-                if (current == end)
+                if (context[i].sections.Contains(end))
                 {
                     encapsulations--;
                 }

@@ -89,8 +89,8 @@ public class Script
         }
         catch (Exception e) 
         {
-            PlayerConsole.LogWarning("Failed to compile");
-            Debug.LogError(e.Source + " " + e);
+            Debug.LogError(e);
+            PlayerConsole.LogError("Failed to compile");
             
             classes = oldClasses;
             

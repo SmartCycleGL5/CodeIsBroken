@@ -6,14 +6,8 @@ using UnityEngine;
 
 public interface IType
 {
-    public Type type { get; set; }
-    public Type GetType()
+    public static void Create(Encapsulation encapsulation, Line line, Properties properties)
     {
-        return type;
-    }
-
-    public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
-    {
-        Variable.Create(encapsulation, context, line, properties);
+        new Variable(line.sections[line.sections.Length - 2], properties, encapsulation);
     }
 }

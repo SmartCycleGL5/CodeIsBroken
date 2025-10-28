@@ -9,18 +9,21 @@ namespace SharpCube.Object
     public class Variable : IObject, IType
     {
         [field: SerializeField] public string name { get; set; }
-        public Type type { get; set; }
+        //public Type type { get; set; }
 
         public object value { get; set; }
 
-        public Variable(object value = default)
+        public Variable(string name/*, Type type*/, Properties properties, Encapsulation encapsulation, object value = default)
         {
-            
+            encapsulation.variables.Add(name, this, properties.privilege);
         }
 
-        public static void Create(Encapsulation encapsulation, List<string> context, int line, Properties properties)
+        public void Set(object newValue)
         {
-            encapsulation.variables.Add(context[line + 1], new Variable(), properties.privilege);
+            if (value.GetType() != newValue.GetType())
+                PlayerConsole.LogError($"Cannot implicitly convert type '{newValue.GetType()}' to '{value.GetType()}'");
+
+            Debug.Log(newValue);
         }
     }
 }

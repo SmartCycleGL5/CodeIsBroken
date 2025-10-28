@@ -180,12 +180,10 @@ namespace WindowSystem
 
         void HighlightCode()
         {
-            Debug.Log(input.labelElement.enableRichText);
             input.value = SyntaxHighlighting.HighlightCode(input.text);
         }
         void RemoveHighlight()
         {
-            Debug.Log(input.labelElement.enableRichText);
             input.value = SyntaxHighlighting.RemoveHighlight(input.text);
         }
     }

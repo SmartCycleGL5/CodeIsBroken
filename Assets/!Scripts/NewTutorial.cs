@@ -97,7 +97,7 @@ public class NewTutorial : MonoBehaviour
                     buildingIndex++;
                 return;
             case 1:
-                label.text = "Try selecting conveyors and building a line between the MaterialTubes and the Selling station. Close the menu and press run when completed!";
+                label.text = "Try selecting conveyors and building a line between the MaterialTubes and the Selling station. Close the menu and press run when completed! Use left click to place an item, R to rotate and Right click to remove a building.";
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
@@ -118,6 +118,14 @@ public class NewTutorial : MonoBehaviour
 
     void ProgrammingTutorial()
     {
-        
+        switch (buildingIndex)
+        {
+            case 0:
+                label.text = "Lets try some programming! Click on the material tube and press the terminal symbol. Try writing something inside the terminal!";
+                break;
+            case 2:
+                label.text = " ";
+                break;
+        }
     }
 }

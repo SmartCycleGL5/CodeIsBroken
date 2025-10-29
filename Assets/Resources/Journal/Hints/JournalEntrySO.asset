@@ -15,4 +15,8 @@ MonoBehaviour:
   title: GUifvew
   showcaseI: {fileID: 2800000, guid: f88677df267a41d6be1e7a6133e7d227, type: 3}
   bHintTaken: 0
-  journalTexts: []
+  journalTexts:
+  - style: 0
+    text: "fkdro\xF8g"
+  sortOrder: 0
+  levelToUnlock: 0

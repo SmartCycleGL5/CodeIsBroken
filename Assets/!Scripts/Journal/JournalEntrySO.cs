@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using NaughtyAttributes;
+using Unity.Properties;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 namespace Journal
 {
 
@@ -15,6 +19,7 @@ namespace Journal
         public bool bHintTaken;
         public List<JournalText> journalTexts;
         public int sortOrder;
+        public int levelToUnlock;
 
         public int CompareTo(object obj)
         {
@@ -25,6 +30,13 @@ namespace Journal
                 return this.sortOrder.CompareTo(otherEntry.sortOrder);
             else
                 throw new ArgumentException("Object is not a JournalEntrySO");
+        }
+        private bool isUnlocked;
+        public bool IsUnlocked { get => isUnlocked; set => isUnlocked = value; }
+
+        public void SetUnlocked()
+        {
+            IsUnlocked = levelToUnlock <= PlayerProgression.Level;
         }
     }
     public enum JournalStyle

@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
+using Unity.Properties;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace Journal
@@ -28,7 +27,7 @@ namespace Journal
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
-            
+            PlayerProgression.onLevelUp += OnLevelUp;
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
@@ -41,21 +40,34 @@ namespace Journal
         }
         void OnEnable()
         {
+            AddEntries();
+        }
+
+        private void AddEntries()
+        {
             AddEntry(machineEntries, machineTabName);
             AddHintEntry(HintEntries, hintsTabName);
-            AddEntry(ConceptEntries, conceptsTabName );
+            AddEntry(ConceptEntries, conceptsTabName);
         }
+
         void AddEntry(JournalEntrySO[] entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
             var scrollView = tab.Q<ScrollView>("ScrollView");
+
             foreach (var entry in entries)
             {
                 RemoveEmptyEntries(entry);
                 if (entry.title != string.Empty && entry.journalTexts.Count > 0 /*&& entry.showcaseI != null*/)
                 {
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI,} };
+                    entry.SetUnlocked();
+                    var tButton = new Button()
+                    {
+                        text = entry.title,
+                        style = { backgroundImage = entry.showcaseI, }
+                    };
                     tButton.AddToClassList("journal-button");
+                    tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
                     RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -80,8 +92,10 @@ namespace Journal
 #endif
                 if (entry.title != string.Empty && entry.journalTexts.Count > 0)
                 {
+                    entry.SetUnlocked();
                     var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI} };
                     tButton.AddToClassList("journal-button");
+                    tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
                     RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -161,20 +175,18 @@ namespace Journal
         }
         public void JournalOnOff()
         {
-            if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)
-            {
-                journalDoc.rootVisualElement.style.display = DisplayStyle.None;
-            }
-            else
-            {
-                journalDoc.rootVisualElement.style.display = DisplayStyle.Flex;
-            }
+            journalDoc.rootVisualElement.style.display = journalDoc.rootVisualElement.style.display != DisplayStyle.None ? DisplayStyle.None : DisplayStyle.Flex;
         }
         void Update()
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 JournalOnOff();
+            }
+            //Add Button For Leveling up, move it later and also move Journal button later
+            if(Keyboard.current.pKey.wasPressedThisFrame)
+            {
+                PlayerProgression.LevelUp();
             }
         }
         private void TabChange(Tab tab1, Tab tab2)
@@ -191,6 +203,28 @@ namespace Journal
         private static bool EmptyEntry(JournalText journalText)
         {
             return journalText.text == string.Empty;
+        }
+        void OnLevelUp(int level)
+        {
+            levelUnlock(machineEntries, machineTabName);
+            levelUnlock(HintEntries, hintsTabName);
+            levelUnlock(ConceptEntries, conceptsTabName);
+        }
+        void levelUnlock(JournalEntrySO[] entries, string nameTab)
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>(nameTab);
+            var scrollView = tab.Q<ScrollView>("ScrollView");
+            var buttons = scrollView.Children().ToArray();
+            Debug.Log(buttons.Length);
+            Debug.Log(entries.Length);
+            for (int i = 0; i < entries.Length; i++)
+            {
+                entries[i].SetUnlocked();
+                if(entries[i].IsUnlocked && buttons[i].style.display != DisplayStyle.Flex)
+                {
+                    buttons[i].style.display = DisplayStyle.Flex;
+                }
+            }
         }
     }
 }

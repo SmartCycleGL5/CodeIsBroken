@@ -23,3 +23,4 @@ MonoBehaviour:
       possible. Conveyor belts can\u2019t move objects if there is no space for the
       object or if there is nothing in front of the belt."
   sortOrder: 1
+  levelToUnlock: 0

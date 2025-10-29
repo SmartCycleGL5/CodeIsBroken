@@ -27,3 +27,4 @@ MonoBehaviour:
   - style: 1
     text: "void OnTick()\r\n{\r\n\tGrabLoseItem();\r\n\tRotate(180);\r\n}"
   sortOrder: 3
+  levelToUnlock: 2

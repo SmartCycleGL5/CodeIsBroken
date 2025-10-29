@@ -33,8 +33,6 @@ namespace SharpCube.Highlighting
                 }
             }
 
-            Debug.Log(newCode);
-
             return newCode;
         }
     }

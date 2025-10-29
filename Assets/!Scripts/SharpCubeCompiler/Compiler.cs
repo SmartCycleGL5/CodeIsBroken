@@ -1,12 +1,12 @@
 
-using SharpCube.Object;
-
 using SharpCube.Highlighting;
+using SharpCube.Object;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
 
 namespace SharpCube
 {
@@ -24,6 +24,18 @@ namespace SharpCube
         public Line(string[] sections)
         {
             this.sections = sections;
+        }
+
+        public string GetLine()
+        {
+            string message = "";
+            foreach (var section in sections)
+            {
+
+                message += " " + section.ToString();
+            }
+
+            return message;
         }
     }
 
@@ -93,22 +105,22 @@ namespace SharpCube
 
             for (int line = 0; line < context.Count; line++)
             {
+
                 for (int section = 0; section < context[line].sections.Length; section++)
                 {
                     string word = context[line].sections[section];
                     
                     if (!ValidKeyword(word))
-                    {
                         PlayerConsole.LogError($"{word} does not exist in the current context");
-                    }
+                    
                     if (word == Keywords[KeywordType.Valid]["}"].key)
-                    {
                         PlayerConsole.LogError("Unexpected token \"}\"");
-                    }
+
 
                     if (word == Keywords[KeywordType.Valid]["{"].key)
                     {
-                        line = Encapsulation.FindEndOfEndEncapsulation(line, context);
+                        Debug.Log("[Compiler] Skip");
+                        line = Encapsulation.FindEndOfEndEncapsulation(line, context) + 1;
                         break;
                     }
 
@@ -125,8 +137,7 @@ namespace SharpCube
                         encapsulation.create.Invoke(container, context[line], currentModifiers);
                         currentModifiers = new();
 
-                        line++;
-                        continue;
+                        break;
                     }
                 }
             }
@@ -176,8 +187,10 @@ namespace SharpCube
 
                 if (item == "{" || item == "}")
                 {
-                    convertedCode.Add(new Line(toAdd.ToArray()));
-                    convertedCode.Add(new Line(new string[]{item}));
+                    //if(toAdd.Count > 0)
+                        convertedCode.Add(new Line(toAdd.ToArray()));
+
+                    convertedCode.Add(new Line(new string[] {item}));
                     toAdd.Clear();
                     continue;
                 }

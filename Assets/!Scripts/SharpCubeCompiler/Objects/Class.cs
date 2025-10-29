@@ -7,10 +7,6 @@ namespace SharpCube.Object
     [Serializable]
     public class Class : IObject
     {
-        class whatever
-        {
-            
-        }
         [field:SerializeField] public string name { get; set; }
         [field:SerializeField] public Encapsulation Encapsulation { get; set; }
 
@@ -19,8 +15,6 @@ namespace SharpCube.Object
 
         public Class(string name, Properties properties, Encapsulation encapsulation)
         {
-            Debug.Log($"[Class] new class {name}");
-
             this.name = name;
             this.Encapsulation = encapsulation;
 
@@ -33,7 +27,7 @@ namespace SharpCube.Object
             if (encapsulation != null)
                 PlayerConsole.LogError($"Cannot create a class within another class");
 
-            string name = line.sections[line.sections.Length - 2];
+            string name = line.sections[line.sections.Length - 1];
 
             if (initializedClasses.Contains(name))
                 PlayerConsole.LogError($"The class {name} is already in use");

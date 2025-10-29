@@ -19,11 +19,13 @@ namespace SharpCube
             Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
-        public static void LogError(object message)
+        public static void LogError(object message, bool throwException = true)
         {
             object msg = $"[{Tick.tick}] <color=red>{message}</color>";
-            Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
+
+            if (throwException)
+                throw new Exception($"[PlayerConsole] user error: {msg}");
         }
     }
 }

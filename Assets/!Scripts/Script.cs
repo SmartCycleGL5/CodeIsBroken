@@ -90,7 +90,7 @@ public class Script
         catch (Exception e) 
         {
             Debug.LogError(e);
-            PlayerConsole.LogError("Failed to compile");
+            PlayerConsole.LogError("Failed to compile", false);
             
             classes = oldClasses;
             

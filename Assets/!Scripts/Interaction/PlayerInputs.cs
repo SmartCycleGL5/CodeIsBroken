@@ -59,7 +59,7 @@ public class PlayerInputs : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
         playerAction = PlayerAction.WorldInteraction;
@@ -70,6 +70,7 @@ public class PlayerInputs : MonoBehaviour
     {
         PlayerUpdate();
         if (Terminal.focused) return;
+  
         Movement();
         MouseRotate();
     }

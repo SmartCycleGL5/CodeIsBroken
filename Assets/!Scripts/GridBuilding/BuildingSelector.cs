@@ -9,13 +9,14 @@ using Image = UnityEngine.UIElements.Image;
 
 public class BuildingSelector : MonoBehaviour
 {
+    public static BuildingSelector instance;
     public static event Action<GameObject> OnChangedBuilding;
 
     [SerializeField] private List<BuildingSO> buildings;
     [SerializeField] private VisualTreeAsset buildingButtonTemplate;
     private VisualElement buildingMenuPanel;
     [SerializeField] UIDocument uiDoc;
-    bool isBuilding = true;
+    public bool isBuilding = true;
 
     [SerializeField] private Sprite arrowDown;
     [SerializeField] private Sprite arrowUp;
@@ -26,6 +27,7 @@ public class BuildingSelector : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         var root = uiDoc.rootVisualElement;
         
         buildingMenuPanel = uiDoc.rootVisualElement.Q<VisualElement>("ButtonHolder");

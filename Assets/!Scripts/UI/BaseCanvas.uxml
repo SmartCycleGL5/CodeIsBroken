@@ -17,7 +17,7 @@
         <ui:Label text="Select Contract" name="Select" style="position: absolute; top: 200px; color: rgb(255, 255, 255); font-size: 96px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 3px; align-self: center; background-color: rgba(168, 95, 95, 0);" />
         <ui:Instance template="BuildingMenu" name="BuildingMenu" style="bottom: -1270px; height: 400px; width: 1400px; align-self: center; transition-duration: 0.2s;" />
     </ui:VisualElement>
-    <ui:VisualElement name="GraphHolder" enabled="true" style="flex-grow: 1; position: absolute; width: 60%; height: 60%; align-self: center; top: auto; right: auto; bottom: 337px; background-color: rgb(41, 41, 41); opacity: 1; visibility: visible; display: flex;">
+    <ui:VisualElement name="GraphHolder" enabled="true" style="flex-grow: 1; position: absolute; width: 60%; height: 60%; align-self: center; top: auto; right: auto; bottom: 337px; background-color: rgb(41, 41, 41); opacity: 1; visibility: hidden; display: flex;">
         <ui:VisualElement name="electricityHolder" style="flex-grow: 2; bottom: auto; height: auto; position: relative;">
             <ui:VisualElement name="ElectricityGraph" style="flex-grow: 1; width: 90%; height: 241px; align-self: center; position: absolute; top: 61px;" />
             <ui:Label text="Electricity use&#10;" name="ElectricityLabel" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); height: 46px; width: 206px; left: 0; font-size: 30px; -unity-text-align: upper-center; align-self: center;" />
@@ -33,5 +33,9 @@
             <ui:Label text="Player Score" style="font-size: 30px; color: rgb(255, 255, 255); width: 118px; position: absolute; top: 50px; left: 487px;" />
             <ui:Button text="Continue Playing" name="ContinueButton" style="position: absolute; top: 28px; left: 1223px; height: 89px; width: 241px; font-size: 28px;" />
         </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Tutorial" picking-mode="Ignore" style="flex-grow: 1; width: 721px; position: absolute; height: 336px; top: 164px; left: 1837px; color: rgb(70, 70, 70); background-color: rgba(36, 36, 36, 0.79);">
+        <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1;" />
+        <ui:Label text="Press any button to continue" name="Label" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
 </ui:UXML>

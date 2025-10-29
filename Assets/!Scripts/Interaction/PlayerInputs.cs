@@ -94,10 +94,6 @@ public class PlayerInputs : MonoBehaviour
 
     void PlayerUpdate()
     {
-        if (Keyboard.current.deleteKey.wasPressedThisFrame)
-        {
-            Restart();
-        }
 
         // Updates The active scripts
         if (playerAction == PlayerAction.Building)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
+using UnityEngine.InputSystem;
 using Image = UnityEngine.UIElements.Image;
 
 public class BuildingSelector : MonoBehaviour
@@ -38,6 +39,14 @@ public class BuildingSelector : MonoBehaviour
         moveButton = root.Q<Button>("BuildingMenuToggle");
         moveButton.style.backgroundImage = new StyleBackground(arrowUp);
         moveButton.clicked += ToggleMenu;
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            ToggleMenu();
+        }
     }
 
     public void OnLevelUp(int level)

@@ -93,10 +93,11 @@ public class NewTutorial : MonoBehaviour
 
     void BuildingTutorial()
     {
+        uiDocument.rootVisualElement.Q<Label>("PressToContinue").visible = false;
         switch (buildingIndex)
         {
             case 0:
-                label.text = "Press B to open the building menu or click the building button at the bottom of your screen.";
+                label.text = "Press B to open the building menu or click the building button at the bottom of your screen.\n\nUse WASD to move and QE to rotate.";
                 player.DOMove(startPosition, 0.2f);
                 player.transform.DORotate(new Vector3(0,0,0), 0.2f);
                 PlayerInputs.instance.enabled = true;
@@ -104,7 +105,7 @@ public class NewTutorial : MonoBehaviour
                     buildingIndex++;
                 return;
             case 1:
-                label.text = "Try selecting conveyors and building a line between the MaterialTubes and the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
+                label.text = "Try selecting conveyors and building a line from the MaterialTubes to the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
@@ -127,7 +128,7 @@ public class NewTutorial : MonoBehaviour
                 {buildingIndex++;}
                 break;
             case 2:
-                label.text = $"Try writing ChangeMaterial({contractName}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check which colors you can paint.";
+                label.text = $"Try writing ChangeMaterial({contractName}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check the colors you can paint.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");

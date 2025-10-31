@@ -71,6 +71,8 @@ namespace SharpCube
                 { "{", new Keyword("{", defaultColor) },
                 { "}",  new Keyword("}", defaultColor) },
                 { ";",  new Keyword(";", defaultColor) },
+                { "(",  new Keyword("(", defaultColor) },
+                { ")",  new Keyword(")", defaultColor) },
             } },
         };
 
@@ -171,7 +173,8 @@ namespace SharpCube
         static bool ConvertCode(string raw, out List<Line> convertedCode)
         {
             convertedCode = new();
-            List<string> rawSplit = Regex.Split(raw, "( |\t|\n|;|}|{)").ToList();
+
+            List<string> rawSplit = Regex.Split(raw, @"( |\t|\n|;|}|{|\(|\))").ToList();
             rawSplit.RemoveAll(x => x == "\t" || x == "\n" || x == " " || x == "");
 
             List<string> toAdd = new();

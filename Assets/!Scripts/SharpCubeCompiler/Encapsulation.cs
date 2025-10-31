@@ -8,7 +8,7 @@ namespace SharpCube
     [System.Serializable]
     public class Encapsulation
     {
-        [field: SerializeField] public Memory<Variable> variables { get; set; } = new Memory<Variable>();
+        public Memory<Variable> variables { get; set; } = new Memory<Variable>();
         
         [field: SerializeField] public List<Line> content { get; set; } = new();
 

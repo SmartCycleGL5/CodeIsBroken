@@ -518,7 +518,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coding.ScriptManager
   playerScripts:
-    _serializedList: []
+    _serializedList:
+    - Key: 
+      Value:
+        name: 
+        connectedMachine: {fileID: 0}
+        <rawCode>k__BackingField: 
+        classes:
+          public:
+            _serializedList: []
+          private:
+            _serializedList: []
 --- !u!4 &357034589
 Transform:
   m_ObjectHideFlags: 0

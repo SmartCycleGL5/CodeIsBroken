@@ -6,6 +6,7 @@ using UnityEngine;
 
 public enum Type
 {
+    Void,
     Float,
     Int,
     String,
@@ -21,7 +22,15 @@ public interface IType
     {
         string name = line.sections[line.sections.Length - 2];
         Type type = Parse(line.sections[line.sections.Length - 3]);
-        new Variable(name, type, properties, encapsulation);
+
+        if (line.sections[line.sections.Length - 1] == ")")
+        {
+            PlayerConsole.Log("Wow nice method bro, would be a  shame if i didnt compile it");
+        } 
+        if(line.sections[line.sections.Length - 1] == ";")
+        {
+            new Variable(name, type, properties, encapsulation);
+        }
     }
 
     public static Type Parse(string value)

@@ -10,27 +10,19 @@ namespace SharpCube.Object
     {
         [field: SerializeField] public string name { get; set; }
 
-        public Var value;
+        [HideInInspector]public Var value;
 
         public Variable(string name, Type type, Properties properties, Encapsulation encapsulation, Var value = null)
         {
-            this.name = name;
-            value.type = type;
+            if (type == Type.Void) PlayerConsole.LogError($"Field cannot have {type} type");
+            Debug.Log($"{name}, {type}, {properties}, {encapsulation}, {value}");
 
-            switch(type)
+            this.name = name;
+
+            this.value = new(type);
+            if(value != null)
             {
-                case Type.Float:
-                    Set(new Var(Type.Float, 0));
-                    break;
-                case Type.Int:
-                    Set(new Var(Type.Int, 0));
-                    break;
-                case Type.String:
-                    Set(new Var(Type.String, ""));
-                    break;
-                case Type.Bool:
-                    Set(new Var(Type.Bool, false));
-                    break;
+                Set(value);
             }
 
             encapsulation.variables.Add(name, this, properties.privilege);

@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-[DefaultExecutionOrder(10)]
+
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     
@@ -11,6 +11,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     
     Tweener moveTween;
     public Item item { get; set; }
+
 
 
     void Start()

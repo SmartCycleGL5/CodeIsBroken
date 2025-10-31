@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Metrics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -35,8 +40,9 @@
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ConveyorMachineUpgrade&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -149,7 +155,20 @@
       <workItem from="1759918010232" duration="830000" />
       <workItem from="1760083210286" duration="2646000" />
       <workItem from="1760277609375" duration="977000" />
-      <workItem from="1760687344629" duration="9584000" />
+      <workItem from="1760687344629" duration="14303000" />
+      <workItem from="1761032471372" duration="979000" />
+      <workItem from="1761117772372" duration="4726000" />
+      <workItem from="1761126738678" duration="1507000" />
+      <workItem from="1761129953113" duration="835000" />
+      <workItem from="1761232230994" duration="241000" />
+      <workItem from="1761233947480" duration="1729000" />
+      <workItem from="1761291763874" duration="4934000" />
+      <workItem from="1761298373761" duration="17000" />
+      <workItem from="1761298392700" duration="16169000" />
+      <workItem from="1761647388890" duration="283000" />
+      <workItem from="1761726742215" duration="8135000" />
+      <workItem from="1761899519876" duration="8065000" />
+      <workItem from="1761914185143" duration="833000" />
     </task>
     <servers />
   </component>

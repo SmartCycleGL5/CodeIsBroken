@@ -9,6 +9,7 @@ public class CraneMachine : Machine, IItemContainer
 
     [DontIntegrate] public Item item { get; set; }
 
+
     public override void Initialize(string initialClassName)
     {
         AddMethodsAsIntegrated(typeof(CraneMachine));
@@ -18,6 +19,7 @@ public class CraneMachine : Machine, IItemContainer
 
     public async void Rotate(int degrees)
     {
+        Metrics.instance.UseElectricity((int)degrees/90);
         float timer = 0;
         Vector3 startRot = piviot.eulerAngles;
 
@@ -36,6 +38,7 @@ public class CraneMachine : Machine, IItemContainer
 
     public void GrabLoseItem()
     {
+        Metrics.instance.UseElectricity(1);
         GameObject cell = GridBuilder.instance.LookUpCell(grabLocation.position);
 
         if (cell == null)

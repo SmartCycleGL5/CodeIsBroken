@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="BuildingMenu" style="flex-grow: 1; top: auto; width: 1400px; height: 400px; position: absolute; bottom: 0; left: auto; right: auto; align-self: center; transition-duration: 0.2s; flex-direction: column;">
+        <ui:Button name="BuildingMenuToggle" style="width: 100px; height: 100px; align-self: center; translate: 0 0; scale: 1 1; margin-top: 12px; margin-right: 12px; margin-bottom: 12px; margin-left: 12px;" />
+        <ui:VisualElement name="ButtonHolder" picking-mode="Ignore" style="width: 100%; height: 100%; min-width: auto; min-height: auto; align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; background-color: rgb(53, 53, 53); padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; flex-direction: row;" />
+    </ui:VisualElement>
+</ui:UXML>

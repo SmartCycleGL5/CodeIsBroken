@@ -31,7 +31,7 @@ public class BuildingSelector : MonoBehaviour
         instance = this;
         var root = uiDoc.rootVisualElement;
         
-        buildingMenuPanel = uiDoc.rootVisualElement.Q<VisualElement>("ButtonHolder");
+        buildingMenuPanel = root.Q<VisualElement>("ButtonHolder");
         
         OnLevelUp(1);
         PlayerProgression.onLevelUp += OnLevelUp;

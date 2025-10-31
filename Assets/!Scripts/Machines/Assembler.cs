@@ -49,8 +49,8 @@ public class Assembler : Machine, IItemContainer
             if(cell == null) return;
             if (cell.TryGetComponent(out Conveyor conveyor))
             {
-                Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
-                item.definition.Modify(new Modification.Assemble(recipe.name));
+                Item item = Instantiate(itemCrafted, transform.position, Quaternion.identity);
+                //item.definition.Modify(new Modification.Assemble(recipe.name));
 
                 conveyor.SetItem(item);
                 RemoveItem();
@@ -58,11 +58,10 @@ public class Assembler : Machine, IItemContainer
         }
         else
         {
-            if (materials.Count == assemblerSize)
+            if (items.Count == assemblerSize)
             {
                 errorLogger.DisplayWarning("Materials does not match any recipe's");
             }
-        }
         }
     }
 

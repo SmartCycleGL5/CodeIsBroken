@@ -38,7 +38,7 @@ public class CraneMachine : Machine, IItemContainer
 
     public void GrabLoseItem()
     {
-        Metrics.instance.UseElectricity(1);
+        //Metrics.instance.UseElectricity(1);
         GameObject cell = GridBuilder.instance.LookUpCell(grabLocation.position);
 
         if (cell == null)

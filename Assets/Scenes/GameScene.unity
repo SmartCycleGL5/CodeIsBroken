@@ -1189,9 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7488a46eb6c61940ae13f5e60a3305a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalManager
-  machineEntries: []
-  HintEntries: []
-  ConceptEntries: []
+  headerImages: []
   machineTabName: Machine
   hintsTabName: Hints
   conceptsTabName: Concepts

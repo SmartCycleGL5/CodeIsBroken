@@ -18,12 +18,14 @@ MonoBehaviour:
   - m_GUID: 114514a34fecdce4faef720de94c00c9
     m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - HintEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c435daf5df6b691499bc171d2277b9c0
     m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO 1.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - HintEntries
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}

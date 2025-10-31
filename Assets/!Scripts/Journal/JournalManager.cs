@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -12,6 +14,7 @@ namespace Journal
         public static List<JournalEntrySO> machineEntries;
         public static List<JournalEntrySO> HintEntries;
         public static List<JournalEntrySO> ConceptEntries;
+        [SerializeField] Texture2D[] headerImages;
         [SerializeField] string machineTabName = "Machine";
         [SerializeField] string hintsTabName = "Hints";
         [SerializeField] string conceptsTabName = "Concepts";
@@ -29,13 +32,19 @@ namespace Journal
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
+            await GetEntries();
+            AddEntries();
+            ChangeColorTabHeader(tabView);
+        }
+
+        private static async Task GetEntries()
+        {
             machineEntries = await Addressable.LoadAssets<JournalEntrySO>("MachineEntries");
             HintEntries = await Addressable.LoadAssets<JournalEntrySO>("HintEntries");
             ConceptEntries = await Addressable.LoadAssets<JournalEntrySO>("ConceptEntries");
             machineEntries.Sort();
             HintEntries.Sort();
             ConceptEntries.Sort();
-            AddEntries();
         }
 
         private void AddEntries()
@@ -43,6 +52,15 @@ namespace Journal
             AddEntry(machineEntries, machineTabName);
             AddHintEntry(HintEntries, hintsTabName);
             AddEntry(ConceptEntries, conceptsTabName);
+        }
+        void ChangeColorTabHeader(TabView tabView)
+        {
+            for (int i = 0; i < headerImages.Length; i++)
+            {
+                tabView.GetTabHeader(i).style.backgroundImage = headerImages[i];
+                tabView.GetTabHeader(i).style.height = headerImages[i].height;
+                tabView.GetTabHeader(i).style.width = headerImages[i].width;
+            }
         }
 
         void AddEntry(List<JournalEntrySO> entries, string nameD)
@@ -188,8 +206,9 @@ namespace Journal
         {
             var scrollView = tab1.Q<ScrollView>("ScrollExpla");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
-            if (scrollView?.childCount > 0)
-            { scrollView?.Clear(); }
+            scrollView?.Clear();
+            var hidehint = tab2.Q("HideHint");
+            if(hidehint != null)hidehint.visible = false;
         }
         private void RemoveEmptyEntries(JournalEntrySO entry)
         {
@@ -201,23 +220,20 @@ namespace Journal
         }
         void OnLevelUp(int level)
         {
-            levelUnlock(machineEntries, machineTabName);
-            levelUnlock(HintEntries, hintsTabName);
-            levelUnlock(ConceptEntries, conceptsTabName);
+            LevelUnlock(machineEntries, machineTabName);
+            LevelUnlock(HintEntries, hintsTabName);
+            LevelUnlock(ConceptEntries, conceptsTabName);
         }
-        void levelUnlock(List<JournalEntrySO> entries, string nameTab)
+        void LevelUnlock(List<JournalEntrySO> entries, string nameTab)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameTab);
             var scrollView = tab.Q<ScrollView>("ScrollView");
-            var buttons = scrollView.Children().ToArray();
-            if (entries.Count != buttons.Length) return;
+            var buttons = scrollView.Children();
+            if (entries.Count != buttons.Count()) return;
             for (int i = 0; i < entries.Count; i++)
             {
                 entries[i].SetUnlocked();
-                if(entries[i].IsUnlocked && buttons[i].style.display != DisplayStyle.Flex)
-                {
-                    buttons[i].style.display = DisplayStyle.Flex;
-                }
+                buttons.ElementAt(i).style.display = entries[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
             }
         }
     }

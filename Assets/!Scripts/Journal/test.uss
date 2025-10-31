@@ -74,3 +74,22 @@
     border-top-width: 0;
     border-top-left-radius: 0;
 }
+
+.unity-tab__header {
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 100% 100%;
+    width: auto;
+    height: auto;
+    background-position-x: center;
+    background-position-y: bottom 0;
+    -unity-background-scale-mode: scale-to-fit;
+    align-content: auto;
+    align-self: stretch;
+    background-image: none;
+    min-width: 113px;
+    min-height: 56px;
+}
+
+.unity-tab-view__content-viewport {
+    padding-left: 10px;
+}

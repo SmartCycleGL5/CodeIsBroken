@@ -18,37 +18,44 @@ MonoBehaviour:
   - m_GUID: 1037b6400adcc804fb62240f126c13cb
     m_Address: Assets/!Scripts/Journal/Machines/ConveyorBelt.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42e894855851b1644b259b23ac6096cf
     m_Address: Assets/!Scripts/Journal/Machines/TruckDockingStation.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ecd0568cb857dd4c8b68d7ef85b0030
     m_Address: Assets/!Scripts/Journal/Machines/Painter.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c92cfe6a9dafb04ca0e50faf75fba50
     m_Address: Assets/!Scripts/Journal/Machines/Assembler.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7db8678e30c654f42aff6bbfb392b6d0
     m_Address: Assets/!Scripts/Journal/Machines/Furnace.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86a7e7ed6987cc1488a76ff526aa776d
     m_Address: Assets/!Scripts/Journal/Machines/MaterialTube.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98a1e832d592a5944a02d44c7751a543
     m_Address: Assets/!Scripts/Journal/Machines/Crane.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}

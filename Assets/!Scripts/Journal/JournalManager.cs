@@ -1,7 +1,5 @@
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using Unity.Properties;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -11,9 +9,9 @@ namespace Journal
     public class JournalManager : MonoBehaviour
     {
         public static JournalManager instance { get; private set; }
-        public JournalEntrySO[] machineEntries;
-        public JournalEntrySO[] HintEntries;
-        public JournalEntrySO[] ConceptEntries;
+        public static List<JournalEntrySO> machineEntries;
+        public static List<JournalEntrySO> HintEntries;
+        public static List<JournalEntrySO> ConceptEntries;
         [SerializeField] string machineTabName = "Machine";
         [SerializeField] string hintsTabName = "Hints";
         [SerializeField] string conceptsTabName = "Concepts";
@@ -23,7 +21,7 @@ namespace Journal
         private VisualElement windowElement;
         private Label codeT;
         private Label explainT;
-        void Awake()
+        async void Awake()
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
@@ -31,15 +29,12 @@ namespace Journal
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
-            machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
-            HintEntries = Resources.LoadAll<JournalEntrySO>("Journal/Hints");
-            ConceptEntries = Resources.LoadAll<JournalEntrySO>("Journal/Concepts");
-            Array.Sort(machineEntries);
-            Array.Sort(HintEntries);
-            Array.Sort(ConceptEntries);
-        }
-        void OnEnable()
-        {
+            machineEntries = await Addressable.LoadAssets<JournalEntrySO>("MachineEntries");
+            HintEntries = await Addressable.LoadAssets<JournalEntrySO>("HintEntries");
+            ConceptEntries = await Addressable.LoadAssets<JournalEntrySO>("ConceptEntries");
+            machineEntries.Sort();
+            HintEntries.Sort();
+            ConceptEntries.Sort();
             AddEntries();
         }
 
@@ -50,11 +45,10 @@ namespace Journal
             AddEntry(ConceptEntries, conceptsTabName);
         }
 
-        void AddEntry(JournalEntrySO[] entries, string nameD)
+        void AddEntry(List<JournalEntrySO> entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
             var scrollView = tab.Q<ScrollView>("ScrollView");
-
             foreach (var entry in entries)
             {
                 RemoveEmptyEntries(entry);
@@ -77,7 +71,7 @@ namespace Journal
                 }
             }
         }
-        void AddHintEntry(JournalEntrySO[] entries, string nameD)
+        void AddHintEntry(List<JournalEntrySO> entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
             var hidden = tab.Q<VisualElement>("HideHint");
@@ -141,13 +135,13 @@ namespace Journal
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
             if(scrollView.childCount >0)
             {scrollView.Clear();}
-            foreach(var a in entry.journalTexts)
+            foreach(var text in entry.journalTexts)
             {
-                if (a.style == JournalStyle.explanation)
+                if (text.style == JournalStyle.explanation)
                 {
                     explainT = new();
                     explainT.AddToClassList("explanation_text");
-                    explainT.text = a.text;
+                    explainT.text = text.text;
                     scrollView.Add(explainT);
                 }
                 else
@@ -157,7 +151,7 @@ namespace Journal
                     codeT.selection.isSelectable  = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
-                    codeT.text = a.text;
+                    codeT.text = text.text;
                     scrollView.Add(windowElement);
                     windowElement.Add(codeT);
                 }
@@ -179,11 +173,12 @@ namespace Journal
         }
         void Update()
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                JournalOnOff();
-            }
-            //Add Button For Leveling up, move it later and also move Journal button later
+            //Moved to input reader 
+            // if (Keyboard.current.jKey.wasPressedThisFrame)
+            // {
+            //     JournalOnOff();
+            // }
+            //Add Button For Leveling up, move it later
             if(Keyboard.current.pKey.wasPressedThisFrame)
             {
                 PlayerProgression.LevelUp();
@@ -210,14 +205,13 @@ namespace Journal
             levelUnlock(HintEntries, hintsTabName);
             levelUnlock(ConceptEntries, conceptsTabName);
         }
-        void levelUnlock(JournalEntrySO[] entries, string nameTab)
+        void levelUnlock(List<JournalEntrySO> entries, string nameTab)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameTab);
             var scrollView = tab.Q<ScrollView>("ScrollView");
             var buttons = scrollView.Children().ToArray();
-            Debug.Log(buttons.Length);
-            Debug.Log(entries.Length);
-            for (int i = 0; i < entries.Length; i++)
+            if (entries.Count != buttons.Length) return;
+            for (int i = 0; i < entries.Count; i++)
             {
                 entries[i].SetUnlocked();
                 if(entries[i].IsUnlocked && buttons[i].style.display != DisplayStyle.Flex)

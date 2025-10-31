@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using NaughtyAttributes;
-using Unity.Properties;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Journal
 {
 

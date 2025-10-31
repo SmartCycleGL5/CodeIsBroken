@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
+  m_Name: ConveyorBelt
+  m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
+  title: 'Conveyor
+
+    Belt'
+  showcaseI: {fileID: 2800000, guid: fb3562b018574e54bb3e890110a892f1, type: 3}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: "A conveyor belt will move objects on top of it forwards every tick, if
+      possible. Conveyor belts can\u2019t move objects if there is no space for the
+      object or if there is nothing in front of the belt."
+  sortOrder: 1
+  levelToUnlock: 0

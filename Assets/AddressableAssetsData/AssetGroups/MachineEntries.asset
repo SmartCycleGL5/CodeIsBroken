@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MachineEntries
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: MachineEntries
+  m_GUID: b0a8f184b5fb98a49a2f13bd162be11a
+  m_SerializeEntries:
+  - m_GUID: 1037b6400adcc804fb62240f126c13cb
+    m_Address: Assets/!Scripts/Journal/Machines/ConveyorBelt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42e894855851b1644b259b23ac6096cf
+    m_Address: Assets/!Scripts/Journal/Machines/TruckDockingStation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ecd0568cb857dd4c8b68d7ef85b0030
+    m_Address: Assets/!Scripts/Journal/Machines/Painter.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c92cfe6a9dafb04ca0e50faf75fba50
+    m_Address: Assets/!Scripts/Journal/Machines/Assembler.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7db8678e30c654f42aff6bbfb392b6d0
+    m_Address: Assets/!Scripts/Journal/Machines/Furnace.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a7e7ed6987cc1488a76ff526aa776d
+    m_Address: Assets/!Scripts/Journal/Machines/MaterialTube.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98a1e832d592a5944a02d44c7751a543
+    m_Address: Assets/!Scripts/Journal/Machines/Crane.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 970678175c1ce4648b37a44c7f0c5691, type: 2}
+    - {fileID: 11400000, guid: 7468f653cf47a14469a6d5f40efb6e8b, type: 2}

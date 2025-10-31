@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using System;
+using Coding;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
 using UnityEngine.InputSystem;
@@ -45,7 +46,7 @@ public class BuildingSelector : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.bKey.wasPressedThisFrame)
+        if (Keyboard.current.bKey.wasPressedThisFrame && !Terminal.focused)
         {
             ToggleMenu();
         }

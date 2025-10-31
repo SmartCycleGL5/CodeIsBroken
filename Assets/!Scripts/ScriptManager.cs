@@ -1,7 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Collections.Generic;
-using SharpCube.Object;
 using UnityEngine;
 
 public class ScriptManager : MonoBehaviour

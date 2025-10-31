@@ -1,12 +1,8 @@
-
-using SharpCube.Highlighting;
-using SharpCube.Object;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using static System.Collections.Specialized.BitVector32;
 
 namespace SharpCube
 {
@@ -20,7 +16,7 @@ namespace SharpCube
     [Serializable]
     public struct Line
     {
-        public string[] sections; 
+        public string[] sections;
         public Line(string[] sections)
         {
             this.sections = sections;
@@ -41,11 +37,11 @@ namespace SharpCube
 
     public static class Compiler
     {
-        
+
         public static string initializerColor = "#5397D0";
         public static string modifierColor = "#5397D0";
         public static string defaultColor = "#ffffff";
-        
+
         public static readonly Dictionary<KeywordType, Dictionary<string, Keyword>> Keywords = new()
         {
             { KeywordType.Initializer, new()
@@ -65,7 +61,7 @@ namespace SharpCube
                 { "private", new Modifier("private", modifierColor, Privilege.Private) },
                 { "public",  new Modifier("public", modifierColor, Privilege.Public) },
             } },
-            
+
             { KeywordType.Valid, new()
             {
                 { "{", new Keyword("{", defaultColor) },
@@ -92,7 +88,7 @@ namespace SharpCube
 
             string rawCode = script.rawCode;
             if (!ConvertCode(rawCode, out List<Line> convertedCode)) return;
-            
+
             Compile(convertedCode);
         }
 
@@ -111,10 +107,10 @@ namespace SharpCube
                 for (int section = 0; section < context[line].sections.Length; section++)
                 {
                     string word = context[line].sections[section];
-                    
+
                     if (!ValidKeyword(word))
                         PlayerConsole.LogError($"{word} does not exist in the current context");
-                    
+
                     if (word == Keywords[KeywordType.Valid]["}"].key)
                         PlayerConsole.LogError("Unexpected token \"}\"");
 
@@ -143,7 +139,7 @@ namespace SharpCube
                     }
                 }
             }
-            
+
         }
 
         static bool ValidKeyword(string word)
@@ -158,13 +154,13 @@ namespace SharpCube
             {
                 return true;
             }
-            
-            foreach(var @class in Class.initializedClasses.inMemory)
+
+            foreach (var @class in Class.initializedClasses.inMemory)
             {
-                if(@class.Value.Encapsulation.variables.Contains(word))
+                if (@class.Value.encapsulation.containedVarialbes.Contains(word))
                 {
                     return true;
-                }   
+                }
 
             }
             return false;
@@ -191,13 +187,13 @@ namespace SharpCube
                 if (item == "{" || item == "}")
                 {
                     //if(toAdd.Count > 0)
-                        convertedCode.Add(new Line(toAdd.ToArray()));
+                    convertedCode.Add(new Line(toAdd.ToArray()));
 
-                    convertedCode.Add(new Line(new string[] {item}));
+                    convertedCode.Add(new Line(new string[] { item }));
                     toAdd.Clear();
                     continue;
                 }
-                
+
                 toAdd.Add(item);
             }
 

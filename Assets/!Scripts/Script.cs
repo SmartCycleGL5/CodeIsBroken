@@ -1,10 +1,7 @@
 using NaughtyAttributes;
-using NUnit.Framework.Interfaces;
 using SharpCube;
-using SharpCube.Object;
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
 using WindowSystem;
 
 [Serializable]
@@ -75,7 +72,7 @@ public class Script
     {
         Memory<Class> oldClasses = classes;
         classes.Clear();
-        
+
         try
         {
             Compiler.StartCompile(this);
@@ -87,13 +84,13 @@ public class Script
             }
             return true;
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             Debug.LogError(e);
             PlayerConsole.LogError("Failed to compile", false);
-            
+
             classes = oldClasses;
-            
+
             return false;
         }
     }
@@ -102,5 +99,5 @@ public class Script
     {
         throw new NotImplementedException();
     }
-    
+
 }

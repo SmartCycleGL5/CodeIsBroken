@@ -1,15 +1,14 @@
 using System.Collections.Generic;
-using UnityEngine;
-using SharpCube.Object;
 using System.Linq;
+using UnityEngine;
 
 namespace SharpCube
 {
     [System.Serializable]
     public class Encapsulation
     {
-        public Memory<Variable> variables { get; set; } = new Memory<Variable>();
-        
+        public Memory<Variable> containedVarialbes { get; set; } = new();
+
         [field: SerializeField] public List<Line> content { get; set; } = new();
 
         public Encapsulation(int line)
@@ -20,8 +19,8 @@ namespace SharpCube
             {
                 content.Add(Compiler.currentContext[i]);
             }
-            
-            if(content.Count > 0)
+
+            if (content.Count > 0)
                 Compiler.Compile(content, this);
         }
 
@@ -36,7 +35,7 @@ namespace SharpCube
                 PlayerConsole.LogError("{ expected");
                 return -1;
             }
-            
+
             startEncapsulation++;
             int encapsulations = 1;
 
@@ -57,9 +56,9 @@ namespace SharpCube
                     return i;
                 }
             }
-            
+
             PlayerConsole.LogError("} expected");
             return -1;
         }
-    }   
+    }
 }

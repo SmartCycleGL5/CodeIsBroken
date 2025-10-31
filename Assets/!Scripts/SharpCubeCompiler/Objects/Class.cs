@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SharpCube.Object
+namespace SharpCube
 {
     [Serializable]
-    public class Class : IObject
+    public class Class : IReference
     {
         [field:SerializeField] public string name { get; set; }
-        [field:SerializeField] public Encapsulation Encapsulation { get; set; }
+        [field:SerializeField] public Encapsulation encapsulation { get; set; }
 
         public static Memory<Class> initializedClasses { get; private set; } = new();
 
@@ -16,7 +16,7 @@ namespace SharpCube.Object
         public Class(string name, Properties properties, Encapsulation encapsulation)
         {
             this.name = name;
-            this.Encapsulation = encapsulation;
+            this.encapsulation = encapsulation;
 
             initializedClasses.Add(name, this, properties.privilege);
             Compiler.toCompile.classes.Add(name, this, properties.privilege);

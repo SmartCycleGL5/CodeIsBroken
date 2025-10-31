@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace SharpCube.Object
+namespace SharpCube
 {
     public interface IObject
     {
-        public string name { get; set; }
     }
 }

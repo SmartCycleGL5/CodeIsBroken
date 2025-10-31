@@ -1,9 +1,8 @@
-using SharpCube.Object;
 namespace SharpCube
 {
- public interface IContainer
-{
-    public Memory<Variable> variables { get; set; }
-}
-   
+    public interface IContainer
+    {
+        public Memory<Variable> variables { get; set; }
+    }
+
 }

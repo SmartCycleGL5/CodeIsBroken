@@ -1,13 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine;
-using SharpCube.Object;
 
 namespace SharpCube
 {
     [Serializable]
-    public class IntegratedMethod 
+    public class IntegratedMethod
     {
         public MethodInfo toCall;
         object toRunFrom;

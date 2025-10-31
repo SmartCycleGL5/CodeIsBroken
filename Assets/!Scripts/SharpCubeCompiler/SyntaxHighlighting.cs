@@ -1,7 +1,5 @@
-using SharpCube.Object;
 using System;
 using System.Text.RegularExpressions;
-using UnityEngine;
 
 namespace SharpCube.Highlighting
 {
@@ -23,12 +21,15 @@ namespace SharpCube.Highlighting
                 foreach (var keyword in Compiler.Keywords[(KeywordType)type])
                 {
                     string color = keyword.Value.color;
-                    
+
+                    //newCode.Replace(keyword.Key, $"<color={color}>{keyword.Key}</color>");
+
                     newCode = Regex.Replace(newCode, keyword.Key, $"<color={color}>{keyword.Key}</color>");
                 }
-                
+
                 foreach (var keyword in Class.initializedClasses.inMemory)
                 {
+                    //newCode.Replace(keyword.Key, $"<color=green>{keyword.Key}</color>");
                     newCode = Regex.Replace(newCode, keyword.Key, $"<color=green>{keyword.Key}</color>");
                 }
             }

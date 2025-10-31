@@ -1,4 +1,5 @@
 using System;
+using Coding;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,9 @@ public class NewTutorial : MonoBehaviour
     private Vector3 startPosition;
     private Transform player;
     private int buildingIndex;
+
+    private bool subscribed = false;
+    private string contractName;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,6 +52,9 @@ public class NewTutorial : MonoBehaviour
                 return;
             case 2:
                 BuildingTutorial();
+                return;
+            case 3:
+                ProgrammingTutorial();
                 return;
         }
     }
@@ -97,20 +104,14 @@ public class NewTutorial : MonoBehaviour
                     buildingIndex++;
                 return;
             case 1:
-                label.text = "Try selecting conveyors and building a line between the MaterialTubes and the Selling station. Close the menu and press run when completed! Use left click to place an item, R to rotate and Right click to remove a building.";
+                label.text = "Try selecting conveyors and building a line between the MaterialTubes and the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
                 if (ContractSystem.ActiveContract != null)
                 {
-                    buildingIndex++;
-                }
-                return;
-            case 3:
-                label.text = "Lets try some programming!";
-                if (ContractSystem.ActiveContract != null)
-                {
-                    buildingIndex++;
+                    contractName = ContractSystem.ActiveContract.requestedItem.materials.ToString();
+                    level++;
                 }
                 return;
         }
@@ -122,10 +123,37 @@ public class NewTutorial : MonoBehaviour
         {
             case 0:
                 label.text = "Lets try some programming! Click on the material tube and press the terminal symbol. Try writing something inside the terminal!";
+                if (Terminal.focused)
+                {buildingIndex++;}
                 break;
             case 2:
-                label.text = " ";
+                label.text = $"Try writing ChangeMaterial({contractName}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check which colors you can paint.";
+                if (!subscribed)
+                {
+                    Debug.Log("Subscribed");
+                    ContractSystem.ActiveContract.onFinished += OnFinishedContract;
+                    subscribed = true;
+                }
+                break;
+            case 3:
+                label.text = "Good job! You are on your own now. Press J to open the journal. The journal will tell you how to use the machines you unlock.";
+                if (Keyboard.current.jKey.wasPressedThisFrame)
+                {
+                    buildingIndex++;
+                }
+                break;
+            case 4:
+                uiDocument.rootVisualElement.Q<VisualElement>("Tutorial").visible = false;
+                this.enabled = false;
                 break;
         }
+    }
+
+
+    void OnFinishedContract(Contract contract)
+    {
+        Debug.Log("Finished");
+        buildingIndex++;
+        ContractSystem.ActiveContract.onFinished -= OnFinishedContract;
     }
 }

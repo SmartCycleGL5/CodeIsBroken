@@ -35,7 +35,7 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="Tutorial" picking-mode="Ignore" style="flex-grow: 1; width: 721px; position: absolute; height: 336px; top: 164px; left: 1837px; color: rgb(70, 70, 70); background-color: rgba(36, 36, 36, 0.79);">
-        <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1;" />
-        <ui:Label text="Press any button to continue" name="Label" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
+        <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1; white-space: pre-wrap;" />
+        <ui:Label text="Press Space to continue" name="PressToContinue" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
 </ui:UXML>

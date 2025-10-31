@@ -13,7 +13,7 @@
                 <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollExpla" style="width: 470px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 2px; padding-bottom: 0; padding-left: 2px; -unity-text-align: upper-center; white-space: normal; height: 800px;" />
             </ui:GroupBox>
         </ui:Tab>
-        <ui:Tab name="Hints" closeable="false" enabled="true" label="Hints" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124); display: none;">
+        <ui:Tab name="Hints" closeable="false" enabled="true" label="Hints" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);">
             <ui:GroupBox style="flex-direction: row; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
                 <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="height: 800px; width: 370px; left: auto; flex-grow: 0; align-items: center; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start;" />
                 <ui:VisualElement name="HIdeHint" style="flex-grow: 1; align-items: center; justify-content: center;">

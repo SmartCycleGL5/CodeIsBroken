@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
-  m_Name: JournalEntrySO
+  m_Name: Classes
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
-  showcaseI: {fileID: 2800000, guid: 640fb2a81f7966a48a17839b2d2c93c6, type: 3}
-  explanation: Hello
-  codeShowcase: Noob
+  title: Classes
+  showcaseI: {fileID: 0}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: A Class is a container for your methods and variables.

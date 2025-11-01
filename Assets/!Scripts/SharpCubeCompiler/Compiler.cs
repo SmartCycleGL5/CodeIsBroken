@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using SharpCube.Type;
 
 namespace SharpCube
 {
@@ -27,7 +28,6 @@ namespace SharpCube
             string message = "";
             foreach (var section in sections)
             {
-
                 message += " " + section.ToString();
             }
 
@@ -37,6 +37,7 @@ namespace SharpCube
 
     public static class Compiler
     {
+        
 
         public static string initializerColor = "#5397D0";
         public static string modifierColor = "#5397D0";
@@ -46,7 +47,7 @@ namespace SharpCube
         {
             { KeywordType.Initializer, new()
             {
-                { "class", new Initializer("class", initializerColor, Class.Create) },
+                { "class", new Initializer("class", initializerColor, IType.Create) },
                 //{ "struct", new Initializer(Color.blue, Class.Create) },
                 
                 { "void", new Initializer("void", initializerColor, IType.Create)  },

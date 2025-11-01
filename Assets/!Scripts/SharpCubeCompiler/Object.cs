@@ -1,23 +1,24 @@
 using System;
+using SharpCube.Type;
 using UnityEngine;
 
 namespace SharpCube
 {
     public class Object
     {
-        IReference value;
+        IType value;
 
-        public Object(IReference value = null)
+        public Object(IType value = null)
         {
-            this.value = value;
+            Set(value);
         }
 
-        public void Set(IReference newValue)
+        public void Set(IType newValue)
         {
             if (newValue.GetType() == value.GetType())
                 value = newValue;
         }
-        public IReference Get()
+        public IType Get()
         {
             return value;
         }

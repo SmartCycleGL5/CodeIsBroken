@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Collections.Generic;
+using SharpCube;
 using UnityEngine;
 
 public class ScriptManager : MonoBehaviour
@@ -79,5 +80,16 @@ public class ScriptManager : MonoBehaviour
     public void RemoveMachine(BaseMachine machine)
     {
         machines.Remove(machine);
+    }
+
+    public static void Compile()
+    {
+        PlayerConsole.Clear();  
+        Compiler.Reset();
+        
+        foreach (var script in instance.playerScripts)
+        {
+            script.Value.Compile();
+        }
     }
 }

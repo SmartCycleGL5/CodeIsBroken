@@ -19,9 +19,9 @@ namespace SharpCube
 
     public class Initializer : Keyword
     {
-        public Action<Encapsulation, Line, int, Properties> create { get; set; }
+        public Action<IContainer, Line, int, Properties> create { get; set; }
 
-        public Initializer(string key, string color, Action<Encapsulation, Line, int, Properties> create) : base(key, color)
+        public Initializer(string key, string color, Action<IContainer, Line, int, Properties> create) : base(key, color)
         {
             this.create = create;
         }

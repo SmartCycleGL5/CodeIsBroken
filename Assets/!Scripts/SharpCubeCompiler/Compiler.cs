@@ -40,12 +40,12 @@ namespace SharpCube
     {
         public static readonly string initializerColor = "#5397D0";
         public static readonly string modifierColor = "#5397D0";
-        public static readonly string variableColor = "#0088ff";
+        public static readonly string variableColor = "#33ccff";
         public static readonly string classColor = "#77ff77";
         public static readonly string methodColor = "#ffff33";
         public static readonly string defaultColor = "#ffffff";
         
-        public static readonly Dictionary<KeywordType, Dictionary<string, Keyword>> DefaultKeywords = new()
+        public static Dictionary<KeywordType, Dictionary<string, Keyword>> DefaultKeywords => new()
         {
             { KeywordType.Initializer, new()
             {
@@ -90,7 +90,7 @@ namespace SharpCube
         /// <param name="script">The script to compile</param>
         public static void StartCompile(Script script)
         {
-            Debug.Log("[Compiler] Compile");
+            Debug.Log("[Compiler] Starting Compile");
 
             Class.ClearClasses();
 
@@ -100,36 +100,56 @@ namespace SharpCube
             if (!ConvertCode(rawCode, out List<Line> convertedCode)) return;
 
             Compile(convertedCode);
+            
+            Debug.Log("[Compiler] Done, starting containers");
+            
+            foreach (var item in containersToCompile)
+            {
+                Debug.Log("[Compiler] starting " + item);
+                item.StartCompile();
+            }
         }
 
         public static List<Line> currentContext;
+        public static List<IContainer> containersToCompile = new();
         /// <summary>
         /// 
         /// </summary>
-        public static void Compile(List<Line> context, Encapsulation container = null)
+        public static void Compile(List<Line> context, IContainer container = null)
         {
             currentContext = context;
             Properties currentModifiers = new();
 
             for (int line = 0; line < context.Count; line++)
             {
+                Debug.Log("[Compiler] " + context[line].GetLine());
 
                 for (int section = 0; section < context[line].sections.Length; section++)
                 {
+                    
                     string word = context[line].sections[section];
 
                     if (!ValidKeyword(word))
                         PlayerConsole.LogError($"{word} does not exist in the current context");
 
+                    if (word == Keywords[KeywordType.Valid][";"].key)
+                        break;
+                    
                     if (word == Keywords[KeywordType.Valid]["}"].key)
                         PlayerConsole.LogError("Unexpected token \"}\"");
 
 
                     if (word == Keywords[KeywordType.Valid]["{"].key)
                     {
-                        Debug.Log("[Compiler] Skip");
-                        line = Encapsulation.FindEndOfEndEncapsulation(line, context) + 1;
+                        line = Encapsulation.FindEndOfEndEncapsulation(line, context);
+                        Debug.Log($"[Compiler] Skipping to {context[line].GetLine()}");
                         break;
+                    }
+                    
+                    if (Keywords[KeywordType.Reference].ContainsKey(word))
+                    {
+                        Debug.Log($"[Compiler] Found Reference to {word}");
+                        continue;
                     }
 
                     if (Keywords[KeywordType.Modifier].ContainsKey(word))
@@ -140,16 +160,16 @@ namespace SharpCube
 
                     if (Keywords[KeywordType.Initializer].ContainsKey(word))
                     {
+                        
                         Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
 
                         encapsulation.create.Invoke(container, context[line], section, currentModifiers);
                         currentModifiers = new();
 
-                        break;
+                        section++;
                     }
                 }
             }
-
         }
 
         static bool ValidKeyword(string word)
@@ -160,15 +180,6 @@ namespace SharpCube
                     return true;
             }
             
-
-            foreach (var @class in Class.initializedClasses.inMemory)
-            {
-                if (@class.Value.encapsulation.containedVarialbes.Contains(word))
-                {
-                    return true;
-                }
-
-            }
             return false;
         }
 
@@ -204,6 +215,13 @@ namespace SharpCube
             }
 
             return true;
+        }
+        
+        public static void Reset()
+        {
+            Debug.Log("[Compiler] Reset");
+            toCompile = null;
+            Keywords = DefaultKeywords;
         }
     }
 }

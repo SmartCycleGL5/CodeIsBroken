@@ -43,7 +43,6 @@ public class Script
         ScriptManager.instance.playerScripts.Add(name, this);
 
         Save(code == null ? DefaultCode : code);
-        Compile();
     }
 
     public void Run()
@@ -67,6 +66,7 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
+        ScriptManager.Compile();
     }
     public bool Compile()
     {

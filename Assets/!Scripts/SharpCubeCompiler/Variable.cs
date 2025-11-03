@@ -12,7 +12,7 @@ namespace SharpCube
 
         Object obj;
 
-        public Variable(string name, Properties properties, Encapsulation encapsulation, IType value)
+        public Variable(string name, Properties properties, IContainer container, IType value)
         {
             this.name = name;
             if (value != null)
@@ -20,7 +20,7 @@ namespace SharpCube
                 this.obj = new(value);   
             }
 
-            encapsulation.containedVarialbes.Add(name, this, properties.privilege);
+            container.containedVarialbes.Add(name, this, properties.privilege);
             Compiler.Keywords[KeywordType.Reference].Add(name, new Keyword(name, Compiler.variableColor));
             Debug.Log($"[Variable] new variable: {name} of type {value}");
         }
@@ -34,7 +34,7 @@ namespace SharpCube
             return obj.value;
         }
         
-        public static void Create(Encapsulation encapsulation, Line line, int initializer, Properties properties)
+        public static void Create(IContainer encapsulation, Line line, int initializer, Properties properties)
         {
             string name = line.sections[initializer + 1];
             string type = line.sections[initializer];

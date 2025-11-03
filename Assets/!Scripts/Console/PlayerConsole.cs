@@ -5,7 +5,12 @@ namespace SharpCube
 {
     public static class PlayerConsole
     {
-        public static Action<object> LogEvent; 
+        public static Action<object> LogEvent;
+
+        public static void Clear()
+        {
+            LogEvent?.Invoke("/Clear");
+        }
 
         public static void Log(object message)
         {

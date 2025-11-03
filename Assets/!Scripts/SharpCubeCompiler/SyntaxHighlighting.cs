@@ -29,7 +29,7 @@ namespace SharpCube.Highlighting
 
             string Highlight(string pattern, string color)
             {
-                return Regex.Replace(newCode, Regex.Escape(pattern), $"<color={color}>{pattern}</color>");
+                return Regex.Replace(newCode, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
             }
         }
     }

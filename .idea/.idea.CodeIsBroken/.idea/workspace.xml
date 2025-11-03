@@ -6,12 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Console/PlayerConsole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Console/PlayerConsole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Script.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Class.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Class.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Compiler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Types/IType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Types/IType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +190,9 @@
       <workItem from="1761682151881" duration="42000" />
       <workItem from="1761682223020" duration="5873000" />
       <workItem from="1762026510340" duration="3336000" />
-      <workItem from="1762170551432" duration="9078000" />
+      <workItem from="1762170551432" duration="9167000" />
+      <workItem from="1762185804667" duration="3826000" />
+      <workItem from="1762196015316" duration="4861000" />
     </task>
     <servers />
   </component>

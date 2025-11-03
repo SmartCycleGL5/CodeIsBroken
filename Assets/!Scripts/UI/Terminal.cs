@@ -90,6 +90,11 @@ namespace WindowSystem
 
         private void ConsoleLog(object obj)
         {
+            if (obj == "/Clear")
+            {
+                console.text = "";
+                return;
+            }
             console.text += obj+ "\n";
         }
 
@@ -101,7 +106,6 @@ namespace WindowSystem
         }
         void OnLoseFocus(FocusOutEvent evt)
         {
-            Debug.Log("deselect");
             Save();
         }
 
@@ -124,7 +128,6 @@ namespace WindowSystem
             if (scriptToEdit.connectedMachine != null)
                 DisplayIntegratedMethods();
             
-            scriptToEdit.Compile();
             HighlightCode();
         }
         void DisplayIntegratedMethods()
@@ -152,8 +155,6 @@ namespace WindowSystem
                 ScriptManager.StopMachines();
             }
 
-            console.text = "";
-
             RemoveHighlight();
 
             if (scriptToEdit.rawCode != input.text)
@@ -162,8 +163,6 @@ namespace WindowSystem
                 PlayerConsole.Log("Saved!");    
             }
             
-            
-            scriptToEdit.Compile();
             window.Rename(scriptToEdit.name);
 
             HighlightCode();

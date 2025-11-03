@@ -2,7 +2,9 @@ namespace SharpCube
 {
     public interface IContainer
     {
-        public Memory<Variable> variables { get; set; }
+        public Encapsulation encapsulation { get; set; }
+        public Memory<Variable> containedVarialbes { get; set; }
+        public void StartCompile();
     }
 
 }

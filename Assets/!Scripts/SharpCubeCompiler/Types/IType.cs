@@ -18,7 +18,7 @@ namespace SharpCube.Type
     }
     public interface IType
     {
-        public static void Create(Encapsulation encapsulation, Line line, Properties properties)
+        public static void Create(IContainer encapsulation, Line line, Properties properties)
         {
 
             string name = line.sections[line.sections.Length - 2];
@@ -35,7 +35,7 @@ namespace SharpCube.Type
 
         }
         
-        public static void CreateMethod(Encapsulation encapsulation, Line line, int initializer, Properties properties)
+        public static void CreateMethod(IContainer encapsulation, Line line, int initializer, Properties properties)
         {
             PlayerConsole.Log("Wow nice method bro, would be a  shame if i didnt compile it");
         }

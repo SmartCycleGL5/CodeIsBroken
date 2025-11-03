@@ -8,8 +8,11 @@
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; flex-direction: row; bottom: 0; left: 0; right: 0; position: absolute; height: 30%; border-top-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
             <ui:ScrollView name="Console" class="Console" style="height: 100%; right: auto; bottom: auto; left: auto;">
-                <ui:Label text="Console" />
-                <ui:Label name="Output" style="height: 100%; width: 95%; white-space: normal;" />
+                <ui:VisualElement name="VisualElement" style="justify-content: space-between; flex-direction: row; height: auto;">
+                    <ui:Label text="Console" style="-unity-text-align: middle-left;" />
+                    <ui:Button text="Clear" style="height: 34px; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; visibility: hidden; display: none;" />
+                </ui:VisualElement>
+                <ui:Label name="Output" style="white-space: normal;" />
             </ui:ScrollView>
             <ui:Label text="Avilable Methods:&#10;" name="Methods" style="color: rgb(0, 255, 0); height: 100%; max-height: none; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); width: 30%;" />
         </ui:VisualElement>

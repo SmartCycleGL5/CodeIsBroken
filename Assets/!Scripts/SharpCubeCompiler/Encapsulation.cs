@@ -7,7 +7,7 @@ namespace SharpCube
     [System.Serializable]
     public class Encapsulation
     {
-        public Memory<Variable> containedVarialbes { get; set; } = new();
+        public IContainer container { get; private set; }
 
         [field: SerializeField] public List<Line> content { get; set; } = new();
 
@@ -21,7 +21,7 @@ namespace SharpCube
             }
 
             if (content.Count > 0)
-                Compiler.Compile(content, this);
+                Compiler.Compile(content, container);
         }
 
         public static int FindEndOfEndEncapsulation(int startEncapsulation, List<Line> context)
@@ -31,7 +31,6 @@ namespace SharpCube
 
             if (context[startEncapsulation].sections[0] != start)
             {
-                Debug.Log(context[startEncapsulation].sections[0]);
                 PlayerConsole.LogError("{ expected");
                 return -1;
             }

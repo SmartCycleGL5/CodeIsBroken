@@ -76,12 +76,6 @@ public class Script
         try
         {
             Compiler.StartCompile(this);
-
-            foreach (var item in classes.@private)
-            {
-                name = item.Value.name;
-                break;
-            }
             return true;
         }
         catch (Exception e)

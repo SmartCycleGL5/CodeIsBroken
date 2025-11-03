@@ -1,3 +1,4 @@
+using SharpCube.Type;
 using System;
 using UnityEngine;
 
@@ -8,19 +9,23 @@ namespace SharpCube
     {
         [field: SerializeField] public string name { get; set; }
 
-        [HideInInspector] Object value;
+        [HideInInspector] Object obj;
 
-        public Variable(string name, Properties properties, Encapsulation encapsulation, IReference value = null)
+        public Variable(string name, Properties properties, Encapsulation encapsulation, IType value)
         {
             this.name = name;
-
-            this.value = new();
-            if (value != null)
-            {
-                this.value.Set(value);
-            }
+            this.obj = new(value);
 
             encapsulation.containedVarialbes.Add(name, this, properties.privilege);
+        }
+
+        public void Set(IType newValue)
+        {
+            obj.value = newValue;
+        }
+        public IType Get()
+        {
+            return obj.value;
         }
     }
 }

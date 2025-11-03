@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace SharpCube.Type
 {
-    public class Float : IType
+    public class Float : IType<float>
     {
-        public float Value;
+        public float Value { get; set; }
     }
 }

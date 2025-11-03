@@ -3,12 +3,15 @@ using System;
 
 namespace SharpCube.Type
 {
+    public interface IType<T> : IType
+    {
+        public T Value { get; set; }
+    }
     public interface IType
     {
-        
         public static void Create(Encapsulation encapsulation, Line line, Properties properties)
         {
-            
+
             string name = line.sections[line.sections.Length - 2];
 
             if (line.sections[line.sections.Length - 1] == ")")
@@ -18,9 +21,9 @@ namespace SharpCube.Type
 
             if (line.sections[line.sections.Length - 1] == ";")
             {
-                new Variable(name, properties, encapsulation);
+                new Variable(name, properties, encapsulation, new Int());
             }
-            
+
         }
     }
 }

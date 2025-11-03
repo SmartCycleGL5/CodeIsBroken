@@ -11,7 +11,8 @@ namespace SharpCube
     {
         Initializer,
         Modifier,
-        Valid
+        Reference,
+        Valid,
     }
 
     [Serializable]
@@ -37,24 +38,25 @@ namespace SharpCube
 
     public static class Compiler
     {
+        public static readonly string initializerColor = "#5397D0";
+        public static readonly string modifierColor = "#5397D0";
+        public static readonly string variableColor = "#0088ff";
+        public static readonly string classColor = "#77ff77";
+        public static readonly string methodColor = "#ffff33";
+        public static readonly string defaultColor = "#ffffff";
         
-
-        public static string initializerColor = "#5397D0";
-        public static string modifierColor = "#5397D0";
-        public static string defaultColor = "#ffffff";
-
-        public static readonly Dictionary<KeywordType, Dictionary<string, Keyword>> Keywords = new()
+        public static readonly Dictionary<KeywordType, Dictionary<string, Keyword>> DefaultKeywords = new()
         {
             { KeywordType.Initializer, new()
             {
-                { "class", new Initializer("class", initializerColor, IType.Create) },
+                { "class", new Initializer("class", initializerColor, Class.Create) },
                 //{ "struct", new Initializer(Color.blue, Class.Create) },
                 
-                { "void", new Initializer("void", initializerColor, IType.Create)  },
-                { "bool", new Initializer("bool", initializerColor, IType.Create)  },
-                { "int", new Initializer("int", initializerColor, IType.Create)  },
-                { "float", new Initializer("float", initializerColor, IType.Create) },
-                { "string", new Initializer("string", initializerColor, IType.Create)  },
+                { "void", new Initializer("void", initializerColor, IType.CreateMethod)  },
+                { "bool", new Initializer("bool", initializerColor, Variable.Create)  },
+                { "int", new Initializer("int", initializerColor, Variable.Create)  },
+                { "float", new Initializer("float", initializerColor, Variable.Create) },
+                { "string", new Initializer("string", initializerColor, Variable.Create)  },
             } },
 
             { KeywordType.Modifier, new()
@@ -62,6 +64,11 @@ namespace SharpCube
                 { "private", new Modifier("private", modifierColor, Privilege.Private) },
                 { "public",  new Modifier("public", modifierColor, Privilege.Public) },
             } },
+            
+            { KeywordType.Reference, new()
+            {
+            } },
+
 
             { KeywordType.Valid, new()
             {
@@ -72,6 +79,8 @@ namespace SharpCube
                 { ")",  new Keyword(")", defaultColor) },
             } },
         };
+
+        public static Dictionary<KeywordType, Dictionary<string, Keyword>> Keywords = DefaultKeywords;
 
         public static Script toCompile;
 
@@ -133,7 +142,7 @@ namespace SharpCube
                     {
                         Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
 
-                        encapsulation.create.Invoke(container, context[line], currentModifiers);
+                        encapsulation.create.Invoke(container, context[line], section, currentModifiers);
                         currentModifiers = new();
 
                         break;
@@ -150,11 +159,7 @@ namespace SharpCube
                 if (Keywords[(KeywordType)item].ContainsKey(word))
                     return true;
             }
-
-            if (Class.initializedClasses.inMemory.ContainsKey(word))
-            {
-                return true;
-            }
+            
 
             foreach (var @class in Class.initializedClasses.inMemory)
             {

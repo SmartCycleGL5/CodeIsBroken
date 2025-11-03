@@ -1,6 +1,7 @@
 using SharpCube.Type;
 using System;
 using UnityEngine;
+using Types = SharpCube.Type.Types;
 
 namespace SharpCube
 {
@@ -9,14 +10,19 @@ namespace SharpCube
     {
         [field: SerializeField] public string name { get; set; }
 
-        [HideInInspector] Object obj;
+        Object obj;
 
         public Variable(string name, Properties properties, Encapsulation encapsulation, IType value)
         {
             this.name = name;
-            this.obj = new(value);
+            if (value != null)
+            {
+                this.obj = new(value);   
+            }
 
             encapsulation.containedVarialbes.Add(name, this, properties.privilege);
+            Compiler.Keywords[KeywordType.Reference].Add(name, new Keyword(name, Compiler.variableColor));
+            Debug.Log($"[Variable] new variable: {name} of type {value}");
         }
 
         public void Set(IType newValue)
@@ -26,6 +32,22 @@ namespace SharpCube
         public IType Get()
         {
             return obj.value;
+        }
+        
+        public static void Create(Encapsulation encapsulation, Line line, int initializer, Properties properties)
+        {
+            string name = line.sections[initializer + 1];
+            string type = line.sections[initializer];
+            
+            try
+            {
+                Types T = Enum.Parse<Types>(type, true);
+                new Variable(name, properties, encapsulation, IType.NewType(T));
+            }
+            catch
+            {
+                new Variable(name, properties, encapsulation, null);
+            }
         }
     }
 }

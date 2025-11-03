@@ -19,10 +19,22 @@ namespace SharpCube
             this.encapsulation = encapsulation;
 
             initializedClasses.Add(name, this, properties.privilege);
+            
             Compiler.toCompile.classes.Add(name, this, properties.privilege);
+            
+            Debug.Log("[class]");
+
+            if (!Compiler.Keywords[KeywordType.Initializer].ContainsKey(name))
+            {
+                Compiler.Keywords[KeywordType.Initializer].Add(name, new Initializer(name, Compiler.classColor, Variable.Create));
+            }
+            else
+            {
+                Debug.Log($"[Class] {Compiler.Keywords[KeywordType.Initializer][name].key} already exists");
+            }
         }
 
-        public static void Create(Encapsulation encapsulation, Line line, Properties properties)
+        public static void Create(Encapsulation encapsulation, Line line, int initializer, Properties properties)
         {
             string name = line.sections[line.sections.Length - 1];
 

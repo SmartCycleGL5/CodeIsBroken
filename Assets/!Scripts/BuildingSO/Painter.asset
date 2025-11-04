@@ -19,5 +19,5 @@ MonoBehaviour:
     to the next conveyor.\n\nUse Paint() to paint the item in it to one of the following
     colors:\nRed, Blue, Green\n\nYou can also make new colors by using paint multiple
     times.\n\nExample:\nvoid OnTick()\n{\n\tPaint(Red);\n}"
-  levelToUnlock: 1
+  levelToUnlock: 2
   sortingOrder: 1

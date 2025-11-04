@@ -2,22 +2,61 @@
 }
 
 .journal-button {
-    background-image: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Textures/Floor%20Cement.jpg?fileID=2800000&guid=283f897e4925411ebbaa758b4cb13fc2&type=3#Floor Cement");
-    flex-shrink: 0;
-    -unity-background-scale-mode: scale-to-fit;
+    flex-shrink: 1;
     height: 200px;
-    width: 345px;
-    background-position-x: left 0;
-    padding-left: 185px;
-    padding-right: 12px;
+    width: auto;
     -unity-text-align: middle-center;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    background-size: 45% 100%;
     white-space: pre-wrap;
-    background-color: rgba(255, 232, 232, 0);
+    background-color: rgb(103, 85, 85);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2px;
+    padding-bottom: 0;
+    background-size: 36% 90%;
+    background-position-x: left 3%;
+    background-position-y: center;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    flex-direction: row;
+    justify-content: center;
+}
+
+.journal-button_image {
+    background-image: url("project://database/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png?fileID=2800000&guid=8da095e39e9b4df488dfd436f81116d6&type=3#DOTweenIcon");
+    flex-basis: 100%;
+    -unity-background-scale-mode: scale-to-fit;
+    background-size: 90% 90%;
+    max-width: none;
+    width: 37%;
+}
+
+.journal-button_text {
+    width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-text-align: middle-center;
+    white-space: pre-wrap;
+    min-width: 50%;
 }
 
 .Window {

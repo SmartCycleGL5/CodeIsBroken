@@ -9,16 +9,17 @@ public class Metrics : MonoBehaviour
     
     private int totalElectricity;
     private int timeSinceLevelUp;
-    [SerializedDictionary("Level", "Electricity")]
-    public SerializedDictionary<int, int> electricityLevel = new();
-    [SerializedDictionary("Level", "Time")]
-    public SerializedDictionary<int, int> timeUsed = new();
+
+    [SerializeField] List<int> electricityLevel = new();
+
+    [SerializeField]List<int> timeUsed = new();
 
     private void Start()
     {
         instance = this;
         PlayerProgression.onLevelUp += TimeLevelUp;
         PlayerProgression.onLevelUp += ElectricityLevelUp;
+        PlayerProgression.onLevelUp += GenerateGraph;
     }
 
     // Used for machines to add electricity,
@@ -30,7 +31,7 @@ public class Metrics : MonoBehaviour
     // Adds electricity to metrics on level up
     private void ElectricityLevelUp(int level)
     {
-        electricityLevel.Add(level, totalElectricity);
+        electricityLevel.Add(totalElectricity);
         totalElectricity = 0;
     }
 
@@ -38,21 +39,23 @@ public class Metrics : MonoBehaviour
     private void TimeLevelUp(int level)
     {
         int time = (int)Time.time;
-        timeUsed.Add(level, time - timeSinceLevelUp);
+        timeUsed.Add(time - timeSinceLevelUp);
         timeSinceLevelUp = time;
     }
 
     
     
 
-    public void GenerateGraph()
+    public void GenerateGraph(int level)
     {
-        // Graph for electricity and time.
-        // UI-Toolkit
+        if(level <=3) return;
+        GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
     }
 
     private void OnDestroy()
     {
+        PlayerProgression.onLevelUp -= TimeLevelUp;
+        PlayerProgression.onLevelUp -= ElectricityLevelUp;
         instance = null;
     }
 }

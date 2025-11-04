@@ -8,8 +8,8 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void Tutorial()
+    public void ArtScene()
     {
-        SceneManager.LoadScene("TurorialScene");
+        SceneManager.LoadScene("ArtScene");
     }
 }

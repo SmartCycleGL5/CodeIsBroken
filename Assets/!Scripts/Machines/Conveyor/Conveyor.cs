@@ -3,23 +3,24 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(-10)]
+
 public class Conveyor : MonoBehaviour, IItemContainer
 {
     // Conveyor to send item to next
     public Conveyor nextConveyor;
-    public List<Conveyor> recieveFrom;
+    public List<Conveyor> recieveFrom = new();
     public GameObject wrapper;
     [SerializeField] List<Transform> positions;
     private Tween moveTween;
 
     public Item item { get; set; }
 
+
     //Vector3 itemPosition { get { return transform.position + new Vector3(0, 1, 0);  } }
 
     void Start()
     {
-        //Checks for other conveyors and update the conveyors thats found.
+        //Checks for other conveyors and update the conveyors that found.
         UpdateConveyor();
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
         foreach(var pos in positions)
@@ -27,7 +28,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
             ConveyorManager.instance.UpdateCells(pos.position);
         }
         UpdateConveyor();
-        Tick.OnTick += MoveOnTick;
+        Tick.OnLateTick += MoveOnTick;
     }
 
     public void UpdateConveyor()
@@ -65,7 +66,6 @@ public class Conveyor : MonoBehaviour, IItemContainer
                 if (conveyor == null) return;
                 if (item == null)
                 {
-                    //Debug.Log("SentItem");
                     SetItem(conveyor.item);
                     conveyor.RemoveItem();
                 }
@@ -73,6 +73,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
             }
         }
     }
+    
 
     private void OnDestroy()
     {

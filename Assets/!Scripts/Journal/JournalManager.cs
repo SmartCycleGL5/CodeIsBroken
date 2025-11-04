@@ -72,14 +72,7 @@ namespace Journal
                 RemoveEmptyEntries(entry);
                 if (entry.title != string.Empty && entry.journalTexts.Count > 0 /*&& entry.showcaseI != null*/)
                 {
-                    entry.SetUnlocked();
-                    var tButton = new Button()
-                    {
-                        text = entry.title,
-                        style = { backgroundImage = entry.showcaseI, }
-                    };
-                    tButton.AddToClassList("journal-button");
-                    tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
+                    Button tButton = CreateNewButton(entry);
                     RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -89,6 +82,39 @@ namespace Journal
                 }
             }
         }
+
+        private Button CreateNewButton(JournalEntrySO entry)
+        {
+            entry.SetUnlocked();
+            var tButton = new Button()
+            {
+                text = string.Empty
+            };
+            if (entry.showcaseI)
+            {
+                var image = new VisualElement()
+                {
+                    style =
+                            {
+                                backgroundImage = entry.showcaseI
+                            }
+                };
+                image.AddToClassList("journal-button_image");
+                tButton.Add(image);
+            }
+            var text = new Label
+            {
+                text = entry.title
+            };
+
+            tButton.AddToClassList("journal-button");
+            text.AddToClassList("journal-button_text");
+
+            tButton.Add(text);
+            tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
+            return tButton;
+        }
+
         void AddHintEntry(List<JournalEntrySO> entries, string nameD)
         {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
@@ -104,10 +130,7 @@ namespace Journal
 #endif
                 if (entry.title != string.Empty && entry.journalTexts.Count > 0)
                 {
-                    entry.SetUnlocked();
-                    var tButton = new Button() { text = entry.title, style = { backgroundImage = entry.showcaseI} };
-                    tButton.AddToClassList("journal-button");
-                    tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
+                    Button tButton = CreateNewButton(entry);
                     RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
                     scrollView?.Add(tButton);
                 }
@@ -170,8 +193,9 @@ namespace Journal
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
                     codeT.text = text.text;
-                    scrollView.Add(windowElement);
                     windowElement.Add(codeT);
+                    scrollView.Add(windowElement);
+                    
                 }
             }
 

@@ -36,6 +36,15 @@ namespace SharpCube
         }
     }
 
+    public class Reference : Keyword
+    {
+        public Variable variable { get; private set; }
+        public Reference(string key, string color, Variable variable) : base(key, color)
+        {
+            this.variable = variable;
+        }
+    }
+
     public struct Properties
     {
         public Privilege privilege;

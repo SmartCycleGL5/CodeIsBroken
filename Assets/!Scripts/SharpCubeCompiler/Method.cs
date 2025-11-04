@@ -7,10 +7,11 @@ namespace SharpCube
     public class Method : IReference
     {
         public string name { get; set; }
-        public IContainer container { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IContainer container { get; set; }
 
-        public static void Create(IContainer encapsulation, Line line, int initializer, Properties properties)
+        public static void Create(IContainer container, Line line, int initializer, Properties properties)
         {
+            
 
             PlayerConsole.LogWarning("Methods not implemented");
             //string name = line.sections[initializer + 1];

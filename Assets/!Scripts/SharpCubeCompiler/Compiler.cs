@@ -16,12 +16,14 @@ namespace SharpCube
     }
 
     [Serializable]
-    public struct Line
+    public struct Line : IEquatable<Line>
     {
+        public Guid id {get; private set;}
         public string[] sections;
         public Line(string[] sections)
         {
             this.sections = sections;
+            id = Guid.NewGuid();
         }
 
         public string GetLine()
@@ -33,6 +35,11 @@ namespace SharpCube
             }
 
             return message;
+        }
+
+        public bool Equals(Line other)
+        {
+            return Equals(GetLine(), other.GetLine());
         }
     }
 
@@ -146,7 +153,8 @@ namespace SharpCube
                     
                     if (Keywords[KeywordType.Reference].ContainsKey(word))
                     {
-                        Debug.Log($"[Compiler] Found Reference to {word}");
+                        Reference reference = (Reference)Keywords[KeywordType.Reference][word];
+                        PlayerConsole.Log($"Found reference {reference.variable.name} of type {reference.variable.Get()}");
                         continue;
                     }
 
@@ -219,6 +227,7 @@ namespace SharpCube
         {
             Debug.Log("[Compiler] Reset");
             toCompile = null;
+            containersToCompile = new();
             Keywords = DefaultKeywords;
         }
     }

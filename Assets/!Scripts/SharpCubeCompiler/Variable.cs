@@ -9,20 +9,22 @@ namespace SharpCube
     public class Variable : IReference
     {
         [field: SerializeField] public string name { get; set; }
-        public IContainer container { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IContainer container { get; set; }
 
         Object obj;
 
         public Variable(string name, Properties properties, IContainer container, IType value)
         {
             this.name = name;
+            this.container = container;
+            
             if (value != null)
             {
                 this.obj = new(value);   
             }
 
             container.containedVarialbes.Add(name, this, properties.privilege);
-            Compiler.Keywords[KeywordType.Reference].Add(name, new Keyword(name, Compiler.variableColor));
+            Compiler.Keywords[KeywordType.Reference].Add(name, new Reference(name, Compiler.variableColor, this));
             Debug.Log($"[Variable] new variable: {name} of type {value}");
         }
 

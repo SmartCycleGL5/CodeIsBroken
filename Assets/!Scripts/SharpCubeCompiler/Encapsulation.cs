@@ -11,8 +11,10 @@ namespace SharpCube
 
         [field: SerializeField] public List<Line> content { get; set; } = new();
 
-        public Encapsulation(List<Line> context, int line)
+        public Encapsulation(IContainer container, List<Line> context, int line)
         {
+            this.container = container;
+            Debug.Log("[Encapsulation] for " + container.GetType());
             int end = FindEndOfEndEncapsulation(line, context);
 
             for (int i = line + 1; i < end - 1; i++)

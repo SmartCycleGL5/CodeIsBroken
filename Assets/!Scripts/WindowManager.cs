@@ -99,8 +99,9 @@ public class WindowManager : MonoBehaviour
     {
         Button closeButton = confirmChoice.Q<Button>("Close");
         Button cancelButton = confirmChoice.Q<Button>("Cancel");
-        //change label text lol
-
+        Label label = confirmChoice.Q<Label>();
+        
+        label.text = $"Are you sure you want to close '{windowToClose.name}'?";
         bool requestActive = true;
         bool result = false; //true = success
         toggleChoice(true);

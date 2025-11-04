@@ -60,9 +60,8 @@ namespace SharpCube
                 context = Compiler.convertedCode;
 
             int start = context.IndexOf(line) + 1;
-
-            Debug.Log("[Class] " + context.IndexOf(line));
-            this.encapsulation = new Encapsulation(context, start);
+            
+            this.encapsulation = new Encapsulation(this, context, start);
         }
     }
 }

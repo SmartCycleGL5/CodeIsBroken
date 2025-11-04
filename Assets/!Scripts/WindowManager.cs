@@ -99,6 +99,7 @@ public class WindowManager : MonoBehaviour
     {
         Button closeButton = confirmChoice.Q<Button>("Close");
         Button cancelButton = confirmChoice.Q<Button>("Cancel");
+        //change label text lol
 
         bool requestActive = true;
         bool result = false; //true = success

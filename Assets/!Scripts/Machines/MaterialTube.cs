@@ -40,7 +40,7 @@ public class MaterialTube : Machine
         this.spawnRate = delay;
 
     }
-    public void ChangeMaterial(string material)
+    public void SetMaterial(string material)
     {
         materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
     }

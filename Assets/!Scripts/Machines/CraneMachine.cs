@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CraneMachine : Machine, IItemContainer
 {
@@ -7,6 +9,9 @@ public class CraneMachine : Machine, IItemContainer
     [SerializeField] Transform grabLocation;
     [SerializeField] Transform holdLocation;
 
+    Tweener rotationTween;
+    private bool pickUp;
+    private bool drop;
     [DontIntegrate] public Item item { get; set; }
 
 
@@ -17,23 +22,21 @@ public class CraneMachine : Machine, IItemContainer
         base.Initialize(initialClassName);
     }
 
-    public async void Rotate(int degrees)
+    public void Rotate(int degrees)
     {
         Metrics.instance.UseElectricity((int)degrees/90);
-        float timer = 0;
-        Vector3 startRot = piviot.eulerAngles;
 
-        float timeToFinish = Tick.tickLength * .5f;
-
-        while (isRunning && timer < timeToFinish)
+        if (rotationTween != null) return;
+        rotationTween = piviot.DORotate(new Vector3(0, piviot.rotation.eulerAngles.y+degrees, 0), 0.5f, RotateMode.FastBeyond360).OnComplete(() =>
         {
-            piviot.Rotate(0, (degrees * Time.deltaTime) / timeToFinish, 0);
+            rotationTween = null;
+            if(pickUp) GrabLoseItem();
+        });
+    }
 
-            await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000 * timeToFinish));
-            timer += Time.deltaTime;
-        }
-
-        piviot.transform.eulerAngles = startRot + Vector3.up * degrees;
+    public void PickUp()
+    {
+        pickUp = true;
     }
 
     public void GrabLoseItem()

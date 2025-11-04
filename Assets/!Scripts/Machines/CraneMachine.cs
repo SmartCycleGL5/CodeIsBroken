@@ -31,14 +31,22 @@ public class CraneMachine : Machine, IItemContainer
         {
             rotationTween = null;
             if(pickUp) GrabLoseItem();
+            pickUp = false;
         });
     }
 
     public void PickUp()
     {
-        pickUp = true;
+        if (rotationTween != null)
+        {
+            pickUp = true;
+        }
+        else
+        {
+            GrabLoseItem();
+        }
     }
-
+    
     public void GrabLoseItem()
     {
         //Metrics.instance.UseElectricity(1);
@@ -74,7 +82,6 @@ public class CraneMachine : Machine, IItemContainer
         {
             RemoveItem();
         }
-
     }
     [DontIntegrate]
     public bool SetItem(Item item)

@@ -11,13 +11,13 @@ namespace SharpCube
 
         [field: SerializeField] public List<Line> content { get; set; } = new();
 
-        public Encapsulation(int line)
+        public Encapsulation(List<Line> context, int line)
         {
-            int end = FindEndOfEndEncapsulation(line, Compiler.currentContext);
+            int end = FindEndOfEndEncapsulation(line, context);
 
             for (int i = line + 1; i < end - 1; i++)
             {
-                content.Add(Compiler.currentContext[i]);
+                content.Add(context[i]);
             }
 
             if (content.Count > 0)

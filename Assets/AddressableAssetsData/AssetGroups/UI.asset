@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: UI
   m_GUID: aa1404f49305a934d831d0844ec85f8a
   m_SerializeEntries:
+  - m_GUID: 430e0bdca1397b34da4b01db61f4ed3c
+    m_Address: UI/ConfirmChoice
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 447692874d764ec4592f369252d0130c
     m_Address: UI/ContactModifierElement
     m_ReadOnly: 0

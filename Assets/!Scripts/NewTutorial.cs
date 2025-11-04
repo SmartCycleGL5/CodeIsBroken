@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using WindowSystem;
 public class NewTutorial : MonoBehaviour
 {
     

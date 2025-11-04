@@ -52,7 +52,7 @@ namespace SharpCube
                 { "class", new Initializer("class", initializerColor, Class.Create) },
                 //{ "struct", new Initializer(Color.blue, Class.Create) },
                 
-                { "void", new Initializer("void", initializerColor, IType.CreateMethod)  },
+                { "void", new Initializer("void", initializerColor, Method.Create)  },
                 { "bool", new Initializer("bool", initializerColor, Variable.Create)  },
                 { "int", new Initializer("int", initializerColor, Variable.Create)  },
                 { "float", new Initializer("float", initializerColor, Variable.Create) },
@@ -79,7 +79,7 @@ namespace SharpCube
                 { ")",  new Keyword(")", defaultColor) },
             } },
         };
-
+        public static List<Line> convertedCode = new List<Line>();
         public static Dictionary<KeywordType, Dictionary<string, Keyword>> Keywords = DefaultKeywords;
 
         public static Script toCompile;
@@ -97,7 +97,7 @@ namespace SharpCube
             toCompile = script;
 
             string rawCode = script.rawCode;
-            if (!ConvertCode(rawCode, out List<Line> convertedCode)) return;
+            if (!ConvertCode(rawCode, out convertedCode)) return;
 
             Compile(convertedCode);
             
@@ -110,14 +110,12 @@ namespace SharpCube
             }
         }
 
-        public static List<Line> currentContext;
         public static List<IContainer> containersToCompile = new();
         /// <summary>
         /// 
         /// </summary>
         public static void Compile(List<Line> context, IContainer container = null)
         {
-            currentContext = context;
             Properties currentModifiers = new();
 
             for (int line = 0; line < context.Count; line++)

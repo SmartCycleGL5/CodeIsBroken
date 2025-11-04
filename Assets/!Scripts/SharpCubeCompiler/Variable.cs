@@ -9,6 +9,7 @@ namespace SharpCube
     public class Variable : IReference
     {
         [field: SerializeField] public string name { get; set; }
+        public IContainer container { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         Object obj;
 

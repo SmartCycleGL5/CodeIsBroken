@@ -34,11 +34,6 @@ namespace SharpCube.Type
             }
 
         }
-        
-        public static void CreateMethod(IContainer encapsulation, Line line, int initializer, Properties properties)
-        {
-            PlayerConsole.Log("Wow nice method bro, would be a  shame if i didnt compile it");
-        }
 
         public static IType NewType(Types type)
         {
@@ -46,19 +41,14 @@ namespace SharpCube.Type
             {
                 case Types.Void:
                     throw new NotImplementedException();
-                    break;
                 case Types.Bool:
                     return new Bool();
-                    break;
                 case Types.Int:
                     return new Int();
-                    break;
                 case Types.String:
                     return new String();
-                    break;
                 case Types.Float:
                     return new Float();
-                    break;
             }
             
             throw new NotImplementedException();

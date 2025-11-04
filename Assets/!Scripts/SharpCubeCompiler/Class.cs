@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using SharpCube.Type;
 using UnityEngine;
 
 namespace SharpCube
@@ -9,19 +8,24 @@ namespace SharpCube
     public class Class : IReference, IContainer
     {
         public string name { get; set; }
-        public Memory<Variable> containedVarialbes { get; set; } = new();
+        public IContainer container { get; set; }
+
+        public Memory<IReference> containedVarialbes { get; set; } = new();
         [field:SerializeField] public Encapsulation encapsulation { get; set; }
 
-        public static Memory<Class> initializedClasses { get; private set; } = new();
+        public static Dictionary<string, Class> initializedClasses { get; private set; } = new();
         private Line line;
 
 
-        public Class(string name, Properties properties, Line line)
+        public Class(IContainer container,string name, Properties properties, Line line)
         {
             this.name = name;
             this.line = line;
+
+            if(container != null) 
+                this.container = container;
             
-            initializedClasses.Add(name, this, properties.privilege);
+            initializedClasses.Add(name, this);
             
             Compiler.toCompile.classes.Add(name, this, properties.privilege);
             Compiler.containersToCompile.Add(this);
@@ -30,15 +34,15 @@ namespace SharpCube
             Debug.Log($"[Class] new class: {name}");
         }
 
-        public static void Create(IContainer encapsulation, Line line, int initializer, Properties properties)
+        public static void Create(IContainer container, Line line, int initializer, Properties properties)
         {
             string name = line.sections[line.sections.Length - 1];
 
-            if (initializedClasses.Contains(name))
-                PlayerConsole.LogError($"The class {name} is already in use");
+            if (initializedClasses.ContainsKey(name))
+                PlayerConsole.LogError($"The class '{name}' is already in use");
 
 
-            new Class(name, properties, line);
+            new Class(container, name, properties, line);
         }
 
         public static void ClearClasses()
@@ -48,7 +52,17 @@ namespace SharpCube
 
         public void StartCompile()
         {
-            this.encapsulation = new Encapsulation(Compiler.currentContext.IndexOf(line) + 1);
+            List<Line> context;
+
+            if (container != null)
+                context = container.encapsulation.content;
+            else
+                context = Compiler.convertedCode;
+
+            int start = context.IndexOf(line) + 1;
+
+            Debug.Log("[Class] " + context.IndexOf(line));
+            this.encapsulation = new Encapsulation(context, start);
         }
     }
 }

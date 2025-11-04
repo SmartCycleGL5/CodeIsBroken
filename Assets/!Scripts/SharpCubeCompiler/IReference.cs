@@ -1,6 +1,12 @@
 using UnityEngine;
 
-public interface IReference
+
+namespace SharpCube
 {
-    public string name { get; set; }
+    public interface IReference
+    {
+        public string name { get; set; }
+        public IContainer container { get; set; }
+    }
+
 }

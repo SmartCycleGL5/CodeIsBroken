@@ -63,7 +63,7 @@ namespace WindowSystem
                 Debug.Log("[Terminal] getting asset");
 
                 findingAsset = true;
-                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.GameObject);
+                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
                 findingAsset = false;
             }
 
@@ -71,7 +71,7 @@ namespace WindowSystem
             //Debug.LogError("[Terminal] " + terminalAsset);
 
             terminal = terminalAsset.Instantiate();
-            window = new Window(scriptToEdit.name, terminal, this);
+            window = new Window(scriptToEdit.name, terminal, true, this);
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
@@ -129,6 +129,7 @@ namespace WindowSystem
                 DisplayIntegratedMethods();
             
             HighlightCode();
+            ScriptManager.Compile();
         }
         void DisplayIntegratedMethods()
         {
@@ -159,11 +160,11 @@ namespace WindowSystem
 
             if (scriptToEdit.rawCode != input.text)
             {
-                scriptToEdit.Save(input.text);
-                PlayerConsole.Log("Saved!");    
+                PlayerConsole.Log("Saved!");
+                scriptToEdit.Save(input.text); 
             }
             
-            window.Rename(scriptToEdit.name);
+            //window.Rename(scriptToEdit.name);
 
             HighlightCode();
         }

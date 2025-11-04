@@ -20,11 +20,11 @@ public class ShitJournal : MonoBehaviour, IWindow
     {
         if (journalAsset == null)
         {
-            journalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournal, AddressableToLoad.GameObject);
+            journalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournal, AddressableToLoad.Object);
         }
         if (journalElementAsset == null)
         {
-            journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.GameObject);
+            journalElementAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ShitJournalElement, AddressableToLoad.Object);
         }
         buildings = await Addressable.LoadAssets<BuildingSO>("Machines");
         

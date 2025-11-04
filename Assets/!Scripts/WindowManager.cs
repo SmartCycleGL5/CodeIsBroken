@@ -1,7 +1,9 @@
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -10,16 +12,19 @@ public class WindowManager : MonoBehaviour
 {
     public static TabView tabs { get; private set; }
     public static VisualElement windows { get; private set; }
+    public static VisualElement confirmChoice { get; private set; }
 
     public static Dictionary<string, Window> OpenWindows { get; private set; } = new();
     private void Start()
     {
         tabs = canvas.Q<TabView>("Tabs");
         windows = canvas.Q<VisualElement>("Windows");
+        confirmChoice = canvas.Q<VisualElement>("ConfirmClose");
 
         windows.Q<Button>("Close").clicked += CloseCurrentWindow;
 
         DisableWindow();
+
     }
 
     [Button]
@@ -90,6 +95,41 @@ public class WindowManager : MonoBehaviour
         Debug.Log("[UIManager] " + "Closed tab: " + windowToClose.name);
     }
 
+    static async Task<bool> RequestClose(Window windowToClose)
+    {
+        Button closeButton = confirmChoice.Q<Button>("Close");
+        Button cancelButton = confirmChoice.Q<Button>("Cancel");
+
+        bool requestActive = true;
+        bool result = false; //true = success
+        toggleChoice(true);
+
+        closeButton.clicked += () =>
+        {
+            requestActive = false;
+            result = true;
+            toggleChoice(false);
+        };
+        cancelButton.clicked += () =>
+        {
+            requestActive = false;
+            result = false;
+            toggleChoice(false);
+        };
+
+        while (requestActive)
+        {
+            await Task.Delay(100);
+        }
+
+        return result;
+
+        void toggleChoice(bool toggle)
+        {
+            confirmChoice.visible = toggle;
+        }
+    }
+
     [Button]
     async void OpenTestWindow()
     {
@@ -107,12 +147,15 @@ public class WindowManager : MonoBehaviour
         public string name;
         public Tab element;
         public IWindow connectedWindow;
+        bool requestClose;
+        bool closing;
 
-        public Window(string name, VisualElement element, IWindow window = null)
+        public Window(string name, VisualElement element, bool requestClose = false, IWindow window = null)
         {
             this.name = name;
             this.element = new Tab(name);
             this.element.Add(element);
+            this.requestClose = requestClose;
             this.connectedWindow = window;
 
             Open();
@@ -122,14 +165,27 @@ public class WindowManager : MonoBehaviour
         {
             AddWindow(this);
         }
-        public void Close()
+        public async void Close()
         {
+            if (closing) return;
+            closing = true;
+
+            if(requestClose)
+            {
+                if (!await RequestClose(this))
+                {
+                    closing = false;
+                    return;
+                }
+            }
+
             CloseWindow(this);
 
             if (connectedWindow != null)
             {
                 connectedWindow.Close();
             }
+            closing = false;
         }
         public void ForceClose()
         {

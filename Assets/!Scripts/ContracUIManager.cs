@@ -23,11 +23,11 @@ public class ContracUIManager : MonoBehaviour
 
         if (contractUI == null)
         {
-            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.GameObject);
+            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
         }
         if(contractModifierUI == null)
         {
-            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.GameObject);
+            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.Object);
         }
 
         readyToTakeContacts = true;

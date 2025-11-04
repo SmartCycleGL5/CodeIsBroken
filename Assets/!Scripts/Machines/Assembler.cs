@@ -15,6 +15,7 @@ public class Assembler : Machine, IItemContainer
     Tweener moveTween;
     public Item item { get; set; }
 
+
     protected override void Start()
     {
         base.Start();
@@ -37,42 +38,29 @@ public class Assembler : Machine, IItemContainer
     public void Craft()
     {
         Metrics.instance.UseElectricity(1);
-        if(items.Count <= 0) return;
-        // Materials of items currently held by conveyor
-
-        List<Materials> materials = new();
-        materials.AddRange(items.Select(i => i.definition.materials));
-        
-        //Loops over all recipes
-        foreach (var recipe in craftingRecipies)
+        Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
+        if (itemCrafted != null)
         {
-            // Sort lists to compare them:
-            materials = materials.OrderBy(x => x).ToList();
-            recipe.materials = recipe.materials.OrderBy(x => x).ToList();
+            ClearMachine();
+            Debug.Log("Valid recipe");
             
-            if (materials.SequenceEqual(recipe.materials))
+            // output item to next conveyor
+            GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+            if(cell == null) return;
+            if (cell.TryGetComponent(out Conveyor conveyor))
             {
-                ClearMachine();
-                Debug.Log("Valid recipe");
-                
-                // output item to next conveyor
-                GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
-                if(cell == null) return;
-                if (cell.TryGetComponent(out Conveyor conveyor))
-                {
-                    Item item = Instantiate(recipe.itemToSpawn, transform.position, Quaternion.identity);
-                    item.definition.Modify(new Modification.Assemble(recipe.name));
+                Item item = Instantiate(itemCrafted, transform.position, Quaternion.identity);
+                //item.definition.Modify(new Modification.Assemble(recipe.name));
 
-                    conveyor.SetItem(item);
-                    RemoveItem();
-                }
+                conveyor.SetItem(item);
+                RemoveItem();
             }
-            else
+        }
+        else
+        {
+            if (items.Count == assemblerSize)
             {
-                if (materials.Count == assemblerSize)
-                {
-                    errorLogger.DisplayWarning("Materials does not match any recipe's");
-                }
+                errorLogger.DisplayWarning("Materials does not match any recipe's");
             }
         }
     }

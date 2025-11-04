@@ -221,7 +221,7 @@ namespace Journal
             //     JournalOnOff();
             // }
             //Add Button For Leveling up, move it later
-            if(Keyboard.current.pKey.wasPressedThisFrame)
+            if(Keyboard.current.leftAltKey.isPressed && Keyboard.current.oKey.wasPressedThisFrame)
             {
                 PlayerProgression.LevelUp();
             }

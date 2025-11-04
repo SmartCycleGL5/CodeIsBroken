@@ -124,9 +124,9 @@ public class Contract
 
     readonly string[] names = new string[]
     {
-        "Morning Wood",
-        "Rock Hard",
-        "Iron Patience",
+        "Wood",
+        "Stone",
+        "Iron",
         "Wood Carvers",
         "Stone Carvers"
     };

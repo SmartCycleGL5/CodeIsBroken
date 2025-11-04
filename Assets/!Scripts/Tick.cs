@@ -9,6 +9,8 @@ public class Tick : MonoBehaviour
     private int tick;
 
     public static event Action OnTick;
+
+    public static event Action OnLateTick;
     public static event Action OnStartingTick;
     public static event Action OnEndingTick;
 
@@ -52,6 +54,7 @@ public class Tick : MonoBehaviour
         //Debug.Log(tick);
         tick++;
         OnTick?.Invoke();
+        OnLateTick?.Invoke();
     }
 
 }

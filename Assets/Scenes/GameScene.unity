@@ -1857,8 +1857,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28769768684a69b40acfcd7c308a170e, type: 2}
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
-  buildingButtonTemplate: {fileID: 0}
-  uiDoc: {fileID: 0}
+  buildingButtonTemplate: {fileID: 9197481963319205126, guid: 059ab6987b8ea384fa556a041657d4f0, type: 3}
+  uiDoc: {fileID: 2051597519}
   isBuilding: 1
   arrowDown: {fileID: 21300000, guid: 7cb2c98cf348c7d489482d7ac1ac8f96, type: 3}
   arrowUp: {fileID: 21300000, guid: 92936c042e0d3534586452e2fbe92515, type: 3}

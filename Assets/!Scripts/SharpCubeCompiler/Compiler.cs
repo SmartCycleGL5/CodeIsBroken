@@ -115,6 +115,8 @@ namespace SharpCube
                 Debug.Log("[Compiler] starting " + item);
                 item.StartCompile();
             }
+
+            Debug.Log("[Compiler] Finished " + script.name);
         }
 
         public static List<IContainer> containersToCompile = new();
@@ -133,6 +135,8 @@ namespace SharpCube
                 {
                     
                     string word = context[line].sections[section];
+
+                    Debug.Log("[Compiler] " +  word);
 
                     if (!ValidKeyword(word))
                         PlayerConsole.LogError($"{word} does not exist in the current context");
@@ -160,6 +164,8 @@ namespace SharpCube
 
                     if (Keywords[KeywordType.Modifier].ContainsKey(word))
                     {
+                        if (currentModifiers.privilege != Privilege.None) PlayerConsole.LogError("More than one protection modifier");
+
                         currentModifiers.privilege = ((Modifier)Keywords[KeywordType.Modifier][word]).privilege;
                         continue;
                     }
@@ -167,9 +173,11 @@ namespace SharpCube
                     if (Keywords[KeywordType.Initializer].ContainsKey(word))
                     {
                         
-                        Initializer encapsulation = (Initializer)Keywords[KeywordType.Initializer][word];
+                        Initializer initializer = (Initializer)Keywords[KeywordType.Initializer][word];
 
-                        encapsulation.create.Invoke(container, context[line], section, currentModifiers);
+                        Debug.Log($"{container}, {context[line]}, {section}, {currentModifiers}");
+
+                        initializer.initailize.Invoke(container, context[line], section, currentModifiers);
                         currentModifiers = new();
 
                         section++;

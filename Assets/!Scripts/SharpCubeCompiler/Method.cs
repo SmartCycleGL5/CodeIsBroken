@@ -13,7 +13,7 @@ namespace SharpCube
         {
             
 
-            PlayerConsole.LogWarning("Methods not implemented");
+            PlayerConsole.LogWarning($"Methods not implemented");
             //string name = line.sections[initializer + 1];
             //string type = line.sections[initializer];
 

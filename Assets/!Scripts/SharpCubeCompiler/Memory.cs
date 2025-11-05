@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public enum Privilege
 {
-    Private = 0,
-    Public = 1,
+    None,
+    Private = 1,
+    Public = 2,
 }
 
 [Serializable]
@@ -27,6 +28,8 @@ public class Memory<T>
     }
     public T Get(Privilege privilege, string name)
     {
+        if(privilege == Privilege.None) privilege = Privilege.Private;
+
         if (privilege == Privilege.Private && @private.ContainsKey(name)) return @private[name];
 
 
@@ -37,6 +40,8 @@ public class Memory<T>
 
     public void Add(string name, T toAdd, Privilege privilege)
     {
+        if (privilege == Privilege.None) privilege = Privilege.Private;
+
         inMemory.Add(name, toAdd);
         
         switch (privilege)

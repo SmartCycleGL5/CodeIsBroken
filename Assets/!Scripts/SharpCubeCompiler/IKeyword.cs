@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace SharpCube
 {
@@ -19,11 +17,10 @@ namespace SharpCube
 
     public class Initializer : Keyword
     {
-        public Action<IContainer, Line, int, Properties> create { get; set; }
+        public Action<IContainer, Line, int, Properties> initailize { get; private set; }
 
         public Initializer(string key, string color, Action<IContainer, Line, int, Properties> create) : base(key, color)
         {
-            this.create = create;
         }
     }
     public class Modifier : Keyword
@@ -50,7 +47,7 @@ namespace SharpCube
         public Privilege privilege;
         public bool @static;
 
-        public Properties(Privilege privilege, bool @static)
+        public Properties(Privilege privilege = Privilege.None, bool @static = false)
         {
             this.privilege = privilege;
             this.@static = @static;

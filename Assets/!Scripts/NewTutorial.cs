@@ -27,6 +27,7 @@ public class NewTutorial : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = false;
         player = PlayerInputs.instance.gameObject.transform;
         startPosition = PlayerInputs.instance.gameObject.transform.position;
         label= uiDocument.rootVisualElement.Q<Label>("TutorialText");
@@ -86,6 +87,7 @@ public class NewTutorial : MonoBehaviour
                 player.transform.DORotate(sellingStation.transform.localRotation.eulerAngles, 0.2f);
                 return;
             case 3:
+                uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = true;
                 level++;
                 return;
         }

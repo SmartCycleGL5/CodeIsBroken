@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Journal;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -74,7 +75,6 @@ public class ContracUIManager : MonoBehaviour
             ContractSystem.instance.SelectContract(contract);
             contractHolder.SetEnabled(false);
             selectText.style.opacity = 0;
-
             for (int i = contractContainer.childCount + 1; i >= 0; i--) { 
             
                 contractHolder.RemoveAt(i);

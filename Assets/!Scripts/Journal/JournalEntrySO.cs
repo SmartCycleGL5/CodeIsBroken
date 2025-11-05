@@ -1,6 +1,10 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using UnityEditor.Rendering;
+using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 namespace Journal
 {
@@ -16,7 +20,6 @@ namespace Journal
         public List<JournalText> journalTexts;
         public int sortOrder;
         public int levelToUnlock;
-
         public int CompareTo(object obj)
         {
             if (obj == null) return 1;
@@ -41,7 +44,7 @@ namespace Journal
         code
     }
     [Serializable]
-    public struct JournalText
+    public class JournalText
     {
         public JournalStyle style;
         [ResizableTextArea]

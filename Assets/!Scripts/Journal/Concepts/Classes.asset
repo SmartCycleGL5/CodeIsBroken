@@ -18,3 +18,5 @@ MonoBehaviour:
   journalTexts:
   - style: 0
     text: A Class is a container for your methods and variables.
+  sortOrder: 0
+  levelToUnlock: 0

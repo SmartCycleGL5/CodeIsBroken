@@ -6,7 +6,7 @@ namespace SharpCube.Highlighting
 {
     public static class SyntaxHighlighting
     {
-
+        public static ColorPallate ColorPallate = new ColorPallate();
 
         public static string RemoveHighlight(string code)
         {
@@ -16,10 +16,10 @@ namespace SharpCube.Highlighting
         {
             string newCode = code;
 
-            foreach (var type in Enum.GetValues(typeof(KeywordType)))
+            foreach (var type in Enum.GetValues(typeof(Keywords.Type)))
             {
 
-                foreach (var keyword in Compiler.Keywords[(KeywordType)type])
+                foreach (var keyword in Compiler.UniversalKeywords.keys[(Keywords.Type)type])
                 {
                     newCode = Highlight(keyword.Key, keyword.Value.color);
                 }

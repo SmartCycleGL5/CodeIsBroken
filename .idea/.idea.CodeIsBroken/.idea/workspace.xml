@@ -9,12 +9,11 @@
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Class.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Class.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Compiler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Method.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Method.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ConfirmChoice.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/ConfirmChoice.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/WindowManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +25,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/164822bb67a64d1b8cdc62a0d8825a8a9f7e00/bb/b1d18abd/ArrayUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/01/957800f0/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/3d/f700c049/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/71/96828021/Guid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/8c/019c9cb9/IEquatable`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/ef/792c6493/KeyValuePair`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
@@ -36,6 +37,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/ColorPallate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Keywords.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -185,6 +188,7 @@
       <workItem from="1761914185143" duration="833000" />
       <workItem from="1762281155469" duration="4337000" />
       <workItem from="1762291860970" duration="2672000" />
+      <workItem from="1762375979621" duration="2658000" />
     </task>
     <servers />
   </component>

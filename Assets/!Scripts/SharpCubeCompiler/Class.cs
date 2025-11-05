@@ -8,12 +8,13 @@ namespace SharpCube
     public class Class : IReference, IContainer
     {
         public string name { get; set; }
+        public Class inherit { get; set; }
         public IContainer container { get; set; }
-
-        public Memory<IReference> containedVarialbes { get; set; } = new();
+        
+        public Keywords additionalKeywords { get; set; } = Keywords.Default;
+        
         [field:SerializeField] public Encapsulation encapsulation { get; set; }
-
-        public static Dictionary<string, Class> initializedClasses { get; private set; } = new();
+        
         private Line line;
 
 
@@ -25,11 +26,15 @@ namespace SharpCube
             if(container != null) 
                 this.container = container;
             
-            initializedClasses.Add(name, this);
-            
-            Compiler.toCompile.classes.Add(name, this, properties.privilege);
             Compiler.containersToCompile.Add(this);
-            Compiler.Keywords[KeywordType.Initializer].Add(name, new Initializer(name, Compiler.classColor, Variable.Create));
+            
+            if (container == null)
+            {
+                Compiler.UniversalKeywords.keys[Keywords.Type.Initializer].Add(name, new Initializer(name, Variable.Create));
+                Compiler.toCompile.classes.Add(name, this, properties.privilege);
+            }
+            else
+                container.additionalKeywords.keys[Keywords.Type.Initializer].Add(name, new Initializer(name, Variable.Create));
             
             Debug.Log($"[Class] new class: {name}");
         }
@@ -38,16 +43,19 @@ namespace SharpCube
         {
             string name = line.sections[line.sections.Length - 1];
 
-            if (initializedClasses.ContainsKey(name))
-                PlayerConsole.LogError($"The class '{name}' is already in use");
+            if (container == null)
+            {
+                if(Compiler.UniversalKeywords.Contains(name))
+                    PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
+            }
+            else 
+            {
+                if(container.additionalKeywords.Contains(name))
+                    PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
+            }
 
 
             new Class(container, name, properties, line);
-        }
-
-        public static void ClearClasses()
-        {
-            initializedClasses.Clear();
         }
 
         public void StartCompile()

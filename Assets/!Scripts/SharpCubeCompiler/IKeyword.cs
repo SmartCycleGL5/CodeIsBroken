@@ -1,4 +1,5 @@
 using System;
+using SharpCube.Highlighting;
 
 namespace SharpCube
 {
@@ -6,28 +7,30 @@ namespace SharpCube
     public class Keyword
     {
         public string key { get; set; }
-        public string color { get; set; }
+        public virtual string color => SyntaxHighlighting.ColorPallate.defaultColor;
 
-        public Keyword(string key, string color)
+        public Keyword(string key)
         {
             this.key = key;
-            this.color = color;
         }
     }
 
     public class Initializer : Keyword
     {
-        public Action<IContainer, Line, int, Properties> initailize { get; private set; }
+        public Action<IContainer, Line, int, Properties> Intialize { get; private set; }
+        public override string color => SyntaxHighlighting.ColorPallate.initializerColor;
 
-        public Initializer(string key, string color, Action<IContainer, Line, int, Properties> create) : base(key, color)
+        public Initializer(string key, Action<IContainer, Line, int, Properties> Intialize) : base(key)
         {
+            this.Intialize = Intialize;
         }
     }
     public class Modifier : Keyword
     {
         public Privilege privilege { get; set; }
+        public override string color => SyntaxHighlighting.ColorPallate.modifierColor;
 
-        public Modifier(string key, string color, Privilege privilege): base(key, color)
+        public Modifier(string key, Privilege privilege): base(key)
         {
             this.privilege = privilege;
         }
@@ -36,13 +39,15 @@ namespace SharpCube
     public class Reference : Keyword
     {
         public Variable variable { get; private set; }
-        public Reference(string key, string color, Variable variable) : base(key, color)
+        public override string color => SyntaxHighlighting.ColorPallate.variableColor;
+        
+        public Reference(string key, Variable variable) : base(key)
         {
             this.variable = variable;
         }
     }
 
-    public struct Properties
+    public class Properties
     {
         public Privilege privilege;
         public bool @static;

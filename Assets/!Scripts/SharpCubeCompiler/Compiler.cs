@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SharpCube.Highlighting;
 using UnityEngine;
 using SharpCube.Type;
 
@@ -70,7 +71,7 @@ namespace SharpCube
                     Debug.Log("[Compiler] starting " + item);
                     item.StartCompile();
                     
-                    Debug.Log("[Compiler] containers to be compiled "  + toCompile.Count );
+                    Debug.Log("[Compiler] container done: "  + toCompile.Count );
                 }
 
                 if (containersToCompile.Count <= 0)
@@ -120,11 +121,24 @@ namespace SharpCube
         /// <summary>
         /// 
         /// </summary>
-        public static void Compile(List<Line> context, Keywords additionalKeywords = null, IContainer container = null)
+        public static void Compile(List<Line> context, IContainer container = null)
         {
             Keywords currentKeywords = UniversalKeywords;
-            if (additionalKeywords != null)
-                currentKeywords.Add(additionalKeywords);
+            
+            if (container != null)
+                currentKeywords.CombineWith(container.allKeywords);
+
+            string todebug = "";
+
+            foreach (var currentKeywordsKey in currentKeywords.keys)
+            {
+                foreach (var keyword in currentKeywordsKey.Value)
+                {
+                    todebug += "\n" + keyword;
+                }
+            }
+            
+            Debug.Log($"[Compiler] {container} keywords : " + todebug);
                 
             Properties currentModifiers = null;
 
@@ -136,31 +150,31 @@ namespace SharpCube
                 {
                     
                     string word = context[line].sections[section];
-
-                    Debug.Log("[Compiler] Section: " +  word);
-
+                    
                     if (!ValidKeyword(word))
                         PlayerConsole.LogError($"{word} does not exist in the current context");
 
-                    if (word == currentKeywords.keys[Keywords.Type.Valid][";"].key)
+                    //Debug.Log("[Compiler] Section: " +  word);
+
+                    if (word == currentKeywords.keys[Keywords.Type.Valid][";"].name)
                         break;
                     
-                    if (word == currentKeywords.keys[Keywords.Type.Valid]["}"].key)
+                    if (word == currentKeywords.keys[Keywords.Type.Valid]["}"].name)
                         PlayerConsole.LogError("Unexpected token \"}\"");
 
 
-                    if (word == currentKeywords.keys[Keywords.Type.Valid]["{"].key)
+                    if (word == currentKeywords.keys[Keywords.Type.Valid]["{"].name)
                     {
                         line = Encapsulation.FindEndOfEndEncapsulation(line, context);
-                        Debug.Log($"[Compiler] Skipping to {context[line].GetLine()}");
+                        //Debug.Log($"[Compiler] Skipping to {context[line].GetLine()}");
                         break;
                     }
                     
                     if (currentKeywords.keys[Keywords.Type.Reference].ContainsKey(word))
-                    {
+                    {/*
                         Reference reference = (Reference)currentKeywords.keys[Keywords.Type.Reference][word];
-                        PlayerConsole.Log($"Found reference {reference.variable.name} of type {reference.variable.Get()}");
-                        continue;
+                        PlayerConsole.Log($"Found reference {reference.reference.name} of type {reference.reference.Get()}");
+                        continue;*/
                     }
 
                     if (currentKeywords.keys[Keywords.Type.Modifier].ContainsKey(word))

@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using SharpCube.Highlighting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace SharpCube
 {
+    [Serializable]
     public class Keywords
     {
         public enum Type
@@ -15,8 +17,10 @@ namespace SharpCube
             Valid,
         }
 
-        public Dictionary<Type, Dictionary<string, Keyword>> keys = new(); 
-        public static Keywords Default => new (new Dictionary<Type, Dictionary<string, Keyword>>()
+        [field: SerializeField] public SerializedDictionary<Type, SerializedDictionary<string, Keyword>> keys { get;
+            private set;
+        } = new(); 
+        public static Keywords Default => new (new SerializedDictionary<Type, SerializedDictionary<string, Keyword>>()
         {
             {
                 Type.Initializer, new()
@@ -82,9 +86,15 @@ namespace SharpCube
             );
         
         
-        public Keywords(Dictionary<Type, Dictionary<string, Keyword>> keywords)
+        public Keywords(SerializedDictionary<Type, SerializedDictionary<string, Keyword>> keywords)
         {
             keys = keywords;
+        }
+
+        public void Add(Type type, Keyword keyword)
+        {
+            Debug.Log($"[Keywords] Adding keyword: {keyword.name}");
+            keys[type].Add(keyword.name, keyword);
         }
 
         public bool Contains(string keyword)
@@ -99,15 +109,23 @@ namespace SharpCube
 
             return false;
         }
-        public void Add(Keywords toAdd)
+        public Keywords CombineWith(Keywords toAdd)
         {
             foreach (var type in Enum.GetValues(typeof(Type)))
             {
                 foreach (var keyword in toAdd.keys[(Type)type])
                 {
-                    keys[(Type)type].Add(keyword.Key, keyword.Value);   
+                    Add((Type)type, keyword.Value);   
                 }
             }
+
+            return this;
+        }
+
+        public static Keywords Combine(Keywords k1, Keywords k2)
+        {
+            Debug.Log("combining keywords");
+            return k1.CombineWith(k2);
         }
     }   
 }

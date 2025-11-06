@@ -21,16 +21,16 @@ namespace SharpCube.Highlighting
 
                 foreach (var keyword in Compiler.UniversalKeywords.keys[(Keywords.Type)type])
                 {
-                    newCode = Highlight(keyword.Key, keyword.Value.color);
+                    newCode = Highlight(newCode,keyword.Key, keyword.Value.color);
                 }
             }
 
             return newCode;
-
-            string Highlight(string pattern, string color)
-            {
-                return Regex.Replace(newCode, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
-            }
+        }
+        
+        public static string Highlight(string code, string pattern, string color)
+        {
+            return Regex.Replace(code, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
         }
     }
 

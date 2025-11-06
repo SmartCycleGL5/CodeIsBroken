@@ -11,12 +11,12 @@ namespace SharpCube
         public Class inherit { get; set; }
         public IContainer container { get; set; }
         
-        public Keywords additionalKeywords { get; set; } = Keywords.Default;
+        [field:SerializeField]public Keywords keywords { get; set; } = Keywords.Default;
+        public Keywords allKeywords => container==null ? keywords : Keywords.Combine(keywords, container.keywords);
         
         [field:SerializeField] public Encapsulation encapsulation { get; set; }
         
         private Line line;
-
 
         public Class(IContainer container,string name, Properties properties, Line line)
         {
@@ -30,11 +30,15 @@ namespace SharpCube
             
             if (container == null)
             {
-                Compiler.UniversalKeywords.keys[Keywords.Type.Initializer].Add(name, new Initializer(name, Variable.Create));
+                Compiler.UniversalKeywords.Add(Keywords.Type.Initializer, new Initializer(name, Variable.Create));
+                //Compiler.UniversalKeywords.keys[Keywords.Type.Reference].Add(name, new Reference<Class>(name, this)); we deal with it later mann
                 Compiler.toCompile.classes.Add(name, this, properties.privilege);
             }
             else
-                container.additionalKeywords.keys[Keywords.Type.Initializer].Add(name, new Initializer(name, Variable.Create));
+            {
+                container.keywords.Add(Keywords.Type.Initializer, new Initializer(name, Variable.Create));
+                //container.additionalKeywords.keys[Keywords.Type.Reference].Add(name, new Reference<Class>(name, this));
+            }
             
             Debug.Log($"[Class] new class: {name}");
         }
@@ -50,7 +54,7 @@ namespace SharpCube
             }
             else 
             {
-                if(container.additionalKeywords.Contains(name))
+                if(container.keywords.Contains(name))
                     PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
             }
 

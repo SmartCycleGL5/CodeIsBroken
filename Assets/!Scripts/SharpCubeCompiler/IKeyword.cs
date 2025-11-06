@@ -6,12 +6,12 @@ namespace SharpCube
 
     public class Keyword
     {
-        public string key { get; set; }
+        public string name { get; set; }
         public virtual string color => SyntaxHighlighting.ColorPallate.defaultColor;
 
-        public Keyword(string key)
+        public Keyword(string name)
         {
-            this.key = key;
+            this.name = name;
         }
     }
 
@@ -20,7 +20,7 @@ namespace SharpCube
         public Action<IContainer, Line, int, Properties> Intialize { get; private set; }
         public override string color => SyntaxHighlighting.ColorPallate.initializerColor;
 
-        public Initializer(string key, Action<IContainer, Line, int, Properties> Intialize) : base(key)
+        public Initializer(string name, Action<IContainer, Line, int, Properties> Intialize) : base(name)
         {
             this.Intialize = Intialize;
         }
@@ -30,7 +30,7 @@ namespace SharpCube
         public Privilege privilege { get; set; }
         public override string color => SyntaxHighlighting.ColorPallate.modifierColor;
 
-        public Modifier(string key, Privilege privilege): base(key)
+        public Modifier(string name, Privilege privilege): base(name)
         {
             this.privilege = privilege;
         }
@@ -38,12 +38,19 @@ namespace SharpCube
 
     public class Reference : Keyword
     {
-        public Variable variable { get; private set; }
         public override string color => SyntaxHighlighting.ColorPallate.variableColor;
         
-        public Reference(string key, Variable variable) : base(key)
+        public Reference(string name) : base(name)
         {
-            this.variable = variable;
+        }
+    }
+    public class Reference<T> : Reference where T : IReference
+    {
+        public T reference { get; private set; }
+        
+        public Reference(string name, T reference) : base(name)
+        {
+            this.reference = reference;
         }
     }
 

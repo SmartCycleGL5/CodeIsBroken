@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Encapsulation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/IKeyword.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Keywords.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Keywords.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Method.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Method.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/SyntaxHighlighting.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SharpCubeCompiler/Variable.cs" afterDir="false" />
@@ -189,6 +190,7 @@
       <workItem from="1762281155469" duration="4337000" />
       <workItem from="1762291860970" duration="2672000" />
       <workItem from="1762375979621" duration="2658000" />
+      <workItem from="1762429030954" duration="16134000" />
     </task>
     <servers />
   </component>

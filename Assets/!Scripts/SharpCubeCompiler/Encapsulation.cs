@@ -21,15 +21,14 @@ namespace SharpCube
             {
                 content.Add(context[i]);
             }
-
-            if (content.Count > 0)
-                Compiler.Compile(content, container.additionalKeywords, container);
+            
+            Compiler.Compile(content, container);
         }
 
         public static int FindEndOfEndEncapsulation(int startEncapsulation, List<Line> context)
         {
-            string start = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["{"].key;
-            string end = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["}"].key;
+            string start = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["{"].name;
+            string end = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["}"].name;
 
             if (context[startEncapsulation].sections[0] != start)
             {

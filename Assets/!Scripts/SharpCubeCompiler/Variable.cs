@@ -15,8 +15,6 @@ namespace SharpCube
 
         public Variable(string name, Properties properties, IContainer container, IType value)
         {
-            if(container == null) PlayerConsole.LogError("Variables must be defined within a class or method");
-            
             this.name = name;
             this.container = container;
             
@@ -26,7 +24,7 @@ namespace SharpCube
             }
 
             //container.containedVarialbes.Add(name, this, properties.privilege);
-            container.additionalKeywords.keys[Keywords.Type.Reference].Add(name, new Reference(name, this));
+            container.keywords.Add(Keywords.Type.Reference, new Reference<Variable>(name, this));
             Debug.Log($"[Variable] new variable: {name} of type {value}");
         }
 
@@ -39,20 +37,15 @@ namespace SharpCube
             return obj.value;
         }
         
-        public static void Create(IContainer encapsulation, Line line, int initializer, Properties properties)
+        public static void Create(IContainer container, Line line, int initializer, Properties properties)
         {
+            if(container == null) PlayerConsole.LogError("Variables must be defined within a class or method");
+            
             string name = line.sections[initializer + 1];
             string type = line.sections[initializer];
             
-            try
-            {
-                Types T = Enum.Parse<Types>(type, true);
-                new Variable(name, properties, encapsulation, IType.NewType(T));
-            }
-            catch
-            {
-                new Variable(name, properties, encapsulation, null);
-            }
+            Types T = Enum.Parse<Types>(type, true);
+            new Variable(name, properties, container, IType.NewType(T));
         }
     }
 }

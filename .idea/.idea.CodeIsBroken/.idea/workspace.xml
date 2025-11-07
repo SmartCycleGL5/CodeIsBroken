@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Conveyor/Prefab/Conveyor_1_shading_anim.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Conveyor/Prefab/Conveyor_1_shading_anim.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/ConveyorBelt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/ConveyorBelt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.formats.alembic@a95dfe79c337/Runtime/Scripts/Importer/AlembicStreamPlayer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -174,7 +173,7 @@
       <workItem from="1761923755091" duration="618000" />
       <workItem from="1762255431776" duration="3976000" />
       <workItem from="1762331358420" duration="1332000" />
-      <workItem from="1762503708380" duration="5802000" />
+      <workItem from="1762503708380" duration="7103000" />
     </task>
     <servers />
   </component>

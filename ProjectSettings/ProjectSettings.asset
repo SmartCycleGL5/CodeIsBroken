@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: SmartCycle
   productName: CodeIsBroken
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -947,7 +947,7 @@ PlayerSettings:
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: CodeIsBroken
-  organizationId: charmandermovies
+  organizationId: smartcycle
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

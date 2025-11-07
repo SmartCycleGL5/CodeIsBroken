@@ -14,7 +14,7 @@ namespace SharpCube
         public Encapsulation(IContainer container, List<Line> context, int line)
         {
             this.container = container;
-            Debug.Log("[Encapsulation] for " + container.GetType());
+            //Debug.Log("[Encapsulation] for " + container.GetType());
             int end = FindEndOfEndEncapsulation(line, context);
 
             for (int i = line + 1; i < end - 1; i++)

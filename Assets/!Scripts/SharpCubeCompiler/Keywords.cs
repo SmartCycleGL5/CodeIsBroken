@@ -109,7 +109,7 @@ namespace SharpCube
 
             return false;
         }
-        public Keywords CombineWith(Keywords toAdd)
+        public Keywords Combine(Keywords toAdd)
         {
             foreach (var type in Enum.GetValues(typeof(Type)))
             {
@@ -124,8 +124,22 @@ namespace SharpCube
 
         public static Keywords Combine(Keywords k1, Keywords k2)
         {
-            Debug.Log("combining keywords");
-            return k1.CombineWith(k2);
+            return k1.Combine(k2);
+        }
+
+        public override string ToString()
+        {
+            string String = "";
+
+            foreach (var item in keys)
+            {
+                foreach (var keyword in item.Value)
+                {
+                    String += "\n" + keyword;
+                }
+            }
+
+            return String;
         }
     }   
 }

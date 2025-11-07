@@ -40,7 +40,7 @@ namespace SharpCube
     {
         public static List<Line> convertedCode = new List<Line>();
         public static List<IContainer> containersToCompile = new();
-        public static Keywords UniversalKeywords = Keywords.UniversalDefaultKeywords;
+        public static Keywords UniversalKeywords { get; private set; } = Keywords.UniversalDefaultKeywords;
 
         public static Script toCompile;
 
@@ -65,13 +65,13 @@ namespace SharpCube
                 containersToCompile = new();
                 
                 Debug.Log("[Compiler] Done, starting containers: "  + toCompile.Count );
-                
-                foreach (var item in toCompile)
+
+                for (int i = 0; i < toCompile.Count; i++)
                 {
-                    Debug.Log("[Compiler] starting " + item);
-                    item.StartCompile();
-                    
-                    Debug.Log("[Compiler] container done: "  + toCompile.Count );
+                    Debug.Log("[Compiler] starting " + toCompile[i]);
+                    toCompile[i].StartCompile();
+
+                    Debug.Log($"[Compiler] {toCompile[i]} done, {toCompile.Count - (i + 1)} left!");
                 }
 
                 if (containersToCompile.Count <= 0)
@@ -124,21 +124,13 @@ namespace SharpCube
         public static void Compile(List<Line> context, IContainer container = null)
         {
             Keywords currentKeywords = UniversalKeywords;
-            
+
+            Debug.Log($"[Compiler] {container} univarsalkeywords : " + currentKeywords.ToString());
+
             if (container != null)
-                currentKeywords.CombineWith(container.allKeywords);
+                currentKeywords.Combine(container.allKeywords);
 
-            string todebug = "";
-
-            foreach (var currentKeywordsKey in currentKeywords.keys)
-            {
-                foreach (var keyword in currentKeywordsKey.Value)
-                {
-                    todebug += "\n" + keyword;
-                }
-            }
-            
-            Debug.Log($"[Compiler] {container} keywords : " + todebug);
+      
                 
             Properties currentModifiers = null;
 

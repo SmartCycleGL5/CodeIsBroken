@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTubeUpdated.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTubeUpdated.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Conveyor/Prefab/Conveyor_1_shading_anim.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Conveyor/Prefab/Conveyor_1_shading_anim.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +174,7 @@
       <workItem from="1761923755091" duration="618000" />
       <workItem from="1762255431776" duration="3976000" />
       <workItem from="1762331358420" duration="1332000" />
-      <workItem from="1762503708380" duration="3644000" />
+      <workItem from="1762503708380" duration="5802000" />
     </task>
     <servers />
   </component>

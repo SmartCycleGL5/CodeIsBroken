@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1852352050}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_Name
       value: MaterialTube BUilding (2)
@@ -547,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1d718e0cb1c8b46b53b94d97410b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tick
-  tickTime: 0.01
+  tickTime: 1
 --- !u!114 &357034591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,6 +1409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1799320299}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_Name
       value: MaterialTube BUilding
@@ -1509,6 +1517,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592860293}
   m_CullTransparentMesh: 1
+--- !u!1 &1799320299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718735706113119580, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 1507137598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1852352050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718735706113119580, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 4340180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858100307
 GameObject:
   m_ObjectHideFlags: 0

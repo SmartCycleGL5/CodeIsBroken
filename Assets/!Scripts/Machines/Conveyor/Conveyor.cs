@@ -77,7 +77,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     private void OnDestroy()
     {
-        Tick.OnTick -= MoveOnTick;
+        Tick.OnLateTick -= MoveOnTick;
         if (item != null)
         {
             Destroy(item.gameObject);

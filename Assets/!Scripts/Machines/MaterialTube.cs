@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class MaterialTube : Machine
     Item materialToSpawn;
     int spawnRate;
     int tickCount;
+    [SerializeField] private GameObject lid;
+    Sequence sequence;
+    
     UserErrorLogger errorLogger;
 
     public override void Initialize(string initialClassName)
@@ -27,6 +31,9 @@ public class MaterialTube : Machine
     {
         base.Start();
         materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+
+        sequence.Append(lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid));
+        sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
     }
     private void OnEnable()
     {
@@ -74,6 +81,14 @@ public class MaterialTube : Machine
         Debug.Log("[MaterialTube] got material");
         Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
         conveyor.SetItem(instObj);
+        lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);
+
+    }
+
+    void CloseLid()
+    {
+        Debug.Log("CloseLid");
+        lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f);
     }
 
     private void OnDisable()

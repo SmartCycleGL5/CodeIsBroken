@@ -9,8 +9,8 @@
         </ui:Tab>
         <ui:Tab name="Machine" label="Machines" style="top: auto; position: relative; align-items: flex-start; justify-content: flex-start; align-self: center; align-content: flex-start; height: 800px; width: 850px; flex-shrink: 0; max-width: none; max-height: none; min-width: auto; min-height: auto; right: auto; flex-basis: auto; flex-direction: column-reverse; overflow: visible; flex-wrap: nowrap; flex-grow: 0; background-image: none; background-color: rgb(248, 175, 124);">
             <ui:GroupBox style="flex-direction: row; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
-                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="width: 380px; flex-grow: 0; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start; height: 800px; align-items: flex-start; padding-left: 2px; padding-top: 2px; padding-bottom: 2px;" />
-                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollExpla" style="width: 470px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; -unity-text-align: upper-center; white-space: normal; height: 800px;" />
+                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollView" style="width: 320px; flex-grow: 0; flex-direction: column; flex-shrink: 0; align-self: auto; align-content: flex-start; height: 800px; align-items: flex-start; padding-left: 2px; padding-top: 2px; padding-bottom: 2px;" />
+                <ui:ScrollView vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Hidden" name="ScrollExpla" style="width: 530px; flex-grow: 0; align-items: flex-start; flex-direction: column; flex-shrink: 0; left: auto; bottom: auto; overflow: visible; visibility: visible; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; -unity-text-align: upper-center; white-space: normal; height: 800px;" />
             </ui:GroupBox>
         </ui:Tab>
         <ui:Tab name="Hints" closeable="false" enabled="true" label="Hints" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);">
@@ -33,6 +33,26 @@
                     </ui:Label>
                 </ui:VisualElement>
             </ui:GroupBox>
+        </ui:Tab>
+        <ui:Tab name="Contract" label="Contract" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);">
+            <ui:VisualElement name="ContContainer" style="flex-grow: 1; background-color: rgb(171, 157, 157); height: auto;">
+                <ui:Label text="CoolName" name="ContractName" style="height: 10%;" />
+                <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; max-height: 40%;" />
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label text="10X" name="Amount" style="width: 40%; height: auto; align-self: auto; -unity-text-align: middle-right; font-size: 70%;" />
+                    <ui:VisualElement name="Icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Packages/NaughtyAttributes/Samples/DemoScene/TestAssets/icon-github.png?fileID=21300000&amp;guid=005888ede18a58e4db8d069cfa3007cb&amp;type=3#icon-github&quot;); -unity-background-scale-mode: scale-to-fit; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; width: auto; height: auto; align-self: auto;" />
+                </ui:VisualElement>
+                <ui:Label text="Modifications" style="font-size: 30px;" />
+                <ui:ScrollView name="Amount">
+                    <ui:VisualElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" template="ContactModifierElement">
+                        <ui:VisualElement name="Modifier" class="modifier">
+                            <ui:Label text="Name" name="Name" style="font-size: 25%; max-width: 50%; -unity-text-align: middle-left;" />
+                            <ui:Label text="Description" name="Description" style="font-size: 25%; -unity-text-align: middle-left; white-space: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+                <ui:Label text="XP: 10" name="XP" style="font-size: 30px; align-self: flex-end; align-content: flex-end;" />
+            </ui:VisualElement>
         </ui:Tab>
         <ui:Tab name="Settings" label="Settings" style="width: 850px; height: 800px; background-color: rgb(248, 175, 124);" />
     </ui:TabView>

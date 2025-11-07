@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.UIElements.Experimental;
+using UnityEngine.Video;
 
 namespace Journal
 {
@@ -32,9 +36,11 @@ namespace Journal
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
+            Contract(null);
             await GetEntries();
             AddEntries();
             ChangeColorTabHeader(tabView);
+            
         }
 
         private static async Task GetEntries()
@@ -82,7 +88,32 @@ namespace Journal
                 }
             }
         }
-
+        public void Contract(Contract contract)
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            if (contract == null)
+            {
+                tab.tabHeader.focusable = false;
+                tab.tabHeader.style.display = DisplayStyle.None;
+                return;
+            }
+            tab.tabHeader.focusable = true;
+            tab.tabHeader.style.display = DisplayStyle.Flex;
+            tab.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
+            tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
+            tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
+            ScrollView mods = tab.Q<ScrollView>("Amount");
+            mods.Clear();
+            foreach (var mod in contract.requestedItem.mods)
+            {
+                VisualElement _m = new();
+                _m.AddToClassList("modifier");
+                _m.Add(new Label { text = mod.Name });
+                _m.Add(new Label { text = mod.Description});
+                mods.Add(_m);
+            }
+        }
         private Button CreateNewButton(JournalEntrySO entry)
         {
             entry.SetUnlocked();
@@ -174,9 +205,9 @@ namespace Journal
         {
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
-            if(scrollView.childCount >0)
-            {scrollView.Clear();}
-            foreach(var text in entry.journalTexts)
+            if (scrollView.childCount > 0)
+            { scrollView.Clear(); }
+            foreach (var text in entry.journalTexts)
             {
                 if (text.style == JournalStyle.explanation)
                 {
@@ -189,13 +220,13 @@ namespace Journal
                 {
                     windowElement = new();
                     codeT = new();
-                    codeT.selection.isSelectable  = true;
+                    codeT.selection.isSelectable = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
                     codeT.text = text.text;
                     windowElement.Add(codeT);
                     scrollView.Add(windowElement);
-                    
+
                 }
             }
 
@@ -222,7 +253,7 @@ namespace Journal
             // }
             //Add Button For Leveling up, move it later
             if(Keyboard.current.leftAltKey.isPressed && Keyboard.current.oKey.wasPressedThisFrame)
-            {
+                {
                 PlayerProgression.LevelUp();
             }
         }

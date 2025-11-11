@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 357034591}
   - component: {fileID: 357034592}
   - component: {fileID: 357034593}
+  - component: {fileID: 357034594}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -598,6 +599,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Metrics
   electricityLevel: 
   timeUsed: 
+--- !u!114 &357034594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0cac48658beea4291650419743b9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Domain
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

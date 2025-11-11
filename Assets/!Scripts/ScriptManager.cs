@@ -64,15 +64,6 @@ public class ScriptManager : MonoBehaviour
 
     }
 
-    public static void Re()
-    {
-
-        foreach (var item in machines)
-        {
-            item.ClearScripts();
-        }
-    }
-
     public void AddMachine(BaseMachine machine)
     {
         machines.Add(machine);

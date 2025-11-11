@@ -1,5 +1,5 @@
 using NaughtyAttributes;
-using SharpCube;
+using RoslynCSharp;
 using System;
 using UnityEngine;
 using WindowSystem;
@@ -12,11 +12,13 @@ public class Script
 
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
+    public ScriptType type { get; private set; }
     string DefaultCode =>
-            $"public class {name}" +
+            $"using UnityEngine;\n" +
+            $"public class {name} : MonoBehaviour" +
             "\n{" +
 
-            "\n\tprivate void FirstTick()" +
+            "\n\tprivate void Start()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t\t" +
@@ -25,7 +27,7 @@ public class Script
 
             "\n\t" +
 
-            "\n\tprivate void OnTick()" +
+            "\n\tprivate void Update()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t\t" +
@@ -34,7 +36,6 @@ public class Script
 
             "\n}";
 
-    public Memory<Class> classes = new();
 
     public Script(string name, string code = null, BaseMachine machine = null)
     {
@@ -47,15 +48,12 @@ public class Script
 
     public void Run()
     {
-        Debug.Log($"[Script {name}] running");
-        //find start & update
-
-        //Tick.OnTick += RunUpdate;
-        //Tick.OnEndingTick += Stop;
+        ScriptProxy proxy = type.CreateInstance(connectedMachine.gameObject);
+        
     }
     public void Terminate()
     {
-
+        
     }
 
     public void Edit()
@@ -70,28 +68,14 @@ public class Script
     }
     public bool Compile()
     {
-        Memory<Class> oldClasses = classes;
-        classes.Clear();
+        type = Domain.ScriptDomain.CompileAndLoadMainSource(rawCode);
 
-        try
+        if (type != null)
         {
-            Compiler.StartCompile(this);
             return true;
         }
-        catch (Exception e)
-        {
-            Debug.LogError(e);
-            PlayerConsole.LogError("Failed to compile", false);
 
-            classes = oldClasses;
-
-            return false;
-        }
-    }
-
-    internal void Clear()
-    {
-        throw new NotImplementedException();
+        return false;
     }
 
 }

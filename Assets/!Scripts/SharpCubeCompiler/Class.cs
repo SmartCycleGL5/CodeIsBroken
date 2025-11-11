@@ -32,7 +32,7 @@ namespace SharpCube
             {
                 Compiler.UniversalKeywords.Add(Keywords.Type.Initializer, new Initializer(name, Variable.Create));
                 //Compiler.UniversalKeywords.keys[Keywords.Type.Reference].Add(name, new Reference<Class>(name, this)); we deal with it later mann
-                Compiler.toCompile.classes.Add(name, this, properties.privilege);
+               // Compiler.toCompile.classes.Add(name, this, properties.privilege);
             }
             else
             {

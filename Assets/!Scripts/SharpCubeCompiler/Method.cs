@@ -12,7 +12,7 @@ namespace SharpCube
         
         public Encapsulation encapsulation { get; set; }
         public Keywords keywords { get; set; } = Keywords.Default;
-        public Keywords allKeywords => Keywords.Combine(keywords, container.keywords);
+        public Keywords allKeywords => Keywords.Combine(keywords, container.allKeywords );
 
         private Line line;
 

@@ -12,7 +12,7 @@ namespace SharpCube
         public IContainer container { get; set; }
         
         [field:SerializeField]public Keywords keywords { get; set; } = Keywords.Default;
-        public Keywords allKeywords => container == null ? keywords : Keywords.Combine(keywords, container.keywords);
+        public Keywords allKeywords => container == null ? keywords : Keywords.Combine(keywords, container.allKeywords);
         
         [field:SerializeField] public Encapsulation encapsulation { get; set; }
         

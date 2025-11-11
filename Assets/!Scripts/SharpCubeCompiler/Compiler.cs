@@ -38,7 +38,7 @@ namespace SharpCube
 
     public static class Compiler
     {
-        public static List<Line> convertedCode = new List<Line>();
+        public static List<Line> convertedCode = new();
         public static List<IContainer> containersToCompile = new();
         public static Keywords UniversalKeywords { get; private set; } = Keywords.UniversalDefaultKeywords;
 
@@ -123,14 +123,14 @@ namespace SharpCube
         /// </summary>
         public static void Compile(List<Line> context, IContainer container = null)
         {
-            Keywords currentKeywords = UniversalKeywords;
-
-            Debug.Log($"[Compiler] {container} univarsalkeywords : " + currentKeywords.ToString());
-
+            Debug.Log($"[Keywords] universal: " + UniversalKeywords.ToString());
+            Keywords currentKeywords = Keywords.Empty; 
+            currentKeywords.Set(UniversalKeywords);
+            
             if (container != null)
-                currentKeywords.Combine(container.allKeywords);
-
-      
+            {
+                currentKeywords =  Keywords.Combine(UniversalKeywords, container.allKeywords);   
+            }
                 
             Properties currentModifiers = null;
 

@@ -20,7 +20,9 @@ namespace SharpCube
         [field: SerializeField] public SerializedDictionary<Type, SerializedDictionary<string, Keyword>> keys { get;
             private set;
         } = new(); 
-        public static Keywords Default => new (new SerializedDictionary<Type, SerializedDictionary<string, Keyword>>()
+        
+        public static Keywords Empty => new Keywords(new());
+        public static Keywords Default => new (new ()
         {
             {
                 Type.Initializer, new()
@@ -91,6 +93,10 @@ namespace SharpCube
             keys = keywords;
         }
 
+        public void Set(Keywords toSet)
+        {
+            keys = toSet.keys;
+        }
         public void Add(Type type, Keyword keyword)
         {
             Debug.Log($"[Keywords] Adding keyword: {keyword.name}");
@@ -124,6 +130,9 @@ namespace SharpCube
 
         public static Keywords Combine(Keywords k1, Keywords k2)
         {
+            Debug.Log($"[Keywords] combining: " + k1.ToString());
+            Debug.Log($"[Keywords] with: " + k2.ToString());
+
             return k1.Combine(k2);
         }
 

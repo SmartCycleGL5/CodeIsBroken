@@ -1840,7 +1840,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: fe7e3a70237a9e54a8cda05078348ee5, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134048166553324385
+      <LastWriteTimeUTC>k__BackingField: 134073660802142542
     - Name: System
       NamedTypeRestrictions:
       - Name: Microsoft.Win32
@@ -4615,7 +4615,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1d1511a5d70cf9f4991195fe70812cf3, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134048166553981145
+      <LastWriteTimeUTC>k__BackingField: 134073660802129097
     - Name: Unity.Burst
       NamedTypeRestrictions:
       - Name: Unity.Burst
@@ -4678,7 +4678,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3d97c7ea051395449a0ce7e92ade5169, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133927428883029800
+      <LastWriteTimeUTC>k__BackingField: 134073660802104267
     - Name: Unity.Collections
       NamedTypeRestrictions:
       - Name: Unity.Jobs
@@ -6046,13 +6046,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: MarkerTrack
           Allowed: 0
+        - Name: SignalTrack
+          Allowed: 0
         - Name: SignalAsset
           Allowed: 0
         - Name: SignalEmitter
           Allowed: 0
         - Name: SignalReceiver
-          Allowed: 0
-        - Name: SignalTrack
           Allowed: 0
         - Name: TrackAssetExtensions
           Allowed: 0
@@ -6102,15 +6102,15 @@ MonoBehaviour:
           Allowed: 0
         - Name: IPropertyPreview
           Allowed: 0
-        - Name: TimelineClipExtensions
-          Allowed: 0
         - Name: StandardFrameRates
+          Allowed: 0
+        - Name: TimelineClipExtensions
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134048166553041113
+      <LastWriteTimeUTC>k__BackingField: 134073660802129805
     - Name: UnityEngine.AIModule
       NamedTypeRestrictions:
       - Name: UnityEngine.Experimental.AI

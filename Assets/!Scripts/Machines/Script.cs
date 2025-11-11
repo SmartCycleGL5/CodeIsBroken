@@ -26,16 +26,12 @@ public class Script
             "\n\tprivate void StartTick()" +
             "\n\t{" +
             "\n\t\t" +
-            "\n\t\t" +
-            "\n\t\t" +
             "\n\t}" +
 
             "\n\t" +
 
             "\n\tprivate void OnTick()" +
             "\n\t{" +
-            "\n\t\t" +
-            "\n\t\t" +
             "\n\t\t" +
             "\n\t}" +
 

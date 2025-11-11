@@ -23,7 +23,7 @@ MonoBehaviour:
       Use Rotate() to rotate the crane an amount
       in degrees.
 
-      Use GrabLoseItem() to grab and release the object.'
+      Use GrabLoseItem() to grab/release the object.'
   - style: 1
     text: "void OnTick()\r\n{\r\n\tGrabLoseItem();\r\n\tRotate(180);\r\n}"
   sortOrder: 3

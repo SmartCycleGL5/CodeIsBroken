@@ -17,19 +17,25 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: "<style=\"H2\">int</style>\r\nAn Integer (int) \r\nAn Integer is commonly
-      used for"
+    text: "<style=\"H2\">int</style>\r\nAn integer (int) is a type that can have
+      a value of any whole number, positive or negative, and 0. \r\nAn integer has
+      a minimum value of  -2,147,483,648 and a maximum value of  2,147,483,647."
   - style: 1
     text: "class IntegerExample\r\n{\r\n\tint myInt = 1;\r\n}"
   - style: 0
-    text: "<style=\"H2\">float</style>\r\nA float is a type that \r\nA float is commonly
-      used for "
+    text: "<style=\"H2\">float</style>\r\nA float is a type that can have a value
+      of any number, positive or negative, and 0.\r\nA float can utilize decimal
+      points for more \u201Cprecise\u201D calculations, although it should be noted
+      that floats can be \u201Cimprecise\u201D and should generally not be used for
+      anything an integer could be used for, but are generally precise enough to
+      be used for most applications that require them."
   - style: 1
     text: "class FloatExample\r\n{\r\n\tfloat myFloat = 0.2;\r\n}"
   - style: 0
     text: '<style="H2">string</style>
 
-      A string'
+      A string is a type that allows for words
+      and sentences to be written.'
   - style: 1
     text: "class StringExample\r\n{\r\n\tstring myString = fear;\r\n}"
   - style: 0
@@ -41,6 +47,13 @@ MonoBehaviour:
     text: '<style="H2">void</style>
 
       Void is a type used to declare that a
-      method has no return type.'
+      method has no return type, as such there is no need for a return in most void
+      methods.
+
+      In the example below you can see return being used in a void
+      method to return early if condition is true, which means that the method Do(y)
+      does happen but the method Do(x) does not.'
   - style: 1
-    text: "class VoidExample\r\n{\r\n\tvoid OnTick()\r\n\t{\r\n\t\tif(true)\r\n\t\t{\r\n\t\t\tPaint(Red);\r\n\t\t}\r\n\t\telse\r\n\t\t{\r\n\t\t\treturn;\r\n\t\t}\r\n\t}\r\n}"
+    text: "class VoidExample\r\n{\r\n\tvoid OnTick()\r\n\t{\r\n\t\tif(condition)\r\n\t\t{\t\r\n\t\t\tDo(y)\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tDo(x)\r\n\t\t\r\n\t}\r\n}\r\n"
+  sortOrder: 0
+  levelToUnlock: 0

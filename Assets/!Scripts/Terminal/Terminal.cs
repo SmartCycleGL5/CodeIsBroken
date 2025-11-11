@@ -1,4 +1,3 @@
-using SharpCube;
 using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
@@ -6,8 +5,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static WindowManager;
 
-namespace WindowSystem
+namespace ScriptEditor
 {
+    using Console;
+
     public class Terminal : MonoBehaviour, IWindow
     {
         public Script scriptToEdit { get; private set; }

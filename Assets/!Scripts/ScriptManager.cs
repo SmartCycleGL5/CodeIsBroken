@@ -1,14 +1,15 @@
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
+using RoslynCSharp;
 using System.Collections.Generic;
-using SharpCube;
 using UnityEngine;
-
+using ScriptEditor.Console;
 public class ScriptManager : MonoBehaviour
 {
     public SerializedDictionary<string, Script> playerScripts = new();
     public static ScriptManager instance;
 
+    public static ScriptDomain scriptDomain;
     public static bool isRunning { get; private set; }
 
     public static List<BaseMachine> machines = new();
@@ -16,6 +17,7 @@ public class ScriptManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        scriptDomain = new();
     }
 
     public static void ToggleMachines()
@@ -76,7 +78,6 @@ public class ScriptManager : MonoBehaviour
     public static void Compile()
     {
         PlayerConsole.Clear();  
-        Compiler.Reset();
         
         foreach (var script in instance.playerScripts)
         {

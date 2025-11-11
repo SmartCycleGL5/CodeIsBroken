@@ -1,8 +1,10 @@
 using NaughtyAttributes;
 using RoslynCSharp;
+using ScriptEditor;
+using ScriptEditor.Console;
 using System;
+using Trivial.CodeSecurity;
 using UnityEngine;
-using WindowSystem;
 
 [Serializable]
 public class Script
@@ -13,9 +15,10 @@ public class Script
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
-    string DefaultCode =>
-            $"using UnityEngine;\n" +
-            $"public class {name} : MonoBehaviour" +
+    string DefaultCode(string className, string parentClass)
+    {
+        return
+            $"public class {className} : {parentClass}" +
             "\n{" +
 
             "\n\tprivate void Start()" +
@@ -35,25 +38,26 @@ public class Script
             "\n\t}" +
 
             "\n}";
+    }
 
 
-    public Script(string name, string code = null, BaseMachine machine = null)
+    public Script(string className, string parentClass, BaseMachine machine = null)
     {
-        this.name = name;
+        this.name = className;
         connectedMachine = machine;
         ScriptManager.instance.playerScripts.Add(name, this);
 
-        Save(code == null ? DefaultCode : code);
+        Save(DefaultCode(className, parentClass));
     }
 
     public void Run()
     {
         ScriptProxy proxy = type.CreateInstance(connectedMachine.gameObject);
-        
+
     }
     public void Terminate()
     {
-        
+
     }
 
     public void Edit()
@@ -64,18 +68,30 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
-        ScriptManager.Compile();
+        try
+        {
+            ScriptManager.Compile();
+        }
+        catch 
+        {
+            PlayerConsole.LogError("Failed to compile");
+        }
     }
     public bool Compile()
     {
-        type = Domain.ScriptDomain.CompileAndLoadMainSource(rawCode);
+        type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
-        if (type != null)
+        if (!compileResult.Success)
+        {
+            foreach (var error in compileResult.Errors)
+            {
+                PlayerConsole.LogError(error);
+            }
+            return false;
+        } else
         {
             return true;
         }
-
-        return false;
     }
 
 }

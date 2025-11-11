@@ -10,12 +10,10 @@ public class MaterialTube : Machine
     int tickCount;
     UserErrorLogger errorLogger;
 
-    protected override void Start()
-    {
-        AddMethodsAsIntegrated(typeof(MaterialTube));
-        base.Start();
-        materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
-    }
+    //protected void Start() dont use start
+    //{
+    //    materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+    //}
     public override void Reset()
     {
         materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];

@@ -9,11 +9,11 @@ public class CraneMachine : Machine, IItemContainer
 
     [DontIntegrate] public Item item { get; set; }
 
-    protected override void Start()
-    {
-        AddMethodsAsIntegrated(typeof(CraneMachine));
-        base.Start();
-    }
+    //protected override void Start() no start
+    //{
+    //    AddMethodsAsIntegrated(typeof(CraneMachine));
+    //    base.Start();
+    //}
 
     public async void Rotate(int degrees)
     {
@@ -23,7 +23,7 @@ public class CraneMachine : Machine, IItemContainer
 
         float timeToFinish = Tick.tickLength * .5f;
 
-        while (isRunning && timer < timeToFinish)
+        while (ScriptManager.isRunning && timer < timeToFinish)
         {
             piviot.Rotate(0, (degrees * Time.deltaTime) / timeToFinish, 0);
 

@@ -1,13 +1,10 @@
-using UnityEngine;
-using UnityEngine.UIElements;
-using System.Collections.Generic;
+using ScriptEditor;
 using System;
-using Coding;
-using UnityEngine.UI;
-using Button = UnityEngine.UIElements.Button;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using Image = UnityEngine.UIElements.Image;
-using WindowSystem;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UIElements.Button;
 
 public class BuildingSelector : MonoBehaviour
 {
@@ -24,21 +21,21 @@ public class BuildingSelector : MonoBehaviour
     [SerializeField] private Sprite arrowUp;
     private VisualElement menu;
     private Button moveButton;
-    
-    
+
+
 
     void Start()
     {
         instance = this;
         var root = uiDoc.rootVisualElement;
-        
+
         buildingMenuPanel = root.Q<VisualElement>("ButtonHolder");
-        
+
         OnLevelUp(1);
         PlayerProgression.onLevelUp += OnLevelUp;
-        
+
         //Subscribe toggle button to method
-        
+
         menu = root.Q<VisualElement>("BuildingMenu");
         moveButton = root.Q<Button>("BuildingMenuToggle");
         moveButton.style.backgroundImage = new StyleBackground(arrowUp);
@@ -61,17 +58,17 @@ public class BuildingSelector : MonoBehaviour
         {
             if (building.levelToUnlock > level) continue;
             unlocked.Add(building);
-            
+
             var newButton = buildingButtonTemplate.CloneTree();
             var button = newButton.Q<Button>("Button");
-            
+
             button.text = building.buildingName;
-            
+
             button.clicked += () => UpdateBuildingBlock(building.buildingPrefab);
-            
+
             buildingMenuPanel.Add(newButton);
         }
-        
+
         foreach (var b in unlocked)
             buildings.Remove(b);
     }
@@ -96,7 +93,7 @@ public class BuildingSelector : MonoBehaviour
             PlayerInputs.instance.BuildingMenu(isBuilding);
         }
 
-        
-        isBuilding  = !isBuilding;
+
+        isBuilding = !isBuilding;
     }
 }

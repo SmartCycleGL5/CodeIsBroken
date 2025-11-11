@@ -2,6 +2,7 @@ using UnityEngine;
 using Coding;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(BaseMachine))]
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
@@ -30,7 +31,7 @@ public class MachineUIController : MonoBehaviour
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
             if(machine.attachedScripts.Count == 0)
-                machine.AddScript(new Script("NewClass" + UnityEngine.Random.Range(1000, 9999)));
+                machine.AddScript();
 
             
             machine.OpenTerminalForMachine();

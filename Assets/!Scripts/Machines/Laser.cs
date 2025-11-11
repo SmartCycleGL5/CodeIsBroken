@@ -4,11 +4,11 @@ public class Laser : Machine
 {
     [SerializeField] Transform cell;
 
-    protected override void Start()
-    {
-        AddMethodsAsIntegrated(typeof(MaterialTube));
-        base.Start();
-    }
+    //protected override void Start() start is banned
+    //{
+    //    AddMethodsAsIntegrated(typeof(MaterialTube));
+    //    base.Start();
+    //}
 
     public bool Item()
     {

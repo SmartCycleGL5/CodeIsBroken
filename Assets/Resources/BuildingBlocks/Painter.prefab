@@ -656,10 +656,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6751259467896351123}
   - component: {fileID: 6870920539621287439}
-  - component: {fileID: -5721900430427192232}
   - component: {fileID: -911345775585101580}
   - component: {fileID: 6144978722032048261}
   - component: {fileID: 4816562025447021072}
+  - component: {fileID: 4813004068143622245}
   m_Layer: 0
   m_Name: Painter
   m_TagString: Untagged
@@ -699,27 +699,8 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 9067031396478924409}
   scriptsToActivate:
-  - {fileID: -5721900430427192232}
+  - {fileID: 0}
   - {fileID: -911345775585101580}
---- !u!114 &-5721900430427192232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985229225995930261}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff5350091ac21e46b38a9fc346b37f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PainterMachine
-  machineCode:
-    name: 
-    Code: 
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
-  item: {fileID: 0}
 --- !u!114 &-911345775585101580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PainterConveyor
   input: {fileID: 0}
   output: {fileID: 0}
-  PainterMachine: {fileID: -5721900430427192232}
+  PainterMachine: {fileID: 0}
 --- !u!114 &6144978722032048261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +745,19 @@ MonoBehaviour:
   errorImg: {fileID: 1837332960937514405}
   warningImg: {fileID: 5160070953187582546}
   errorText: {fileID: 8789006373313785043}
+--- !u!114 &4813004068143622245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985229225995930261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
+  attachedScripts: []
 --- !u!1 &5146640431562959665
 GameObject:
   m_ObjectHideFlags: 0

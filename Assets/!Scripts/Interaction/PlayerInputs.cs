@@ -1,15 +1,13 @@
-using WindowSystem;
-using System.Threading;
+using ScriptEditor;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
     public static PlayerInputs instance;
-    
+
     [Header("References")]
     [SerializeField] GhostBuilding buildingInput;
     [SerializeField] MachineInteraction machineInput;
@@ -70,7 +68,7 @@ public class PlayerInputs : MonoBehaviour
     {
         PlayerUpdate();
         if (Terminal.focused) return;
-  
+
         Movement();
         MouseRotate();
     }
@@ -103,7 +101,8 @@ public class PlayerInputs : MonoBehaviour
         }
         if (playerAction == PlayerAction.WorldInteraction)
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
                 WindowManager.CloseAllWindows();
             }
             machineInput.PlayerUpdate();
@@ -114,7 +113,7 @@ public class PlayerInputs : MonoBehaviour
     void Movement()
     {
         Vector3 moveDirection = player.forward * moveInput.y + player.right * moveInput.x;
-        player.position+=(moveDirection*moveSpeed*Time.deltaTime);
+        player.position += (moveDirection * moveSpeed * Time.deltaTime);
     }
 
     void MouseRotate()
@@ -122,7 +121,7 @@ public class PlayerInputs : MonoBehaviour
         // Only rotate if Middle mouse i down
         //if (!Mouse.current.middleButton.IsPressed()) return;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
+        if (Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
         {
             // Sideways rotation
             //Drag to rotate, rotates based on mouse movement.

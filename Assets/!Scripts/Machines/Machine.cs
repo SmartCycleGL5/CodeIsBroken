@@ -1,3 +1,4 @@
+using ScriptEditor.Console;
 using SharpCube;
 using UnityEngine;
 

@@ -1,15 +1,13 @@
-using AYellowpaper.SerializedCollections;
-using WindowSystem;
-using SharpCube;
 using NaughtyAttributes;
-using System;
+using SharpCube;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class BaseMachine : MonoBehaviour
 {
+    [InfoBox("The name of the monobehaviour class")]
+    public string toDeriveFrom;
     public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
     public List<Script> attachedScripts = new();
@@ -18,9 +16,9 @@ public class BaseMachine : MonoBehaviour
     public bool Initialized { get; private set; } = false;
 
     [Button]
-    void AddScript()
+    public void AddScript()
     {
-        AddScript(new Script("NewClass" + UnityEngine.Random.Range(1, 100)));
+        AddScript(new Script("NewScript" + UnityEngine.Random.Range(1, 100), toDeriveFrom));
     }
     public virtual void AddScript(Script script)
     {

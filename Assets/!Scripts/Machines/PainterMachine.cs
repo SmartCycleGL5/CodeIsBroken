@@ -8,11 +8,11 @@ public class PainterMachine : Machine
     private UserErrorLogger errorLogger;
     Renderer toColor { get { return item.artRenderer; } }
 
-    protected override void Start()
-    {
-        AddMethodsAsIntegrated(typeof(PainterMachine));
-        base.Start();
-    }
+    //protected override void Start() still no start bro
+    //{
+    //    AddMethodsAsIntegrated(typeof(PainterMachine));
+    //    base.Start();
+    //}
 
     private void OnEnable()
     {

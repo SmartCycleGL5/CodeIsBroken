@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SharpCube
+namespace ScriptEditor.Console
 {
     public static class PlayerConsole
     {
@@ -24,7 +24,7 @@ namespace SharpCube
             Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
-        public static void LogError(object message, bool throwException = true)
+        public static void LogError(object message, bool throwException = false)
         {
             object msg = $"[{Tick.tick}] <color=red>{message}</color>";
             LogEvent?.Invoke(msg);

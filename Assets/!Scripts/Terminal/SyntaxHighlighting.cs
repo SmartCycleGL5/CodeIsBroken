@@ -1,41 +1,36 @@
-using AYellowpaper.SerializedCollections;
-using Coding.SharpCube;
-using TMPro;
-using Unity.VisualScripting;
+using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace Coding
+namespace SharpCube.Highlighting
 {
     public static class SyntaxHighlighting
     {
+        public static ColorPallate ColorPallate = new ColorPallate();
 
-        public static string ReturnHighlightedString(string text)
+        public static string RemoveHighlight(string code)
         {
-            string[] splitString = text.Split(' ');
+            return Regex.Replace(code, "<.*?>", String.Empty);
+        }
+        public static string HighlightCode(string code)
+        {
+            string newCode = code;
 
-
-
-            for (int i = 0; i < splitString.Length; i++)
+            foreach (var type in Enum.GetValues(typeof(Keywords.Type)))
             {
-                foreach (var keyword in Syntax.keywords)
+
+                foreach (var keyword in Compiler.UniversalKeywords.keys[(Keywords.Type)type])
                 {
-                    if (splitString[i] != keyword.Value.word) continue;
-
-                    string hex = keyword.Value.highlightColor.ToHexString();
-                    splitString[i] = "<color=" + hex + ">" + splitString[i] + "</color>";
-
-                    Debug.Log("[Highlighting] found word: " + splitString[i]);
+                    newCode = Highlight(newCode,keyword.Key, keyword.Value.color);
                 }
             }
 
-            string finalString = string.Empty;
-
-            foreach (var item in splitString)
-            {
-                finalString += item;
-            }
-
-            return finalString;
+            return newCode;
+        }
+        
+        public static string Highlight(string code, string pattern, string color)
+        {
+            return Regex.Replace(code, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
         }
     }
 

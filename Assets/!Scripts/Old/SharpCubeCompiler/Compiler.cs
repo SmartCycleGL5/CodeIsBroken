@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using SharpCube.Highlighting;
 using UnityEngine;
 using SharpCube.Type;
+using ScriptEditor.Console;
 
 namespace SharpCube
 {

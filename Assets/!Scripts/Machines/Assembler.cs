@@ -16,13 +16,13 @@ public class Assembler : Machine, IItemContainer
     public Item item { get; set; }
 
 
-    protected override void Start()
-    {
-        AddMethodsAsIntegrated(typeof(Assembler));
-        base.Start();
-        Tick.OnTick += TakeItem;
-        errorLogger = GetComponent<UserErrorLogger>();
-    }
+    //protected override void Start() no more start
+    //{
+    //    AddMethodsAsIntegrated(typeof(Assembler));
+    //    base.Start();
+    //    Tick.OnTick += TakeItem;
+    //    errorLogger = GetComponent<UserErrorLogger>();
+    //}
 
     public override void Reset()
     {
@@ -110,7 +110,7 @@ public class Assembler : Machine, IItemContainer
     }
 
     [DontIntegrate]
-    protected override void OnDestroy()
+    protected void OnDestroy()
     {
         Tick.OnTick -= TakeItem;
     }

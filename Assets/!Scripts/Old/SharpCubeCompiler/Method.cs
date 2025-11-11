@@ -1,3 +1,4 @@
+using ScriptEditor.Console;
 using SharpCube.Type;
 using System;
 using System.Collections.Generic;

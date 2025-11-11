@@ -15,13 +15,14 @@ public class Script
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
+    public ScriptProxy proxy { get; private set; }
     string DefaultCode(string className, string parentClass)
     {
         return
-            $"public class {className} : {parentClass}" +
+            $"public class {className} : MonoBehaviour" +
             "\n{" +
 
-            "\n\tprivate void Start()" +
+            "\n\tprivate void StartTick()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t\t" +
@@ -30,7 +31,7 @@ public class Script
 
             "\n\t" +
 
-            "\n\tprivate void Update()" +
+            "\n\tprivate void OnTick()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t\t" +
@@ -52,9 +53,21 @@ public class Script
 
     public void Run()
     {
-        ScriptProxy proxy = type.CreateInstance(connectedMachine.gameObject);
+        proxy = type.CreateInstance(connectedMachine.gameObject);
 
+        Tick.OnStartingTick += StartTick;
+        Tick.OnTick += OnTick;
     }
+
+    void StartTick()
+    {
+        proxy.Methods.Call("StartTick");
+    }
+    void OnTick()
+    {
+        proxy.Methods.Call("OnTick");
+    }
+
     public void Terminate()
     {
 

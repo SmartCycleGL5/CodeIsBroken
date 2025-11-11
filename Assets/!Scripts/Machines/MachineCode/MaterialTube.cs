@@ -1,4 +1,5 @@
 using System;
+using ScriptEditor.Console;
 using UnityEngine;
 
 namespace Machines
@@ -30,7 +31,7 @@ namespace Machines
         public void SpawnDelay(int delay)
         {
             this.spawnRate = delay;
-    
+            PlayerConsole.Log($"holy shit it worksss, delay issss: {delay}");
         }
         public void ChangeMaterial(string material)
         {

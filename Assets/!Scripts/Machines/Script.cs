@@ -19,7 +19,7 @@ public class Script
     static string DefaultCode(string className, string parentClass)
     {
         return
-            $"using Machines;\n" +
+            $"using Machines;\n\n" +
             $"public class {className} : {parentClass}" +
             "\n{" +
 

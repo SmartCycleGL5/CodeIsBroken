@@ -6,64 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/DontIntegrate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/DontIntegrate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/IItemContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/IItemContainer.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Assembler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/CraneMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/CraneMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Laser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Laser.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Machine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Machine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTube.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTube.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Saw.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Saw.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MaterialManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/MaterialManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Modification.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Modification.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Keywords.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Keywords.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/SyntaxHighlighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/SyntaxHighlighting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Script.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Script.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/IWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/IWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/WindowManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/WindowManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Machine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Machine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.UI.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.UI.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Accessibility.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Accessibility.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Audio.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Audio.UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.GraphicsSettingsInspectors.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.GraphicsSettingsInspectors.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Inspector.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.ProjectSettings.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.ProjectSettings.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,10 +36,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Machine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -101,25 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Roslyn2",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Roslyn2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/MonoBuild\CodeIsBroken.exe" />
@@ -242,6 +192,7 @@
       <workItem from="1762291860970" duration="2672000" />
       <workItem from="1762375979621" duration="2658000" />
       <workItem from="1762429030954" duration="16134000" />
+      <workItem from="1762896985681" duration="750000" />
     </task>
     <servers />
   </component>

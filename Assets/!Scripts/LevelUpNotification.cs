@@ -28,7 +28,7 @@ public class LevelUpNotification : MonoBehaviour
         Invoke("HideUI", 9);
     }
 
-    void HideUI()
+    void HideUI() 
     {
         panelObj.DOJumpAnchorPos(new Vector2(0, 1000),3f, 1,0.2f);
     }

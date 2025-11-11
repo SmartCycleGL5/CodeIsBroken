@@ -16,10 +16,11 @@ public class Script
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
     public ScriptProxy proxy { get; private set; }
-    string DefaultCode(string className, string parentClass)
+    static string DefaultCode(string className, string parentClass)
     {
         return
-            $"public class {className} : MonoBehaviour" +
+            $"using Machines;\n" +
+            $"public class {className} : {parentClass}" +
             "\n{" +
 
             "\n\tprivate void StartTick()" +
@@ -53,6 +54,8 @@ public class Script
 
     public void Run()
     {
+        ScriptManager.Compile();
+        
         proxy = type.CreateInstance(connectedMachine.gameObject);
 
         Tick.OnStartingTick += StartTick;
@@ -72,7 +75,7 @@ public class Script
     {
 
     }
-
+    
     public void Edit()
     {
         Terminal.NewTerminal(this);
@@ -81,16 +84,18 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
+        
         try
         {
             ScriptManager.Compile();
+            PlayerConsole.Log("Saved!");
         }
         catch 
         {
             PlayerConsole.LogError("Failed to compile");
         }
     }
-    public bool Compile()
+    public void Compile()
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
@@ -100,11 +105,9 @@ public class Script
             {
                 PlayerConsole.LogError(error);
             }
-            return false;
-        } else
-        {
-            return true;
-        }
+            throw new Exception();
+        } 
     }
+    
 
 }

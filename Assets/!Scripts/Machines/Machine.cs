@@ -1,8 +1,7 @@
 using ScriptEditor.Console;
-using SharpCube;
 using UnityEngine;
 
-public class Machine : MonoBehaviour
+public abstract class Machine : MonoBehaviour
 {
 
     public virtual void Reset()
@@ -14,4 +13,4 @@ public class Machine : MonoBehaviour
     {
         PlayerConsole.Log(debug);
     }
-}
+}     

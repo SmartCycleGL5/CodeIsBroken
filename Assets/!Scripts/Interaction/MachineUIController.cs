@@ -1,6 +1,4 @@
 using UnityEngine;
-using Coding;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(BaseMachine))]
 public class MachineUIController : MonoBehaviour

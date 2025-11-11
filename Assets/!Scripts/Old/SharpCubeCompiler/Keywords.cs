@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using SharpCube.Highlighting;
 using UnityEngine;
 using UnityEngine.Rendering;

@@ -133,19 +133,19 @@ namespace ScriptEditor
             ScriptManager.Compile();
         }
         void DisplayIntegratedMethods()
-        {
+        {/*
             foreach (var method in scriptToEdit.connectedMachine.IntegratedMethods)
             {
-                availableMethods.text += "\n" + /*method.Value.toCall.ReturnType.Name + " " + */method.Value.toCall.Name + "(";
+                availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
 /*
                 foreach (var item in method.Value.toCall.GetParameters())
                 {
                     availableMethods.text += item.ParameterType.Name + " " + item.Name;
-                }*/
+                }
 
                 availableMethods.text += ");";
                 
-            }
+            }*/
         }
 
         public void Save()

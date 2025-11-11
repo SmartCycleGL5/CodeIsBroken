@@ -10,7 +10,7 @@ namespace Coding
     {
 
         public static string ReturnHighlightedString(string text)
-        {
+        {/*
             string[] splitString = text.Split(' ');
 
 
@@ -35,7 +35,8 @@ namespace Coding
                 finalString += item;
             }
 
-            return finalString;
+            return finalString;*/
+            return null;
         }
     }
 

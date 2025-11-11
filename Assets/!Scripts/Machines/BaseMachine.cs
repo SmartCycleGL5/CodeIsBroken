@@ -1,5 +1,4 @@
 using NaughtyAttributes;
-using SharpCube;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,6 @@ public class BaseMachine : MonoBehaviour
 {
     [InfoBox("The name of the monobehaviour class")]
     public string toDeriveFrom;
-    public Dictionary<string, IntegratedMethod> IntegratedMethods = new();
 
     public List<Script> attachedScripts = new();
 

@@ -1,0 +1,16 @@
+{
+    "name": "CodeIsBroken.Debug",
+    "rootNamespace": "CodeIsBroken",
+    "references": [
+        "GUID:fa940d06be083001da5dc9de70380eda"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

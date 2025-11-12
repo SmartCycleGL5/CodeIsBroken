@@ -40,6 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
   - {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
   - {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
+  - {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
   <LogLevel>k__BackingField: 2
   <CompilerFlags>k__BackingField:
     <AllowUnsafe>k__BackingField: 0
@@ -1829,9 +1830,20 @@ MonoBehaviour:
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
       <LastWriteTimeUTC>k__BackingField: 0
     AssemblyRestrictions:
+    - Name: CodeIsBroken.Debug
+      NamedTypeRestrictions:
+      - Name: CodeIsBroken
+        TypeRestrictions:
+        - Name: Debug
+          Allowed: 0
+        Allowed: 0
+      RootTypeRestrictions: []
+      Allowed: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134074623485601548
     - Name: CodeIsBroken.Machines
       NamedTypeRestrictions:
-      - Name: Machines
+      - Name: CodeIsBroken
         TypeRestrictions:
         - Name: Assembler
           Allowed: 0
@@ -1851,7 +1863,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073711065155900
+      <LastWriteTimeUTC>k__BackingField: 134074610617486574
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

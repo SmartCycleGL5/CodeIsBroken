@@ -53,7 +53,7 @@ public class Tick : MonoBehaviour
 
     void DoTick()
     {
-        //Debug.Log(tick);
+        //Debug.Log("Tick bro");
         tick++;
         OnTick?.Invoke();
         OnLateTick?.Invoke();

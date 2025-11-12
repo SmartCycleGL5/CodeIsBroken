@@ -5,10 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug/CodeIsBroken.Debug.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug/CodeIsBroken.Debug.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/Crane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/Crane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CodeIsBroken.Machines.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CodeIsBroken.Machines.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Laser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/PainterMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/PainterMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Saw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Saw.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/References/Assembly-CSharp.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/References/Assembly-CSharp.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +72,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;MachineUpdate&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Roslyn2&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -76,7 +97,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -88,7 +109,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -189,6 +210,8 @@
       <workItem from="1762942117808" duration="3063000" />
       <workItem from="1762946115025" duration="222000" />
       <workItem from="1762949566195" duration="3019000" />
+      <workItem from="1762987890073" duration="328000" />
+      <workItem from="1762988624761" duration="2626000" />
     </task>
     <servers />
   </component>

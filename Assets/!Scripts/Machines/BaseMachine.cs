@@ -43,8 +43,6 @@ public class BaseMachine : MonoBehaviour
 
    public void AddMethodsAsIntegrated(System.Type machine)
    {
-        methodInfos.Clear();
-
         foreach (var item in machine.GetMethods())
         {
             if (item.GetBaseDefinition() == item)

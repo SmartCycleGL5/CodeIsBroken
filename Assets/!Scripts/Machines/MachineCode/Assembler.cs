@@ -5,7 +5,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Machines
+namespace CodeIsBroken
 {
     public class Assembler : Machine, IItemContainer
     {

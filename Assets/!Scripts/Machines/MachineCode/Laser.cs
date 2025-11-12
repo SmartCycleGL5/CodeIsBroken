@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace Machines
+namespace CodeIsBroken
 {
     public class Laser : Machine
     {

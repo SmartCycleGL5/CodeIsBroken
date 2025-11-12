@@ -1,3 +1,4 @@
+using System;
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using RoslynCSharp;
@@ -94,5 +95,13 @@ public class ScriptManager : MonoBehaviour
 
         if(!success)
             PlayerConsole.LogError("Failed to compile!");
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in playerScripts)
+        {
+            item.Value.Terminate();
+        }
     }
 }

@@ -2,7 +2,7 @@ using System;
 using ScriptEditor.Console;
 using UnityEngine;
 
-namespace Machines
+namespace CodeIsBroken
 {
     public class MaterialTube : Machine
     {
@@ -42,7 +42,7 @@ namespace Machines
         
         // Not player controlled
         
-        public void GetMaterial()
+        private void GetMaterial()
         {
             tickCount++;
             if(tickCount < spawnRate) return;

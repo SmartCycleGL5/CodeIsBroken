@@ -19,7 +19,7 @@ public class Script
     static string DefaultCode(string className, string parentClass)
     {
         return
-            $"using Machines;\n\n" +
+            $"using CodeIsBroken;\n\n" +
             $"public class {className} : {parentClass}" +
             "\n{" +
 
@@ -53,23 +53,24 @@ public class Script
     public void Run()
     {
         ScriptManager.Compile();
-
-        Tick.OnStartingTick += StartTick;
-        Tick.OnTick += OnTick;
     }
     public void Terminate()
     {
+        Debug.Log("Terminated");
         Tick.OnStartingTick -= StartTick;
         Tick.OnTick -= OnTick;
     }
 
     void StartTick()
     {
+        Debug.Log("start");
         proxy.Methods.Call("StartTick");
     }
     void OnTick()
     {
-        proxy.Methods.Call("OnTick");
+        Debug.Log("ontick");
+        //Debug.Log(proxy.Methods.Call("OnTick"));
+        //proxy.Methods.Call("OnTick");
     }
     
     public void Edit()
@@ -88,7 +89,7 @@ public class Script
     public bool Compile()
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
-
+        
         if (!compileResult.Success)
         {
             foreach (var error in compileResult.Errors)
@@ -106,6 +107,9 @@ public class Script
             proxy = type.CreateInstance(connectedMachine.gameObject);
         else
             proxy = type.CreateInstance();
+        
+        Tick.OnStartingTick += StartTick;
+        Tick.OnTick += OnTick;
 
         return true;
     }

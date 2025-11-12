@@ -12,7 +12,7 @@ public class MachineInteraction : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Debug.Log("[MachineInteration] Looking for object to toggle");
+            //Debug.Log("[MachineInteration] Looking for object to toggle");
             // Vector2 mousePos = GridBuilder.instance.GetGridPosition();
             // GameObject building = GridBuilder.instance.LookUpCell(new Vector3(mousePos.x,0,mousePos.y));
             // if (building == null)

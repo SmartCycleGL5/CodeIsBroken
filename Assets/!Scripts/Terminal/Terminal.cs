@@ -33,7 +33,6 @@ namespace ScriptEditor
         }
 
         //UI elements
-        Dictionary<string, Button> buttons = new();
         VisualElement terminal;
         Label availableMethods;
         TextField input;
@@ -136,19 +135,14 @@ namespace ScriptEditor
             ScriptManager.Compile();
         }
         void DisplayIntegratedMethods()
-        {/*
-            foreach (var method in scriptToEdit.connectedMachine.IntegratedMethods)
+        {
+            foreach (var method in scriptToEdit.connectedMachine.methodInfos)
             {
-                availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
-/*
-                foreach (var item in method.Value.toCall.GetParameters())
-                {
-                    availableMethods.text += item.ParameterType.Name + " " + item.Name;
-                }
+                availableMethods.text += "\n" + method.Name + "(";
 
                 availableMethods.text += ");";
                 
-            }*/
+            }
         }
 
         public void Save()
@@ -173,9 +167,15 @@ namespace ScriptEditor
             HighlightCode();
         }
 
-        public static Terminal NewTerminal(Script script)
+        public static Terminal NewTerminal(Script script, BaseMachine baseMachine = null)
         {
-            Terminal newTerminal = UIManager.Instance.gameObject.AddComponent<Terminal>();
+            Terminal newTerminal;
+            if (baseMachine == null)
+                newTerminal = ScriptManager.instance.gameObject.AddComponent<Terminal>();
+            else
+            {
+                newTerminal = baseMachine.gameObject.AddComponent<Terminal>();
+            }
 
             newTerminal.scriptToEdit = script;
 

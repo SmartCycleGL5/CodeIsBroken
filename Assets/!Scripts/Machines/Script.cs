@@ -76,7 +76,7 @@ public class Script
     
     public void Edit()
     {
-        Terminal.NewTerminal(this);
+        Terminal.NewTerminal(this, connectedMachine);
     }
 
     public void Save(string code)

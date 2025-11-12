@@ -57,6 +57,12 @@ public class Script
         Tick.OnStartingTick += StartTick;
         Tick.OnTick += OnTick;
     }
+    public void Terminate()
+    {
+
+        Tick.OnStartingTick -= StartTick;
+        Tick.OnTick -= OnTick;
+    }
 
     void StartTick()
     {
@@ -65,11 +71,6 @@ public class Script
     void OnTick()
     {
         proxy.Methods.Call("OnTick");
-    }
-
-    public void Terminate()
-    {
-
     }
     
     public void Edit()
@@ -80,18 +81,10 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
-        
-        try
-        {
-            ScriptManager.Compile();
-            PlayerConsole.Log("Saved!");
-        }
-        catch 
-        {
-            PlayerConsole.LogError("Failed to compile");
-        }
+        ScriptManager.Compile();
+        PlayerConsole.Log("Saved!");
     }
-    public void Compile()
+    public bool Compile()
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
@@ -101,8 +94,10 @@ public class Script
             {
                 PlayerConsole.LogError(error);
             }
-            throw new Exception();
+            return false;
         } 
+
+        return true;
     }
     
 

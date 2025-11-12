@@ -56,6 +56,11 @@ public class ScriptManager : MonoBehaviour
 
         Debug.Log("[ScriptManager] Ending");
 
+        foreach (var script in instance.playerScripts)
+        {
+            script.Value.Terminate();
+        }
+
         for (int i = Item.items.Count - 1; i >= 0; i--)
         {
             if (Item.items[i].destroyOnPause)
@@ -77,11 +82,17 @@ public class ScriptManager : MonoBehaviour
 
     public static void Compile()
     {
-        PlayerConsole.Clear();  
+        PlayerConsole.Clear();
+
+        bool success = true;
         
         foreach (var script in instance.playerScripts)
         {
-            script.Value.Compile();
+            if(!script.Value.Compile())
+                success = false;
         }
+
+        if(!success)
+            PlayerConsole.LogError("Failed to compile!");
     }
 }

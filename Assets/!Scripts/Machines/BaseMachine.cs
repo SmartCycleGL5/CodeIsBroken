@@ -19,7 +19,7 @@ public class BaseMachine : MonoBehaviour
     [Button]
     public void AddScript()
     {
-        AddScript(new Script("NewScript" + UnityEngine.Random.Range(1, 100), toDeriveFrom));
+        AddScript(new Script("NewScript" + UnityEngine.Random.Range(1, 100), toDeriveFrom, this));
     }
     public virtual void AddScript(Script script)
     {
@@ -41,7 +41,7 @@ public class BaseMachine : MonoBehaviour
     }
     // Why is Torje breaking the code
 
-   void AddMethodsAsIntegrated(System.Type machine)
+   public void AddMethodsAsIntegrated(System.Type machine)
    {
         methodInfos.Clear();
 
@@ -49,9 +49,9 @@ public class BaseMachine : MonoBehaviour
         {
             if (item.GetBaseDefinition() == item)
             {
-                string name = item.Name;
-                if (item.IsSpecialName) continue;
+                //if (item.IsSpecialName) continue;
 
+                Debug.Log(item.Name);
                 methodInfos.Add(item);
             }
         }

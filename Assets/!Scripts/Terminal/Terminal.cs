@@ -136,6 +136,8 @@ namespace ScriptEditor
         }
         void DisplayIntegratedMethods()
         {
+            availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n";
+
             foreach (var method in scriptToEdit.connectedMachine.methodInfos)
             {
                 availableMethods.text += "\n" + method.Name + "(";

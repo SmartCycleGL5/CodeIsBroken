@@ -45,22 +45,20 @@ public class Script
         connectedMachine = machine;
         ScriptManager.instance.playerScripts.Add(name, this);
 
+        Debug.Log(connectedMachine);
+
         Save(DefaultCode(className, parentClass));
     }
 
     public void Run()
     {
         ScriptManager.Compile();
-        
-        proxy = type.CreateInstance(connectedMachine.gameObject);
 
         Tick.OnStartingTick += StartTick;
         Tick.OnTick += OnTick;
     }
     public void Terminate()
     {
-        proxy.Dispose();   
-
         Tick.OnStartingTick -= StartTick;
         Tick.OnTick -= OnTick;
     }
@@ -82,7 +80,9 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
+
         ScriptManager.Compile();
+
         PlayerConsole.Log("Saved!");
     }
     public bool Compile()
@@ -96,7 +96,16 @@ public class Script
                 PlayerConsole.LogError(error);
             }
             return false;
-        } 
+        }
+
+        Debug.Log(connectedMachine);
+
+        if (proxy != null) proxy.Dispose();
+
+        if (connectedMachine != null)
+            proxy = type.CreateInstance(connectedMachine.gameObject);
+        else
+            proxy = type.CreateInstance();
 
         return true;
     }

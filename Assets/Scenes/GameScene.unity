@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1852352050}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_Name
       value: MaterialTube BUilding (2)
@@ -179,6 +183,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: scriptsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: 'scriptsToActivate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2116484864}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,6 +1442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1799320299}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_Name
       value: MaterialTube BUilding
@@ -1440,12 +1456,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: scriptsToActivate.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: 'scriptsToActivate.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 530955619}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: 'scriptsToActivate.Array.data[1]'
       value: 
@@ -1646,6 +1662,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592860293}
   m_CullTransparentMesh: 1
+--- !u!1 &1799320299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718735706113119580, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 1507137598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1852352050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718735706113119580, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 4340180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858100307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,9 +1705,9 @@ MonoBehaviour:
     _serializedList:
     - Key: 1
       Value: {fileID: 2116484856}
-    - Key: 2
-      Value: {fileID: 2076160206}
     - Key: 3
+      Value: {fileID: 2076160206}
+    - Key: 4
       Value: {fileID: 530955613}
 --- !u!4 &1858100309
 Transform:
@@ -1710,7 +1736,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1994596630}
-  - component: {fileID: 1994596631}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1736,20 +1761,6 @@ Transform:
   - {fileID: 1460485514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1994596631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994596629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725c3ff36e26df544b237d4002814b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelUpNotification
-  panelObj: {fileID: 1592860294}
-  notification: {fileID: 41199889}
 --- !u!1001 &2011019947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1806,6 +1817,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: scriptsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+      propertyPath: 'scriptsToActivate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2076160214}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1847,6 +1866,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 2011019947}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2076160214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9214029674004761619, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 2011019947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076160206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
 --- !u!1 &2116484856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
@@ -1869,6 +1899,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 4340180}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116484864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9214029674004761619, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  m_PrefabInstance: {fileID: 4340180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116484856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
 --- !u!1001 &2121687068
 PrefabInstance:
   m_ObjectHideFlags: 0

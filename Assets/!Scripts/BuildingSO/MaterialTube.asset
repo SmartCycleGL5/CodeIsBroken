@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa1a356302c4c545aa7ed00cf67e913, type: 3}
   m_Name: MaterialTube
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSO
-  buildingPrefab: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
+  buildingPrefab: {fileID: 146248080062208995, guid: a7aa66231ed304048a1def0b735c7080, type: 3}
   buildingName: MaterialTube
   buildingImage: {fileID: 0}
   buildingDesctiption: "The material tube places a material on the tube ahead of

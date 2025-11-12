@@ -5,26 +5,20 @@ namespace Machines
 {
     public class PainterMachine : Machine
     {
-        [SerializeField] public Item item;
-        private UserErrorLogger errorLogger;
+        public Item item;
+        private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
-    
-        //protected override void Start() still no start bro
-        //{
-        //    AddMethodsAsIntegrated(typeof(PainterMachine));
-        //    base.Start();
-        //}
-    
-        private void OnEnable()
+
+        void Start()
         {
-            errorLogger = GetComponent<UserErrorLogger>();
-            
+            painterConveyor = GetComponent<PainterConveyor>();
         }
-    
         public void Paint(string PrimaryColor)
         {
+            item = painterConveyor.item;
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
+            item = painterConveyor.item;
             if (item == null) return;
     
             switch (PrimaryColor)
@@ -39,7 +33,6 @@ namespace Machines
                     item.definition.Modify(new Modification.Color(new Color(0, 1, 0)));
                     return;
                 default:
-                    errorLogger.DisplayError("Not a valid color!");
                     return;
     
             }

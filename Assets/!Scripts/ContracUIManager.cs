@@ -30,12 +30,13 @@ public class ContracUIManager : MonoBehaviour
         {
             contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.Object);
         }
-
+        Debug.Log("ContractSystem: "+contractHolder);
         readyToTakeContacts = true;
     }
 
     public static void DisplayContract(Contract[] contracts)
     {
+        
         contractHolder.SetEnabled(true);
         selectText.style.opacity = 1;
 
@@ -47,6 +48,7 @@ public class ContracUIManager : MonoBehaviour
 
     static void CreateContract(Contract contract)
     {
+        Debug.Log("ContractSystem: Create");
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");

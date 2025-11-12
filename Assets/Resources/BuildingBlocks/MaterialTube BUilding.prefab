@@ -236,8 +236,8 @@ GameObject:
   - component: {fileID: 850220021732057810}
   - component: {fileID: 6110111071523626909}
   - component: {fileID: 9214029674004761619}
-  - component: {fileID: 2183649553995400391}
   - component: {fileID: 165588971449680468}
+  - component: {fileID: 4957907254097424411}
   m_Layer: 0
   m_Name: MaterialTube BUilding
   m_TagString: Untagged
@@ -292,22 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
   uiMenu: {fileID: 2432799470729838840}
---- !u!114 &2183649553995400391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2835777250307342540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de43a7895a687cd4bbe58a3ee66a9aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UserErrorLogger
-  parentPanel: {fileID: 5065449716560485296}
-  errorImg: {fileID: 6834008669558088221}
-  warningImg: {fileID: 8448257132512642811}
-  errorText: {fileID: 2572954268584017164}
 --- !u!114 &165588971449680468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +306,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
   toDeriveFrom: MaterialTube
   attachedScripts: []
+--- !u!114 &4957907254097424411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835777250307342540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad3804fa25473a49a549228e3de2d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken.Base::ReferenceHolder
+  references:
+    _serializedList:
+    - Key: lid
+      Value: {fileID: 8718735706113119580}
+    - Key: spawnLocation
+      Value: {fileID: 7082907703644039351}
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +549,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5362953086219537834}
   m_SourcePrefab: {fileID: 100100000, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+--- !u!1 &7082907703644039351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7935390463072465191, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+  m_PrefabInstance: {fileID: 894985503074441616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7146338163404088772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8018452569668254804, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
@@ -576,6 +583,11 @@ BoxCollider:
 --- !u!4 &8674907701053771229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8361168025469850701, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+  m_PrefabInstance: {fileID: 894985503074441616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8718735706113119580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400492573680159948, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
   m_PrefabInstance: {fileID: 894985503074441616}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1880132168404991942
@@ -690,17 +702,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6299568396634914972}
   m_SourcePrefab: {fileID: 100100000, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
---- !u!114 &2572954268584017164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4153280347659174602, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
-  m_PrefabInstance: {fileID: 1880132168404991942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &4684288088265497229 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6563570998677398859, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
@@ -723,25 +724,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d640eaa6e113dd44aa5d618ae2add5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCam
---- !u!114 &6834008669558088221 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4954193320757911003, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
-  m_PrefabInstance: {fileID: 1880132168404991942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!114 &8448257132512642811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8010125994394646845, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
-  m_PrefabInstance: {fileID: 1880132168404991942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image

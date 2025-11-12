@@ -14,7 +14,7 @@
                 </ui:VisualElement>
                 <ui:Label name="Output" style="white-space: normal;" />
             </ui:ScrollView>
-            <ui:Label text="Avilable Methods:&#10;" name="Methods" style="color: rgb(0, 255, 0); height: 100%; max-height: none; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); width: 30%; visibility: hidden; display: none;" />
+            <ui:Label text="Avilable Methods:&#10;" name="Methods" style="color: rgb(0, 255, 0); height: 100%; max-height: none; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); width: 30%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

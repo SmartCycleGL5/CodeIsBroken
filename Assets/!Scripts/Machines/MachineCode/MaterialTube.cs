@@ -12,9 +12,10 @@ namespace Machines
         int tickCount;
         UserErrorLogger errorLogger;
 
-         void Start() 
+        void Start() 
         {
-            GetComponent<BaseMachine>().AddMethodsAsIntegrated(typeof(MaterialTube));
+            BaseMachine machine = GetComponent<BaseMachine>();
+            machine.AddMethodsAsIntegrated(typeof(MaterialTube));
             //materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
         }
         public override void Reset()

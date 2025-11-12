@@ -59,6 +59,7 @@ public class Script
     }
     public void Terminate()
     {
+        proxy.Dispose();   
 
         Tick.OnStartingTick -= StartTick;
         Tick.OnTick -= OnTick;

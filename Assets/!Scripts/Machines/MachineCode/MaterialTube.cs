@@ -21,7 +21,7 @@ namespace Machines
             spawnRate = 0;
         }
 
-        private void Start()
+        private void Awake()
         {
             materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
             
@@ -49,6 +49,7 @@ namespace Machines
         {
             Debug.Log(material);
             materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
+            Debug.Log(materialToSpawn);
         }
         
         // Not player controlled

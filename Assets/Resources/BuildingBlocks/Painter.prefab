@@ -481,7 +481,6 @@ GameObject:
   - component: {fileID: -5721900430427192232}
   - component: {fileID: -911345775585101580}
   - component: {fileID: 6144978722032048261}
-  - component: {fileID: 4816562025447021072}
   - component: {fileID: 7345280783986516555}
   m_Layer: 0
   m_Name: Painter
@@ -565,22 +564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
   uiMenu: {fileID: 2480257038871750624}
---- !u!114 &4816562025447021072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985229225995930261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de43a7895a687cd4bbe58a3ee66a9aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UserErrorLogger
-  parentPanel: {fileID: 7275347125242466548}
-  errorImg: {fileID: 1837332960937514405}
-  warningImg: {fileID: 5160070953187582546}
-  errorText: {fileID: 8789006373313785043}
 --- !u!114 &7345280783986516555
 MonoBehaviour:
   m_ObjectHideFlags: 0

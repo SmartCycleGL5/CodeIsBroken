@@ -2,7 +2,8 @@
     "name": "CodeIsBroken.Machines",
     "rootNamespace": "Machines",
     "references": [
-        "GUID:fa940d06be083001da5dc9de70380eda"
+        "GUID:fa940d06be083001da5dc9de70380eda",
+        "GUID:d525ad6bd40672747bde77962f1c401e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

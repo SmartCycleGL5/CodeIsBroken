@@ -17,13 +17,13 @@ namespace Machines
 
         public override void Reset()
         {
-            //materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+            materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
             spawnRate = 0;
         }
 
         private void Start()
         {
-            //materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+            materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
             
             //Set all references
             ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
@@ -47,12 +47,12 @@ namespace Machines
         }
         public void SetMaterial(string material)
         {
-            //materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
+            Debug.Log(material);
+            materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
         }
         
         // Not player controlled
         
-        [DontIntegrate]
         public void GetMaterial()
         {
             tickCount++;
@@ -76,8 +76,8 @@ namespace Machines
             }
             if(conveyor.item != null)return;
             Debug.Log("[MaterialTube] got material");
-            //Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
-            //conveyor.SetItem(instObj);
+            Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
+            conveyor.SetItem(instObj);
             lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);
 
         }

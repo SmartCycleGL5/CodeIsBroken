@@ -7,22 +7,16 @@ namespace Machines
     {
         [SerializeField] public Item item;
         private UserErrorLogger errorLogger;
+        private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
-    
-        //protected override void Start() still no start bro
-        //{
-        //    AddMethodsAsIntegrated(typeof(PainterMachine));
-        //    base.Start();
-        //}
-    
-        private void OnEnable()
+
+        void Start()
         {
-            errorLogger = GetComponent<UserErrorLogger>();
-            
+            painterConveyor = GetComponent<PainterConveyor>();
         }
-    
         public void Paint(string PrimaryColor)
         {
+            item = painterConveyor.item;
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
             if (item == null) return;

@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using DG.Tweening;
+
 
 namespace Machines
 {
@@ -9,33 +11,38 @@ namespace Machines
         [SerializeField] Transform grabLocation;
         [SerializeField] Transform holdLocation;
     
+        Tweener rotationTween;
+        private bool pickUp;
+        private bool drop;
         public Item item { get; set; }
     
-        //protected override void Start() no start
-        //{
-        //    AddMethodsAsIntegrated(typeof(CraneMachine));
-        //    base.Start();
-        //}
+        
     
-        public async void Rotate(int degrees)
+        public void Rotate(int degrees)
         {
             Metrics.instance.UseElectricity((int)degrees/90);
-            float timer = 0;
-            Vector3 startRot = piviot.eulerAngles;
     
-            float timeToFinish = Tick.tickLength * .5f;
-    
-            while (ScriptManager.isRunning && timer < timeToFinish)
+            if (rotationTween != null) return;
+            rotationTween = piviot.DORotate(new Vector3(0, piviot.rotation.eulerAngles.y+degrees, 0), 0.5f, RotateMode.FastBeyond360).OnComplete(() =>
             {
-                piviot.Rotate(0, (degrees * Time.deltaTime) / timeToFinish, 0);
-    
-                await Task.Delay(Mathf.RoundToInt(Time.deltaTime * 1000 * timeToFinish));
-                timer += Time.deltaTime;
-            }
-    
-            piviot.transform.eulerAngles = startRot + Vector3.up * degrees;
+                rotationTween = null;
+                if(pickUp) GrabLoseItem();
+                pickUp = false;
+            });
         }
     
+        public void PickUp()
+        {
+            if (rotationTween != null)
+            {
+                pickUp = true;
+            }
+            else
+            {
+                GrabLoseItem();
+            }
+        }
+        
         public void GrabLoseItem()
         {
             //Metrics.instance.UseElectricity(1);
@@ -71,9 +78,7 @@ namespace Machines
             {
                 RemoveItem();
             }
-    
         }
-        [DontIntegrate]
         public bool SetItem(Item item)
         {
     
@@ -84,7 +89,6 @@ namespace Machines
             this.item.transform.position = holdLocation.position;
             return true;
         }
-        [DontIntegrate]
         public bool RemoveItem(out Item removedItem)
         {
             removedItem = null;
@@ -94,7 +98,6 @@ namespace Machines
             item = null;
             return true;
         }
-        [DontIntegrate]
         public bool RemoveItem()
         {
             return RemoveItem(out Item item);

@@ -7,9 +7,11 @@ namespace Machines
 {
     public class CraneMachine : Machine, IItemContainer
     {
-        [Space(10), SerializeField] Transform piviot;
-        [SerializeField] Transform grabLocation;
-        [SerializeField] Transform holdLocation;
+        private Transform piviot;
+        private Transform arm;
+        private Transform chain;
+        private Transform grabLocation;
+        private Transform holdLocation;
     
         Tweener rotationTween;
         private bool pickUp;
@@ -42,20 +44,36 @@ namespace Machines
                 GrabLoseItem();
             }
         }
+
+        public void Drop()
+        {
+            if (rotationTween != null)
+            {
+                drop = true;
+            }
+            else
+            {
+                GrabLoseItem();
+            }
+        }
         
-        public void GrabLoseItem()
+        private void GrabLoseItem()
         {
             //Metrics.instance.UseElectricity(1);
             GameObject cell = GridBuilder.instance.LookUpCell(grabLocation.position);
     
             if (cell == null)
             {
+                pickUp = false;
+                drop = false;
                 Debug.Log("[Crane] Nothing in cell");
                 return;
             }
     
             if (!cell.TryGetComponent(out Conveyor conveyor))
             {
+                pickUp = false;
+                drop = false;
                 Debug.Log("[Crane] Cell not conveyor");
                 return;
             }
@@ -65,18 +83,22 @@ namespace Machines
                 if (conveyor.item == null)
                 {
                     Debug.Log("[Crane] No Item on conveyor");
+                    pickUp = false;
+                    drop = false;
                     return;
                 }
     
-                if (SetItem(conveyor.item))
+                if (pickUp && SetItem(conveyor.item))
                 {
                     Debug.Log("[Crane] Grab");
                     conveyor.RemoveItem();
+                    pickUp = false;
                 }
             }
-            else if (conveyor.SetItem(item))
+            else if (drop && conveyor.SetItem(item))
             {
                 RemoveItem();
+                drop = false;
             }
         }
         public bool SetItem(Item item)

@@ -11,6 +11,7 @@ namespace ScriptEditor
 
     public class Terminal : MonoBehaviour, IWindow
     {
+        public SyntaxHighlighting activeHighlighting = new();
         public Script scriptToEdit { get; private set; }
 
         static VisualTreeAsset terminalAsset;
@@ -62,6 +63,8 @@ namespace ScriptEditor
             if (terminalAsset == null)
             {
                 Debug.Log("[Terminal] getting asset");
+
+                activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
 
                 findingAsset = true;
                 terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
@@ -181,11 +184,11 @@ namespace ScriptEditor
 
         void HighlightCode()
         {
-            input.value = SyntaxHighlighting.HighlightCode(input.text);
+            input.value = activeHighlighting.HighlightCode(input.text);
         }
         void RemoveHighlight()
         {
-            input.value = SyntaxHighlighting.RemoveHighlight(input.text);
+            input.value = activeHighlighting.RemoveHighlight(input.text);
         }
     }
 }

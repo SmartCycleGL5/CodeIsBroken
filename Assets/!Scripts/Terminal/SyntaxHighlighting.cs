@@ -1,36 +1,76 @@
+using AYellowpaper.SerializedCollections;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace SharpCube.Highlighting
 {
-    public static class SyntaxHighlighting
+    public class SyntaxHighlighting
     {
-        public static ColorPallate ColorPallate = new ColorPallate();
+        public ColorPallate colorPallate { get; private set; } = new ColorPallate();
 
-        public static string RemoveHighlight(string code)
+        Dictionary<string, ColorPallate.Type> keywords => new()
+        {
+            { "using", ColorPallate.Type.referenceColor },
+            { "namespace", ColorPallate.Type.referenceColor },
+
+            { "true", ColorPallate.Type.referenceColor },
+            { "false", ColorPallate.Type.referenceColor },
+
+            { "return", ColorPallate.Type.jumpColor },
+            { "continue", ColorPallate.Type.jumpColor },
+            { "break", ColorPallate.Type.jumpColor },
+            { "goto", ColorPallate.Type.jumpColor },
+
+            { "while", ColorPallate.Type.loopColor },
+            { "for", ColorPallate.Type.loopColor },
+            { "foreach", ColorPallate.Type.loopColor },
+
+            { "void", ColorPallate.Type.initializerColor },
+            { "int", ColorPallate.Type.initializerColor },
+            { "float", ColorPallate.Type.initializerColor },
+            { "string", ColorPallate.Type.initializerColor },
+            { "bool", ColorPallate.Type.initializerColor },
+
+            { "class", ColorPallate.Type.initializerColor },
+            { "struct", ColorPallate.Type.initializerColor },
+            { "enum", ColorPallate.Type.initializerColor },
+
+            { "private", ColorPallate.Type.modifierColor },
+            { "public", ColorPallate.Type.modifierColor },
+            { "protected", ColorPallate.Type.modifierColor },
+            { "internal", ColorPallate.Type.modifierColor },
+
+            { "if", ColorPallate.Type.conditionalColor },
+            { "else", ColorPallate.Type.conditionalColor },
+            { "switch", ColorPallate.Type.conditionalColor },
+        };
+
+        public string RemoveHighlight(string code)
         {
             return Regex.Replace(code, "<.*?>", String.Empty);
         }
-        public static string HighlightCode(string code)
+        public string HighlightCode(string code)
         {
             string newCode = code;
 
-            foreach (var type in Enum.GetValues(typeof(Keywords.Type)))
+            foreach (var keyword in keywords)
             {
-
-                foreach (var keyword in Compiler.UniversalKeywords.keys[(Keywords.Type)type])
-                {
-                    newCode = Highlight(newCode,keyword.Key, keyword.Value.color);
-                }
+                newCode = Highlight(newCode, keyword.Key, ColorUtility.ToHtmlStringRGB(colorPallate.Colors[keyword.Value]));
             }
 
             return newCode;
         }
         
-        public static string Highlight(string code, string pattern, string color)
+        public string Highlight(string code, string pattern, string color)
         {
-            return Regex.Replace(code, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
+            return Regex.Replace(code, $"\\b{Regex.Escape(pattern)}\\b", $"<color=#{color}>{pattern}</color>");
+        }
+
+        public void SetPallate(ColorPallate pallate)
+        {
+           colorPallate = pallate;
         }
     }
 

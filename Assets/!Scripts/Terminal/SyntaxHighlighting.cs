@@ -1,23 +1,37 @@
-using AYellowpaper.SerializedCollections;
-using TMPro;
+using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class SyntaxHighlighting : MonoBehaviour
+namespace SharpCube.Highlighting
 {
-
-    [SerializedDictionary("Syntax", "Color")]
-    public SerializedDictionary<string, Color> syntax;
-
-    [SerializeField] TMP_InputField input;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static class SyntaxHighlighting
     {
-        input.text = "<color=\"blue\">im blue</color>";
-    }
+        public static ColorPallate ColorPallate = new ColorPallate();
 
-    // Update is called once per frame
-    void Update()
-    {
+        public static string RemoveHighlight(string code)
+        {
+            return Regex.Replace(code, "<.*?>", String.Empty);
+        }
+        public static string HighlightCode(string code)
+        {
+            string newCode = code;
+
+            foreach (var type in Enum.GetValues(typeof(Keywords.Type)))
+            {
+
+                foreach (var keyword in Compiler.UniversalKeywords.keys[(Keywords.Type)type])
+                {
+                    newCode = Highlight(newCode,keyword.Key, keyword.Value.color);
+                }
+            }
+
+            return newCode;
+        }
         
+        public static string Highlight(string code, string pattern, string color)
+        {
+            return Regex.Replace(code, $"\\b{Regex.Escape(pattern)}\\b", $"<color={color}>{pattern}</color>");
+        }
     }
+
 }

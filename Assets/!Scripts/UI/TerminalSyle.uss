@@ -18,36 +18,19 @@
     border-width: 0;
 }
 
-.unity-button:hover {
-    background-color: rgb(205, 245, 205);
-    transition-delay: 0s;
-    transition-timing-function: ease-in;
-    transition-duration: 0.1s;
-}
-
-.unity-button {
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding-top: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    align-self: auto;
-}
-
-.unity-button:active {
-    background-color: rgb(124, 255, 124);
-}
-
 .TerminalButton {
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
     font-size: 70px;
+}
+
+.Console {
+    flex-grow: 1;
+    height: 30%;
+    bottom: 0;
+    position: relative;
+    right: 0;
+    left: 0;
 }

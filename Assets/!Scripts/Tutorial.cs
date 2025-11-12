@@ -1,4 +1,4 @@
-using Coding;
+using ScriptEditor;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -111,6 +111,6 @@ public class Tutorial : MonoBehaviour
         }
         ScriptManager.StopMachines();
         SceneManager.LoadScene("GameScene");
-        
+
     }
 }

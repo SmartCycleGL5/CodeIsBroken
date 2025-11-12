@@ -1,13 +1,17 @@
+using SharpCube.Highlighting;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static WindowManager;
 
-namespace Coding
+namespace ScriptEditor
 {
+    using Console;
+
     public class Terminal : MonoBehaviour, IWindow
     {
-        public BaseMachine machineToEdit { get; private set; }
+        public Script scriptToEdit { get; private set; }
 
         static VisualTreeAsset terminalAsset;
         public static bool findingAsset;
@@ -32,6 +36,7 @@ namespace Coding
         VisualElement terminal;
         Label availableMethods;
         TextField input;
+        Label console;
         Focusable focusedElement => input.panel.focusController.focusedElement;
 
         public bool isFocused
@@ -59,7 +64,7 @@ namespace Coding
                 Debug.Log("[Terminal] getting asset");
 
                 findingAsset = true;
-                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.GameObject);
+                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
                 findingAsset = false;
             }
 
@@ -67,27 +72,41 @@ namespace Coding
             //Debug.LogError("[Terminal] " + terminalAsset);
 
             terminal = terminalAsset.Instantiate();
-            window = new Window(machineToEdit.machineCode.name, terminal, this);
+            window = new Window(scriptToEdit.name, terminal, true, this);
 
             availableMethods = terminal.Q<Label>("Methods");
             input = terminal.Q<TextField>("Input");
+            console = terminal.Q<Label>("Output");
 
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
 
+            input.Q<TextElement>().enableRichText = true;
+
             terminals.Add(this);
+
+            PlayerConsole.LogEvent += ConsoleLog;
 
             Load();
         }
 
+        private void ConsoleLog(object obj)
+        {
+            if (obj == "/Clear")
+            {
+                console.text = "";
+                return;
+            }
+            console.text += obj+ "\n";
+        }
+
         private void OnDestroy()
         {
-            machineToEdit.connectedTerminal = null;
+            PlayerConsole.LogEvent -= ConsoleLog;
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
         void OnLoseFocus(FocusOutEvent evt)
         {
-            Debug.Log("deselect");
             Save();
         }
 
@@ -97,55 +116,76 @@ namespace Coding
             Destroy(this);
         }
 
-        public void SelectMachine(BaseMachine machineScript)
-        {
-            machineToEdit = machineScript;
-        }
-
         public void Load()
         {
-            if (machineToEdit == null) return;
+            if (scriptToEdit == null) return;
 
-            Debug.Log(machineToEdit.machineCode);
+            Debug.Log(scriptToEdit);
 
-            input.value = machineToEdit.machineCode.Code;
+            input.value = scriptToEdit.rawCode;
 
             availableMethods.text = "Available Methods: \n";
 
-            foreach (var method in machineToEdit.IntegratedMethods)
+            if (scriptToEdit.connectedMachine != null)
+                DisplayIntegratedMethods();
+            
+            HighlightCode();
+            ScriptManager.Compile();
+        }
+        void DisplayIntegratedMethods()
+        {/*
+            foreach (var method in scriptToEdit.connectedMachine.IntegratedMethods)
             {
-                availableMethods.text += "\n" + method.Value.info.type + " " + method.Value.info.name + "(";
-
-                foreach (var item in method.Value.parameters)
+                availableMethods.text += "\n" + method.Value.toCall.ReturnType.Name + " " + method.Value.toCall.Name + "(";
+/*
+                foreach (var item in method.Value.toCall.GetParameters())
                 {
                     availableMethods.text += item.ParameterType.Name + " " + item.Name;
                 }
 
                 availableMethods.text += ");";
-            }
-        }
-        public bool Save()
-        {
-            if (machineToEdit == null || ScriptManager.isRunning) return false;
-
-            try
-            {
-                machineToEdit.machineCode.UpdateCode(input.text);
-                window.Rename(machineToEdit.machineCode.name);
-                return true;
-            }
-            catch
-            {
-                Debug.LogWarning("[Terminal] Couldnt Save");
-                return false;
-            }
+                
+            }*/
         }
 
-        public static Terminal NewTerminal(BaseMachine machineScript)
+        public void Save()
         {
-            Terminal newTerminal = machineScript.gameObject.AddComponent<Terminal>();
-            newTerminal.SelectMachine(machineScript);
+            if (scriptToEdit == null) return;
+
+            if (ScriptManager.isRunning)
+            {
+                ScriptManager.StopMachines();
+            }
+
+            RemoveHighlight();
+
+            if (scriptToEdit.rawCode != input.text)
+            {
+                PlayerConsole.Log("Saved!");
+                scriptToEdit.Save(input.text); 
+            }
+            
+            //window.Rename(scriptToEdit.name);
+
+            HighlightCode();
+        }
+
+        public static Terminal NewTerminal(Script script)
+        {
+            Terminal newTerminal = UIManager.Instance.gameObject.AddComponent<Terminal>();
+
+            newTerminal.scriptToEdit = script;
+
             return newTerminal;
+        }
+
+        void HighlightCode()
+        {
+            input.value = SyntaxHighlighting.HighlightCode(input.text);
+        }
+        void RemoveHighlight()
+        {
+            input.value = SyntaxHighlighting.RemoveHighlight(input.text);
         }
     }
 }

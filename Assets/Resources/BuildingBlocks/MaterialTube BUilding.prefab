@@ -235,9 +235,9 @@ GameObject:
   m_Component:
   - component: {fileID: 850220021732057810}
   - component: {fileID: 6110111071523626909}
-  - component: {fileID: 1428020738065697817}
   - component: {fileID: 9214029674004761619}
   - component: {fileID: 2183649553995400391}
+  - component: {fileID: 165588971449680468}
   m_Layer: 0
   m_Name: MaterialTube BUilding
   m_TagString: Untagged
@@ -277,27 +277,8 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 4569153384676419293}
   scriptsToActivate:
-  - {fileID: 1428020738065697817}
+  - {fileID: 0}
   - {fileID: 9214029674004761619}
---- !u!114 &1428020738065697817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2835777250307342540}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3019211792bb92f4e8edcf33e14139d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  machineCode:
-    name: Tube
-    Code: "class Tube\n{\n\tvoid Start()\n\t{\n\t\tGetMaterial();\n\t}\n}"
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
-  spawnLocation: {fileID: 0}
 --- !u!114 &9214029674004761619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835777250307342540}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
   m_Name: 
@@ -327,6 +308,20 @@ MonoBehaviour:
   errorImg: {fileID: 6834008669558088221}
   warningImg: {fileID: 8448257132512642811}
   errorText: {fileID: 2572954268584017164}
+--- !u!114 &165588971449680468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835777250307342540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
+  toDeriveFrom: MaterialTube
+  attachedScripts: []
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0

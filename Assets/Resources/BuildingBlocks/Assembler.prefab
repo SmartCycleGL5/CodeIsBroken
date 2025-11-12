@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5234689443917829460}
   - component: {fileID: 93292710641116751}
-  - component: {fileID: 3076169676827373566}
   - component: {fileID: -7648313244580729688}
   - component: {fileID: -8966164021372586424}
+  - component: {fileID: 1183819565642903319}
   m_Layer: 0
   m_Name: Assembler
   m_TagString: Untagged
@@ -52,29 +52,7 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 3757148172345242447}
   scriptsToActivate:
-  - {fileID: 3076169676827373566}
---- !u!114 &3076169676827373566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617270430291027306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebe13188be97654185111628350c0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assembler
-  machineCode:
-    name: 
-    Code: 
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
-  assemblerSize: 2
-  items: []
-  craftingRecipies:
-  - {fileID: 11400000, guid: b1c9bcdc76e2ca74694725bb08bd094d, type: 2}
+  - {fileID: 0}
 --- !u!114 &-7648313244580729688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +82,20 @@ MonoBehaviour:
   errorImg: {fileID: 7482075449363815229}
   warningImg: {fileID: 5493494679185981403}
   errorText: {fileID: 1924749055799657516}
+--- !u!114 &1183819565642903319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617270430291027306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
+  toDeriveFrom: Assembler
+  attachedScripts: []
 --- !u!1 &1102627864415495927
 GameObject:
   m_ObjectHideFlags: 0

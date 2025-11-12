@@ -1,16 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="BuildingMenu" src="project://database/Assets/BuildingMenu.uxml?fileID=9197481963319205126&amp;guid=fb23224fae21f474d8ccd51561220d70&amp;type=3#BuildingMenu" />
+    <ui:Template name="ConfirmChoice" src="project://database/Assets/!Scripts/UI/ConfirmChoice.uxml?fileID=9197481963319205126&amp;guid=430e0bdca1397b34da4b01db61f4ed3c&amp;type=3#ConfirmChoice" />
     <Style src="project://database/Assets/!Scripts/UI/BaseStyle.uss?fileID=7433441132597879392&amp;guid=dd58a1a328d6d47468f38b3b58f7e1fd&amp;type=3#BaseStyle" />
     <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
     <ui:VisualElement name="Canvas" picking-mode="Ignore" style="flex-grow: 1; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; visibility: visible;">
-        <ui:VisualElement name="Windows" enabled="false" class="Windows" style="width: 45%; background-color: rgba(143, 143, 143, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; visibility: visible; position: absolute;">
-            <ui:TabView name="Tabs" reorderable="true" focusable="true" class="TabHolder" style="max-height: 1200px; min-height: 600px;" />
-            <ui:VisualElement name="WindowButtons" style="align-self: center; align-items: center; align-content: center; flex-direction: row-reverse; position: absolute; width: auto; background-color: rgba(143, 143, 143, 0); top: 0; right: 0; height: auto;">
-                <ui:Button text="X" name="Close" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 0; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-                <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 20px; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:Button text="Run" name="Run" class="RunButton" style="bottom: 100px;" />
+        <ui:Button text="Run" name="Run" class="RunButton" style="bottom: 5%;" />
         <NS.RomanLib.RadialFillElement name="XP" angle-offset="0.93" value="1" fill-color="#83FF91FF" width="150" height="150" fill-direction="Clockwise" overlay-image-scale="0" style="position: absolute; bottom: 50px; right: 50px; overflow: hidden; border-top-left-radius: 90px; border-top-right-radius: 90px; border-bottom-right-radius: 90px; border-bottom-left-radius: 90px; background-color: rgb(255, 255, 255); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
         <ui:Label text="0" name="Level" style="bottom: 50px; right: 50px; width: 150px; height: 150px; position: absolute; -unity-text-align: middle-center; font-size: 112px;" />
         <ui:VisualElement name="ContractHolder" enabled="false" picking-mode="Ignore" class="ContractHolder" style="bottom: 0;" />
@@ -38,4 +32,12 @@
         <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1; white-space: pre-wrap;" />
         <ui:Label text="Press Space to continue" name="PressToContinue" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
+    <ui:VisualElement name="Windows" enabled="false" class="Windows" style="width: 1096px; background-color: rgba(143, 143, 143, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; visibility: visible; position: absolute; left: 2%; top: 5%; bottom: 5%;">
+        <ui:TabView name="Tabs" reorderable="true" focusable="true" class="TabHolder" style="max-height: 100%; min-height: 600px; height: 100%;" />
+        <ui:VisualElement name="WindowButtons" style="align-self: center; align-items: center; align-content: center; flex-direction: row-reverse; position: absolute; width: auto; background-color: rgba(143, 143, 143, 0); top: 0; right: 0; height: auto;">
+            <ui:Button text="X" name="Close" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 0; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton" style="width: 100px; border-top-left-radius: 20px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 20px; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Instance template="ConfirmChoice" name="ConfirmClose" style="position: absolute; align-self: center; bottom: 40%; height: 20%; visibility: hidden;" />
 </ui:UXML>

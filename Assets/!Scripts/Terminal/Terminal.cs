@@ -36,6 +36,7 @@ namespace ScriptEditor
         VisualElement terminal;
         Label inheritedMembers;
         TextField input;
+        Label inheritedClass;
         Label console;
         Focusable focusedElement => input.panel.focusController.focusedElement;
 
@@ -77,6 +78,7 @@ namespace ScriptEditor
             window = new Window(scriptToEdit.name, terminal, true, this);
 
             inheritedMembers = terminal.Q<Label>("Members");
+            inheritedClass = terminal.Q<Label>("InheritedClass");
             input = terminal.Q<TextField>("Input");
             console = terminal.Q<Label>("Output");
 
@@ -136,6 +138,7 @@ namespace ScriptEditor
         }
         void DisplayIntegratedMethods()
         {
+            inheritedClass.text = scriptToEdit.connectedMachine.toDeriveFrom;
             //availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n\n";
 
             inheritedMembers.text += "Variables:\n";

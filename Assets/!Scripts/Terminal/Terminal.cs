@@ -18,6 +18,18 @@ namespace ScriptEditor
         public static bool findingAsset;
 
         public static List<Terminal> terminals = new();
+        
+        public Window window { get; set; }
+
+        #region UI elements
+        
+        VisualElement terminal;
+        Label inheritedMembers;
+        TextField input;
+        Label inheritedClass;
+        Label console;
+        Focusable focusedElement => input.panel.focusController.focusedElement;
+         #endregion
         public static bool focused
         {
             get
@@ -31,15 +43,6 @@ namespace ScriptEditor
                 return false;
             }
         }
-
-        //UI elements
-        VisualElement terminal;
-        Label inheritedMembers;
-        TextField input;
-        Label inheritedClass;
-        Label console;
-        Focusable focusedElement => input.panel.focusController.focusedElement;
-
         public bool isFocused
         {
             get
@@ -55,27 +58,26 @@ namespace ScriptEditor
                 }
             }
         }
-        public Window window { get; set; }
-
 
         private async void Start()
         {
+            activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
+            
             if (terminalAsset == null)
             {
                 Debug.Log("[Terminal] getting asset");
-
-                activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
 
                 findingAsset = true;
                 terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
                 findingAsset = false;
             }
-
-
-            //Debug.LogError("[Terminal] " + terminalAsset);
-
+            
             terminal = terminalAsset.Instantiate();
-            window = new Window(scriptToEdit.name, terminal, true, this);
+            VisualElement windowElement = terminal.Q<VisualElement>("Window");
+            new Window(scriptToEdit.name, terminal, true, this);
+
+            windowElement.style.backgroundColor = activeHighlighting.colorPallate.Colors[ColorPallate.Type.backgroundColor];
+            windowElement.style.color = activeHighlighting.colorPallate.Colors[ColorPallate.Type.defaultColor];
 
             inheritedMembers = terminal.Q<Label>("Members");
             inheritedClass = terminal.Q<Label>("InheritedClass");

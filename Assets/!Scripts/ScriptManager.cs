@@ -37,6 +37,8 @@ public class ScriptManager : MonoBehaviour
     public static void StartMachines()
     {
         if (isRunning) return;
+        PlayerConsole.Clear();
+
 
         foreach (var script in instance.playerScripts)
         {
@@ -83,8 +85,6 @@ public class ScriptManager : MonoBehaviour
 
     public static void Compile()
     {
-        PlayerConsole.Clear();
-
         bool success = true;
         
         foreach (var script in instance.playerScripts)

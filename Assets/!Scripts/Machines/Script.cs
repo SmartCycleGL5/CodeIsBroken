@@ -84,10 +84,9 @@ public class Script
     public void Save(string code)
     {
         rawCode = code;
-
-        ScriptManager.Compile();
-
+        PlayerConsole.Clear();
         PlayerConsole.Log("Saved!");
+        ScriptManager.Compile();
     }
     public bool Compile()
     {

@@ -18,7 +18,7 @@ namespace CodeIsBroken
             machine.AddMethodsAsIntegrated(typeof(MaterialTube));
             //materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
         }
-        public override void Reset()
+        private void Reset()
         {
             //materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
             spawnRate = 0;

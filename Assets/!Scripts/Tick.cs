@@ -31,6 +31,7 @@ public class Tick : MonoBehaviour
     {
         tickCount = 0;
         OnStartingTick?.Invoke();
+        
         Instance.InvokeRepeating(nameof(DoTick), tickLength, tickLength);
 
         Application.quitting += StopTick;

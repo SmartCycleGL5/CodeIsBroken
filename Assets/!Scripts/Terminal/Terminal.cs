@@ -34,7 +34,7 @@ namespace ScriptEditor
 
         //UI elements
         VisualElement terminal;
-        Label availableMethods;
+        Label inheritedMembers;
         TextField input;
         Label console;
         Focusable focusedElement => input.panel.focusController.focusedElement;
@@ -76,7 +76,7 @@ namespace ScriptEditor
             terminal = terminalAsset.Instantiate();
             window = new Window(scriptToEdit.name, terminal, true, this);
 
-            availableMethods = terminal.Q<Label>("Methods");
+            inheritedMembers = terminal.Q<Label>("Members");
             input = terminal.Q<TextField>("Input");
             console = terminal.Q<Label>("Output");
 
@@ -126,7 +126,7 @@ namespace ScriptEditor
 
             input.value = scriptToEdit.rawCode;
 
-            availableMethods.text = "Available Methods: \n";
+            inheritedMembers.text = "";
 
             if (scriptToEdit.connectedMachine != null)
                 DisplayIntegratedMethods();
@@ -138,21 +138,21 @@ namespace ScriptEditor
         {
             //availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n\n";
 
-            availableMethods.text += "variables:\n";
+            inheritedMembers.text += "Variables:\n";
             
             foreach (var info in scriptToEdit.connectedMachine.variableInfo)
             {
-                availableMethods.text += info.Name + ";\n";
+                inheritedMembers.text += info.Name + "\n";
 
             }
             
-            availableMethods.text += "\nmethods:\n";
+            inheritedMembers.text += "\nMethods:\n";
 
             foreach (var info in scriptToEdit.connectedMachine.methodInfo)
             {
-                availableMethods.text += info.Name + "(";
+                inheritedMembers.text += info.Name + "(";
 
-                availableMethods.text += ");\n";
+                inheritedMembers.text += ")\n";
                 
             }
         }

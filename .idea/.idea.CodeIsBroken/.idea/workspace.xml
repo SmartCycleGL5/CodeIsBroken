@@ -6,14 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/SyntaxHighlighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/SyntaxHighlighting.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/TerminalSyle.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/TerminalSyle.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,25 +51,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Roslyn2&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "Roslyn2",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/MonoBuild\CodeIsBroken.exe" />
@@ -196,7 +200,8 @@
       <workItem from="1762949566195" duration="3019000" />
       <workItem from="1762987890073" duration="328000" />
       <workItem from="1762988624761" duration="2838000" />
-      <workItem from="1763030401590" duration="2721000" />
+      <workItem from="1763030401590" duration="3603000" />
+      <workItem from="1763059870466" duration="1618000" />
     </task>
     <servers />
   </component>

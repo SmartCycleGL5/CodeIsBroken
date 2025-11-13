@@ -6,10 +6,12 @@ using UnityEngine;
 public abstract class Machine : MonoBehaviour
 {
     public int tick;
+    public bool active = true;
     
     private void Awake()
     {
         BaseMachine machine = GetComponent<BaseMachine>();
+        machine.variableInfo.Clear();
         machine.methodInfo.Clear();
         machine.AddMethodsAsIntegrated(typeof(Machine));
 
@@ -21,13 +23,14 @@ public abstract class Machine : MonoBehaviour
         Tick.OnTick -= UpdateVariables;
     }
 
+    public void SetActive(bool toggle)
+    {
+        enabled = toggle;
+    }
+
     private void UpdateVariables()
     {
         tick = Tick.tickCount;
-    }
-
-    public virtual void Reset()
-    {
-
+        active = enabled;
     }
 }     

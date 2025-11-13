@@ -41,6 +41,8 @@ namespace SharpCube.Highlighting
             { "public", ColorPallate.Type.modifierColor },
             { "protected", ColorPallate.Type.modifierColor },
             { "internal", ColorPallate.Type.modifierColor },
+            
+            { "static", ColorPallate.Type.modifierColor },
 
             { "if", ColorPallate.Type.conditionalColor },
             { "else", ColorPallate.Type.conditionalColor },

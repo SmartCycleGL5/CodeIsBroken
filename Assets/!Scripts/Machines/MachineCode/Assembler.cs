@@ -26,7 +26,7 @@ namespace CodeIsBroken
         //    errorLogger = GetComponent<UserErrorLogger>();
         //}
     
-        public override void Reset()
+        private void Reset()
         {
             ClearMachine();
         }

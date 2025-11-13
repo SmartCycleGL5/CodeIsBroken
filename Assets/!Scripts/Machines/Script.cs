@@ -16,6 +16,10 @@ public class Script
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
     public ScriptProxy proxy { get; private set; }
+
+    private static string startMethod => "StartTick";
+    private static string updateMethod => "OnTick";
+    
     static string DefaultCode(string className, string parentClass)
     {
         return
@@ -23,14 +27,14 @@ public class Script
             $"public class {className} : {parentClass}" +
             "\n{" +
 
-            "\n\tprivate void StartTick()" +
+            $"\n\tprivate void {startMethod}()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t}" +
 
             "\n\t" +
 
-            "\n\tprivate void OnTick()" +
+            $"\n\tprivate void {updateMethod}()" +
             "\n\t{" +
             "\n\t\t" +
             "\n\t}" +
@@ -53,24 +57,23 @@ public class Script
     public void Run()
     {
         ScriptManager.Compile();
+        
+        Tick.OnStartingTick += StartTick;
+        Tick.OnTick += OnTick;
     }
     public void Terminate()
     {
-        Debug.Log("Terminated");
         Tick.OnStartingTick -= StartTick;
         Tick.OnTick -= OnTick;
     }
 
     void StartTick()
     {
-        Debug.Log("start");
-        proxy.Methods.Call("StartTick");
+        proxy.Methods.Call(startMethod);
     }
     void OnTick()
     {
-        Debug.Log("ontick");
-        //Debug.Log(proxy.Methods.Call("OnTick"));
-        //proxy.Methods.Call("OnTick");
+        proxy.Methods.Call(updateMethod);
     }
     
     public void Edit()
@@ -107,9 +110,6 @@ public class Script
             proxy = type.CreateInstance(connectedMachine.gameObject);
         else
             proxy = type.CreateInstance();
-        
-        Tick.OnStartingTick += StartTick;
-        Tick.OnTick += OnTick;
 
         return true;
     }

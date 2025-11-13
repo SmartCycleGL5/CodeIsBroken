@@ -11,7 +11,8 @@ public class BaseMachine : MonoBehaviour
 
     public List<Script> attachedScripts = new();
 
-    public List<MethodInfo> methodInfos = new();
+    public List<FieldInfo> variableInfo = new();
+    public List<MethodInfo> methodInfo = new();
 
 
     public bool Initialized { get; private set; } = false;
@@ -43,14 +44,19 @@ public class BaseMachine : MonoBehaviour
 
    public void AddMethodsAsIntegrated(System.Type machine)
    {
+       foreach (var item in machine.GetFields(BindingFlags.Public  | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+       {
+           if(item.IsSpecialName) continue;
+           
+           variableInfo.Add(item);
+       }
         foreach (var item in machine.GetMethods())
         {
             if (item.GetBaseDefinition() == item)
             {
-                //if (item.IsSpecialName) continue;
-
-                Debug.Log(item.Name);
-                methodInfos.Add(item);
+                if (item.IsSpecialName) continue;
+                
+                methodInfo.Add(item);
             }
         }
    }

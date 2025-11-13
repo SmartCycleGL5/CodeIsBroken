@@ -136,13 +136,23 @@ namespace ScriptEditor
         }
         void DisplayIntegratedMethods()
         {
-            availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n";
+            //availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n\n";
 
-            foreach (var method in scriptToEdit.connectedMachine.methodInfos)
+            availableMethods.text += "variables:\n";
+            
+            foreach (var info in scriptToEdit.connectedMachine.variableInfo)
             {
-                availableMethods.text += "\n" + method.Name + "(";
+                availableMethods.text += info.Name + ";\n";
 
-                availableMethods.text += ");";
+            }
+            
+            availableMethods.text += "\nmethods:\n";
+
+            foreach (var info in scriptToEdit.connectedMachine.methodInfo)
+            {
+                availableMethods.text += info.Name + "(";
+
+                availableMethods.text += ");\n";
                 
             }
         }

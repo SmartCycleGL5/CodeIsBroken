@@ -55,7 +55,7 @@ namespace CodeIsBroken
             if (cell == null)
             {
                 Debug.Log("[MaterialTube] Nothing in adjacent cell");
-                errorLogger.DisplayWarning("No conveyor found!");
+                //errorLogger.DisplayWarning("No conveyor found!");
                 return;
             }
     

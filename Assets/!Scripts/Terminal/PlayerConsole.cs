@@ -14,19 +14,19 @@ namespace ScriptEditor.Console
 
         public static void Log(object message)
         {
-            object msg = $"[{Tick.tick}] " + message;
+            object msg = $"[{Tick.tickCount}] " + message;
             Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
         public static void LogWarning(object message)
         {
-            object msg = $"[{Tick.tick}] <color=yellow>{message}</color>";
+            object msg = $"[{Tick.tickCount}] <color=yellow>{message}</color>";
             Debug.Log("[PlayerConsole] " + msg);
             LogEvent?.Invoke(msg);
         }
         public static void LogError(object message, bool throwException = false)
         {
-            object msg = $"[{Tick.tick}] <color=red>{message}</color>";
+            object msg = $"[{Tick.tickCount}] <color=red>{message}</color>";
             LogEvent?.Invoke(msg);
 
             if (throwException)

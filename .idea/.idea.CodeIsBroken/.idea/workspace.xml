@@ -5,31 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug/CodeIsBroken.Debug.asmdef" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/Debug/CodeIsBroken.Debug.asmdef.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Debug.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/BaseMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CodeIsBroken.Machines.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CodeIsBroken.Machines.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Laser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Machine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/PainterMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/PainterMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Saw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Saw.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/References/Assembly-CSharp.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/References/Assembly-CSharp.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +195,8 @@
       <workItem from="1762946115025" duration="222000" />
       <workItem from="1762949566195" duration="3019000" />
       <workItem from="1762987890073" duration="328000" />
-      <workItem from="1762988624761" duration="2626000" />
+      <workItem from="1762988624761" duration="2838000" />
+      <workItem from="1763030401590" duration="2721000" />
     </task>
     <servers />
   </component>

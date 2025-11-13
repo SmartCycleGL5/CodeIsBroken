@@ -99,9 +99,6 @@ public class ScriptManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var item in playerScripts)
-        {
-            item.Value.Terminate();
-        }
+        StopMachines();
     }
 }

@@ -29,6 +29,7 @@ public class Script
             $"public class {className} : {parentClass}" +
             "\n{" +
 
+            "\n\t//Runs once on Run" +
             $"\n\tprivate void {startMethod}()" +
             "\n\t{" +
             "\n\t\t" +
@@ -36,6 +37,7 @@ public class Script
 
             "\n\t" +
 
+            "\n\t//Runs once every second" +
             $"\n\tprivate void {updateMethod}()" +
             "\n\t{" +
             "\n\t\t" +

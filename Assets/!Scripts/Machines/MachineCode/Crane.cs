@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace CodeIsBroken
 {
-    public class CraneMachine : Machine, IItemContainer
+    public class Crane : Machine, IItemContainer
     {
         private Transform piviot;
         private Transform arm;
@@ -22,7 +22,7 @@ namespace CodeIsBroken
         private void Start()
         {
             BaseMachine machine = GetComponent<BaseMachine>();
-            machine.AddMethodsAsIntegrated(typeof(CraneMachine));
+            machine.AddMethodsAsIntegrated(typeof(Crane));
             
             ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
             piviot = referenceHolder.GetReference("craneBase").transform;

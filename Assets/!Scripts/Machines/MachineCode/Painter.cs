@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeIsBroken
 {
-    public class PainterMachine : Machine
+    public class Painter : Machine
     {
         Item item;
         private PainterConveyor painterConveyor;
@@ -12,7 +12,7 @@ namespace CodeIsBroken
         void Start()
         {
             BaseMachine machine = GetComponent<BaseMachine>();
-            machine.AddMethodsAsIntegrated(typeof(PainterMachine));
+            machine.AddMethodsAsIntegrated(typeof(Painter));
             
             painterConveyor = GetComponent<PainterConveyor>();
 

@@ -18,13 +18,14 @@ namespace CodeIsBroken
         public Item item { get; set; }
     
     
-        //protected override void Start() no more start
-        //{
-        //    AddMethodsAsIntegrated(typeof(Assembler));
-        //    base.Start();
-        //    Tick.OnTick += TakeItem;
-        //    errorLogger = GetComponent<UserErrorLogger>();
-        //}
+        void Start()
+        {
+            BaseMachine machine = GetComponent<BaseMachine>();
+            machine.AddMethodsAsIntegrated(typeof(Assembler));
+
+            Tick.OnTick += TakeItem;
+            errorLogger = GetComponent<UserErrorLogger>();
+        }
     
         private void Reset()
         {
@@ -60,8 +61,7 @@ namespace CodeIsBroken
                 }
             }
         }
-    
-        [DontIntegrate]
+        
         private void TakeItem()
         {
             Debug.Log("TakeItem");
@@ -83,7 +83,7 @@ namespace CodeIsBroken
             items.Clear();
         }
     
-        [DontIntegrate]
+
         public bool RemoveItem(out Item removedItem)
         {
             removedItem = null;
@@ -97,7 +97,7 @@ namespace CodeIsBroken
     
             return true;
         }
-        [DontIntegrate]
+
         public bool SetItem(Item item)
         {
             if (this.item != null) return false;
@@ -105,13 +105,13 @@ namespace CodeIsBroken
             moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
             return true;
         }
-        [DontIntegrate]
+
         public bool RemoveItem()
         {
             return RemoveItem(out Item item);
         }
     
-        [DontIntegrate]
+
         protected void OnDestroy()
         {
             Tick.OnTick -= TakeItem;

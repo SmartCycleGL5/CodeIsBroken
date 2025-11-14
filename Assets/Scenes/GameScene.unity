@@ -171,17 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaterialTube BUilding (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2116484857}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
 --- !u!1 &4607671
 GameObject:
@@ -215,12 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe13188be97654185111628350c0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assembler
-  machineCode:
-    name: 
-    Code: 
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
+  tick: 0
+  active: 1
   assemblerSize: 0
   items: []
   craftingRecipies:
@@ -500,6 +489,7 @@ GameObject:
   - component: {fileID: 357034588}
   - component: {fileID: 357034590}
   - component: {fileID: 357034591}
+  - component: {fileID: 357034592}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -519,6 +509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47c1bbadcf956b41b7333fdd38a0e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coding.ScriptManager
+  playerScripts:
+    _serializedList: []
 --- !u!4 &357034589
 Transform:
   m_ObjectHideFlags: 0
@@ -569,6 +561,40 @@ MonoBehaviour:
       Value: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
     - Key: 6
       Value: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+--- !u!114 &357034592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1dc07692c7ed841aac341926e3998f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken.Base::ColorThemes
+  Themes:
+    _serializedList:
+    - Key: Default
+      Value:
+        Colors:
+          _serializedList:
+          - Key: 0
+            Value: {r: 1, g: 1, b: 1, a: 1}
+          - Key: 1
+            Value: {r: 0, g: 0, b: 0, a: 1}
+          - Key: 2
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 3
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 4
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 5
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 7
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
+          - Key: 6
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
 --- !u!1 &389008676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5631336514476434366, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
@@ -818,45 +844,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 1507137598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &530955614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530955613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d67fe85daca2f644b33dfcedc766fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceOnStart
 --- !u!4 &530955618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 1507137598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &530955619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9214029674004761619, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-  m_PrefabInstance: {fileID: 1507137598}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530955613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MachineUIController
---- !u!114 &530955620 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1428020738065697817, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-  m_PrefabInstance: {fileID: 1507137598}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530955613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3019211792bb92f4e8edcf33e14139d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &557035048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1269,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa908acf0120e4b950cb770e5a3315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1291140327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5033067179267461368, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
+  m_PrefabInstance: {fileID: 1291140318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389008676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &1507137598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1329,29 +1332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaterialTube BUilding
       objectReference: {fileID: 0}
-    - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: scriptsToActivate.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: 'scriptsToActivate.Array.data[0]'
-      value: 
-      objectReference: {fileID: 530955620}
-    - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: 'scriptsToActivate.Array.data[1]'
-      value: 
-      objectReference: {fileID: 530955619}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 530955614}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
 --- !u!1 &1592860293
 GameObject:
@@ -1584,35 +1568,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaterialTube BUilding (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2076160207}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
 --- !u!1 &2076160206 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 2011019947}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2076160207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076160206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d67fe85daca2f644b33dfcedc766fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceOnStart
 --- !u!4 &2076160211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
@@ -1623,18 +1588,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
   m_PrefabInstance: {fileID: 4340180}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2116484857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116484856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d67fe85daca2f644b33dfcedc766fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaceOnStart
 --- !u!4 &2116484861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 850220021732057810, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
@@ -1764,8 +1717,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28769768684a69b40acfcd7c308a170e, type: 2}
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
-  buildingMenuPanel: {fileID: 929964379198931661}
-  button: {fileID: 5973821873067232629, guid: b8e0a54be2caf7e4997ddd56a7b7c561, type: 3}
+  buildingButtonTemplate: {fileID: 9197481963319205126, guid: 059ab6987b8ea384fa556a041657d4f0, type: 3}
+  uiDoc: {fileID: 1291140327}
+  isBuilding: 1
+  arrowDown: {fileID: 21300000, guid: 7cb2c98cf348c7d489482d7ac1ac8f96, type: 3}
+  arrowUp: {fileID: 21300000, guid: 92936c042e0d3534586452e2fbe92515, type: 3}
 --- !u!156049354 &493899198845114267
 Grid:
   m_ObjectHideFlags: 0
@@ -2149,7 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e012e7a095df340b34bb09b284052c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorManager
-  gridBuilder: {fileID: 0}
+  gridBuilder: {fileID: 3008056812779239553}
 --- !u!114 &6828413919741800735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputs
   buildingInput: {fileID: 5631033168589675713}
   machineInput: {fileID: 5962536211833835727}
-  buildingMenu: {fileID: 929964379198931661}
   cam: {fileID: 8561771419572170403}
   terminal: {fileID: 0}
   player: {fileID: 3323748746105681420}

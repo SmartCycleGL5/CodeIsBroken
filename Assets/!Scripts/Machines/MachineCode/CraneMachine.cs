@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
@@ -17,9 +18,14 @@ namespace CodeIsBroken
         private bool pickUp;
         private bool drop;
         public Item item { get; set; }
-    
-        
-    
+
+        private void Start()
+        {
+            ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
+            piviot = referenceHolder.GetReference("craneBase").transform;
+            Debug.Log("Crane: "+piviot);
+        }
+
         public void Rotate(int degrees)
         {
             Metrics.instance.UseElectricity((int)degrees/90);

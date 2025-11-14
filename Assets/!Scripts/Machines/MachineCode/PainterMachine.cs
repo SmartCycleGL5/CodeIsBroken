@@ -5,16 +5,19 @@ namespace CodeIsBroken
 {
     public class PainterMachine : Machine
     {
-        public Item item;
+        Item item;
         private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
 
         void Start()
         {
-            painterConveyor = GetComponent<PainterConveyor>();
+            BaseMachine machine = GetComponent<BaseMachine>();
+            machine.AddMethodsAsIntegrated(typeof(PainterMachine));
+            
+            //painterConveyor = GetComponent<PainterConveyor>();
         }
         public void Paint(string PrimaryColor)
-        {
+        {/*
             item = painterConveyor.item;
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
@@ -35,7 +38,7 @@ namespace CodeIsBroken
                 default:
                     return;
     
-            }
+            }*/
         }
     
         private void OnDestroy()

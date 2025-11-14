@@ -30,6 +30,7 @@ public abstract class Machine : MonoBehaviour
 
     private void UpdateVariables()
     {
+        Debug.Log(this);
         tick = Tick.tickCount;
         active = enabled;
     }

@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="" />
+    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/Crane.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/Crane.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Assembler.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Assembler.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Crane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Crane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/MaterialTube.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/MaterialTube.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Painter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/Machines/Painter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/Assembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/CraneMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Machines.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Crane Old/Crane_final.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Crane Old/Crane_final.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Crane.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Crane.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Crane/Model/Crane_final.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Tomass Messing Around Folder/Models/Crane/Model/Crane_final.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Assembler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Assembler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +213,7 @@
       <workItem from="1763059870466" duration="3428000" />
       <workItem from="1763073051434" duration="1286000" />
       <workItem from="1763109023745" duration="7079000" />
-      <workItem from="1763118594204" duration="6804000" />
+      <workItem from="1763118594204" duration="9186000" />
     </task>
     <servers />
   </component>

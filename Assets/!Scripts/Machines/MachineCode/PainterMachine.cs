@@ -41,11 +41,11 @@ namespace CodeIsBroken
             }*/
         }
     
-        private void OnDestroy()
-        {
-            if (item == null) return;
-            Destroy(item);
-        }
+        //private void OnDestroy()
+        //{
+        //    if (item == null) return;
+        //    Destroy(item);
+        //}
     
     }
 

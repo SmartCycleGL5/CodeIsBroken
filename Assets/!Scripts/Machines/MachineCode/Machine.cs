@@ -8,7 +8,7 @@ public abstract class Machine : MonoBehaviour
     public int tick;
     public bool active = true;
     
-    private void OnEnable()
+    private void Awake()
     {
         BaseMachine machine = GetComponent<BaseMachine>();
         machine.variableInfo.Clear();
@@ -17,8 +17,7 @@ public abstract class Machine : MonoBehaviour
 
         Tick.OnTick += UpdateVariables;
     }
-
-    private void OnDisable()
+    protected virtual void OnDestroy()
     {
         Tick.OnTick -= UpdateVariables;
     }

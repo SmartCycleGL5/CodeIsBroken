@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace CodeIsBroken
 {
-    public static class Debug
+    public static class Console
     {
-        public static void Log(object message)
+        public static void WriteLine(object message)
         {
             PlayerConsole.Log(message);
         }
-        public static void LogWarning(object message)
+        public static void WriteWarning(object message)
         {
             PlayerConsole.LogWarning(message);
         }
-        public static void LogError(object message)
+        public static void WriteError(object message)
         {
             PlayerConsole.LogError(message);
         }

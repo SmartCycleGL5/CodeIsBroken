@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
-  toDeriveFrom: CraneMachine
+  toDeriveFrom: Crane
   attachedScripts: []
 --- !u!114 &7360716299285168666
 MonoBehaviour:

@@ -2,6 +2,7 @@ using System;
 using ScriptEditor.Console;
 using UnityEngine;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 namespace CodeIsBroken
 {
@@ -79,6 +80,7 @@ namespace CodeIsBroken
             if(conveyor.item != null)return;
             Debug.Log("[MaterialTube] got material");
             Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
+            instObj.gameObject.transform.Rotate(new Vector3(0, Random.Range(0, 359), 0));
             conveyor.SetItem(instObj);
             lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);
 

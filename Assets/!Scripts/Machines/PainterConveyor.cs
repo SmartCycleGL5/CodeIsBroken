@@ -4,9 +4,8 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     Tweener moveTween;
     public Item item { get; set; }
-
-
-
+    [SerializeField] ParticleSystem particle;
+    
     void Start()
     {
         Tick.OnTick += TakeItem;
@@ -38,6 +37,11 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         //PainterMachine.item = item; we need a different solution lol
     }
 
+    public void PaintEffect()
+    {
+            particle.Play();
+    }
+    
     public bool RemoveItem(out Item removedItem)
     {
         removedItem = null;

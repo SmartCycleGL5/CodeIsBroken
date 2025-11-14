@@ -80,11 +80,11 @@ public class Modification
         {
             if(!item.changedColor)
             {
-                item.artRenderer.material.SetColor("_Color", new UnityEngine.Color(0, 0, 0, 1));
+                item.artRenderer.material.SetColor("_Colour", new UnityEngine.Color(0, 0, 0, 1));
                 item.changedColor = true;
             }
 
-            item.artRenderer.material.SetColor("_Color", item.artRenderer.material.GetColor("_Color") + color);
+            item.artRenderer.material.SetColor("_Colour", item.artRenderer.material.GetColor("_Colour") + color);
         }
 
         public override bool Compare(Modification toCompareWith)

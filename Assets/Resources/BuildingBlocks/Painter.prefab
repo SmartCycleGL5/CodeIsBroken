@@ -533,6 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf5c2a3e82eb84448161fe152158c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PainterConveyor
+  particle: {fileID: 59269375116273499}
 --- !u!114 &6144978722032048261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Base::BaseMachine
-  toDeriveFrom: PainterMachine
+  toDeriveFrom: Painter
   attachedScripts: []
 --- !u!1 &6959536395488756687
 GameObject:
@@ -884,6 +885,77 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.84, z: 1}
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!1001 &4490498870244182057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 643938442552049356}
+    m_Modifications:
+    - target: {fileID: 4504696667394535282, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.108
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164008836530405301, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+      propertyPath: m_Name
+      value: SprayPaintParticles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+--- !u!198 &59269375116273499 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4504696667394535282, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+  m_PrefabInstance: {fileID: 4490498870244182057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7750659258014006007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6187571407664640734, guid: 2362c14cca75e2c4a9773f3556846862, type: 3}
+  m_PrefabInstance: {fileID: 4490498870244182057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6589821391128070651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,9 +1030,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0a411ab8695cd134c8bdeb6a6b129335, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6024696165411190583, guid: 7fb22987c31bc304d9f257d8df4f57ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7750659258014006007}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fb22987c31bc304d9f257d8df4f57ea, type: 3}
+--- !u!4 &643938442552049356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024696165411190583, guid: 7fb22987c31bc304d9f257d8df4f57ea, type: 3}
+  m_PrefabInstance: {fileID: 6589821391128070651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5170397688301186640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2068083419644225451, guid: 7fb22987c31bc304d9f257d8df4f57ea, type: 3}

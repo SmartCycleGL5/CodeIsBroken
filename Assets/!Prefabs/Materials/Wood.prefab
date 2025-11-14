@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   definition:
     materials: 2
-  icon: {fileID: 21300000, guid: 50ceed2423103ac4592c8069362ffe7e, type: 3}
+  icon: {fileID: 21300000, guid: 86b53a1619f83cdd99504ab8279517f9, type: 3}
   artRenderer: {fileID: 882578288086400146}
   destroyOnPause: 1
   changedColor: 0

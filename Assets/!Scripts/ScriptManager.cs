@@ -8,7 +8,7 @@ using ScriptEditor.Console;
 using System.Threading.Tasks;
 public class ScriptManager : MonoBehaviour
 {
-    public SerializedDictionary<string, Script> playerScripts = new();
+    public SerializedDictionary<string, Script> activePlayerScripts = new();
     public static ScriptManager instance;
 
     public static ScriptDomain scriptDomain;
@@ -42,7 +42,7 @@ public class ScriptManager : MonoBehaviour
 
         Compile();
 
-        foreach (var script in instance.playerScripts)
+        foreach (var script in instance.activePlayerScripts)
         {
             script.Value.Run();
         }
@@ -63,7 +63,7 @@ public class ScriptManager : MonoBehaviour
 
         Debug.Log("[ScriptManager] Ending");
 
-        foreach (var script in instance.playerScripts)
+        foreach (var script in instance.activePlayerScripts)
         {
             script.Value.Terminate();
         }
@@ -91,7 +91,7 @@ public class ScriptManager : MonoBehaviour
     {
         bool success = true;
         
-        foreach (var script in instance.playerScripts)
+        foreach (var script in instance.activePlayerScripts)
         {
             if(!script.Value.Compile())
                 success = false;

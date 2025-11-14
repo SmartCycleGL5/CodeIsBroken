@@ -51,7 +51,7 @@ public class Script
     {
         this.name = className;
         connectedMachine = machine;
-        ScriptManager.instance.playerScripts.Add(name, this);
+        ScriptManager.instance.activePlayerScripts.Add(name, this);
 
         Debug.Log(connectedMachine);
 

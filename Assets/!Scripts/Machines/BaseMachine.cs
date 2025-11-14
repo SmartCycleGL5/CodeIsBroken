@@ -14,9 +14,6 @@ public class BaseMachine : MonoBehaviour
     public List<FieldInfo> variableInfo = new();
     public List<MethodInfo> methodInfo = new();
 
-
-    public bool Initialized { get; private set; } = false;
-
     [Button]
     public void AddScript()
     {
@@ -30,8 +27,12 @@ public class BaseMachine : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (!Initialized) return;
         ScriptManager.instance.RemoveMachine(this);
+
+        foreach (var script in attachedScripts)
+        {
+            ScriptManager.instance.activePlayerScripts.Remove(script.name);
+        }
     }
 
 

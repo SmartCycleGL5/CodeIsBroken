@@ -21,44 +21,56 @@ namespace CodeIsBroken
 
         private void Start()
         {
+            BaseMachine machine = GetComponent<BaseMachine>();
+            machine.AddMethodsAsIntegrated(typeof(CraneMachine));
+            
             ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
             piviot = referenceHolder.GetReference("craneBase").transform;
+            holdLocation = referenceHolder.GetReference("holdLocation").transform;
+            grabLocation = referenceHolder.GetReference("grabLocation").transform;
             Debug.Log("Crane: "+piviot);
         }
 
+        public bool HasItem()
+        {
+            return item != null;
+        }
         public void Rotate(int degrees)
         {
             Metrics.instance.UseElectricity((int)degrees/90);
     
             if (rotationTween != null) return;
-            rotationTween = piviot.DORotate(new Vector3(0, piviot.rotation.eulerAngles.y+degrees, 0), 0.5f, RotateMode.FastBeyond360).OnComplete(() =>
+            rotationTween = piviot.DOLocalRotate(new Vector3(0,0,piviot.localEulerAngles.z+degrees), 0.5f, RotateMode.FastBeyond360).OnComplete(() =>
             {
+                if(pickUp || drop) GrabLoseItem();
                 rotationTween = null;
-                if(pickUp) GrabLoseItem();
-                pickUp = false;
             });
         }
     
         public void PickUp()
         {
+            if (item != null) return;
             if (rotationTween != null)
             {
                 pickUp = true;
             }
             else
             {
+                pickUp = true;
                 GrabLoseItem();
             }
         }
 
         public void Drop()
         {
+            if (item == null) return;
             if (rotationTween != null)
             {
                 drop = true;
             }
             else
             {
+                drop = true;
                 GrabLoseItem();
             }
         }
@@ -67,19 +79,15 @@ namespace CodeIsBroken
         {
             //Metrics.instance.UseElectricity(1);
             GameObject cell = GridBuilder.instance.LookUpCell(grabLocation.position);
-    
+            Debug.Log("Craneee, "+cell);
             if (cell == null)
             {
-                pickUp = false;
-                drop = false;
                 Debug.Log("[Crane] Nothing in cell");
                 return;
             }
     
             if (!cell.TryGetComponent(out Conveyor conveyor))
             {
-                pickUp = false;
-                drop = false;
                 Debug.Log("[Crane] Cell not conveyor");
                 return;
             }
@@ -89,24 +97,27 @@ namespace CodeIsBroken
                 if (conveyor.item == null)
                 {
                     Debug.Log("[Crane] No Item on conveyor");
-                    pickUp = false;
-                    drop = false;
                     return;
                 }
     
-                if (pickUp && SetItem(conveyor.item))
+                if (pickUp)
                 {
+                    SetItem(conveyor.item);
                     Debug.Log("[Crane] Grab");
                     conveyor.RemoveItem();
                     pickUp = false;
                 }
             }
-            else if (drop && conveyor.SetItem(item))
+            else if (drop && conveyor.item == null)
             {
+                conveyor.SetItem(item);
                 RemoveItem();
                 drop = false;
             }
         }
+        
+        
+        
         public bool SetItem(Item item)
         {
     

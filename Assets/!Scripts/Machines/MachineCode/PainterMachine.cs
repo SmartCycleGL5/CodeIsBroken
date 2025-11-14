@@ -15,13 +15,23 @@ namespace CodeIsBroken
             machine.AddMethodsAsIntegrated(typeof(PainterMachine));
             
             painterConveyor = GetComponent<PainterConveyor>();
+
+            Tick.OnTick += UpdateItem;
+        }
+
+        private void UpdateItem()
+        {
+            item = painterConveyor.item;
+        }
+        
+        public bool HasItem()
+        {
+            return item != null;
         }
         public void Paint(string PrimaryColor)
         {
-            item = painterConveyor.item;
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
-            item = painterConveyor.item;
             if (item == null) return;
     
             switch (PrimaryColor)

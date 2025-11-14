@@ -519,7 +519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Building
   buildingCells:
   - {fileID: 9067031396478924409}
-  scriptsToActivate: []
+  scriptsToActivate:
+  - {fileID: -911345775585101580}
 --- !u!114 &-911345775585101580
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ namespace CodeIsBroken
             //painterConveyor = GetComponent<PainterConveyor>();
         }
         public void Paint(string PrimaryColor)
-        {/*
+        {
             item = painterConveyor.item;
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
@@ -38,7 +38,7 @@ namespace CodeIsBroken
                 default:
                     return;
     
-            }*/
+            }
         }
     
         private void OnDestroy()

@@ -238,13 +238,14 @@ GameObject:
   - component: {fileID: 9214029674004761619}
   - component: {fileID: 165588971449680468}
   - component: {fileID: 4957907254097424411}
+  - component: {fileID: 6505023197043100097}
   m_Layer: 0
   m_Name: MaterialTube BUilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &850220021732057810
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +278,6 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 4569153384676419293}
   scriptsToActivate:
-  - {fileID: 0}
   - {fileID: 9214029674004761619}
 --- !u!114 &9214029674004761619
 MonoBehaviour:
@@ -324,6 +324,18 @@ MonoBehaviour:
       Value: {fileID: 8718735706113119580}
     - Key: spawnLocation
       Value: {fileID: 7082907703644039351}
+--- !u!114 &6505023197043100097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835777250307342540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d67fe85daca2f644b33dfcedc766fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaceOnStart
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0

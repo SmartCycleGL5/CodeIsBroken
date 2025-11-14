@@ -520,7 +520,6 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 9067031396478924409}
   scriptsToActivate:
-  - {fileID: 0}
   - {fileID: -911345775585101580}
 --- !u!114 &-911345775585101580
 MonoBehaviour:
@@ -884,7 +883,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1.84, z: 1}
   m_Center: {x: 0, y: 0.87, z: 0}

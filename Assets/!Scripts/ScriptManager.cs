@@ -14,7 +14,7 @@ public class ScriptManager : MonoBehaviour
     public static ScriptDomain scriptDomain;
     public static bool isRunning { get; private set; }
 
-    public static List<BaseMachine> machines = new();
+    public static List<Programmable> machines = new();
 
     private void Awake()
     {
@@ -78,11 +78,11 @@ public class ScriptManager : MonoBehaviour
 
     }
 
-    public void AddMachine(BaseMachine machine)
+    public void AddMachine(Programmable machine)
     {
         machines.Add(machine);
     }
-    public void RemoveMachine(BaseMachine machine)
+    public void RemoveMachine(Programmable machine)
     {
         machines.Remove(machine);
     }

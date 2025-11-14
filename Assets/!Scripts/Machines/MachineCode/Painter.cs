@@ -11,7 +11,7 @@ namespace CodeIsBroken
 
         void Start()
         {
-            BaseMachine machine = GetComponent<BaseMachine>();
+            Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(Painter));
             
             painterConveyor = GetComponent<PainterConveyor>();

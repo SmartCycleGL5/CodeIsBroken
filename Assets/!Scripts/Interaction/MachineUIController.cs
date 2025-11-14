@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BaseMachine))]
+[RequireComponent(typeof(Programmable))]
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
@@ -26,7 +26,7 @@ public class MachineUIController : MonoBehaviour
     {
 
         
-        if (gameObject.TryGetComponent(out BaseMachine machine))
+        if (gameObject.TryGetComponent(out Programmable machine))
         {
             if(machine.attachedScripts.Count == 0)
                 machine.AddScript();

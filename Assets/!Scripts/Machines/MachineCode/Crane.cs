@@ -21,7 +21,7 @@ namespace CodeIsBroken
 
         private void Start()
         {
-            BaseMachine machine = GetComponent<BaseMachine>();
+            Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(Crane));
             
             ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();

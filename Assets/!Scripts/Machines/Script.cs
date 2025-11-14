@@ -10,7 +10,7 @@ using UnityEngine;
 public class Script
 {
     public string name;
-    public BaseMachine connectedMachine;
+    public Programmable connectedMachine;
 
     Terminal terminal;
 
@@ -47,7 +47,7 @@ public class Script
     }
 
 
-    public Script(string className, string parentClass, BaseMachine machine = null)
+    public Script(string className, string parentClass, Programmable machine = null)
     {
         this.name = className;
         connectedMachine = machine;

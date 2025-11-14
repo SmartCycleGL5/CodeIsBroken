@@ -24,7 +24,7 @@ namespace CodeIsBroken
         private void Start()
         {
             Tick.OnTick += GetMaterial;
-            BaseMachine machine = GetComponent<BaseMachine>();
+            Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(MaterialTube));
 
             

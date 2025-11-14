@@ -10,7 +10,7 @@ public abstract class Machine : MonoBehaviour
     
     private void OnEnable()
     {
-        BaseMachine machine = GetComponent<BaseMachine>();
+        Programmable machine = GetComponent<Programmable>();
         machine.variableInfo.Clear();
         machine.methodInfo.Clear();
         machine.AddMethodsAsIntegrated(typeof(Machine));

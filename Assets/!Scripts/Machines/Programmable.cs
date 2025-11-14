@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEngine;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
-public class BaseMachine : MonoBehaviour
+public class Programmable : MonoBehaviour
 {
     [InfoBox("The name of the monobehaviour class")]
     public string toDeriveFrom;

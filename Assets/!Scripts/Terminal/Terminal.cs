@@ -184,7 +184,7 @@ namespace ScriptEditor
             HighlightCode();
         }
 
-        public static Terminal NewTerminal(Script script, BaseMachine baseMachine = null)
+        public static Terminal NewTerminal(Script script, Programmable baseMachine = null)
         {
             Terminal newTerminal;
             if (baseMachine == null)

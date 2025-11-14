@@ -15,7 +15,7 @@ namespace Coding
     [Serializable]
     public static class Interporate
     {
-        public static void Classes(string script, BaseMachine machine)
+        public static void Classes(string script, Programmable machine)
         {
             //the script split into individual lines
             string[] scriptLines = ExtractLines(script).ToArray();

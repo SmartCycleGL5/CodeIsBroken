@@ -5,6 +5,7 @@ using RoslynCSharp;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptEditor.Console;
+using System.Threading.Tasks;
 public class ScriptManager : MonoBehaviour
 {
     public SerializedDictionary<string, Script> playerScripts = new();
@@ -34,11 +35,12 @@ public class ScriptManager : MonoBehaviour
     }
 
     [Button]
-    public static void StartMachines()
+    public static async void StartMachines()
     {
         if (isRunning) return;
         PlayerConsole.Clear();
 
+        Compile();
 
         foreach (var script in instance.playerScripts)
         {
@@ -48,6 +50,8 @@ public class ScriptManager : MonoBehaviour
         isRunning = true;
 
         Debug.Log("[ScriptManager] Starting");
+
+        await Task.Delay(1000);
 
         Tick.StartTick();
     }

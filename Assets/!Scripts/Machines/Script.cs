@@ -57,9 +57,7 @@ public class Script
     }
 
     public void Run()
-    {
-        ScriptManager.Compile();
-        
+    {        
         Tick.OnStartingTick += StartTick;
         Tick.OnTick += OnTick;
     }

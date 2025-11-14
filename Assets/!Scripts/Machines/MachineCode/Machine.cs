@@ -17,8 +17,7 @@ public abstract class Machine : MonoBehaviour
 
         Tick.OnTick += UpdateVariables;
     }
-
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         Tick.OnTick -= UpdateVariables;
     }

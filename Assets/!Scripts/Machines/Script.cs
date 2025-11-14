@@ -12,6 +12,8 @@ public class Script
     public string name;
     public BaseMachine connectedMachine;
 
+    Terminal terminal;
+
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
@@ -78,7 +80,8 @@ public class Script
     
     public void Edit()
     {
-        Terminal.NewTerminal(this, connectedMachine);
+        if (terminal != null) return;
+        terminal = Terminal.NewTerminal(this, connectedMachine);
     }
 
     public void Save(string code)
@@ -91,7 +94,9 @@ public class Script
     public bool Compile()
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
-        
+
+        if (proxy != null) proxy.Dispose();
+
         if (!compileResult.Success)
         {
             foreach (var error in compileResult.Errors)
@@ -102,8 +107,6 @@ public class Script
         }
 
         Debug.Log(connectedMachine);
-
-        if (proxy != null) proxy.Dispose();
 
         if (connectedMachine != null)
             proxy = type.CreateInstance(connectedMachine.gameObject);

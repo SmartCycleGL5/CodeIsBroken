@@ -23,6 +23,7 @@ namespace CodeIsBroken
 
         private void Start()
         {
+            Tick.OnTick += GetMaterial;
             BaseMachine machine = GetComponent<BaseMachine>();
             machine.AddMethodsAsIntegrated(typeof(MaterialTube));
 
@@ -37,10 +38,6 @@ namespace CodeIsBroken
 
             sequence.Append(lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid));
             sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
-        }
-        private void OnEnable()
-        {
-            Tick.OnTick += GetMaterial;
         }
 
         // Player controlled
@@ -58,7 +55,7 @@ namespace CodeIsBroken
         
         // Not player controlled
         
-        public void GetMaterial()
+        private void GetMaterial()
         {
             tickCount++;
             if(tickCount < spawnRate) return;
@@ -93,7 +90,7 @@ namespace CodeIsBroken
             lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             Tick.OnTick -= GetMaterial;
         }

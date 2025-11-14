@@ -322,8 +322,8 @@ MonoBehaviour:
     _serializedList:
     - Key: lid
       Value: {fileID: 8718735706113119580}
-    - Key: lid
-      Value: {fileID: 8718735706113119580}
+    - Key: spawnLocation
+      Value: {fileID: 7082907703644039351}
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +549,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5362953086219537834}
   m_SourcePrefab: {fileID: 100100000, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+--- !u!1 &7082907703644039351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7935390463072465191, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+  m_PrefabInstance: {fileID: 894985503074441616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7146338163404088772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8018452569668254804, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}

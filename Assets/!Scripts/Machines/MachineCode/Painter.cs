@@ -33,7 +33,7 @@ namespace CodeIsBroken
             Metrics.instance.UseElectricity(1);
             Debug.Log("Set color to: " + PrimaryColor);
             if (item == null) return;
-    
+            painterConveyor.PaintEffect();
             switch (PrimaryColor)
             {
                 case "Red":

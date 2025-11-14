@@ -14,19 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: HintEntries
   m_GUID: f5df6e977d268ec4ab1f93732f9308dc
-  m_SerializeEntries:
-  - m_GUID: 114514a34fecdce4faef720de94c00c9
-    m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - HintEntries
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c435daf5df6b691499bc171d2277b9c0
-    m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO 1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - HintEntries
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}
   m_SchemaSet:

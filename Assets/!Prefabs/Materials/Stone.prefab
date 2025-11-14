@@ -160,7 +160,7 @@ MonoBehaviour:
   definition:
     materials: 8
   icon: {fileID: 21300000, guid: 8c59b43ed1535a848972d97de3aee2e3, type: 3}
-  artRenderer: {fileID: 5373870341508210345}
+  artRenderer: {fileID: 4020905862633163328}
   destroyOnPause: 1
   changedColor: 0
 --- !u!1001 &5497768814935351996
@@ -228,6 +228,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}
+--- !u!23 &4020905862633163328 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -322325064454756100, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}
+  m_PrefabInstance: {fileID: 5497768814935351996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5458722179854910807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}

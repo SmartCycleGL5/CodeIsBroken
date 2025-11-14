@@ -14,7 +14,7 @@ namespace CodeIsBroken
             BaseMachine machine = GetComponent<BaseMachine>();
             machine.AddMethodsAsIntegrated(typeof(PainterMachine));
             
-            //painterConveyor = GetComponent<PainterConveyor>();
+            painterConveyor = GetComponent<PainterConveyor>();
         }
         public void Paint(string PrimaryColor)
         {
@@ -41,11 +41,11 @@ namespace CodeIsBroken
             }
         }
     
-        //private void OnDestroy()
-        //{
-        //    if (item == null) return;
-        //    Destroy(item);
-        //}
+        void OnDestroy()
+        {
+            if (item == null) return;
+            Destroy(item);
+        }
     
     }
 

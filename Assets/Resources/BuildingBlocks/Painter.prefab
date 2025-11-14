@@ -519,8 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Building
   buildingCells:
   - {fileID: 9067031396478924409}
-  scriptsToActivate:
-  - {fileID: -911345775585101580}
+  scriptsToActivate: []
 --- !u!114 &-911345775585101580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,9 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf5c2a3e82eb84448161fe152158c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PainterConveyor
-  input: {fileID: 0}
-  output: {fileID: 0}
-  PainterMachine: {fileID: 0}
 --- !u!114 &6144978722032048261
 MonoBehaviour:
   m_ObjectHideFlags: 0

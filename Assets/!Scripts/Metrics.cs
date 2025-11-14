@@ -49,7 +49,7 @@ public class Metrics : MonoBehaviour
     public void GenerateGraph(int level)
     {
         if(level <=3) return;
-        GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
+        //GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
     }
 
     private void OnDestroy()

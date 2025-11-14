@@ -31,6 +31,10 @@ namespace CodeIsBroken
             Debug.Log("Crane: "+piviot);
         }
 
+        public bool HasItem()
+        {
+            return item != null;
+        }
         public void Rotate(int degrees)
         {
             Metrics.instance.UseElectricity((int)degrees/90);
@@ -38,31 +42,35 @@ namespace CodeIsBroken
             if (rotationTween != null) return;
             rotationTween = piviot.DOLocalRotate(new Vector3(0,0,piviot.localEulerAngles.z+degrees), 0.5f, RotateMode.FastBeyond360).OnComplete(() =>
             {
-                rotationTween = null;
                 if(pickUp || drop) GrabLoseItem();
+                rotationTween = null;
             });
         }
     
         public void PickUp()
         {
+            if (item != null) return;
             if (rotationTween != null)
             {
                 pickUp = true;
             }
             else
             {
+                pickUp = true;
                 GrabLoseItem();
             }
         }
 
         public void Drop()
         {
+            if (item == null) return;
             if (rotationTween != null)
             {
                 drop = true;
             }
             else
             {
+                drop = true;
                 GrabLoseItem();
             }
         }
@@ -92,17 +100,24 @@ namespace CodeIsBroken
                     return;
                 }
     
-                if (SetItem(conveyor.item))
+                if (pickUp)
                 {
+                    SetItem(conveyor.item);
                     Debug.Log("[Crane] Grab");
                     conveyor.RemoveItem();
+                    pickUp = false;
                 }
             }
-            else if (conveyor.SetItem(item))
+            else if (drop && conveyor.item == null)
             {
+                conveyor.SetItem(item);
                 RemoveItem();
+                drop = false;
             }
         }
+        
+        
+        
         public bool SetItem(Item item)
         {
     

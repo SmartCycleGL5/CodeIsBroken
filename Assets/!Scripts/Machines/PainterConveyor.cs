@@ -1,16 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
-
-[DefaultExecutionOrder(10)]
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
-    
-    [SerializeField] Transform input;
-    [SerializeField] Transform output;
-    [SerializeField] PainterMachine PainterMachine;
-    
     Tweener moveTween;
     public Item item { get; set; }
+
 
 
     void Start()
@@ -41,7 +35,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
             conveyorIn.RemoveItem();
         }
 
-        PainterMachine.item = item;
+        //PainterMachine.item = item; we need a different solution lol
     }
 
     public bool RemoveItem(out Item removedItem)

@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
 
-        canvas = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Canvas");
+        canvas = GetComponent<UIDocument>().rootVisualElement;
         xpIndicator = canvas.Q<RadialFillElement>("radial-fill-element");
         levelIndicator = canvas.Q<Label>("Level");
 

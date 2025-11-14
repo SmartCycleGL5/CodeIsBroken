@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:engine="UnityEngine.UIElements" xmlns="UnityEditor.Accessibility" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:engine="UnityEngine.UIElements" xmlns:AddressablesGUI="UnityEditor.AddressableAssets.GUIElements" xmlns="NS.RomanLib" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="UnityEngine.UIElements.xsd" namespace="UnityEngine.UIElements" />
   <xs:import schemaLocation="UnityEditor.ShaderGraph.Drawing.xsd" namespace="UnityEditor.ShaderGraph.Drawing" />
   <xs:import schemaLocation="UnityEditor.Rendering.xsd" namespace="UnityEditor.Rendering" />
+  <xs:import schemaLocation="UnityEditor.U2D.Sprites.SpriteEditorTool.xsd" namespace="UnityEditor.U2D.Sprites.SpriteEditorTool" />
   <xs:import schemaLocation="UnityEditor.UIElements.Debugger.xsd" namespace="UnityEditor.UIElements.Debugger" />
   <xs:import schemaLocation="Unity.UI.Builder.xsd" namespace="Unity.UI.Builder" />
   <xs:import schemaLocation="UnityEditor.Search.xsd" namespace="UnityEditor.Search" />
@@ -18,4 +19,7 @@
   <xs:import schemaLocation="Unity.Profiling.Editor.UI.xsd" namespace="Unity.Profiling.Editor.UI" />
   <xs:import schemaLocation="UnityEditor.Inspector.GraphicsSettingsInspectors.xsd" namespace="UnityEditor.Inspector.GraphicsSettingsInspectors" />
   <xs:import schemaLocation="UnityEditor.Accessibility.xsd" namespace="UnityEditor.Accessibility" />
+  <xs:import schemaLocation="UnityEditor.AddressableAssets.GUIElements.xsd" namespace="UnityEditor.AddressableAssets.GUIElements" />
+  <xs:import schemaLocation="UnityEditor.AddressableAssets.Diagnostics.xsd" namespace="UnityEditor.AddressableAssets.Diagnostics" />
+  <xs:import schemaLocation="NS.RomanLib.xsd" namespace="NS.RomanLib" />
 </xs:schema>

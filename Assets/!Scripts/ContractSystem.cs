@@ -1,4 +1,5 @@
 using Coding;
+using Journal;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,7 @@ public class ContractSystem : MonoBehaviour
         ActiveContract = toSelect;
 
         instance.CreateDisplayItem();
+        JournalManager.instance.Contract(toSelect);
     }
 
     public static Contract NewContract()
@@ -124,16 +126,16 @@ public class Contract
 
     readonly string[] names = new string[]
     {
-        "Morning Wood",
-        "Rock Hard",
-        "Iron Patience",
+        "Wood",
+        "Stone",
+        "Iron",
         "Wood Carvers",
         "Stone Carvers"
     };
 
     public Contract(string name, int amountOfMods, int complexity)
     {
-        contractName = names[UnityEngine.Random.Range(0, names.Length -1)];
+        contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
 
         List<Modification> mods = new List<Modification>();
 

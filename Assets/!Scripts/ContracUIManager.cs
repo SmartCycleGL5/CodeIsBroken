@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Journal;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UIManager;
@@ -23,18 +24,19 @@ public class ContracUIManager : MonoBehaviour
 
         if (contractUI == null)
         {
-            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.GameObject);
+            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
         }
         if(contractModifierUI == null)
         {
-            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.GameObject);
+            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.Object);
         }
-
+        Debug.Log("ContractSystem: "+contractHolder);
         readyToTakeContacts = true;
     }
 
     public static void DisplayContract(Contract[] contracts)
     {
+        
         contractHolder.SetEnabled(true);
         selectText.style.opacity = 1;
 
@@ -46,6 +48,7 @@ public class ContracUIManager : MonoBehaviour
 
     static void CreateContract(Contract contract)
     {
+        Debug.Log("ContractSystem: Create");
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
@@ -74,7 +77,6 @@ public class ContracUIManager : MonoBehaviour
             ContractSystem.instance.SelectContract(contract);
             contractHolder.SetEnabled(false);
             selectText.style.opacity = 0;
-
             for (int i = contractContainer.childCount + 1; i >= 0; i--) { 
             
                 contractHolder.RemoveAt(i);

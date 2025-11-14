@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2987380093410170614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8534319313451672848}
+  - component: {fileID: 6450832851705017197}
+  m_Layer: 0
+  m_Name: Alembic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8534319313451672848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987380093410170614}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1300768834266879297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6450832851705017197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987380093410170614}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6983ab2008f7a9f499b3f8cd6bec328d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Formats.Alembic.Runtime::UnityEngine.Formats.Alembic.Importer.AlembicStreamPlayer
+  streamSource: 0
+  streamDescriptor: {fileID: 2758447567292241962, guid: 0f712d97f9e70ce46a5ec43045346640, type: 3}
+  embeddedStreamDescriptor:
+    pathToAbc: 
+    settings:
+      normals: 1
+      tangents: 1
+      cameraAspectRatio: 2
+      importVisibility: 1
+      scaleFactor: 0.01
+      swapHandedness: 1
+      flipFaces: 0
+      interpolateSamples: 1
+      importPointPolygon: 1
+      importLinePolygon: 1
+      importTrianglePolygon: 1
+      importXform: 1
+      importCameras: 1
+      importMeshes: 1
+      importPoints: 0
+      importCurves: 1
+      createCurveRenderers: 0
+    mediaStartTime: 0
+    mediaEndTime: 0
+  startTime: 0.041666668
+  endTime: 2.5
+  currentTime: 0
+  vertexMotionScale: 1
 --- !u!1 &8149707794048916348
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,21 +112,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6425068134438960765}
     m_Modifications:
-    - target: {fileID: 1240545466215235, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 588008755350974015, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1596405251187169196, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5152134e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734206236827373161, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2936854062763112758, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96,9 +156,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3776941177309736901, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
-      propertyPath: m_Mesh
-      value: 
+    - target: {fileID: 5627105664917741042, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7672201868971227592, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
       propertyPath: m_Name
@@ -110,7 +170,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 36bac006d8ff0e144b1f5d6281af23ad, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2936854062763112758, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8534319313451672848}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 627030a040b508340af0ef75ea5df3fa, type: 3}
 --- !u!4 &1300768834266879297 stripped

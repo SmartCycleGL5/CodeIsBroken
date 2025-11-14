@@ -1,17 +1,16 @@
-using Coding;
-using System.Threading;
+using ScriptEditor;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
+    public static PlayerInputs instance;
+
     [Header("References")]
     [SerializeField] GhostBuilding buildingInput;
     [SerializeField] MachineInteraction machineInput;
-    [SerializeField] GameObject buildingMenu;
     [SerializeField] Camera cam;
     [SerializeField] private TMP_InputField terminal;
 
@@ -58,8 +57,9 @@ public class PlayerInputs : MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    private void Awake()
     {
+        instance = this;
         playerAction = PlayerAction.WorldInteraction;
         screenWidth = Screen.width;
     }
@@ -68,34 +68,31 @@ public class PlayerInputs : MonoBehaviour
     {
         PlayerUpdate();
         if (Terminal.focused) return;
+
         Movement();
         MouseRotate();
     }
 
-
-    void PlayerUpdate()
+    public void BuildingMenu(bool isBuilding)
     {
-        //Enable disable building:
-        if (Keyboard.current.bKey.wasPressedThisFrame && !isBuilding)
+        if (isBuilding)
         {
             if (Terminal.focused) return;
             isBuilding = true;
-            buildingMenu.SetActive(true);
             playerAction = PlayerAction.Building;
             Debug.Log("Enabled Building");
         }
-        else if (Keyboard.current.bKey.wasPressedThisFrame && isBuilding || Keyboard.current.escapeKey.wasPressedThisFrame && isBuilding)
+        else
         {
             playerAction = PlayerAction.WorldInteraction;
             isBuilding = false;
-            buildingMenu.SetActive(false);
             buildingInput.DestroyGhost();
             Debug.Log("Disabled Building");
         }
-        if (Keyboard.current.deleteKey.wasPressedThisFrame)
-        {
-            Restart();
-        }
+    }
+
+    void PlayerUpdate()
+    {
 
         // Updates The active scripts
         if (playerAction == PlayerAction.Building)
@@ -104,7 +101,8 @@ public class PlayerInputs : MonoBehaviour
         }
         if (playerAction == PlayerAction.WorldInteraction)
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame) { 
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
                 WindowManager.CloseAllWindows();
             }
             machineInput.PlayerUpdate();
@@ -115,7 +113,7 @@ public class PlayerInputs : MonoBehaviour
     void Movement()
     {
         Vector3 moveDirection = player.forward * moveInput.y + player.right * moveInput.x;
-        player.position+=(moveDirection*moveSpeed*Time.deltaTime);
+        player.position += (moveDirection * moveSpeed * Time.deltaTime);
     }
 
     void MouseRotate()
@@ -123,7 +121,7 @@ public class PlayerInputs : MonoBehaviour
         // Only rotate if Middle mouse i down
         //if (!Mouse.current.middleButton.IsPressed()) return;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
+        if (Physics.Raycast(transform.position, cam.transform.forward, out hit, 100))
         {
             // Sideways rotation
             //Drag to rotate, rotates based on mouse movement.

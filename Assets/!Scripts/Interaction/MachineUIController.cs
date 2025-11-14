@@ -1,25 +1,24 @@
 using UnityEngine;
-using Coding;
-using UnityEngine.UI;
 
+[RequireComponent(typeof(BaseMachine))]
 public class MachineUIController : MonoBehaviour
 {
     [SerializeField] GameObject uiMenu;
-    private Machine machine;
+    //private Machine machine; machines wont be on objects like this anymore
     bool uiEnabled;
 
     private void Start()
     {
         uiEnabled = false;
-        machine = GetComponent<Machine>();
+        //machine = GetComponent<Machine>();
     }
 
     public void ToggleUI(bool toggle)
     {
-        uiEnabled = toggle;
-        uiMenu.SetActive(toggle);
+        //uiEnabled = toggle;
+        //uiMenu.SetActive(toggle);
         Debug.Log(uiEnabled);
-        //TerminalButton();
+        TerminalButton();
 
     }
 
@@ -29,8 +28,8 @@ public class MachineUIController : MonoBehaviour
         
         if (gameObject.TryGetComponent(out BaseMachine machine))
         {
-            if(!machine.Initialized)
-                machine.Initialize("NewClass" + UnityEngine.Random.Range(1000, 9999));
+            if(machine.attachedScripts.Count == 0)
+                machine.AddScript();
 
             
             machine.OpenTerminalForMachine();

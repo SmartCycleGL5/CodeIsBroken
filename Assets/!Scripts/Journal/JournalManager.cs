@@ -1,74 +1,294 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.UIElements.Experimental;
+using UnityEngine.Video;
 
 namespace Journal
 {
     public class JournalManager : MonoBehaviour
     {
         public static JournalManager instance { get; private set; }
-        public JournalEntrySO[] machineEntries;
-        public JournalEntrySO[] factoryEntries;
-        public JournalEntrySO[] economyEntries;
+        public static List<JournalEntrySO> machineEntries;
+        public static List<JournalEntrySO> HintEntries;
+        public static List<JournalEntrySO> ConceptEntries;
+        [SerializeField] Texture2D[] headerImages;
         [SerializeField] string machineTabName = "Machine";
-        [SerializeField] string factoryTabName = "Factory";
-        [SerializeField] string economyTabName = "Economy";
+        [SerializeField] string hintsTabName = "Hints";
+        [SerializeField] string conceptsTabName = "Concepts";
+        private EventCallback<MouseUpEvent> tHintEvent;
         public UIDocument journalDoc;
-        [SerializeField] Texture2D image;
-        void Awake()
+        public StyleSheet styleSheet;
+        private VisualElement windowElement;
+        private Label codeT;
+        private Label explainT;
+        async void Awake()
         {
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
-
+            PlayerProgression.onLevelUp += OnLevelUp;
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
-            machineEntries = Resources.LoadAll<JournalEntrySO>("Journal/Machines");
-            factoryEntries = Resources.LoadAll<JournalEntrySO>("Journal/Factory");
-            economyEntries = Resources.LoadAll<JournalEntrySO>("Journal/Economy");
-
+            var tabView = journalDoc.rootVisualElement.Q<TabView>();
+            tabView.activeTabChanged += TabChange;
+            Contract(null);
+            await GetEntries();
+            AddEntries();
+            ChangeColorTabHeader(tabView);
+            
         }
-        void OnEnable()
+
+        private static async Task GetEntries()
+        {
+            machineEntries = await Addressable.LoadAssets<JournalEntrySO>("MachineEntries");
+            HintEntries = await Addressable.LoadAssets<JournalEntrySO>("HintEntries");
+            ConceptEntries = await Addressable.LoadAssets<JournalEntrySO>("ConceptEntries");
+            machineEntries.Sort();
+            HintEntries.Sort();
+            ConceptEntries.Sort();
+        }
+
+        private void AddEntries()
         {
             AddEntry(machineEntries, machineTabName);
-            AddEntry(factoryEntries, factoryTabName);
-            AddEntry(economyEntries, economyTabName);
+            AddHintEntry(HintEntries, hintsTabName);
+            AddEntry(ConceptEntries, conceptsTabName);
         }
-        void AddEntry(JournalEntrySO[] entries, string nameD)
+        void ChangeColorTabHeader(TabView tabView)
         {
-            List<string> entryNames = entries.Select(obj => obj.name).ToList();
+            for (int i = 0; i < headerImages.Length; i++)
+            {
+                tabView.GetTabHeader(i).style.backgroundImage = headerImages[i];
+                tabView.GetTabHeader(i).style.height = headerImages[i].height;
+                tabView.GetTabHeader(i).style.width = headerImages[i].width;
+            }
+        }
+
+        void AddEntry(List<JournalEntrySO> entries, string nameD)
+        {
             var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
-            tab.tabHeader.style.backgroundImage = image;
-            var entryDrop = tab.Q<DropdownField>("Dropdown");
-            entryDrop.choices = entryNames;
-            entryDrop.RegisterValueChangedCallback(evt => DropDownChange(entries, tab, entryDrop.index));
-            entryDrop.index = 0;
+            var scrollView = tab.Q<ScrollView>("ScrollView");
+            foreach (var entry in entries)
+            {
+                RemoveEmptyEntries(entry);
+                if (entry.title != string.Empty && entry.journalTexts.Count > 0 /*&& entry.showcaseI != null*/)
+                {
+                    Button tButton = CreateNewButton(entry);
+                    RegisterUICallback(tButton, (evt) => ChangeEntry(tab, entry));
+                    scrollView?.Add(tButton);
+                }
+                else
+                {
+                    Debug.LogError("Missing Information for : " + entry.name + "\nButton Not Added");
+                }
+            }
         }
-        void DropDownChange(JournalEntrySO[] entries, Tab tab, int index)
+        public void Contract(Contract contract)
         {
-            var machineImage = tab.Q<VisualElement>("Image");
-            var machineExText = tab.Q<Label>("Explanation");
-            var machineCodeText = tab.Q<Label>("Code");
-            machineImage.style.backgroundImage = entries[index].showcaseI;
-            machineExText.text = entries[index].explanation;
-            machineCodeText.text = entries[index].codeShowcase;
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            if (contract == null)
+            {
+                tab.tabHeader.focusable = false;
+                tab.tabHeader.style.display = DisplayStyle.None;
+                return;
+            }
+            tab.tabHeader.focusable = true;
+            tab.tabHeader.style.display = DisplayStyle.Flex;
+            tab.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
+            tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
+            tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
+            ScrollView mods = tab.Q<ScrollView>("Amount");
+            mods.Clear();
+            foreach (var mod in contract.requestedItem.mods)
+            {
+                VisualElement _m = new();
+                _m.AddToClassList("modifier");
+                _m.Add(new Label { text = mod.Name });
+                _m.Add(new Label { text = mod.Description});
+                mods.Add(_m);
+            }
+        }
+        private Button CreateNewButton(JournalEntrySO entry)
+        {
+            entry.SetUnlocked();
+            var tButton = new Button()
+            {
+                text = string.Empty
+            };
+            if (entry.showcaseI)
+            {
+                var image = new VisualElement()
+                {
+                    style =
+                            {
+                                backgroundImage = entry.showcaseI
+                            }
+                };
+                image.AddToClassList("journal-button_image");
+                tButton.Add(image);
+            }
+            var text = new Label
+            {
+                text = entry.title
+            };
+
+            tButton.AddToClassList("journal-button");
+            text.AddToClassList("journal-button_text");
+
+            tButton.Add(text);
+            tButton.style.display = entry.IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
+            return tButton;
+        }
+
+        void AddHintEntry(List<JournalEntrySO> entries, string nameD)
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>(nameD);
+            var hidden = tab.Q<VisualElement>("HideHint");
+            var scrollView = tab.Q<ScrollView>();
+            var hintText = tab.Q<Label>("HintText");
+            hintText.visible = false;
+            foreach (var entry in entries)
+            {
+                RemoveEmptyEntries(entry);
+#if UNITY_EDITOR
+                entry.bHintTaken = false;
+#endif
+                if (entry.title != string.Empty && entry.journalTexts.Count > 0)
+                {
+                    Button tButton = CreateNewButton(entry);
+                    RegisterUICallback(tButton, (evt) => Hint(hintText, tab, entry));
+                    scrollView?.Add(tButton);
+                }
+                else
+                {
+                    Debug.LogError("Missing Information for : " + entry.name + "\nButton Not Added");
+                }
+            }
+        }
+
+        private void Hint(Label hintText, Tab tab, JournalEntrySO entry)
+        {
+            var scrollView = tab.Q<ScrollView>("ScrollExpla");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
+            if(scrollView.childCount >0)
+            {scrollView.Clear();}
+            UnRegisterUICallback(hintText, tHintEvent);
+            tHintEvent = null;
+            if (!entry.bHintTaken && tHintEvent == null)
+            {
+                EventCallback<MouseUpEvent> tCallBack = (evt) => ChangeEntry(tab, entry, hintText);
+                hintText.visible = true;
+                RegisterUICallback(hintText, tCallBack);
+                tHintEvent = tCallBack;
+            }
+            else if (entry.bHintTaken)
+            {
+                ChangeEntry(tab, entry, hintText);
+            }
+        }
+        private void RegisterUICallback(TextElement uiElement, EventCallback<MouseUpEvent> eventCallback)
+        {
+            uiElement.RegisterCallback(eventCallback);
+        }
+        private void UnRegisterUICallback(TextElement uiElement, EventCallback<MouseUpEvent> eventCallback)
+        {
+            if (eventCallback == null) return;
+            uiElement.UnregisterCallback(eventCallback);
+        }
+        private void ChangeEntry(Tab tab, JournalEntrySO entry)
+        {
+            var scrollView = tab.Q<ScrollView>("ScrollExpla");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
+            if (scrollView.childCount > 0)
+            { scrollView.Clear(); }
+            foreach (var text in entry.journalTexts)
+            {
+                if (text.style == JournalStyle.explanation)
+                {
+                    explainT = new();
+                    explainT.AddToClassList("explanation_text");
+                    explainT.text = text.text;
+                    scrollView.Add(explainT);
+                }
+                else
+                {
+                    windowElement = new();
+                    codeT = new();
+                    codeT.selection.isSelectable = true;
+                    windowElement.AddToClassList("Window");
+                    codeT.AddToClassList("code_text");
+                    codeT.text = text.text;
+                    windowElement.Add(codeT);
+                    scrollView.Add(windowElement);
+
+                }
+            }
+
+        }
+        private void ChangeEntry(Tab tab, JournalEntrySO entry, Label hintText)
+        {
+            ChangeEntry(tab, entry);
+            hintText.visible = false;
+            entry.bHintTaken = true;
+            UnRegisterUICallback(hintText, tHintEvent);
+            tHintEvent = null;
+
         }
         public void JournalOnOff()
         {
-            if (journalDoc.rootVisualElement.style.display == DisplayStyle.Flex)
-            {
-                journalDoc.rootVisualElement.style.display = DisplayStyle.None;
-            }
-            else
-            {
-                journalDoc.rootVisualElement.style.display = DisplayStyle.Flex;
-            }
+            journalDoc.rootVisualElement.style.display = journalDoc.rootVisualElement.style.display != DisplayStyle.None ? DisplayStyle.None : DisplayStyle.Flex;
         }
         void Update()
         {
-            if (Keyboard.current.eKey.wasPressedThisFrame)
+            //Moved to input reader 
+            // if (Keyboard.current.jKey.wasPressedThisFrame)
+            // {
+            //     JournalOnOff();
+            // }
+            //Add Button For Leveling up, move it later
+            if(Keyboard.current.leftAltKey.isPressed && Keyboard.current.oKey.wasPressedThisFrame)
+                {
+                PlayerProgression.LevelUp();
+            }
+        }
+        private void TabChange(Tab tab1, Tab tab2)
+        {
+            var scrollView = tab1.Q<ScrollView>("ScrollExpla");
+            if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
+            scrollView?.Clear();
+            var hidehint = tab2.Q("HideHint");
+            if(hidehint != null)hidehint.visible = false;
+        }
+        private void RemoveEmptyEntries(JournalEntrySO entry)
+        {
+            entry.journalTexts.RemoveAll(EmptyEntry);
+        }
+        private static bool EmptyEntry(JournalText journalText)
+        {
+            return journalText.text == string.Empty;
+        }
+        void OnLevelUp(int level)
+        {
+            LevelUnlock(machineEntries, machineTabName);
+            LevelUnlock(HintEntries, hintsTabName);
+            LevelUnlock(ConceptEntries, conceptsTabName);
+        }
+        void LevelUnlock(List<JournalEntrySO> entries, string nameTab)
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>(nameTab);
+            var scrollView = tab.Q<ScrollView>("ScrollView");
+            var buttons = scrollView.Children();
+            if (entries.Count != buttons.Count()) return;
+            for (int i = 0; i < entries.Count; i++)
             {
-                JournalOnOff();
+                entries[i].SetUnlocked();
+                buttons.ElementAt(i).style.display = entries[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
             }
         }
     }

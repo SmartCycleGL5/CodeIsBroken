@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5234689443917829460}
   - component: {fileID: 93292710641116751}
-  - component: {fileID: 3076169676827373566}
   - component: {fileID: -7648313244580729688}
   - component: {fileID: -8966164021372586424}
+  - component: {fileID: 1183819565642903319}
   m_Layer: 0
   m_Name: Assembler
   m_TagString: Untagged
@@ -52,29 +52,7 @@ MonoBehaviour:
   buildingCells:
   - {fileID: 3757148172345242447}
   scriptsToActivate:
-  - {fileID: 3076169676827373566}
---- !u!114 &3076169676827373566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617270430291027306}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebe13188be97654185111628350c0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assembler
-  machineCode:
-    name: 
-    Code: 
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
-  assemblerSize: 2
-  items: []
-  craftingRecipies:
-  - {fileID: 11400000, guid: b1c9bcdc76e2ca74694725bb08bd094d, type: 2}
+  - {fileID: 0}
 --- !u!114 &-7648313244580729688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +82,20 @@ MonoBehaviour:
   errorImg: {fileID: 7482075449363815229}
   warningImg: {fileID: 5493494679185981403}
   errorText: {fileID: 1924749055799657516}
+--- !u!114 &1183819565642903319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617270430291027306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
+  toDeriveFrom: Assembler
+  attachedScripts: []
 --- !u!1 &1102627864415495927
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +330,7 @@ GameObject:
   - component: {fileID: 1913110109535839204}
   - component: {fileID: 1780696080041710187}
   - component: {fileID: 648210176438201792}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,13 +863,13 @@ GameObject:
   - component: {fileID: 2354332322171216579}
   - component: {fileID: 7976040081088704787}
   - component: {fileID: 92992536708844791}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &577166979800847922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -960,7 +952,7 @@ GameObject:
   - component: {fileID: 3635373280369087288}
   - component: {fileID: 4571089434372753715}
   - component: {fileID: 2128840969112827983}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +998,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: -1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1059,9 +1051,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2120357466983857002}
     m_Modifications:
+    - target: {fileID: 107254671573321860, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714683989286125449, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656484458872730443, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2242062808506906347, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
       propertyPath: m_Name
       value: Warnings
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242062808506906347, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5958936309966693010, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1173,6 +1181,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6563570998677398859, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655059740971803766, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6655059740971803766, guid: da9ecc26fd638b34e909ebd32b1ff1a0, type: 3}

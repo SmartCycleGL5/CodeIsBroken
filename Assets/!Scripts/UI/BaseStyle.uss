@@ -56,7 +56,7 @@
     flex-direction: row;
     align-self: center;
     left: 0;
-    bottom: 182px;
+    bottom: 0;
     right: 0;
     align-content: auto;
     justify-content: center;

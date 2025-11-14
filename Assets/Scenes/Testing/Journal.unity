@@ -757,13 +757,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalManager
   machineEntries: []
-  factoryEntries: []
+  HintEntries: []
   economyEntries: []
   machineTabName: Machine
-  factoryTabName: Factory
+  hintsTabName: Hints
   economyTabName: Economy
   journalDoc: {fileID: 2120895630}
-  image: {fileID: 2800000, guid: 005888ede18a58e4db8d069cfa3007cb, type: 3}
+  styleSheet: {fileID: 7433441132597879392, guid: 4a3ba5da60223f742aaf7f0c986a37ff, type: 3}
 --- !u!4 &293130800
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ee40c9616868741a60d65be2a22ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
-  folderObjects: []
+  buildings: []
   buildingMenuPanel: {fileID: 1430753127}
   button: {fileID: 5973821873067232629, guid: b8e0a54be2caf7e4997ddd56a7b7c561, type: 3}
 --- !u!114 &767682364

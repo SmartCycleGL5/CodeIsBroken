@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
+  m_Name: Methods
+  m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
+  title: Methods
+  showcaseI: {fileID: 0}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: 'Supported return types: void, int, float, string, bool
+
+      Calling
+      Methods
+
+      To call a method do: MethodName()
+
+      Some Methods require
+      an input, in those cases do: MethodName(MethodInput)
+
+      example:'
+  - style: 1
+    text: "class Example\r\n{\r\n\tvoid OnTick()\r\n\t{\r\n\t\tPaint(Blue);\t\r\n\t\tCraft();\r\n\t}\r\n}"
+  - style: 0
+    text: 'Creating Methods
+
+      To create a method do: [Type] MethodName()
+
+      Some
+      methods would benefit from requesting an input, in those cases define a variable
+      inside the parenthesis: [Type] MethodName([Type] varName, [Type] varNameTwo)
+
+      examples:'
+  - style: 1
+    text: "class Example\r\n{\r\n\tint myInt;\r\n\r\n\tvoid OnTick()\r\n\t{\r\n\t\tIncrement();\r\n\t}\r\n\t\r\n\tvoid
+      Increment()\r\n\t{\r\n\t\tmyInt += 1;\r\n\t}\r\n}"
+  - style: 1
+    text: "class Example2\n{\n\tint myInt;\n\n\tvoid OnTick()\n\t{\n\t\tIncrement(2);\n\t}\n\t\n\tvoid
+      Increment(int amount)\n\t{\n\t\tmyInt += amount;\n\t}\n}"
+  - style: 1
+    text: "class Example3\n{\t\n\tint myInt;\n\n\tvoid OnTick()\n\t{\n\t\tmyInt +=
+      IncrementValue();\n\t}\n\t\n\tint IncrementValue()\n\t{\n\t\treturn 1;\n\t}\n}"

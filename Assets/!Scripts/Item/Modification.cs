@@ -64,16 +64,9 @@ namespace CodeIsBroken.Item
     
         public class Color : Modification
         {
-            static readonly Dictionary<UnityEngine.Color, string> colorMap = new Dictionary<UnityEngine.Color, string>()
-            {
-                {UnityEngine.Color.red, "Red"},
-                {UnityEngine.Color.blue, "Blue"},
-                {UnityEngine.Color.green, "Green"},
-            };
-    
             public UnityEngine.Color color;
     
-            public Color(UnityEngine.Color color) : base("Painter: Color", colorMap[color])
+            public Color(UnityEngine.Color color) : base("Colors:", $"Red: {color.r}, Green: {color.g}, Blue: {color.b}")
             {
                 this.color = color;
             }

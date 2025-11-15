@@ -73,7 +73,7 @@ public class ContracUIManager : MonoBehaviour
 
         contractHolder.Add(contractContainer);
 
-        //such a ass solutuion, please try something else instead.
+        //such an ass solutuion, please try something else instead.
         contractbutton.clicked += () => { 
             ContractSystem.instance.SelectContract(contract);
             contractHolder.SetEnabled(false);

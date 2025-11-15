@@ -11,7 +11,7 @@ using UnityEngine;
 public class ContractSystem : MonoBehaviour
 {
     public static ContractSystem instance;
-    public static Contract ActiveContract;
+    public static Contract ActiveContract { get; private set; }
 
     [Header("Contract Settings")]
     public int amountOfModifications = 2;
@@ -145,6 +145,7 @@ public class Contract
     }
     public void Progress()
     {
+        Debug.Log("[Contract] Progress");
         amount--;
 
         if (amount <= 0)

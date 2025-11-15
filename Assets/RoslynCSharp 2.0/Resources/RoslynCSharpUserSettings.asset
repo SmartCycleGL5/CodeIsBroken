@@ -1851,11 +1851,13 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076824147706559
+      <LastWriteTimeUTC>k__BackingField: 134076891325758714
     - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
       - Name: CodeIsBroken
         TypeRestrictions:
+        - Name: Color
+          Allowed: 0
         - Name: Console
           Allowed: 0
         - Name: Material
@@ -1866,7 +1868,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076825276413616
+      <LastWriteTimeUTC>k__BackingField: 134076872771761750
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1889,7 +1891,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076854295653016
+      <LastWriteTimeUTC>k__BackingField: 134076872772528996
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

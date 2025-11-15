@@ -76,7 +76,7 @@ namespace CodeIsBroken
                     item = Instantiate(itemCrafted, sawBlade.position, Quaternion.identity);
                     conveyor.SetItem(item);
                     ClearMachine();
-                    RemoveItem();
+                    ((IItemContainer)this).RemoveItem();
 
                     
                 }
@@ -112,13 +112,13 @@ namespace CodeIsBroken
             }
         }
     
-        public void ClearMachine()
+        private void ClearMachine()
         {
             items.Clear();
         }
     
 
-        public bool RemoveItem(out Item.Item removedItem)
+        bool IItemContainer.RemoveItem(out Item.Item removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -131,7 +131,7 @@ namespace CodeIsBroken
             return true;
         }
 
-        public bool SetItem(Item.Item item)
+        bool IItemContainer.SetItem(Item.Item item)
         {
             if (this.item != null) return false;
             this.item = item;
@@ -139,13 +139,13 @@ namespace CodeIsBroken
             return true;
         }
 
-        public bool RemoveItem()
+        bool IItemContainer.RemoveItem()
         {
-            return RemoveItem(out Item.Item item);
+            return ((IItemContainer)this).RemoveItem(out Item.Item item);
         }
     
 
-        protected void OnDestroy()
+        private void OnDestroy()
         {
             if (item != null)
             {

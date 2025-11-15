@@ -1,5 +1,5 @@
-using System;
-using ScriptEditor.Console;
+
+using CodeIsBroken.Item;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
@@ -8,8 +8,9 @@ namespace CodeIsBroken
 {
     public class MaterialTube : Machine
     {
+        
         Transform spawnLocation;
-        Item materialToSpawn;
+        Item.Item materialToSpawn;
         int spawnRate;
         int tickCount;
         private GameObject lid;
@@ -47,11 +48,9 @@ namespace CodeIsBroken
             this.spawnRate = delay;
 
         }
-        public void SetMaterial(string material)
+        public void SetMaterial(Materials material)
         {
-            Debug.Log(material);
-            materialToSpawn = MaterialManager.Instance.Products[(Materials)Enum.Parse(typeof(Materials), material)];
-            Debug.Log(materialToSpawn);
+            materialToSpawn = MaterialManager.Instance.Products[material];
         }
         
         // Not player controlled
@@ -79,7 +78,7 @@ namespace CodeIsBroken
             }
             if(conveyor.item != null)return;
             Debug.Log("[MaterialTube] got material");
-            Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
+            Item.Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item.Item>();
             instObj.gameObject.transform.Rotate(new Vector3(0, Random.Range(0, 359), 0));
             conveyor.SetItem(instObj);
             lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);

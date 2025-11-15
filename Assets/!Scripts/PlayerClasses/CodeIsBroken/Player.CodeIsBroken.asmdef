@@ -1,0 +1,17 @@
+{
+    "name": "Player.CodeIsBroken",
+    "rootNamespace": "CodeIsBroken",
+    "references": [
+        "GUID:fa940d06be083001da5dc9de70380eda",
+        "GUID:a65badfd0095336b2ad06bfa97646826"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

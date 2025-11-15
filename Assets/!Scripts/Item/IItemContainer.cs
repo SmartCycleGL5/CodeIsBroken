@@ -1,10 +1,14 @@
 using UnityEngine;
 
-public interface IItemContainer
+namespace CodeIsBroken.Item
 {
-    public Item item {  get; set; }
-
-    public bool SetItem(Item item);
-    public bool RemoveItem(out Item item);
-    public bool RemoveItem();
+    public interface IItemContainer
+    {
+        public Item item {  get; set; }
+    
+        public bool SetItem(Item item);
+        public bool RemoveItem(out Item item);
+        public bool RemoveItem();
+    }
 }
+

@@ -4,16 +4,13 @@ using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CodeIsBroken.Item;
 using TMPro;
 using UnityEngine;
 
 public class ContractSystem : MonoBehaviour
 {
     public static ContractSystem instance;
-
-    [SerializeField] Transform displayPos;
-    Item displayItem;
-    [SerializeField] TMP_Text amoundDisplay;
     public static Contract ActiveContract;
 
     [Header("Contract Settings")]
@@ -25,14 +22,8 @@ public class ContractSystem : MonoBehaviour
     private void Start()
     {
         instance = this;
-        amoundDisplay.enabled = false;
 
         PlayerProgression.onLevelUp += UpdateContractComplexity;
-    }
-    private void Update()
-    {
-        if (ActiveContract == null) return;
-        amoundDisplay.text = "X" + ActiveContract.amount + " - " + ActiveContract.requestedItem.materials;
     }
 
     private void UpdateContractComplexity(int lvl)
@@ -53,13 +44,10 @@ public class ContractSystem : MonoBehaviour
     }
     public void SelectContract(Contract toSelect)
     {
-        amoundDisplay.enabled = true;
-
         toSelect.onFinished += instance.FinishedContract;
 
         ActiveContract = toSelect;
-
-        instance.CreateDisplayItem();
+        
         JournalManager.instance.Contract(toSelect);
     }
 
@@ -76,26 +64,10 @@ public class ContractSystem : MonoBehaviour
     {
         if (contract != ActiveContract) return;
 
-        Destroy(displayItem);
-        amoundDisplay.enabled = false;
-
         ActiveContract.onFinished -= instance.FinishedContract;
         ActiveContract = null;
 
         GetContractOptions();
-    }
-
-    void CreateDisplayItem()
-    {
-        if (displayItem != null) Destroy(displayItem.gameObject);
-
-        bool isProduct = UnityEngine.Random.Range(0, 2) == 0;
-        Item toCreate = MaterialManager.Instance.Products[ActiveContract.requestedItem.materials];
-
-        displayItem = Instantiate(toCreate, displayPos);
-
-        displayItem.destroyOnPause = false;
-        displayItem.definition = ActiveContract.requestedItem;
     }
 
     async void GetContractOptions()

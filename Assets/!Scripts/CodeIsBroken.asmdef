@@ -1,5 +1,5 @@
 {
-    "name": "CodeIsBroken.Base",
+    "name": "CodeIsBroken",
     "rootNamespace": "",
     "references": [
         "GUID:d525ad6bd40672747bde77962f1c401e",
@@ -15,7 +15,8 @@
         "GUID:9e24947de15b9834991c9d8411ea37cf",
         "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:84651a3751eca9349aac36a66bba901b",
-        "GUID:20d3875316f546994b5540a49c2df628"
+        "GUID:20d3875316f546994b5540a49c2df628",
+        "GUID:a65badfd0095336b2ad06bfa97646826"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

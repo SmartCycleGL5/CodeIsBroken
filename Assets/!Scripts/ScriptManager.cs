@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ScriptEditor.Console;
 using System.Threading.Tasks;
+using CodeIsBroken.Item;
+
 public class ScriptManager : MonoBehaviour
 {
     public SerializedDictionary<string, Script> activePlayerScripts = new();

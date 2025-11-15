@@ -39,6 +39,7 @@ namespace CodeIsBroken
             sawBlade = referenceHolder.GetReference("sawBlade").transform;
             sawParticles = referenceHolder.GetReference("sawParticle").GetComponent<ParticleSystem>();
             Tick.OnTick += TakeItem;
+            Tick.OnEndingTick += Reset;
         }
     
         private void Reset()
@@ -69,6 +70,7 @@ namespace CodeIsBroken
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
                     if (conveyor.item != null) return;
+                    Debug.Log("[Saw] Crafted Item");
                     sawParticles.Play();
                     Destroy(item.gameObject);
                     item = Instantiate(itemCrafted, sawBlade.position, Quaternion.identity);
@@ -86,14 +88,18 @@ namespace CodeIsBroken
                     PlayerConsole.LogWarning($"Cant cut {item.definition.materials}");
                     // Cant craft using this item, send error
                 }
+                else
+                {
+                    PlayerConsole.LogWarning($"No item in machine");
+                }
             }
         }
         
         
         private void TakeItem()
         {
-            Debug.Log("[Saw] TakeItem");
             if(items.Count >= sawSize) return;
+            Debug.Log("[Saw] TakeItem");
             GameObject cell = GridBuilder.instance.LookUpCell(inputPos.position - inputPos.forward);
             if (cell == null) return;
             if (cell.TryGetComponent(out Conveyor conveyor))
@@ -108,6 +114,10 @@ namespace CodeIsBroken
     
         public void ClearMachine()
         {
+            if (item != null)
+            {
+                Destroy(item.gameObject);
+            }
             items.Clear();
         }
     
@@ -141,7 +151,13 @@ namespace CodeIsBroken
 
         protected void OnDestroy()
         {
+            if (item != null)
+            {
+                Destroy(item.gameObject);
+            }
+            
             Tick.OnTick -= TakeItem;
+            Tick.OnEndingTick -= Reset;
         }
     }
 }

@@ -74,7 +74,7 @@ namespace ScriptEditor
             
             terminal = terminalAsset.Instantiate();
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
-            new Window(scriptToEdit.name, terminal, true, this);
+            new Window(scriptToEdit.name, terminal, false, this);
 
             windowElement.style.backgroundColor = activeHighlighting.colorPallate.Colors[ColorPallate.Type.backgroundColor];
             windowElement.style.color = activeHighlighting.colorPallate.Colors[ColorPallate.Type.defaultColor];

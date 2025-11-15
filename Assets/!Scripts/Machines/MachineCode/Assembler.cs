@@ -31,6 +31,11 @@ namespace CodeIsBroken
         {
             ClearMachine();
         }
+        
+        public int ItemCount()
+        {
+            return items.Count;
+        }
     
         public void Craft()
         {

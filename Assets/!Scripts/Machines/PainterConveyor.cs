@@ -59,7 +59,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     {
         if (this.item != null) return false;
         this.item = item;
-        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,0.5f,0),0.3f);
         return true;
     }
     [DontIntegrate]

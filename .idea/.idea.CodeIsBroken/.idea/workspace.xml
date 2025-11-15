@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Saw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Saw.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Player.CodeIsBroken.Machines.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Player.CodeIsBroken.Machines.asmdef" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,16 +19,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/168204921bb64c3e97fe409496d2e893223400/e8/d9d7263c/VisualElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7a1eac1b18e46ebb2789d2fe4a00d211f5a00/15/78b7b7b8/Random.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7a1eac1b18e46ebb2789d2fe4a00d211f5a00/85/46b99714/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineCode/MaterialTube.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/RecipeHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/ReferenceHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UserErrorLogger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@d929cbc70804/Editor/Settings/AddressableAssetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@4fce4ca980cb/Editor/WriteTypes/AssetBundleWriteOperation.cs" root0="SKIP_HIGHLIGHTING" />

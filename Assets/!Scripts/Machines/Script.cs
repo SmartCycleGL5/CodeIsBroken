@@ -106,8 +106,6 @@ public class Script
             return false;
         }
 
-        Debug.Log(connectedMachine);
-
         if (connectedMachine != null)
             proxy = type.CreateInstance(connectedMachine.gameObject);
         else

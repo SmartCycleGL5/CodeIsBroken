@@ -1,4 +1,4 @@
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 using DG.Tweening;
 using UnityEngine;
 public class PainterConveyor : MonoBehaviour, IItemContainer

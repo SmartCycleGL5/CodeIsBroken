@@ -1,6 +1,6 @@
 
 using System.Collections.Generic;
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 using TMPro;
 using UnityEngine;
 

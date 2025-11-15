@@ -1831,27 +1831,34 @@ MonoBehaviour:
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
       <LastWriteTimeUTC>k__BackingField: 0
     AssemblyRestrictions:
-    - Name: CodeIsBroken.Item
+    - Name: CodeIsBroken.Product
       NamedTypeRestrictions:
-      - Name: CodeIsBroken.Item
+      - Name: CodeIsBroken.Product
         TypeRestrictions:
         - Name: IItemContainer
-          Allowed: 1
-        - Name: ItemDefinition
           Allowed: 1
         - Name: Item
           Allowed: 1
         - Name: Materials
+          Allowed: 1
+        - Name: ProductDefinition
           Allowed: 0
-        - Name: MaterialManager
+        - Name: ProductManager
           Allowed: 1
-        - Name: Modification
-          Allowed: 1
+        Allowed: 1
+      - Name: CodeIsBroken.Product.Modification
+        TypeRestrictions:
+        - Name: IModification
+          Allowed: 0
+        - Name: IModification`1
+          Allowed: 0
+        - Name: Color
+          Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076891325758714
+      <LastWriteTimeUTC>k__BackingField: 134077046393845757
     - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1868,7 +1875,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076872771761750
+      <LastWriteTimeUTC>k__BackingField: 134077046395803196
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1891,7 +1898,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076872772528996
+      <LastWriteTimeUTC>k__BackingField: 134077046396701566
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

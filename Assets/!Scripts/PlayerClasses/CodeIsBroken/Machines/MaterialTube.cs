@@ -1,5 +1,5 @@
 
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
@@ -10,7 +10,7 @@ namespace CodeIsBroken
     {
         
         Transform spawnLocation;
-        Item.Item materialToSpawn;
+        Item materialToSpawn;
         int spawnRate;
         int tickCount;
         private GameObject lid;
@@ -19,7 +19,7 @@ namespace CodeIsBroken
 
         private void Reset()
         {
-            materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+            SetMaterial(ProductDefinition.Wood);
             spawnRate = 0;
         }
 
@@ -30,7 +30,7 @@ namespace CodeIsBroken
             machine.AddMethodsAsIntegrated(typeof(MaterialTube));
 
             
-            materialToSpawn = MaterialManager.Instance.Products[Materials.Wood];
+            SetMaterial(ProductDefinition.Wood);
             
             //Set all references
             ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
@@ -48,9 +48,9 @@ namespace CodeIsBroken
             this.spawnRate = delay;
 
         }
-        public void SetMaterial(Materials material)
+        public void SetMaterial(ProductDefinition material)
         {
-            materialToSpawn = MaterialManager.Instance.Products[material];
+            materialToSpawn = ProductManager.Instance.Products[material];
         }
         
         // Not player controlled
@@ -78,7 +78,7 @@ namespace CodeIsBroken
             }
             if(conveyor.item != null)return;
             Debug.Log("[MaterialTube] got material");
-            Item.Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item.Item>();
+            Product.Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Product.Item>();
             instObj.gameObject.transform.Rotate(new Vector3(0, UnityEngine.Random.Range(0, 359), 0));
             conveyor.SetItem(instObj);
             lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);

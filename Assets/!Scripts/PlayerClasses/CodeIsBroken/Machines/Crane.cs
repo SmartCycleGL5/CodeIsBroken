@@ -1,4 +1,4 @@
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 using UnityEngine;
 using DG.Tweening;
 
@@ -16,7 +16,7 @@ namespace CodeIsBroken
         Tweener rotationTween;
         private bool pickUp;
         private bool drop;
-        public Item.Item item { get; set; }
+        public Product.Item item { get; set; }
 
         private void Start()
         {
@@ -117,7 +117,7 @@ namespace CodeIsBroken
         
         
         
-        public bool SetItem(Item.Item item)
+        public bool SetItem(Product.Item item)
         {
     
             if (this.item != null) return false;
@@ -127,7 +127,7 @@ namespace CodeIsBroken
             this.item.transform.position = holdLocation.position;
             return true;
         }
-        public bool RemoveItem(out Item.Item removedItem)
+        public bool RemoveItem(out Product.Item removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -138,7 +138,7 @@ namespace CodeIsBroken
         }
         public bool RemoveItem()
         {
-            return RemoveItem(out Item.Item item);
+            return RemoveItem(out Product.Item item);
         }
     
     }

@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using System.Linq;
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 using DG.Tweening;
 using UnityEngine;
 
@@ -11,12 +11,12 @@ namespace CodeIsBroken
     public class Assembler : Machine, IItemContainer
     {
         [SerializeField] int assemblerSize;
-        [SerializeField] List<Item.Item> items;
+        [SerializeField] List<Product.Item> items;
         [SerializeField] List<CraftingRecipie> craftingRecipies;
         private UserErrorLogger errorLogger;
         
         Tweener moveTween;
-        public Item.Item item { get; set; }
+        public Product.Item item { get; set; }
     
     
         void Start()
@@ -41,7 +41,7 @@ namespace CodeIsBroken
         public void Craft()
         {
             Metrics.instance.UseElectricity(1);
-            Item.Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
+            Product.Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
             if (itemCrafted != null)
             {
                 ClearMachine();
@@ -52,7 +52,7 @@ namespace CodeIsBroken
                 if(cell == null) return;
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
-                    Item.Item item = Instantiate(itemCrafted, transform.position, Quaternion.identity);
+                    Product.Item item = Instantiate(itemCrafted, transform.position, Quaternion.identity);
                     //item.definition.Modify(new Modification.Assemble(recipe.name));
     
                     conveyor.SetItem(item);
@@ -90,7 +90,7 @@ namespace CodeIsBroken
         }
     
 
-        public bool RemoveItem(out Item.Item removedItem)
+        public bool RemoveItem(out Product.Item removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -104,7 +104,7 @@ namespace CodeIsBroken
             return true;
         }
 
-        public bool SetItem(Item.Item item)
+        public bool SetItem(Product.Item item)
         {
             if (this.item != null) return false;
             this.item = item;
@@ -114,7 +114,7 @@ namespace CodeIsBroken
 
         public bool RemoveItem()
         {
-            return RemoveItem(out Item.Item item);
+            return RemoveItem(out Product.Item item);
         }
     
 

@@ -4,7 +4,8 @@ using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
+using CodeIsBroken.Product.Modification;
 using TMPro;
 using UnityEngine;
 
@@ -89,7 +90,7 @@ public class ContractSystem : MonoBehaviour
 public class Contract
 {
     public string contractName;
-    public ItemDefinition requestedItem;
+    public Item RequestedProduct;
     public int amount;
 
     public Action<Contract> onFinished;
@@ -109,11 +110,12 @@ public class Contract
     {
         contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
 
-        List<Modification> mods = new List<Modification>();
+        /*
+        List<IModification> mods = new List<IModification>();
 
         for (int i = 0; i < amountOfMods; i++)
         {
-            Modification newMod = Modification.RandomModification();
+            IModification newMod = IModification.RandomModification();
 
 
             if (AlreadyHasMod(newMod))
@@ -124,24 +126,13 @@ public class Contract
 
             Debug.Log(newMod);
             mods.Add(newMod);
-        }
+        }*/
 
-        requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
+        RequestedProduct = ProductManager.GetRandomProduct(complexity);
 
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
         xpToGive = amount * 6;
-
-
-        bool AlreadyHasMod(Modification newMod)
-        {
-            foreach (var mod in mods)
-            {
-                if (mod.Compare(newMod)) return true;
-            }
-
-            return false;
-        }
     }
     public void Progress()
     {
@@ -161,6 +152,6 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        return item.definition.Equals(requestedItem);
+        return item.definition.Equals(RequestedProduct.definition);
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ScriptEditor.Console;
 using System.Threading.Tasks;
-using CodeIsBroken.Item;
+using CodeIsBroken.Product;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -72,8 +72,7 @@ public class ScriptManager : MonoBehaviour
 
         for (int i = Item.items.Count - 1; i >= 0; i--)
         {
-            if (Item.items[i].destroyOnPause)
-                Destroy(Item.items[i].gameObject);
+            Destroy(Item.items[i].gameObject);
         }
 
         isRunning = false;

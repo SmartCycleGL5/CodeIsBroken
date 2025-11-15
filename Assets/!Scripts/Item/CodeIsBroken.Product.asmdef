@@ -1,6 +1,6 @@
 {
-    "name": "CodeIsBroken.Item",
-    "rootNamespace": "CodeIsBroken.Item",
+    "name": "CodeIsBroken.Product",
+    "rootNamespace": "CodeIsBroken.Product",
     "references": [
         "GUID:d525ad6bd40672747bde77962f1c401e"
     ],

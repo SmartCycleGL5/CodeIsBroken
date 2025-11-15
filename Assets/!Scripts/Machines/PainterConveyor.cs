@@ -1,6 +1,9 @@
+using System;
 using CodeIsBroken.Item;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     Tweener moveTween;
@@ -10,6 +13,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     void Start()
     {
         Tick.OnTick += TakeItem;
+        Tick.OnEndingTick += Reset;
     }
 
     private void TakeItem()
@@ -42,7 +46,15 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     {
             particle.Play();
     }
-    
+
+    private void Reset()
+    {
+        if (item != null)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
     public bool RemoveItem(out Item removedItem)
     {
         removedItem = null;
@@ -72,6 +84,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     private void OnDestroy()
     { 
         Tick.OnTick -= TakeItem;
+        Tick.OnEndingTick -= Reset;
 
         if (item == null) return;
         Debug.Log("Removed item from painter");

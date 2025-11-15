@@ -114,10 +114,6 @@ namespace CodeIsBroken
     
         public void ClearMachine()
         {
-            if (item != null)
-            {
-                Destroy(item.gameObject);
-            }
             items.Clear();
         }
     

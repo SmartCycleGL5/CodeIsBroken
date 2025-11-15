@@ -1,11 +1,12 @@
 
+using CodeIsBroken.Item;
 using UnityEngine;
 
 namespace CodeIsBroken
 {
     public class Painter : Machine
     {
-        Item item;
+        Item.Item item;
         private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
 

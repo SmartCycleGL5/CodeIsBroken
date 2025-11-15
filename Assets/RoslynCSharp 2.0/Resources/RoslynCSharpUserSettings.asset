@@ -41,6 +41,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
   - {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
   - {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+  - {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
   <LogLevel>k__BackingField: 2
   <CompilerFlags>k__BackingField:
     <AllowUnsafe>k__BackingField: 0
@@ -1830,30 +1831,55 @@ MonoBehaviour:
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
       <LastWriteTimeUTC>k__BackingField: 0
     AssemblyRestrictions:
-    - Name: CodeIsBroken.Debug
+    - Name: CodeIsBroken.Item
+      NamedTypeRestrictions:
+      - Name: CodeIsBroken.Item
+        TypeRestrictions:
+        - Name: IItemContainer
+          Allowed: 1
+        - Name: ItemDefinition
+          Allowed: 1
+        - Name: Item
+          Allowed: 1
+        - Name: Materials
+          Allowed: 0
+        - Name: MaterialManager
+          Allowed: 1
+        - Name: Modification
+          Allowed: 1
+        Allowed: 0
+      RootTypeRestrictions: []
+      Allowed: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134076824147706559
+    - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
       - Name: CodeIsBroken
         TypeRestrictions:
-        - Name: Debug
+        - Name: Console
+          Allowed: 0
+        - Name: Material
+          Allowed: 0
+        - Name: Random
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134075476787706743
-    - Name: CodeIsBroken.Machines
+      <LastWriteTimeUTC>k__BackingField: 134076825276413616
+    - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
         TypeRestrictions:
         - Name: Assembler
           Allowed: 0
-        - Name: CraneMachine
+        - Name: Crane
           Allowed: 0
         - Name: Laser
           Allowed: 0
         - Name: MaterialTube
           Allowed: 0
-        - Name: PainterMachine
+        - Name: Painter
           Allowed: 0
         - Name: Saw
           Allowed: 0
@@ -1863,7 +1889,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134075442743005446
+      <LastWriteTimeUTC>k__BackingField: 134076850691506143
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

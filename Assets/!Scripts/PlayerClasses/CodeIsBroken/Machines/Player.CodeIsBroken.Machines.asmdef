@@ -1,8 +1,10 @@
 {
-    "name": "CodeIsBroken.Debug",
+    "name": "Player.CodeIsBroken.Machines",
     "rootNamespace": "CodeIsBroken",
     "references": [
-        "GUID:fa940d06be083001da5dc9de70380eda"
+        "GUID:fa940d06be083001da5dc9de70380eda",
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:a65badfd0095336b2ad06bfa97646826"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

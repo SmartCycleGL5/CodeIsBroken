@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CodeIsBroken.Item;
 using UnityEngine;
 [CreateAssetMenu(fileName = "NewRecipie item")]
 public class CraftingRecipie : ScriptableObject

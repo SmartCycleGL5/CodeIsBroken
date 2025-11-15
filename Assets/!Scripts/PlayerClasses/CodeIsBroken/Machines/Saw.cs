@@ -2,7 +2,9 @@ using System;
 using NUnit.Framework.Constraints;
 using System.Collections.Generic;
 using System.Linq;
+using CodeIsBroken.Item;
 using DG.Tweening;
+using ScriptEditor.Console;
 using UnityEngine;
 
 namespace CodeIsBroken
@@ -10,7 +12,7 @@ namespace CodeIsBroken
     public class Saw : Machine, IItemContainer
     {
         private int sawSize = 1;
-        private List<Item> items = new();
+        private List<Item.Item> items = new();
         private List<CraftingRecipie> craftingRecipies;
 
         private Transform inputPos;
@@ -21,7 +23,7 @@ namespace CodeIsBroken
         
         private ReferenceHolder referenceHolder;
         Tweener moveTween;
-        public Item item { get; set; }
+        public Item.Item item { get; set; }
     
     
         void Start()
@@ -55,7 +57,7 @@ namespace CodeIsBroken
             sawBlade.DOLocalRotate(new Vector3(560,0,0), 0.3f, RotateMode.FastBeyond360);
             
             Metrics.instance.UseElectricity(1);
-            Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
+            Item.Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
             
             if (itemCrafted != null)
             {
@@ -81,6 +83,7 @@ namespace CodeIsBroken
             {
                 if (items.Count == sawSize)
                 {
+                    PlayerConsole.LogWarning($"Cant cut {item.definition.materials}");
                     // Cant craft using this item, send error
                 }
             }
@@ -109,7 +112,7 @@ namespace CodeIsBroken
         }
     
 
-        public bool RemoveItem(out Item removedItem)
+        public bool RemoveItem(out Item.Item removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -122,7 +125,7 @@ namespace CodeIsBroken
             return true;
         }
 
-        public bool SetItem(Item item)
+        public bool SetItem(Item.Item item)
         {
             if (this.item != null) return false;
             this.item = item;
@@ -132,7 +135,7 @@ namespace CodeIsBroken
 
         public bool RemoveItem()
         {
-            return RemoveItem(out Item item);
+            return RemoveItem(out Item.Item item);
         }
     
 

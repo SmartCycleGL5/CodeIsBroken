@@ -90,7 +90,7 @@ public class ContractSystem : MonoBehaviour
 public class Contract
 {
     public string contractName;
-    public Item RequestedProduct;
+    public ProductDefinition RequestedProduct;
     public int amount;
 
     public Action<Contract> onFinished;
@@ -109,16 +109,15 @@ public class Contract
     public Contract(string name, int amountOfMods, int complexity)
     {
         contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
+        RequestedProduct = ProductManager.GetRandomProduct(complexity).definition;
 
-        /*
         List<IModification> mods = new List<IModification>();
 
         for (int i = 0; i < amountOfMods; i++)
         {
             IModification newMod = IModification.RandomModification();
 
-
-            if (AlreadyHasMod(newMod))
+            if (RequestedProduct.mods.Contains(newMod))
             {
                 Debug.Log("already has mod");
                 continue;
@@ -126,13 +125,12 @@ public class Contract
 
             Debug.Log(newMod);
             mods.Add(newMod);
-        }*/
-
-        RequestedProduct = ProductManager.GetRandomProduct(complexity);
-
+        }
+        
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
-        xpToGive = amount * 6;
+        float xp = ((RequestedProduct.mods.Count + 1) * 3 + complexity * 3) * 1.5f;
+        xpToGive = Mathf.RoundToInt(xp * (amount / 3));
     }
     public void Progress()
     {
@@ -152,6 +150,6 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        return item.definition.Equals(RequestedProduct.definition);
+        return item.definition.Equals(RequestedProduct);
     }
 }

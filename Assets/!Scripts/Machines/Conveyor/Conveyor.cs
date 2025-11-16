@@ -42,7 +42,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
             Conveyor conveyor = cm.GetConveyor(pos.position);
             if(conveyor == null) continue;
             if(conveyor.nextConveyor != this) continue;
-            Debug.LogError("Found compatible conveyor");
+            //Debug.LogError("Found compatible conveyor");
             recieveFrom.Add(conveyor);
         }
 

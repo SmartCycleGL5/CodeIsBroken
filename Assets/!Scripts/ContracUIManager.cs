@@ -53,14 +53,14 @@ public class ContracUIManager : MonoBehaviour
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
-        contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.definition.materials.ToString();
+        contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
         contractbutton.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct.definition).icon);
+        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);
 
         ScrollView mods = contractbutton.Q<ScrollView>("Amount");
 
-        foreach (var mod in contract.RequestedProduct.definition.mods)
+        foreach (var mod in contract.RequestedProduct.mods)
         {
             TemplateContainer modifierContainer = contractModifierUI.Instantiate();
 

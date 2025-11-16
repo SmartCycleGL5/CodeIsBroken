@@ -100,14 +100,14 @@ namespace Journal
             }
             tab.tabHeader.focusable = true;
             tab.tabHeader.style.display = DisplayStyle.Flex;
-            tab.Q<Label>("ContractName").text = contract.RequestedProduct.definition.materials.ToString();
+            tab.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
             tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct.definition).icon);
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);
             ScrollView mods = tab.Q<ScrollView>("Amount");
             mods.Clear();
 
-            foreach (var mod in contract.RequestedProduct.definition.mods)
+            foreach (var mod in contract.RequestedProduct.mods)
             {
                 VisualElement _m = new();
                 _m.AddToClassList("modifier");

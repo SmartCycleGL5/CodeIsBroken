@@ -6,24 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Chair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Chair.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Plank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Plank.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Laser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +211,7 @@
       <workItem from="1763118594204" duration="10531000" />
       <workItem from="1763184696319" duration="8102000" />
       <workItem from="1763223950797" duration="7294000" />
-      <workItem from="1763295873061" duration="6638000" />
+      <workItem from="1763295873061" duration="8799000" />
     </task>
     <servers />
   </component>

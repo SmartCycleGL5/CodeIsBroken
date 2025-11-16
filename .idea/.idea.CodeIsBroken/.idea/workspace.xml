@@ -6,32 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/AddressableUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/AddressableUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interporate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interporate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Saw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Saw.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/CraftingRecipie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Recipe/CraftingRecipie.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ShitJournal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ShitJournal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Utility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Utility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Window/WindowManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetGroupSortSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetGroupSortSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +27,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7a1eac1b18e46ebb2789d2fe4a00d211f5a00/85/46b99714/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/3d/f700c049/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/8c/019c9cb9/IEquatable`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/a2/b325e7b9/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/a2/b325e7b9/List`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" root0="FORCE_HIGHLIGHTING" />
@@ -237,7 +217,7 @@
       <workItem from="1763295873061" duration="8799000" />
       <workItem from="1763315559657" duration="470000" />
       <workItem from="1763316045923" duration="96000" />
-      <workItem from="1763320557203" duration="2383000" />
+      <workItem from="1763320557203" duration="3652000" />
     </task>
     <servers />
   </component>

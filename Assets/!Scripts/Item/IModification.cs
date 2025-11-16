@@ -14,24 +14,24 @@ namespace CodeIsBroken.Product.Modifications
         public bool Equals(IModification other);
         
         public static IModification RandomModification()
-        {/*
+        {
             int rng = UnityEngine.Random.Range(0, 3);
 
             switch (rng)
             {
                 case 0:
                     {
-                        return new Color(new UnityEngine.Color(1, 0, 0));
+                        return Color.New(new UnityEngine.Color(1, 0, 0));
                     }
                 case 1:
                     {
-                        return new Color(new UnityEngine.Color(0, 1, 0));
+                        return Color.New(new UnityEngine.Color(0, 1, 0));
                     }
                 case 2:
                     {
-                        return new Color(new UnityEngine.Color(0, 0, 1));
+                        return Color.New(new UnityEngine.Color(0, 0, 1));
                     }
-            }*/
+            }
     
             return default;
         }

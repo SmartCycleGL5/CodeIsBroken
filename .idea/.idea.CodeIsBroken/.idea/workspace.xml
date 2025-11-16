@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +209,7 @@
       <workItem from="1763295873061" duration="8799000" />
       <workItem from="1763315559657" duration="470000" />
       <workItem from="1763316045923" duration="96000" />
-      <workItem from="1763320557203" duration="3652000" />
+      <workItem from="1763320557203" duration="3879000" />
     </task>
     <servers />
   </component>

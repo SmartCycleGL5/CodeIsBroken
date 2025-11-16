@@ -4,17 +4,15 @@ using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CodeIsBroken.Product;
+using CodeIsBroken.Product.Modifications;
 using TMPro;
 using UnityEngine;
 
 public class ContractSystem : MonoBehaviour
 {
     public static ContractSystem instance;
-
-    [SerializeField] Transform displayPos;
-    Item displayItem;
-    [SerializeField] TMP_Text amoundDisplay;
-    public static Contract ActiveContract;
+    public static Contract ActiveContract { get; private set; }
 
     [Header("Contract Settings")]
     public int amountOfModifications = 2;
@@ -25,14 +23,8 @@ public class ContractSystem : MonoBehaviour
     private void Start()
     {
         instance = this;
-        amoundDisplay.enabled = false;
 
         PlayerProgression.onLevelUp += UpdateContractComplexity;
-    }
-    private void Update()
-    {
-        if (ActiveContract == null) return;
-        amoundDisplay.text = "X" + ActiveContract.amount + " - " + ActiveContract.requestedItem.materials;
     }
 
     private void UpdateContractComplexity(int lvl)
@@ -53,13 +45,10 @@ public class ContractSystem : MonoBehaviour
     }
     public void SelectContract(Contract toSelect)
     {
-        amoundDisplay.enabled = true;
-
         toSelect.onFinished += instance.FinishedContract;
 
         ActiveContract = toSelect;
-
-        instance.CreateDisplayItem();
+        
         JournalManager.instance.Contract(toSelect);
     }
 
@@ -76,26 +65,10 @@ public class ContractSystem : MonoBehaviour
     {
         if (contract != ActiveContract) return;
 
-        Destroy(displayItem);
-        amoundDisplay.enabled = false;
-
         ActiveContract.onFinished -= instance.FinishedContract;
         ActiveContract = null;
 
         GetContractOptions();
-    }
-
-    void CreateDisplayItem()
-    {
-        if (displayItem != null) Destroy(displayItem.gameObject);
-
-        bool isProduct = UnityEngine.Random.Range(0, 2) == 0;
-        Item toCreate = MaterialManager.Instance.Products[ActiveContract.requestedItem.materials];
-
-        displayItem = Instantiate(toCreate, displayPos);
-
-        displayItem.destroyOnPause = false;
-        displayItem.definition = ActiveContract.requestedItem;
     }
 
     async void GetContractOptions()
@@ -117,7 +90,7 @@ public class ContractSystem : MonoBehaviour
 public class Contract
 {
     public string contractName;
-    public ItemDefinition requestedItem;
+    public ProductDefinition RequestedProduct;
     public int amount;
 
     public Action<Contract> onFinished;
@@ -136,15 +109,15 @@ public class Contract
     public Contract(string name, int amountOfMods, int complexity)
     {
         contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
+        RequestedProduct = ProductManager.GetRandomProduct(complexity).definition;
 
-        List<Modification> mods = new List<Modification>();
+        List<IModification> mods = new List<IModification>();
 
         for (int i = 0; i < amountOfMods; i++)
         {
-            Modification newMod = Modification.RandomModification();
+            IModification newMod = IModification.RandomModification();
 
-
-            if (AlreadyHasMod(newMod))
+            if (RequestedProduct.mods.Contains(newMod))
             {
                 Debug.Log("already has mod");
                 continue;
@@ -153,26 +126,15 @@ public class Contract
             Debug.Log(newMod);
             mods.Add(newMod);
         }
-
-        requestedItem = new(MaterialManager.GetRandomProduct(complexity), mods);
-
+        
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
-        xpToGive = amount * 6;
-
-
-        bool AlreadyHasMod(Modification newMod)
-        {
-            foreach (var mod in mods)
-            {
-                if (mod.Compare(newMod)) return true;
-            }
-
-            return false;
-        }
+        float xp = ((RequestedProduct.mods.Count + 1) * 3 + complexity * 3) * 1.5f;
+        xpToGive = Mathf.RoundToInt(xp * (amount / 3));
     }
     public void Progress()
     {
+        Debug.Log("[Contract] Progress");
         amount--;
 
         if (amount <= 0)
@@ -188,6 +150,6 @@ public class Contract
 
     public bool SatisfiesContract(Item item)
     {
-        return item.definition.Equals(requestedItem);
+        return item.definition.Equals(RequestedProduct);
     }
 }

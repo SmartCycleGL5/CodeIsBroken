@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using CodeIsBroken.Product;
 using Journal;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,18 +25,19 @@ public class ContracUIManager : MonoBehaviour
 
         if (contractUI == null)
         {
-            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.GameObject);
+            contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
         }
         if(contractModifierUI == null)
         {
-            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.GameObject);
+            contractModifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ContractModifierElement, AddressableToLoad.Object);
         }
-
+        Debug.Log("ContractSystem: "+contractHolder);
         readyToTakeContacts = true;
     }
 
     public static void DisplayContract(Contract[] contracts)
     {
+        
         contractHolder.SetEnabled(true);
         selectText.style.opacity = 1;
 
@@ -47,17 +49,18 @@ public class ContracUIManager : MonoBehaviour
 
     static void CreateContract(Contract contract)
     {
+        Debug.Log("ContractSystem: Create");
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
-        contractbutton.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
+        contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
         contractbutton.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
+        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);
 
         ScrollView mods = contractbutton.Q<ScrollView>("Amount");
 
-        foreach (var mod in contract.requestedItem.mods)
+        foreach (var mod in contract.RequestedProduct.mods)
         {
             TemplateContainer modifierContainer = contractModifierUI.Instantiate();
 
@@ -66,11 +69,11 @@ public class ContracUIManager : MonoBehaviour
             modifier.Q<Label>("Description").text = mod.Description;
 
             mods.Add(modifier);
-        }
+        }   
 
         contractHolder.Add(contractContainer);
 
-        //such a ass solutuion, please try something else instead.
+        //such an ass solutuion, please try something else instead.
         contractbutton.clicked += () => { 
             ContractSystem.instance.SelectContract(contract);
             contractHolder.SetEnabled(false);

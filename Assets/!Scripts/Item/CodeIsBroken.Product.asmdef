@@ -1,0 +1,17 @@
+{
+    "name": "CodeIsBroken.Product",
+    "rootNamespace": "CodeIsBroken.Product",
+    "references": [
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:49b49c76ee64f6b41bf28ef951cb0e50"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

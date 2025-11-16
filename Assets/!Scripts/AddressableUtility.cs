@@ -11,7 +11,8 @@ public enum AddressableAsset
     Contract,
     ContractModifierElement,
     Blue,
-    Terminal
+    Terminal,
+    ConfirmChoice
 }
 public enum AddressableLabel
 {
@@ -20,7 +21,7 @@ public enum AddressableLabel
 
 public enum AddressableToLoad
 {
-    GameObject,
+    Object,
     ScriptableObject,
     Component
 }
@@ -40,6 +41,7 @@ public static class Addressable
                 { AddressableAsset.ContractModifierElement, "UI/ContactModifierElement" },
                 { AddressableAsset.Blue,  "Window/Blue" },
                 { AddressableAsset.Terminal,  "Window/Terminal" },
+                { AddressableAsset.ConfirmChoice,  "UI/ConfirmChoice" },
             };
 
     /// <summary>
@@ -86,7 +88,7 @@ public static class Addressable
     {
         switch (loadSetting)
         {
-            case AddressableToLoad.GameObject:
+            case AddressableToLoad.Object:
                 {
                     return await LoadAsset<T>(ReturnPath(addressable));
                 }

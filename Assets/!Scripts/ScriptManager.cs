@@ -1,85 +1,109 @@
+using System;
+using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
+using RoslynCSharp;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptEditor.Console;
+using System.Threading.Tasks;
+using CodeIsBroken.Product;
 
-namespace Coding
+public class ScriptManager : MonoBehaviour
 {
-    public class ScriptManager : MonoBehaviour
+    public SerializedDictionary<string, Script> activePlayerScripts = new();
+    public static ScriptManager instance;
+
+    public static ScriptDomain scriptDomain;
+    public static bool isRunning { get; private set; }
+
+    public static List<Programmable> machines = new();
+
+    private void Awake()
     {
-        public static ScriptManager instance;
+        instance = this;
+        scriptDomain = new();
+    }
 
-        public static bool isRunning { get; private set; }
-
-        public static List<BaseMachine> machines = new();
-
-        private void Awake()
+    public static void ToggleMachines()
+    {
+        if (isRunning)
         {
-            instance = this;
+            StopMachines();
+        }
+        else
+        {
+            StartMachines();
+        }
+    }
+
+    [Button]
+    public static async void StartMachines()
+    {
+        if (isRunning) return;
+        PlayerConsole.Clear();
+
+        Compile();
+
+        foreach (var script in instance.activePlayerScripts)
+        {
+            script.Value.Run();
         }
 
-        public static void ToggleMachines()
+        isRunning = true;
+
+        Debug.Log("[ScriptManager] Starting");
+
+        await Task.Delay(1000);
+
+        Tick.StartTick();
+    }
+    [Button]
+    public static void StopMachines()
+    {
+        if (!isRunning) return;
+        Tick.StopTick();
+
+        Debug.Log("[ScriptManager] Ending");
+
+        foreach (var script in instance.activePlayerScripts)
         {
-            if (isRunning)
-            {
-                StopMachines();
-            }
-            else
-            {
-                StartMachines();
-            }
+            script.Value.Terminate();
         }
 
-        [Button]
-        public static void StartMachines()
+        for (int i = Item.items.Count - 1; i >= 0; i--)
         {
-            if (isRunning) return;
-
-            foreach (var machine in machines)
-            {
-                if (machine.connectedTerminal == null) continue;
-                machine.connectedTerminal.Save();
-            }
-
-            isRunning = true;
-
-            Debug.Log("[ScriptManager] Starting");
-
-            Tick.StartTick();
-        }
-        [Button]
-        public static void StopMachines()
-        {
-            if (!isRunning) return;
-            Tick.StopTick();
-
-            Debug.Log("[ScriptManager] Ending");
-
-            for (int i = Item.items.Count -1; i >= 0; i--)
-            {
-                if (Item.items[i].destroyOnPause)
-                    Destroy(Item.items[i].gameObject);
-            }
-
-            isRunning = false;
-
+            Destroy(Item.items[i].gameObject);
         }
 
-        public static void Re()
-        {
+        isRunning = false;
 
-            foreach (var item in machines)
-            {
-                item.ClearMemory();
-            }
+    }
+
+    public void AddMachine(Programmable machine)
+    {
+        machines.Add(machine);
+    }
+    public void RemoveMachine(Programmable machine)
+    {
+        machines.Remove(machine);
+    }
+
+    public static void Compile()
+    {
+        bool success = true;
+        
+        foreach (var script in instance.activePlayerScripts)
+        {
+            if(!script.Value.Compile())
+                success = false;
         }
 
-        public void AddMachine(BaseMachine machine)
-        {
-            machines.Add(machine);
-        }
-        public void RemoveMachine(BaseMachine machine)
-        {
-            machines.Remove(machine);
-        }
+        if(!success)
+            PlayerConsole.LogError("Failed to compile!");
+    }
+
+    private void OnDestroy()
+    {
+        StopMachines();
     }
 }

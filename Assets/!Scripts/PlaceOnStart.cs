@@ -7,6 +7,7 @@ public class PlaceOnStart : MonoBehaviour
     void Start()
     {
         Invoke("PlaceBuilding", 0.5f);
+        
     }
 
     void PlaceBuilding()

@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using CodeIsBroken.Product;
 using TMPro;
 using UnityEngine;
 
@@ -27,13 +28,13 @@ public class SellStaton : MonoBehaviour
 
             if (cell == null)
             {
-                Debug.Log("[SellStation] Nothing in cell");
+                //Debug.Log("[SellStation] Nothing in cell");
                 continue;
             }
 
             if (!cell.TryGetComponent(out Conveyor conveyor))
             {
-                Debug.Log("[SellStation] Cell not conveyor");
+                //Debug.Log("[SellStation] Cell not conveyor");
                 continue;
             }
 

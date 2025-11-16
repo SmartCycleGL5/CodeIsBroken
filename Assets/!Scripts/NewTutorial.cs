@@ -1,19 +1,18 @@
-using System;
-using Coding;
 using DG.Tweening;
+using ScriptEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class NewTutorial : MonoBehaviour
 {
-    
-    [Header("Positions")] 
+
+    [Header("Positions")]
     [SerializeField] private Transform materialTubes;
     [SerializeField] private Transform sellingStation;
-    
+
     [Header("References")]
     [SerializeField] UIDocument uiDocument;
-    
+
     private Label label;
     private int level;
     private int buttonPressIndex;
@@ -23,18 +22,19 @@ public class NewTutorial : MonoBehaviour
 
     private bool subscribed = false;
     private string contractName;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = false;
         player = PlayerInputs.instance.gameObject.transform;
         startPosition = PlayerInputs.instance.gameObject.transform.position;
-        label= uiDocument.rootVisualElement.Q<Label>("TutorialText");
-        
+        label = uiDocument.rootVisualElement.Q<Label>("TutorialText");
+
         PlayerProgression.onLevelUp += OnLevelUp;
         // Disable movement and building for player.
         PlayerInputs.instance.enabled = false;
-        
+
         OnLevelUp(1);
     }
 
@@ -44,7 +44,7 @@ public class NewTutorial : MonoBehaviour
         {
             buttonPressIndex++;
         }
-        
+
         switch (level)
         {
             case 1:
@@ -86,6 +86,7 @@ public class NewTutorial : MonoBehaviour
                 player.transform.DORotate(sellingStation.transform.localRotation.eulerAngles, 0.2f);
                 return;
             case 3:
+                uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = true;
                 level++;
                 return;
         }
@@ -99,7 +100,7 @@ public class NewTutorial : MonoBehaviour
             case 0:
                 label.text = "Press B to open the building menu or click the building button at the bottom of your screen.\n\nUse WASD to move and QE to rotate.";
                 player.DOMove(startPosition, 0.2f);
-                player.transform.DORotate(new Vector3(0,0,0), 0.2f);
+                player.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
                 PlayerInputs.instance.enabled = true;
                 if (!BuildingSelector.instance.isBuilding)
                     buildingIndex++;
@@ -111,7 +112,7 @@ public class NewTutorial : MonoBehaviour
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
                 if (ContractSystem.ActiveContract != null)
                 {
-                    contractName = ContractSystem.ActiveContract.requestedItem.materials.ToString();
+                    contractName = ContractSystem.ActiveContract.RequestedProduct.materials.ToString();
                     level++;
                 }
                 return;
@@ -125,7 +126,7 @@ public class NewTutorial : MonoBehaviour
             case 0:
                 label.text = "Lets try some programming! Click on the material tube and press the terminal symbol. Try writing something inside the terminal!";
                 if (Terminal.focused)
-                {buildingIndex++;}
+                { buildingIndex++; }
                 break;
             case 2:
                 label.text = $"Try writing ChangeMaterial({contractName}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check the colors you can paint.";

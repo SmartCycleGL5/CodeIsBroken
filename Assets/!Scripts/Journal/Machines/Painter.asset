@@ -22,6 +22,6 @@ MonoBehaviour:
       painters, like yellow being Green and Red, purple being Red and Blue, and cyan
       being Blue and Green.\t"
   - style: 1
-    text: "void OnTick()\r\n{\r\n\tPaint(Red);\r\n}"
+    text: "void OnTick()\r\n{\r\n\tPaint(\"Red\");\n\tPaint(\"Blue\");\r\n}"
   sortOrder: 6
   levelToUnlock: 0

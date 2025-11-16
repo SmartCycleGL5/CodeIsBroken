@@ -1,19 +1,12 @@
+using CodeIsBroken.Product;
 using DG.Tweening;
 using UnityEngine;
-
-
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
-    
-    [SerializeField] Transform input;
-    [SerializeField] Transform output;
-    [SerializeField] PainterMachine PainterMachine;
-    
     Tweener moveTween;
     public Item item { get; set; }
-
-
-
+    [SerializeField] ParticleSystem particle;
+    
     void Start()
     {
         Tick.OnTick += TakeItem;
@@ -42,9 +35,14 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
             conveyorIn.RemoveItem();
         }
 
-        PainterMachine.item = item;
+        //PainterMachine.item = item; we need a different solution lol
     }
 
+    public void PaintEffect()
+    {
+            particle.Play();
+    }
+    
     public bool RemoveItem(out Item removedItem)
     {
         removedItem = null;
@@ -62,7 +60,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
     {
         if (this.item != null) return false;
         this.item = item;
-        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,1,0),0.3f);
+        moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,0.5f,0),0.3f);
         return true;
     }
     [DontIntegrate]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CodeIsBroken.Product;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -99,20 +100,21 @@ namespace Journal
             }
             tab.tabHeader.focusable = true;
             tab.tabHeader.style.display = DisplayStyle.Flex;
-            tab.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
+            tab.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
             tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);
             ScrollView mods = tab.Q<ScrollView>("Amount");
             mods.Clear();
-            foreach (var mod in contract.requestedItem.mods)
+
+            foreach (var mod in contract.RequestedProduct.mods)
             {
                 VisualElement _m = new();
                 _m.AddToClassList("modifier");
                 _m.Add(new Label { text = mod.Name });
                 _m.Add(new Label { text = mod.Description});
                 mods.Add(_m);
-            }
+            }   
         }
         private Button CreateNewButton(JournalEntrySO entry)
         {

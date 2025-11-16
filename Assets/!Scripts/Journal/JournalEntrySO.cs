@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using NaughtyAttributes;
-using UnityEditor.Rendering;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;

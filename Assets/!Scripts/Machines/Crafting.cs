@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CodeIsBroken.Product;
 using UnityEngine;
 
 public class Crafting : MonoBehaviour

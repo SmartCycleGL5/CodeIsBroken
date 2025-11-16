@@ -15,7 +15,8 @@ namespace CodeIsBroken.Product
 
         [SerializedDictionary("Material", "Prefab"), SerializeField, ReadOnly]
         private SerializedDictionary<ProductDefinition, Item> Products;
-    
+        public static Action foundProducts;
+        
         void Awake()
         {
             Instance = this;
@@ -30,6 +31,8 @@ namespace CodeIsBroken.Product
                 Item i = item.GetComponent<Item>();
                 Products.Add(i.definition, i);
             }
+            
+            foundProducts?.Invoke();
         }
 
         public static Item GetRandomProduct(int complexity = 1)

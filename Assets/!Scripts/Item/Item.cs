@@ -7,7 +7,7 @@ namespace CodeIsBroken.Product
 {
     public class Item : MonoBehaviour
     {
-        public ProductDefinition definition = new(Materials.Wood);
+        public ProductDefinition definition = new(BaseMaterials.Wood);
         public Sprite icon;
     
         public MeshRenderer artRenderer;

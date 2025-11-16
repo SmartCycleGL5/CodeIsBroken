@@ -14,8 +14,8 @@ public class Crafting : MonoBehaviour
 
     public Item CraftItem(List<Item> items, List<CraftingRecipie>  craftingRecipies)
     {
-        List<Materials> materials = new();
-        materials.AddRange(items.Select(i => i.definition.materials));
+        List<BaseMaterials> materials = new();
+        materials.AddRange(items.Select(i => i.definition.baseMaterials));
         
         //Loops over all recipes
         foreach (var recipe in craftingRecipies)

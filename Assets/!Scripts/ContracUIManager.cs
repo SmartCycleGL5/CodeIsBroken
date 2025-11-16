@@ -3,6 +3,7 @@ using CodeIsBroken.Product;
 using Journal;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Utility;
 using static UIManager;
 
 public class ContracUIManager : MonoBehaviour
@@ -53,7 +54,7 @@ public class ContracUIManager : MonoBehaviour
         TemplateContainer contractContainer = contractUI.Instantiate();
 
         Button contractbutton = contractContainer.Q<Button>("Contract");
-        contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
+        contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
         contractbutton.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
         contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);

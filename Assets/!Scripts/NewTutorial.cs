@@ -112,7 +112,7 @@ public class NewTutorial : MonoBehaviour
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
                 if (ContractSystem.ActiveContract != null)
                 {
-                    contractName = ContractSystem.ActiveContract.RequestedProduct.materials.ToString();
+                    contractName = ContractSystem.ActiveContract.RequestedProduct.baseMaterials.ToString();
                     level++;
                 }
                 return;

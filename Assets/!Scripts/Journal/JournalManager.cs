@@ -103,9 +103,10 @@ namespace Journal
             tab.Q<Label>("ContractName").text = contract.RequestedProduct.definition.materials.ToString();
             tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.Instance.Products[contract.RequestedProduct.definition].icon);
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct.definition).icon);
             ScrollView mods = tab.Q<ScrollView>("Amount");
             mods.Clear();
+
             foreach (var mod in contract.RequestedProduct.definition.mods)
             {
                 VisualElement _m = new();
@@ -113,7 +114,7 @@ namespace Journal
                 _m.Add(new Label { text = mod.Name });
                 _m.Add(new Label { text = mod.Description});
                 mods.Add(_m);
-            }
+            }   
         }
         private Button CreateNewButton(JournalEntrySO entry)
         {

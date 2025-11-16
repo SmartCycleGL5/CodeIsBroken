@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product.Modification;
+using CodeIsBroken.Product.Modifications;
 using UnityEngine;
 
 namespace CodeIsBroken.Product
@@ -18,7 +18,8 @@ namespace CodeIsBroken.Product
         private void Start()
         {
             items.Add(this);
-    
+            
+            if(definition.mods == null) return;
             foreach (var mod in definition.mods)
             {
                 mod.Apply(this);

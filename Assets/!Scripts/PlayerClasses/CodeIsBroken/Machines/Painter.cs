@@ -35,7 +35,7 @@ namespace CodeIsBroken
             Debug.Log("Set color to: " + color);
             if (item == null) return;
             painterConveyor.PaintEffect();
-            item.definition.Modify(new CodeIsBroken.Product.Modification.Color(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
+            item.definition.Modify(Product.Modifications.Color.New(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
         }
     
         void OnDestroy()

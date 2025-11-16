@@ -10,8 +10,9 @@ namespace CodeIsBroken.Product
     public class ProductManager : MonoBehaviour
     {
         public static ProductManager Instance;
-        [SerializedDictionary("Material", "Prefab")]
-        [field: SerializeField]public SerializedDictionary<ProductDefinition, Item> Products {get; private set;}
+
+        [SerializedDictionary("Material", "Prefab"), SerializeField]
+        private SerializedDictionary<ProductDefinition, Item> Products;
     
         void Awake()
         {
@@ -23,6 +24,17 @@ namespace CodeIsBroken.Product
             List<KeyValuePair<ProductDefinition, Item>> listToChooseFrom = Instance.Products.ToList();
 
             return listToChooseFrom[Random.Range(0, listToChooseFrom.Count - 1)].Value;
+        }
+
+        public static Item GetProduct(ProductDefinition toFind)
+        {
+            foreach (var product in Instance.Products)
+            {
+                if (toFind.Equals(product.Key))
+                    return product.Value;
+            }
+            
+            return null;
         }
     }
 }

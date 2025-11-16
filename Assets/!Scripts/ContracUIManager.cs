@@ -56,7 +56,7 @@ public class ContracUIManager : MonoBehaviour
         contractbutton.Q<Label>("ContractName").text = contract.RequestedProduct.definition.materials.ToString();
         contractbutton.Q<Label>("Amount").text = contract.amount.ToString() + " X";
         contractbutton.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.Instance.Products[contract.RequestedProduct.definition].icon);
+        contractbutton.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct.definition).icon);
 
         ScrollView mods = contractbutton.Q<ScrollView>("Amount");
 
@@ -69,7 +69,7 @@ public class ContracUIManager : MonoBehaviour
             modifier.Q<Label>("Description").text = mod.Description;
 
             mods.Add(modifier);
-        }
+        }   
 
         contractHolder.Add(contractContainer);
 

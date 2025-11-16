@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product.Modification;
+using CodeIsBroken.Product.Modifications;
 using UnityEngine;
 
 namespace CodeIsBroken.Product
@@ -27,22 +27,18 @@ namespace CodeIsBroken.Product
         
         public Materials materials;
 
+        [field: SerializeReference, SubclassSelector]
         public List<IModification> mods { get; set; } = new();
+        
         
         public Action<IModification> modified;
     
-        public ProductDefinition(Materials materials, List<IModification> modifications = null)
+        public ProductDefinition(Materials materials, List<IModification> mods = null)
         {
             this.materials = materials;
-
-            if (modifications != null)
-            {
-                mods = modifications;   
-            }
-            else
-            {
-                mods = new List<IModification>();
-            }
+            
+            if(mods == null) { this.mods = new List<IModification>(); return; }
+            this.mods = mods;   
         }
     
         public void Modify(IModification modification)
@@ -59,14 +55,14 @@ namespace CodeIsBroken.Product
 
         public bool Equals(ProductDefinition other)
         {
-            if (other is null){ return false;}
-            if (!(mods == null && other.mods == null)) { Debug.Log($"{mods} or {other.mods} is null"); return false;}
-            if (materials != other.materials) { Debug.Log($"{materials} != {other.materials }"); return false;}
-
-            if (mods == null || other.mods == null) return true;
+            if(mods == null || other.mods == null) { return false; }
+            if (materials != other.materials) { Debug.Log($"{materials} != {other.materials }"); return false; }
+            if (mods.Count != other.mods.Count) return false;
+            
             for (int i = 0; i < mods.Count; i++)
             {
-                if(mods[i] != other.mods[i]) { Debug.Log($"{mods[i]} != {other.mods[i] }"); return false;}
+                if(mods[i] == null || other.mods[i] == null) { return false; } 
+                if(!mods[i].Equals(other.mods[i])) { Debug.Log($"{mods[i]} != {other.mods[i] }"); return false; }
             }
             
             return true;

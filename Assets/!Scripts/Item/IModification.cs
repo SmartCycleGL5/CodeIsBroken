@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Drawing.Imaging;
 using UnityEngine;
 
-namespace CodeIsBroken.Product.Modification
+namespace CodeIsBroken.Product.Modifications
 {
-    public interface IModification
+    public interface IModification : IEquatable<IModification>
     {
-        public string Name {  get; set; }
-        public string Description {  get; set; }
+        public string Name { get; }
+        public string Description { get; }
         
         public void Apply(Item item);
+        public bool Equals(IModification other);
         
         public static IModification RandomModification()
-        {
+        {/*
             int rng = UnityEngine.Random.Range(0, 3);
 
             switch (rng)
@@ -30,26 +31,24 @@ namespace CodeIsBroken.Product.Modification
                     {
                         return new Color(new UnityEngine.Color(0, 0, 1));
                     }
-            }
+            }*/
     
             return default;
         }
     }
-    public interface IModification<T> : IModification, IEquatable<T> where T : IModification<T>
-    {
-    }
     
-    public class Color : IModification<Color>
+    [Serializable]
+    public class Color : IModification
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public UnityEngine.Color color  { get; private set; }
-    
-        public Color(UnityEngine.Color color)
+        public string Name => "Color:";
+        public string Description => $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
+        [field: SerializeField] public UnityEngine.Color color  { get; private set; }
+        
+        public static Color New(UnityEngine.Color color)
         {
-            Name = $"Colors:";
-            Description = $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
-            this.color = color;
+            Color toReturn = new Color();
+            toReturn.color = color;
+            return toReturn;
         }
 
         public void Apply(Item item)
@@ -63,12 +62,55 @@ namespace CodeIsBroken.Product.Modification
             item.artRenderer.material.SetColor("_Colour", item.artRenderer.material.GetColor("_Colour") + color);
         }
 
-        public bool Equals(Color other)
+        public bool Equals(IModification other)
         {
             if (other is null) return false;
+            if (other is not Color) return false;
             if (Name != other.Name) return false;
             if (Description != other.Description) return false;
-            if (color != other.color) return false;
+            if (color != ((Color)other).color) return false;
+            
+            return true;
+        }
+    }
+
+    [Serializable]
+    public class Cut : IModification
+    {
+        public string Name => "Cut";
+        public string Description => "pls cut";
+        public void Apply(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Equals(IModification other)
+        {
+            if (other is null) { Debug.Log("other is null"); return false; }
+            if (other is not Cut) { Debug.Log("other is not cut"); return false; }
+            if (Name != other.Name) return false;
+            if (Description != other.Description) return false;
+            
+            return true;
+        }
+    }
+
+    [Serializable]
+    public class Assembled : IModification
+    {
+        public string Name => "Assembled";
+        public string Description => "nice chair lol";
+        public void Apply(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Equals(IModification other)
+        {
+            if (other is null) { Debug.Log("other is null"); return false; }
+            if (other is not Assembled) { Debug.Log("other is not assembled"); return false; }
+            if (Name != other.Name) return false;
+            if (Description != other.Description) return false;
             
             return true;
         }

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeIsBroken.Product;
-using CodeIsBroken.Product.Modification;
+using CodeIsBroken.Product.Modifications;
 using TMPro;
 using UnityEngine;
 

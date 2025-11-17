@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CodeIsBroken.Product.Modifications;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Object = System.Object;
 
 namespace CodeIsBroken.Product
 {
@@ -25,21 +26,22 @@ namespace CodeIsBroken.Product
 
         #endregion
         
-        
+        public Sprite icon;
         [FormerlySerializedAs("materials")] public BaseMaterials baseMaterials;
 
         [field: SerializeReference, SubclassSelector]
         public List<IModification> mods { get; set; } = new();
         
-        
         public Action<IModification> modified;
-    
+        
         public ProductDefinition(BaseMaterials baseMaterials, List<IModification> mods = null)
         {
             this.baseMaterials = baseMaterials;
+
+            this.mods = new List<IModification>();
             
-            if(mods == null) { this.mods = new List<IModification>(); return; }
-            this.mods = mods;   
+            if(mods != null)
+                this.mods = mods;   
         }
     
         public void Modify(IModification modification)

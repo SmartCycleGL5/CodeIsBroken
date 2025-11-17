@@ -9,7 +9,6 @@ namespace CodeIsBroken.Product
     {
         [Min(1)]
         public int lvlUnlock = 1;
-        public Sprite icon;
         public ProductDefinition definition = new(BaseMaterials.Wood);
     
         public MeshRenderer artRenderer;

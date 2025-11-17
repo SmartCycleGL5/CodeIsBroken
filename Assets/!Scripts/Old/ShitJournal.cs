@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utility;
-using static WindowManager;
+using static CodeIsBroken.UI.Window.WindowManager;
 
 public class ShitJournal : MonoBehaviour, IWindow
 {
 
     public static VisualTreeAsset journalAsset { get; private set; }
     public static VisualTreeAsset journalElementAsset { get; private set; }
-    public Window window { get; set; }
+    public WindowElement window { get; set; }
 
     VisualElement windowElement;
     VisualElement journal;
@@ -47,7 +48,7 @@ public class ShitJournal : MonoBehaviour, IWindow
             element.Q<Label>("Description").text = item.buildingDesctiption;
         }
 
-        window = new Window("Journal", windowElement, this);
+        window = new WindowElement("Journal", windowElement, this);
     }
 
     public void Close()

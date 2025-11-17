@@ -1,3 +1,4 @@
+using CodeIsBroken.Contract;
 using DG.Tweening;
 using ScriptEditor;
 using UnityEngine;
@@ -111,9 +112,9 @@ public class NewTutorial : MonoBehaviour
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
-                if (ContractSystem.ActiveContract != null)
+                if (ContractGiver.ActiveContract != null)
                 {
-                    contractName = ContractSystem.ActiveContract.RequestedProduct.baseMaterials.ToString();
+                    contractName = ContractGiver.ActiveContract.RequestedProduct.baseMaterials.ToString();
                     level++;
                 }
                 return;
@@ -134,7 +135,7 @@ public class NewTutorial : MonoBehaviour
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractSystem.ActiveContract.onFinished += OnFinishedContract;
+                    ContractGiver.ActiveContract.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -157,6 +158,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractSystem.ActiveContract.onFinished -= OnFinishedContract;
+        ContractGiver.ActiveContract.onFinished -= OnFinishedContract;
     }
 }

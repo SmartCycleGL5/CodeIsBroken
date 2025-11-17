@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CodeIsBroken.Contract;
 using CodeIsBroken.Product;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace Journal
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
             PlayerProgression.onLevelUp += OnLevelUp;
+            ContractGiver.OnNewContract += Contract; //added to make the contact giver not reliant on other systems
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
@@ -104,7 +106,7 @@ namespace Journal
             tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
             tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);
+            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
             ScrollView mods = tab.Q<ScrollView>("Amount");
             mods.Clear();
 

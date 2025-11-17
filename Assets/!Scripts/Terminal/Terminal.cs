@@ -1,10 +1,12 @@
 using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
+using CodeIsBroken.UI.Window;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utility;
-using static WindowManager;
+using static CodeIsBroken.UI.Window.WindowManager;
 
 namespace ScriptEditor
 {
@@ -20,7 +22,7 @@ namespace ScriptEditor
 
         public static List<Terminal> terminals = new();
         
-        public Window window { get; set; }
+        public WindowElement window { get; set; }
 
         #region UI elements
         
@@ -77,9 +79,9 @@ namespace ScriptEditor
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
 
 #if UNITY_EDITOR
-            new Window(scriptToEdit.name, terminal, false, this);
+            new WindowElement(scriptToEdit.name, terminal, false, this);
 #else
-            new Window(scriptToEdit.name, terminal, true, this);
+            new WindowElement(scriptToEdit.name, terminal, true, this);
 #endif
 
 

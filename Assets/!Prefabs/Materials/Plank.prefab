@@ -271,8 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lvlUnlock: 2
-  icon: {fileID: 21300000, guid: e25402d1ac1fa3e678170a2ab5661a8c, type: 3}
   definition:
+    icon: {fileID: 21300000, guid: e25402d1ac1fa3e678170a2ab5661a8c, type: 3}
     baseMaterials: 2
     <mods>k__BackingField:
     - rid: 1185941312404717647

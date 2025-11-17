@@ -5,63 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Chair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Chair.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Iron.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Plank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Plank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Stone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Materials/Wood.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContracUIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ContractSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ShitJournal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ShitJournal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseCanvas.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseStyle.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/BaseStyle.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Blue.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Blue.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ConfirmChoice.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ConfirmChoice.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ContactModifierElement.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ContactModifierElement.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Contract.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Contract.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Contract.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Contract.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/NewUSSFile.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/NewUSSFile.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RadialFillElement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/RadialFillElement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ShitJorurnal.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ShitJorurnal.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ShitJournalElement.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/ShitJournalElement.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Terminal.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/TerminalSyle.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/TerminalSyle.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/WindowStyle.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/WindowStyle.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window/IWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window/IWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window/WindowManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Window/WindowManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/ReferenceHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Color.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/Window/Window.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Packages/MackySoft/MackySoft.SerializeReferenceExtensions/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@d929cbc70804/Editor/Settings/AddressableAssetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@d929cbc70804/Runtime/AddressablesImpl.cs" root0="SKIP_HIGHLIGHTING" />
@@ -276,7 +221,7 @@
       <workItem from="1763320557203" duration="3879000" />
       <workItem from="1763379647848" duration="92000" />
       <workItem from="1763379757560" duration="272000" />
-      <workItem from="1763387153165" duration="5975000" />
+      <workItem from="1763387153165" duration="6295000" />
     </task>
     <servers />
   </component>

@@ -61,10 +61,10 @@ namespace CodeIsBroken.UI.Window
     
     
         /// <summary>
-        /// Dont use this, instead do new UIManager.Window()
+        /// Dont use this, instead do new UIManager.WindowElement()
         /// </summary>
         /// <param name="windowElement">the window to add</param>
-        static void AddWindow(WindowElement windowElement)
+        public static void AddWindow(WindowElement windowElement)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace CodeIsBroken.UI.Window
                 Debug.LogError("[UIManager] " + windowElement.name + ": " + e);
             }
         }
-        static void CloseWindow(WindowElement windowElementToClose)
+        public static void CloseWindow(WindowElement windowElementToClose)
         {
             OpenWindows.Remove(windowElementToClose.name);
             tabs.Remove(windowElementToClose.element);
@@ -98,7 +98,7 @@ namespace CodeIsBroken.UI.Window
             Debug.Log("[UIManager] " + "Closed tab: " + windowElementToClose.name);
         }
     
-        static async Task<bool> RequestClose(WindowElement windowElementToClose)
+        public static async Task<bool> RequestClose(WindowElement windowElementToClose)
         {
             Button closeButton = confirmChoice.Q<Button>("Close");
             Button cancelButton = confirmChoice.Q<Button>("Cancel");
@@ -141,75 +141,6 @@ namespace CodeIsBroken.UI.Window
             VisualTreeAsset element = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Blue);
             VisualElement blue = element.Instantiate();
             new WindowElement("Blue", blue);
-        }
-    
-        /// <summary>
-        /// Defines window elements
-        /// </summary>
-        [Serializable]
-        public class WindowElement
-        {
-            public string name;
-            public Tab element;
-            public IWindow connectedWindow;
-            bool requestClose;
-            bool closing;
-    
-            public WindowElement(string name, VisualElement element, bool requestClose = false, IWindow window = null)
-            {
-                this.name = name;
-                this.element = new Tab(name);
-                this.element.Add(element);
-                this.requestClose = requestClose;
-                this.connectedWindow = window;
-    
-                Open();
-            }
-    
-            void Open()
-            {
-                AddWindow(this);
-            }
-            public async void Close()
-            {
-                if (closing) return;
-                closing = true;
-    
-                if(requestClose)
-                {
-                    if (!await RequestClose(this))
-                    {
-                        closing = false;
-                        return;
-                    }
-                }
-    
-                CloseWindow(this);
-    
-                if (connectedWindow != null)
-                {
-                    connectedWindow.Close();
-                }
-                closing = false;
-            }
-            public void ForceClose()
-            {
-                if (connectedWindow != null)
-                {
-                    connectedWindow.Close();
-                }
-            }
-    
-            public void Rename(string name)
-            {
-                CloseWindow(this);
-    
-                this.name = name;
-                element.name = name;
-                element.label = name;
-    
-                AddWindow(this);
-            }
         }
     }
 

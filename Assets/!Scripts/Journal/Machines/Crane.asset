@@ -27,4 +27,4 @@ MonoBehaviour:
   - style: 1
     text: "void OnTick()\r\n{\r\n\tPickUp();\n\tDrop();\r\n\tRotate(180);\r\n}"
   sortOrder: 3
-  levelToUnlock: 2
+  levelToUnlock: 4

@@ -24,4 +24,4 @@ MonoBehaviour:
   - style: 1
     text: "void OnTick()\r\n{\r\n\tPaint(\"Red\");\n\tPaint(\"Blue\");\r\n}"
   sortOrder: 6
-  levelToUnlock: 0
+  levelToUnlock: 3

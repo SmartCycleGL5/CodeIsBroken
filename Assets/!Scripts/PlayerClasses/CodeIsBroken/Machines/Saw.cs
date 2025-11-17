@@ -51,7 +51,7 @@ namespace CodeIsBroken
             return items.Count;
         }
     
-        public void Craft()
+        public void Cut()
         {
             //Start sawblade animation
             sawBlade.DOLocalRotate(new Vector3(560,0,0), 0.3f, RotateMode.FastBeyond360);

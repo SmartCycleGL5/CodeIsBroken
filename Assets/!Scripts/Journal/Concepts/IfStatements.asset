@@ -18,3 +18,5 @@ MonoBehaviour:
   journalTexts:
   - style: 1
     text: "if()\r\n{\r\n\tDo(x)\r\n}\r\nelse if()\r\n{\r\n\tDo(y)\r\n}\r\nelse \r\n{\r\n\tDo(z)\r\n}"
+  sortOrder: 0
+  levelToUnlock: 3

@@ -1,6 +1,7 @@
 using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using CodeIsBroken.UI.Window;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
@@ -18,7 +19,6 @@ namespace ScriptEditor
         public Script scriptToEdit { get; private set; }
 
         static VisualTreeAsset terminalAsset;
-        public static bool findingAsset;
 
         public static List<Terminal> terminals = new();
         
@@ -61,18 +61,14 @@ namespace ScriptEditor
                 }
             }
         }
-
+        
         private async void Start()
         {
             activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
             
             if (terminalAsset == null)
             {
-                Debug.Log("[Terminal] getting asset");
-
-                findingAsset = true;
                 terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
-                findingAsset = false;
             }
             
             terminal = terminalAsset.Instantiate();
@@ -120,14 +116,14 @@ namespace ScriptEditor
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
-        void OnLoseFocus(FocusOutEvent evt)
+        async void OnLoseFocus(FocusOutEvent evt)
         {
-            Save();
+            await Save();
         }
 
-        public void Close()
+        public async void Close()
         {
-            Save();
+            await Save();
             Destroy(this);
         }
 
@@ -145,7 +141,6 @@ namespace ScriptEditor
                 DisplayIntegratedMethods();
             
             HighlightCode();
-            ScriptManager.Compile();
         }
         void DisplayIntegratedMethods()
         {
@@ -171,7 +166,7 @@ namespace ScriptEditor
             }
         }
 
-        public void Save()
+        public async Task Save()
         {
             if (scriptToEdit == null) return;
 
@@ -184,8 +179,11 @@ namespace ScriptEditor
 
             if (scriptToEdit.rawCode != input.text)
             {
+                PlayerConsole.Log("Saving...");
+                
+                await scriptToEdit.Save(input.text); 
+                
                 PlayerConsole.Log("Saved!");
-                scriptToEdit.Save(input.text); 
             }
             
             //window.Rename(scriptToEdit.name);

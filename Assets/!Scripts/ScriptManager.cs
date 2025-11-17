@@ -22,6 +22,8 @@ public class ScriptManager : MonoBehaviour
 
     public static List<Programmable> machines = new();
 
+    public static bool compiling;
+
     private void Awake()
     {
         instance = this;
@@ -32,6 +34,7 @@ public class ScriptManager : MonoBehaviour
     {
         runButton = canvas.Q<Button>("Run");
         runButton.clicked += ToggleMachines;
+        runButton.text = "Start";
     }
 
     public static void ToggleMachines()
@@ -49,10 +52,14 @@ public class ScriptManager : MonoBehaviour
     [Button]
     public static async void StartMachines()
     {
+        if(compiling) return;
         if (isRunning) return;
+        
+        runButton.text = "Starting";
+        runButton.SetEnabled(false);
         PlayerConsole.Clear();
 
-        Compile();
+        await Compile();
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -67,12 +74,17 @@ public class ScriptManager : MonoBehaviour
 
         Tick.StartTick();
         
+        runButton.SetEnabled(true);
         runButton.text = "Stop";
     }
     [Button]
     public static void StopMachines()
     {
+        if(compiling) return;
         if (!isRunning) return;
+        
+        runButton.text = "Stopping";
+        runButton.SetEnabled(false);
         Tick.StopTick();
 
         Debug.Log("[ScriptManager] Ending");
@@ -88,7 +100,8 @@ public class ScriptManager : MonoBehaviour
         }
 
         isRunning = false;
-        runButton.text = "Run";
+        runButton.SetEnabled(true);
+        runButton.text = "Start";
     }
 
     public void AddMachine(Programmable machine)
@@ -100,18 +113,27 @@ public class ScriptManager : MonoBehaviour
         machines.Remove(machine);
     }
 
-    public static void Compile()
+    public static async Task Compile()
     {
+        if(compiling) return;
+        compiling = true;
+        
+        runButton.SetEnabled(false);
         bool success = true;
         
         foreach (var script in instance.activePlayerScripts)
         {
             if(!script.Value.Compile())
                 success = false;
+            
+            await Task.Delay(10);
         }
 
         if(!success)
             PlayerConsole.LogError("Failed to compile!");
+        
+        runButton.SetEnabled(true);
+        compiling = false;
     }
 
     private void OnDestroy()

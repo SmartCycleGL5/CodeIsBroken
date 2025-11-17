@@ -3,6 +3,7 @@ using RoslynCSharp;
 using ScriptEditor;
 using ScriptEditor.Console;
 using System;
+using System.Threading.Tasks;
 using Trivial.CodeSecurity;
 using UnityEngine;
 
@@ -47,7 +48,7 @@ public class Script
     }
 
 
-    public Script(string className, string parentClass, Programmable machine = null)
+    public  Script(string className, string parentClass, Programmable machine = null)
     {
         this.name = className;
         connectedMachine = machine;
@@ -84,12 +85,11 @@ public class Script
         terminal = Terminal.NewTerminal(this, connectedMachine);
     }
 
-    public void Save(string code)
+    public async Task Save(string code)
     {
         rawCode = code;
         PlayerConsole.Clear();
-        PlayerConsole.Log("Saved!");
-        ScriptManager.Compile();
+        await ScriptManager.Compile();
     }
     public bool Compile()
     {

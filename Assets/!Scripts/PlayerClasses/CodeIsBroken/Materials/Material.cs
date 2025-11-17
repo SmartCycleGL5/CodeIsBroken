@@ -5,8 +5,8 @@ namespace CodeIsBroken
 {
     public struct Material
     {
-        public static ProductDefinition Wood => ProductDefinition.Wood;
-        public static ProductDefinition Iron  => ProductDefinition.Iron;
-        public static ProductDefinition Stone => ProductDefinition.Stone;
+        public static ProductDefinition wood => ProductDefinition.Wood;
+        public static ProductDefinition iron  => ProductDefinition.Iron;
+        public static ProductDefinition stone => ProductDefinition.Stone;
     }
 }

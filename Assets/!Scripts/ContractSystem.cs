@@ -111,7 +111,7 @@ public class Contract
     public Contract(string name, int amountOfMods, int complexity)
     {
         contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
-        RequestedProduct = ProductManager.GetRandomProduct(complexity).definition;
+        RequestedProduct = ProductManager.GetRandomProduct().definition;
         /*
 
         List<IModification> mods = new List<IModification>();

@@ -33,8 +33,6 @@ namespace CodeIsBroken.Product
         
         
         public Action<IModification> modified;
-        
-        public int Complexity => 1 + mods.Count;
     
         public ProductDefinition(BaseMaterials baseMaterials, List<IModification> mods = null)
         {

@@ -35,13 +35,13 @@ namespace CodeIsBroken.Product
             foundProducts?.Invoke();
         }
 
-        public static Item GetRandomProduct(int complexity = 1)
+        public static Item GetRandomProduct()
         {
             List<KeyValuePair<ProductDefinition, Item>> listToChooseFrom = Instance.Products.ToList();
 
             for (int i = listToChooseFrom.Count - 1; i >= 0; i--)
             {
-                if (complexity < listToChooseFrom[i].Key.Complexity)
+                if (PlayerProgression.Level <= listToChooseFrom[i].Value.lvlUnlock)
                 {
                     Debug.Log("Removed: "  + listToChooseFrom[i].Value.name);
                     listToChooseFrom.Remove(listToChooseFrom[i]);   

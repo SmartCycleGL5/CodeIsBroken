@@ -270,11 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adff9d16eb85484c8347d236d19e4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  lvlUnlock: 2
+  icon: {fileID: 21300000, guid: e25402d1ac1fa3e678170a2ab5661a8c, type: 3}
   definition:
-    materials: 2
+    baseMaterials: 2
     <mods>k__BackingField:
     - rid: 1185941312404717647
-  icon: {fileID: 21300000, guid: e25402d1ac1fa3e678170a2ab5661a8c, type: 3}
   artRenderer: {fileID: 5373870341508210345}
   changedColor: 0
   references:

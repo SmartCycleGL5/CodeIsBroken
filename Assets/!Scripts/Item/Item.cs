@@ -7,8 +7,10 @@ namespace CodeIsBroken.Product
 {
     public class Item : MonoBehaviour
     {
-        public ProductDefinition definition = new(BaseMaterials.Wood);
+        [Min(1)]
+        public int lvlUnlock = 1;
         public Sprite icon;
+        public ProductDefinition definition = new(BaseMaterials.Wood);
     
         public MeshRenderer artRenderer;
         public static List<Item> items = new List<Item>();

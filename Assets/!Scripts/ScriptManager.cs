@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom.Compiler;
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using RoslynCSharp;
@@ -121,16 +122,25 @@ public class ScriptManager : MonoBehaviour
         runButton.SetEnabled(false);
         bool success = true;
         
+        List<CompileError> errors = new();
+        
         foreach (var script in instance.activePlayerScripts)
         {
-            if(!script.Value.Compile())
+            if(!script.Value.Compile(ref errors))
                 success = false;
             
             await Task.Delay(10);
         }
+        
+        PlayerConsole.Clear();
 
-        if(!success)
-            PlayerConsole.LogError("Failed to compile!");
+        if (!success)
+        {
+            foreach (var error in errors)
+            {
+                PlayerConsole.LogError(error.ToString());
+            }
+        }
         
         runButton.SetEnabled(true);
         compiling = false;

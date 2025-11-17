@@ -3,6 +3,7 @@ using RoslynCSharp;
 using ScriptEditor;
 using ScriptEditor.Console;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Trivial.CodeSecurity;
 using UnityEngine;
@@ -88,10 +89,9 @@ public class Script
     public async Task Save(string code)
     {
         rawCode = code;
-        PlayerConsole.Clear();
         await ScriptManager.Compile();
     }
-    public bool Compile()
+    public bool Compile(ref List<CompileError> errors)
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
@@ -99,9 +99,9 @@ public class Script
 
         if (!compileResult.Success)
         {
-            foreach (var error in compileResult.Errors)
+            foreach (CompileError error in compileResult.Errors)
             {
-                PlayerConsole.LogError(error);
+                errors.Add(error);
             }
             return false;
         }

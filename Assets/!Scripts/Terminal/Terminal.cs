@@ -176,6 +176,8 @@ namespace ScriptEditor
             }
 
             RemoveHighlight();
+            
+            PlayerConsole.Clear();
 
             if (scriptToEdit.rawCode != input.text)
             {

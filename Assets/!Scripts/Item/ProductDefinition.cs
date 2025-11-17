@@ -33,10 +33,13 @@ namespace CodeIsBroken.Product
         public List<IModification> mods { get; set; } = new();
         
         public Action<IModification> modified;
+
+        public Guid id;
         
         public ProductDefinition(BaseMaterials baseMaterials, List<IModification> mods = null)
         {
             this.baseMaterials = baseMaterials;
+            id = Guid.NewGuid();
 
             this.mods = new List<IModification>();
             
@@ -69,6 +72,20 @@ namespace CodeIsBroken.Product
             }
             
             return true;
+        }
+
+        public ProductDefinition Clone()
+        {
+            ProductDefinition clone = new ProductDefinition(baseMaterials);
+
+            foreach (var mod in mods)
+            {
+                clone.mods.Add(mod);
+            }
+            
+            clone.icon = icon;
+            
+            return clone;
         }
     }
 }

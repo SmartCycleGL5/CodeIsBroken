@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ColorThemes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ColorThemes.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/ContractGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/ContractGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +233,7 @@
       <workItem from="1763320557203" duration="3879000" />
       <workItem from="1763379647848" duration="92000" />
       <workItem from="1763379757560" duration="272000" />
-      <workItem from="1763387153165" duration="6295000" />
+      <workItem from="1763387153165" duration="10635000" />
     </task>
     <servers />
   </component>

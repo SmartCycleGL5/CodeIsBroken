@@ -14,8 +14,6 @@ namespace CodeIsBroken.Contract
     
         [Header("Contract Settings"), MinMaxSlider(0, 10)]
         public Vector2Int additionalModifications;
-        [MinMaxSlider(1, 10)]
-        [SerializeField] Vector2Int complexity = new Vector2Int(1, 1);
     
     
         private void Start()
@@ -37,12 +35,16 @@ namespace CodeIsBroken.Contract
                 case 3:
                     {
                         additionalModifications.y++;
-                        complexity.y++;
                         break;
                     }
                 case 4:
                     {
+                        additionalModifications.y++;
                         additionalModifications.x++;
+                        break;
+                    }
+                case 5:
+                    {
                         break;
                     }
             }
@@ -60,8 +62,8 @@ namespace CodeIsBroken.Contract
         {
             Contract contract = new Contract(
                 "cool contract", 
-                Mathf.RoundToInt(UnityEngine.Random.Range(instance.additionalModifications.x, instance.additionalModifications.y + 1)), 
-                Mathf.RoundToInt(UnityEngine.Random.Range(instance.complexity.x, instance.complexity.y + 1)));
+                Mathf.RoundToInt(UnityEngine.Random.Range(instance.additionalModifications.x, instance.additionalModifications.y + 1))
+                );
     
             return contract;
         }

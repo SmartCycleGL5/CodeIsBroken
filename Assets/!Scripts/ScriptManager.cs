@@ -7,6 +7,8 @@ using UnityEngine;
 using ScriptEditor.Console;
 using System.Threading.Tasks;
 using CodeIsBroken.Product;
+using UnityEngine.UIElements;
+using static CodeIsBroken.UI.UIManager;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class ScriptManager : MonoBehaviour
 
     public static ScriptDomain scriptDomain;
     public static bool isRunning { get; private set; }
+    
+    static Button  runButton;
 
     public static List<Programmable> machines = new();
 
@@ -22,6 +26,12 @@ public class ScriptManager : MonoBehaviour
     {
         instance = this;
         scriptDomain = new();
+    }
+
+    private void Start()
+    {
+        runButton = canvas.Q<Button>("Run");
+        runButton.clicked += ToggleMachines;
     }
 
     public static void ToggleMachines()
@@ -56,6 +66,8 @@ public class ScriptManager : MonoBehaviour
         await Task.Delay(1000);
 
         Tick.StartTick();
+        
+        runButton.text = "Stop";
     }
     [Button]
     public static void StopMachines()
@@ -76,7 +88,7 @@ public class ScriptManager : MonoBehaviour
         }
 
         isRunning = false;
-
+        runButton.text = "Run";
     }
 
     public void AddMachine(Programmable machine)

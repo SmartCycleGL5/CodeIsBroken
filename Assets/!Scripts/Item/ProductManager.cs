@@ -41,14 +41,14 @@ namespace CodeIsBroken.Product
 
             for (int i = listToChooseFrom.Count - 1; i >= 0; i--)
             {
-                if (PlayerProgression.Level <= listToChooseFrom[i].Value.lvlUnlock)
+                if (PlayerProgression.Level < listToChooseFrom[i].Value.lvlUnlock)
                 {
                     Debug.Log("Removed: "  + listToChooseFrom[i].Value.name);
                     listToChooseFrom.Remove(listToChooseFrom[i]);   
                 }
             }
 
-            return listToChooseFrom[Random.Range(0, listToChooseFrom.Count - 1)].Value;
+            return listToChooseFrom[Random.Range(0, listToChooseFrom.Count)].Value;
         }
 
         public static Item GetProduct(ProductDefinition toFind)

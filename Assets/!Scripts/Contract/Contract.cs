@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CodeIsBroken.Product;
 using CodeIsBroken.Product.Modifications;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 namespace CodeIsBroken.Contract
 {
@@ -25,37 +26,43 @@ namespace CodeIsBroken.Contract
             "Stone Carvers"
         };
     
-        public Contract(string name, int amountOfMods, int complexity)
+        public Contract(string name, int amountOfMods)
         {
             contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
-            ProductDefinition product = ProductManager.GetRandomProduct().definition;
-            RequestedProduct = product;
+
+            RequestedProduct = ProductManager.GetRandomProduct().definition.Clone();
     
-            List<IModification> mods = new List<IModification>();
+            IModification[] additionalModifications = GetRandomModifications(amountOfMods); 
     
-            for (int i = 0; i < amountOfMods; i++)
+            foreach (var mod in additionalModifications)
             {
-                IModification newMod = IModification.RandomModification();
-    
-                if (mods.Contains(newMod))
-                {
-                    Debug.Log("already has mod");
-                    continue;
-                }
-    
-                Debug.Log(newMod);
-                mods.Add(newMod);
-            }
-    
-            foreach (var additionalMod in mods)
-            {
-                RequestedProduct.Modify(additionalMod);
+                RequestedProduct.Modify(mod);
             }
             
             amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
     
-            float xp = ((RequestedProduct.mods.Count + 1) * 3 + complexity * 3) * 1.5f;
-            xpToGive = Mathf.RoundToInt(xp * (amount / 3));
+            float xp = ((RequestedProduct.mods.Count + 1) * 3 + RequestedProduct.mods.Count * 3) * 1.5f;
+            xpToGive = Mathf.RoundToInt(xp * (amount / 2));
+            
+            IModification[] GetRandomModifications(int amount)
+            {
+                List<IModification> mods = new List<IModification>();
+                for (int i = 0; i < amountOfMods; i++)
+                {
+                    IModification newMod = IModification.RandomModification();
+    
+                    if (mods.Contains(newMod))
+                    {
+                        Debug.Log("already has mod");
+                        continue;
+                    }
+    
+                    Debug.Log(newMod);
+                    mods.Add(newMod);
+                }
+
+                return mods.ToArray();
+            }
         }
         public void Progress()
         {

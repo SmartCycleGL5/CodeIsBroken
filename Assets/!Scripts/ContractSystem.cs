@@ -14,8 +14,8 @@ public class ContractSystem : MonoBehaviour
     public static ContractSystem instance;
     public static Contract ActiveContract { get; private set; }
 
-    [Header("Contract Settings")]
-    public int amountOfModifications = 2;
+    [Header("Contract Settings"), MinMaxSlider(0, 10)]
+    public Vector2Int additionalModifications;
     [MinMaxSlider(1, 10)]
     [SerializeField] Vector2Int complexity = new Vector2Int(1, 1);
 
@@ -34,6 +34,8 @@ public class ContractSystem : MonoBehaviour
             case 2:
                 {
                     GetContractOptions();
+                    additionalModifications.x++;
+                    additionalModifications.y++;
                     break;
                 }
             case 3:
@@ -56,7 +58,7 @@ public class ContractSystem : MonoBehaviour
     {
         Contract contract = new Contract(
             "cool contract", 
-            instance.amountOfModifications, 
+            Mathf.RoundToInt(UnityEngine.Random.Range(instance.additionalModifications.x, instance.additionalModifications.y + 1)), 
             Mathf.RoundToInt(UnityEngine.Random.Range(instance.complexity.x, instance.complexity.y + 1)));
 
         return contract;
@@ -109,7 +111,8 @@ public class Contract
     public Contract(string name, int amountOfMods, int complexity)
     {
         contractName = names[UnityEngine.Random.Range(0, names.Length - 1)];
-        RequestedProduct = ProductManager.GetRandomProduct(complexity).definition;
+        RequestedProduct = ProductManager.GetRandomProduct().definition;
+        /*
 
         List<IModification> mods = new List<IModification>();
 
@@ -117,7 +120,7 @@ public class Contract
         {
             IModification newMod = IModification.RandomModification();
 
-            if (RequestedProduct.mods.Contains(newMod))
+            if (mods.Contains(newMod))
             {
                 Debug.Log("already has mod");
                 continue;
@@ -126,6 +129,11 @@ public class Contract
             Debug.Log(newMod);
             mods.Add(newMod);
         }
+
+        foreach (var additionalMod in mods)
+        {
+            RequestedProduct.Modify(additionalMod);
+        }*/
         
         amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 

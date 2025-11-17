@@ -271,11 +271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   definition:
-    materials: 2
+    baseMaterials: 2
+    <mods>k__BackingField: []
   icon: {fileID: 21300000, guid: 86b53a1619f83cdd99504ab8279517f9, type: 3}
   artRenderer: {fileID: 882578288086400146}
-  destroyOnPause: 1
   changedColor: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &2017078163867050006
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Utility;
 
 namespace Coding
 {
@@ -29,7 +30,7 @@ namespace Coding
 
 
                 List<string> classScript = scriptLines.ToList();
-                classScript = Utility.FindEncapulasion(
+                classScript = Tools.FindEncapulasion(
                     encapsulatedScript: classScript,
                     startPoint: i,
                     endPoint: out int end,
@@ -91,7 +92,7 @@ namespace Coding
                     if (!LineIsType((key)key, sections, out index)) continue;
 
                     List<string> methodScript = @class.baseCode.ToList();
-                    methodScript = Utility.FindEncapulasion(methodScript, line, out int end, '{', '}');
+                    methodScript = Tools.FindEncapulasion(methodScript, line, out int end, '{', '}');
 
 
                     string name = sections[index + 1].Substring(0, sections[index + 1].IndexOf('('));
@@ -151,8 +152,8 @@ namespace Coding
         public static List<string> SplitLineIntoSections(string line)
         {
             List<string> sections = line.Split(" ").ToList();
-            Utility.FindAndRetain(ref sections, '"', '"');
-            Utility.FindAndRetain(ref sections, '(', ')');
+            Tools.FindAndRetain(ref sections, '"', '"');
+            Tools.FindAndRetain(ref sections, '(', ')');
 
             return sections;
         }

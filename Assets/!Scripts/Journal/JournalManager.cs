@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.Video;
+using Utility;
 
 namespace Journal
 {
@@ -100,7 +101,7 @@ namespace Journal
             }
             tab.tabHeader.focusable = true;
             tab.tabHeader.style.display = DisplayStyle.Flex;
-            tab.Q<Label>("ContractName").text = contract.RequestedProduct.materials.ToString();
+            tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
             tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
             tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(ProductManager.GetProduct(contract.RequestedProduct).icon);

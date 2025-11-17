@@ -584,40 +584,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9e9ec66e2ab1a04a8bc8ee3c658a097, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.ProductManager
   Products:
-    _serializedList:
-    - Key:
-        materials: 2
-        <mods>k__BackingField: []
-      Value: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
-    - Key:
-        materials: 2
-        <mods>k__BackingField:
-        - rid: 1185941312404717650
-      Value: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
-    - Key:
-        materials: 8
-        <mods>k__BackingField: []
-      Value: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
-    - Key:
-        materials: 4
-        <mods>k__BackingField: []
-      Value: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
-    - Key:
-        materials: 6
-        <mods>k__BackingField:
-        - rid: 1185941312404717651
-      Value: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+    _serializedList: []
   references:
     version: 2
-    RefIds:
-    - rid: 1185941312404717650
-      type: {class: Cut, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
-      data: 
-    - rid: 1185941312404717651
-      type: {class: Assembled, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
-      data: 
+    RefIds: []
 --- !u!114 &357034592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1892,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: amountOfModifications
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+      propertyPath: additionalModifications.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_fontSize

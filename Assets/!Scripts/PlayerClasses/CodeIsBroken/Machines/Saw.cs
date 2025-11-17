@@ -83,7 +83,7 @@ namespace CodeIsBroken
             {
                 if (items.Count == sawSize)
                 {
-                    PlayerConsole.LogWarning($"Cant cut {item.definition.materials}");
+                    PlayerConsole.LogWarning($"Cant cut {item.definition.baseMaterials}");
                     // Cant craft using this item, send error
                 }
             }

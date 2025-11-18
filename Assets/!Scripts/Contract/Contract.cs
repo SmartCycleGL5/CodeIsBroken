@@ -13,12 +13,12 @@ namespace CodeIsBroken.Contract
         public string contractName;
         [HideInInspector] public ProductDefinition RequestedProduct;
         public int amount;
+        public int amountLeft { get; private set; }
     
         public Action<Contract> onFinished;
 
         public int xpToGive =>
-            Mathf.RoundToInt((((RequestedProduct.mods.Count + 1) * 3 + RequestedProduct.mods.Count * 3) * 1.5f) *
-                             (amount / 2));
+            Mathf.RoundToInt(((RequestedProduct.mods.Count + 1) * 5) * (amount / 2));
         private static int amountOfMods => Random.Range(
             ContractGiver.activeSettings.additionalModifications.x,
             ContractGiver.activeSettings.additionalModifications.y);
@@ -28,6 +28,7 @@ namespace CodeIsBroken.Contract
             Contract contract = new Contract();
             contract.RequestedProduct = ProductManager.GetRandomProduct().definition.Clone();
             contract.amount = Mathf.RoundToInt(UnityEngine.Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
+            contract.amountLeft = contract.amount;
             
     
             IModification[] additionalModifications = GetRandomModifications(amountOfMods); 
@@ -44,6 +45,7 @@ namespace CodeIsBroken.Contract
             Contract contract = new Contract();
             contract.RequestedProduct = toRequest.definition.Clone();
             contract.amount = amount;
+            contract.amountLeft = contract.amount;
             
             
             foreach (var mod in additionalModifications)
@@ -56,9 +58,9 @@ namespace CodeIsBroken.Contract
         public void Progress()
         {
             Debug.Log("[Contract] Progress");
-            amount--;
+            amountLeft--;
     
-            if (amount <= 0)
+            if (amountLeft <= 0)
             {
                 Finish();
             }

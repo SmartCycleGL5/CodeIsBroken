@@ -24,8 +24,9 @@ namespace CodeIsBroken
         private ReferenceHolder referenceHolder;
         Tweener moveTween;
         public Item item { get; set; }
-    
-    
+        Programmable programmable;
+
+
         void Start()
         {
             craftingRecipies = GetComponent<RecipeHolder>().GetRecipes();
@@ -83,7 +84,7 @@ namespace CodeIsBroken
             {
                 if (items.Count == sawSize)
                 {
-                    PlayerConsole.LogWarning($"Cant cut {item.definition.baseMaterials}");
+                    PlayerConsole.LogWarning($"Cant cut {item.definition.baseMaterials}", programmable.attachedScripts[0].name);
                     // Cant craft using this item, send error
                 }
             }

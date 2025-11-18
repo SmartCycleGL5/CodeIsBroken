@@ -7,15 +7,15 @@ namespace CodeIsBroken
     {
         public static void WriteLine(object message)
         {
-            PlayerConsole.Log(message);
+            PlayerConsole.Log(message, Tick.tickCount.ToString());
         }
         public static void WriteWarning(object message)
         {
-            PlayerConsole.LogWarning(message);
+            PlayerConsole.LogWarning(message, Tick.tickCount.ToString());
         }
         public static void WriteError(object message)
         {
-            PlayerConsole.LogError(message);
+            PlayerConsole.LogError(message, Tick.tickCount.ToString());
         }
     }
 }

@@ -124,88 +124,88 @@ namespace SharpCube
         /// </summary>
         public static void Compile(List<Line> context, IContainer container = null)
         {
-            Keywords currentKeywords = UniversalKeywords;
+            //Keywords currentKeywords = UniversalKeywords;
 
-            Debug.Log($"[Compiler] {container} univarsalkeywords : " + currentKeywords.ToString());
+            //Debug.Log($"[Compiler] {container} univarsalkeywords : " + currentKeywords.ToString());
 
-            if (container != null)
-                currentKeywords.Combine(container.allKeywords);
+            //if (container != null)
+            //    currentKeywords.Combine(container.allKeywords);
 
       
                 
-            Properties currentModifiers = null;
+            //Properties currentModifiers = null;
 
-            for (int line = 0; line < context.Count; line++)
-            {
-                Debug.Log("[Compiler] Line: " + context[line].GetLine());
+            //for (int line = 0; line < context.Count; line++)
+            //{
+            //    Debug.Log("[Compiler] Line: " + context[line].GetLine());
 
-                for (int section = 0; section < context[line].sections.Length; section++)
-                {
+            //    for (int section = 0; section < context[line].sections.Length; section++)
+            //    {
                     
-                    string word = context[line].sections[section];
+            //        string word = context[line].sections[section];
                     
-                    if (!ValidKeyword(word))
-                        PlayerConsole.LogError($"{word} does not exist in the current context");
+            //        if (!ValidKeyword(word))
+            //            PlayerConsole.LogError($"{word} does not exist in the current context");
 
-                    //Debug.Log("[Compiler] Section: " +  word);
+            //        //Debug.Log("[Compiler] Section: " +  word);
 
-                    if (word == currentKeywords.keys[Keywords.Type.Valid][";"].name)
-                        break;
+            //        if (word == currentKeywords.keys[Keywords.Type.Valid][";"].name)
+            //            break;
                     
-                    if (word == currentKeywords.keys[Keywords.Type.Valid]["}"].name)
-                        PlayerConsole.LogError("Unexpected token \"}\"");
+            //        if (word == currentKeywords.keys[Keywords.Type.Valid]["}"].name)
+            //            PlayerConsole.LogError("Unexpected token \"}\"");
 
 
-                    if (word == currentKeywords.keys[Keywords.Type.Valid]["{"].name)
-                    {
-                        line = Encapsulation.FindEndOfEndEncapsulation(line, context);
-                        //Debug.Log($"[Compiler] Skipping to {context[line].GetLine()}");
-                        break;
-                    }
+            //        if (word == currentKeywords.keys[Keywords.Type.Valid]["{"].name)
+            //        {
+            //            line = Encapsulation.FindEndOfEndEncapsulation(line, context);
+            //            //Debug.Log($"[Compiler] Skipping to {context[line].GetLine()}");
+            //            break;
+            //        }
                     
-                    if (currentKeywords.keys[Keywords.Type.Reference].ContainsKey(word))
-                    {/*
-                        Reference reference = (Reference)currentKeywords.keys[Keywords.Type.Reference][word];
-                        PlayerConsole.Log($"Found reference {reference.reference.name} of type {reference.reference.Get()}");
-                        continue;*/
-                    }
+            //        if (currentKeywords.keys[Keywords.Type.Reference].ContainsKey(word))
+            //        {/*
+            //            Reference reference = (Reference)currentKeywords.keys[Keywords.Type.Reference][word];
+            //            PlayerConsole.Log($"Found reference {reference.reference.name} of type {reference.reference.Get()}");
+            //            continue;*/
+            //        }
 
-                    if (currentKeywords.keys[Keywords.Type.Modifier].ContainsKey(word))
-                    {
-                        if (currentModifiers == null) currentModifiers = new();
-                        if (currentModifiers.privilege != Privilege.None) PlayerConsole.LogError("Cannot have more than one protection modifier");
+            //        if (currentKeywords.keys[Keywords.Type.Modifier].ContainsKey(word))
+            //        {
+            //            if (currentModifiers == null) currentModifiers = new();
+            //            if (currentModifiers.privilege != Privilege.None) PlayerConsole.LogError("Cannot have more than one protection modifier");
 
-                        currentModifiers.privilege = ((Modifier)currentKeywords.keys[Keywords.Type.Modifier][word]).privilege;
-                        continue;
-                    }
+            //            currentModifiers.privilege = ((Modifier)currentKeywords.keys[Keywords.Type.Modifier][word]).privilege;
+            //            continue;
+            //        }
 
-                    if (currentKeywords.keys[Keywords.Type.Initializer].ContainsKey(word))
-                    {
+            //        if (currentKeywords.keys[Keywords.Type.Initializer].ContainsKey(word))
+            //        {
                         
-                        Initializer initializer = (Initializer)currentKeywords.keys[Keywords.Type.Initializer][word];
+            //            Initializer initializer = (Initializer)currentKeywords.keys[Keywords.Type.Initializer][word];
                         
-                        if(currentModifiers == null) currentModifiers = new(Privilege.Private);
+            //            if(currentModifiers == null) currentModifiers = new(Privilege.Private);
                         
-                        initializer.Intialize.Invoke(container, context[line], section, currentModifiers);
-                        currentModifiers = null;
+            //            initializer.Intialize.Invoke(container, context[line], section, currentModifiers);
+            //            currentModifiers = null;
 
-                        section++;
-                    }
+            //            section++;
+            //        }
                     
-                    if(currentModifiers != null) PlayerConsole.LogError($"Unexpected Token {currentModifiers.privilege}");
-                }
-            }
+            //        if(currentModifiers != null) PlayerConsole.LogError($"Unexpected Token {currentModifiers.privilege}");
+            //    }
+            //}
             
-            bool ValidKeyword(string word)
-            {
-                foreach (var item in Enum.GetValues(typeof(Keywords.Type)))
-                {
-                    if (currentKeywords.keys[(Keywords.Type)item].ContainsKey(word))
-                        return true;
-                }
+            //bool ValidKeyword(string word)
+            //{
+            //    foreach (var item in Enum.GetValues(typeof(Keywords.Type)))
+            //    {
+            //        if (currentKeywords.keys[(Keywords.Type)item].ContainsKey(word))
+            //            return true;
+            //    }
             
-                return false;
-            }
+            //    return false;
+            //}
         }
         
         public static void Reset()

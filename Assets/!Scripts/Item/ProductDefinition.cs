@@ -32,7 +32,7 @@ namespace CodeIsBroken.Product
         [field: SerializeReference, SubclassSelector]
         public List<IModification> mods { get; set; } = new();
         
-        public Action<IModification> modified;
+        public Action<IAdditionalModification> modified;
 
         public Guid id;
         
@@ -56,7 +56,9 @@ namespace CodeIsBroken.Product
             }
     
             mods.Add(modification);
-            modified?.Invoke(modification);
+            
+            if(modification is IAdditionalModification)
+                modified?.Invoke((IAdditionalModification)modification);
         }
 
         public bool Equals(ProductDefinition other)

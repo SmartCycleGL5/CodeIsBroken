@@ -23,7 +23,8 @@ namespace CodeIsBroken.Product
             if(definition.mods == null) return;
             foreach (var mod in definition.mods)
             {
-                mod.Apply(this);
+                if(mod is IAdditionalModification)
+                    ((IAdditionalModification)mod).Apply(this);
             }
     
             definition.modified += ApplyModifications;
@@ -34,7 +35,7 @@ namespace CodeIsBroken.Product
             definition.modified -= ApplyModifications;
         }
     
-        void ApplyModifications(IModification mod)
+        void ApplyModifications(IAdditionalModification mod)
         {
             mod.Apply(this);
         }

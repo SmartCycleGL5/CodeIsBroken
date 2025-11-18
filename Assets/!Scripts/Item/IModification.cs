@@ -10,7 +10,6 @@ namespace CodeIsBroken.Product.Modifications
         public string Name { get; }
         public string Description { get; }
         
-        public void Apply(Item item);
         public bool Equals(IModification other);
         
         public static IModification RandomModification()
@@ -36,9 +35,14 @@ namespace CodeIsBroken.Product.Modifications
             return default;
         }
     }
-    
+
+    public interface IAdditionalModification : IModification
+    {
+        public void Apply(Item item);
+    }
+
     [Serializable]
-    public class Color : IModification
+    public class Color : IAdditionalModification
     {
         public string Name => "Color:";
         public string Description => $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
@@ -78,11 +82,7 @@ namespace CodeIsBroken.Product.Modifications
     public class Cut : IModification
     {
         public string Name => "Cut";
-        public string Description => "pls cut";
-        public void Apply(Item item)
-        {
-            throw new NotImplementedException();
-        }
+        public string Description => "";
 
         public bool Equals(IModification other)
         {
@@ -99,11 +99,7 @@ namespace CodeIsBroken.Product.Modifications
     public class Assembled : IModification
     {
         public string Name => "Assembled";
-        public string Description => "nice chair lol";
-        public void Apply(Item item)
-        {
-            throw new NotImplementedException();
-        }
+        public string Description => "";
 
         public bool Equals(IModification other)
         {

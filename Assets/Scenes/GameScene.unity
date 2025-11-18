@@ -627,7 +627,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db1dc07692c7ed841aac341926e3998f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: CodeIsBroken.Base::ColorThemes
+  m_EditorClassIdentifier: CodeIsBroken::ColorThemes
   Themes:
     _serializedList:
     - Key: Default
@@ -635,20 +635,22 @@ MonoBehaviour:
         Colors:
           _serializedList:
           - Key: 0
-            Value: {r: 1, g: 1, b: 1, a: 1}
+            Value: {r: 1, g: 0.096226394, b: 0.85462195, a: 1}
           - Key: 1
-            Value: {r: 0, g: 0, b: 0, a: 1}
+            Value: {r: 0, g: 1, b: 0.12524009, a: 1}
           - Key: 2
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+            Value: {r: 0, g: 0.7, b: 0, a: 1}
           - Key: 3
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
           - Key: 4
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
           - Key: 5
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
-          - Key: 7
-            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
           - Key: 6
+            Value: {r: 0.8156863, g: 0.43777847, b: 0.32549024, a: 1}
+          - Key: 8
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
+          - Key: 7
             Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
 --- !u!1 &410087039
 GameObject:

@@ -276,7 +276,7 @@ MonoBehaviour:
     baseMaterials: 2
     <mods>k__BackingField:
     - rid: 1185941312404717647
-  artRenderer: {fileID: 5373870341508210345}
+  artRenderer: {fileID: 8714706178907142565}
   changedColor: 0
   references:
     version: 2
@@ -348,5 +348,10 @@ PrefabInstance:
 --- !u!4 &7546898023112409802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c86bf49f1ea50741be877eec82dba89, type: 3}
+  m_PrefabInstance: {fileID: 8012271769367602465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8714706178907142565 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8c86bf49f1ea50741be877eec82dba89, type: 3}
   m_PrefabInstance: {fileID: 8012271769367602465}
   m_PrefabAsset: {fileID: 0}

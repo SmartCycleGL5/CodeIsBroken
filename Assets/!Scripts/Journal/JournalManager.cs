@@ -44,7 +44,6 @@ namespace Journal
             await GetEntries();
             AddEntries();
             ChangeColorTabHeader(tabView);
-            
         }
 
         private static async Task GetEntries()

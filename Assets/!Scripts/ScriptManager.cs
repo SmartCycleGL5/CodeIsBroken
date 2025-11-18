@@ -60,7 +60,7 @@ public class ScriptManager : MonoBehaviour
         runButton.SetEnabled(false);
         PlayerConsole.Clear();
 
-        await Compile();
+        await StartCompile();
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -114,40 +114,58 @@ public class ScriptManager : MonoBehaviour
         machines.Remove(machine);
     }
 
-    public static async Task Compile()
+    public static async Task StartCompile()
     {
         if(compiling) return;
         compiling = true;
         
         runButton.SetEnabled(false);
+
+        await Compile();
+        
+        runButton.SetEnabled(true);
+        compiling = false;
+    }
+
+    static async Task Compile()
+    {
         bool success = true;
-        
-        List<CompileError> errors = new();
-        
+
+        List<Error> errors = new();
+
         foreach (var script in instance.activePlayerScripts)
         {
-            if(!script.Value.Compile(ref errors))
+            if (!script.Value.Compile(ref errors))
                 success = false;
-            
+
             await Task.Delay(10);
         }
-        
+
         PlayerConsole.Clear();
 
         if (!success)
         {
             foreach (var error in errors)
             {
-                PlayerConsole.LogError(error.ToString());
+                PlayerConsole.LogError(error.error.ToString(), error.source.name);
             }
         }
-        
-        runButton.SetEnabled(true);
-        compiling = false;
     }
 
     private void OnDestroy()
     {
         StopMachines();
+    }
+}
+
+public struct Error
+{
+    public Script source;
+    public CompileError error;
+
+    public Error (Script source, CompileError error)
+    {
+        this.source = source;
+        this.error = error;
     }
 }

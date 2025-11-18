@@ -31,7 +31,7 @@ public class Script
             $"public class {className} : {parentClass}" +
             "\n{" +
 
-            "\n\t//Runs once on Run" +
+            "\n\t//Runs once on Start" +
             $"\n\tprivate void {startMethod}()" +
             "\n\t{" +
             "\n\t\t" +
@@ -39,7 +39,7 @@ public class Script
 
             "\n\t" +
 
-            "\n\t//Runs once every second" +
+            "\n\t//Runs once every Tick/second" +
             $"\n\tprivate void {updateMethod}()" +
             "\n\t{" +
             "\n\t\t" +
@@ -57,7 +57,7 @@ public class Script
 
         Debug.Log(connectedMachine);
 
-        Save(DefaultCode(className, parentClass));
+        _=Save(DefaultCode(className, parentClass));
     }
 
     public void Run()
@@ -89,9 +89,9 @@ public class Script
     public async Task Save(string code)
     {
         rawCode = code;
-        await ScriptManager.Compile();
+        await ScriptManager.StartCompile();
     }
-    public bool Compile(ref List<CompileError> errors)
+    public bool Compile(ref List<Error> errors)
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
@@ -101,7 +101,7 @@ public class Script
         {
             foreach (CompileError error in compileResult.Errors)
             {
-                errors.Add(error);
+                errors.Add(new(this, error));
             }
             return false;
         }

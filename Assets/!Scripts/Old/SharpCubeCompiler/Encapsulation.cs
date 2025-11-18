@@ -28,37 +28,37 @@ namespace SharpCube
 
         public static int FindEndOfEndEncapsulation(int startEncapsulation, List<Line> context)
         {
-            string start = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["{"].name;
-            string end = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["}"].name;
+            //string start = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["{"].name;
+            //string end = Compiler.UniversalKeywords.keys[Keywords.Type.Valid]["}"].name;
 
-            if (context[startEncapsulation].sections[0] != start)
-            {
-                PlayerConsole.LogError("{ expected");
-                return -1;
-            }
+            //if (context[startEncapsulation].sections[0] != start)
+            //{
+            //    PlayerConsole.LogError("{ expected");
+            //    return -1;
+            //}
 
-            startEncapsulation++;
-            int encapsulations = 1;
+            //startEncapsulation++;
+            //int encapsulations = 1;
 
-            for (int i = startEncapsulation; i < context.Count; i++)
-            {
-                if (context[i].sections.Contains(start))
-                {
-                    encapsulations++;
-                    continue;
-                }
-                if (context[i].sections.Contains(end))
-                {
-                    encapsulations--;
-                }
+            //for (int i = startEncapsulation; i < context.Count; i++)
+            //{
+            //    if (context[i].sections.Contains(start))
+            //    {
+            //        encapsulations++;
+            //        continue;
+            //    }
+            //    if (context[i].sections.Contains(end))
+            //    {
+            //        encapsulations--;
+            //    }
 
-                if (encapsulations == 0)
-                {
-                    return i;
-                }
-            }
+            //    if (encapsulations == 0)
+            //    {
+            //        return i;
+            //    }
+            //}
 
-            PlayerConsole.LogError("} expected");
+            //PlayerConsole.LogError("} expected");
             return -1;
         }
     }

@@ -11,6 +11,12 @@ public static class PlayerProgression
         { 2, 100 },
         { 3, 300 },
         { 4, 500 },
+        { 5, 700 },
+        { 6, 1000 },
+        { 7, 1500 },
+        { 8, 2000 },
+        { 9, 3000 },
+        { 10, 5000 },
     };
 
     public static int Level { get; private set; } = 1;

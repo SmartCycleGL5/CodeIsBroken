@@ -16,5 +16,5 @@ MonoBehaviour:
   buildingName: 
   buildingImage: {fileID: 0}
   buildingDesctiption: 
-  levelToUnlock: 6
+  levelToUnlock: 0
   sortingOrder: 1

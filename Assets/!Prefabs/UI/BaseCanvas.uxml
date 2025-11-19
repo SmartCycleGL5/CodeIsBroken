@@ -40,4 +40,47 @@
         <ui:Label text="Press Space to continue" name="PressToContinue" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
     <ui:Instance template="ConfirmChoice" name="ConfirmClose" style="position: absolute; align-self: center; bottom: 40%; height: 20%; visibility: hidden;" />
+    <ui:VisualElement name="Keybinds" template="Keybinds" style="visibility: visible; position: absolute; left: auto; bottom: 220px; right: 545px; display: flex;">
+        <ui:VisualElement name="Keybinds" style="flex-grow: 1; position: absolute; right: auto; bottom: auto; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
+            <ui:VisualElement name="Move" style="flex-grow: 1;">
+                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/keyboard-wasd.png?fileID=2800000&amp;guid=2bcba8b39558408428a71f04fd7be6b6&amp;type=3#keyboard-wasd&quot;);" />
+                <ui:Label text="Move" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px; left: 0%; right: 0%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Rotate" style="flex-grow: 1;">
+                <ui:VisualElement name="Move" style="flex-grow: 1; flex-direction: column;">
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row; top: 49px;">
+                        <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/q.png?fileID=2800000&amp;guid=35ecb234d30b9cb42b07f10511a850cb&amp;type=3#q&quot;); height: 85px; background-size: 80% 80%; right: -14px;" />
+                        <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/e.png?fileID=2800000&amp;guid=69da02ec34c73624b91727759ad616df&amp;type=3#e&quot;); height: 86px; background-size: 80% 80%; left: -14px;" />
+                    </ui:VisualElement>
+                    <ui:Label text="Rotate" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="OpenTerminal" style="flex-grow: 1;">
+                <ui:VisualElement name="Move" style="flex-grow: 1;">
+                    <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/mouse/mouse-solid/mouse-left.png?fileID=21300000&amp;guid=bffdf8cbd8232a14c9e2eb0ebe93c6c4&amp;type=3#mouse-left&quot;); background-size: contain;" />
+                    <ui:Label text="Select" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="BuildingKeybinds" template="BuildingKeybinds" style="position: absolute; bottom: 0; right: 0; display: none;">
+        <ui:VisualElement name="BuildingKeybinds" style="flex-grow: 1; position: absolute; right: 40px; bottom: 40px; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
+            <ui:VisualElement name="Rotate" style="flex-grow: 1;">
+                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/r.png?fileID=2800000&amp;guid=ef04bf5a69063ed459dee8c038b66107&amp;type=3#r&quot;); background-size: 63% 65%;" />
+                <ui:Label text="Rotate&#10;" name="Rotate" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px; left: 0%; right: 0%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Place" style="flex-grow: 1;">
+                <ui:VisualElement name="Move" style="flex-grow: 1; flex-direction: column;">
+                    <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/mouse/mouse-solid/mouse-left.png?fileID=21300000&amp;guid=bffdf8cbd8232a14c9e2eb0ebe93c6c4&amp;type=3#mouse-left&quot;); height: 85px; background-size: contain; right: 0;" />
+                    <ui:Label text="Place " style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Remove" style="flex-grow: 1;">
+                <ui:VisualElement name="Move" style="flex-grow: 1;">
+                    <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/mouse/mouse-solid/mouse-right.png?fileID=21300000&amp;guid=3c477db1ce513e54c828b3ceeb5caf46&amp;type=3#mouse-right&quot;); background-size: contain;" />
+                    <ui:Label text="Remove" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

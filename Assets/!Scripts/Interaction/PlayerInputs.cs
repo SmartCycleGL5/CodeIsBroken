@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] private TMP_InputField terminal;
 
     [SerializeField] Transform player;
+
+    [SerializeField]
+    UIDocument uiDoc;
 
     [Header("Settings")]
     [SerializeField] float moveSpeed;
@@ -30,6 +34,9 @@ public class PlayerInputs : MonoBehaviour
     bool isBuilding;
     private Vector2 moveInput;
     private float lookInput;
+
+    private VisualElement buildingBinds;
+    private VisualElement binds;
 
     float screenWidth;
     public enum PlayerAction
@@ -63,6 +70,11 @@ public class PlayerInputs : MonoBehaviour
         instance = this;
         playerAction = PlayerAction.WorldInteraction;
         screenWidth = Screen.width;
+        
+        binds = uiDoc.rootVisualElement.Q<VisualElement>("Keybinds");
+        buildingBinds = uiDoc.rootVisualElement.Q<VisualElement>("BuildingKeybinds");
+        Debug.Log("Binds" +binds);
+        
     }
 
     void Update()
@@ -99,6 +111,8 @@ public class PlayerInputs : MonoBehaviour
         if (playerAction == PlayerAction.Building)
         {
             buildingInput.PlayerUpdate();
+            buildingBinds.style.display = DisplayStyle.Flex;
+            binds.style.display = DisplayStyle.None;
         }
         if (playerAction == PlayerAction.WorldInteraction)
         {
@@ -106,6 +120,8 @@ public class PlayerInputs : MonoBehaviour
             {
                 WindowManager.CloseAllWindows();
             }
+            binds.style.display = DisplayStyle.Flex;
+            buildingBinds.style.display = DisplayStyle.None;
             machineInput.PlayerUpdate();
         }
     }

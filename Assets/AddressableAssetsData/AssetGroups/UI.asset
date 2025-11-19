@@ -21,7 +21,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 447692874d764ec4592f369252d0130c
-    m_Address: UI/ContactModifierElement
+    m_Address: UI/Contact/ModifierElement
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 792b9ea35c7de65438e0b0496118c06b
+    m_Address: UI/Contract/Request
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

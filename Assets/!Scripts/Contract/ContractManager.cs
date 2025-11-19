@@ -1,13 +1,15 @@
-using System;
+using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using AYellowpaper.SerializedCollections;
+using UnityEngine.UIElements;
+using Utility;
 
 namespace CodeIsBroken.Contract
 {
-    public class ContractGiver : MonoBehaviour
+    public class ContractManager : MonoBehaviour
     {
         [Serializable]
         public class Settings
@@ -20,21 +22,39 @@ namespace CodeIsBroken.Contract
             public PredeterminedContract[] firstContracts;
         }
         
-        public static ContractGiver instance;
+        public static ContractManager instance;
         public static Contract ActiveContract { get; private set; }
         public static Action<Contract> OnNewContract;
 
         public static Settings activeSettings {get; private set;}
         [SerializedDictionary("level", "settings")]
         [SerializeField] SerializedDictionary<int, Settings> settings = new();
-        
+
+
+        public static VisualTreeAsset contractUI { get; private set;}
+        public static VisualTreeAsset requestUI { get; private set;}
+        public static VisualTreeAsset modifierUI { get; private set;}
+
         List<Contract> contractOptions = new();
-        private void Start()
+        private async void Start()
         {
             instance = this;
             UpdateContractComplexity(PlayerProgression.Level);
     
             PlayerProgression.onLevelUp += UpdateContractComplexity;
+
+            if (contractUI == null)
+            {
+                contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
+            }
+            if (requestUI == null)
+            {
+                requestUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Request, AddressableToLoad.Object);
+            }
+            if (modifierUI == null)
+            {
+                modifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ModifierElement, AddressableToLoad.Object);
+            }
         }
     
         private void UpdateContractComplexity(int lvl)
@@ -86,7 +106,7 @@ namespace CodeIsBroken.Contract
             toSelect.onFinished += instance.FinishedContract;
     
             ActiveContract = toSelect;
-            
+
             OnNewContract?.Invoke(toSelect);
         }
         

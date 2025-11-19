@@ -1,3 +1,4 @@
+using CodeIsBroken.Contract;
 using DG.Tweening;
 using ScriptEditor;
 using UnityEngine;
@@ -87,6 +88,8 @@ public class NewTutorial : MonoBehaviour
                 return;
             case 3:
                 uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = true;
+                player.DOMove(startPosition, 0.2f);
+                PlayerInputs.instance.enabled = true;
                 level++;
                 return;
         }
@@ -99,7 +102,6 @@ public class NewTutorial : MonoBehaviour
         {
             case 0:
                 label.text = "Press B to open the building menu or click the building button at the bottom of your screen.\n\nUse WASD to move and QE to rotate.";
-                player.DOMove(startPosition, 0.2f);
                 player.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
                 PlayerInputs.instance.enabled = true;
                 if (!BuildingSelector.instance.isBuilding)
@@ -110,9 +112,9 @@ public class NewTutorial : MonoBehaviour
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
-                if (ContractSystem.ActiveContract != null)
+                if (ContractManager.ActiveContract != null)
                 {
-                    contractName = ContractSystem.ActiveContract.requestedItem.materials.ToString();
+                    //contractName = ContractGiver.ActiveContract.RequestedProduct.baseMaterials.ToString();
                     level++;
                 }
                 return;
@@ -129,11 +131,11 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex++; }
                 break;
             case 2:
-                label.text = $"Try writing ChangeMaterial({contractName}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check the colors you can paint.";
+                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractSystem.ActiveContract.onFinished += OnFinishedContract;
+                    ContractManager.ActiveContract.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -156,6 +158,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractSystem.ActiveContract.onFinished -= OnFinishedContract;
+        ContractManager.ActiveContract.onFinished -= OnFinishedContract;
     }
 }

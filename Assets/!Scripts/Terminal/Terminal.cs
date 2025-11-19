@@ -1,9 +1,13 @@
 using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CodeIsBroken.UI.Window;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static WindowManager;
+using Utility;
+using static CodeIsBroken.UI.Window.WindowManager;
 
 namespace ScriptEditor
 {
@@ -15,11 +19,10 @@ namespace ScriptEditor
         public Script scriptToEdit { get; private set; }
 
         static VisualTreeAsset terminalAsset;
-        public static bool findingAsset;
 
         public static List<Terminal> terminals = new();
         
-        public Window window { get; set; }
+        public WindowElement window { get; set; }
 
         #region UI elements
         
@@ -58,23 +61,25 @@ namespace ScriptEditor
                 }
             }
         }
-
+        
         private async void Start()
         {
             activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
             
             if (terminalAsset == null)
             {
-                Debug.Log("[Terminal] getting asset");
-
-                findingAsset = true;
                 terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
-                findingAsset = false;
             }
             
             terminal = terminalAsset.Instantiate();
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
-            new Window(scriptToEdit.name, terminal, true, this);
+
+#if UNITY_EDITOR
+            new WindowElement(scriptToEdit.name, terminal, false, this);
+#else
+            new WindowElement(scriptToEdit.name, terminal, true, this);
+#endif
+
 
             windowElement.style.backgroundColor = activeHighlighting.colorPallate.Colors[ColorPallate.Type.backgroundColor];
             windowElement.style.color = activeHighlighting.colorPallate.Colors[ColorPallate.Type.defaultColor];
@@ -97,11 +102,18 @@ namespace ScriptEditor
 
         private void ConsoleLog(object obj)
         {
-            if (obj == "/Clear")
+            if(obj is string)
             {
-                console.text = "";
-                return;
+                switch((string)obj)
+                {
+                    case "/Clear":
+                        {
+                            console.text = "";
+                            return;
+                        }
+                }
             }
+
             console.text += obj+ "\n";
         }
 
@@ -111,14 +123,14 @@ namespace ScriptEditor
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
-        void OnLoseFocus(FocusOutEvent evt)
+        async void OnLoseFocus(FocusOutEvent evt)
         {
-            Save();
+            await Save();
         }
 
-        public void Close()
+        public async void Close()
         {
-            Save();
+            await Save();
             Destroy(this);
         }
 
@@ -136,7 +148,6 @@ namespace ScriptEditor
                 DisplayIntegratedMethods();
             
             HighlightCode();
-            ScriptManager.Compile();
         }
         void DisplayIntegratedMethods()
         {
@@ -162,7 +173,7 @@ namespace ScriptEditor
             }
         }
 
-        public void Save()
+        public async Task Save()
         {
             if (scriptToEdit == null) return;
 
@@ -172,11 +183,16 @@ namespace ScriptEditor
             }
 
             RemoveHighlight();
+            
+            PlayerConsole.Clear();
 
             if (scriptToEdit.rawCode != input.text)
             {
-                PlayerConsole.Log("Saved!");
-                scriptToEdit.Save(input.text); 
+                PlayerConsole.Log("Saving...", scriptToEdit.name);
+                
+                await scriptToEdit.Save(input.text); 
+                
+                PlayerConsole.Log("Saved!", scriptToEdit.name);
             }
             
             //window.Rename(scriptToEdit.name);
@@ -184,7 +200,7 @@ namespace ScriptEditor
             HighlightCode();
         }
 
-        public static Terminal NewTerminal(Script script, BaseMachine baseMachine = null)
+        public static Terminal NewTerminal(Script script, Programmable baseMachine = null)
         {
             Terminal newTerminal;
             if (baseMachine == null)

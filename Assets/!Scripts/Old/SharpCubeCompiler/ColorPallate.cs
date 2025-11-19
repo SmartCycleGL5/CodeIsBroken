@@ -10,6 +10,7 @@ public class ColorPallate
     {
         defaultColor,
         backgroundColor,
+        commentColor,
         initializerColor,
         modifierColor,
         conditionalColor,
@@ -22,6 +23,7 @@ public class ColorPallate
     {
         { Type.defaultColor, new Color(1, 1, 1) },
         { Type.backgroundColor, new Color(0, 0, 0) },
+        { Type.commentColor, new Color(0, .7f, 0) },
         { Type.initializerColor, new Color(.325f, .592f, .816f) },
         { Type.modifierColor, new Color(.325f, .592f, .816f) },
         { Type.conditionalColor, new Color(.325f, .592f, .816f) },

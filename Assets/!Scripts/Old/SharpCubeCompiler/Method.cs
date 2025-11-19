@@ -32,14 +32,14 @@ namespace SharpCube
 
         public static void Create(IContainer container, Line line, int initializer, Properties properties)
         {
-            if(container == null) PlayerConsole.LogError("Methods must be defined within a class or method");
+            //if(container == null) PlayerConsole.LogError("Methods must be defined within a class or method");
             
-            string name = line.sections[initializer + 1];
-            string type = line.sections[initializer];
+            //string name = line.sections[initializer + 1];
+            //string type = line.sections[initializer];
             
-            if(container.allKeywords.Contains(name)) PlayerConsole.LogError($"Type already defines a member called '{name}'");
+            //if(container.allKeywords.Contains(name)) PlayerConsole.LogError($"Type already defines a member called '{name}'");
 
-            new Method(container, name, null, properties, line);
+            //new Method(container, name, null, properties, line);
         }
         
         public void StartCompile()

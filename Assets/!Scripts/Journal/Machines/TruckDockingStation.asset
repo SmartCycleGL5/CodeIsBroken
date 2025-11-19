@@ -23,5 +23,6 @@ MonoBehaviour:
   - style: 0
     text: Where you sell objects. Objects have to be transported to the truck docking
       station located along the walls. When the object goes into the station the
-      user will receive money/complete a contract.
+      user will receive money/completion towards a contract.
   sortOrder: 2
+  levelToUnlock: 0

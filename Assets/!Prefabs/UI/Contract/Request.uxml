@@ -1,0 +1,16 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Contract/Request.uss?fileID=7433441132597879392&amp;guid=188c26a324de38a419e8f3ac9cf4a34a&amp;type=3#Request" />
+    <ui:VisualElement name="BG" style="flex-grow: 1; background-color: rgb(219, 254, 255); border-top-left-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); height: 500px;">
+        <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+            <ui:Label text="10X" name="Amount" style="width: 40%; height: auto; align-self: auto; -unity-text-align: middle-right; font-size: 70%;" />
+            <ui:VisualElement name="Icon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Packages/NaughtyAttributes/Samples/DemoScene/TestAssets/icon-github.png?fileID=21300000&amp;guid=005888ede18a58e4db8d069cfa3007cb&amp;type=3#icon-github&quot;); -unity-background-scale-mode: scale-to-fit; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; height: 100%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BaseMaterials">
+            <ui:Label text="Wood, Iron" name="MaterialTitle" style="-unity-text-align: upper-right;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Modifications" style="flex-grow: 1;">
+            <ui:Label text="Modifications" name="ModTitle" />
+            <ui:ScrollView name="ModView" style="padding-bottom: 10px; height: 184px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

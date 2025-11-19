@@ -48,19 +48,19 @@ namespace SharpCube
         {
             string name = line.sections[line.sections.Length - 1];
 
-            if (container == null)
-            {
-                if(Compiler.UniversalKeywords.Contains(name))
-                    PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
-            }
-            else 
-            {
-                if(container.keywords.Contains(name))
-                    PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
-            }
+            //if (container == null)
+            //{
+            //    if(Compiler.UniversalKeywords.Contains(name))
+            //        PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
+            //}
+            //else 
+            //{
+            //    if(container.keywords.Contains(name))
+            //        PlayerConsole.LogError($"The class '{name}' is already used in the current context");   
+            //}
 
 
-            new Class(container, name, properties, line);
+            //new Class(container, name, properties, line);
         }
 
         public void StartCompile()

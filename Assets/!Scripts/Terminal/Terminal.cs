@@ -102,11 +102,18 @@ namespace ScriptEditor
 
         private void ConsoleLog(object obj)
         {
-            if (obj == "/Clear")
+            if(obj is string)
             {
-                console.text = "";
-                return;
+                switch((string)obj)
+                {
+                    case "/Clear":
+                        {
+                            console.text = "";
+                            return;
+                        }
+                }
             }
+
             console.text += obj+ "\n";
         }
 
@@ -181,11 +188,11 @@ namespace ScriptEditor
 
             if (scriptToEdit.rawCode != input.text)
             {
-                PlayerConsole.Log("Saving...");
+                PlayerConsole.Log("Saving...", scriptToEdit.name);
                 
                 await scriptToEdit.Save(input.text); 
                 
-                PlayerConsole.Log("Saved!");
+                PlayerConsole.Log("Saved!", scriptToEdit.name);
             }
             
             //window.Rename(scriptToEdit.name);

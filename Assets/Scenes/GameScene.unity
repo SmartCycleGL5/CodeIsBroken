@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 357034592}
   - component: {fileID: 357034593}
   - component: {fileID: 357034594}
+  - component: {fileID: 357034595}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -627,7 +628,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db1dc07692c7ed841aac341926e3998f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: CodeIsBroken.Base::ColorThemes
+  m_EditorClassIdentifier: CodeIsBroken::ColorThemes
   Themes:
     _serializedList:
     - Key: Default
@@ -639,17 +640,89 @@ MonoBehaviour:
           - Key: 1
             Value: {r: 0, g: 0, b: 0, a: 1}
           - Key: 2
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+            Value: {r: 0, g: 0.7, b: 0, a: 1}
           - Key: 3
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
           - Key: 4
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
           - Key: 5
             Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 6
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 8
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
           - Key: 7
             Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
-          - Key: 6
-            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
+--- !u!114 &357034595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27381d5e37ffb3f468f382be77678e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken.Contract::CodeIsBroken.Contract.ContractGiver
+  settings:
+    _serializedList:
+    - Key: 2
+      Value:
+        additionalModifications: {x: 0, y: 0}
+        firstContracts:
+        - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+          amount: 10
+          additionalModifications: []
+        - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+          amount: 10
+          additionalModifications: []
+        - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
+          amount: 10
+          additionalModifications: []
+    - Key: 3
+      Value:
+        additionalModifications: {x: 0, y: 1}
+        firstContracts:
+        - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+          amount: 20
+          additionalModifications:
+          - rid: 1185941360511287449
+        - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+          amount: 15
+          additionalModifications:
+          - rid: 1185941360511287450
+    - Key: 4
+      Value:
+        additionalModifications: {x: 0, y: 2}
+        firstContracts:
+        - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+          amount: 25
+          additionalModifications:
+          - rid: 1185941360511287449
+          - rid: 1185941360511287451
+        - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+          amount: 30
+          additionalModifications: []
+    - Key: 5
+      Value:
+        additionalModifications: {x: 1, y: 2}
+        firstContracts: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1185941360511287449
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 1185941360511287450
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 1185941360511287451
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,42 +1955,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: complexity.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: complexity.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: amountOfModifications
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148416462030730798, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: additionalModifications.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: m_fontSize
-      value: 8.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: m_margin.x
-      value: -0.90362453
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676152835715399723, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: m_margin.z
-      value: -1.1141948
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416385802744420845, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416385802744420845, guid: 850935c14a38857418fc44720f8512ae, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.89
-      objectReference: {fileID: 0}
     - target: {fileID: 9184578857674052332, guid: 850935c14a38857418fc44720f8512ae, type: 3}
       propertyPath: m_Name
       value: SellStation
@@ -1963,8 +2000,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 240490096757535537, guid: 850935c14a38857418fc44720f8512ae, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850935c14a38857418fc44720f8512ae, type: 3}

@@ -3,6 +3,8 @@ using RoslynCSharp;
 using ScriptEditor;
 using ScriptEditor.Console;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Trivial.CodeSecurity;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ using UnityEngine;
 public class Script
 {
     public string name;
-    public BaseMachine connectedMachine;
+    public Programmable connectedMachine;
 
     Terminal terminal;
 
@@ -29,6 +31,7 @@ public class Script
             $"public class {className} : {parentClass}" +
             "\n{" +
 
+            "\n\t//Runs once on Start" +
             $"\n\tprivate void {startMethod}()" +
             "\n\t{" +
             "\n\t\t" +
@@ -36,6 +39,7 @@ public class Script
 
             "\n\t" +
 
+            "\n\t//Runs once every Tick/second" +
             $"\n\tprivate void {updateMethod}()" +
             "\n\t{" +
             "\n\t\t" +
@@ -45,15 +49,15 @@ public class Script
     }
 
 
-    public Script(string className, string parentClass, BaseMachine machine = null)
+    public  Script(string className, string parentClass, Programmable machine = null)
     {
         this.name = className;
         connectedMachine = machine;
-        ScriptManager.instance.playerScripts.Add(name, this);
+        ScriptManager.instance.activePlayerScripts.Add(name, this);
 
         Debug.Log(connectedMachine);
 
-        Save(DefaultCode(className, parentClass));
+        _=Save(DefaultCode(className, parentClass));
     }
 
     public void Run()
@@ -82,14 +86,12 @@ public class Script
         terminal = Terminal.NewTerminal(this, connectedMachine);
     }
 
-    public void Save(string code)
+    public async Task Save(string code)
     {
         rawCode = code;
-        PlayerConsole.Clear();
-        PlayerConsole.Log("Saved!");
-        ScriptManager.Compile();
+        await ScriptManager.StartCompile();
     }
-    public bool Compile()
+    public bool Compile(ref List<Error> errors)
     {
         type = ScriptManager.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
 
@@ -97,14 +99,12 @@ public class Script
 
         if (!compileResult.Success)
         {
-            foreach (var error in compileResult.Errors)
+            foreach (CompileError error in compileResult.Errors)
             {
-                PlayerConsole.LogError(error);
+                errors.Add(new(this, error));
             }
             return false;
         }
-
-        Debug.Log(connectedMachine);
 
         if (connectedMachine != null)
             proxy = type.CreateInstance(connectedMachine.gameObject);

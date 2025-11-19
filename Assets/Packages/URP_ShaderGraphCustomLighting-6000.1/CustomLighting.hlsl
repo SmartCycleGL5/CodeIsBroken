@@ -105,7 +105,27 @@ void MainLightShadows_float(float3 WorldPos, half4 Shadowmask, out float ShadowA
 void MainLightShadows_float(float3 WorldPos, out float ShadowAtten){
 	MainLightShadows_float(WorldPos, half4(1,1,1,1), ShadowAtten);
 }
+void AdditionalLightShadow_float(float3 worldPos, half4 shadowMask, out float shadowAtten)
+{
+#ifdef SHADERGRAPH_PREVIEW
+    shadowAtten = 1;
+#else
+    shadowAtten = 0;
+    float4 shadowCoord = TransformWorldToShadowCoord(worldPos);
+    
+    int additionalLightCount = GetAdditionalLightsCount();
+    for (uint i = 0; i < additionalLightCount; i++)
+    {
+        Light additionalLight = GetAdditionalLight(i, worldPos, shadowMask);
+        half additionalShadowAtten = additionalLight.shadowAttenuation;
 
+        if (additionalShadowAtten > shadowAtten)
+        {
+            shadowAtten = additionalShadowAtten;
+        }
+    }
+#endif
+}
 //------------------------------------------------------------------------------------------------------
 // Baked GI
 //------------------------------------------------------------------------------------------------------

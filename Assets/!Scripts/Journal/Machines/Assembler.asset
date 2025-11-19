@@ -29,7 +29,7 @@ MonoBehaviour:
       materials put into it to avoid any blockages.
 
       Use the method Craft()
-      to craft something if it has a valid combination.For example you can use iron
+      to craft something if it has a valid combination. For example you can use iron
       and wood to create a chair. To learn more recipes check Recipes under Concepts.'
   - style: 1
     text: 'void OnTick()
@@ -40,4 +40,4 @@ MonoBehaviour:
 
       }'
   sortOrder: 4
-  levelToUnlock: 2
+  levelToUnlock: 3

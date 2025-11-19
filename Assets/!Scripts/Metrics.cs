@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class Metrics : MonoBehaviour
@@ -14,6 +16,8 @@ public class Metrics : MonoBehaviour
 
     [SerializeField]List<int> timeUsed = new();
 
+    private bool sentData;
+
     private void Start()
     {
         instance = this;
@@ -26,6 +30,7 @@ public class Metrics : MonoBehaviour
     public void UseElectricity(int increase)
     {
         totalElectricity += increase;
+        
     }
 
     // Adds electricity to metrics on level up
@@ -34,6 +39,7 @@ public class Metrics : MonoBehaviour
         electricityLevel.Add(totalElectricity);
         totalElectricity = 0;
     }
+    
 
     // Adds time to metrics on level up
     private void TimeLevelUp(int level)
@@ -43,14 +49,34 @@ public class Metrics : MonoBehaviour
         timeSinceLevelUp = time;
     }
 
-    
+
     
 
     public void GenerateGraph(int level)
     {
-        if(level <=3) return;
-        //GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
+        if (level == 5)
+        {
+            sentData = true;
+            //GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
+            SendData(false);
+        }
+        
     }
+
+    private void OnApplicationQuit()
+    {
+        if (sentData) return;
+        SendData(true);
+    }
+
+    private void SendData(bool quit)
+    {
+        string electricityString = string.Join( ", ", electricityLevel.ToArray() );
+        string timeString = string.Join( ", ", timeUsed.ToArray() );
+        
+        Webhook.instance.SendStats(electricityString, timeString, quit);
+    }
+    
 
     private void OnDestroy()
     {
@@ -58,4 +84,6 @@ public class Metrics : MonoBehaviour
         PlayerProgression.onLevelUp -= ElectricityLevelUp;
         instance = null;
     }
+    
 }
+

@@ -1,0 +1,23 @@
+{
+    "name": "CodeIsBroken.Contract",
+    "rootNamespace": "CodeIsBroken.Contract",
+    "references": [
+        "GUID:a65badfd0095336b2ad06bfa97646826",
+        "GUID:1403c0fcc1c224c4e903fb8c75d21025",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
+        "GUID:76593d958cbc834fe819928fb8608f2c",
+        "GUID:cc9a1f3cb8146aeaa8c2a624ab5138a7",
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:49b49c76ee64f6b41bf28ef951cb0e50"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

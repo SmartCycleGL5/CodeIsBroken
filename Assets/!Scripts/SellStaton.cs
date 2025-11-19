@@ -1,5 +1,7 @@
 
 using System.Collections.Generic;
+using CodeIsBroken.Contract;
+using CodeIsBroken.Product;
 using TMPro;
 using UnityEngine;
 
@@ -49,9 +51,9 @@ public class SellStaton : MonoBehaviour
     {
         try
         {
-            if (ContractSystem.ActiveContract.SatisfiesContract(toSell))
+            if (ContractManager.ActiveContract.TryProgressContract(toSell))
             {
-                ContractSystem.ActiveContract.Progress();
+                //ContractGiver.ActiveContract.Progress();
             }
         }
         catch

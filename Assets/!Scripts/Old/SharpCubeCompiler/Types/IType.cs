@@ -26,7 +26,7 @@ namespace SharpCube.Type
 
             if (line.sections[line.sections.Length - 1] == ")")
             {
-                PlayerConsole.Log("Wow nice method bro, would be a  shame if i didnt compile it");
+               // PlayerConsole.Log("Wow nice method bro, would be a  shame if i didnt compile it");
             }
 
             if (line.sections[line.sections.Length - 1] == ";")

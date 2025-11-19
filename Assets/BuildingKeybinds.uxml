@@ -1,0 +1,20 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="BuildingKeybinds" style="flex-grow: 1; position: absolute; right: 40px; bottom: 40px; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
+        <ui:VisualElement name="Rotate" style="flex-grow: 1;">
+            <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/r.png?fileID=2800000&amp;guid=ef04bf5a69063ed459dee8c038b66107&amp;type=3#r&quot;); background-size: 63% 65%;" />
+            <ui:Label text="Rotate&#10;" name="Rotate" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px; left: 0%; right: 0%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Place" style="flex-grow: 1;">
+            <ui:VisualElement name="Move" style="flex-grow: 1; flex-direction: column;">
+                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/mouse/mouse-solid/mouse-left.png?fileID=21300000&amp;guid=bffdf8cbd8232a14c9e2eb0ebe93c6c4&amp;type=3#mouse-left&quot;); height: 85px; background-size: contain; right: 0;" />
+                <ui:Label text="Place " style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Remove" style="flex-grow: 1;">
+            <ui:VisualElement name="Move" style="flex-grow: 1;">
+                <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/mouse/mouse-solid/mouse-right.png?fileID=21300000&amp;guid=3c477db1ce513e54c828b3ceeb5caf46&amp;type=3#mouse-right&quot;); background-size: contain;" />
+                <ui:Label text="Remove" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 17px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -17,5 +17,7 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: "Comments are declared using and will be ignored on run. \r\nComments are
-      useful for reminders or to remove code that might be useful later."
+    text: "Comments are declared using and will be ignored on run. \n\r\nComments
+      are useful for reminders or to remove code that might be useful later."
+  sortOrder: 0
+  levelToUnlock: 0

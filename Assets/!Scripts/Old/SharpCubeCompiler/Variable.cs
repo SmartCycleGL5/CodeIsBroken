@@ -40,13 +40,13 @@ namespace SharpCube
         
         public static void Create(IContainer container, Line line, int initializer, Properties properties)
         {
-            if(container == null) PlayerConsole.LogError("Variables must be defined within a class or method");
+            //if(container == null) //PlayerConsole.LogError("Variables must be defined within a class or method");
             
-            string name = line.sections[initializer + 1];
-            string type = line.sections[initializer];
+            //string name = line.sections[initializer + 1];
+            //string type = line.sections[initializer];
             
-            Types T = Enum.Parse<Types>(type, true);
-            new Variable(name, properties, container, IType.NewType(T));
+            //Types T = Enum.Parse<Types>(type, true);
+            //new Variable(name, properties, container, IType.NewType(T));
         }
     }
 }

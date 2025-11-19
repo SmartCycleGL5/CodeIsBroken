@@ -14,7 +14,7 @@ namespace Coding.SharpCube
         public string name;
 
         public Class inheritedClass;
-        public BaseMachine machine;
+        public Programmable machine;
 
         [field: SerializeField, SerializedDictionary("Name", "Variable")]
         public SerializedDictionary<string, Variable> variables { get; set; } = new();
@@ -25,7 +25,7 @@ namespace Coding.SharpCube
 
         public string[] baseCode;
 
-        public Class(BaseMachine machine, string name, List<string> baseCode, Class inheritedClass = null)
+        public Class(Programmable machine, string name, List<string> baseCode, Class inheritedClass = null)
         {
             this.baseCode = baseCode.ToArray();
             this.name = name;

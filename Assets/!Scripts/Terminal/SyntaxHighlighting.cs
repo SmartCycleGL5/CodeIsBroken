@@ -51,7 +51,7 @@ namespace SharpCube.Highlighting
 
         public string RemoveHighlight(string code)
         {
-            return Regex.Replace(code, "<.*?>", String.Empty);
+            return Regex.Replace(code, @"<\/?color.*?>", String.Empty);
         }
         public string HighlightCode(string code)
         {
@@ -61,6 +61,12 @@ namespace SharpCube.Highlighting
             {
                 newCode = Highlight(newCode, keyword.Key, ColorUtility.ToHtmlStringRGB(colorPallate.Colors[keyword.Value]));
             }
+
+            //Comment colouring asdasdasdasdasdasdasdasda
+            string commentColor = ColorUtility.ToHtmlStringRGB(colorPallate.Colors[ColorPallate.Type.commentColor]);
+            newCode = Regex.Replace(newCode, @"\/\/.*?\n", $"<color=#{commentColor}>$0</color>");
+            newCode = Regex.Replace(newCode, @"\/\*", $"<color=#{commentColor}>$0");
+            newCode = Regex.Replace(newCode, @"\*\/", $"$0</color>");
 
             return newCode;
         }

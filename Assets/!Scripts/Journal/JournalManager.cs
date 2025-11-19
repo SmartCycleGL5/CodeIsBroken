@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CodeIsBroken.Contract;
+using CodeIsBroken.Product;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.Video;
+using Utility;
 
 namespace Journal
 {
@@ -33,6 +36,7 @@ namespace Journal
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
             PlayerProgression.onLevelUp += OnLevelUp;
+            ContractManager.OnNewContract += Contract; //added to make the contact giver not reliant on other systems
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
@@ -90,29 +94,32 @@ namespace Journal
         }
         public void Contract(Contract contract)
         {
-            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
-            if (contract == null)
-            {
-                tab.tabHeader.focusable = false;
-                tab.tabHeader.style.display = DisplayStyle.None;
-                return;
-            }
-            tab.tabHeader.focusable = true;
-            tab.tabHeader.style.display = DisplayStyle.Flex;
-            tab.Q<Label>("ContractName").text = contract.requestedItem.materials.ToString();
-            tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
-            tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(MaterialManager.Instance.Products[contract.requestedItem.materials].icon);
-            ScrollView mods = tab.Q<ScrollView>("Amount");
-            mods.Clear();
-            foreach (var mod in contract.requestedItem.mods)
-            {
-                VisualElement _m = new();
-                _m.AddToClassList("modifier");
-                _m.Add(new Label { text = mod.Name });
-                _m.Add(new Label { text = mod.Description});
-                mods.Add(_m);
-            }
+            //this should get all the UI for you :))) contract.GetUI()
+
+            //var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            //if (contract == null)
+            //{
+            //    tab.tabHeader.focusable = false;
+            //    tab.tabHeader.style.display = DisplayStyle.None;
+            //    return;
+            //}
+            //tab.tabHeader.focusable = true;
+            //tab.tabHeader.style.display = DisplayStyle.Flex;
+            //tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
+            //tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
+            //tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
+            //tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
+            //ScrollView mods = tab.Q<ScrollView>("Amount");
+            //mods.Clear();
+
+            //foreach (var mod in contract.RequestedProduct.mods)
+            //{
+            //    VisualElement _m = new();
+            //    _m.AddToClassList("modifier");
+            //    _m.Add(new Label { text = mod.Name });
+            //    _m.Add(new Label { text = mod.Description});
+            //    mods.Add(_m);
+            //}   
         }
         private Button CreateNewButton(JournalEntrySO entry)
         {

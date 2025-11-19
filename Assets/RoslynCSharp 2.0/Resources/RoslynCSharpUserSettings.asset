@@ -5831,7 +5831,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076096322610818
+      <LastWriteTimeUTC>k__BackingField: 134079289499208134
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
       - Name: TMPro
@@ -8852,103 +8852,15 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: AnchoredJoint2D
-          Allowed: 0
-        - Name: AreaEffector2D
-          Allowed: 0
-        - Name: BoxCollider2D
-          Allowed: 0
-        - Name: BuoyancyEffector2D
-          Allowed: 0
-        - Name: CapsuleCollider2D
-          Allowed: 0
-        - Name: CapsuleDirection2D
-          Allowed: 0
-        - Name: CircleCollider2D
-          Allowed: 0
-        - Name: Collider2D
-          Allowed: 0
-        - Name: ColliderDistance2D
-          Allowed: 0
-        - Name: ColliderErrorState2D
-          Allowed: 0
-        - Name: Collision2D
-          Allowed: 0
-        - Name: CollisionDetectionMode2D
-          Allowed: 0
-        - Name: CompositeCollider2D
-          Allowed: 0
-        - Name: ConstantForce2D
-          Allowed: 0
-        - Name: ContactFilter2D
-          Allowed: 0
-        - Name: ContactPoint2D
-          Allowed: 0
-        - Name: CustomCollider2D
-          Allowed: 0
-        - Name: DistanceJoint2D
-          Allowed: 0
-        - Name: EdgeCollider2D
-          Allowed: 0
-        - Name: Effector2D
-          Allowed: 0
-        - Name: EffectorForceMode2D
-          Allowed: 0
-        - Name: EffectorSelection2D
-          Allowed: 0
-        - Name: FixedJoint2D
-          Allowed: 0
-        - Name: ForceMode2D
-          Allowed: 0
-        - Name: FrictionJoint2D
-          Allowed: 0
-        - Name: HingeJoint2D
-          Allowed: 0
-        - Name: Joint2D
-          Allowed: 0
-        - Name: JointAngleLimits2D
-          Allowed: 0
-        - Name: JointBreakAction2D
-          Allowed: 0
-        - Name: JointLimitState2D
-          Allowed: 0
-        - Name: JointMotor2D
-          Allowed: 0
-        - Name: JointSuspension2D
-          Allowed: 0
-        - Name: JointTranslationLimits2D
-          Allowed: 0
-        - Name: Physics2D
-          Allowed: 0
-        - Name: PhysicsJobOptions2D
-          Allowed: 0
-        - Name: PhysicsMaterial2D
-          Allowed: 0
-        - Name: PhysicsMaterialCombine2D
-          Allowed: 0
         - Name: PhysicsScene2D
           Allowed: 0
         - Name: PhysicsSceneExtensions2D
           Allowed: 0
-        - Name: PhysicsShape2D
+        - Name: Physics2D
           Allowed: 0
-        - Name: PhysicsShapeGroup2D
+        - Name: SimulationMode2D
           Allowed: 0
-        - Name: PhysicsShapeType2D
-          Allowed: 0
-        - Name: PhysicsUpdateBehaviour2D
-          Allowed: 0
-        - Name: PlatformEffector2D
-          Allowed: 0
-        - Name: PointEffector2D
-          Allowed: 0
-        - Name: PolygonCollider2D
-          Allowed: 0
-        - Name: RaycastHit2D
-          Allowed: 0
-        - Name: RelativeJoint2D
-          Allowed: 0
-        - Name: Rigidbody2D
+        - Name: CapsuleDirection2D
           Allowed: 0
         - Name: RigidbodyConstraints2D
           Allowed: 0
@@ -8956,25 +8868,113 @@ MonoBehaviour:
           Allowed: 0
         - Name: RigidbodySleepMode2D
           Allowed: 0
+        - Name: CollisionDetectionMode2D
+          Allowed: 0
         - Name: RigidbodyType2D
           Allowed: 0
-        - Name: SimulationMode2D
+        - Name: ForceMode2D
           Allowed: 0
-        - Name: SliderJoint2D
+        - Name: ColliderErrorState2D
+          Allowed: 0
+        - Name: JointLimitState2D
+          Allowed: 0
+        - Name: JointBreakAction2D
+          Allowed: 0
+        - Name: EffectorSelection2D
+          Allowed: 0
+        - Name: EffectorForceMode2D
+          Allowed: 0
+        - Name: PhysicsShapeType2D
+          Allowed: 0
+        - Name: PhysicsMaterialCombine2D
+          Allowed: 0
+        - Name: PhysicsShape2D
+          Allowed: 0
+        - Name: PhysicsShapeGroup2D
+          Allowed: 0
+        - Name: ColliderDistance2D
+          Allowed: 0
+        - Name: ContactFilter2D
+          Allowed: 0
+        - Name: Collision2D
+          Allowed: 0
+        - Name: ContactPoint2D
+          Allowed: 0
+        - Name: JointAngleLimits2D
+          Allowed: 0
+        - Name: JointTranslationLimits2D
+          Allowed: 0
+        - Name: JointMotor2D
+          Allowed: 0
+        - Name: JointSuspension2D
+          Allowed: 0
+        - Name: RaycastHit2D
+          Allowed: 0
+        - Name: PhysicsJobOptions2D
+          Allowed: 0
+        - Name: Rigidbody2D
+          Allowed: 0
+        - Name: Collider2D
+          Allowed: 0
+        - Name: CustomCollider2D
+          Allowed: 0
+        - Name: CircleCollider2D
+          Allowed: 0
+        - Name: CapsuleCollider2D
+          Allowed: 0
+        - Name: EdgeCollider2D
+          Allowed: 0
+        - Name: BoxCollider2D
+          Allowed: 0
+        - Name: PolygonCollider2D
+          Allowed: 0
+        - Name: CompositeCollider2D
+          Allowed: 0
+        - Name: Joint2D
+          Allowed: 0
+        - Name: AnchoredJoint2D
           Allowed: 0
         - Name: SpringJoint2D
           Allowed: 0
-        - Name: SurfaceEffector2D
+        - Name: DistanceJoint2D
+          Allowed: 0
+        - Name: FrictionJoint2D
+          Allowed: 0
+        - Name: HingeJoint2D
+          Allowed: 0
+        - Name: RelativeJoint2D
+          Allowed: 0
+        - Name: SliderJoint2D
           Allowed: 0
         - Name: TargetJoint2D
           Allowed: 0
+        - Name: FixedJoint2D
+          Allowed: 0
         - Name: WheelJoint2D
+          Allowed: 0
+        - Name: Effector2D
+          Allowed: 0
+        - Name: AreaEffector2D
+          Allowed: 0
+        - Name: BuoyancyEffector2D
+          Allowed: 0
+        - Name: PointEffector2D
+          Allowed: 0
+        - Name: PlatformEffector2D
+          Allowed: 0
+        - Name: SurfaceEffector2D
+          Allowed: 0
+        - Name: PhysicsUpdateBehaviour2D
+          Allowed: 0
+        - Name: ConstantForce2D
+          Allowed: 0
+        - Name: PhysicsMaterial2D
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: cc8a99ed1da4c2045a0ae971131450ed, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.PhysicsModule
       NamedTypeRestrictions:
       - Name: UnityEngine

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa1a356302c4c545aa7ed00cf67e913, type: 3}
-  m_Name: Crane
-  m_EditorClassIdentifier: Assembly-CSharp::BuildingSO
-  buildingPrefab: {fileID: 5795597209137053461, guid: 4fc977035d5d17d479100ebb86c0918f, type: 3}
-  buildingName: Crane
+  m_Name: Furnace
+  m_EditorClassIdentifier: CodeIsBroken::BuildingSO
+  buildingPrefab: {fileID: 0}
+  buildingName: 
   buildingImage: {fileID: 0}
-  buildingDesctiption: "Use Rotate() to rotate the crane an amount.\nUse GrabLoseItem()
-    to Grab and Release items.\n\nExample:\nvoid OnTick()\n{\n\tGrabLoseItem();\n\tRotate(180);\n}"
-  levelToUnlock: 8
+  buildingDesctiption: 
+  levelToUnlock: 6
   sortingOrder: 1

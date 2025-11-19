@@ -21,4 +21,4 @@ MonoBehaviour:
       \r\nThe furnace can take one input and outputs the processed item after a time
       delay."
   sortOrder: 5
-  levelToUnlock: 3
+  levelToUnlock: 6

@@ -36,7 +36,7 @@ namespace Journal
             if (!instance) { instance = this; }
             else { Destroy(gameObject); }
             PlayerProgression.onLevelUp += OnLevelUp;
-            ContractGiver.OnNewContract += Contract; //added to make the contact giver not reliant on other systems
+            ContractManager.OnNewContract += Contract; //added to make the contact giver not reliant on other systems
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
@@ -94,30 +94,32 @@ namespace Journal
         }
         public void Contract(Contract contract)
         {
-            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
-            if (contract == null)
-            {
-                tab.tabHeader.focusable = false;
-                tab.tabHeader.style.display = DisplayStyle.None;
-                return;
-            }
-            tab.tabHeader.focusable = true;
-            tab.tabHeader.style.display = DisplayStyle.Flex;
-            tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
-            tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
-            tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
-            ScrollView mods = tab.Q<ScrollView>("Amount");
-            mods.Clear();
+            //this should get all the UI for you :))) contract.GetUI()
 
-            foreach (var mod in contract.RequestedProduct.mods)
-            {
-                VisualElement _m = new();
-                _m.AddToClassList("modifier");
-                _m.Add(new Label { text = mod.Name });
-                _m.Add(new Label { text = mod.Description});
-                mods.Add(_m);
-            }   
+            //var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            //if (contract == null)
+            //{
+            //    tab.tabHeader.focusable = false;
+            //    tab.tabHeader.style.display = DisplayStyle.None;
+            //    return;
+            //}
+            //tab.tabHeader.focusable = true;
+            //tab.tabHeader.style.display = DisplayStyle.Flex;
+            //tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
+            //tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
+            //tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
+            //tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
+            //ScrollView mods = tab.Q<ScrollView>("Amount");
+            //mods.Clear();
+
+            //foreach (var mod in contract.RequestedProduct.mods)
+            //{
+            //    VisualElement _m = new();
+            //    _m.AddToClassList("modifier");
+            //    _m.Add(new Label { text = mod.Name });
+            //    _m.Add(new Label { text = mod.Description});
+            //    mods.Add(_m);
+            //}   
         }
         private Button CreateNewButton(JournalEntrySO entry)
         {

@@ -11,8 +11,14 @@ namespace CodeIsBroken.Product.Modifications
         public string Description { get; }
         
         public bool Equals(IModification other);
-        
-        public static IModification RandomModification()
+       
+    }
+
+    public interface IAdditionalModification : IModification
+    {
+        public void Apply(Item item);
+
+        public static IAdditionalModification RandomModification()
         {
             int rng = UnityEngine.Random.Range(0, 3);
 
@@ -31,14 +37,28 @@ namespace CodeIsBroken.Product.Modifications
                         return Color.New(new UnityEngine.Color(0, 0, 1));
                     }
             }
-    
+
             return default;
         }
-    }
+        public static IAdditionalModification[] GetRandomModifications(int amount)
+        {
+            List<IAdditionalModification> mods = new List<IAdditionalModification>();
+            for (int i = 0; i < amount; i++)
+            {
+                IAdditionalModification newMod = RandomModification();
 
-    public interface IAdditionalModification : IModification
-    {
-        public void Apply(Item item);
+                if (mods.Contains(newMod))
+                {
+                    Debug.Log("already has mod");
+                    continue;
+                }
+
+                Debug.Log(newMod);
+                mods.Add(newMod);
+            }
+
+            return mods.ToArray();
+        }
     }
 
     [Serializable]

@@ -112,9 +112,9 @@ public class NewTutorial : MonoBehaviour
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
-                if (ContractGiver.ActiveContract != null)
+                if (ContractManager.ActiveContract != null)
                 {
-                    contractName = ContractGiver.ActiveContract.RequestedProduct.baseMaterials.ToString();
+                    //contractName = ContractGiver.ActiveContract.RequestedProduct.baseMaterials.ToString();
                     level++;
                 }
                 return;
@@ -135,7 +135,7 @@ public class NewTutorial : MonoBehaviour
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractGiver.ActiveContract.onFinished += OnFinishedContract;
+                    ContractManager.ActiveContract.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -158,6 +158,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractGiver.ActiveContract.onFinished -= OnFinishedContract;
+        ContractManager.ActiveContract.onFinished -= OnFinishedContract;
     }
 }

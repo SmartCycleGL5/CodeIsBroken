@@ -51,9 +51,9 @@ public class SellStaton : MonoBehaviour
     {
         try
         {
-            if (ContractGiver.ActiveContract.SatisfiesContract(toSell))
+            if (ContractManager.ActiveContract.TryProgressContract(toSell))
             {
-                ContractGiver.ActiveContract.Progress();
+                //ContractGiver.ActiveContract.Progress();
             }
         }
         catch

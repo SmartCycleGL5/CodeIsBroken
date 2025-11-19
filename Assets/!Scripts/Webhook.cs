@@ -27,7 +27,7 @@ public class Webhook : MonoBehaviour
     {
         string user = System.Environment.UserName;
 
-        string msg = $"---\nUser: {user}\n⚡: {elec}\n⏳: {time}\n\nTotal time: {(int)Time.time}\nMachines placed: {GridBuilder.instance.gridObjects.Count}\n\nQuit application {quit}";
+        string msg = $"---\nUser: {user}\n⚡: {elec}\n⏳: {time}\n\nTotal time: {(int)Time.time}s\nMachines placed: {GridBuilder.instance.gridObjects.Count}\n\nQuit application: {quit}";
         
         SendMs(msg);
     }

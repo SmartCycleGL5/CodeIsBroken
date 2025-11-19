@@ -717,6 +717,14 @@ MonoBehaviour:
       Value:
         additionalModifications: {x: 1, y: 2}
         firstContracts: []
+  CompanyNames:
+  - The generic Mall
+  - Woodworkers co
+  - Rock business
+  - Metal forgers
+  - Another mall
+  - Target
+  - Coop generic
   references:
     version: 2
     RefIds: []

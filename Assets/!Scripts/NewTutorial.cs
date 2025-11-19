@@ -131,7 +131,7 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex++; }
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it. Replace a conveyor with a painter and write Paint() in the OnTick section. \n\nPress J to open the journal and check the colors you can paint.";
+                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");

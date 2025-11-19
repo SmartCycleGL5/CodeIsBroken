@@ -2447,6 +2447,7 @@ MonoBehaviour:
   cam: {fileID: 8561771419572170403}
   terminal: {fileID: 0}
   player: {fileID: 3323748746105681420}
+  uiDoc: {fileID: 2051597519}
   moveSpeed: 10
   rotationSpeed: 100
   tiltLimit: 10

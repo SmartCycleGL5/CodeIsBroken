@@ -1877,7 +1877,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134079512898672892
+      <LastWriteTimeUTC>k__BackingField: 134080158843231855
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -4055,6 +4055,8 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: Microsoft.Win32.SafeHandles
         TypeRestrictions:
+        - Name: SafePipeHandle
+          Allowed: 1
         - Name: SafeMemoryMappedFileHandle
           Allowed: 1
         - Name: SafeMemoryMappedViewHandle
@@ -4067,11 +4069,11 @@ MonoBehaviour:
           Allowed: 1
         - Name: SafeNCryptSecretHandle
           Allowed: 1
-        - Name: SafePipeHandle
-          Allowed: 1
         Allowed: 1
       - Name: System
         TypeRestrictions:
+        - Name: Action`9
+          Allowed: 0
         - Name: Action`10
           Allowed: 0
         - Name: Action`11
@@ -4085,8 +4087,6 @@ MonoBehaviour:
         - Name: Action`15
           Allowed: 0
         - Name: Action`16
-          Allowed: 0
-        - Name: Action`9
           Allowed: 0
         - Name: Func`10
           Allowed: 0
@@ -4105,115 +4105,298 @@ MonoBehaviour:
         - Name: Func`17
           Allowed: 0
         Allowed: 0
-      - Name: System.Collections.Generic
+      - Name: System.Security.Cryptography
         TypeRestrictions:
-        - Name: HashSet`1
+        - Name: ECCurve
+          Allowed: 1
+        - Name: ECParameters
+          Allowed: 1
+        - Name: ECPoint
+          Allowed: 1
+        - Name: IncrementalHash
+          Allowed: 1
+        - Name: AesManaged
+          Allowed: 1
+        - Name: CngAlgorithm
+          Allowed: 1
+        - Name: CngAlgorithmGroup
+          Allowed: 1
+        - Name: CngKeyHandleOpenOptions
+          Allowed: 1
+        - Name: CngKey
+          Allowed: 1
+        - Name: CngKeyBlobFormat
+          Allowed: 1
+        - Name: CngKeyCreationParameters
+          Allowed: 1
+        - Name: CngProperty
+          Allowed: 1
+        - Name: CngPropertyCollection
+          Allowed: 1
+        - Name: CngProvider
+          Allowed: 1
+        - Name: CngUIPolicy
+          Allowed: 1
+        - Name: ECDiffieHellman
+          Allowed: 1
+        - Name: ECDiffieHellmanPublicKey
+          Allowed: 1
+        - Name: ECDsa
+          Allowed: 1
+        - Name: ECDsaCng
+          Allowed: 1
+        - Name: ECKeyXmlFormat
+          Allowed: 1
+        - Name: CngExportPolicies
+          Allowed: 1
+        - Name: CngKeyCreationOptions
+          Allowed: 1
+        - Name: CngKeyOpenOptions
+          Allowed: 1
+        - Name: CngKeyUsages
+          Allowed: 1
+        - Name: CngPropertyOptions
+          Allowed: 1
+        - Name: CngUIProtectionLevels
+          Allowed: 1
+        - Name: RSACng
+          Allowed: 1
+        - Name: AesCng
+          Allowed: 1
+        - Name: AesCryptoServiceProvider
+          Allowed: 1
+        - Name: MD5Cng
+          Allowed: 1
+        - Name: SHA1Cng
+          Allowed: 1
+        - Name: SHA256Cng
+          Allowed: 1
+        - Name: SHA256CryptoServiceProvider
+          Allowed: 1
+        - Name: SHA384Cng
+          Allowed: 1
+        - Name: SHA384CryptoServiceProvider
+          Allowed: 1
+        - Name: SHA512Cng
+          Allowed: 1
+        - Name: SHA512CryptoServiceProvider
+          Allowed: 1
+        - Name: TripleDESCng
+          Allowed: 1
+        - Name: DSACng
+          Allowed: 1
+        - Name: ECDiffieHellmanCng
+          Allowed: 1
+        - Name: ECDiffieHellmanKeyDerivationFunction
+          Allowed: 1
+        - Name: ECDiffieHellmanCngPublicKey
+          Allowed: 1
+        - Name: ManifestSignatureInformation
+          Allowed: 1
+        - Name: SignatureVerificationResult
+          Allowed: 1
+        - Name: StrongNameSignatureInformation
+          Allowed: 1
+        - Name: ManifestSignatureInformationCollection
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Security.Cryptography.X509Certificates
+        TypeRestrictions:
+        - Name: TrustStatus
+          Allowed: 1
+        - Name: DSACertificateExtensions
+          Allowed: 1
+        - Name: ECDsaCertificateExtensions
+          Allowed: 1
+        - Name: RSACertificateExtensions
+          Allowed: 1
+        - Name: AuthenticodeSignatureInformation
+          Allowed: 1
+        - Name: TimestampInformation
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Reflection
+        TypeRestrictions:
+        - Name: DispatchProxy
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Net.Sockets
+        TypeRestrictions:
+        - Name: UnixDomainSocketEndPoint
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Linq
+        TypeRestrictions:
+        - Name: IQueryable
+          Allowed: 0
+        - Name: IQueryable`1
+          Allowed: 0
+        - Name: IQueryProvider
+          Allowed: 0
+        - Name: IOrderedQueryable
+          Allowed: 0
+        - Name: IOrderedQueryable`1
+          Allowed: 0
+        - Name: OrderedParallelQuery`1
+          Allowed: 0
+        - Name: ParallelQuery
+          Allowed: 0
+        - Name: ParallelQuery`1
+          Allowed: 0
+        - Name: ParallelEnumerable
+          Allowed: 0
+        - Name: ParallelExecutionMode
+          Allowed: 0
+        - Name: ParallelMergeOptions
+          Allowed: 0
+        - Name: EnumerableExecutor
+          Allowed: 0
+        - Name: EnumerableExecutor`1
+          Allowed: 0
+        - Name: EnumerableQuery
+          Allowed: 0
+        - Name: EnumerableQuery`1
+          Allowed: 0
+        - Name: Queryable
+          Allowed: 0
+        - Name: Enumerable
+          Allowed: 0
+        - Name: IGrouping`2
+          Allowed: 0
+        - Name: ILookup`2
+          Allowed: 0
+        - Name: Lookup`2
+          Allowed: 0
+        - Name: IOrderedEnumerable`1
           Allowed: 0
         Allowed: 0
-      - Name: System.Diagnostics
+      - Name: System.Linq.Expressions
         TypeRestrictions:
-        - Name: EventSchemaTraceListener
-          Allowed: 1
-        - Name: TraceLogRetentionOption
-          Allowed: 1
-        - Name: UnescapedXmlDiagnosticData
+        - Name: BinaryExpression
+          Allowed: 0
+        - Name: Expression
+          Allowed: 0
+        - Name: BlockExpression
+          Allowed: 0
+        - Name: CatchBlock
+          Allowed: 0
+        - Name: ConditionalExpression
+          Allowed: 0
+        - Name: ConstantExpression
+          Allowed: 0
+        - Name: DebugInfoExpression
+          Allowed: 0
+        - Name: DefaultExpression
+          Allowed: 0
+        - Name: DynamicExpression
+          Allowed: 0
+        - Name: DynamicExpressionVisitor
+          Allowed: 0
+        - Name: ElementInit
+          Allowed: 0
+        - Name: ExpressionType
+          Allowed: 0
+        - Name: ExpressionVisitor
+          Allowed: 0
+        - Name: GotoExpressionKind
+          Allowed: 0
+        - Name: GotoExpression
+          Allowed: 0
+        - Name: IArgumentProvider
+          Allowed: 0
+        - Name: IDynamicExpression
+          Allowed: 0
+        - Name: IndexExpression
+          Allowed: 0
+        - Name: InvocationExpression
+          Allowed: 0
+        - Name: LabelExpression
+          Allowed: 0
+        - Name: LabelTarget
+          Allowed: 0
+        - Name: LambdaExpression
+          Allowed: 0
+        - Name: Expression`1
+          Allowed: 0
+        - Name: ListInitExpression
+          Allowed: 0
+        - Name: LoopExpression
+          Allowed: 0
+        - Name: MemberAssignment
+          Allowed: 0
+        - Name: MemberBindingType
+          Allowed: 0
+        - Name: MemberBinding
+          Allowed: 0
+        - Name: MemberExpression
+          Allowed: 0
+        - Name: MemberInitExpression
+          Allowed: 0
+        - Name: MemberListBinding
+          Allowed: 0
+        - Name: MemberMemberBinding
+          Allowed: 0
+        - Name: MethodCallExpression
+          Allowed: 0
+        - Name: NewArrayExpression
+          Allowed: 0
+        - Name: NewExpression
+          Allowed: 0
+        - Name: ParameterExpression
+          Allowed: 0
+        - Name: RuntimeVariablesExpression
+          Allowed: 0
+        - Name: SwitchCase
+          Allowed: 0
+        - Name: SwitchExpression
+          Allowed: 0
+        - Name: SymbolDocumentInfo
+          Allowed: 0
+        - Name: TryExpression
+          Allowed: 0
+        - Name: TypeBinaryExpression
+          Allowed: 0
+        - Name: UnaryExpression
+          Allowed: 0
+        Allowed: 0
+      - Name: System.Runtime.InteropServices
+        TypeRestrictions:
+        - Name: ComAwareEventInfo
           Allowed: 1
         Allowed: 1
-      - Name: System.Diagnostics.Eventing
+      - Name: System.Runtime.CompilerServices
         TypeRestrictions:
-        - Name: EventDescriptor
-          Allowed: 1
-        - Name: EventProvider
-          Allowed: 1
-        - Name: EventProviderTraceListener
-          Allowed: 1
-        Allowed: 1
-      - Name: System.Diagnostics.Eventing.Reader
-        TypeRestrictions:
-        - Name: EventBookmark
-          Allowed: 1
-        - Name: EventKeyword
-          Allowed: 1
-        - Name: EventLevel
-          Allowed: 1
-        - Name: EventLogConfiguration
-          Allowed: 1
-        - Name: EventLogException
-          Allowed: 1
-        - Name: EventLogInformation
-          Allowed: 1
-        - Name: EventLogInvalidDataException
-          Allowed: 1
-        - Name: EventLogIsolation
-          Allowed: 1
-        - Name: EventLogLink
-          Allowed: 1
-        - Name: EventLogMode
-          Allowed: 1
-        - Name: EventLogNotFoundException
-          Allowed: 1
-        - Name: EventLogPropertySelector
-          Allowed: 1
-        - Name: EventLogProviderDisabledException
-          Allowed: 1
-        - Name: EventLogQuery
-          Allowed: 1
-        - Name: EventLogReader
-          Allowed: 1
-        - Name: EventLogReadingException
-          Allowed: 1
-        - Name: EventLogRecord
-          Allowed: 1
-        - Name: EventLogSession
-          Allowed: 1
-        - Name: EventLogStatus
-          Allowed: 1
-        - Name: EventLogType
-          Allowed: 1
-        - Name: EventLogWatcher
-          Allowed: 1
-        - Name: EventMetadata
-          Allowed: 1
-        - Name: EventOpcode
-          Allowed: 1
-        - Name: EventProperty
-          Allowed: 1
-        - Name: EventRecord
-          Allowed: 1
-        - Name: EventRecordWrittenEventArgs
-          Allowed: 1
-        - Name: EventTask
-          Allowed: 1
-        - Name: PathType
-          Allowed: 1
-        - Name: ProviderMetadata
-          Allowed: 1
-        - Name: SessionAuthentication
-          Allowed: 1
-        - Name: StandardEventKeywords
-          Allowed: 1
-        - Name: StandardEventLevel
-          Allowed: 1
-        - Name: StandardEventOpcode
-          Allowed: 1
-        - Name: StandardEventTask
-          Allowed: 1
-        Allowed: 1
-      - Name: System.Diagnostics.PerformanceData
-        TypeRestrictions:
-        - Name: CounterData
-          Allowed: 1
-        - Name: CounterSet
-          Allowed: 1
-        - Name: CounterSetInstance
-          Allowed: 1
-        - Name: CounterSetInstanceCounterDataSet
-          Allowed: 1
-        - Name: CounterSetInstanceType
-          Allowed: 1
-        - Name: CounterType
-          Allowed: 1
-        Allowed: 1
+        - Name: RuntimeOps
+          Allowed: 0
+        - Name: CallSite
+          Allowed: 0
+        - Name: CallSite`1
+          Allowed: 0
+        - Name: CallSiteBinder
+          Allowed: 0
+        - Name: CallSiteHelpers
+          Allowed: 0
+        - Name: CallSiteOps
+          Allowed: 0
+        - Name: Closure
+          Allowed: 0
+        - Name: DebugInfoGenerator
+          Allowed: 0
+        - Name: IRuntimeVariables
+          Allowed: 0
+        - Name: ReadOnlyCollectionBuilder`1
+          Allowed: 0
+        - Name: RuleCache`1
+          Allowed: 0
+        - Name: StrongBox`1
+          Allowed: 0
+        - Name: IStrongBox
+          Allowed: 0
+        - Name: DynamicAttribute
+          Allowed: 0
+        - Name: ExecutionScope
+          Allowed: 0
+        Allowed: 0
       - Name: System.Dynamic
         TypeRestrictions:
         - Name: BinaryOperationBinder
@@ -4264,8 +4447,6 @@ MonoBehaviour:
         Allowed: 1
       - Name: System.IO.MemoryMappedFiles
         TypeRestrictions:
-        - Name: MemoryMappedFile
-          Allowed: 1
         - Name: MemoryMappedFileAccess
           Allowed: 1
         - Name: MemoryMappedFileOptions
@@ -4278,6 +4459,8 @@ MonoBehaviour:
           Allowed: 1
         - Name: MemoryMappedViewStream
           Allowed: 1
+        - Name: MemoryMappedFile
+          Allowed: 1
         Allowed: 1
       - Name: System.IO.Pipes
         TypeRestrictions:
@@ -4288,6 +4471,8 @@ MonoBehaviour:
         - Name: NamedPipeClientStream
           Allowed: 1
         - Name: NamedPipeServerStream
+          Allowed: 1
+        - Name: PipeStreamImpersonationWorker
           Allowed: 1
         - Name: PipeAccessRights
           Allowed: 1
@@ -4303,154 +4488,44 @@ MonoBehaviour:
           Allowed: 1
         - Name: PipeStream
           Allowed: 1
-        - Name: PipeStreamImpersonationWorker
-          Allowed: 1
         - Name: PipeTransmissionMode
           Allowed: 1
         Allowed: 1
-      - Name: System.Linq
+      - Name: System.Collections.Generic
         TypeRestrictions:
-        - Name: Enumerable
-          Allowed: 0
-        - Name: EnumerableExecutor
-          Allowed: 0
-        - Name: EnumerableExecutor`1
-          Allowed: 0
-        - Name: EnumerableQuery
-          Allowed: 0
-        - Name: EnumerableQuery`1
-          Allowed: 0
-        - Name: IGrouping`2
-          Allowed: 0
-        - Name: ILookup`2
-          Allowed: 0
-        - Name: IOrderedEnumerable`1
-          Allowed: 0
-        - Name: IOrderedQueryable
-          Allowed: 0
-        - Name: IOrderedQueryable`1
-          Allowed: 0
-        - Name: IQueryable
-          Allowed: 0
-        - Name: IQueryable`1
-          Allowed: 0
-        - Name: IQueryProvider
-          Allowed: 0
-        - Name: Lookup`2
-          Allowed: 0
-        - Name: OrderedParallelQuery`1
-          Allowed: 0
-        - Name: ParallelEnumerable
-          Allowed: 0
-        - Name: ParallelExecutionMode
-          Allowed: 0
-        - Name: ParallelMergeOptions
-          Allowed: 0
-        - Name: ParallelQuery
-          Allowed: 0
-        - Name: ParallelQuery`1
-          Allowed: 0
-        - Name: Queryable
+        - Name: HashSet`1
           Allowed: 0
         Allowed: 0
-      - Name: System.Linq.Expressions
+      - Name: System.Threading
         TypeRestrictions:
-        - Name: BinaryExpression
-          Allowed: 0
-        - Name: BlockExpression
-          Allowed: 0
-        - Name: CatchBlock
-          Allowed: 0
-        - Name: ConditionalExpression
-          Allowed: 0
-        - Name: ConstantExpression
-          Allowed: 0
-        - Name: DebugInfoExpression
-          Allowed: 0
-        - Name: DefaultExpression
-          Allowed: 0
-        - Name: DynamicExpression
-          Allowed: 0
-        - Name: DynamicExpressionVisitor
-          Allowed: 0
-        - Name: ElementInit
-          Allowed: 0
-        - Name: Expression
-          Allowed: 0
-        - Name: Expression`1
-          Allowed: 0
-        - Name: ExpressionType
-          Allowed: 0
-        - Name: ExpressionVisitor
-          Allowed: 0
-        - Name: GotoExpression
-          Allowed: 0
-        - Name: GotoExpressionKind
-          Allowed: 0
-        - Name: IArgumentProvider
-          Allowed: 0
-        - Name: IDynamicExpression
-          Allowed: 0
-        - Name: IndexExpression
-          Allowed: 0
-        - Name: InvocationExpression
-          Allowed: 0
-        - Name: LabelExpression
-          Allowed: 0
-        - Name: LabelTarget
-          Allowed: 0
-        - Name: LambdaExpression
-          Allowed: 0
-        - Name: ListInitExpression
-          Allowed: 0
-        - Name: LoopExpression
-          Allowed: 0
-        - Name: MemberAssignment
-          Allowed: 0
-        - Name: MemberBinding
-          Allowed: 0
-        - Name: MemberBindingType
-          Allowed: 0
-        - Name: MemberExpression
-          Allowed: 0
-        - Name: MemberInitExpression
-          Allowed: 0
-        - Name: MemberListBinding
-          Allowed: 0
-        - Name: MemberMemberBinding
-          Allowed: 0
-        - Name: MethodCallExpression
-          Allowed: 0
-        - Name: NewArrayExpression
-          Allowed: 0
-        - Name: NewExpression
-          Allowed: 0
-        - Name: ParameterExpression
-          Allowed: 0
-        - Name: RuntimeVariablesExpression
-          Allowed: 0
-        - Name: SwitchCase
-          Allowed: 0
-        - Name: SwitchExpression
-          Allowed: 0
-        - Name: SymbolDocumentInfo
-          Allowed: 0
-        - Name: TryExpression
-          Allowed: 0
-        - Name: TypeBinaryExpression
-          Allowed: 0
-        - Name: UnaryExpression
-          Allowed: 0
-        Allowed: 0
+        - Name: LockRecursionPolicy
+          Allowed: 1
+        - Name: ReaderWriterLockSlim
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Threading.Tasks
+        TypeRestrictions:
+        - Name: TaskExtensions
+          Allowed: 1
+        Allowed: 1
+      - Name: System.Security
+        TypeRestrictions:
+        - Name: ManifestKinds
+          Allowed: 1
+        Allowed: 1
       - Name: System.Management.Instrumentation
         TypeRestrictions:
         - Name: InstanceNotFoundException
           Allowed: 1
-        - Name: InstrumentationBaseException
-          Allowed: 1
         - Name: InstrumentationException
           Allowed: 1
+        - Name: InstrumentationBaseException
+          Allowed: 1
         - Name: ManagementBindAttribute
+          Allowed: 1
+        - Name: ManagementNewInstanceAttribute
+          Allowed: 1
+        - Name: ManagementMemberAttribute
           Allowed: 1
         - Name: ManagementCommitAttribute
           Allowed: 1
@@ -4468,11 +4543,7 @@ MonoBehaviour:
           Allowed: 1
         - Name: ManagementKeyAttribute
           Allowed: 1
-        - Name: ManagementMemberAttribute
-          Allowed: 1
         - Name: ManagementNameAttribute
-          Allowed: 1
-        - Name: ManagementNewInstanceAttribute
           Allowed: 1
         - Name: ManagementProbeAttribute
           Allowed: 1
@@ -4485,185 +4556,114 @@ MonoBehaviour:
         - Name: WmiConfigurationAttribute
           Allowed: 1
         Allowed: 1
-      - Name: System.Net.Sockets
+      - Name: System.Diagnostics
         TypeRestrictions:
-        - Name: UnixDomainSocketEndPoint
+        - Name: EventSchemaTraceListener
+          Allowed: 1
+        - Name: TraceLogRetentionOption
+          Allowed: 1
+        - Name: UnescapedXmlDiagnosticData
           Allowed: 1
         Allowed: 1
-      - Name: System.Reflection
+      - Name: System.Diagnostics.PerformanceData
         TypeRestrictions:
-        - Name: DispatchProxy
+        - Name: CounterData
+          Allowed: 1
+        - Name: CounterSet
+          Allowed: 1
+        - Name: CounterSetInstanceType
+          Allowed: 1
+        - Name: CounterType
+          Allowed: 1
+        - Name: CounterSetInstance
+          Allowed: 1
+        - Name: CounterSetInstanceCounterDataSet
           Allowed: 1
         Allowed: 1
-      - Name: System.Runtime.CompilerServices
+      - Name: System.Diagnostics.Eventing
         TypeRestrictions:
-        - Name: CallSite
-          Allowed: 0
-        - Name: CallSite`1
-          Allowed: 0
-        - Name: CallSiteBinder
-          Allowed: 0
-        - Name: CallSiteHelpers
-          Allowed: 0
-        - Name: CallSiteOps
-          Allowed: 0
-        - Name: Closure
-          Allowed: 0
-        - Name: DebugInfoGenerator
-          Allowed: 0
-        - Name: DynamicAttribute
-          Allowed: 0
-        - Name: ExecutionScope
-          Allowed: 0
-        - Name: IRuntimeVariables
-          Allowed: 0
-        - Name: IStrongBox
-          Allowed: 0
-        - Name: ReadOnlyCollectionBuilder`1
-          Allowed: 0
-        - Name: RuleCache`1
-          Allowed: 0
-        - Name: RuntimeOps
-          Allowed: 0
-        - Name: StrongBox`1
-          Allowed: 0
-        Allowed: 0
-      - Name: System.Runtime.InteropServices
-        TypeRestrictions:
-        - Name: ComAwareEventInfo
+        - Name: EventDescriptor
+          Allowed: 1
+        - Name: EventProvider
+          Allowed: 1
+        - Name: EventProviderTraceListener
           Allowed: 1
         Allowed: 1
-      - Name: System.Security
+      - Name: System.Diagnostics.Eventing.Reader
         TypeRestrictions:
-        - Name: ManifestKinds
+        - Name: EventBookmark
           Allowed: 1
-        Allowed: 1
-      - Name: System.Security.Cryptography
-        TypeRestrictions:
-        - Name: AesCng
+        - Name: EventKeyword
           Allowed: 1
-        - Name: AesCryptoServiceProvider
+        - Name: EventLevel
           Allowed: 1
-        - Name: AesManaged
+        - Name: EventLogConfiguration
           Allowed: 1
-        - Name: CngAlgorithm
+        - Name: EventLogSession
           Allowed: 1
-        - Name: CngAlgorithmGroup
+        - Name: SessionAuthentication
           Allowed: 1
-        - Name: CngExportPolicies
+        - Name: PathType
           Allowed: 1
-        - Name: CngKey
+        - Name: EventLogInformation
           Allowed: 1
-        - Name: CngKeyBlobFormat
+        - Name: EventLogIsolation
           Allowed: 1
-        - Name: CngKeyCreationOptions
+        - Name: EventLogMode
           Allowed: 1
-        - Name: CngKeyCreationParameters
+        - Name: EventLogType
           Allowed: 1
-        - Name: CngKeyHandleOpenOptions
+        - Name: EventLogException
           Allowed: 1
-        - Name: CngKeyOpenOptions
+        - Name: EventLogInvalidDataException
           Allowed: 1
-        - Name: CngKeyUsages
+        - Name: EventLogLink
           Allowed: 1
-        - Name: CngProperty
+        - Name: EventLogNotFoundException
           Allowed: 1
-        - Name: CngPropertyCollection
+        - Name: EventLogPropertySelector
           Allowed: 1
-        - Name: CngPropertyOptions
+        - Name: EventLogProviderDisabledException
           Allowed: 1
-        - Name: CngProvider
+        - Name: EventLogQuery
           Allowed: 1
-        - Name: CngUIPolicy
+        - Name: EventLogReader
           Allowed: 1
-        - Name: CngUIProtectionLevels
+        - Name: EventLogStatus
           Allowed: 1
-        - Name: DSACng
+        - Name: EventRecord
           Allowed: 1
-        - Name: ECCurve
+        - Name: EventProperty
           Allowed: 1
-        - Name: ECDiffieHellman
+        - Name: EventLogReadingException
           Allowed: 1
-        - Name: ECDiffieHellmanCng
+        - Name: EventLogRecord
           Allowed: 1
-        - Name: ECDiffieHellmanCngPublicKey
+        - Name: EventLogWatcher
           Allowed: 1
-        - Name: ECDiffieHellmanKeyDerivationFunction
+        - Name: EventRecordWrittenEventArgs
           Allowed: 1
-        - Name: ECDiffieHellmanPublicKey
+        - Name: EventMetadata
           Allowed: 1
-        - Name: ECDsa
+        - Name: EventOpcode
           Allowed: 1
-        - Name: ECDsaCng
+        - Name: EventTask
           Allowed: 1
-        - Name: ECKeyXmlFormat
+        - Name: ProviderMetadata
           Allowed: 1
-        - Name: ECParameters
+        - Name: StandardEventKeywords
           Allowed: 1
-        - Name: ECPoint
+        - Name: StandardEventLevel
           Allowed: 1
-        - Name: IncrementalHash
+        - Name: StandardEventOpcode
           Allowed: 1
-        - Name: ManifestSignatureInformation
-          Allowed: 1
-        - Name: ManifestSignatureInformationCollection
-          Allowed: 1
-        - Name: MD5Cng
-          Allowed: 1
-        - Name: RSACng
-          Allowed: 1
-        - Name: SHA1Cng
-          Allowed: 1
-        - Name: SHA256Cng
-          Allowed: 1
-        - Name: SHA256CryptoServiceProvider
-          Allowed: 1
-        - Name: SHA384Cng
-          Allowed: 1
-        - Name: SHA384CryptoServiceProvider
-          Allowed: 1
-        - Name: SHA512Cng
-          Allowed: 1
-        - Name: SHA512CryptoServiceProvider
-          Allowed: 1
-        - Name: SignatureVerificationResult
-          Allowed: 1
-        - Name: StrongNameSignatureInformation
-          Allowed: 1
-        - Name: TripleDESCng
-          Allowed: 1
-        Allowed: 1
-      - Name: System.Security.Cryptography.X509Certificates
-        TypeRestrictions:
-        - Name: AuthenticodeSignatureInformation
-          Allowed: 1
-        - Name: DSACertificateExtensions
-          Allowed: 1
-        - Name: ECDsaCertificateExtensions
-          Allowed: 1
-        - Name: RSACertificateExtensions
-          Allowed: 1
-        - Name: TimestampInformation
-          Allowed: 1
-        - Name: TrustStatus
-          Allowed: 1
-        Allowed: 1
-      - Name: System.Threading
-        TypeRestrictions:
-        - Name: LockRecursionPolicy
-          Allowed: 1
-        - Name: ReaderWriterLockSlim
-          Allowed: 1
-        Allowed: 1
-      - Name: System.Threading.Tasks
-        TypeRestrictions:
-        - Name: TaskExtensions
+        - Name: StandardEventTask
           Allowed: 1
         Allowed: 1
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: e0018e7f09c4e5342ba944f09f266836, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864518460000000
+      <LastWriteTimeUTC>k__BackingField: 134001384600000000
     - Name: System.Runtime
       NamedTypeRestrictions: []
       RootTypeRestrictions: []
@@ -5674,6 +5674,8 @@ MonoBehaviour:
         TypeRestrictions:
         - Name: AffineTransform
           Allowed: 0
+        - Name: math
+          Allowed: 0
         - Name: bool2
           Allowed: 0
         - Name: bool2x2
@@ -5697,8 +5699,6 @@ MonoBehaviour:
         - Name: bool4x3
           Allowed: 0
         - Name: bool4x4
-          Allowed: 0
-        - Name: DoNotNormalizeAttribute
           Allowed: 0
         - Name: double2
           Allowed: 0
@@ -5780,13 +5780,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: int4x4
           Allowed: 0
-        - Name: math
+        - Name: quaternion
           Allowed: 0
         - Name: noise
           Allowed: 0
         - Name: PostNormalizeAttribute
           Allowed: 0
-        - Name: quaternion
+        - Name: DoNotNormalizeAttribute
           Allowed: 0
         - Name: Random
           Allowed: 0
@@ -5821,9 +5821,9 @@ MonoBehaviour:
         Allowed: 0
       - Name: Unity.Mathematics.Geometry
         TypeRestrictions:
-        - Name: Math
-          Allowed: 0
         - Name: MinMaxAABB
+          Allowed: 0
+        - Name: Math
           Allowed: 0
         - Name: Plane
           Allowed: 0
@@ -5831,7 +5831,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802123395
+      <LastWriteTimeUTC>k__BackingField: 134076096322610818
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
       - Name: TMPro
@@ -6479,11 +6479,11 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
+        - Name: AssetBundleLoadResult
+          Allowed: 0
         - Name: AssetBundle
           Allowed: 0
         - Name: AssetBundleCreateRequest
-          Allowed: 0
-        - Name: AssetBundleLoadResult
           Allowed: 0
         - Name: AssetBundleManifest
           Allowed: 0
@@ -6502,7 +6502,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 78f905a236d193b4a952d950d42daa14, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.AudioModule
       NamedTypeRestrictions:
       - Name: UnityEngine
@@ -8692,7 +8692,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: e675e9c67fbf1da409b86c090696adca, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.ImageConversionModule
       NamedTypeRestrictions:
       - Name: UnityEngine

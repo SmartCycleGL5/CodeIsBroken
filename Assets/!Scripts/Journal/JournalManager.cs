@@ -103,12 +103,12 @@ namespace Journal
             tab.tabHeader.focusable = true;
             tab.tabHeader.style.display = DisplayStyle.Flex;
             tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
-            tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
+            tab.Q<Label>("Amount").text = string.Format("{0}X / {0}X", contract.amount);
             tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
             tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
             ScrollView mods = tab.Q<ScrollView>("Amount");
             mods.Clear();
-
+            
             foreach (var mod in contract.RequestedProduct.mods)
             {
                 VisualElement _m = new();
@@ -117,7 +117,15 @@ namespace Journal
                 _m.Add(new Label { text = mod.Description});
                 mods.Add(_m);
             }   
+            contract.onProgress += ProgressAmount;
         }
+
+        private void ProgressAmount(int amountLeft, int amount)
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            tab.Q<Label>("Amount").text = string.Format("{0}X / {1}X",amountLeft,amount);
+        }
+
         private Button CreateNewButton(JournalEntrySO entry)
         {
             entry.SetUnlocked();

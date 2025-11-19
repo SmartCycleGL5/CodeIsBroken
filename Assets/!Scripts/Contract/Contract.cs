@@ -16,7 +16,7 @@ namespace CodeIsBroken.Contract
         public int amountLeft { get; private set; }
     
         public Action<Contract> onFinished;
-
+        public Action<int,int> onProgress;
         public int xpToGive =>
             Mathf.RoundToInt(((RequestedProduct.mods.Count + 1) * 5) * (amount / 2));
         private static int amountOfMods => Random.Range(
@@ -59,7 +59,7 @@ namespace CodeIsBroken.Contract
         {
             Debug.Log("[Contract] Progress");
             amountLeft--;
-    
+            onProgress?.Invoke(amountLeft,amount);
             if (amountLeft <= 0)
             {
                 Finish();

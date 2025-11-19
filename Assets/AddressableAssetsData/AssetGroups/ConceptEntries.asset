@@ -14,7 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: ConceptEntries
   m_GUID: deee9fd0f76526a4fb71c935a574e624
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 204a9acf28944a94690a92b5f9d03b5f
+    m_Address: Assets/!Scripts/Journal/Concepts/Comments.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b615cf78ada9034898adadda79e4873
+    m_Address: Assets/!Scripts/Journal/Concepts/Variables.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8094aef711f9c3c4296282d1efe7670c
+    m_Address: Assets/!Scripts/Journal/Concepts/Methods.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86c7f92db8254b244800a7123e5034e1
+    m_Address: Assets/!Scripts/Journal/Concepts/Types.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8498130b981bfe4da3839d32776f4bf
+    m_Address: Assets/!Scripts/Journal/Concepts/IfStatements.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce812ca1bf6af96489e15a5576c58449
+    m_Address: Assets/!Scripts/Journal/Concepts/Recipes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d753b529b89a4ba46bd5fd36fba556a7
+    m_Address: Assets/!Scripts/Journal/Concepts/Classes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}
   m_SchemaSet:

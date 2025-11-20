@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 357034593}
   - component: {fileID: 357034594}
   - component: {fileID: 357034595}
+  - component: {fileID: 357034596}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -717,9 +718,29 @@ MonoBehaviour:
       Value:
         additionalModifications: {x: 1, y: 2}
         firstContracts: []
+  CompanyNames:
+  - The generic Mall
+  - Woodworkers co
+  - Rock business
+  - Metal forgers
+  - Another mall
+  - Target
+  - Coop generic
   references:
     version: 2
     RefIds: []
+--- !u!114 &357034596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbabcd3744f0aaa6e87bfbc7ae57fb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +1004,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463028037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 725333b9fad04fa42a40851631818cb3, type: 3}
   m_Name: 

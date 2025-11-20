@@ -18,8 +18,6 @@ namespace ScriptEditor
         public SyntaxHighlighting activeHighlighting = new();
         public Script scriptToEdit { get; private set; }
 
-        static VisualTreeAsset terminalAsset;
-
         public static List<Terminal> terminals = new();
         
         public WindowElement window { get; set; }
@@ -62,16 +60,12 @@ namespace ScriptEditor
             }
         }
         
-        private async void Start()
+        private void Start()
         {
             activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
             
-            if (terminalAsset == null)
-            {
-                terminalAsset = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
-            }
             
-            terminal = terminalAsset.Instantiate();
+            terminal = TerminalManager.terminalUI.Instantiate();
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
 
 #if UNITY_EDITOR

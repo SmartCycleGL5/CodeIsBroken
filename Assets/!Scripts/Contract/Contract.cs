@@ -72,7 +72,7 @@ namespace CodeIsBroken.Contract
             }
         }
 
-        public string contractName;
+        public string companyName;
 
         public Request[] requests;
 
@@ -97,7 +97,7 @@ namespace CodeIsBroken.Contract
 
         public Contract(Request[] requests)
         {
-            contractName = $"lvl {PlayerProgression.Level} Contract";
+            companyName = ContractManager.GetCompanyName();
             this.requests = requests;
         }
 
@@ -165,12 +165,12 @@ namespace CodeIsBroken.Contract
         {
             TemplateContainer contract = ContractManager.contractUI.Instantiate();
 
-            contract.Q<Label>("ContractName").text = contractName;
+            contract.Q<Label>("ContractName").text = companyName;
 
             foreach (var request in requests)
             {
 
-                Tab tab = new Tab(request.product.baseMaterials.ToString());
+                Tab tab = new Tab(request.product.name);
                 tab.Add(request.GetUI());
                 contract.Q<TabView>("Requests").Add(tab);
             }

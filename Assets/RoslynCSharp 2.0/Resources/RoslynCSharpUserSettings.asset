@@ -1888,6 +1888,8 @@ MonoBehaviour:
           Allowed: 0
         - Name: Crane
           Allowed: 0
+        - Name: Furnace
+          Allowed: 0
         - Name: Laser
           Allowed: 0
         - Name: MaterialTube
@@ -1902,7 +1904,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134082022095942632
+      <LastWriteTimeUTC>k__BackingField: 134082070199384741
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

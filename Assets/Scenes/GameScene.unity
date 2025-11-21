@@ -966,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &463028038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,9 +1771,9 @@ MonoBehaviour:
     _serializedList:
     - Key: 1
       Value: {fileID: 2116484856}
-    - Key: 3
+    - Key: 5
       Value: {fileID: 2076160206}
-    - Key: 4
+    - Key: 8
       Value: {fileID: 530955613}
 --- !u!4 &1858100309
 Transform:
@@ -2047,6 +2047,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
   - {fileID: 11400000, guid: fc55c8f85b070b340a84c2a4ee7dac0d, type: 2}
+  - {fileID: 11400000, guid: e7e3485ef6a81064ea436fae16e10dff, type: 2}
   buildingButtonTemplate: {fileID: 9197481963319205126, guid: 059ab6987b8ea384fa556a041657d4f0, type: 3}
   uiDoc: {fileID: 2051597519}
   isBuilding: 1

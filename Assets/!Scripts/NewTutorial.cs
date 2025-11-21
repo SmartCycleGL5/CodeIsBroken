@@ -131,7 +131,7 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex++; }
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}) and run it.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");

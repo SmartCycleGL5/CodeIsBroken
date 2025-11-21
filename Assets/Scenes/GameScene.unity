@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8748af0c9345671428e829b4168cb1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridBuilder
-  buildingLimit: 100
+  buildingLimit: 10
   grid: {fileID: 493899198845114267}
   ghostBuilding: {fileID: 5631033168589675713}
   gridObjects:

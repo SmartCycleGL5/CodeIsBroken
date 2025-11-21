@@ -1879,7 +1879,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134081895166547531
+      <LastWriteTimeUTC>k__BackingField: 134082022094774842
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1902,7 +1902,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134081928539927834
+      <LastWriteTimeUTC>k__BackingField: 134082022095942632
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo
@@ -4676,13 +4676,13 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: Unity.AI.Navigation
         TypeRestrictions:
-        - Name: CollectObjects
-          Allowed: 0
         - Name: NavMeshLink
           Allowed: 0
         - Name: NavMeshModifier
           Allowed: 0
         - Name: NavMeshModifierVolume
+          Allowed: 0
+        - Name: CollectObjects
           Allowed: 0
         - Name: NavMeshSurface
           Allowed: 0
@@ -4690,11 +4690,17 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1d1511a5d70cf9f4991195fe70812cf3, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802129097
+      <LastWriteTimeUTC>k__BackingField: 134081895166419187
     - Name: Unity.Burst
       NamedTypeRestrictions:
       - Name: Unity.Burst
         TypeRestrictions:
+        - Name: OptimizeFor
+          Allowed: 0
+        - Name: FloatMode
+          Allowed: 0
+        - Name: FloatPrecision
+          Allowed: 0
         - Name: BurstCompileAttribute
           Allowed: 0
         - Name: BurstCompiler
@@ -4705,34 +4711,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: BurstRuntime
           Allowed: 0
-        - Name: FloatMode
-          Allowed: 0
-        - Name: FloatPrecision
+        - Name: IFunctionPointer
           Allowed: 0
         - Name: FunctionPointer`1
           Allowed: 0
-        - Name: IFunctionPointer
-          Allowed: 0
         - Name: NoAliasAttribute
           Allowed: 0
-        - Name: OptimizeFor
-          Allowed: 0
         - Name: SharedStatic`1
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Burst.CompilerServices
-        TypeRestrictions:
-        - Name: Aliasing
-          Allowed: 0
-        - Name: AssumeRangeAttribute
-          Allowed: 0
-        - Name: Constant
-          Allowed: 0
-        - Name: Hint
-          Allowed: 0
-        - Name: IgnoreWarningAttribute
-          Allowed: 0
-        - Name: SkipLocalsInitAttribute
           Allowed: 0
         Allowed: 0
       - Name: Unity.Burst.Intrinsics
@@ -4750,10 +4735,25 @@ MonoBehaviour:
         - Name: X86
           Allowed: 0
         Allowed: 0
+      - Name: Unity.Burst.CompilerServices
+        TypeRestrictions:
+        - Name: Aliasing
+          Allowed: 0
+        - Name: AssumeRangeAttribute
+          Allowed: 0
+        - Name: Constant
+          Allowed: 0
+        - Name: Hint
+          Allowed: 0
+        - Name: IgnoreWarningAttribute
+          Allowed: 0
+        - Name: SkipLocalsInitAttribute
+          Allowed: 0
+        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3d97c7ea051395449a0ce7e92ade5169, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802104267
+      <LastWriteTimeUTC>k__BackingField: 134081895166489274
     - Name: Unity.Collections
       NamedTypeRestrictions:
       - Name: Unity.Jobs
@@ -5838,26 +5838,13 @@ MonoBehaviour:
       <LastWriteTimeUTC>k__BackingField: 134081895166419187
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
+      - Name: UnityEngine.TextCore
+        TypeRestrictions:
+        - Name: OTL_FeatureTag
+          Allowed: 0
+        Allowed: 0
       - Name: TMPro
         TypeRestrictions:
-        - Name: AlternateSubstitutionRecord
-          Allowed: 0
-        - Name: AtlasPopulationMode
-          Allowed: 0
-        - Name: CaretInfo
-          Allowed: 0
-        - Name: CaretPosition
-          Allowed: 0
-        - Name: ColorMode
-          Allowed: 0
-        - Name: Compute_DistanceTransform_EventTypes
-          Allowed: 0
-        - Name: Compute_DT_EventArgs
-          Allowed: 0
-        - Name: Extents
-          Allowed: 0
-        - Name: FaceInfo_Legacy
-          Allowed: 0
         - Name: FastAction
           Allowed: 0
         - Name: FastAction`1
@@ -5866,35 +5853,7 @@ MonoBehaviour:
           Allowed: 0
         - Name: FastAction`3
           Allowed: 0
-        - Name: FontAssetCreationSettings
-          Allowed: 0
-        - Name: FontFeatureLookupFlags
-          Allowed: 0
-        - Name: FontStyles
-          Allowed: 0
-        - Name: FontWeight
-          Allowed: 0
         - Name: GlyphAnchorPoint
-          Allowed: 0
-        - Name: GlyphPairKey
-          Allowed: 0
-        - Name: GlyphValueRecord_Legacy
-          Allowed: 0
-        - Name: HighlightState
-          Allowed: 0
-        - Name: HorizontalAlignmentOptions
-          Allowed: 0
-        - Name: ITextElement
-          Allowed: 0
-        - Name: ITextPreprocessor
-          Allowed: 0
-        - Name: KerningPair
-          Allowed: 0
-        - Name: KerningPairKey
-          Allowed: 0
-        - Name: KerningTable
-          Allowed: 0
-        - Name: LigatureSubstitutionRecord
           Allowed: 0
         - Name: MarkPositionAdjustment
           Allowed: 0
@@ -5902,51 +5861,69 @@ MonoBehaviour:
           Allowed: 0
         - Name: MarkToMarkAdjustmentRecord
           Allowed: 0
-        - Name: MaskingOffsetMode
-          Allowed: 0
-        - Name: MaskingTypes
-          Allowed: 0
-        - Name: MaterialReference
-          Allowed: 0
-        - Name: MaterialReferenceManager
-          Allowed: 0
-        - Name: Mesh_Extents
+        - Name: SingleSubstitutionRecord
           Allowed: 0
         - Name: MultipleSubstitutionRecord
           Allowed: 0
-        - Name: ShaderUtilities
+        - Name: AlternateSubstitutionRecord
           Allowed: 0
-        - Name: SingleSubstitutionRecord
+        - Name: LigatureSubstitutionRecord
           Allowed: 0
-        - Name: TagUnitType
+        - Name: ITextPreprocessor
           Allowed: 0
-        - Name: TagValueType
+        - Name: MaterialReferenceManager
           Allowed: 0
-        - Name: TextAlignmentOptions
+        - Name: TMP_MaterialReference
           Allowed: 0
-        - Name: TextContainer
+        - Name: MaterialReference
           Allowed: 0
         - Name: TextContainerAnchors
           Allowed: 0
-        - Name: TextElementType
+        - Name: TextContainer
           Allowed: 0
         - Name: TextMeshPro
           Allowed: 0
         - Name: TextMeshProUGUI
           Allowed: 0
-        - Name: TextOverflowModes
+        - Name: Compute_DistanceTransform_EventTypes
           Allowed: 0
-        - Name: TextRenderFlags
+        - Name: TMPro_EventManager
           Allowed: 0
-        - Name: TextureMappingOptions
+        - Name: Compute_DT_EventArgs
           Allowed: 0
-        - Name: TextWrappingModes
+        - Name: TMPro_ExtensionMethods
+          Allowed: 0
+        - Name: TMP_Math
+          Allowed: 0
+        - Name: TMP_VertexDataUpdateFlags
+          Allowed: 0
+        - Name: VertexGradient
+          Allowed: 0
+        - Name: TMP_PageInfo
+          Allowed: 0
+        - Name: TMP_LinkInfo
+          Allowed: 0
+        - Name: TMP_WordInfo
+          Allowed: 0
+        - Name: TMP_SpriteInfo
+          Allowed: 0
+        - Name: Extents
+          Allowed: 0
+        - Name: Mesh_Extents
           Allowed: 0
         - Name: TMP_Asset
           Allowed: 0
         - Name: TMP_Character
           Allowed: 0
+        - Name: TMP_Vertex
+          Allowed: 0
+        - Name: TMP_Offset
+          Allowed: 0
+        - Name: HighlightState
+          Allowed: 0
         - Name: TMP_CharacterInfo
+          Allowed: 0
+        - Name: ColorMode
           Allowed: 0
         - Name: TMP_ColorGradient
           Allowed: 0
@@ -5956,25 +5933,41 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_Dropdown
           Allowed: 0
+        - Name: AtlasPopulationMode
+          Allowed: 0
         - Name: TMP_FontAsset
           Allowed: 0
-        - Name: TMP_FontAssetUtilities
+        - Name: FaceInfo_Legacy
           Allowed: 0
-        - Name: TMP_FontFeatureTable
+        - Name: TMP_Glyph
           Allowed: 0
-        - Name: TMP_FontStyleStack
-          Allowed: 0
-        - Name: TMP_FontUtilities
+        - Name: FontAssetCreationSettings
           Allowed: 0
         - Name: TMP_FontWeightPair
           Allowed: 0
-        - Name: TMP_Glyph
+        - Name: KerningPairKey
+          Allowed: 0
+        - Name: GlyphValueRecord_Legacy
+          Allowed: 0
+        - Name: KerningPair
+          Allowed: 0
+        - Name: KerningTable
+          Allowed: 0
+        - Name: TMP_FontUtilities
+          Allowed: 0
+        - Name: TMP_FontAssetUtilities
+          Allowed: 0
+        - Name: FontFeatureLookupFlags
+          Allowed: 0
+        - Name: TMP_GlyphValueRecord
           Allowed: 0
         - Name: TMP_GlyphAdjustmentRecord
           Allowed: 0
         - Name: TMP_GlyphPairAdjustmentRecord
           Allowed: 0
-        - Name: TMP_GlyphValueRecord
+        - Name: GlyphPairKey
+          Allowed: 0
+        - Name: TMP_FontFeatureTable
           Allowed: 0
         - Name: TMP_InputField
           Allowed: 0
@@ -5982,31 +5975,29 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_LineInfo
           Allowed: 0
-        - Name: TMP_LinkInfo
-          Allowed: 0
         - Name: TMP_MaterialManager
           Allowed: 0
-        - Name: TMP_MaterialReference
-          Allowed: 0
-        - Name: TMP_Math
+        - Name: VertexSortingOrder
           Allowed: 0
         - Name: TMP_MeshInfo
-          Allowed: 0
-        - Name: TMP_Offset
           Allowed: 0
         - Name: TMP_PackageResourceImporter
           Allowed: 0
         - Name: TMP_PackageResourceImporterWindow
           Allowed: 0
-        - Name: TMP_PageInfo
-          Allowed: 0
         - Name: TMP_ResourceManager
+          Allowed: 0
+        - Name: TagValueType
+          Allowed: 0
+        - Name: TagUnitType
           Allowed: 0
         - Name: TMP_ScrollbarEventHandler
           Allowed: 0
         - Name: TMP_SelectionCaret
           Allowed: 0
         - Name: TMP_Settings
+          Allowed: 0
+        - Name: ShaderUtilities
           Allowed: 0
         - Name: TMP_Sprite
           Allowed: 0
@@ -6018,8 +6009,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SpriteGlyph
           Allowed: 0
-        - Name: TMP_SpriteInfo
-          Allowed: 0
         - Name: TMP_Style
           Allowed: 0
         - Name: TMP_StyleSheet
@@ -6028,41 +6017,57 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SubMeshUI
           Allowed: 0
+        - Name: ITextElement
+          Allowed: 0
+        - Name: TextAlignmentOptions
+          Allowed: 0
+        - Name: HorizontalAlignmentOptions
+          Allowed: 0
+        - Name: VerticalAlignmentOptions
+          Allowed: 0
+        - Name: TextRenderFlags
+          Allowed: 0
+        - Name: TMP_TextElementType
+          Allowed: 0
+        - Name: MaskingTypes
+          Allowed: 0
+        - Name: TextOverflowModes
+          Allowed: 0
+        - Name: TextWrappingModes
+          Allowed: 0
+        - Name: MaskingOffsetMode
+          Allowed: 0
+        - Name: TextureMappingOptions
+          Allowed: 0
+        - Name: FontStyles
+          Allowed: 0
+        - Name: FontWeight
+          Allowed: 0
         - Name: TMP_Text
+          Allowed: 0
+        - Name: TextElementType
           Allowed: 0
         - Name: TMP_TextElement
           Allowed: 0
         - Name: TMP_TextElement_Legacy
           Allowed: 0
-        - Name: TMP_TextElementType
-          Allowed: 0
         - Name: TMP_TextInfo
           Allowed: 0
         - Name: TMP_TextParsingUtilities
           Allowed: 0
+        - Name: TMP_FontStyleStack
+          Allowed: 0
         - Name: TMP_TextProcessingStack`1
+          Allowed: 0
+        - Name: CaretPosition
+          Allowed: 0
+        - Name: CaretInfo
           Allowed: 0
         - Name: TMP_TextUtilities
           Allowed: 0
         - Name: TMP_UpdateManager
           Allowed: 0
         - Name: TMP_UpdateRegistry
-          Allowed: 0
-        - Name: TMP_Vertex
-          Allowed: 0
-        - Name: TMP_VertexDataUpdateFlags
-          Allowed: 0
-        - Name: TMP_WordInfo
-          Allowed: 0
-        - Name: TMPro_EventManager
-          Allowed: 0
-        - Name: TMPro_ExtensionMethods
-          Allowed: 0
-        - Name: VertexGradient
-          Allowed: 0
-        - Name: VertexSortingOrder
-          Allowed: 0
-        - Name: VerticalAlignmentOptions
           Allowed: 0
         Allowed: 0
       - Name: TMPro.SpriteAssetUtilities
@@ -6072,32 +6077,35 @@ MonoBehaviour:
         - Name: TexturePacker_JsonArray
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.TextCore
-        TypeRestrictions:
-        - Name: OTL_FeatureTag
-          Allowed: 0
-        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802131069
+      <LastWriteTimeUTC>k__BackingField: 134081895166372896
     - Name: Unity.Timeline
       NamedTypeRestrictions:
       - Name: UnityEngine.Timeline
         TypeRestrictions:
-        - Name: ActivationControlPlayable
-          Allowed: 0
         - Name: ActivationTrack
           Allowed: 0
         - Name: AnimationPlayableAsset
           Allowed: 0
+        - Name: MatchTargetFields
+          Allowed: 0
+        - Name: TrackOffset
+          Allowed: 0
         - Name: AnimationTrack
+          Allowed: 0
+        - Name: TimelineClip
+          Allowed: 0
+        - Name: TimelineAsset
+          Allowed: 0
+        - Name: TrackAsset
+          Allowed: 0
+        - Name: TrackColorAttribute
           Allowed: 0
         - Name: AudioPlayableAsset
           Allowed: 0
         - Name: AudioTrack
-          Allowed: 0
-        - Name: BasicPlayableBehaviour
           Allowed: 0
         - Name: ClipCaps
           Allowed: 0
@@ -6105,43 +6113,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: ControlTrack
           Allowed: 0
-        - Name: CustomStyleAttribute
-          Allowed: 0
-        - Name: DirectorControlPlayable
-          Allowed: 0
-        - Name: GroupTrack
-          Allowed: 0
-        - Name: HideInMenuAttribute
-          Allowed: 0
-        - Name: ILayerable
-          Allowed: 0
         - Name: IMarker
           Allowed: 0
         - Name: INotificationOptionProvider
           Allowed: 0
-        - Name: IPropertyCollector
-          Allowed: 0
-        - Name: IPropertyPreview
-          Allowed: 0
-        - Name: ITimeControl
-          Allowed: 0
-        - Name: ITimelineClipAsset
-          Allowed: 0
         - Name: Marker
           Allowed: 0
         - Name: MarkerTrack
-          Allowed: 0
-        - Name: MatchTargetFields
-          Allowed: 0
-        - Name: NotificationFlags
-          Allowed: 0
-        - Name: NotKeyableAttribute
-          Allowed: 0
-        - Name: ParticleControlPlayable
-          Allowed: 0
-        - Name: PlayableTrack
-          Allowed: 0
-        - Name: PrefabControlPlayable
           Allowed: 0
         - Name: SignalAsset
           Allowed: 0
@@ -6151,41 +6129,63 @@ MonoBehaviour:
           Allowed: 0
         - Name: SignalTrack
           Allowed: 0
-        - Name: StandardFrameRates
+        - Name: TrackAssetExtensions
+          Allowed: 0
+        - Name: GroupTrack
+          Allowed: 0
+        - Name: ILayerable
+          Allowed: 0
+        - Name: ActivationControlPlayable
+          Allowed: 0
+        - Name: BasicPlayableBehaviour
+          Allowed: 0
+        - Name: DirectorControlPlayable
+          Allowed: 0
+        - Name: ITimeControl
+          Allowed: 0
+        - Name: NotificationFlags
+          Allowed: 0
+        - Name: ParticleControlPlayable
+          Allowed: 0
+        - Name: PrefabControlPlayable
           Allowed: 0
         - Name: TimeControlPlayable
           Allowed: 0
-        - Name: TimelineAsset
-          Allowed: 0
-        - Name: TimelineClip
-          Allowed: 0
-        - Name: TimelineClipExtensions
-          Allowed: 0
-        - Name: TimelinePlayable
-          Allowed: 0
         - Name: TimeNotificationBehaviour
           Allowed: 0
-        - Name: TrackAsset
+        - Name: PlayableTrack
           Allowed: 0
-        - Name: TrackAssetExtensions
+        - Name: TrackMediaType
+          Allowed: 0
+        - Name: TrackClipTypeAttribute
+          Allowed: 0
+        - Name: NotKeyableAttribute
           Allowed: 0
         - Name: TrackBindingFlags
           Allowed: 0
         - Name: TrackBindingTypeAttribute
           Allowed: 0
-        - Name: TrackClipTypeAttribute
+        - Name: HideInMenuAttribute
           Allowed: 0
-        - Name: TrackColorAttribute
+        - Name: CustomStyleAttribute
           Allowed: 0
-        - Name: TrackMediaType
+        - Name: ITimelineClipAsset
           Allowed: 0
-        - Name: TrackOffset
+        - Name: TimelinePlayable
+          Allowed: 0
+        - Name: IPropertyCollector
+          Allowed: 0
+        - Name: IPropertyPreview
+          Allowed: 0
+        - Name: TimelineClipExtensions
+          Allowed: 0
+        - Name: StandardFrameRates
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802129805
+      <LastWriteTimeUTC>k__BackingField: 134081895166356911
     - Name: UnityEngine.AIModule
       NamedTypeRestrictions:
       - Name: UnityEngine.Experimental.AI
@@ -6606,17 +6606,17 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: Cloth
+        - Name: ClothSphereColliderPair
           Allowed: 0
         - Name: ClothSkinningCoefficient
           Allowed: 0
-        - Name: ClothSphereColliderPair
+        - Name: Cloth
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 49daa44f2b56cbc4593fc8f43c04089f, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.CoreModule
       NamedTypeRestrictions:
       - Name: AOT
@@ -6624,222 +6624,32 @@ MonoBehaviour:
         - Name: MonoPInvokeCallbackAttribute
           Allowed: 0
         Allowed: 0
-      - Name: JetBrains.Annotations
+      - Name: UnityEditor.Experimental
         TypeRestrictions:
-        - Name: AssertionConditionAttribute
-          Allowed: 0
-        - Name: AssertionConditionType
-          Allowed: 0
-        - Name: AssertionMethodAttribute
-          Allowed: 0
-        - Name: BaseTypeRequiredAttribute
-          Allowed: 0
-        - Name: CanBeNullAttribute
-          Allowed: 0
-        - Name: CannotApplyEqualityOperatorAttribute
-          Allowed: 0
-        - Name: CollectionAccessAttribute
-          Allowed: 0
-        - Name: CollectionAccessType
-          Allowed: 0
-        - Name: ContractAnnotationAttribute
-          Allowed: 0
-        - Name: ImplicitUseKindFlags
-          Allowed: 0
-        - Name: ImplicitUseTargetFlags
-          Allowed: 0
-        - Name: InstantHandleAttribute
-          Allowed: 0
-        - Name: InvokerParameterNameAttribute
-          Allowed: 0
-        - Name: ItemCanBeNullAttribute
-          Allowed: 0
-        - Name: ItemNotNullAttribute
-          Allowed: 0
-        - Name: LinqTunnelAttribute
-          Allowed: 0
-        - Name: LocalizationRequiredAttribute
-          Allowed: 0
-        - Name: MacroAttribute
-          Allowed: 0
-        - Name: MeansImplicitUseAttribute
-          Allowed: 0
-        - Name: MustDisposeResourceAttribute
-          Allowed: 0
-        - Name: MustUseReturnValueAttribute
-          Allowed: 0
-        - Name: NoEnumerationAttribute
-          Allowed: 0
-        - Name: NoReorderAttribute
-          Allowed: 0
-        - Name: NotifyPropertyChangedInvocatorAttribute
-          Allowed: 0
-        - Name: NotNullAttribute
-          Allowed: 0
-        - Name: PathReferenceAttribute
-          Allowed: 0
-        - Name: ProvidesContextAttribute
-          Allowed: 0
-        - Name: PublicAPIAttribute
-          Allowed: 0
-        - Name: PureAttribute
-          Allowed: 0
-        - Name: RegexPatternAttribute
-          Allowed: 0
-        - Name: SourceTemplateAttribute
-          Allowed: 0
-        - Name: StringFormatMethodAttribute
-          Allowed: 0
-        - Name: TerminatesProgramAttribute
-          Allowed: 0
-        - Name: UsedImplicitlyAttribute
-          Allowed: 0
-        - Name: ValueProviderAttribute
+        - Name: RenderSettings
           Allowed: 0
         Allowed: 0
-      - Name: Unity.Burst
+      - Name: UnityEngineInternal
         TypeRestrictions:
-        - Name: BurstAuthorizedExternalMethodAttribute
+        - Name: GITextureType
           Allowed: 0
-        - Name: BurstDiscardAttribute
+        - Name: GIDebugVisualisation
+          Allowed: 0
+        - Name: MemorylessMode
+          Allowed: 0
+        - Name: MemorylessManager
+          Allowed: 0
+        - Name: MathfInternal
+          Allowed: 0
+        - Name: APIUpdaterRuntimeServices
+          Allowed: 0
+        - Name: TypeInferenceRules
+          Allowed: 0
+        - Name: TypeInferenceRuleAttribute
+          Allowed: 0
+        - Name: GenericStack
           Allowed: 0
         Allowed: 0
-      - Name: Unity.Collections
-        TypeRestrictions:
-        - Name: Allocator
-          Allowed: 0
-        - Name: DeallocateOnJobCompletionAttribute
-          Allowed: 0
-        - Name: NativeArray`1
-          Allowed: 0
-        - Name: NativeArrayOptions
-          Allowed: 0
-        - Name: NativeDisableParallelForRestrictionAttribute
-          Allowed: 0
-        - Name: NativeFixedLengthAttribute
-          Allowed: 0
-        - Name: NativeLeakDetection
-          Allowed: 0
-        - Name: NativeLeakDetectionMode
-          Allowed: 0
-        - Name: NativeMatchesParallelForLengthAttribute
-          Allowed: 0
-        - Name: NativeSlice`1
-          Allowed: 0
-        - Name: NativeSliceExtensions
-          Allowed: 0
-        - Name: ReadOnlyAttribute
-          Allowed: 0
-        - Name: WriteOnlyAttribute
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Collections.LowLevel.Unsafe
-        TypeRestrictions:
-        - Name: AtomicSafetyErrorType
-          Allowed: 0
-        - Name: AtomicSafetyHandle
-          Allowed: 0
-        - Name: DisposeSentinel
-          Allowed: 0
-        - Name: EnforceJobResult
-          Allowed: 0
-        - Name: NativeArrayUnsafeUtility
-          Allowed: 0
-        - Name: NativeContainerAttribute
-          Allowed: 0
-        - Name: NativeContainerIsAtomicWriteOnlyAttribute
-          Allowed: 0
-        - Name: NativeContainerIsReadOnlyAttribute
-          Allowed: 0
-        - Name: NativeContainerNeedsThreadIndexAttribute
-          Allowed: 0
-        - Name: NativeContainerSupportsDeallocateOnJobCompletionAttribute
-          Allowed: 0
-        - Name: NativeContainerSupportsDeferredConvertListToArray
-          Allowed: 0
-        - Name: NativeContainerSupportsMinMaxWriteRestrictionAttribute
-          Allowed: 0
-        - Name: NativeDisableContainerSafetyRestrictionAttribute
-          Allowed: 0
-        - Name: NativeDisableUnsafePtrRestrictionAttribute
-          Allowed: 0
-        - Name: NativeSetClassTypeToNullOnScheduleAttribute
-          Allowed: 0
-        - Name: NativeSetThreadIndexAttribute
-          Allowed: 0
-        - Name: NativeSliceUnsafeUtility
-          Allowed: 0
-        - Name: UnsafeUtility
-          Allowed: 0
-        - Name: WriteAccessRequiredAttribute
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Content
-        TypeRestrictions:
-        - Name: ContentNamespace
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.IntegerTime
-        TypeRestrictions:
-        - Name: DiscreteTime
-          Allowed: 0
-        - Name: DiscreteTimeTimeExtensions
-          Allowed: 0
-        - Name: RationalTime
-          Allowed: 0
-        - Name: RationalTimeExtensions
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.IO.Archive
-        TypeRestrictions:
-        - Name: ArchiveFileInfo
-          Allowed: 1
-        - Name: ArchiveFileInterface
-          Allowed: 1
-        - Name: ArchiveHandle
-          Allowed: 1
-        - Name: ArchiveStatus
-          Allowed: 1
-        Allowed: 1
-      - Name: Unity.IO.LowLevel.Unsafe
-        TypeRestrictions:
-        - Name: AssetLoadingSubsystem
-          Allowed: 1
-        - Name: AsyncReadManager
-          Allowed: 1
-        - Name: AsyncReadManagerMetrics
-          Allowed: 1
-        - Name: AsyncReadManagerMetricsFilters
-          Allowed: 1
-        - Name: AsyncReadManagerRequestMetric
-          Allowed: 1
-        - Name: AsyncReadManagerSummaryMetrics
-          Allowed: 1
-        - Name: FileHandle
-          Allowed: 1
-        - Name: FileInfoResult
-          Allowed: 1
-        - Name: FileReadType
-          Allowed: 1
-        - Name: FileState
-          Allowed: 1
-        - Name: FileStatus
-          Allowed: 1
-        - Name: Priority
-          Allowed: 1
-        - Name: ProcessingState
-          Allowed: 1
-        - Name: ReadCommand
-          Allowed: 1
-        - Name: ReadCommandArray
-          Allowed: 1
-        - Name: ReadHandle
-          Allowed: 1
-        - Name: ReadStatus
-          Allowed: 1
-        - Name: VirtualFileSystem
-          Allowed: 1
-        Allowed: 1
       - Name: Unity.Jobs
         TypeRestrictions:
         - Name: IJob
@@ -6869,38 +6679,49 @@ MonoBehaviour:
           Allowed: 0
         - Name: JobRanges
           Allowed: 0
-        - Name: JobsUtility
+        - Name: ScheduleMode
           Allowed: 0
         - Name: JobType
           Allowed: 0
-        - Name: ScheduleMode
+        - Name: JobsUtility
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.IntegerTime
+        TypeRestrictions:
+        - Name: DiscreteTime
+          Allowed: 0
+        - Name: DiscreteTimeTimeExtensions
+          Allowed: 0
+        - Name: RationalTime
+          Allowed: 0
+        - Name: RationalTimeExtensions
           Allowed: 0
         Allowed: 0
       - Name: Unity.Profiling
         TypeRestrictions:
-        - Name: DebugScreenCapture
-          Allowed: 0
         - Name: IgnoredByDeepProfilerAttribute
           Allowed: 0
         - Name: ProfilerCategory
           Allowed: 0
-        - Name: ProfilerCategoryColor
-          Allowed: 0
         - Name: ProfilerCategoryFlags
           Allowed: 0
-        - Name: ProfilerCounterOptions
-          Allowed: 0
-        - Name: ProfilerFlowEventType
+        - Name: ProfilerCategoryColor
           Allowed: 0
         - Name: ProfilerMarker
           Allowed: 0
+        - Name: ProfilerFlowEventType
+          Allowed: 0
         - Name: ProfilerMarkerDataUnit
           Allowed: 0
-        - Name: ProfilerRecorder
+        - Name: ProfilerCounterOptions
           Allowed: 0
         - Name: ProfilerRecorderOptions
           Allowed: 0
         - Name: ProfilerRecorderSample
+          Allowed: 0
+        - Name: ProfilerRecorder
+          Allowed: 0
+        - Name: DebugScreenCapture
           Allowed: 0
         Allowed: 0
       - Name: Unity.Profiling.LowLevel
@@ -6912,13 +6733,13 @@ MonoBehaviour:
         Allowed: 0
       - Name: Unity.Profiling.LowLevel.Unsafe
         TypeRestrictions:
-        - Name: ProfilerCategoryDescription
-          Allowed: 0
-        - Name: ProfilerMarkerData
-          Allowed: 0
         - Name: ProfilerRecorderDescription
           Allowed: 0
         - Name: ProfilerRecorderHandle
+          Allowed: 0
+        - Name: ProfilerMarkerData
+          Allowed: 0
+        - Name: ProfilerCategoryDescription
           Allowed: 0
         - Name: ProfilerUnsafeUtility
           Allowed: 0
@@ -6927,91 +6748,287 @@ MonoBehaviour:
         TypeRestrictions:
         - Name: CaptureFlags
           Allowed: 0
-        - Name: MemoryProfiler
-          Allowed: 0
         - Name: MemorySnapshotMetadata
           Allowed: 0
+        - Name: MemoryProfiler
+          Allowed: 0
         Allowed: 0
-      - Name: UnityEditor.Experimental
+      - Name: Unity.IO.LowLevel.Unsafe
         TypeRestrictions:
-        - Name: RenderSettings
+        - Name: ReadCommand
+          Allowed: 1
+        - Name: ReadCommandArray
+          Allowed: 1
+        - Name: FileState
+          Allowed: 1
+        - Name: FileStatus
+          Allowed: 1
+        - Name: FileInfoResult
+          Allowed: 1
+        - Name: AssetLoadingSubsystem
+          Allowed: 1
+        - Name: ReadStatus
+          Allowed: 1
+        - Name: Priority
+          Allowed: 1
+        - Name: FileHandle
+          Allowed: 1
+        - Name: ReadHandle
+          Allowed: 1
+        - Name: AsyncReadManager
+          Allowed: 1
+        - Name: ProcessingState
+          Allowed: 1
+        - Name: FileReadType
+          Allowed: 1
+        - Name: AsyncReadManagerRequestMetric
+          Allowed: 1
+        - Name: AsyncReadManagerMetrics
+          Allowed: 1
+        - Name: AsyncReadManagerSummaryMetrics
+          Allowed: 1
+        - Name: AsyncReadManagerMetricsFilters
+          Allowed: 1
+        - Name: VirtualFileSystem
+          Allowed: 1
+        Allowed: 1
+      - Name: Unity.IO.Archive
+        TypeRestrictions:
+        - Name: ArchiveStatus
+          Allowed: 1
+        - Name: ArchiveFileInfo
+          Allowed: 1
+        - Name: ArchiveHandle
+          Allowed: 1
+        - Name: ArchiveFileInterface
+          Allowed: 1
+        Allowed: 1
+      - Name: Unity.Content
+        TypeRestrictions:
+        - Name: ContentNamespace
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.Collections
+        TypeRestrictions:
+        - Name: ReadOnlyAttribute
+          Allowed: 0
+        - Name: WriteOnlyAttribute
+          Allowed: 0
+        - Name: DeallocateOnJobCompletionAttribute
+          Allowed: 0
+        - Name: NativeFixedLengthAttribute
+          Allowed: 0
+        - Name: NativeMatchesParallelForLengthAttribute
+          Allowed: 0
+        - Name: NativeDisableParallelForRestrictionAttribute
+          Allowed: 0
+        - Name: Allocator
+          Allowed: 0
+        - Name: NativeLeakDetectionMode
+          Allowed: 0
+        - Name: NativeLeakDetection
+          Allowed: 0
+        - Name: NativeArrayOptions
+          Allowed: 0
+        - Name: NativeArray`1
+          Allowed: 0
+        - Name: NativeSliceExtensions
+          Allowed: 0
+        - Name: NativeSlice`1
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.Collections.LowLevel.Unsafe
+        TypeRestrictions:
+        - Name: NativeContainerAttribute
+          Allowed: 0
+        - Name: NativeContainerIsReadOnlyAttribute
+          Allowed: 0
+        - Name: NativeContainerIsAtomicWriteOnlyAttribute
+          Allowed: 0
+        - Name: NativeContainerSupportsMinMaxWriteRestrictionAttribute
+          Allowed: 0
+        - Name: NativeContainerSupportsDeallocateOnJobCompletionAttribute
+          Allowed: 0
+        - Name: NativeContainerSupportsDeferredConvertListToArray
+          Allowed: 0
+        - Name: NativeSetThreadIndexAttribute
+          Allowed: 0
+        - Name: NativeContainerNeedsThreadIndexAttribute
+          Allowed: 0
+        - Name: WriteAccessRequiredAttribute
+          Allowed: 0
+        - Name: NativeDisableUnsafePtrRestrictionAttribute
+          Allowed: 0
+        - Name: NativeDisableContainerSafetyRestrictionAttribute
+          Allowed: 0
+        - Name: NativeSetClassTypeToNullOnScheduleAttribute
+          Allowed: 0
+        - Name: EnforceJobResult
+          Allowed: 0
+        - Name: AtomicSafetyErrorType
+          Allowed: 0
+        - Name: AtomicSafetyHandle
+          Allowed: 0
+        - Name: DisposeSentinel
+          Allowed: 0
+        - Name: NativeArrayUnsafeUtility
+          Allowed: 0
+        - Name: NativeSliceUnsafeUtility
+          Allowed: 0
+        - Name: UnsafeUtility
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.Burst
+        TypeRestrictions:
+        - Name: BurstAuthorizedExternalMethodAttribute
+          Allowed: 0
+        - Name: BurstDiscardAttribute
+          Allowed: 0
+        Allowed: 0
+      - Name: JetBrains.Annotations
+        TypeRestrictions:
+        - Name: CanBeNullAttribute
+          Allowed: 0
+        - Name: NotNullAttribute
+          Allowed: 0
+        - Name: ItemNotNullAttribute
+          Allowed: 0
+        - Name: ItemCanBeNullAttribute
+          Allowed: 0
+        - Name: StringFormatMethodAttribute
+          Allowed: 0
+        - Name: ValueProviderAttribute
+          Allowed: 0
+        - Name: InvokerParameterNameAttribute
+          Allowed: 0
+        - Name: NotifyPropertyChangedInvocatorAttribute
+          Allowed: 0
+        - Name: ContractAnnotationAttribute
+          Allowed: 0
+        - Name: LocalizationRequiredAttribute
+          Allowed: 0
+        - Name: CannotApplyEqualityOperatorAttribute
+          Allowed: 0
+        - Name: BaseTypeRequiredAttribute
+          Allowed: 0
+        - Name: UsedImplicitlyAttribute
+          Allowed: 0
+        - Name: MeansImplicitUseAttribute
+          Allowed: 0
+        - Name: ImplicitUseKindFlags
+          Allowed: 0
+        - Name: ImplicitUseTargetFlags
+          Allowed: 0
+        - Name: PublicAPIAttribute
+          Allowed: 0
+        - Name: InstantHandleAttribute
+          Allowed: 0
+        - Name: PureAttribute
+          Allowed: 0
+        - Name: MustUseReturnValueAttribute
+          Allowed: 0
+        - Name: MustDisposeResourceAttribute
+          Allowed: 0
+        - Name: ProvidesContextAttribute
+          Allowed: 0
+        - Name: PathReferenceAttribute
+          Allowed: 0
+        - Name: SourceTemplateAttribute
+          Allowed: 0
+        - Name: MacroAttribute
+          Allowed: 0
+        - Name: CollectionAccessAttribute
+          Allowed: 0
+        - Name: CollectionAccessType
+          Allowed: 0
+        - Name: AssertionMethodAttribute
+          Allowed: 0
+        - Name: AssertionConditionAttribute
+          Allowed: 0
+        - Name: AssertionConditionType
+          Allowed: 0
+        - Name: TerminatesProgramAttribute
+          Allowed: 0
+        - Name: LinqTunnelAttribute
+          Allowed: 0
+        - Name: NoEnumerationAttribute
+          Allowed: 0
+        - Name: RegexPatternAttribute
+          Allowed: 0
+        - Name: NoReorderAttribute
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: ADBannerView
+        - Name: SpriteDrawMode
           Allowed: 0
-        - Name: AddComponentMenu
+        - Name: SpriteTileMode
           Allowed: 0
-        - Name: ADInterstitialAd
+        - Name: SpriteMaskInteraction
           Allowed: 0
-        - Name: AndroidActivityIndicatorStyle
-          Allowed: 1
+        - Name: SpriteRenderer
+          Allowed: 0
+        - Name: SpriteMeshType
+          Allowed: 0
+        - Name: SpriteAlignment
+          Allowed: 0
+        - Name: SpritePackingMode
+          Allowed: 0
+        - Name: SpritePackingRotation
+          Allowed: 0
+        - Name: SpriteSortPoint
+          Allowed: 0
+        - Name: SecondarySpriteTexture
+          Allowed: 0
+        - Name: Sprite
+          Allowed: 0
+        - Name: SortingLayer
+          Allowed: 0
+        - Name: WeightedMode
+          Allowed: 0
+        - Name: Keyframe
+          Allowed: 0
+        - Name: WrapMode
+          Allowed: 0
         - Name: AnimationCurve
-          Allowed: 0
-        - Name: AnisotropicFiltering
           Allowed: 0
         - Name: Application
           Allowed: 1
-        - Name: ApplicationInstallMode
-          Allowed: 0
         - Name: ApplicationMemoryUsage
           Allowed: 0
         - Name: ApplicationMemoryUsageChange
           Allowed: 0
+        - Name: StackTraceLogType
+          Allowed: 0
+        - Name: NetworkReachability
+          Allowed: 0
+        - Name: UserAuthorization
+          Allowed: 0
+        - Name: ApplicationInstallMode
+          Allowed: 0
         - Name: ApplicationSandboxType
-          Allowed: 0
-        - Name: AssemblyIsEditorAssembly
-          Allowed: 0
-        - Name: AsyncInstantiateOperation
-          Allowed: 0
-        - Name: AsyncInstantiateOperation`1
-          Allowed: 0
-        - Name: AsyncOperation
-          Allowed: 0
-        - Name: AsyncOperationAwaitableExtensions
           Allowed: 0
         - Name: AudioType
           Allowed: 0
-        - Name: Awaitable
+        - Name: SendMessageOptions
           Allowed: 0
-        - Name: Awaitable`1
+        - Name: PrimitiveType
           Allowed: 0
-        - Name: AwaitableCompletionSource
+        - Name: Space
           Allowed: 0
-        - Name: AwaitableCompletionSource`1
+        - Name: RuntimePlatform
           Allowed: 0
-        - Name: BackgroundThreadAwaitable
+        - Name: SystemLanguage
           Allowed: 0
-        - Name: BatteryStatus
+        - Name: LogType
           Allowed: 0
-        - Name: BeforeRenderOrderAttribute
+        - Name: LogOption
           Allowed: 0
-        - Name: Behaviour
-          Allowed: 0
-        - Name: BillboardAsset
-          Allowed: 0
-        - Name: BillboardRenderer
-          Allowed: 0
-        - Name: BlendShapeBufferRange
-          Allowed: 0
-        - Name: BlendWeights
-          Allowed: 0
-        - Name: BoneWeight
-          Allowed: 0
-        - Name: BoneWeight1
-          Allowed: 0
-        - Name: BoundingSphere
-          Allowed: 0
-        - Name: Bounds
-          Allowed: 0
-        - Name: BoundsInt
-          Allowed: 0
-        - Name: BuildCompression
-          Allowed: 0
-        - Name: Cache
+        - Name: ThreadPriority
           Allowed: 0
         - Name: CachedAssetBundle
+          Allowed: 0
+        - Name: Cache
           Allowed: 0
         - Name: CacheIndex
           Allowed: 0
@@ -7019,421 +7036,51 @@ MonoBehaviour:
           Allowed: 0
         - Name: Camera
           Allowed: 0
-        - Name: CameraClearFlags
-          Allowed: 0
-        - Name: CameraType
-          Allowed: 0
-        - Name: Color
-          Allowed: 0
-        - Name: Color32
-          Allowed: 0
-        - Name: ColorGamut
-          Allowed: 0
-        - Name: ColorGamutUtility
-          Allowed: 0
-        - Name: ColorPrimaries
-          Allowed: 0
-        - Name: ColorSpace
-          Allowed: 0
-        - Name: ColorUsageAttribute
-          Allowed: 0
-        - Name: ColorUtility
-          Allowed: 0
-        - Name: CombineInstance
-          Allowed: 0
-        - Name: Component
-          Allowed: 0
-        - Name: CompressionLevel
-          Allowed: 0
-        - Name: CompressionType
-          Allowed: 0
-        - Name: ComputeBuffer
-          Allowed: 0
-        - Name: ComputeBufferMode
-          Allowed: 0
-        - Name: ComputeBufferType
-          Allowed: 0
-        - Name: ComputeShader
-          Allowed: 0
-        - Name: ContextMenu
-          Allowed: 0
-        - Name: ContextMenuItemAttribute
-          Allowed: 0
-        - Name: Coroutine
-          Allowed: 0
-        - Name: CrashReport
-          Allowed: 0
-        - Name: CreateAssetMenuAttribute
-          Allowed: 0
-        - Name: Cubemap
-          Allowed: 0
-        - Name: CubemapArray
-          Allowed: 0
-        - Name: CubemapFace
-          Allowed: 0
-        - Name: CullingGroup
+        - Name: BoundingSphere
           Allowed: 0
         - Name: CullingGroupEvent
           Allowed: 0
-        - Name: Cursor
+        - Name: CullingGroup
           Allowed: 0
-        - Name: CursorLockMode
+        - Name: FlareLayer
           Allowed: 0
-        - Name: CursorMode
+        - Name: ReflectionProbe
           Allowed: 0
-        - Name: CustomRenderTexture
+        - Name: CrashReport
           Allowed: 0
-        - Name: CustomRenderTextureInitializationSource
+        - Name: IntegrityCheckLevel
           Allowed: 0
-        - Name: CustomRenderTextureManager
-          Allowed: 0
-        - Name: CustomRenderTextureUpdateMode
-          Allowed: 0
-        - Name: CustomRenderTextureUpdateZone
-          Allowed: 0
-        - Name: CustomRenderTextureUpdateZoneSpace
-          Allowed: 0
-        - Name: CustomYieldInstruction
-          Allowed: 0
-        - Name: D3DHDRDisplayBitDepth
+        - Name: ValidationLevel
           Allowed: 0
         - Name: Debug
-          Allowed: 0
-        - Name: DefaultExecutionOrder
-          Allowed: 0
-        - Name: DelayedAttribute
-          Allowed: 0
-        - Name: DepthTextureMode
-          Allowed: 0
-        - Name: DeviceType
-          Allowed: 0
-        - Name: DisallowMultipleComponent
-          Allowed: 0
-        - Name: Display
-          Allowed: 0
-        - Name: DisplayInfo
-          Allowed: 0
-        - Name: DrivenRectTransformTracker
-          Allowed: 0
-        - Name: DrivenTransformProperties
-          Allowed: 0
-        - Name: DynamicGI
-          Allowed: 0
-        - Name: EnumButtonsAttribute
-          Allowed: 0
-        - Name: EventProvider
-          Allowed: 0
-        - Name: ExcludeFromObjectFactoryAttribute
-          Allowed: 0
-        - Name: ExcludeFromPresetAttribute
-          Allowed: 0
-        - Name: ExecuteAlways
-          Allowed: 0
-        - Name: ExecuteInEditMode
           Allowed: 0
         - Name: ExposedPropertyResolver
           Allowed: 0
         - Name: ExposedReference`1
           Allowed: 0
+        - Name: IExposedPropertyTable
+          Allowed: 0
+        - Name: EventProvider
+          Allowed: 0
         - Name: ExpressionEvaluator
           Allowed: 0
-        - Name: FilterMode
+        - Name: CompressionType
           Allowed: 0
-        - Name: FindObjectsInactive
+        - Name: CompressionLevel
           Allowed: 0
-        - Name: FindObjectsSortMode
+        - Name: BuildCompression
           Allowed: 0
-        - Name: Flare
+        - Name: Bounds
           Allowed: 0
-        - Name: FlareLayer
-          Allowed: 0
-        - Name: FogMode
-          Allowed: 0
-        - Name: FrameDebugger
-          Allowed: 0
-        - Name: FrameTiming
-          Allowed: 0
-        - Name: FrameTimingManager
-          Allowed: 0
-        - Name: FrustumPlanes
-          Allowed: 0
-        - Name: FullScreenMode
-          Allowed: 0
-        - Name: FullScreenMovieControlMode
-          Allowed: 0
-        - Name: FullScreenMovieScalingMode
-          Allowed: 0
-        - Name: GameObject
+        - Name: BoundsInt
           Allowed: 0
         - Name: GeometryUtility
           Allowed: 0
-        - Name: Gizmos
-          Allowed: 0
-        - Name: GL
-          Allowed: 0
-        - Name: Gradient
-          Allowed: 0
-        - Name: GradientAlphaKey
-          Allowed: 0
-        - Name: GradientColorKey
-          Allowed: 0
-        - Name: GradientMode
-          Allowed: 0
-        - Name: GradientUsageAttribute
-          Allowed: 0
-        - Name: Graphics
-          Allowed: 0
-        - Name: GraphicsBuffer
-          Allowed: 0
-        - Name: GraphicsBufferHandle
-          Allowed: 0
-        - Name: Handheld
-          Allowed: 0
-        - Name: Hash128
-          Allowed: 0
-        - Name: HashUnsafeUtilities
-          Allowed: 0
-        - Name: HashUtilities
-          Allowed: 0
-        - Name: HDRDisplayBitDepth
-          Allowed: 0
-        - Name: HDRDisplaySupportFlags
-          Allowed: 0
-        - Name: HDROutputSettings
-          Allowed: 0
-        - Name: HeaderAttribute
-          Allowed: 0
-        - Name: HelpURLAttribute
-          Allowed: 0
-        - Name: HideFlags
-          Allowed: 0
-        - Name: HideInCallstackAttribute
-          Allowed: 0
-        - Name: HideInInspector
-          Allowed: 0
-        - Name: HmiPlatform
-          Allowed: 0
-        - Name: IconAttribute
-          Allowed: 0
-        - Name: IExposedPropertyTable
-          Allowed: 0
-        - Name: ILogger
-          Allowed: 0
-        - Name: ILogHandler
-          Allowed: 0
-        - Name: ImageEffectAfterScale
-          Allowed: 0
-        - Name: ImageEffectAllowedInSceneView
-          Allowed: 0
-        - Name: ImageEffectOpaque
-          Allowed: 0
-        - Name: ImageEffectTransformsToLDR
-          Allowed: 0
-        - Name: ImageEffectUsesCommandBuffer
-          Allowed: 0
-        - Name: InspectorNameAttribute
-          Allowed: 0
-        - Name: InspectorOrderAttribute
-          Allowed: 0
-        - Name: InspectorSort
-          Allowed: 0
-        - Name: InspectorSortDirection
-          Allowed: 0
-        - Name: InstantiateParameters
-          Allowed: 0
-        - Name: IntegrityCheckLevel
-          Allowed: 0
-        - Name: iPhone
-          Allowed: 1
-        - Name: iPhoneAccelerationEvent
-          Allowed: 1
-        - Name: iPhoneGeneration
-          Allowed: 1
-        - Name: iPhoneInput
-          Allowed: 1
-        - Name: iPhoneKeyboard
-          Allowed: 1
-        - Name: iPhoneKeyboardType
-          Allowed: 1
-        - Name: iPhoneMovieControlMode
-          Allowed: 1
-        - Name: iPhoneMovieScalingMode
-          Allowed: 1
-        - Name: iPhoneNetworkReachability
-          Allowed: 1
-        - Name: iPhoneOrientation
-          Allowed: 1
-        - Name: iPhoneScreenOrientation
-          Allowed: 1
-        - Name: iPhoneSettings
-          Allowed: 1
-        - Name: iPhoneTouch
-          Allowed: 1
-        - Name: iPhoneTouchPhase
-          Allowed: 1
-        - Name: iPhoneUtils
-          Allowed: 1
-        - Name: ISerializationCallbackReceiver
-          Allowed: 0
-        - Name: KeyCode
-          Allowed: 0
-        - Name: Keyframe
-          Allowed: 0
-        - Name: LayerMask
-          Allowed: 0
-        - Name: LazyLoadReference`1
-          Allowed: 0
-        - Name: LensFlare
-          Allowed: 0
-        - Name: Light
-          Allowed: 0
-        - Name: LightBakingOutput
-          Allowed: 0
-        - Name: LightingSettings
-          Allowed: 0
-        - Name: LightmapBakeType
-          Allowed: 0
-        - Name: LightmapCompression
-          Allowed: 0
-        - Name: LightmapData
-          Allowed: 0
-        - Name: LightmappingMode
-          Allowed: 0
-        - Name: LightmapSettings
-          Allowed: 0
-        - Name: LightmapsMode
-          Allowed: 0
-        - Name: LightmapsModeLegacy
-          Allowed: 0
-        - Name: LightProbeGroup
-          Allowed: 0
-        - Name: LightProbeProxyVolume
-          Allowed: 0
-        - Name: LightProbes
-          Allowed: 0
-        - Name: LightProbesQuery
-          Allowed: 0
-        - Name: LightRenderMode
-          Allowed: 0
-        - Name: LightShadowCasterMode
-          Allowed: 0
-        - Name: LightShadows
-          Allowed: 0
-        - Name: LightShape
-          Allowed: 0
-        - Name: LightType
-          Allowed: 0
-        - Name: LineAlignment
-          Allowed: 0
-        - Name: LineRenderer
-          Allowed: 0
-        - Name: LineTextureMode
-          Allowed: 0
-        - Name: LineUtility
-          Allowed: 0
-        - Name: LOD
-          Allowed: 0
-        - Name: LODFadeMode
-          Allowed: 0
-        - Name: LODGroup
-          Allowed: 0
-        - Name: Logger
-          Allowed: 0
-        - Name: LogOption
-          Allowed: 0
-        - Name: LogType
-          Allowed: 0
-        - Name: MainThreadAwaitable
-          Allowed: 0
-        - Name: Material
-          Allowed: 0
-        - Name: MaterialGlobalIlluminationFlags
-          Allowed: 0
-        - Name: MaterialPropertyBlock
-          Allowed: 0
-        - Name: MaterialPropertyType
-          Allowed: 0
-        - Name: Mathf
-          Allowed: 0
-        - Name: Matrix4x4
-          Allowed: 0
-        - Name: Mesh
-          Allowed: 0
-        - Name: MeshFilter
-          Allowed: 0
-        - Name: MeshRenderer
-          Allowed: 0
-        - Name: MeshTopology
-          Allowed: 0
-        - Name: MinAttribute
-          Allowed: 0
-        - Name: MipmapLimitDescriptor
-          Allowed: 0
-        - Name: MissingComponentException
-          Allowed: 0
-        - Name: MissingReferenceException
-          Allowed: 0
-        - Name: MixedLightingMode
-          Allowed: 0
-        - Name: MonoBehaviour
-          Allowed: 0
-        - Name: MotionVectorGenerationMode
-          Allowed: 0
-        - Name: MultilineAttribute
-          Allowed: 0
-        - Name: NetworkReachability
-          Allowed: 0
-        - Name: NonReorderableAttribute
-          Allowed: 0
-        - Name: NPOTSupport
-          Allowed: 0
-        - Name: Object
-          Allowed: 0
-        - Name: OcclusionArea
-          Allowed: 0
-        - Name: OcclusionPortal
-          Allowed: 0
-        - Name: OperatingSystemFamily
-          Allowed: 0
-        - Name: Ping
-          Allowed: 0
         - Name: Plane
-          Allowed: 0
-        - Name: PlayerPrefs
-          Allowed: 0
-        - Name: PlayerPrefsException
-          Allowed: 0
-        - Name: Pose
-          Allowed: 0
-        - Name: PreferBinarySerialization
-          Allowed: 0
-        - Name: PrimitiveType
-          Allowed: 0
-        - Name: Projector
-          Allowed: 0
-        - Name: PropertyAttribute
-          Allowed: 0
-        - Name: PropertyCollectionAttribute
-          Allowed: 0
-        - Name: PropertyName
-          Allowed: 0
-        - Name: QualityLevel
-          Allowed: 0
-        - Name: QualitySettings
-          Allowed: 0
-        - Name: Quaternion
-          Allowed: 0
-        - Name: Random
-          Allowed: 0
-        - Name: RangeAttribute
-          Allowed: 0
-        - Name: RangeInt
           Allowed: 0
         - Name: Ray
           Allowed: 0
         - Name: Ray2D
-          Allowed: 0
-        - Name: ReceiveGI
           Allowed: 0
         - Name: Rect
           Allowed: 0
@@ -7441,83 +7088,151 @@ MonoBehaviour:
           Allowed: 0
         - Name: RectOffset
           Allowed: 0
-        - Name: RectTransform
+        - Name: DynamicGI
           Allowed: 0
-        - Name: ReflectionProbe
+        - Name: LightingSettings
+          Allowed: 0
+        - Name: Gizmos
+          Allowed: 0
+        - Name: BeforeRenderOrderAttribute
+          Allowed: 0
+        - Name: BillboardAsset
+          Allowed: 0
+        - Name: BillboardRenderer
+          Allowed: 0
+        - Name: CustomRenderTextureManager
+          Allowed: 0
+        - Name: Display
+          Allowed: 0
+        - Name: LightProbesQuery
+          Allowed: 0
+        - Name: FullScreenMode
           Allowed: 0
         - Name: RefreshRate
           Allowed: 0
-        - Name: RenderBuffer
+        - Name: DisplayInfo
           Allowed: 0
-        - Name: Renderer
-          Allowed: 0
-        - Name: RendererExtensions
-          Allowed: 0
-        - Name: RenderingLayerMask
-          Allowed: 0
-        - Name: RenderingPath
-          Allowed: 0
-        - Name: RenderParams
-          Allowed: 0
-        - Name: RenderSettings
-          Allowed: 0
-        - Name: RenderTargetSetup
-          Allowed: 0
-        - Name: RenderTexture
-          Allowed: 0
-        - Name: RenderTextureCreationFlags
-          Allowed: 0
-        - Name: RenderTextureDescriptor
-          Allowed: 0
-        - Name: RenderTextureFormat
-          Allowed: 0
-        - Name: RenderTextureMemoryless
-          Allowed: 0
-        - Name: RenderTextureReadWrite
-          Allowed: 0
-        - Name: RequireComponent
-          Allowed: 0
-        - Name: Resolution
-          Allowed: 0
-        - Name: ResourceRequest
-          Allowed: 0
-        - Name: Resources
-          Allowed: 0
-        - Name: ResourcesAPI
-          Allowed: 0
-        - Name: RuntimeInitializeLoadType
-          Allowed: 0
-        - Name: RuntimeInitializeOnLoadMethodAttribute
-          Allowed: 0
-        - Name: RuntimePlatform
-          Allowed: 0
-        - Name: ScalableBufferManager
+        - Name: SleepTimeout
           Allowed: 0
         - Name: Screen
           Allowed: 0
-        - Name: ScreenOrientation
+        - Name: RenderBuffer
           Allowed: 0
-        - Name: ScriptableObject
+        - Name: ComputeBufferMode
           Allowed: 0
-        - Name: SecondarySpriteTexture
+        - Name: Graphics
           Allowed: 0
-        - Name: Security
+        - Name: GL
           Allowed: 0
-        - Name: SelectionBaseAttribute
+        - Name: ScalableBufferManager
           Allowed: 0
-        - Name: SendMessageOptions
+        - Name: FrameTiming
           Allowed: 0
-        - Name: SerializeField
+        - Name: FrameTimingManager
           Allowed: 0
-        - Name: SerializeReference
+        - Name: LightmapData
+          Allowed: 0
+        - Name: LightmapSettings
+          Allowed: 0
+        - Name: LightProbes
+          Allowed: 0
+        - Name: D3DHDRDisplayBitDepth
+          Allowed: 0
+        - Name: HDROutputSettings
+          Allowed: 0
+        - Name: ColorGamutUtility
+          Allowed: 0
+        - Name: Resolution
+          Allowed: 0
+        - Name: RenderTargetSetup
+          Allowed: 0
+        - Name: RenderParams
+          Allowed: 0
+        - Name: QualitySettings
+          Allowed: 0
+        - Name: RendererExtensions
+          Allowed: 0
+        - Name: ImageEffectTransformsToLDR
+          Allowed: 0
+        - Name: ImageEffectAllowedInSceneView
+          Allowed: 0
+        - Name: ImageEffectOpaque
+          Allowed: 0
+        - Name: ImageEffectAfterScale
+          Allowed: 0
+        - Name: ImageEffectUsesCommandBuffer
+          Allowed: 0
+        - Name: Mesh
+          Allowed: 0
+        - Name: Renderer
+          Allowed: 0
+        - Name: Projector
           Allowed: 0
         - Name: Shader
           Allowed: 0
-        - Name: ShaderVariantCollection
+        - Name: LightmapsModeLegacy
           Allowed: 0
-        - Name: ShadowmaskMode
+        - Name: TrailRenderer
           Allowed: 0
-        - Name: ShadowObjectsFilter
+        - Name: LineRenderer
+          Allowed: 0
+        - Name: MaterialPropertyBlock
+          Allowed: 0
+        - Name: RenderSettings
+          Allowed: 0
+        - Name: Material
+          Allowed: 0
+        - Name: GraphicsBufferHandle
+          Allowed: 0
+        - Name: GraphicsBuffer
+          Allowed: 0
+        - Name: OcclusionPortal
+          Allowed: 0
+        - Name: OcclusionArea
+          Allowed: 0
+        - Name: Flare
+          Allowed: 0
+        - Name: LensFlare
+          Allowed: 0
+        - Name: LightBakingOutput
+          Allowed: 0
+        - Name: LightShadowCasterMode
+          Allowed: 0
+        - Name: Light
+          Allowed: 0
+        - Name: Skybox
+          Allowed: 0
+        - Name: MeshFilter
+          Allowed: 0
+        - Name: RenderingPath
+          Allowed: 0
+        - Name: TransparencySortMode
+          Allowed: 0
+        - Name: StereoTargetEyeMask
+          Allowed: 0
+        - Name: CameraType
+          Allowed: 0
+        - Name: ComputeBufferType
+          Allowed: 0
+        - Name: LightType
+          Allowed: 0
+        - Name: LightShape
+          Allowed: 0
+        - Name: LightRenderMode
+          Allowed: 0
+        - Name: LightShadows
+          Allowed: 0
+        - Name: FogMode
+          Allowed: 0
+        - Name: LightmapBakeType
+          Allowed: 0
+        - Name: MixedLightingMode
+          Allowed: 0
+        - Name: ReceiveGI
+          Allowed: 0
+        - Name: LightmapCompression
+          Allowed: 0
+        - Name: QualityLevel
           Allowed: 0
         - Name: ShadowProjection
           Allowed: 0
@@ -7525,135 +7240,407 @@ MonoBehaviour:
           Allowed: 0
         - Name: ShadowResolution
           Allowed: 0
-        - Name: SkinnedMeshRenderer
+        - Name: ShadowmaskMode
           Allowed: 0
-        - Name: SkinQuality
+        - Name: ShadowObjectsFilter
           Allowed: 0
-        - Name: SkinWeights
+        - Name: CameraClearFlags
           Allowed: 0
-        - Name: Skybox
-          Allowed: 0
-        - Name: SleepTimeout
-          Allowed: 0
-        - Name: SnapAxis
-          Allowed: 0
-        - Name: Snapping
-          Allowed: 0
-        - Name: SortingLayer
-          Allowed: 0
-        - Name: Space
-          Allowed: 0
-        - Name: SpaceAttribute
-          Allowed: 0
-        - Name: SparseTexture
-          Allowed: 0
-        - Name: Sprite
-          Allowed: 0
-        - Name: SpriteAlignment
-          Allowed: 0
-        - Name: SpriteDrawMode
-          Allowed: 0
-        - Name: SpriteMaskInteraction
-          Allowed: 0
-        - Name: SpriteMeshType
-          Allowed: 0
-        - Name: SpritePackingMode
-          Allowed: 0
-        - Name: SpritePackingRotation
-          Allowed: 0
-        - Name: SpriteRenderer
-          Allowed: 0
-        - Name: SpriteSortPoint
-          Allowed: 0
-        - Name: SpriteTileMode
-          Allowed: 0
-        - Name: StackTraceLogType
-          Allowed: 0
-        - Name: StackTraceUtility
-          Allowed: 0
-        - Name: StaticBatchingUtility
-          Allowed: 0
-        - Name: StereoTargetEyeMask
-          Allowed: 0
-        - Name: SystemInfo
-          Allowed: 0
-        - Name: SystemLanguage
-          Allowed: 0
-        - Name: TagHandle
-          Allowed: 0
-        - Name: TerrainQualityOverrides
+        - Name: DepthTextureMode
           Allowed: 0
         - Name: TexGenMode
           Allowed: 0
-        - Name: TextAreaAttribute
+        - Name: AnisotropicFiltering
           Allowed: 0
-        - Name: TextAsset
+        - Name: BlendWeights
+          Allowed: 0
+        - Name: SkinWeights
+          Allowed: 0
+        - Name: MeshTopology
+          Allowed: 0
+        - Name: SkinQuality
+          Allowed: 0
+        - Name: ColorSpace
+          Allowed: 0
+        - Name: ColorGamut
+          Allowed: 0
+        - Name: ColorPrimaries
+          Allowed: 0
+        - Name: WhitePoint
+          Allowed: 0
+        - Name: TransferFunction
+          Allowed: 0
+        - Name: ScreenOrientation
+          Allowed: 0
+        - Name: FilterMode
+          Allowed: 0
+        - Name: TextureWrapMode
+          Allowed: 0
+        - Name: NPOTSupport
+          Allowed: 0
+        - Name: TextureFormat
+          Allowed: 0
+        - Name: CubemapFace
+          Allowed: 0
+        - Name: RenderTextureFormat
+          Allowed: 0
+        - Name: VRTextureUsage
+          Allowed: 0
+        - Name: RenderTextureCreationFlags
+          Allowed: 0
+        - Name: RenderTextureReadWrite
+          Allowed: 0
+        - Name: RenderTextureMemoryless
+          Allowed: 0
+        - Name: HDRDisplaySupportFlags
+          Allowed: 0
+        - Name: HDRDisplayBitDepth
+          Allowed: 0
+        - Name: LightmapsMode
+          Allowed: 0
+        - Name: MaterialGlobalIlluminationFlags
+          Allowed: 0
+        - Name: LightProbeProxyVolume
+          Allowed: 0
+        - Name: CustomRenderTextureInitializationSource
+          Allowed: 0
+        - Name: CustomRenderTextureUpdateMode
+          Allowed: 0
+        - Name: CustomRenderTextureUpdateZoneSpace
+          Allowed: 0
+        - Name: MotionVectorGenerationMode
+          Allowed: 0
+        - Name: LineTextureMode
+          Allowed: 0
+        - Name: LineAlignment
+          Allowed: 0
+        - Name: TextureMipmapLimitBiasMode
+          Allowed: 0
+        - Name: GraphicsJobsFilterMode
+          Allowed: 0
+        - Name: TerrainQualityOverrides
+          Allowed: 0
+        - Name: TextureMipmapLimitSettings
+          Allowed: 0
+        - Name: TextureMipmapLimitGroups
+          Allowed: 0
+        - Name: SkinnedMeshRenderer
+          Allowed: 0
+        - Name: MeshRenderer
+          Allowed: 0
+        - Name: LightmappingMode
+          Allowed: 0
+        - Name: LightProbeGroup
+          Allowed: 0
+        - Name: LineUtility
+          Allowed: 0
+        - Name: LODFadeMode
+          Allowed: 0
+        - Name: LOD
+          Allowed: 0
+        - Name: LODGroup
+          Allowed: 0
+        - Name: BlendShapeBufferRange
+          Allowed: 0
+        - Name: BoneWeight
+          Allowed: 0
+        - Name: BoneWeight1
+          Allowed: 0
+        - Name: CombineInstance
+          Allowed: 0
+        - Name: MeshLodRange
           Allowed: 0
         - Name: Texture
           Allowed: 0
         - Name: Texture2D
           Allowed: 0
-        - Name: Texture2DArray
+        - Name: Cubemap
           Allowed: 0
         - Name: Texture3D
           Allowed: 0
-        - Name: TextureFormat
+        - Name: Texture2DArray
           Allowed: 0
-        - Name: TextureMipmapLimitBiasMode
+        - Name: CubemapArray
           Allowed: 0
-        - Name: TextureMipmapLimitGroups
+        - Name: SparseTexture
           Allowed: 0
-        - Name: TextureMipmapLimitSettings
+        - Name: RenderTexture
           Allowed: 0
-        - Name: TextureWrapMode
+        - Name: CustomRenderTextureUpdateZone
           Allowed: 0
-        - Name: ThreadPriority
+        - Name: CustomRenderTexture
           Allowed: 0
-        - Name: Time
+        - Name: RenderTextureDescriptor
           Allowed: 0
-        - Name: TooltipAttribute
+        - Name: MipmapLimitDescriptor
           Allowed: 0
-        - Name: TouchScreenKeyboard
+        - Name: VulkanDeviceFilterData
           Allowed: 0
-        - Name: TouchScreenKeyboardType
+        - Name: VulkanGraphicsJobsDeviceFilterData
           Allowed: 0
-        - Name: TrackedReference
+        - Name: VulkanDeviceFilterLists
           Allowed: 0
-        - Name: TrailRenderer
+        - Name: FullScreenMovieControlMode
           Allowed: 0
-        - Name: TransferFunction
+        - Name: FullScreenMovieScalingMode
           Allowed: 0
-        - Name: Transform
+        - Name: AndroidActivityIndicatorStyle
+          Allowed: 1
+        - Name: Handheld
           Allowed: 0
-        - Name: TransparencySortMode
+        - Name: Hash128
           Allowed: 0
-        - Name: Types
+        - Name: HashUtilities
           Allowed: 0
-        - Name: UnassignedReferenceException
+        - Name: HashUnsafeUtilities
           Allowed: 0
-        - Name: UnityAPICompatibilityVersionAttribute
+        - Name: HmiPlatform
           Allowed: 0
-        - Name: UnityEventAwaitableExtensions
+        - Name: CursorMode
           Allowed: 0
-        - Name: UnityEventQueueSystem
+        - Name: CursorLockMode
           Allowed: 0
-        - Name: UnityException
+        - Name: Cursor
           Allowed: 0
-        - Name: UserAuthorization
+        - Name: KeyCode
           Allowed: 0
-        - Name: ValidationLevel
+        - Name: iPhoneScreenOrientation
+          Allowed: 1
+        - Name: iPhoneNetworkReachability
+          Allowed: 1
+        - Name: iPhoneGeneration
+          Allowed: 1
+        - Name: iPhoneSettings
+          Allowed: 1
+        - Name: iPhoneTouchPhase
+          Allowed: 1
+        - Name: iPhoneTouch
+          Allowed: 1
+        - Name: iPhoneMovieControlMode
+          Allowed: 1
+        - Name: iPhoneMovieScalingMode
+          Allowed: 1
+        - Name: iPhoneUtils
+          Allowed: 1
+        - Name: iPhoneKeyboardType
+          Allowed: 1
+        - Name: iPhoneKeyboard
+          Allowed: 1
+        - Name: iPhoneAccelerationEvent
+          Allowed: 1
+        - Name: iPhoneOrientation
+          Allowed: 1
+        - Name: iPhoneInput
+          Allowed: 1
+        - Name: iPhone
+          Allowed: 1
+        - Name: ADBannerView
+          Allowed: 0
+        - Name: ADInterstitialAd
+          Allowed: 0
+        - Name: ILogger
+          Allowed: 0
+        - Name: ILogHandler
+          Allowed: 0
+        - Name: Logger
+          Allowed: 0
+        - Name: Color
+          Allowed: 0
+        - Name: Color32
+          Allowed: 0
+        - Name: ColorUtility
+          Allowed: 0
+        - Name: GradientColorKey
+          Allowed: 0
+        - Name: GradientAlphaKey
+          Allowed: 0
+        - Name: GradientMode
+          Allowed: 0
+        - Name: Gradient
+          Allowed: 0
+        - Name: FrustumPlanes
+          Allowed: 0
+        - Name: Matrix4x4
+          Allowed: 0
+        - Name: Vector3
+          Allowed: 0
+        - Name: Quaternion
+          Allowed: 0
+        - Name: Mathf
           Allowed: 0
         - Name: Vector2
           Allowed: 0
         - Name: Vector2Int
           Allowed: 0
-        - Name: Vector3
-          Allowed: 0
         - Name: Vector3Int
           Allowed: 0
         - Name: Vector4
           Allowed: 0
-        - Name: VRTextureUsage
+        - Name: Ping
+          Allowed: 0
+        - Name: PlayerPrefsException
+          Allowed: 0
+        - Name: PlayerPrefs
+          Allowed: 0
+        - Name: PropertyAttribute
+          Allowed: 0
+        - Name: PropertyCollectionAttribute
+          Allowed: 0
+        - Name: ContextMenuItemAttribute
+          Allowed: 0
+        - Name: InspectorNameAttribute
+          Allowed: 0
+        - Name: TooltipAttribute
+          Allowed: 0
+        - Name: SpaceAttribute
+          Allowed: 0
+        - Name: HeaderAttribute
+          Allowed: 0
+        - Name: RangeAttribute
+          Allowed: 0
+        - Name: MinAttribute
+          Allowed: 0
+        - Name: MultilineAttribute
+          Allowed: 0
+        - Name: TextAreaAttribute
+          Allowed: 0
+        - Name: ColorUsageAttribute
+          Allowed: 0
+        - Name: GradientUsageAttribute
+          Allowed: 0
+        - Name: DelayedAttribute
+          Allowed: 0
+        - Name: NonReorderableAttribute
+          Allowed: 0
+        - Name: EnumButtonsAttribute
+          Allowed: 0
+        - Name: PropertyName
+          Allowed: 0
+        - Name: Random
+          Allowed: 0
+        - Name: RenderingLayerMask
+          Allowed: 0
+        - Name: IconAttribute
+          Allowed: 0
+        - Name: ResourceRequest
+          Allowed: 0
+        - Name: ResourcesAPI
+          Allowed: 0
+        - Name: Resources
+          Allowed: 0
+        - Name: AsyncInstantiateOperation
+          Allowed: 0
+        - Name: AsyncInstantiateOperation`1
+          Allowed: 0
+        - Name: AsyncOperation
+          Allowed: 0
+        - Name: DisallowMultipleComponent
+          Allowed: 0
+        - Name: RequireComponent
+          Allowed: 0
+        - Name: AddComponentMenu
+          Allowed: 0
+        - Name: CreateAssetMenuAttribute
+          Allowed: 0
+        - Name: ContextMenu
+          Allowed: 0
+        - Name: ExecuteInEditMode
+          Allowed: 0
+        - Name: ExecuteAlways
+          Allowed: 0
+        - Name: HideInInspector
+          Allowed: 0
+        - Name: HideInCallstackAttribute
+          Allowed: 0
+        - Name: HelpURLAttribute
+          Allowed: 0
+        - Name: DefaultExecutionOrder
+          Allowed: 0
+        - Name: AssemblyIsEditorAssembly
+          Allowed: 0
+        - Name: ExcludeFromPresetAttribute
+          Allowed: 0
+        - Name: Awaitable
+          Allowed: 0
+        - Name: AsyncOperationAwaitableExtensions
+          Allowed: 0
+        - Name: MainThreadAwaitable
+          Allowed: 0
+        - Name: BackgroundThreadAwaitable
+          Allowed: 0
+        - Name: UnityEventAwaitableExtensions
+          Allowed: 0
+        - Name: AwaitableCompletionSource
+          Allowed: 0
+        - Name: AwaitableCompletionSource`1
+          Allowed: 0
+        - Name: Awaitable`1
+          Allowed: 0
+        - Name: Behaviour
+          Allowed: 0
+        - Name: Component
+          Allowed: 0
+        - Name: Coroutine
+          Allowed: 0
+        - Name: CustomYieldInstruction
+          Allowed: 0
+        - Name: ExcludeFromObjectFactoryAttribute
+          Allowed: 0
+        - Name: GameObject
+          Allowed: 0
+        - Name: InspectorOrderAttribute
+          Allowed: 0
+        - Name: InspectorSort
+          Allowed: 0
+        - Name: InspectorSortDirection
+          Allowed: 0
+        - Name: LayerMask
+          Allowed: 0
+        - Name: LazyLoadReference`1
+          Allowed: 0
+        - Name: MonoBehaviour
+          Allowed: 0
+        - Name: RangeInt
+          Allowed: 0
+        - Name: RuntimeInitializeLoadType
+          Allowed: 0
+        - Name: RuntimeInitializeOnLoadMethodAttribute
+          Allowed: 0
+        - Name: ScriptableObject
+          Allowed: 0
+        - Name: SelectionBaseAttribute
+          Allowed: 0
+        - Name: StackTraceUtility
+          Allowed: 0
+        - Name: UnityException
+          Allowed: 0
+        - Name: MissingComponentException
+          Allowed: 0
+        - Name: UnassignedReferenceException
+          Allowed: 0
+        - Name: MissingReferenceException
+          Allowed: 0
+        - Name: TagHandle
+          Allowed: 0
+        - Name: TextAsset
+          Allowed: 0
+        - Name: TrackedReference
+          Allowed: 0
+        - Name: UnityAPICompatibilityVersionAttribute
+          Allowed: 0
+        - Name: HideFlags
+          Allowed: 0
+        - Name: FindObjectsSortMode
+          Allowed: 0
+        - Name: FindObjectsInactive
+          Allowed: 0
+        - Name: InstantiateParameters
+          Allowed: 0
+        - Name: InstanceID
+          Allowed: 0
+        - Name: EntityId
+          Allowed: 0
+        - Name: Object
           Allowed: 0
         - Name: WaitForEndOfFrame
           Allowed: 0
@@ -7669,228 +7656,90 @@ MonoBehaviour:
           Allowed: 0
         - Name: WaitWhile
           Allowed: 0
-        - Name: WeightedMode
-          Allowed: 0
-        - Name: WhitePoint
-          Allowed: 0
-        - Name: WrapMode
-          Allowed: 0
         - Name: YieldInstruction
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Analytics
-        TypeRestrictions:
-        - Name: AnalyticsEventBase
+        - Name: Security
           Allowed: 0
-        - Name: SendEventOptions
+        - Name: Types
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Apple
-        TypeRestrictions:
-        - Name: FrameCapture
-          Allowed: 1
-        - Name: FrameCaptureDestination
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.Apple.ReplayKit
-        TypeRestrictions:
-        - Name: ReplayKit
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.Apple.TV
-        TypeRestrictions:
-        - Name: Remote
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.Assertions
-        TypeRestrictions:
-        - Name: Assert
+        - Name: SerializeField
           Allowed: 0
-        - Name: AssertionException
+        - Name: SerializeReference
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Assertions.Comparers
-        TypeRestrictions:
-        - Name: FloatComparer
+        - Name: PreferBinarySerialization
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Assertions.Must
-        TypeRestrictions:
-        - Name: MustExtensions
+        - Name: ISerializationCallbackReceiver
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Categorization
-        TypeRestrictions:
-        - Name: CategoryInfoAttribute
+        - Name: ComputeBuffer
           Allowed: 0
-        - Name: ElementInfoAttribute
+        - Name: ComputeShader
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.DedicatedServer
-        TypeRestrictions:
-        - Name: Arguments
+        - Name: MaterialPropertyType
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Device
-        TypeRestrictions:
-        - Name: Application
+        - Name: ShaderVariantCollection
           Allowed: 0
-        - Name: Screen
+        - Name: SnapAxis
+          Allowed: 0
+        - Name: Snapping
+          Allowed: 0
+        - Name: StaticBatchingUtility
+          Allowed: 0
+        - Name: BatteryStatus
+          Allowed: 0
+        - Name: OperatingSystemFamily
+          Allowed: 0
+        - Name: DeviceType
           Allowed: 0
         - Name: SystemInfo
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Diagnostics
-        TypeRestrictions:
-        - Name: ForcedCrashCategory
+        - Name: Time
           Allowed: 0
-        - Name: PlayerConnection
+        - Name: TouchScreenKeyboard
           Allowed: 0
-        - Name: Utils
+        - Name: TouchScreenKeyboardType
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Events
-        TypeRestrictions:
-        - Name: PersistentListenerMode
+        - Name: UnityEventQueueSystem
           Allowed: 0
-        - Name: UnityAction
+        - Name: Pose
           Allowed: 0
-        - Name: UnityAction`1
+        - Name: FrameDebugger
           Allowed: 0
-        - Name: UnityAction`2
+        - Name: DrivenTransformProperties
           Allowed: 0
-        - Name: UnityAction`3
+        - Name: DrivenRectTransformTracker
           Allowed: 0
-        - Name: UnityAction`4
+        - Name: RectTransform
           Allowed: 0
-        - Name: UnityEvent
-          Allowed: 0
-        - Name: UnityEvent`1
-          Allowed: 0
-        - Name: UnityEvent`2
-          Allowed: 0
-        - Name: UnityEvent`3
-          Allowed: 0
-        - Name: UnityEvent`4
-          Allowed: 0
-        - Name: UnityEventBase
-          Allowed: 0
-        - Name: UnityEventCallState
+        - Name: Transform
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Experimental.GlobalIllumination
+      - Name: UnityEngine.Profiling
         TypeRestrictions:
-        - Name: AngularFalloffType
+        - Name: ProfilerArea
           Allowed: 0
-        - Name: Cookie
+        - Name: Profiler
           Allowed: 0
-        - Name: DirectionalLight
+        - Name: Recorder
           Allowed: 0
-        - Name: DiscLight
+        - Name: Sampler
           Allowed: 0
-        - Name: FalloffType
-          Allowed: 0
-        - Name: LightDataGI
-          Allowed: 0
-        - Name: LightmapperUtils
-          Allowed: 0
-        - Name: Lightmapping
-          Allowed: 0
-        - Name: LightMode
-          Allowed: 0
-        - Name: LightType
-          Allowed: 0
-        - Name: LinearColor
-          Allowed: 0
-        - Name: PointLight
-          Allowed: 0
-        - Name: RectangleLight
-          Allowed: 0
-        - Name: RenderSettings
-          Allowed: 0
-        - Name: SpotLight
-          Allowed: 0
-        - Name: SpotLightBoxShape
-          Allowed: 0
-        - Name: SpotLightPyramidShape
+        - Name: CustomSampler
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Experimental.Playables
+      - Name: UnityEngine.Profiling.Experimental
         TypeRestrictions:
-        - Name: CameraPlayable
-          Allowed: 0
-        - Name: MaterialEffectPlayable
-          Allowed: 0
-        - Name: TextureMixerPlayable
-          Allowed: 0
-        - Name: TexturePlayableBinding
-          Allowed: 0
-        - Name: TexturePlayableOutput
+        - Name: DebugScreenCapture
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Experimental.Rendering
+      - Name: UnityEngine.Profiling.Memory.Experimental
         TypeRestrictions:
-        - Name: DefaultFormat
+        - Name: MetaData
           Allowed: 0
-        - Name: ExternalGPUProfiler
+        - Name: CaptureFlags
           Allowed: 0
-        - Name: FormatUsage
-          Allowed: 0
-        - Name: GraphicsDeviceSettings
-          Allowed: 0
-        - Name: GraphicsFormat
-          Allowed: 0
-        - Name: GraphicsFormatUsage
-          Allowed: 0
-        - Name: GraphicsFormatUtility
-          Allowed: 0
-        - Name: GraphicsJobsSyncPoint
-          Allowed: 0
-        - Name: GraphicsStateCollection
-          Allowed: 0
-        - Name: IScriptableRuntimeReflectionSystem
-          Allowed: 0
-        - Name: RayTracingMode
-          Allowed: 0
-        - Name: ScriptableRuntimeReflectionSystem
-          Allowed: 0
-        - Name: ScriptableRuntimeReflectionSystemSettings
-          Allowed: 0
-        - Name: ShaderWarmup
-          Allowed: 0
-        - Name: ShaderWarmupSetup
-          Allowed: 0
-        - Name: TextureCreationFlags
-          Allowed: 0
-        - Name: WaitForPresentSyncPoint
+        - Name: MemoryProfiler
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Internal
-        TypeRestrictions:
-        - Name: DefaultValueAttribute
-          Allowed: 0
-        - Name: ExcludeFromDocsAttribute
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.iOS
-        TypeRestrictions:
-        - Name: ActivityIndicatorStyle
-          Allowed: 1
-        - Name: ADBannerView
-          Allowed: 1
-        - Name: ADInterstitialAd
-          Allowed: 1
-        - Name: Device
-          Allowed: 1
-        - Name: DeviceGeneration
-          Allowed: 1
-        - Name: OnDemandResources
-          Allowed: 1
-        - Name: OnDemandResourcesRequest
-          Allowed: 1
-        - Name: SystemGestureDeferMode
-          Allowed: 1
-        Allowed: 1
       - Name: UnityEngine.Jobs
         TypeRestrictions:
         - Name: IJobParallelForTransform
@@ -7902,582 +7751,155 @@ MonoBehaviour:
         - Name: TransformAccessArray
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.LowLevel
+      - Name: UnityEngine.WSA
         TypeRestrictions:
-        - Name: PlayerLoop
+        - Name: AppCallbackItem
+          Allowed: 1
+        - Name: WindowSizeChanged
+          Allowed: 1
+        - Name: WindowActivationState
+          Allowed: 1
+        - Name: WindowActivated
+          Allowed: 1
+        - Name: Application
+          Allowed: 1
+        - Name: Cursor
+          Allowed: 1
+        - Name: Folder
+          Allowed: 1
+        - Name: Launcher
+          Allowed: 1
+        - Name: TileTemplate
+          Allowed: 1
+        - Name: ToastTemplate
+          Allowed: 1
+        - Name: TileForegroundText
+          Allowed: 1
+        - Name: SecondaryTileData
+          Allowed: 1
+        - Name: Tile
+          Allowed: 1
+        - Name: Toast
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Windows
+        TypeRestrictions:
+        - Name: LicenseInformation
+          Allowed: 1
+        - Name: CrashReporting
+          Allowed: 1
+        - Name: Crypto
+          Allowed: 1
+        - Name: Directory
+          Allowed: 1
+        - Name: File
+          Allowed: 1
+        - Name: Input
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Windows.Speech
+        TypeRestrictions:
+        - Name: PhraseRecognitionSystem
+          Allowed: 1
+        - Name: PhraseRecognizer
+          Allowed: 1
+        - Name: DictationRecognizer
+          Allowed: 1
+        - Name: ConfidenceLevel
+          Allowed: 1
+        - Name: SpeechSystemStatus
+          Allowed: 1
+        - Name: SpeechError
+          Allowed: 1
+        - Name: DictationTopicConstraint
+          Allowed: 1
+        - Name: DictationCompletionCause
+          Allowed: 1
+        - Name: SemanticMeaning
+          Allowed: 1
+        - Name: PhraseRecognizedEventArgs
+          Allowed: 1
+        - Name: KeywordRecognizer
+          Allowed: 1
+        - Name: GrammarRecognizer
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Windows.WebCam
+        TypeRestrictions:
+        - Name: PhotoCaptureFileOutputFormat
+          Allowed: 1
+        - Name: PhotoCapture
+          Allowed: 1
+        - Name: PhotoCaptureFrame
+          Allowed: 1
+        - Name: VideoCapture
+          Allowed: 1
+        - Name: CapturePixelFormat
+          Allowed: 1
+        - Name: WebCamMode
+          Allowed: 1
+        - Name: WebCam
+          Allowed: 1
+        - Name: CameraParameters
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Events
+        TypeRestrictions:
+        - Name: PersistentListenerMode
           Allowed: 0
-        - Name: PlayerLoopSystem
+        - Name: UnityEventCallState
+          Allowed: 0
+        - Name: UnityEventBase
+          Allowed: 0
+        - Name: UnityAction
+          Allowed: 0
+        - Name: UnityEvent
+          Allowed: 0
+        - Name: UnityAction`1
+          Allowed: 0
+        - Name: UnityEvent`1
+          Allowed: 0
+        - Name: UnityAction`2
+          Allowed: 0
+        - Name: UnityEvent`2
+          Allowed: 0
+        - Name: UnityAction`3
+          Allowed: 0
+        - Name: UnityEvent`3
+          Allowed: 0
+        - Name: UnityAction`4
+          Allowed: 0
+        - Name: UnityEvent`4
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Lumin
+      - Name: UnityEngine.Serialization
         TypeRestrictions:
-        - Name: UsesLuminPlatformLevelAttribute
+        - Name: FormerlySerializedAsAttribute
           Allowed: 0
-        - Name: UsesLuminPrivilegeAttribute
+        - Name: ManagedReferenceUtility
+          Allowed: 0
+        - Name: UnitySurrogateSelector
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Networking.PlayerConnection
+      - Name: UnityEngine.Search
         TypeRestrictions:
-        - Name: ConnectionTarget
+        - Name: SearchViewFlags
           Allowed: 0
-        - Name: IConnectionState
-          Allowed: 0
-        - Name: IEditorPlayerConnection
-          Allowed: 0
-        - Name: MessageEventArgs
-          Allowed: 0
-        - Name: PlayerConnection
+        - Name: SearchContextAttribute
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Playables
+      - Name: UnityEngine.SearchService
         TypeRestrictions:
-        - Name: DataStreamType
+        - Name: ObjectSelectorHandlerWithLabelsAttribute
           Allowed: 0
-        - Name: DirectorUpdateMode
-          Allowed: 0
-        - Name: DirectorWrapMode
-          Allowed: 0
-        - Name: FrameData
-          Allowed: 0
-        - Name: INotification
-          Allowed: 0
-        - Name: INotificationReceiver
-          Allowed: 0
-        - Name: IPlayable
-          Allowed: 0
-        - Name: IPlayableAsset
-          Allowed: 0
-        - Name: IPlayableBehaviour
-          Allowed: 0
-        - Name: IPlayableOutput
-          Allowed: 0
-        - Name: Notification
-          Allowed: 0
-        - Name: Playable
-          Allowed: 0
-        - Name: PlayableAsset
-          Allowed: 0
-        - Name: PlayableBehaviour
-          Allowed: 0
-        - Name: PlayableBinding
-          Allowed: 0
-        - Name: PlayableExtensions
-          Allowed: 0
-        - Name: PlayableGraph
-          Allowed: 0
-        - Name: PlayableHandle
-          Allowed: 0
-        - Name: PlayableOutput
-          Allowed: 0
-        - Name: PlayableOutputExtensions
-          Allowed: 0
-        - Name: PlayableOutputHandle
-          Allowed: 0
-        - Name: PlayableTraversalMode
-          Allowed: 0
-        - Name: PlayState
-          Allowed: 0
-        - Name: ScriptPlayable`1
-          Allowed: 0
-        - Name: ScriptPlayableBinding
-          Allowed: 0
-        - Name: ScriptPlayableOutput
+        - Name: ObjectSelectorHandlerWithTagsAttribute
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.PlayerLoop
+      - Name: UnityEngine.Categorization
         TypeRestrictions:
-        - Name: EarlyUpdate
+        - Name: ElementInfoAttribute
           Allowed: 0
-        - Name: FixedUpdate
-          Allowed: 0
-        - Name: Initialization
-          Allowed: 0
-        - Name: PostLateUpdate
-          Allowed: 0
-        - Name: PreLateUpdate
-          Allowed: 0
-        - Name: PreUpdate
-          Allowed: 0
-        - Name: TimeUpdate
-          Allowed: 0
-        - Name: Update
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Pool
-        TypeRestrictions:
-        - Name: CollectionPool`2
-          Allowed: 0
-        - Name: DictionaryPool`2
-          Allowed: 0
-        - Name: GenericPool`1
-          Allowed: 0
-        - Name: HashSetPool`1
-          Allowed: 0
-        - Name: IObjectPool`1
-          Allowed: 0
-        - Name: LinkedPool`1
-          Allowed: 0
-        - Name: ListPool`1
-          Allowed: 0
-        - Name: ObjectPool`1
-          Allowed: 0
-        - Name: PooledObject`1
-          Allowed: 0
-        - Name: UnsafeGenericPool`1
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Profiling
-        TypeRestrictions:
-        - Name: CustomSampler
-          Allowed: 0
-        - Name: Profiler
-          Allowed: 0
-        - Name: ProfilerArea
-          Allowed: 0
-        - Name: Recorder
-          Allowed: 0
-        - Name: Sampler
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Profiling.Experimental
-        TypeRestrictions:
-        - Name: DebugScreenCapture
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Profiling.Memory.Experimental
-        TypeRestrictions:
-        - Name: CaptureFlags
-          Allowed: 0
-        - Name: MemoryProfiler
-          Allowed: 0
-        - Name: MetaData
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Rendering
-        TypeRestrictions:
-        - Name: AmbientMode
-          Allowed: 0
-        - Name: AsyncGPUReadback
-          Allowed: 0
-        - Name: AsyncGPUReadbackRequest
-          Allowed: 0
-        - Name: AttachmentDescriptor
-          Allowed: 0
-        - Name: AttachmentIndexArray
-          Allowed: 0
-        - Name: BatchBufferTarget
-          Allowed: 0
-        - Name: BatchCullingContext
-          Allowed: 0
-        - Name: BatchCullingFlags
-          Allowed: 0
-        - Name: BatchCullingOutput
-          Allowed: 0
-        - Name: BatchCullingOutputDrawCommands
-          Allowed: 0
-        - Name: BatchCullingProjectionType
-          Allowed: 0
-        - Name: BatchCullingViewType
-          Allowed: 0
-        - Name: BatchDrawCommand
-          Allowed: 0
-        - Name: BatchDrawCommandFlags
-          Allowed: 0
-        - Name: BatchDrawCommandIndirect
-          Allowed: 0
-        - Name: BatchDrawCommandProcedural
-          Allowed: 0
-        - Name: BatchDrawCommandProceduralIndirect
-          Allowed: 0
-        - Name: BatchDrawCommandType
-          Allowed: 0
-        - Name: BatchDrawRange
-          Allowed: 0
-        - Name: BatchFilterSettings
-          Allowed: 0
-        - Name: BatchID
-          Allowed: 0
-        - Name: BatchMaterialID
-          Allowed: 0
-        - Name: BatchMeshID
-          Allowed: 0
-        - Name: BatchPackedCullingViewID
-          Allowed: 0
-        - Name: BatchRendererGroup
-          Allowed: 0
-        - Name: BatchRendererGroupCreateInfo
-          Allowed: 0
-        - Name: BlendMode
-          Allowed: 0
-        - Name: BlendOp
-          Allowed: 0
-        - Name: BlendShapeBufferLayout
-          Allowed: 0
-        - Name: BlendState
-          Allowed: 0
-        - Name: BuiltinRenderTextureType
-          Allowed: 0
-        - Name: BuiltinShaderDefine
-          Allowed: 0
-        - Name: BuiltinShaderMode
-          Allowed: 0
-        - Name: BuiltinShaderType
-          Allowed: 0
-        - Name: CameraEvent
-          Allowed: 0
-        - Name: CameraHDRMode
-          Allowed: 0
-        - Name: CameraLateLatchMatrixType
-          Allowed: 0
-        - Name: CameraProperties
-          Allowed: 0
-        - Name: ColorWriteMask
-          Allowed: 0
-        - Name: CommandBuffer
-          Allowed: 0
-        - Name: CommandBufferExecutionFlags
-          Allowed: 0
-        - Name: CommandBufferExtensions
-          Allowed: 0
-        - Name: CompareFunction
-          Allowed: 0
-        - Name: ComputeQueueType
-          Allowed: 0
-        - Name: CopyTextureSupport
-          Allowed: 0
-        - Name: CullingOptions
-          Allowed: 0
-        - Name: CullingResults
-          Allowed: 0
-        - Name: CullingSplit
-          Allowed: 0
-        - Name: CullMode
-          Allowed: 0
-        - Name: CustomMarkerCallbackFlags
-          Allowed: 0
-        - Name: DefaultReflectionMode
-          Allowed: 0
-        - Name: DepthState
-          Allowed: 0
-        - Name: DistanceMetric
-          Allowed: 0
-        - Name: DrawingSettings
-          Allowed: 0
-        - Name: FastMemoryFlags
-          Allowed: 0
-        - Name: FilteringSettings
-          Allowed: 0
-        - Name: FormatSwizzle
-          Allowed: 0
-        - Name: FoveatedRenderingCaps
-          Allowed: 0
-        - Name: FoveatedRenderingMode
-          Allowed: 0
-        - Name: GizmoSubset
-          Allowed: 0
-        - Name: GlobalKeyword
-          Allowed: 0
-        - Name: GPUFence
-          Allowed: 0
-        - Name: GraphicsDeviceType
-          Allowed: 0
-        - Name: GraphicsFence
-          Allowed: 0
-        - Name: GraphicsFenceType
-          Allowed: 0
-        - Name: GraphicsSettings
-          Allowed: 0
-        - Name: GraphicsTexture
-          Allowed: 0
-        - Name: GraphicsTextureDescriptor
-          Allowed: 0
-        - Name: GraphicsTextureDescriptorFlags
-          Allowed: 0
-        - Name: GraphicsTextureState
-          Allowed: 0
-        - Name: GraphicsTier
-          Allowed: 0
-        - Name: IndexFormat
-          Allowed: 0
-        - Name: InvalidImportException
-          Allowed: 0
-        - Name: IRenderPipelineGraphicsSettings
-          Allowed: 0
-        - Name: IRenderPipelineResources
-          Allowed: 0
-        - Name: LightEvent
-          Allowed: 0
-        - Name: LightProbeOutsideHullStrategy
-          Allowed: 0
-        - Name: LightProbeUsage
-          Allowed: 0
-        - Name: LightShadowCasterCullingInfo
-          Allowed: 0
-        - Name: LightShadowResolution
-          Allowed: 0
-        - Name: LightUnit
-          Allowed: 0
-        - Name: LoadStoreActionDebugModeSettings
-          Allowed: 0
-        - Name: LocalKeyword
-          Allowed: 0
-        - Name: LocalKeywordSpace
-          Allowed: 0
-        - Name: LODParameters
-          Allowed: 0
-        - Name: MeshUpdateFlags
-          Allowed: 0
-        - Name: MetadataValue
-          Allowed: 0
-        - Name: ObjectIdRequest
-          Allowed: 0
-        - Name: ObjectIdResult
-          Allowed: 0
-        - Name: OnDemandRendering
-          Allowed: 0
-        - Name: OpaqueSortMode
-          Allowed: 0
-        - Name: OpenGLESVersion
-          Allowed: 0
-        - Name: PassIdentifier
-          Allowed: 0
-        - Name: PassType
-          Allowed: 0
-        - Name: PerObjectData
-          Allowed: 0
-        - Name: PIX
-          Allowed: 0
-        - Name: PlatformKeywordSet
-          Allowed: 0
-        - Name: RasterState
-          Allowed: 0
-        - Name: RayTracingAABBsInstanceConfig
-          Allowed: 0
-        - Name: RayTracingAccelerationStructure
-          Allowed: 0
-        - Name: RayTracingAccelerationStructureBuildFlags
-          Allowed: 0
-        - Name: RayTracingGeometryInstanceConfig
-          Allowed: 0
-        - Name: RayTracingInstanceCullingConfig
-          Allowed: 0
-        - Name: RayTracingInstanceCullingFlags
-          Allowed: 0
-        - Name: RayTracingInstanceCullingMaterialTest
-          Allowed: 0
-        - Name: RayTracingInstanceCullingResults
-          Allowed: 0
-        - Name: RayTracingInstanceCullingShaderTagConfig
-          Allowed: 0
-        - Name: RayTracingInstanceCullingTest
-          Allowed: 0
-        - Name: RayTracingInstanceMaterialConfig
-          Allowed: 0
-        - Name: RayTracingInstanceMaterialCRC
-          Allowed: 0
-        - Name: RayTracingInstanceTriangleCullingConfig
-          Allowed: 0
-        - Name: RayTracingMeshInstanceConfig
-          Allowed: 0
-        - Name: RayTracingShader
-          Allowed: 0
-        - Name: RayTracingSubMeshFlags
-          Allowed: 0
-        - Name: RayTracingSubMeshFlagsConfig
-          Allowed: 0
-        - Name: RealtimeGICPUUsage
-          Allowed: 0
-        - Name: RecreatePipelineOnChangeAttribute
-          Allowed: 0
-        - Name: ReflectionCubemapCompression
-          Allowed: 0
-        - Name: ReflectionProbeBlendInfo
-          Allowed: 0
-        - Name: ReflectionProbeClearFlags
-          Allowed: 0
-        - Name: ReflectionProbeMode
-          Allowed: 0
-        - Name: ReflectionProbeRefreshMode
-          Allowed: 0
-        - Name: ReflectionProbeSortingCriteria
-          Allowed: 0
-        - Name: ReflectionProbeTimeSlicingMode
-          Allowed: 0
-        - Name: ReflectionProbeType
-          Allowed: 0
-        - Name: ReflectionProbeUsage
-          Allowed: 0
-        - Name: RenderBufferLoadAction
-          Allowed: 0
-        - Name: RenderBufferStoreAction
-          Allowed: 0
-        - Name: RendererList
-          Allowed: 0
-        - Name: RendererListParams
-          Allowed: 0
-        - Name: RendererListStatus
-          Allowed: 0
-        - Name: RenderingThreadingMode
-          Allowed: 0
-        - Name: RenderPipeline
-          Allowed: 0
-        - Name: RenderPipelineAsset
-          Allowed: 0
-        - Name: RenderPipelineAsset`1
-          Allowed: 0
-        - Name: RenderPipelineGlobalSettings
-          Allowed: 0
-        - Name: RenderPipelineGraphicsSettingsCollection
-          Allowed: 0
-        - Name: RenderPipelineGraphicsSettingsExtensions
-          Allowed: 0
-        - Name: RenderPipelineManager
-          Allowed: 0
-        - Name: RenderQueue
-          Allowed: 0
-        - Name: RenderQueueRange
-          Allowed: 0
-        - Name: RenderStateBlock
-          Allowed: 0
-        - Name: RenderStateMask
-          Allowed: 0
-        - Name: RenderTargetBinding
-          Allowed: 0
-        - Name: RenderTargetBlendState
-          Allowed: 0
-        - Name: RenderTargetFlags
-          Allowed: 0
-        - Name: RenderTargetIdentifier
-          Allowed: 0
-        - Name: RenderTextureSubElement
-          Allowed: 0
-        - Name: ResourceFormattedPathsAttribute
-          Allowed: 0
-        - Name: ResourcePathAttribute
-          Allowed: 0
-        - Name: ResourcePathsAttribute
-          Allowed: 0
-        - Name: ResourcePathsBaseAttribute
-          Allowed: 0
-        - Name: RTClearFlags
-          Allowed: 0
-        - Name: ScopedRenderPass
-          Allowed: 0
-        - Name: ScopedSubPass
-          Allowed: 0
-        - Name: ScriptableCullingParameters
-          Allowed: 0
-        - Name: ScriptableRenderContext
-          Allowed: 0
-        - Name: SearchType
-          Allowed: 0
-        - Name: ShaderConstantType
-          Allowed: 0
-        - Name: ShaderHardwareTier
-          Allowed: 0
-        - Name: ShaderKeyword
-          Allowed: 0
-        - Name: ShaderKeywordSet
-          Allowed: 0
-        - Name: ShaderKeywordType
-          Allowed: 0
-        - Name: ShaderParamType
-          Allowed: 0
-        - Name: ShaderPropertyFlags
-          Allowed: 0
-        - Name: ShaderPropertyType
-          Allowed: 0
-        - Name: ShaderTagId
-          Allowed: 0
-        - Name: ShadowCastersCullingInfos
-          Allowed: 0
-        - Name: ShadowCastingMode
-          Allowed: 0
-        - Name: ShadowDrawingSettings
-          Allowed: 0
-        - Name: ShadowMapPass
-          Allowed: 0
-        - Name: ShadowSamplingMode
-          Allowed: 0
-        - Name: ShadowSplitData
-          Allowed: 0
-        - Name: SinglePassStereoMode
-          Allowed: 0
-        - Name: SortingCriteria
-          Allowed: 0
-        - Name: SortingGroup
-          Allowed: 0
-        - Name: SortingLayerRange
-          Allowed: 0
-        - Name: SortingSettings
-          Allowed: 0
-        - Name: SphericalHarmonicsL2
-          Allowed: 0
-        - Name: SplashScreen
-          Allowed: 0
-        - Name: StencilOp
-          Allowed: 0
-        - Name: StencilState
-          Allowed: 0
-        - Name: SubMeshDescriptor
-          Allowed: 0
-        - Name: SubPassDescriptor
-          Allowed: 0
-        - Name: SubPassFlags
-          Allowed: 0
-        - Name: SupportedOnRenderPipelineAttribute
-          Allowed: 0
-        - Name: SupportedRenderingFeatures
-          Allowed: 0
-        - Name: SynchronisationStage
-          Allowed: 0
-        - Name: SynchronisationStageFlags
-          Allowed: 0
-        - Name: TextureDimension
-          Allowed: 0
-        - Name: ThreadedBatchContext
-          Allowed: 0
-        - Name: UISubset
-          Allowed: 0
-        - Name: VertexAttribute
-          Allowed: 0
-        - Name: VertexAttributeDescriptor
-          Allowed: 0
-        - Name: VertexAttributeFormat
-          Allowed: 0
-        - Name: VideoShadersIncludeMode
-          Allowed: 0
-        - Name: VisibleLight
-          Allowed: 0
-        - Name: VisibleReflectionProbe
-          Allowed: 0
-        - Name: Watermark
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Rendering.RendererUtils
-        TypeRestrictions:
-        - Name: RendererListDesc
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.SceneManagement
-        TypeRestrictions:
-        - Name: CreateSceneParameters
-          Allowed: 0
-        - Name: LoadSceneMode
-          Allowed: 0
-        - Name: LoadSceneParameters
-          Allowed: 0
-        - Name: LocalPhysicsMode
-          Allowed: 0
-        - Name: Scene
-          Allowed: 0
-        - Name: SceneManager
-          Allowed: 0
-        - Name: SceneManagerAPI
-          Allowed: 0
-        - Name: SceneUtility
-          Allowed: 0
-        - Name: UnloadSceneOptions
+        - Name: CategoryInfoAttribute
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.Scripting
@@ -8504,27 +7926,778 @@ MonoBehaviour:
         - Name: MovedFromAttribute
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Search
+      - Name: UnityEngine.SceneManagement
         TypeRestrictions:
-        - Name: SearchContextAttribute
+        - Name: Scene
           Allowed: 0
-        - Name: SearchViewFlags
+        - Name: SceneManagerAPI
+          Allowed: 0
+        - Name: SceneManager
+          Allowed: 0
+        - Name: LoadSceneMode
+          Allowed: 0
+        - Name: LocalPhysicsMode
+          Allowed: 0
+        - Name: LoadSceneParameters
+          Allowed: 0
+        - Name: CreateSceneParameters
+          Allowed: 0
+        - Name: UnloadSceneOptions
+          Allowed: 0
+        - Name: SceneUtility
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.SearchService
+      - Name: UnityEngine.LowLevel
         TypeRestrictions:
-        - Name: ObjectSelectorHandlerWithLabelsAttribute
+        - Name: PlayerLoopSystem
           Allowed: 0
-        - Name: ObjectSelectorHandlerWithTagsAttribute
+        - Name: PlayerLoop
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Serialization
+      - Name: UnityEngine.PlayerLoop
         TypeRestrictions:
-        - Name: FormerlySerializedAsAttribute
+        - Name: TimeUpdate
           Allowed: 0
-        - Name: ManagedReferenceUtility
+        - Name: Initialization
           Allowed: 0
-        - Name: UnitySurrogateSelector
+        - Name: EarlyUpdate
+          Allowed: 0
+        - Name: FixedUpdate
+          Allowed: 0
+        - Name: PreUpdate
+          Allowed: 0
+        - Name: Update
+          Allowed: 0
+        - Name: PreLateUpdate
+          Allowed: 0
+        - Name: PostLateUpdate
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Pool
+        TypeRestrictions:
+        - Name: CollectionPool`2
+          Allowed: 0
+        - Name: ListPool`1
+          Allowed: 0
+        - Name: HashSetPool`1
+          Allowed: 0
+        - Name: DictionaryPool`2
+          Allowed: 0
+        - Name: GenericPool`1
+          Allowed: 0
+        - Name: IObjectPool`1
+          Allowed: 0
+        - Name: LinkedPool`1
+          Allowed: 0
+        - Name: ObjectPool`1
+          Allowed: 0
+        - Name: PooledObject`1
+          Allowed: 0
+        - Name: UnsafeGenericPool`1
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Networking.PlayerConnection
+        TypeRestrictions:
+        - Name: ConnectionTarget
+          Allowed: 0
+        - Name: IConnectionState
+          Allowed: 0
+        - Name: MessageEventArgs
+          Allowed: 0
+        - Name: IEditorPlayerConnection
+          Allowed: 0
+        - Name: PlayerConnection
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Lumin
+        TypeRestrictions:
+        - Name: UsesLuminPlatformLevelAttribute
+          Allowed: 0
+        - Name: UsesLuminPrivilegeAttribute
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.tvOS
+        TypeRestrictions:
+        - Name: Remote
+          Allowed: 1
+        - Name: DeviceGeneration
+          Allowed: 1
+        - Name: Device
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.iOS
+        TypeRestrictions:
+        - Name: ADBannerView
+          Allowed: 1
+        - Name: ADInterstitialAd
+          Allowed: 1
+        - Name: Device
+          Allowed: 1
+        - Name: DeviceGeneration
+          Allowed: 1
+        - Name: ActivityIndicatorStyle
+          Allowed: 1
+        - Name: SystemGestureDeferMode
+          Allowed: 1
+        - Name: OnDemandResourcesRequest
+          Allowed: 1
+        - Name: OnDemandResources
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Internal
+        TypeRestrictions:
+        - Name: DefaultValueAttribute
+          Allowed: 0
+        - Name: ExcludeFromDocsAttribute
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Playables
+        TypeRestrictions:
+        - Name: FrameData
+          Allowed: 0
+        - Name: INotification
+          Allowed: 0
+        - Name: INotificationReceiver
+          Allowed: 0
+        - Name: IPlayable
+          Allowed: 0
+        - Name: IPlayableBehaviour
+          Allowed: 0
+        - Name: IPlayableOutput
+          Allowed: 0
+        - Name: Notification
+          Allowed: 0
+        - Name: DirectorWrapMode
+          Allowed: 0
+        - Name: Playable
+          Allowed: 0
+        - Name: IPlayableAsset
+          Allowed: 0
+        - Name: PlayableAsset
+          Allowed: 0
+        - Name: PlayableBehaviour
+          Allowed: 0
+        - Name: DataStreamType
+          Allowed: 0
+        - Name: PlayableBinding
+          Allowed: 0
+        - Name: PlayableTraversalMode
+          Allowed: 0
+        - Name: PlayableExtensions
+          Allowed: 0
+        - Name: DirectorUpdateMode
+          Allowed: 0
+        - Name: PlayableGraph
+          Allowed: 0
+        - Name: PlayState
+          Allowed: 0
+        - Name: PlayableHandle
+          Allowed: 0
+        - Name: PlayableOutput
+          Allowed: 0
+        - Name: PlayableOutputExtensions
+          Allowed: 0
+        - Name: PlayableOutputHandle
+          Allowed: 0
+        - Name: ScriptPlayable`1
+          Allowed: 0
+        - Name: ScriptPlayableBinding
+          Allowed: 0
+        - Name: ScriptPlayableOutput
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Diagnostics
+        TypeRestrictions:
+        - Name: ForcedCrashCategory
+          Allowed: 0
+        - Name: Utils
+          Allowed: 0
+        - Name: PlayerConnection
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Device
+        TypeRestrictions:
+        - Name: Application
+          Allowed: 0
+        - Name: Screen
+          Allowed: 0
+        - Name: SystemInfo
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.DedicatedServer
+        TypeRestrictions:
+        - Name: Arguments
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.TestTools
+        TypeRestrictions:
+        - Name: ExcludeFromCoverageAttribute
+          Allowed: 0
+        - Name: CoveredSequencePoint
+          Allowed: 0
+        - Name: CoveredMethodStats
+          Allowed: 0
+        - Name: Coverage
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Assertions
+        TypeRestrictions:
+        - Name: Assert
+          Allowed: 0
+        - Name: AssertionException
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Assertions.Must
+        TypeRestrictions:
+        - Name: MustExtensions
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Assertions.Comparers
+        TypeRestrictions:
+        - Name: FloatComparer
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Apple
+        TypeRestrictions:
+        - Name: FrameCaptureDestination
+          Allowed: 1
+        - Name: FrameCapture
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Apple.TV
+        TypeRestrictions:
+        - Name: Remote
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Apple.ReplayKit
+        TypeRestrictions:
+        - Name: ReplayKit
+          Allowed: 1
+        Allowed: 1
+      - Name: UnityEngine.Analytics
+        TypeRestrictions:
+        - Name: SendEventOptions
+          Allowed: 0
+        - Name: AnalyticsEventBase
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Rendering
+        TypeRestrictions:
+        - Name: SortingGroup
+          Allowed: 0
+        - Name: AsyncGPUReadbackRequest
+          Allowed: 0
+        - Name: AsyncGPUReadback
+          Allowed: 0
+        - Name: SynchronisationStage
+          Allowed: 0
+        - Name: GPUFence
+          Allowed: 0
+        - Name: PIX
+          Allowed: 0
+        - Name: LoadStoreActionDebugModeSettings
+          Allowed: 0
+        - Name: ShaderHardwareTier
+          Allowed: 0
+        - Name: BlendShapeBufferLayout
+          Allowed: 0
+        - Name: RayTracingAccelerationStructureBuildFlags
+          Allowed: 0
+        - Name: IndexFormat
+          Allowed: 0
+        - Name: MeshUpdateFlags
+          Allowed: 0
+        - Name: VertexAttributeFormat
+          Allowed: 0
+        - Name: VertexAttribute
+          Allowed: 0
+        - Name: ShaderParamType
+          Allowed: 0
+        - Name: ShaderConstantType
+          Allowed: 0
+        - Name: OpaqueSortMode
+          Allowed: 0
+        - Name: RenderQueue
+          Allowed: 0
+        - Name: RenderBufferLoadAction
+          Allowed: 0
+        - Name: RenderBufferStoreAction
+          Allowed: 0
+        - Name: FastMemoryFlags
+          Allowed: 0
+        - Name: BlendMode
+          Allowed: 0
+        - Name: BlendOp
+          Allowed: 0
+        - Name: CompareFunction
+          Allowed: 0
+        - Name: CullMode
+          Allowed: 0
+        - Name: ColorWriteMask
+          Allowed: 0
+        - Name: StencilOp
+          Allowed: 0
+        - Name: AmbientMode
+          Allowed: 0
+        - Name: DefaultReflectionMode
+          Allowed: 0
+        - Name: ReflectionCubemapCompression
+          Allowed: 0
+        - Name: CameraEvent
+          Allowed: 0
+        - Name: LightEvent
+          Allowed: 0
+        - Name: ShadowMapPass
+          Allowed: 0
+        - Name: BuiltinRenderTextureType
+          Allowed: 0
+        - Name: PassType
+          Allowed: 0
+        - Name: ShadowCastingMode
+          Allowed: 0
+        - Name: LightShadowResolution
+          Allowed: 0
+        - Name: LightUnit
+          Allowed: 0
+        - Name: GraphicsDeviceType
+          Allowed: 0
+        - Name: GraphicsTier
+          Allowed: 0
+        - Name: SubMeshDescriptor
+          Allowed: 0
+        - Name: VertexAttributeDescriptor
+          Allowed: 0
+        - Name: FormatSwizzle
+          Allowed: 0
+        - Name: RenderTargetIdentifier
+          Allowed: 0
+        - Name: RenderTargetFlags
+          Allowed: 0
+        - Name: RenderTargetBinding
+          Allowed: 0
+        - Name: ReflectionProbeUsage
+          Allowed: 0
+        - Name: ReflectionProbeType
+          Allowed: 0
+        - Name: ReflectionProbeClearFlags
+          Allowed: 0
+        - Name: ReflectionProbeMode
+          Allowed: 0
+        - Name: ReflectionProbeBlendInfo
+          Allowed: 0
+        - Name: ReflectionProbeRefreshMode
+          Allowed: 0
+        - Name: ReflectionProbeTimeSlicingMode
+          Allowed: 0
+        - Name: ShadowSamplingMode
+          Allowed: 0
+        - Name: LightProbeUsage
+          Allowed: 0
+        - Name: BuiltinShaderType
+          Allowed: 0
+        - Name: BuiltinShaderMode
+          Allowed: 0
+        - Name: BuiltinShaderDefine
+          Allowed: 0
+        - Name: VideoShadersIncludeMode
+          Allowed: 0
+        - Name: TextureDimension
+          Allowed: 0
+        - Name: CopyTextureSupport
+          Allowed: 0
+        - Name: CameraHDRMode
+          Allowed: 0
+        - Name: RealtimeGICPUUsage
+          Allowed: 0
+        - Name: LightProbeOutsideHullStrategy
+          Allowed: 0
+        - Name: ComputeQueueType
+          Allowed: 0
+        - Name: SinglePassStereoMode
+          Allowed: 0
+        - Name: FoveatedRenderingCaps
+          Allowed: 0
+        - Name: FoveatedRenderingMode
+          Allowed: 0
+        - Name: CommandBufferExecutionFlags
+          Allowed: 0
+        - Name: RTClearFlags
+          Allowed: 0
+        - Name: RenderTextureSubElement
+          Allowed: 0
+        - Name: RenderingThreadingMode
+          Allowed: 0
+        - Name: CameraLateLatchMatrixType
+          Allowed: 0
+        - Name: OpenGLESVersion
+          Allowed: 0
+        - Name: CustomMarkerCallbackFlags
+          Allowed: 0
+        - Name: ShadingRateFragmentSize
+          Allowed: 0
+        - Name: ShadingRateCombinerStage
+          Allowed: 0
+        - Name: ShadingRateCombiner
+          Allowed: 0
+        - Name: SynchronisationStageFlags
+          Allowed: 0
+        - Name: GraphicsFenceType
+          Allowed: 0
+        - Name: GraphicsFence
+          Allowed: 0
+        - Name: GraphicsSettings
+          Allowed: 0
+        - Name: GraphicsTextureDescriptorFlags
+          Allowed: 0
+        - Name: GraphicsTextureDescriptor
+          Allowed: 0
+        - Name: GraphicsTextureState
+          Allowed: 0
+        - Name: GraphicsTexture
+          Allowed: 0
+        - Name: IRenderPipelineGraphicsSettings
+          Allowed: 0
+        - Name: IRenderPipelineResources
+          Allowed: 0
+        - Name: SearchType
+          Allowed: 0
+        - Name: ResourcePathsBaseAttribute
+          Allowed: 0
+        - Name: ResourcePathAttribute
+          Allowed: 0
+        - Name: ResourcePathsAttribute
+          Allowed: 0
+        - Name: ResourceFormattedPathsAttribute
+          Allowed: 0
+        - Name: MachineLearningContext
+          Allowed: 0
+        - Name: MachineLearningOperatorType
+          Allowed: 0
+        - Name: MachineLearningOperator
+          Allowed: 0
+        - Name: MachineLearningOperatorFactory
+          Allowed: 0
+        - Name: MachineLearningOperatorDispatcher
+          Allowed: 0
+        - Name: MachineLearningDataType
+          Allowed: 0
+        - Name: MachineLearningTensorShape
+          Allowed: 0
+        - Name: MachineLearningTensorDescriptor
+          Allowed: 0
+        - Name: OnDemandRendering
+          Allowed: 0
+        - Name: RayTracingSubMeshFlags
+          Allowed: 0
+        - Name: RayTracingInstanceCullingFlags
+          Allowed: 0
+        - Name: RayTracingInstanceCullingTest
+          Allowed: 0
+        - Name: RayTracingInstanceCullingShaderTagConfig
+          Allowed: 0
+        - Name: RayTracingInstanceMaterialConfig
+          Allowed: 0
+        - Name: RayTracingInstanceCullingMaterialTest
+          Allowed: 0
+        - Name: RayTracingInstanceTriangleCullingConfig
+          Allowed: 0
+        - Name: RayTracingSubMeshFlagsConfig
+          Allowed: 0
+        - Name: RayTracingInstanceCullingConfig
+          Allowed: 0
+        - Name: RayTracingInstanceMaterialCRC
+          Allowed: 0
+        - Name: RayTracingInstanceCullingResults
+          Allowed: 0
+        - Name: RayTracingMeshInstanceConfig
+          Allowed: 0
+        - Name: RayTracingAABBsInstanceConfig
+          Allowed: 0
+        - Name: RayTracingGeometryInstanceConfig
+          Allowed: 0
+        - Name: RayTracingAccelerationStructure
+          Allowed: 0
+        - Name: CommandBuffer
+          Allowed: 0
+        - Name: CommandBufferExtensions
+          Allowed: 0
+        - Name: RenderPipelineGraphicsSettingsCollection
+          Allowed: 0
+        - Name: RenderPipelineGraphicsSettingsExtensions
+          Allowed: 0
+        - Name: RecreatePipelineOnChangeAttribute
+          Allowed: 0
+        - Name: ShadingRateImage
+          Allowed: 0
+        - Name: ShadingRateInfo
+          Allowed: 0
+        - Name: SplashScreen
+          Allowed: 0
+        - Name: SupportedOnRenderPipelineAttribute
+          Allowed: 0
+        - Name: Watermark
+          Allowed: 0
+        - Name: SphericalHarmonicsL2
+          Allowed: 0
+        - Name: BatchID
+          Allowed: 0
+        - Name: BatchMaterialID
+          Allowed: 0
+        - Name: BatchMeshID
+          Allowed: 0
+        - Name: BatchDrawCommandType
+          Allowed: 0
+        - Name: BatchDrawCommandFlags
+          Allowed: 0
+        - Name: BatchCullingFlags
+          Allowed: 0
+        - Name: BatchCullingViewType
+          Allowed: 0
+        - Name: BatchCullingProjectionType
+          Allowed: 0
+        - Name: BatchBufferTarget
+          Allowed: 0
+        - Name: BatchPackedCullingViewID
+          Allowed: 0
+        - Name: BatchDrawCommand
+          Allowed: 0
+        - Name: BatchDrawCommandIndirect
+          Allowed: 0
+        - Name: BatchDrawCommandProcedural
+          Allowed: 0
+        - Name: BatchDrawCommandProceduralIndirect
+          Allowed: 0
+        - Name: BatchFilterSettings
+          Allowed: 0
+        - Name: BatchDrawRange
+          Allowed: 0
+        - Name: BatchCullingOutputDrawCommands
+          Allowed: 0
+        - Name: MetadataValue
+          Allowed: 0
+        - Name: CullingSplit
+          Allowed: 0
+        - Name: BatchCullingContext
+          Allowed: 0
+        - Name: BatchCullingOutput
+          Allowed: 0
+        - Name: ThreadedBatchContext
+          Allowed: 0
+        - Name: BatchRendererGroupCreateInfo
+          Allowed: 0
+        - Name: BatchRendererGroup
+          Allowed: 0
+        - Name: AttachmentDescriptor
+          Allowed: 0
+        - Name: SubPassFlags
+          Allowed: 0
+        - Name: AttachmentIndexArray
+          Allowed: 0
+        - Name: SubPassDescriptor
+          Allowed: 0
+        - Name: BlendState
+          Allowed: 0
+        - Name: CameraProperties
+          Allowed: 0
+        - Name: CullingOptions
+          Allowed: 0
+        - Name: ScriptableCullingParameters
+          Allowed: 0
+        - Name: LightShadowCasterCullingInfo
+          Allowed: 0
+        - Name: ShadowCastersCullingInfos
+          Allowed: 0
+        - Name: CullingResults
+          Allowed: 0
+        - Name: DepthState
+          Allowed: 0
+        - Name: DrawingSettings
+          Allowed: 0
+        - Name: FilteringSettings
+          Allowed: 0
+        - Name: GizmoSubset
+          Allowed: 0
+        - Name: InvalidImportException
+          Allowed: 0
+        - Name: LODParameters
+          Allowed: 0
+        - Name: ObjectIdRequest
+          Allowed: 0
+        - Name: ObjectIdResult
+          Allowed: 0
+        - Name: PerObjectData
+          Allowed: 0
+        - Name: RasterState
+          Allowed: 0
+        - Name: ReflectionProbeSortingCriteria
+          Allowed: 0
+        - Name: RendererList
+          Allowed: 0
+        - Name: RendererListStatus
+          Allowed: 0
+        - Name: RendererListParams
+          Allowed: 0
+        - Name: RenderPipeline
+          Allowed: 0
+        - Name: RenderPipelineAsset
+          Allowed: 0
+        - Name: RenderPipelineAsset`1
+          Allowed: 0
+        - Name: RenderPipelineGlobalSettings
+          Allowed: 0
+        - Name: RenderPipelineManager
+          Allowed: 0
+        - Name: RenderQueueRange
+          Allowed: 0
+        - Name: RenderStateBlock
+          Allowed: 0
+        - Name: RenderStateMask
+          Allowed: 0
+        - Name: RenderTargetBlendState
+          Allowed: 0
+        - Name: ScopedRenderPass
+          Allowed: 0
+        - Name: ScopedSubPass
+          Allowed: 0
+        - Name: ScriptableRenderContext
+          Allowed: 0
+        - Name: ShaderTagId
+          Allowed: 0
+        - Name: ShadowDrawingSettings
+          Allowed: 0
+        - Name: ShadowSplitData
+          Allowed: 0
+        - Name: SortingCriteria
+          Allowed: 0
+        - Name: SortingLayerRange
+          Allowed: 0
+        - Name: DistanceMetric
+          Allowed: 0
+        - Name: SortingSettings
+          Allowed: 0
+        - Name: StencilState
+          Allowed: 0
+        - Name: SupportedRenderingFeatures
+          Allowed: 0
+        - Name: UISubset
+          Allowed: 0
+        - Name: VisibleLight
+          Allowed: 0
+        - Name: VisibleReflectionProbe
+          Allowed: 0
+        - Name: GlobalKeyword
+          Allowed: 0
+        - Name: LocalKeyword
+          Allowed: 0
+        - Name: LocalKeywordSpace
+          Allowed: 0
+        - Name: PassIdentifier
+          Allowed: 0
+        - Name: PlatformKeywordSet
+          Allowed: 0
+        - Name: RayTracingShader
+          Allowed: 0
+        - Name: ShaderKeywordType
+          Allowed: 0
+        - Name: ShaderKeyword
+          Allowed: 0
+        - Name: ShaderKeywordSet
+          Allowed: 0
+        - Name: ShaderPropertyType
+          Allowed: 0
+        - Name: ShaderPropertyFlags
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Rendering.RendererUtils
+        TypeRestrictions:
+        - Name: RendererListDesc
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Experimental.GlobalIllumination
+        TypeRestrictions:
+        - Name: LightType
+          Allowed: 0
+        - Name: LightMode
+          Allowed: 0
+        - Name: FalloffType
+          Allowed: 0
+        - Name: AngularFalloffType
+          Allowed: 0
+        - Name: LinearColor
+          Allowed: 0
+        - Name: DirectionalLight
+          Allowed: 0
+        - Name: PointLight
+          Allowed: 0
+        - Name: SpotLight
+          Allowed: 0
+        - Name: RectangleLight
+          Allowed: 0
+        - Name: DiscLight
+          Allowed: 0
+        - Name: SpotLightBoxShape
+          Allowed: 0
+        - Name: SpotLightPyramidShape
+          Allowed: 0
+        - Name: Cookie
+          Allowed: 0
+        - Name: LightDataGI
+          Allowed: 0
+        - Name: LightmapperUtils
+          Allowed: 0
+        - Name: Lightmapping
+          Allowed: 0
+        - Name: RenderSettings
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Experimental.Playables
+        TypeRestrictions:
+        - Name: CameraPlayable
+          Allowed: 0
+        - Name: MaterialEffectPlayable
+          Allowed: 0
+        - Name: TextureMixerPlayable
+          Allowed: 0
+        - Name: TexturePlayableBinding
+          Allowed: 0
+        - Name: TexturePlayableOutput
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.Experimental.Rendering
+        TypeRestrictions:
+        - Name: IScriptableRuntimeReflectionSystem
+          Allowed: 0
+        - Name: ScriptableRuntimeReflectionSystem
+          Allowed: 0
+        - Name: ScriptableRuntimeReflectionSystemSettings
+          Allowed: 0
+        - Name: ExternalGPUProfiler
+          Allowed: 0
+        - Name: WaitForPresentSyncPoint
+          Allowed: 0
+        - Name: GraphicsJobsSyncPoint
+          Allowed: 0
+        - Name: GraphicsDeviceSettings
+          Allowed: 0
+        - Name: TextureCreationFlags
+          Allowed: 0
+        - Name: FormatUsage
+          Allowed: 0
+        - Name: GraphicsFormatUsage
+          Allowed: 0
+        - Name: DefaultFormat
+          Allowed: 0
+        - Name: GraphicsFormat
+          Allowed: 0
+        - Name: RayTracingMode
+          Allowed: 0
+        - Name: GraphicsFormatUtility
+          Allowed: 0
+        - Name: GraphicsStateCollection
+          Allowed: 0
+        - Name: ShaderWarmupSetup
+          Allowed: 0
+        - Name: ShaderWarmup
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.Sprites
@@ -8532,35 +8705,11 @@ MonoBehaviour:
         - Name: DataUtility
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.TestTools
-        TypeRestrictions:
-        - Name: Coverage
-          Allowed: 0
-        - Name: CoveredMethodStats
-          Allowed: 0
-        - Name: CoveredSequencePoint
-          Allowed: 0
-        - Name: ExcludeFromCoverageAttribute
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.tvOS
-        TypeRestrictions:
-        - Name: Device
-          Allowed: 1
-        - Name: DeviceGeneration
-          Allowed: 1
-        - Name: Remote
-          Allowed: 1
-        Allowed: 1
       - Name: UnityEngine.U2D
         TypeRestrictions:
         - Name: Light2DBase
           Allowed: 0
         - Name: PixelPerfectRendering
-          Allowed: 0
-        - Name: SpriteAtlas
-          Allowed: 0
-        - Name: SpriteAtlasManager
           Allowed: 0
         - Name: SpriteBone
           Allowed: 0
@@ -8568,124 +8717,15 @@ MonoBehaviour:
           Allowed: 0
         - Name: SpriteRendererDataAccessExtensions
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Windows
-        TypeRestrictions:
-        - Name: CrashReporting
-          Allowed: 1
-        - Name: Crypto
-          Allowed: 1
-        - Name: Directory
-          Allowed: 1
-        - Name: File
-          Allowed: 1
-        - Name: Input
-          Allowed: 1
-        - Name: LicenseInformation
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.Windows.Speech
-        TypeRestrictions:
-        - Name: ConfidenceLevel
-          Allowed: 1
-        - Name: DictationCompletionCause
-          Allowed: 1
-        - Name: DictationRecognizer
-          Allowed: 1
-        - Name: DictationTopicConstraint
-          Allowed: 1
-        - Name: GrammarRecognizer
-          Allowed: 1
-        - Name: KeywordRecognizer
-          Allowed: 1
-        - Name: PhraseRecognitionSystem
-          Allowed: 1
-        - Name: PhraseRecognizedEventArgs
-          Allowed: 1
-        - Name: PhraseRecognizer
-          Allowed: 1
-        - Name: SemanticMeaning
-          Allowed: 1
-        - Name: SpeechError
-          Allowed: 1
-        - Name: SpeechSystemStatus
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.Windows.WebCam
-        TypeRestrictions:
-        - Name: CameraParameters
-          Allowed: 1
-        - Name: CapturePixelFormat
-          Allowed: 1
-        - Name: PhotoCapture
-          Allowed: 1
-        - Name: PhotoCaptureFileOutputFormat
-          Allowed: 1
-        - Name: PhotoCaptureFrame
-          Allowed: 1
-        - Name: VideoCapture
-          Allowed: 1
-        - Name: WebCam
-          Allowed: 1
-        - Name: WebCamMode
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngine.WSA
-        TypeRestrictions:
-        - Name: AppCallbackItem
-          Allowed: 1
-        - Name: Application
-          Allowed: 1
-        - Name: Cursor
-          Allowed: 1
-        - Name: Folder
-          Allowed: 1
-        - Name: Launcher
-          Allowed: 1
-        - Name: SecondaryTileData
-          Allowed: 1
-        - Name: Tile
-          Allowed: 1
-        - Name: TileForegroundText
-          Allowed: 1
-        - Name: TileTemplate
-          Allowed: 1
-        - Name: Toast
-          Allowed: 1
-        - Name: ToastTemplate
-          Allowed: 1
-        - Name: WindowActivated
-          Allowed: 1
-        - Name: WindowActivationState
-          Allowed: 1
-        - Name: WindowSizeChanged
-          Allowed: 1
-        Allowed: 1
-      - Name: UnityEngineInternal
-        TypeRestrictions:
-        - Name: APIUpdaterRuntimeServices
+        - Name: SpriteAtlasManager
           Allowed: 0
-        - Name: GenericStack
-          Allowed: 0
-        - Name: GIDebugVisualisation
-          Allowed: 0
-        - Name: GITextureType
-          Allowed: 0
-        - Name: MathfInternal
-          Allowed: 0
-        - Name: MemorylessManager
-          Allowed: 0
-        - Name: MemorylessMode
-          Allowed: 0
-        - Name: TypeInferenceRuleAttribute
-          Allowed: 0
-        - Name: TypeInferenceRules
+        - Name: SpriteAtlas
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 6448cddddf4ba2541b3a739b7b43d30d, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.DirectorModule
       NamedTypeRestrictions:
       - Name: UnityEngine.Playables

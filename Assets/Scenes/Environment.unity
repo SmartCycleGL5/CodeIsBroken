@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 344281249}
   - component: {fileID: 344281248}
   - component: {fileID: 344281247}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4656,7 +4656,7 @@ GameObject:
   - component: {fileID: 558490232}
   - component: {fileID: 558490231}
   - component: {fileID: 558490230}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5237,7 +5237,7 @@ GameObject:
   - component: {fileID: 631485298}
   - component: {fileID: 631485297}
   - component: {fileID: 631485296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5438,7 +5438,7 @@ GameObject:
   - component: {fileID: 656456377}
   - component: {fileID: 656456376}
   - component: {fileID: 656456375}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5689,6 +5689,10 @@ PrefabInstance:
       value: Wall (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5857,6 +5861,10 @@ PrefabInstance:
       value: Wall (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5964,7 +5972,7 @@ GameObject:
   - component: {fileID: 738569908}
   - component: {fileID: 738569907}
   - component: {fileID: 738569906}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6717,7 +6725,7 @@ GameObject:
   - component: {fileID: 870113884}
   - component: {fileID: 870113883}
   - component: {fileID: 870113882}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6811,7 +6819,7 @@ Transform:
   m_GameObject: {fileID: 870113881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.7, y: 0, z: -9.58}
+  m_LocalPosition: {x: 14.7, y: -0, z: -9.58}
   m_LocalScale: {x: 11.794804, y: 1, z: 0.9198412}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9760,7 +9768,7 @@ GameObject:
   - component: {fileID: 1348855678}
   - component: {fileID: 1348855677}
   - component: {fileID: 1348855676}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12999,7 +13007,7 @@ GameObject:
   - component: {fileID: 1797532484}
   - component: {fileID: 1797532483}
   - component: {fileID: 1797532482}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wall (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13682,6 +13690,10 @@ PrefabInstance:
       value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2ce961b9c3181624482e20a5b7a920d6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ce961b9c3181624482e20a5b7a920d6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14038,6 +14050,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fbb15ce2135ccc04a8729c9d11386747, type: 3}
       propertyPath: m_Name
       value: DoorWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fbb15ce2135ccc04a8729c9d11386747, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fbb15ce2135ccc04a8729c9d11386747, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14405,6 +14421,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85d1929c58ab4b44bba36160a1cabbd8, type: 3}
       propertyPath: m_StaticEditorFlags

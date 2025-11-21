@@ -17,5 +17,7 @@ MonoBehaviour:
     text: bfihbn
   - levelToUnlock: 0
     text: okgr
-  - levelToUnlock: 2
-    text: LEad
+  - levelToUnlock: 9
+    text: 'Assembler:
+
+      Wood + Iron = Chair'

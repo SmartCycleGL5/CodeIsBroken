@@ -1,12 +1,14 @@
+using System;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Reflection;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
 {
-    [InfoBox("The name of the monobehaviour class")]
+    [InfoBox("The name of the parent class", EInfoBoxType.Warning)]
     public string toDeriveFrom;
 
     public List<Script> attachedScripts = new();
@@ -15,14 +17,21 @@ public class Programmable : MonoBehaviour
     public List<MethodInfo> methodInfo = new();
 
     [Button]
-    public void AddScript()
+    public async void AddScript()
     {
-        AddScript(new Script("NewScript" + UnityEngine.Random.Range(1, 100), toDeriveFrom, this));
+        string name = await WindowManager.OpenEnterValue("Name the script");
+
+        if (ScriptManager.instance.activePlayerScripts.ContainsKey(name))
+            throw new Exception($"{name} already exists");
+        
+        AddScript(new Script(name, toDeriveFrom, this));
     }
     public virtual void AddScript(Script script)
     {
         script.connectedMachine = this;
         attachedScripts.Add(script);
+        
+        script.Edit();
     }
 
     protected virtual void OnDestroy()

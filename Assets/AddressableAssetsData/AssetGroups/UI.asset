@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GUID: aa1404f49305a934d831d0844ec85f8a
   m_SerializeEntries:
   - m_GUID: 430e0bdca1397b34da4b01db61f4ed3c
-    m_Address: UI/ConfirmChoice
+    m_Address: UI/Popup/ConfirmChoice
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 447692874d764ec4592f369252d0130c
-    m_Address: UI/Contact/ModifierElement
+    m_Address: UI/Contact/Modifier
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,6 +32,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7dce4044bb968b74586aa01d116021ef
     m_Address: UI/Contract
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6811b2bf1a4c80cfa0750f8e484264a
+    m_Address: UI/Popup/EnterValue
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

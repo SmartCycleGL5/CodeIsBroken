@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa1a356302c4c545aa7ed00cf67e913, type: 3}
   m_Name: Furnace
   m_EditorClassIdentifier: CodeIsBroken::BuildingSO
-  buildingPrefab: {fileID: 0}
-  buildingName: 
+  buildingPrefab: {fileID: 1257411974762469763, guid: 5d27558ea66a7184da7930920ffcd55e, type: 3}
+  buildingName: Furnace
   buildingImage: {fileID: 0}
   buildingDesctiption: 
-  levelToUnlock: 0
+  levelToUnlock: 6
   sortingOrder: 1

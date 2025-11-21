@@ -36,3 +36,5 @@ MonoBehaviour:
   - style: 1
     text: "class Example\r\n{\r\n\tint myInt = 5;\r\n\r\n\tvoid StartTick()\r\n\t{\r\n\t\tmyInt
       = 2;\r\n\t}\r\n}"
+  sortOrder: 0
+  levelToUnlock: 4

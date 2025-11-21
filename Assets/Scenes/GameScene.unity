@@ -2046,6 +2046,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2abdcbda98005c45aabf8afca599042, type: 2}
   - {fileID: 11400000, guid: 5091e44f8d6e71d48bb232ec9c459f29, type: 2}
   - {fileID: 11400000, guid: fc55c8f85b070b340a84c2a4ee7dac0d, type: 2}
+  - {fileID: 11400000, guid: e7e3485ef6a81064ea436fae16e10dff, type: 2}
   buildingButtonTemplate: {fileID: 9197481963319205126, guid: 059ab6987b8ea384fa556a041657d4f0, type: 3}
   uiDoc: {fileID: 2051597519}
   isBuilding: 1

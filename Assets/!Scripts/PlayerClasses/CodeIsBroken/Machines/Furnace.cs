@@ -11,13 +11,9 @@ namespace CodeIsBroken
 {
     public class Furnace : Machine, IItemContainer
     {
-        private int sawSize = 1;
+        private int furnaceSize = 1;
         private List<Item> items = new();
         private List<CraftingRecipie> craftingRecipies;
-
-        private Transform inputPos;
-        private Transform outputPos;
-        private Transform sawBlade;
         
         private ParticleSystem sawParticles;
         
@@ -32,11 +28,9 @@ namespace CodeIsBroken
             craftingRecipies = GetComponent<RecipeHolder>().GetRecipes();
             
             Programmable machine = GetComponent<Programmable>();
-            machine.AddMethodsAsIntegrated(typeof(Saw));
+            machine.AddMethodsAsIntegrated(typeof(Furnace));
 
             referenceHolder = GetComponent<ReferenceHolder>();
-            inputPos = referenceHolder.GetReference("input").transform;
-            outputPos = referenceHolder.GetReference("output").transform;
             
             Tick.OnTick += TakeItem;
         }
@@ -51,10 +45,9 @@ namespace CodeIsBroken
             return items.Count;
         }
     
-        public void Cut()
+        public void Heat()
         {
-            //Start sawblade animation
-            sawBlade.DOLocalRotate(new Vector3(560,0,0), 0.3f, RotateMode.FastBeyond360);
+            //
             
             Metrics.instance.UseElectricity(1);
             Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
@@ -64,14 +57,14 @@ namespace CodeIsBroken
                 Debug.Log("Valid recipe");
                 
                 // output item to next conveyor
-                GameObject cell = GridBuilder.instance.LookUpCell(outputPos.position + outputPos.forward);
+                GameObject cell = GridBuilder.instance.LookUpCell(transform.position+transform.forward);
                 if(cell == null) return;
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
                     if (conveyor.item != null) return;
-                    sawParticles.Play();
+                    // sawParticles.Play();
                     Destroy(item.gameObject);
-                    item = Instantiate(itemCrafted, sawBlade.position, Quaternion.identity);
+                    item = Instantiate(itemCrafted, transform.position, Quaternion.identity);
                     conveyor.SetItem(item);
                     ClearMachine();
                     RemoveItem();
@@ -79,9 +72,9 @@ namespace CodeIsBroken
             }
             else
             {
-                if (items.Count == sawSize)
+                if (items.Count == furnaceSize)
                 {
-                    PlayerConsole.LogWarning($"Cant cut {item.definition.baseMaterials}", programmable.attachedScripts[0].name);
+                    PlayerConsole.LogWarning($"Cant heat {item.definition.baseMaterials}", programmable.attachedScripts[0].name);
                     // Cant craft using this item, send error
                 }
             }
@@ -91,15 +84,15 @@ namespace CodeIsBroken
         private void TakeItem()
         {
             Debug.Log("[Saw] TakeItem");
-            if(items.Count >= sawSize) return;
-            GameObject cell = GridBuilder.instance.LookUpCell(inputPos.position - inputPos.forward);
+            if(items.Count >= furnaceSize) return;
+            GameObject cell = GridBuilder.instance.LookUpCell(transform.position - transform.forward);
             if (cell == null) return;
             if (cell.TryGetComponent(out Conveyor conveyor))
             {
                 item = conveyor.item;
                 if(item == null) return;
                 items.Add(item);
-                moveTween = item.gameObject.transform.DOMove(sawBlade.position,0.2f);
+                moveTween = item.gameObject.transform.DOMove(transform.position,0.2f);
                 conveyor.RemoveItem();
             }
         }
@@ -127,7 +120,7 @@ namespace CodeIsBroken
         {
             if (this.item != null) return false;
             this.item = item;
-            moveTween = this.item.gameObject.transform.DOMove(inputPos.position + new Vector3(0,2,0),0.2f);
+            moveTween = this.item.gameObject.transform.DOMove(transform.position + new Vector3(0,2,0),0.2f);
             return true;
         }
 

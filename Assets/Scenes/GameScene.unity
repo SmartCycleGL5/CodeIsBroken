@@ -766,31 +766,31 @@ MonoBehaviour:
     - rid: 464792635802910792
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
     - rid: 464792635802910793
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
     - rid: 464792635802910794
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
     - rid: 464792635802910795
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
     - rid: 464792635802910796
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
     - rid: 464792635802910797
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
     - rid: 464792635802910798
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
     - rid: 464792635802910799
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
@@ -806,11 +806,11 @@ MonoBehaviour:
     - rid: 464792635802910835
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
     - rid: 464792635802910836
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
-        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &357034596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,26 +1583,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
-    - target: {fileID: 2821285593549430861, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2821285593549430861, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2821285593549430861, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2821285593549430861, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2821285593549430861, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7485785734209997623, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1642,10 +1622,6 @@ PrefabInstance:
     - target: {fileID: 7485785734209997623, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485785734209997623, guid: d3f96283ca94be54f9b0b517b2fc5e21, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

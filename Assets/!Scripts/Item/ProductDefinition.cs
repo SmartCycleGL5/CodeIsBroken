@@ -70,7 +70,6 @@ namespace CodeIsBroken.Product
             
             for (int i = 0; i < mods.Count; i++)
             {
-                if(mods[i] == null || other.mods[i] == null) { return false; } 
                 if(!mods[i].Equals(other.mods[i])) { Debug.Log($"{mods[i]} != {other.mods[i] }"); return false; }
             }
             

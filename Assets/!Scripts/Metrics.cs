@@ -73,8 +73,15 @@ public class Metrics : MonoBehaviour
     {
         string electricityString = string.Join( ", ", electricityLevel.ToArray() );
         string timeString = string.Join( ", ", timeUsed.ToArray() );
-        
-        Webhook.instance.SendStats(electricityString, timeString, quit);
+
+        try
+        {
+            Webhook.instance.SendStats(electricityString, timeString, quit);
+        }
+        catch
+        {
+            Debug.Log("[Metrics] Webhook disabled");
+        }
     }
     
 

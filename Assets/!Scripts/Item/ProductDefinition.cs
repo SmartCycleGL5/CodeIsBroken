@@ -25,7 +25,8 @@ namespace CodeIsBroken.Product
         public static ProductDefinition Stone => new (BaseMaterials.Stone);
 
         #endregion
-        
+
+        public string name;
         public Sprite icon;
         [FormerlySerializedAs("materials")] public BaseMaterials baseMaterials;
 
@@ -86,6 +87,7 @@ namespace CodeIsBroken.Product
             }
             
             clone.icon = icon;
+            clone.name = name;
             
             return clone;
         }

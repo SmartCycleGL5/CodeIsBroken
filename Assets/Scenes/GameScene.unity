@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 357034593}
   - component: {fileID: 357034594}
   - component: {fileID: 357034595}
+  - component: {fileID: 357034596}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -637,26 +638,14 @@ MonoBehaviour:
         additionalModifications: {x: 0, y: 0}
         firstContracts:
         - requests:
-          - toRequest: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
-            amount: 10
-            additionalModifications: []
           - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
-            amount: 10
-            additionalModifications: []
-          - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
             amount: 10
             additionalModifications: []
         - requests:
           - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
-            amount: 10
-            additionalModifications: []
-          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
-            amount: 10
+            amount: 15
             additionalModifications: []
         - requests:
-          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
-            amount: 10
-            additionalModifications: []
           - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
             amount: 10
             additionalModifications: []
@@ -665,26 +654,177 @@ MonoBehaviour:
         additionalModifications: {x: 0, y: 1}
         firstContracts:
         - requests:
-          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
-            amount: 60
+          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+            amount: 30
             additionalModifications: []
         - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
+            amount: 20
+            additionalModifications:
+            - rid: 464792635802910792
+        - requests:
           - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
-            amount: 7148254
+            amount: 30
             additionalModifications: []
-    - Key: 4
+    - Key: 5
       Value:
         additionalModifications: {x: 0, y: 2}
         firstContracts:
-        - requests: []
-        - requests: []
-    - Key: 5
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+            amount: 30
+            additionalModifications: []
+          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+            amount: 10
+            additionalModifications:
+            - rid: 464792635802910793
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
+            amount: 40
+            additionalModifications:
+            - rid: 464792635802910792
+            - rid: 464792635802910794
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
+            amount: 15
+            additionalModifications:
+            - rid: 464792635802910795
+          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+            amount: 15
+            additionalModifications:
+            - rid: 464792635802910796
+          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+            amount: 15
+            additionalModifications:
+            - rid: 464792635802910797
+    - Key: 6
+      Value:
+        additionalModifications: {x: 0, y: 2}
+        firstContracts:
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+            amount: 30
+            additionalModifications: []
+    - Key: 7
+      Value:
+        additionalModifications: {x: 0, y: 2}
+        firstContracts:
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+            amount: 40
+            additionalModifications: []
+          - toRequest: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
+            amount: 40
+            additionalModifications: []
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+            amount: 30
+            additionalModifications:
+            - rid: 464792635802910798
+          - toRequest: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
+            amount: 30
+            additionalModifications:
+            - rid: 464792635802910798
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+            amount: 60
+            additionalModifications:
+            - rid: 464792635802910799
+            - rid: 464792635802910800
+    - Key: 8
       Value:
         additionalModifications: {x: 1, y: 2}
         firstContracts: []
+    - Key: 9
+      Value:
+        additionalModifications: {x: 1, y: 2}
+        firstContracts:
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+            amount: 100
+            additionalModifications:
+            - rid: 464792635802910834
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+            amount: 200
+            additionalModifications: []
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+            amount: 75
+            additionalModifications:
+            - rid: 464792635802910835
+            - rid: 464792635802910836
+  CompanyNames:
+  - The generic Mall
+  - Woodworkers co
+  - Rock business
+  - Metal forgers
+  - Another mall
+  - Target
+  - Coop generic
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 464792635802910792
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+    - rid: 464792635802910793
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+    - rid: 464792635802910794
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910795
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+    - rid: 464792635802910796
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+    - rid: 464792635802910797
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910798
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+    - rid: 464792635802910799
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910800
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+    - rid: 464792635802910834
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910835
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910836
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+--- !u!114 &357034596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbabcd3744f0aaa6e87bfbc7ae57fb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +976,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463028037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 725333b9fad04fa42a40851631818cb3, type: 3}
   m_Name: 

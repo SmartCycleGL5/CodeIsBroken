@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Assembler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,30 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/MonoBuild2\CodeIsBroken.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Skole/CodeIsBroken4\CodeIsBroken.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\noasj\Desktop\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -85,7 +83,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -97,7 +95,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -218,6 +216,9 @@
       <workItem from="1763479048576" duration="7701000" />
       <workItem from="1763542864334" duration="6815000" />
       <workItem from="1763552368527" duration="4858000" />
+      <workItem from="1763560346194" duration="103000" />
+      <workItem from="1763560825978" duration="263000" />
+      <workItem from="1763591666674" duration="253000" />
     </task>
     <servers />
   </component>

@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   lvlUnlock: 1
   definition:
+    name: Iron
     icon: {fileID: 21300000, guid: f7cef5bce9e2d1a919358ce806868292, type: 3}
     baseMaterials: 4
     <mods>k__BackingField: []

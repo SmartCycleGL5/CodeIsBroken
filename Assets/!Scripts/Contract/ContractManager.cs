@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utility;
+using Random = System.Random;
 
 namespace CodeIsBroken.Contract
 {
@@ -29,6 +30,8 @@ namespace CodeIsBroken.Contract
         public static Settings activeSettings {get; private set;}
         [SerializedDictionary("level", "settings")]
         [SerializeField] SerializedDictionary<int, Settings> settings = new();
+
+        public List<string> CompanyNames = new List<string>();
 
 
         public static VisualTreeAsset contractUI { get; private set;}
@@ -118,6 +121,11 @@ namespace CodeIsBroken.Contract
             ActiveContract = null;
     
             GetContractOptions();
+        }
+
+        public static string GetCompanyName()
+        {
+            return instance.CompanyNames[UnityEngine.Random.Range(0, instance.CompanyNames.Count - 1)];
         }
     }
 }

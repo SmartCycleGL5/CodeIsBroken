@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   lvlUnlock: 1
   definition:
+    name: Stone
     icon: {fileID: 21300000, guid: 45347b7d9cc4abe6090233fc354136c0, type: 3}
     baseMaterials: 8
     <mods>k__BackingField: []

@@ -17,7 +17,7 @@ public class Webhook : MonoBehaviour
         instance = this;
         
         // Start message
-        SendMs($"---\nSession Started: {System.Environment.UserName}\n\n{Hardware()}\n\nScreen resolution: {Screen.width}x{Screen.height}");
+        SendMs($"\nSession Started: {System.Environment.UserName}\n\n{Hardware()}");
 
     }
     
@@ -27,12 +27,13 @@ public class Webhook : MonoBehaviour
     {
         string user = System.Environment.UserName;
 
-        string msg = $"---\nUser: {user}\n⚡: {elec}\n⏳: {time}\n\nTotal time: {(int)Time.time}\nMachines placed: {GridBuilder.instance.gridObjects.Count}\n\nQuit application {quit}";
+        string msg = $"\nUser: {user}\n⚡: {elec}\n⏳: {time}\n\nTotal time: {(int)Time.time}s\nMachines placed: {GridBuilder.instance.gridObjects.Count}\n\nQuit application: {quit}";
         
         SendMs(msg);
     }
     
     
+    // Send message to discord webhook.
     public void SendMs(string message)
     {
         WebClient client = new WebClient();
@@ -41,8 +42,9 @@ public class Webhook : MonoBehaviour
         client.UploadData(webhook, Encoding.UTF8.GetBytes(payload));
     }
 
+    // Get hardware info
     string Hardware()
     {
-        return $"GPU: {SystemInfo.graphicsDeviceName}\nCPU: {SystemInfo.processorType}\nMemory: {SystemInfo.systemMemorySize}\n";
+        return $"GPU: {SystemInfo.graphicsDeviceName}\nCPU: {SystemInfo.processorType}\nMemory: {SystemInfo.systemMemorySize}\n\nScreen resolution: {Screen.width}x{Screen.height}";
     }
 }

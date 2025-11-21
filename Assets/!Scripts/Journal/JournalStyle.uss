@@ -156,28 +156,6 @@
     border-top-left-radius: 0;
 }
 
-.unity-tab__header {
-    background-size: 100% 100%;
-    width: auto;
-    height: auto;
-    background-position-x: center;
-    background-position-y: bottom 0;
-    -unity-background-scale-mode: scale-to-fit;
-    align-content: auto;
-    align-self: stretch;
-    background-image: none;
-    min-width: 113px;
-    min-height: 56px;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-top-width: 0;
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
-}
-
 .unity-tab-view__content-viewport {
     padding-left: 10px;
 }
@@ -234,4 +212,10 @@
     flex-direction: row;
     justify-content: center;
     -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+#JournalTabs > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header {
+    background-image: url("project://database/Assets/Art/Sprites/JournalBookmarkBlue.png?fileID=2800000&guid=d7c77d5453c8f004e9be5a52f62acc7b&type=3#JournalBookmarkBlue");
+    -unity-background-scale-mode: stretch-to-fill;
+    width: auto;
 }

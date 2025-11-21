@@ -64,8 +64,7 @@ namespace Journal
             for (int i = 0; i < headerImages.Length; i++)
             {
                 tabView.GetTabHeader(i).style.backgroundImage = headerImages[i];
-                tabView.GetTabHeader(i).style.height = headerImages[i].height;
-                tabView.GetTabHeader(i).style.width = headerImages[i].width;
+                tabView.GetTabHeader(i).AddToClassList("journal-tab-header_main");
             }
         }
 

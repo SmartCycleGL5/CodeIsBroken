@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2644239f3a2d794c96037871e1eecef, type: 3}
   m_Name: Chair
   m_EditorClassIdentifier: Assembly-CSharp::CraftingRecipie
-  materials: 0200000004000000
+  materials:
+  - {fileID: 0}
+  - {fileID: 0}
   itemToSpawn: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
   tickCraftingTime: 2

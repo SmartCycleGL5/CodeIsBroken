@@ -16,5 +16,5 @@ MonoBehaviour:
   buildingName: Saw
   buildingImage: {fileID: 0}
   buildingDesctiption: 
-  levelToUnlock: 2
+  levelToUnlock: 6
   sortingOrder: 1

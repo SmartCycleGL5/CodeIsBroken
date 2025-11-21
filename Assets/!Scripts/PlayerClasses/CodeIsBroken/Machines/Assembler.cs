@@ -10,8 +10,8 @@ namespace CodeIsBroken
 {
     public class Assembler : Machine, IItemContainer
     {
-        [SerializeField] int assemblerSize;
-        List<Item> items;
+        int assemblerSize = 2;
+        List<Item> items = new();
         [SerializeField] List<CraftingRecipie> craftingRecipies;
         
         Tweener moveTween;

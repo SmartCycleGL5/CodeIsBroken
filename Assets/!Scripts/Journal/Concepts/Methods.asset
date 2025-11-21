@@ -49,3 +49,5 @@ MonoBehaviour:
   - style: 1
     text: "class Example3\n{\t\n\tint myInt;\n\n\tvoid OnTick()\n\t{\n\t\tmyInt +=
       IncrementValue();\n\t}\n\t\n\tint IncrementValue()\n\t{\n\t\treturn 1;\n\t}\n}"
+  sortOrder: 0
+  levelToUnlock: 8

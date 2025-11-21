@@ -131,4 +131,21 @@ namespace CodeIsBroken.Product.Modifications
             return true;
         }
     }
+    [Serializable]
+    public class Melted : IModification
+    {
+        public string Name => "Melted";
+
+        public string Description => "";
+
+        public bool Equals(IModification other)
+        {
+            if (other is null) { Debug.Log("other is null"); return false; }
+            if (other is not Melted) { Debug.Log("other is not melted"); return false; }
+            if (Name != other.Name) return false;
+            if (Description != other.Description) return false;
+
+            return true;
+        }
+    }
 }

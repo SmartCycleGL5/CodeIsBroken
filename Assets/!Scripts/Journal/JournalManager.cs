@@ -1,17 +1,10 @@
-using System;
+using CodeIsBroken.Contract;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CodeIsBroken.Contract;
-using CodeIsBroken.Product;
-using Codice.Client.Common;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
-using UnityEngine.Video;
 using Utility;
 
 namespace Journal
@@ -26,7 +19,7 @@ namespace Journal
         [SerializeField] string machineTabName = "Machine";
         [SerializeField] string hintsTabName = "Hints";
         [SerializeField] string conceptsTabName = "Concepts";
-        [SerializeField]private RecipesEntry recipes;
+        [SerializeField] private RecipesEntry recipes;
         private EventCallback<MouseUpEvent> tHintEvent;
         public UIDocument journalDoc;
         public StyleSheet styleSheet;
@@ -81,25 +74,25 @@ namespace Journal
             var tab = journalDoc.rootVisualElement.Q<Tab>("Recipes");
             var scrollV = tab.Q<ScrollView>();
             recipes.SetUnlocked();
-            if(scrollV.childCount <= 0)
+            if (scrollV.childCount <= 0)
             {
-                foreach(RecipesText rT in recipes.texts)
+                foreach (RecipesText rT in recipes.texts)
                 {
                     Label rLabel = new(rT.text);
                     rLabel.AddToClassList("explanation_text");
-                    if(!rT.IsUnlocked)
+                    if (!rT.IsUnlocked)
                     {
                         rLabel.style.display = DisplayStyle.None;
                     }
                     scrollV.Add(rLabel);
                 }
             }
-            else if(scrollV.childCount == recipes.texts.Count)
-            {   
+            else if (scrollV.childCount == recipes.texts.Count)
+            {
                 List<VisualElement> childS = scrollV.Children().ToList();
-                for(int i = 0; i < scrollV.childCount; i++)
+                for (int i = 0; i < scrollV.childCount; i++)
                 {
-                    childS[i].style.display= recipes.texts[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None ;
+                    childS[i].style.display = recipes.texts[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
                 }
             }
         }
@@ -163,7 +156,7 @@ namespace Journal
                 var rTabView = tab.Q<TabView>("Requests");
                 var rTab = rTabView.GetTab(i);
                 var rAmount = rTab.Q<Label>("Amount");
-                rAmount.text = string.Format("{0}X / {1}X", request.amountLeft,request.amount);
+                rAmount.text = string.Format("{0}X / {1}X", request.amountLeft, request.amount);
             }
         }
 

@@ -80,7 +80,7 @@ Material:
     - _CellDensity: 4.6
     - _CircleDensity: 2
     - _FalloffThreshHold: 3.92
-    - _LitThreshold: 3.56
+    - _LitThreshold: 3.34
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rotation: 0

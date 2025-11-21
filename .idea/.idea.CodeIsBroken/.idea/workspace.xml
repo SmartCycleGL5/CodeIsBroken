@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Furnace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Furnace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +219,7 @@
       <workItem from="1763560346194" duration="103000" />
       <workItem from="1763560825978" duration="263000" />
       <workItem from="1763591666674" duration="253000" />
-      <workItem from="1763733180983" duration="453000" />
+      <workItem from="1763733180983" duration="1080000" />
     </task>
     <servers />
   </component>

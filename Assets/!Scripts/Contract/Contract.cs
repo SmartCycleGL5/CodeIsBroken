@@ -134,6 +134,8 @@ namespace CodeIsBroken.Contract
         {
             foreach (var request in requests)
             {
+                Debug.Log(request.SatisfiesRequest(item.definition));
+
                 if(request.SatisfiesRequest(item.definition))
                 {
                     request.Progress();

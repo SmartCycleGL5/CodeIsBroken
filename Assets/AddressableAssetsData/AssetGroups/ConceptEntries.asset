@@ -45,12 +45,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - ConceptEntries
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ce812ca1bf6af96489e15a5576c58449
-    m_Address: Assets/!Scripts/Journal/Concepts/Recipes.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - ConceptEntries
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d753b529b89a4ba46bd5fd36fba556a7
     m_Address: Assets/!Scripts/Journal/Concepts/Classes.asset
     m_ReadOnly: 0

@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1737533696150681221}
   - component: {fileID: 5828382538595847831}
   - component: {fileID: 6066692464749912925}
+  - component: {fileID: 841364519210630218}
+  - component: {fileID: 4084207378095098437}
+  - component: {fileID: -4821027639380126733}
   m_Layer: 0
   m_Name: Furnace
   m_TagString: Untagged
@@ -67,6 +70,46 @@ MonoBehaviour:
       Value: {fileID: 2815634012659708996}
     - Key: output
       Value: {fileID: 2032769938132798727}
+--- !u!114 &841364519210630218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257411974762469763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65821e9db4f63aa49aefb657c90379aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::Programmable
+  toDeriveFrom: Furnace
+  attachedScripts: []
+--- !u!114 &4084207378095098437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257411974762469763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99273420104829d438522b6f2ce67d07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::MachineUIController
+  uiMenu: {fileID: 0}
+--- !u!114 &-4821027639380126733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257411974762469763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec19b95c70aefd4dacb7349dd4ef426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::RecipeHolder
+  recipes: []
 --- !u!1 &1393468060278876704
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772185105890429188}
+  - component: {fileID: 1500727886757914224}
   m_Layer: 0
   m_Name: Wrapper
   m_TagString: Untagged
@@ -100,6 +144,27 @@ Transform:
   - {fileID: 1609489746138274798}
   m_Father: {fileID: 1737533696150681221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1500727886757914224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393468060278876704}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4552261027110618210
 PrefabInstance:
   m_ObjectHideFlags: 0

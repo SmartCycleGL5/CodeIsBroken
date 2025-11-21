@@ -37,6 +37,7 @@ namespace CodeIsBroken
             referenceHolder = GetComponent<ReferenceHolder>();
             inputPos = referenceHolder.GetReference("input").transform;
             outputPos = referenceHolder.GetReference("output").transform;
+            
             Tick.OnTick += TakeItem;
         }
     

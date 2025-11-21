@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Planks
   m_EditorClassIdentifier: CodeIsBroken.Base::CraftingRecipie
   materials:
-  - {fileID: 0}
+  - {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
   itemToSpawn: {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
   tickCraftingTime: 0

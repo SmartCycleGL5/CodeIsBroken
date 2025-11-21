@@ -11,21 +11,20 @@ namespace CodeIsBroken
     public class Assembler : Machine, IItemContainer
     {
         [SerializeField] int assemblerSize;
-        [SerializeField] List<Product.Item> items;
+        List<Item> items;
         [SerializeField] List<CraftingRecipie> craftingRecipies;
-        private UserErrorLogger errorLogger;
         
         Tweener moveTween;
-        public Product.Item item { get; set; }
+        public Item item { get; set; }
     
     
         void Start()
         {
+            craftingRecipies = GetComponent<RecipeHolder>().GetRecipes();
             Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(Assembler));
 
             Tick.OnTick += TakeItem;
-            errorLogger = GetComponent<UserErrorLogger>();
         }
     
         private void Reset()
@@ -63,7 +62,6 @@ namespace CodeIsBroken
             {
                 if (items.Count == assemblerSize)
                 {
-                    errorLogger.DisplayWarning("Materials does not match any recipe's");
                 }
             }
         }

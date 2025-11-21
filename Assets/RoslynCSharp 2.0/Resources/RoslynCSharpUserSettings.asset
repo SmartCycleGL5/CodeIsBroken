@@ -1877,7 +1877,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134080653509621999
+      <LastWriteTimeUTC>k__BackingField: 134081895166547531
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -4754,23 +4754,42 @@ MonoBehaviour:
       <LastWriteTimeUTC>k__BackingField: 134073660802104267
     - Name: Unity.Collections
       NamedTypeRestrictions:
+      - Name: Unity.Jobs
+        TypeRestrictions:
+        - Name: EarlyInitHelpers
+          Allowed: 0
+        - Name: JobParallelIndexListExtensions
+          Allowed: 0
+        - Name: IJobParallelForFilter
+          Allowed: 0
+        - Name: IJobFilter
+          Allowed: 0
+        - Name: IJobFilterExtensions
+          Allowed: 0
+        - Name: IJobParallelForBatch
+          Allowed: 0
+        - Name: IJobParallelForBatchExtensions
+          Allowed: 0
+        - Name: IJobParallelForDefer
+          Allowed: 0
+        - Name: IJobParallelForDeferExtensions
+          Allowed: 0
+        - Name: RegisterGenericJobTypeAttribute
+          Allowed: 0
+        Allowed: 0
       - Name: Unity.Collections
         TypeRestrictions:
-        - Name: AllocatorHelper`1
-          Allowed: 0
         - Name: AllocatorManager
+          Allowed: 0
+        - Name: AllocatorHelper`1
           Allowed: 0
         - Name: BitField32
           Allowed: 0
         - Name: BitField64
           Allowed: 0
-        - Name: BurstCompatibleAttribute
+        - Name: INativeDisposable
           Allowed: 0
         - Name: CollectionHelper
-          Allowed: 0
-        - Name: ConversionError
-          Allowed: 0
-        - Name: CopyError
           Allowed: 0
         - Name: DataStreamReader
           Allowed: 0
@@ -4778,71 +4797,61 @@ MonoBehaviour:
           Allowed: 0
         - Name: DoubleRewindableAllocators
           Allowed: 0
-        - Name: ExcludeFromBurstCompatTestingAttribute
-          Allowed: 0
-        - Name: FixedBytes126
-          Allowed: 0
-        - Name: FixedBytes16
-          Allowed: 0
-        - Name: FixedBytes30
-          Allowed: 0
-        - Name: FixedBytes4094
-          Allowed: 0
-        - Name: FixedBytes510
-          Allowed: 0
-        - Name: FixedBytes62
-          Allowed: 0
-        - Name: FixedList128Bytes`1
-          Allowed: 0
-        - Name: FixedList128BytesExtensions
-          Allowed: 0
         - Name: FixedList32Bytes`1
           Allowed: 0
         - Name: FixedList32BytesExtensions
-          Allowed: 0
-        - Name: FixedList4096Bytes`1
-          Allowed: 0
-        - Name: FixedList4096BytesExtensions
-          Allowed: 0
-        - Name: FixedList512Bytes`1
-          Allowed: 0
-        - Name: FixedList512BytesExtensions
           Allowed: 0
         - Name: FixedList64Bytes`1
           Allowed: 0
         - Name: FixedList64BytesExtensions
           Allowed: 0
+        - Name: FixedList128Bytes`1
+          Allowed: 0
+        - Name: FixedList128BytesExtensions
+          Allowed: 0
+        - Name: FixedList512Bytes`1
+          Allowed: 0
+        - Name: FixedList512BytesExtensions
+          Allowed: 0
+        - Name: FixedList4096Bytes`1
+          Allowed: 0
+        - Name: FixedList4096BytesExtensions
+          Allowed: 0
         - Name: FixedListExtensions
           Allowed: 0
-        - Name: FixedString
+        - Name: FixedBytes16
           Allowed: 0
-        - Name: FixedString128Bytes
+        - Name: FixedBytes30
           Allowed: 0
         - Name: FixedString32Bytes
           Allowed: 0
-        - Name: FixedString4096Bytes
-          Allowed: 0
-        - Name: FixedString512Bytes
+        - Name: FixedBytes62
           Allowed: 0
         - Name: FixedString64Bytes
           Allowed: 0
+        - Name: FixedBytes126
+          Allowed: 0
+        - Name: FixedString128Bytes
+          Allowed: 0
+        - Name: FixedBytes510
+          Allowed: 0
+        - Name: FixedString512Bytes
+          Allowed: 0
+        - Name: FixedBytes4094
+          Allowed: 0
+        - Name: FixedString4096Bytes
+          Allowed: 0
         - Name: FixedStringMethods
           Allowed: 0
-        - Name: FormatError
-          Allowed: 0
-        - Name: GenerateTestsForBurstCompatibilityAttribute
-          Allowed: 0
-        - Name: HashSetExtensions
-          Allowed: 0
-        - Name: IIndexable`1
-          Allowed: 0
-        - Name: INativeDisposable
-          Allowed: 0
-        - Name: INativeList`1
+        - Name: FixedString
           Allowed: 0
         - Name: IUTF8Bytes
           Allowed: 0
-        - Name: KVPair`2
+        - Name: BurstCompatibleAttribute
+          Allowed: 0
+        - Name: GenerateTestsForBurstCompatibilityAttribute
+          Allowed: 0
+        - Name: ExcludeFromBurstCompatTestingAttribute
           Allowed: 0
         - Name: ListExtensions
           Allowed: 0
@@ -4850,15 +4859,21 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeBitArray
           Allowed: 0
+        - Name: KVPair`2
+          Allowed: 0
         - Name: NativeHashMap`2
           Allowed: 0
         - Name: NativeHashSet`1
           Allowed: 0
-        - Name: NativeKeyValueArrays`2
+        - Name: IIndexable`1
+          Allowed: 0
+        - Name: INativeList`1
           Allowed: 0
         - Name: NativeList`1
           Allowed: 0
         - Name: NativeListExtensions
+          Allowed: 0
+        - Name: NativeKeyValueArrays`2
           Allowed: 0
         - Name: NativeParallelHashMap`2
           Allowed: 0
@@ -4866,11 +4881,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeParallelHashSet`1
           Allowed: 0
+        - Name: HashSetExtensions
+          Allowed: 0
+        - Name: NativeParallelMultiHashMapIterator`1
+          Allowed: 0
         - Name: NativeParallelMultiHashMap`2
           Allowed: 0
         - Name: NativeParallelMultiHashMapExtensions
-          Allowed: 0
-        - Name: NativeParallelMultiHashMapIterator`1
           Allowed: 0
         - Name: NativeQueue`1
           Allowed: 0
@@ -4880,19 +4897,25 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeSortExtension
           Allowed: 0
-        - Name: NativeStream
-          Allowed: 0
-        - Name: NativeText
-          Allowed: 0
-        - Name: ParseError
-          Allowed: 0
-        - Name: RewindableAllocator
-          Allowed: 0
         - Name: SortJob`2
           Allowed: 0
         - Name: SortJobDefer`2
           Allowed: 0
+        - Name: NativeStream
+          Allowed: 0
+        - Name: NativeText
+          Allowed: 0
+        - Name: RewindableAllocator
+          Allowed: 0
         - Name: StreamCompressionModel
+          Allowed: 0
+        - Name: FormatError
+          Allowed: 0
+        - Name: ParseError
+          Allowed: 0
+        - Name: CopyError
+          Allowed: 0
+        - Name: ConversionError
           Allowed: 0
         - Name: Unicode
           Allowed: 0
@@ -4903,13 +4926,14 @@ MonoBehaviour:
         - Name: xxHash3
           Allowed: 0
         Allowed: 0
+      - Name: Unity.Collections.NotBurstCompatible
+        TypeRestrictions:
+        - Name: Extensions
+          Allowed: 0
+        Allowed: 0
       - Name: Unity.Collections.LowLevel.Unsafe
         TypeRestrictions:
         - Name: DataStreamExtensions
-          Allowed: 0
-        - Name: HashSetExtensions
-          Allowed: 0
-        - Name: KeyValue`2
           Allowed: 0
         - Name: NativeBitArrayUnsafeUtility
           Allowed: 0
@@ -4933,15 +4957,21 @@ MonoBehaviour:
           Allowed: 0
         - Name: UnsafeListExtensions
           Allowed: 0
-        - Name: UnsafeParallelHashMap`2
+        - Name: UnsafePtrList`1
           Allowed: 0
         - Name: UnsafeParallelHashMapBucketData
           Allowed: 0
+        - Name: KeyValue`2
+          Allowed: 0
+        - Name: UnsafeParallelHashMap`2
+          Allowed: 0
+        - Name: UntypedUnsafeParallelHashMap
+          Allowed: 0
         - Name: UnsafeParallelHashSet`1
           Allowed: 0
-        - Name: UnsafeParallelMultiHashMap`2
+        - Name: HashSetExtensions
           Allowed: 0
-        - Name: UnsafePtrList`1
+        - Name: UnsafeParallelMultiHashMap`2
           Allowed: 0
         - Name: UnsafeRingQueue`1
           Allowed: 0
@@ -4953,46 +4983,16 @@ MonoBehaviour:
           Allowed: 0
         - Name: UnsafeUtilityExtensions
           Allowed: 0
-        - Name: UntypedUnsafeParallelHashMap
-          Allowed: 0
         Allowed: 0
       - Name: Unity.Collections.LowLevel.Unsafe.NotBurstCompatible
         TypeRestrictions:
         - Name: Extensions
           Allowed: 0
         Allowed: 0
-      - Name: Unity.Collections.NotBurstCompatible
-        TypeRestrictions:
-        - Name: Extensions
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Jobs
-        TypeRestrictions:
-        - Name: EarlyInitHelpers
-          Allowed: 0
-        - Name: IJobFilter
-          Allowed: 0
-        - Name: IJobFilterExtensions
-          Allowed: 0
-        - Name: IJobParallelForBatch
-          Allowed: 0
-        - Name: IJobParallelForBatchExtensions
-          Allowed: 0
-        - Name: IJobParallelForDefer
-          Allowed: 0
-        - Name: IJobParallelForDeferExtensions
-          Allowed: 0
-        - Name: IJobParallelForFilter
-          Allowed: 0
-        - Name: JobParallelIndexListExtensions
-          Allowed: 0
-        - Name: RegisterGenericJobTypeAttribute
-          Allowed: 0
-        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: af6cdaac4795dea48ae3a2dabd9b20aa, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134073660802118485
+      <LastWriteTimeUTC>k__BackingField: 134081895168616167
     - Name: Unity.InputSystem
       NamedTypeRestrictions:
       - Name: Unity.XR.GoogleVr
@@ -5831,7 +5831,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134076096322610818
+      <LastWriteTimeUTC>k__BackingField: 134081895166419187
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
       - Name: TMPro
@@ -6184,178 +6184,173 @@ MonoBehaviour:
       <LastWriteTimeUTC>k__BackingField: 134073660802129805
     - Name: UnityEngine.AIModule
       NamedTypeRestrictions:
+      - Name: UnityEngine.Experimental.AI
+        TypeRestrictions:
+        - Name: PolygonId
+          Allowed: 0
+        - Name: NavMeshLocation
+          Allowed: 0
+        - Name: PathQueryStatus
+          Allowed: 0
+        - Name: NavMeshPolyTypes
+          Allowed: 0
+        - Name: NavMeshWorld
+          Allowed: 0
+        - Name: NavMeshQuery
+          Allowed: 0
+        Allowed: 0
       - Name: UnityEngine.AI
         TypeRestrictions:
-        - Name: NavMesh
+        - Name: NavMeshBuilder
+          Allowed: 0
+        - Name: ObstacleAvoidanceType
           Allowed: 0
         - Name: NavMeshAgent
           Allowed: 0
-        - Name: NavMeshBuildDebugFlags
+        - Name: NavMeshObstacleShape
           Allowed: 0
-        - Name: NavMeshBuildDebugSettings
+        - Name: NavMeshObstacle
           Allowed: 0
-        - Name: NavMeshBuilder
+        - Name: OffMeshLinkType
           Allowed: 0
-        - Name: NavMeshBuildMarkup
+        - Name: OffMeshLinkData
           Allowed: 0
-        - Name: NavMeshBuildSettings
+        - Name: OffMeshLink
           Allowed: 0
-        - Name: NavMeshBuildSource
+        - Name: NavMeshHit
           Allowed: 0
-        - Name: NavMeshBuildSourceShape
-          Allowed: 0
-        - Name: NavMeshCollectGeometry
+        - Name: NavMeshTriangulation
           Allowed: 0
         - Name: NavMeshData
           Allowed: 0
         - Name: NavMeshDataInstance
           Allowed: 0
-        - Name: NavMeshHit
-          Allowed: 0
         - Name: NavMeshLinkData
           Allowed: 0
         - Name: NavMeshLinkInstance
           Allowed: 0
-        - Name: NavMeshObstacle
+        - Name: NavMeshQueryFilter
           Allowed: 0
-        - Name: NavMeshObstacleShape
-          Allowed: 0
-        - Name: NavMeshPath
+        - Name: NavMesh
           Allowed: 0
         - Name: NavMeshPathStatus
           Allowed: 0
-        - Name: NavMeshQueryFilter
+        - Name: NavMeshPath
           Allowed: 0
-        - Name: NavMeshTriangulation
+        - Name: NavMeshBuildDebugFlags
           Allowed: 0
-        - Name: ObstacleAvoidanceType
+        - Name: NavMeshBuildSourceShape
           Allowed: 0
-        - Name: OffMeshLink
+        - Name: NavMeshCollectGeometry
           Allowed: 0
-        - Name: OffMeshLinkData
+        - Name: NavMeshBuildSource
           Allowed: 0
-        - Name: OffMeshLinkType
+        - Name: NavMeshBuildMarkup
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Experimental.AI
-        TypeRestrictions:
-        - Name: NavMeshLocation
+        - Name: NavMeshBuildSettings
           Allowed: 0
-        - Name: NavMeshPolyTypes
-          Allowed: 0
-        - Name: NavMeshQuery
-          Allowed: 0
-        - Name: NavMeshWorld
-          Allowed: 0
-        - Name: PathQueryStatus
-          Allowed: 0
-        - Name: PolygonId
+        - Name: NavMeshBuildDebugSettings
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3263e3ae2413a6f4cafb9fd4b0d737c2, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.AnimationModule
       NamedTypeRestrictions:
-      - Name: UnityEditorInternal
-        TypeRestrictions:
-        - Name: AnimatorController
-          Allowed: 0
-        - Name: AnimatorControllerLayer
-          Allowed: 0
-        - Name: AnimatorControllerParameter
-          Allowed: 0
-        - Name: AnimatorControllerParameterType
-          Allowed: 0
-        - Name: AnimatorLayerBlendingMode
-          Allowed: 0
-        - Name: BlendTree
-          Allowed: 0
-        - Name: State
-          Allowed: 0
-        - Name: StateMachine
-          Allowed: 0
-        - Name: Transition
-          Allowed: 0
-        Allowed: 0
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: Animation
-          Allowed: 0
-        - Name: AnimationBlendMode
-          Allowed: 0
-        - Name: AnimationClip
-          Allowed: 0
-        - Name: AnimationClipPair
-          Allowed: 0
-        - Name: AnimationCullingType
-          Allowed: 0
-        - Name: AnimationEvent
-          Allowed: 0
         - Name: AnimationInfo
-          Allowed: 0
-        - Name: AnimationPlayMode
-          Allowed: 0
-        - Name: AnimationState
-          Allowed: 0
-        - Name: AnimationUpdateMode
           Allowed: 0
         - Name: Animator
           Allowed: 0
-        - Name: AnimatorClipInfo
+        - Name: IAnimationClipSource
           Allowed: 0
-        - Name: AnimatorControllerParameter
+        - Name: SharedBetweenAnimatorsAttribute
           Allowed: 0
-        - Name: AnimatorControllerParameterType
+        - Name: StateMachineBehaviour
           Allowed: 0
-        - Name: AnimatorCullingMode
+        - Name: PlayMode
           Allowed: 0
-        - Name: AnimatorOverrideController
+        - Name: QueueMode
           Allowed: 0
-        - Name: AnimatorRecorderMode
+        - Name: AnimationBlendMode
           Allowed: 0
-        - Name: AnimatorStateInfo
+        - Name: AnimationPlayMode
           Allowed: 0
-        - Name: AnimatorTransitionInfo
+        - Name: AnimationCullingType
           Allowed: 0
-        - Name: AnimatorUpdateMode
+        - Name: AnimationUpdateMode
           Allowed: 0
-        - Name: AnimatorUtility
+        - Name: Animation
           Allowed: 0
-        - Name: ArmDof
+        - Name: AnimationState
           Allowed: 0
-        - Name: Avatar
+        - Name: AnimationEvent
           Allowed: 0
-        - Name: AvatarBuilder
+        - Name: AnimationClip
+          Allowed: 0
+        - Name: AvatarTarget
           Allowed: 0
         - Name: AvatarIKGoal
           Allowed: 0
         - Name: AvatarIKHint
           Allowed: 0
-        - Name: AvatarMask
+        - Name: AnimatorControllerParameterType
           Allowed: 0
-        - Name: AvatarMaskBodyPart
-          Allowed: 0
-        - Name: AvatarTarget
-          Allowed: 0
-        - Name: BodyDof
+        - Name: AnimatorRecorderMode
           Allowed: 0
         - Name: DurationUnit
           Allowed: 0
-        - Name: FingerDof
+        - Name: AnimatorCullingMode
+          Allowed: 0
+        - Name: AnimatorUpdateMode
+          Allowed: 0
+        - Name: AnimatorClipInfo
+          Allowed: 0
+        - Name: AnimatorStateInfo
+          Allowed: 0
+        - Name: AnimatorTransitionInfo
+          Allowed: 0
+        - Name: MatchTargetWeightMask
+          Allowed: 0
+        - Name: AnimatorControllerParameter
+          Allowed: 0
+        - Name: AnimationClipPair
+          Allowed: 0
+        - Name: AnimatorOverrideController
+          Allowed: 0
+        - Name: AnimatorUtility
+          Allowed: 0
+        - Name: BodyDof
           Allowed: 0
         - Name: HeadDof
           Allowed: 0
+        - Name: LegDof
+          Allowed: 0
+        - Name: ArmDof
+          Allowed: 0
+        - Name: FingerDof
+          Allowed: 0
+        - Name: HumanPartDof
+          Allowed: 0
         - Name: HumanBodyBones
+          Allowed: 0
+        - Name: Avatar
+          Allowed: 0
+        - Name: SkeletonBone
+          Allowed: 0
+        - Name: HumanLimit
           Allowed: 0
         - Name: HumanBone
           Allowed: 0
         - Name: HumanDescription
           Allowed: 0
-        - Name: HumanLimit
+        - Name: AvatarBuilder
           Allowed: 0
-        - Name: HumanPartDof
+        - Name: AvatarMaskBodyPart
+          Allowed: 0
+        - Name: AvatarMask
           Allowed: 0
         - Name: HumanPose
           Allowed: 0
@@ -6363,29 +6358,37 @@ MonoBehaviour:
           Allowed: 0
         - Name: HumanTrait
           Allowed: 0
-        - Name: IAnimationClipSource
-          Allowed: 0
-        - Name: LegDof
-          Allowed: 0
-        - Name: MatchTargetWeightMask
-          Allowed: 0
         - Name: Motion
-          Allowed: 0
-        - Name: PlayMode
-          Allowed: 0
-        - Name: QueueMode
           Allowed: 0
         - Name: RuntimeAnimatorController
           Allowed: 0
-        - Name: SharedBetweenAnimatorsAttribute
+        Allowed: 0
+      - Name: UnityEngine.Experimental.Animations
+        TypeRestrictions:
+        - Name: AnimationStreamSource
           Allowed: 0
-        - Name: SkeletonBone
+        - Name: AnimationPlayableOutputExtensions
           Allowed: 0
-        - Name: StateMachineBehaviour
+        Allowed: 0
+      - Name: UnityEngine.Playables
+        TypeRestrictions:
+        - Name: AnimationPlayableUtilities
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.Animations
         TypeRestrictions:
+        - Name: AnimationPlayableBinding
+          Allowed: 0
+        - Name: DiscreteEvaluationAttribute
+          Allowed: 0
+        - Name: IAnimationJob
+          Allowed: 0
+        - Name: IAnimationJobPlayable
+          Allowed: 0
+        - Name: IAnimationWindowPreview
+          Allowed: 0
+        - Name: NotKeyableAttribute
+          Allowed: 0
         - Name: AimConstraint
           Allowed: 0
         - Name: AnimationClipPlayable
@@ -6396,85 +6399,82 @@ MonoBehaviour:
           Allowed: 0
         - Name: AnimationMixerPlayable
           Allowed: 0
-        - Name: AnimationPlayableBinding
-          Allowed: 0
         - Name: AnimationPlayableExtensions
           Allowed: 0
         - Name: AnimationPlayableOutput
-          Allowed: 0
-        - Name: AnimationSceneHandleUtility
           Allowed: 0
         - Name: AnimationScriptPlayable
           Allowed: 0
         - Name: AnimationStream
           Allowed: 0
+        - Name: TransformStreamHandle
+          Allowed: 0
+        - Name: PropertyStreamHandle
+          Allowed: 0
+        - Name: TransformSceneHandle
+          Allowed: 0
+        - Name: PropertySceneHandle
+          Allowed: 0
+        - Name: AnimationSceneHandleUtility
+          Allowed: 0
         - Name: AnimationStreamHandleUtility
           Allowed: 0
         - Name: AnimatorControllerPlayable
           Allowed: 0
-        - Name: AnimatorJobExtensions
+        - Name: CustomStreamPropertyType
           Allowed: 0
-        - Name: Axis
+        - Name: AnimatorJobExtensions
           Allowed: 0
         - Name: BoundProperty
           Allowed: 0
+        - Name: Axis
+          Allowed: 0
         - Name: ConstraintSource
-          Allowed: 0
-        - Name: CustomStreamPropertyType
-          Allowed: 0
-        - Name: DiscreteEvaluationAttribute
-          Allowed: 0
-        - Name: GenericBinding
-          Allowed: 0
-        - Name: GenericBindingUtility
-          Allowed: 0
-        - Name: IAnimationJob
-          Allowed: 0
-        - Name: IAnimationJobPlayable
-          Allowed: 0
-        - Name: IAnimationWindowPreview
           Allowed: 0
         - Name: IConstraint
           Allowed: 0
-        - Name: LookAtConstraint
-          Allowed: 0
-        - Name: MuscleHandle
-          Allowed: 0
-        - Name: NotKeyableAttribute
-          Allowed: 0
-        - Name: ParentConstraint
-          Allowed: 0
         - Name: PositionConstraint
-          Allowed: 0
-        - Name: PropertySceneHandle
-          Allowed: 0
-        - Name: PropertyStreamHandle
           Allowed: 0
         - Name: RotationConstraint
           Allowed: 0
         - Name: ScaleConstraint
           Allowed: 0
-        - Name: TransformSceneHandle
+        - Name: GenericBinding
           Allowed: 0
-        - Name: TransformStreamHandle
+        - Name: GenericBindingUtility
+          Allowed: 0
+        - Name: LookAtConstraint
+          Allowed: 0
+        - Name: MuscleHandle
+          Allowed: 0
+        - Name: ParentConstraint
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.Experimental.Animations
+      - Name: UnityEditorInternal
         TypeRestrictions:
-        - Name: AnimationPlayableOutputExtensions
+        - Name: Transition
           Allowed: 0
-        - Name: AnimationStreamSource
+        - Name: StateMachine
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.Playables
-        TypeRestrictions:
-        - Name: AnimationPlayableUtilities
+        - Name: State
+          Allowed: 0
+        - Name: AnimatorController
+          Allowed: 0
+        - Name: BlendTree
+          Allowed: 0
+        - Name: AnimatorControllerLayer
+          Allowed: 0
+        - Name: AnimatorControllerParameter
+          Allowed: 0
+        - Name: AnimatorControllerParameterType
+          Allowed: 0
+        - Name: AnimatorLayerBlendingMode
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 017a3c83f8821b943b4982e6a5b75816, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.AssetBundleModule
       NamedTypeRestrictions:
       - Name: UnityEngine
@@ -8714,129 +8714,106 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 176f5bc143a90474ba7ba4caffc6a971, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.ParticleSystemModule
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: ParticleCollisionEvent
-          Allowed: 0
-        - Name: ParticlePhysicsExtensions
+        - Name: ParticleSystemEmissionType
           Allowed: 0
         - Name: ParticleSystem
           Allowed: 0
-        - Name: ParticleSystemAnimationMode
+        - Name: ParticlePhysicsExtensions
           Allowed: 0
-        - Name: ParticleSystemAnimationRowMode
+        - Name: ParticleCollisionEvent
+          Allowed: 0
+        - Name: ParticleSystemRenderMode
+          Allowed: 0
+        - Name: ParticleSystemMeshDistribution
+          Allowed: 0
+        - Name: ParticleSystemSortMode
+          Allowed: 0
+        - Name: ParticleSystemCollisionQuality
+          Allowed: 0
+        - Name: ParticleSystemRenderSpace
+          Allowed: 0
+        - Name: ParticleSystemCurveMode
+          Allowed: 0
+        - Name: ParticleSystemGradientMode
+          Allowed: 0
+        - Name: ParticleSystemShapeType
+          Allowed: 0
+        - Name: ParticleSystemMeshShapeType
+          Allowed: 0
+        - Name: ParticleSystemShapeTextureChannel
+          Allowed: 0
+        - Name: ParticleSystemAnimationMode
           Allowed: 0
         - Name: ParticleSystemAnimationTimeMode
           Allowed: 0
         - Name: ParticleSystemAnimationType
           Allowed: 0
-        - Name: ParticleSystemBakeMeshOptions
-          Allowed: 0
-        - Name: ParticleSystemBakeTextureOptions
-          Allowed: 0
-        - Name: ParticleSystemColliderQueryMode
-          Allowed: 0
-        - Name: ParticleSystemCollisionMode
-          Allowed: 0
-        - Name: ParticleSystemCollisionQuality
+        - Name: ParticleSystemAnimationRowMode
           Allowed: 0
         - Name: ParticleSystemCollisionType
           Allowed: 0
+        - Name: ParticleSystemCollisionMode
+          Allowed: 0
+        - Name: ParticleSystemOverlapAction
+          Allowed: 0
+        - Name: ParticleSystemColliderQueryMode
+          Allowed: 0
+        - Name: ParticleSystemSimulationSpace
+          Allowed: 0
+        - Name: ParticleSystemStopBehavior
+          Allowed: 0
+        - Name: ParticleSystemScalingMode
+          Allowed: 0
+        - Name: ParticleSystemStopAction
+          Allowed: 0
         - Name: ParticleSystemCullingMode
           Allowed: 0
-        - Name: ParticleSystemCurveMode
-          Allowed: 0
-        - Name: ParticleSystemCustomData
-          Allowed: 0
-        - Name: ParticleSystemCustomDataMode
-          Allowed: 0
-        - Name: ParticleSystemEmissionType
-          Allowed: 0
         - Name: ParticleSystemEmitterVelocityMode
-          Allowed: 0
-        - Name: ParticleSystemForceField
-          Allowed: 0
-        - Name: ParticleSystemForceFieldShape
-          Allowed: 0
-        - Name: ParticleSystemGameObjectFilter
-          Allowed: 0
-        - Name: ParticleSystemGradientMode
           Allowed: 0
         - Name: ParticleSystemGravitySource
           Allowed: 0
         - Name: ParticleSystemInheritVelocityMode
           Allowed: 0
-        - Name: ParticleSystemMeshDistribution
+        - Name: ParticleSystemTriggerEventType
           Allowed: 0
-        - Name: ParticleSystemMeshShapeType
+        - Name: ParticleSystemVertexStream
+          Allowed: 0
+        - Name: ParticleSystemCustomData
+          Allowed: 0
+        - Name: ParticleSystemCustomDataMode
           Allowed: 0
         - Name: ParticleSystemNoiseQuality
           Allowed: 0
-        - Name: ParticleSystemOverlapAction
-          Allowed: 0
-        - Name: ParticleSystemRenderer
-          Allowed: 0
-        - Name: ParticleSystemRenderMode
-          Allowed: 0
-        - Name: ParticleSystemRenderSpace
-          Allowed: 0
-        - Name: ParticleSystemRingBufferMode
-          Allowed: 0
-        - Name: ParticleSystemScalingMode
-          Allowed: 0
-        - Name: ParticleSystemShapeMultiModeValue
-          Allowed: 0
-        - Name: ParticleSystemShapeTextureChannel
-          Allowed: 0
-        - Name: ParticleSystemShapeType
-          Allowed: 0
-        - Name: ParticleSystemSimulationSpace
-          Allowed: 0
-        - Name: ParticleSystemSortMode
-          Allowed: 0
-        - Name: ParticleSystemStopAction
-          Allowed: 0
-        - Name: ParticleSystemStopBehavior
+        - Name: ParticleSystemSubEmitterType
           Allowed: 0
         - Name: ParticleSystemSubEmitterProperties
-          Allowed: 0
-        - Name: ParticleSystemSubEmitterType
           Allowed: 0
         - Name: ParticleSystemTrailMode
           Allowed: 0
         - Name: ParticleSystemTrailTextureMode
           Allowed: 0
-        - Name: ParticleSystemTriggerEventType
+        - Name: ParticleSystemShapeMultiModeValue
           Allowed: 0
-        - Name: ParticleSystemVertexStream
+        - Name: ParticleSystemRingBufferMode
+          Allowed: 0
+        - Name: ParticleSystemGameObjectFilter
+          Allowed: 0
+        - Name: ParticleSystemForceFieldShape
+          Allowed: 0
+        - Name: ParticleSystemBakeMeshOptions
+          Allowed: 0
+        - Name: ParticleSystemBakeTextureOptions
           Allowed: 0
         - Name: ParticleSystemVertexStreams
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.ParticleSystemJobs
-        TypeRestrictions:
-        - Name: IJobParticleSystem
+        - Name: ParticleSystemRenderer
           Allowed: 0
-        - Name: IJobParticleSystemExtensions
-          Allowed: 0
-        - Name: IJobParticleSystemParallelFor
-          Allowed: 0
-        - Name: IJobParticleSystemParallelForBatch
-          Allowed: 0
-        - Name: IJobParticleSystemParallelForBatchExtensions
-          Allowed: 0
-        - Name: IJobParticleSystemParallelForExtensions
-          Allowed: 0
-        - Name: IParticleSystemJobExtensions
-          Allowed: 0
-        - Name: ParticleSystemJobData
-          Allowed: 0
-        - Name: ParticleSystemNativeArray3
-          Allowed: 0
-        - Name: ParticleSystemNativeArray4
+        - Name: ParticleSystemForceField
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.Rendering
@@ -8844,111 +8821,46 @@ MonoBehaviour:
         - Name: UVChannelFlags
           Allowed: 0
         Allowed: 0
+      - Name: UnityEngine.ParticleSystemJobs
+        TypeRestrictions:
+        - Name: IJobParticleSystem
+          Allowed: 0
+        - Name: IJobParticleSystemParallelFor
+          Allowed: 0
+        - Name: IJobParticleSystemParallelForBatch
+          Allowed: 0
+        - Name: IJobParticleSystemExtensions
+          Allowed: 0
+        - Name: IJobParticleSystemParallelForExtensions
+          Allowed: 0
+        - Name: IJobParticleSystemParallelForBatchExtensions
+          Allowed: 0
+        - Name: IParticleSystemJobExtensions
+          Allowed: 0
+        - Name: ParticleSystemNativeArray3
+          Allowed: 0
+        - Name: ParticleSystemNativeArray4
+          Allowed: 0
+        - Name: ParticleSystemJobData
+          Allowed: 0
+        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: e64937215e9b4874b8a23acc929448bd, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.Physics2DModule
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: AnchoredJoint2D
-          Allowed: 0
-        - Name: AreaEffector2D
-          Allowed: 0
-        - Name: BoxCollider2D
-          Allowed: 0
-        - Name: BuoyancyEffector2D
-          Allowed: 0
-        - Name: CapsuleCollider2D
-          Allowed: 0
-        - Name: CapsuleDirection2D
-          Allowed: 0
-        - Name: CircleCollider2D
-          Allowed: 0
-        - Name: Collider2D
-          Allowed: 0
-        - Name: ColliderDistance2D
-          Allowed: 0
-        - Name: ColliderErrorState2D
-          Allowed: 0
-        - Name: Collision2D
-          Allowed: 0
-        - Name: CollisionDetectionMode2D
-          Allowed: 0
-        - Name: CompositeCollider2D
-          Allowed: 0
-        - Name: ConstantForce2D
-          Allowed: 0
-        - Name: ContactFilter2D
-          Allowed: 0
-        - Name: ContactPoint2D
-          Allowed: 0
-        - Name: CustomCollider2D
-          Allowed: 0
-        - Name: DistanceJoint2D
-          Allowed: 0
-        - Name: EdgeCollider2D
-          Allowed: 0
-        - Name: Effector2D
-          Allowed: 0
-        - Name: EffectorForceMode2D
-          Allowed: 0
-        - Name: EffectorSelection2D
-          Allowed: 0
-        - Name: FixedJoint2D
-          Allowed: 0
-        - Name: ForceMode2D
-          Allowed: 0
-        - Name: FrictionJoint2D
-          Allowed: 0
-        - Name: HingeJoint2D
-          Allowed: 0
-        - Name: Joint2D
-          Allowed: 0
-        - Name: JointAngleLimits2D
-          Allowed: 0
-        - Name: JointBreakAction2D
-          Allowed: 0
-        - Name: JointLimitState2D
-          Allowed: 0
-        - Name: JointMotor2D
-          Allowed: 0
-        - Name: JointSuspension2D
-          Allowed: 0
-        - Name: JointTranslationLimits2D
-          Allowed: 0
-        - Name: Physics2D
-          Allowed: 0
-        - Name: PhysicsJobOptions2D
-          Allowed: 0
-        - Name: PhysicsMaterial2D
-          Allowed: 0
-        - Name: PhysicsMaterialCombine2D
-          Allowed: 0
         - Name: PhysicsScene2D
           Allowed: 0
         - Name: PhysicsSceneExtensions2D
           Allowed: 0
-        - Name: PhysicsShape2D
+        - Name: Physics2D
           Allowed: 0
-        - Name: PhysicsShapeGroup2D
+        - Name: SimulationMode2D
           Allowed: 0
-        - Name: PhysicsShapeType2D
-          Allowed: 0
-        - Name: PhysicsUpdateBehaviour2D
-          Allowed: 0
-        - Name: PlatformEffector2D
-          Allowed: 0
-        - Name: PointEffector2D
-          Allowed: 0
-        - Name: PolygonCollider2D
-          Allowed: 0
-        - Name: RaycastHit2D
-          Allowed: 0
-        - Name: RelativeJoint2D
-          Allowed: 0
-        - Name: Rigidbody2D
+        - Name: CapsuleDirection2D
           Allowed: 0
         - Name: RigidbodyConstraints2D
           Allowed: 0
@@ -8956,128 +8868,218 @@ MonoBehaviour:
           Allowed: 0
         - Name: RigidbodySleepMode2D
           Allowed: 0
+        - Name: CollisionDetectionMode2D
+          Allowed: 0
         - Name: RigidbodyType2D
           Allowed: 0
-        - Name: SimulationMode2D
+        - Name: ForceMode2D
           Allowed: 0
-        - Name: SliderJoint2D
+        - Name: ColliderErrorState2D
+          Allowed: 0
+        - Name: JointLimitState2D
+          Allowed: 0
+        - Name: JointBreakAction2D
+          Allowed: 0
+        - Name: EffectorSelection2D
+          Allowed: 0
+        - Name: EffectorForceMode2D
+          Allowed: 0
+        - Name: PhysicsShapeType2D
+          Allowed: 0
+        - Name: PhysicsMaterialCombine2D
+          Allowed: 0
+        - Name: PhysicsShape2D
+          Allowed: 0
+        - Name: PhysicsShapeGroup2D
+          Allowed: 0
+        - Name: ColliderDistance2D
+          Allowed: 0
+        - Name: ContactFilter2D
+          Allowed: 0
+        - Name: Collision2D
+          Allowed: 0
+        - Name: ContactPoint2D
+          Allowed: 0
+        - Name: JointAngleLimits2D
+          Allowed: 0
+        - Name: JointTranslationLimits2D
+          Allowed: 0
+        - Name: JointMotor2D
+          Allowed: 0
+        - Name: JointSuspension2D
+          Allowed: 0
+        - Name: RaycastHit2D
+          Allowed: 0
+        - Name: PhysicsJobOptions2D
+          Allowed: 0
+        - Name: Rigidbody2D
+          Allowed: 0
+        - Name: Collider2D
+          Allowed: 0
+        - Name: CustomCollider2D
+          Allowed: 0
+        - Name: CircleCollider2D
+          Allowed: 0
+        - Name: CapsuleCollider2D
+          Allowed: 0
+        - Name: EdgeCollider2D
+          Allowed: 0
+        - Name: BoxCollider2D
+          Allowed: 0
+        - Name: PolygonCollider2D
+          Allowed: 0
+        - Name: CompositeCollider2D
+          Allowed: 0
+        - Name: Joint2D
+          Allowed: 0
+        - Name: AnchoredJoint2D
           Allowed: 0
         - Name: SpringJoint2D
           Allowed: 0
-        - Name: SurfaceEffector2D
+        - Name: DistanceJoint2D
+          Allowed: 0
+        - Name: FrictionJoint2D
+          Allowed: 0
+        - Name: HingeJoint2D
+          Allowed: 0
+        - Name: RelativeJoint2D
+          Allowed: 0
+        - Name: SliderJoint2D
           Allowed: 0
         - Name: TargetJoint2D
           Allowed: 0
+        - Name: FixedJoint2D
+          Allowed: 0
         - Name: WheelJoint2D
+          Allowed: 0
+        - Name: Effector2D
+          Allowed: 0
+        - Name: AreaEffector2D
+          Allowed: 0
+        - Name: BuoyancyEffector2D
+          Allowed: 0
+        - Name: PointEffector2D
+          Allowed: 0
+        - Name: PlatformEffector2D
+          Allowed: 0
+        - Name: SurfaceEffector2D
+          Allowed: 0
+        - Name: PhysicsUpdateBehaviour2D
+          Allowed: 0
+        - Name: ConstantForce2D
+          Allowed: 0
+        - Name: PhysicsMaterial2D
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: cc8a99ed1da4c2045a0ae971131450ed, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.PhysicsModule
       NamedTypeRestrictions:
       - Name: UnityEngine
         TypeRestrictions:
-        - Name: ArticulationBody
-          Allowed: 0
-        - Name: ArticulationDofLock
-          Allowed: 0
-        - Name: ArticulationDrive
-          Allowed: 0
-        - Name: ArticulationDriveAxis
-          Allowed: 0
-        - Name: ArticulationDriveType
-          Allowed: 0
-        - Name: ArticulationJacobian
-          Allowed: 0
-        - Name: ArticulationJointType
-          Allowed: 0
-        - Name: ArticulationReducedSpace
-          Allowed: 0
-        - Name: BoxcastCommand
-          Allowed: 0
-        - Name: BoxCollider
-          Allowed: 0
-        - Name: CapsulecastCommand
-          Allowed: 0
-        - Name: CapsuleCollider
-          Allowed: 0
-        - Name: CharacterController
-          Allowed: 0
-        - Name: CharacterJoint
-          Allowed: 0
-        - Name: ClosestPointCommand
-          Allowed: 0
-        - Name: Collider
-          Allowed: 0
-        - Name: ColliderHit
+        - Name: ContactPoint
           Allowed: 0
         - Name: Collision
           Allowed: 0
         - Name: CollisionDetectionMode
           Allowed: 0
-        - Name: CollisionFlags
-          Allowed: 0
-        - Name: ConfigurableJoint
-          Allowed: 0
-        - Name: ConfigurableJointMotion
-          Allowed: 0
-        - Name: ConstantForce
-          Allowed: 0
-        - Name: ContactPair
-          Allowed: 0
-        - Name: ContactPairHeader
-          Allowed: 0
-        - Name: ContactPairPoint
-          Allowed: 0
-        - Name: ContactPoint
-          Allowed: 0
-        - Name: ControllerColliderHit
-          Allowed: 0
-        - Name: FixedJoint
-          Allowed: 0
         - Name: ForceMode
           Allowed: 0
-        - Name: HingeJoint
+        - Name: SoftJointLimit
           Allowed: 0
-        - Name: Joint
+        - Name: SoftJointLimitSpring
           Allowed: 0
         - Name: JointDrive
           Allowed: 0
-        - Name: JointDriveMode
-          Allowed: 0
-        - Name: JointLimits
-          Allowed: 0
         - Name: JointMotor
-          Allowed: 0
-        - Name: JointProjectionMode
           Allowed: 0
         - Name: JointSpring
           Allowed: 0
-        - Name: MeshCollider
+        - Name: JointLimits
           Allowed: 0
-        - Name: MeshColliderCookingOptions
+        - Name: WheelFrictionCurve
+          Allowed: 0
+        - Name: ArticulationJointType
+          Allowed: 0
+        - Name: ArticulationDofLock
+          Allowed: 0
+        - Name: ArticulationDriveType
+          Allowed: 0
+        - Name: ArticulationDrive
+          Allowed: 0
+        - Name: ArticulationReducedSpace
+          Allowed: 0
+        - Name: ArticulationJacobian
+          Allowed: 0
+        - Name: ArticulationDriveAxis
+          Allowed: 0
+        - Name: ArticulationBody
+          Allowed: 0
+        - Name: BoxCollider
+          Allowed: 0
+        - Name: CapsuleCollider
+          Allowed: 0
+        - Name: CollisionFlags
+          Allowed: 0
+        - Name: ControllerColliderHit
+          Allowed: 0
+        - Name: CharacterController
+          Allowed: 0
+        - Name: CharacterJoint
+          Allowed: 0
+        - Name: Collider
+          Allowed: 0
+        - Name: JointProjectionMode
+          Allowed: 0
+        - Name: RotationDriveMode
+          Allowed: 0
+        - Name: ConfigurableJointMotion
+          Allowed: 0
+        - Name: ConfigurableJoint
+          Allowed: 0
+        - Name: ConstantForce
+          Allowed: 0
+        - Name: Physics
           Allowed: 0
         - Name: ModifiableContactPair
           Allowed: 0
         - Name: ModifiableMassProperties
           Allowed: 0
-        - Name: OverlapBoxCommand
+        - Name: FixedJoint
           Allowed: 0
-        - Name: OverlapCapsuleCommand
+        - Name: HingeJoint
           Allowed: 0
-        - Name: OverlapSphereCommand
+        - Name: Joint
           Allowed: 0
-        - Name: PhysicMaterial
+        - Name: MeshColliderCookingOptions
           Allowed: 0
-        - Name: PhysicMaterialCombine
+        - Name: MeshCollider
           Allowed: 0
-        - Name: Physics
+        - Name: QueryTriggerInteraction
+          Allowed: 0
+        - Name: SimulationMode
+          Allowed: 0
+        - Name: SimulationStage
+          Allowed: 0
+        - Name: SimulationOption
+          Allowed: 0
+        - Name: IntegrationInfo
+          Allowed: 0
+        - Name: ContactPairHeader
+          Allowed: 0
+        - Name: ContactPair
+          Allowed: 0
+        - Name: ContactPairPoint
+          Allowed: 0
+        - Name: PhysicsMaterialCombine
           Allowed: 0
         - Name: PhysicsMaterial
           Allowed: 0
-        - Name: PhysicsMaterialCombine
+        - Name: PhysicMaterialCombine
+          Allowed: 0
+        - Name: PhysicMaterial
           Allowed: 0
         - Name: PhysicsScene
           Allowed: 0
@@ -9085,70 +9087,68 @@ MonoBehaviour:
           Allowed: 0
         - Name: QueryParameters
           Allowed: 0
-        - Name: QueryTriggerInteraction
+        - Name: ColliderHit
           Allowed: 0
         - Name: RaycastCommand
           Allowed: 0
-        - Name: RaycastHit
+        - Name: SpherecastCommand
           Allowed: 0
-        - Name: Rigidbody
+        - Name: CapsulecastCommand
+          Allowed: 0
+        - Name: BoxcastCommand
+          Allowed: 0
+        - Name: ClosestPointCommand
+          Allowed: 0
+        - Name: OverlapSphereCommand
+          Allowed: 0
+        - Name: OverlapBoxCommand
+          Allowed: 0
+        - Name: OverlapCapsuleCommand
+          Allowed: 0
+        - Name: RaycastHit
           Allowed: 0
         - Name: RigidbodyConstraints
           Allowed: 0
         - Name: RigidbodyInterpolation
           Allowed: 0
-        - Name: RotationDriveMode
-          Allowed: 0
-        - Name: SimulationMode
-          Allowed: 0
-        - Name: SimulationOption
-          Allowed: 0
-        - Name: SimulationStage
-          Allowed: 0
-        - Name: SoftJointLimit
-          Allowed: 0
-        - Name: SoftJointLimitSpring
-          Allowed: 0
-        - Name: SpherecastCommand
+        - Name: Rigidbody
           Allowed: 0
         - Name: SphereCollider
           Allowed: 0
         - Name: SpringJoint
           Allowed: 0
-        - Name: WheelFrictionCurve
-          Allowed: 0
         Allowed: 0
       - Name: UnityEngine.LowLevelPhysics
         TypeRestrictions:
-        - Name: BoxGeometry
-          Allowed: 0
-        - Name: CapsuleGeometry
-          Allowed: 0
-        - Name: ConvexMeshGeometry
-          Allowed: 0
-        - Name: GeometryHolder
-          Allowed: 0
-        - Name: GeometryType
-          Allowed: 0
-        - Name: IGeometry
+        - Name: ImmediateTransform
           Allowed: 0
         - Name: ImmediateContact
           Allowed: 0
         - Name: ImmediatePhysics
           Allowed: 0
-        - Name: ImmediateTransform
+        - Name: IGeometry
+          Allowed: 0
+        - Name: BoxGeometry
           Allowed: 0
         - Name: SphereGeometry
           Allowed: 0
-        - Name: TerrainGeometry
+        - Name: CapsuleGeometry
+          Allowed: 0
+        - Name: ConvexMeshGeometry
           Allowed: 0
         - Name: TriangleMeshGeometry
+          Allowed: 0
+        - Name: TerrainGeometry
+          Allowed: 0
+        - Name: GeometryType
+          Allowed: 0
+        - Name: GeometryHolder
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 8d9c25cb499f740449a6ba9a4f5256b0, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 133864520420000000
+      <LastWriteTimeUTC>k__BackingField: 134001386120000000
     - Name: UnityEngine.UIModule
       NamedTypeRestrictions:
       - Name: UnityEngine

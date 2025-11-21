@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chair
   m_EditorClassIdentifier: Assembly-CSharp::CraftingRecipie
   materials:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1137379969359589219, guid: eb238a543bac77946a847a352da2abda, type: 3}
+  - {fileID: 1137379969359589219, guid: 922226ce19d5b504389c9efc1c22212f, type: 3}
   itemToSpawn: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
   tickCraftingTime: 2

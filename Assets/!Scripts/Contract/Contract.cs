@@ -28,7 +28,7 @@ namespace CodeIsBroken.Contract
 
                 foreach (var mod in additionalModifications)
                 {
-                    product.Modify(mod);
+                    this.product.Modify(mod);
                 }
             }
             public void Progress()

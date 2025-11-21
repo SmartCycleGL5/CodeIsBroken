@@ -774,12 +774,21 @@ MonoBehaviour:
       Value:
         additionalModifications: {x: 1, y: 2}
         firstContracts:
-        - requests: []
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+            amount: 100
+            additionalModifications:
+            - rid: 464792635802910834
         - requests:
           - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
             amount: 200
             additionalModifications: []
-        - requests: []
+        - requests:
+          - toRequest: {fileID: 1137379969359589219, guid: 0e8d8bcd39df9df4a92c0ef2c2ffd0cc, type: 3}
+            amount: 75
+            additionalModifications:
+            - rid: 464792635802910835
+            - rid: 464792635802910836
   CompanyNames:
   - The generic Mall
   - Woodworkers co
@@ -827,6 +836,18 @@ MonoBehaviour:
       type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
       data:
         <color>k__BackingField: {r: 0, g: 1, b: 0, a: 0}
+    - rid: 464792635802910834
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910835
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 0}
+    - rid: 464792635802910836
+      type: {class: Color, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &357034596
 MonoBehaviour:
   m_ObjectHideFlags: 0

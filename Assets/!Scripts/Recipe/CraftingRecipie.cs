@@ -5,7 +5,7 @@ using UnityEngine;
 public class CraftingRecipie : ScriptableObject
 {
 
-    [Header("Materials")] public List<BaseMaterials> materials;
+    [Header("Materials")] public List<Item> materials;
     public Item itemToSpawn;
 
     [Header("Settings")]

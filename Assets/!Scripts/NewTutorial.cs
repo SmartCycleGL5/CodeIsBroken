@@ -121,6 +121,8 @@ public class NewTutorial : MonoBehaviour
         }
     }
 
+
+    private Contract first;
     void ProgrammingTutorial()
     {
         switch (buildingIndex)
@@ -135,7 +137,8 @@ public class NewTutorial : MonoBehaviour
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractManager.ActiveContract.onFinished += OnFinishedContract;
+                    first = ContractManager.ActiveContract;
+                    first.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -158,6 +161,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractManager.ActiveContract.onFinished -= OnFinishedContract;
+        first.onFinished -= OnFinishedContract;
     }
 }

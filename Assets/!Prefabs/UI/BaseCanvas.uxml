@@ -38,8 +38,8 @@
         <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1; white-space: pre-wrap;" />
         <ui:Label text="Press Space to continue" name="PressToContinue" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
-    <ui:VisualElement name="Popup" style="position: absolute; bottom: 35%; align-self: center; top: 35%; left: 35%; right: 35%;" />
-    <ui:VisualElement name="Keybinds" template="Keybinds" style="visibility: visible; position: absolute; left: auto; bottom: 220px; right: 545px; display: flex;">
+    <ui:VisualElement name="Popup" picking-mode="Ignore" style="position: absolute; bottom: 35%; align-self: center; top: 35%; left: 35%; right: 35%;" />
+    <ui:VisualElement name="Keybinds" template="Keybinds" picking-mode="Ignore" style="visibility: visible; position: absolute; left: auto; bottom: 220px; right: 545px; display: flex;">
         <ui:VisualElement name="Keybinds" style="flex-grow: 1; position: absolute; right: auto; bottom: auto; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
             <ui:VisualElement name="Move" style="flex-grow: 1;">
                 <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/keyboard-wasd.png?fileID=2800000&amp;guid=2bcba8b39558408428a71f04fd7be6b6&amp;type=3#keyboard-wasd&quot;);" />
@@ -62,7 +62,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="BuildingKeybinds" template="BuildingKeybinds" style="position: absolute; bottom: 0; right: 0; display: none;">
+    <ui:VisualElement name="BuildingKeybinds" template="BuildingKeybinds" picking-mode="Ignore" style="position: absolute; bottom: 0; right: 0; display: none;">
         <ui:VisualElement name="BuildingKeybinds" style="flex-grow: 1; position: absolute; right: 40px; bottom: 40px; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
             <ui:VisualElement name="Rotate" style="flex-grow: 1;">
                 <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/r.png?fileID=2800000&amp;guid=ef04bf5a69063ed459dee8c038b66107&amp;type=3#r&quot;); background-size: 63% 65%;" />

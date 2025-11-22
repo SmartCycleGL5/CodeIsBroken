@@ -50,7 +50,7 @@ public class Metrics : MonoBehaviour
 
     public void GenerateGraph(int level)
     {
-        if (level == 5)
+        if (level == 9)
         {
             sentData = true;
             //GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);

@@ -1468,7 +1468,7 @@ MonoBehaviour:
   machineTabName: Machine
   hintsTabName: Hints
   conceptsTabName: Concepts
-  recipes: {fileID: 0}
+  recipes: {fileID: 11400000, guid: e95d0e6b002a7b54e8191a31d6b5f761, type: 2}
   journalDoc: {fileID: 1460485516}
   styleSheet: {fileID: 7433441132597879392, guid: 4a3ba5da60223f742aaf7f0c986a37ff, type: 3}
 --- !u!114 &1460485516

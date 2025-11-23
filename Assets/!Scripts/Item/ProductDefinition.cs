@@ -31,32 +31,33 @@ namespace CodeIsBroken.Product
         [FormerlySerializedAs("materials")] public BaseMaterials baseMaterials;
 
         [field: SerializeReference, SubclassSelector]
-        public List<IModification> mods { get; set; } = new();
+        public List<IModification> baseMods { get; set; } = new();
+        public List<IModification> additionalMods { get; set; } = new();
         
         public Action<IAdditionalModification> modified;
 
         public Guid id;
         
-        public ProductDefinition(BaseMaterials baseMaterials, List<IModification> mods = null)
+        public ProductDefinition(BaseMaterials baseMaterials, List<IModification> baseMods = null)
         {
             this.baseMaterials = baseMaterials;
             id = Guid.NewGuid();
 
-            this.mods = new List<IModification>();
+            this.baseMods = new List<IModification>();
             
-            if(mods != null)
-                this.mods = mods;   
+            if(baseMods != null)
+                this.baseMods = baseMods;   
         }
     
         public void Modify(IModification modification)
         {
-            if (mods.Contains(modification))
+            if (additionalMods.Contains(modification))
             {
                 Debug.Log("Already has mod");
                 return;
             }
     
-            mods.Add(modification);
+            additionalMods.Add(modification);
             
             if(modification is IAdditionalModification)
                 modified?.Invoke((IAdditionalModification)modification);
@@ -64,13 +65,18 @@ namespace CodeIsBroken.Product
 
         public bool Equals(ProductDefinition other)
         {
-            if(mods == null || other.mods == null) { return false; }
+            if(baseMods == null || other.baseMods == null) { return false; }
             if (baseMaterials != other.baseMaterials) { Debug.Log($"{baseMaterials} != {other.baseMaterials }"); return false; }
-            if (mods.Count != other.mods.Count) return false;
+            if (baseMods.Count != other.baseMods.Count) return false;
+            if (additionalMods.Count != other.additionalMods.Count) return false;
             
-            for (int i = 0; i < mods.Count; i++)
+            for (int i = 0; i < baseMods.Count; i++)
             {
-                if(!mods[i].Equals(other.mods[i])) { Debug.Log($"{mods[i]} != {other.mods[i] }"); return false; }
+                if(!baseMods[i].Equals(other.baseMods[i])) { Debug.Log($"{baseMods[i]} != {other.baseMods[i] }"); return false; }
+            }
+            for (int i = 0; i < additionalMods.Count; i++)
+            {
+                if(!additionalMods[i].Equals(other.additionalMods[i])) { Debug.Log($"{additionalMods[i]} != {other.additionalMods[i] }"); return false; }
             }
             
             return true;
@@ -80,9 +86,13 @@ namespace CodeIsBroken.Product
         {
             ProductDefinition clone = new ProductDefinition(baseMaterials);
 
-            foreach (var mod in mods)
+            foreach (var mod in baseMods)
             {
-                clone.mods.Add(mod);
+                clone.baseMods.Add(mod);
+            }
+            foreach (var mod in additionalMods)
+            {
+                clone.additionalMods.Add(mod);
             }
             
             clone.icon = icon;

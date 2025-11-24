@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{88fb7f4f-450b-452a-9a94-54b06b6e8363}">
+		<property name="assetPath">
+			<value>Machines/Machines, Industrial, Factory, Machinery, Mechanical, Lifter, Electronic 01 SND133839 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.4795729166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3edf7464-7b55-4837-b8e7-3b9cfaee000b}</destination>
+		</relationship>
+	</object>
+</objects>

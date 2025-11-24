@@ -16,6 +16,8 @@ public class Script
 
     Terminal terminal;
 
+    public Action onDelete;
+
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
     public ScriptType type { get; private set; }

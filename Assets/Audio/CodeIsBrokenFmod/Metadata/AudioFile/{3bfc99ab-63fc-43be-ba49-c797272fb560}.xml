@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{3bfc99ab-63fc-43be-ba49-c797272fb560}">
 		<property name="assetPath">
-			<value>UI/User Interface, Click, UI Buttons, Glassy, Touch SND115484.wav</value>
+			<value>UI/UIClick.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

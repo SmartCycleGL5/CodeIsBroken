@@ -561,7 +561,12 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Ambiences
+  - GameProgression
+  - Machines
+  - Music
   - Test
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

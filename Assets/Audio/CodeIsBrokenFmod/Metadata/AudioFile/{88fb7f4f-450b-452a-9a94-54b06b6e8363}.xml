@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{88fb7f4f-450b-452a-9a94-54b06b6e8363}">
 		<property name="assetPath">
-			<value>Machines/Machines, Industrial, Factory, Machinery, Mechanical, Lifter, Electronic 01 SND133839 1.wav</value>
+			<value>Machines/MachinePowerUp.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

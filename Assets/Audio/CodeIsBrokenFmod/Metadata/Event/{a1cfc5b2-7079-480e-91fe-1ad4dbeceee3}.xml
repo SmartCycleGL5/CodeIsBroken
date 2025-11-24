@@ -170,7 +170,7 @@
 			<value>10000</value>
 		</property>
 		<property name="spawnRate">
-			<value>14</value>
+			<value>500</value>
 		</property>
 		<property name="maximumScatterDistance">
 			<value>1</value>
@@ -361,7 +361,7 @@
 			<value>0.29999999999999999</value>
 		</property>
 		<property name="value">
-			<value>-28</value>
+			<value>-29</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{0d02e739-5a33-402c-8f86-30d35fc2832d}">

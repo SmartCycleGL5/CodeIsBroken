@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{dcc2db21-3154-4f76-a1c1-eb052699c370}">
 		<property name="assetPath">
-			<value>UI/StartOfSelect.wav</value>
+			<value>UI/UIHover.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

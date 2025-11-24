@@ -1,9 +1,8 @@
+using CodeIsBroken.Product.Modifications;
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product.Modifications;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Object = System.Object;
 
 namespace CodeIsBroken.Product
 {
@@ -16,13 +15,13 @@ namespace CodeIsBroken.Product
         Stone = 1 << 3,
     }
     [Serializable]
-    public class ProductDefinition : IEquatable<ProductDefinition>
+    public class ProductDefinition
     {
         #region Quick access to "base materials" 
 
-        public static ProductDefinition Wood => new (BaseMaterials.Wood);
-        public static ProductDefinition Iron  => new (BaseMaterials.Iron);
-        public static ProductDefinition Stone => new (BaseMaterials.Stone);
+        public static ProductDefinition Wood => new(BaseMaterials.Wood);
+        public static ProductDefinition Iron => new(BaseMaterials.Iron);
+        public static ProductDefinition Stone => new(BaseMaterials.Stone);
 
         #endregion
 
@@ -31,24 +30,24 @@ namespace CodeIsBroken.Product
         [FormerlySerializedAs("materials")] public BaseMaterials baseMaterials;
 
         [field: SerializeReference, SubclassSelector]
-        public List<IModification> baseMods { get; set; } = new();
-        public List<IModification> additionalMods { get; set; } = new();
-        
+        public List<IModification> baseMods { get; private set; } = new();
+        public List<IModification> additionalMods { get; private set; } = new();
+
         public Action<IAdditionalModification> modified;
 
         public Guid id;
-        
+
         public ProductDefinition(BaseMaterials baseMaterials, List<IModification> baseMods = null)
         {
             this.baseMaterials = baseMaterials;
             id = Guid.NewGuid();
 
             this.baseMods = new List<IModification>();
-            
-            if(baseMods != null)
-                this.baseMods = baseMods;   
+
+            if (baseMods != null)
+                this.baseMods = baseMods;
         }
-    
+
         public void Modify(IModification modification)
         {
             if (additionalMods.Contains(modification))
@@ -56,29 +55,33 @@ namespace CodeIsBroken.Product
                 Debug.Log("Already has mod");
                 return;
             }
-    
+
             additionalMods.Add(modification);
-            
-            if(modification is IAdditionalModification)
+
+            if (modification is IAdditionalModification)
                 modified?.Invoke((IAdditionalModification)modification);
         }
 
-        public bool Equals(ProductDefinition other)
+        public bool Equals(ProductDefinition other, bool includeAdditionalMods = true)
         {
-            if(baseMods == null || other.baseMods == null) { return false; }
-            if (baseMaterials != other.baseMaterials) { Debug.Log($"{baseMaterials} != {other.baseMaterials }"); return false; }
+            if (baseMods == null || other.baseMods == null) { return false; }
+            if (baseMaterials != other.baseMaterials) { Debug.Log($"{baseMaterials} != {other.baseMaterials}"); return false; }
             if (baseMods.Count != other.baseMods.Count) return false;
             if (additionalMods.Count != other.additionalMods.Count) return false;
-            
+
             for (int i = 0; i < baseMods.Count; i++)
             {
-                if(!baseMods[i].Equals(other.baseMods[i])) { Debug.Log($"{baseMods[i]} != {other.baseMods[i] }"); return false; }
+                if (!baseMods[i].Equals(other.baseMods[i])) { Debug.Log($"{baseMods[i]} != {other.baseMods[i]}"); return false; }
             }
-            for (int i = 0; i < additionalMods.Count; i++)
+            if (includeAdditionalMods)
             {
-                if(!additionalMods[i].Equals(other.additionalMods[i])) { Debug.Log($"{additionalMods[i]} != {other.additionalMods[i] }"); return false; }
+                for (int i = 0; i < additionalMods.Count; i++)
+                {
+                    if (!additionalMods[i].Equals(other.additionalMods[i])) { Debug.Log($"{additionalMods[i]} != {other.additionalMods[i]}"); return false; }
+                }
             }
-            
+
+
             return true;
         }
 
@@ -94,10 +97,10 @@ namespace CodeIsBroken.Product
             {
                 clone.additionalMods.Add(mod);
             }
-            
+
             clone.icon = icon;
             clone.name = name;
-            
+
             return clone;
         }
     }

@@ -17,8 +17,9 @@ public class GridBuilder : MonoBehaviour
     [SerializeField] GhostBuilding ghostBuilding;
     [SerializedDictionary("Position", "Object in position")]
     public SerializedDictionary<Vector2Int, GameObject> gridObjects = new();
+    public Action gridUpdated;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
@@ -67,6 +68,7 @@ public class GridBuilder : MonoBehaviour
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);
             gridObjects.Add(new Vector2Int(cellPosition.x,cellPosition.z), newBuilding);
+            gridUpdated?.Invoke();
         }
     }
 
@@ -78,6 +80,7 @@ public class GridBuilder : MonoBehaviour
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);
             gridObjects.Add(new Vector2Int(cellPosition.x, cellPosition.z), building);
+            gridUpdated?.Invoke();
         }
     }
 
@@ -92,6 +95,7 @@ public class GridBuilder : MonoBehaviour
             {
                 Vector3Int gridPos = grid.WorldToCell(pos);
                 gridObjects.Remove(new Vector2Int(gridPos.x, gridPos.z));
+                gridUpdated?.Invoke();
             }
             Destroy(building);
         }

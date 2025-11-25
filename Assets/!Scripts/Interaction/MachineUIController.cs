@@ -30,9 +30,8 @@ public class MachineUIController : MonoBehaviour
         {
             if(machine.attachedScripts.Count == 0)
                 machine.AddScript();
-
-            
-            machine.OpenTerminalForMachine();
+            else
+                machine.OpenTerminalForMachine();
         } else
         {
             Debug.Log("[MachineUIController] Couldnt Find Machine");

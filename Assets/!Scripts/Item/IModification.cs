@@ -66,7 +66,7 @@ namespace CodeIsBroken.Product.Modifications
     {
         public string Name => "Color:";
         public string Description => $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
-        [field: SerializeField] public UnityEngine.Color color  { get; private set; }
+        [field: SerializeField] public UnityEngine.Color color  { get; private set; } = new UnityEngine.Color(0, 0, 0, 1);
         
         public static Color New(UnityEngine.Color color)
         {
@@ -90,8 +90,6 @@ namespace CodeIsBroken.Product.Modifications
         {
             if (other is null) return false;
             if (other is not Color) return false;
-            if (Name != other.Name) return false;
-            if (Description != other.Description) return false;
             if (color != ((Color)other).color) return false;
             
             return true;
@@ -108,8 +106,6 @@ namespace CodeIsBroken.Product.Modifications
         {
             if (other is null) { Debug.Log("other is null"); return false; }
             if (other is not Cut) { Debug.Log("other is not cut"); return false; }
-            if (Name != other.Name) return false;
-            if (Description != other.Description) return false;
             
             return true;
         }
@@ -125,8 +121,6 @@ namespace CodeIsBroken.Product.Modifications
         {
             if (other is null) { Debug.Log("other is null"); return false; }
             if (other is not Assembled) { Debug.Log("other is not assembled"); return false; }
-            if (Name != other.Name) return false;
-            if (Description != other.Description) return false;
             
             return true;
         }
@@ -142,8 +136,6 @@ namespace CodeIsBroken.Product.Modifications
         {
             if (other is null) { Debug.Log("other is null"); return false; }
             if (other is not Melted) { Debug.Log("other is not melted"); return false; }
-            if (Name != other.Name) return false;
-            if (Description != other.Description) return false;
 
             return true;
         }

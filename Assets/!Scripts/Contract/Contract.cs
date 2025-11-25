@@ -42,7 +42,7 @@ namespace CodeIsBroken.Contract
             public bool SatisfiesRequest(ProductDefinition product)
             {
                 if(satisfied) return false;
-                return product.Equals(product);
+                return this.product.Equals(product);
             }
 
             public TemplateContainer GetUI()
@@ -130,12 +130,10 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public bool TryProgressContract(Item item)
+        public void TryProgressContract(Item item)
         {
             foreach (var request in requests)
             {
-                Debug.Log(request.SatisfiesRequest(item.definition));
-
                 if(request.SatisfiesRequest(item.definition))
                 {
                     request.Progress();
@@ -145,12 +143,8 @@ namespace CodeIsBroken.Contract
                     {
                         Finish();
                     }
-
-                    return true;
                 }
             }
-
-            return false;
         }
 
         bool allRequestsSatisfied()

@@ -30,6 +30,6 @@ MonoBehaviour:
       Use SpawnDelay() to add a delay
       to the production of the material.'
   - style: 1
-    text: "void StartTick()\r\n{\r\n\tSetMaterial(\"Iron\");\r\n\tSpawnDelay(2);\r\n}"
+    text: "void StartTick()\r\n{\r\n\tSetMaterial(Material.iron);\r\n\tSpawnDelay(2);\r\n}"
   sortOrder: 0
   levelToUnlock: 0

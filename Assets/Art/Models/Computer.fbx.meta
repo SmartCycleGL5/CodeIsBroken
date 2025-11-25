@@ -3,7 +3,37 @@ guid: 360f81f4fc3c20b44b342b02fb76ce90
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black Chair
+    second: {fileID: 2100000, guid: 849d9bc794a01f744b9f44c6ab4c0fd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Support
+    second: {fileID: 2100000, guid: 3ab8de7bfb68f69409e65081f8fa9307, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Desk Top
+    second: {fileID: 2100000, guid: ebf77a18252846347a90d325db60ac58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PC Plastic
+    second: {fileID: 2100000, guid: 2f4dba6573451774898ae8ab2fd67de7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PC Screen
+    second: {fileID: 2100000, guid: edbc6afe9ea1fd7429d10f3f6ea87c71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red Chair
+    second: {fileID: 2100000, guid: 112911ab1a98d4b44a493add9d575830, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

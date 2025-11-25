@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
-namespace CodeIsBroke.Audio
+namespace CodeIsBroken.Audio
 {
     public class AdaptiveMusic : MonoBehaviour
     {

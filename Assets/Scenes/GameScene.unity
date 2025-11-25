@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 357034594}
   - component: {fileID: 357034595}
   - component: {fileID: 357034596}
-  - component: {fileID: 357034598}
   - component: {fileID: 357034597}
   m_Layer: 0
   m_Name: ScriptManager
@@ -896,37 +895,6 @@ MonoBehaviour:
       Data3: -478655059
       Data4: 870304762
     Path: event:/Machines/MachinesPowerDown
---- !u!114 &357034598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357034587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,8 +1286,9 @@ GameObject:
   - component: {fileID: 1088987052}
   - component: {fileID: 1088987051}
   - component: {fileID: 1088987053}
+  - component: {fileID: 1088987054}
   m_Layer: 0
-  m_Name: Music
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1387,6 +1356,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Audio::Audio.AdaptiveMusic
   machinesNeededForMax: 100
   TargetValue: 0
+--- !u!114 &1088987054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef368c4f35e03ea0f9eb3634335ec593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroke.Audio::CodeIsBroke.Audio.AudioManager
+  settings:
+    masterVolume: 50
+    musicVolume: 50
+    sfxVolume: 50
 --- !u!1 &1197379918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,6 +1868,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43332c09f70983647894d38db2f92461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialTubeProgression
+  unlockedTube:
+    Guid:
+      Data1: -665051452
+      Data2: 1270789620
+      Data3: 1988222619
+      Data4: -1713445632
+    Path: event:/Machines/SpawnerComingUpOutTheFloor
   unlockLevel:
     _serializedList:
     - Key: 1

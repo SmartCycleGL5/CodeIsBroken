@@ -2,7 +2,7 @@ using FMODUnity;
 using System;
 using UnityEngine;
 
-namespace CodeIsBroke.Audio
+namespace CodeIsBroken.Audio
 {
     public class PowerUpDown : MonoBehaviour
     {
@@ -19,22 +19,9 @@ namespace CodeIsBroke.Audio
 
         private void PowerToggle(bool obj)
         {
-            if (obj) PowerUp();
-            else PowerDown();
+            if (obj) AudioManager.PlayOneShot(powerUp);
+            else AudioManager.PlayOneShot(powerDown);
         }
-
-        public void PowerUp()
-        {
-            emitter.Stop();
-            emitter.EventReference = powerUp;
-            emitter.Play();
-        }
-        public void PowerDown()
-        {
-            emitter.Stop();
-            emitter.EventReference = powerDown;
-            //emitter
-            emitter.Play();
-        }
+        
     }
 }

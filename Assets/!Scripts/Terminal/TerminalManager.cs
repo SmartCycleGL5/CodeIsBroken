@@ -9,7 +9,7 @@ public class TerminalManager : MonoBehaviour
     {
         if (terminalUI == null)
         {
-            terminalUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Terminal, AddressableToLoad.Object);
+            terminalUI = await Addressable.LoadAsset<VisualTreeAsset>("Window/Terminal");
         }
     }
 }

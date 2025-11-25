@@ -15,6 +15,10 @@ MonoBehaviour:
   title: Saw
   showcaseI: {fileID: 0}
   bHintTaken: 0
-  journalTexts: []
-  sortOrder: 0
+  journalTexts:
+  - style: 0
+    text: Saw is used to cut wood
+  - style: 1
+    text: Cut();
+  sortOrder: 2
   levelToUnlock: 6

@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Material
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 922226ce19d5b504389c9efc1c22212f
+    m_Address: Rod
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Material
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc891e6f6b3ac9a45a77a398f97edca2
     m_Address: Stone
     m_ReadOnly: 0

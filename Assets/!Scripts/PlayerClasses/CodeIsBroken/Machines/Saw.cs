@@ -76,8 +76,6 @@ namespace CodeIsBroken
                     conveyor.SetItem(item);
                     ClearMachine();
                     RemoveItem();
-
-                    
                 }
             }
             else

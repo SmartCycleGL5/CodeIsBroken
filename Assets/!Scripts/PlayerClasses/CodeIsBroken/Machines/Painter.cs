@@ -32,9 +32,10 @@ namespace CodeIsBroken
         public void Paint(Color color)
         {
             Metrics.instance.UseElectricity(1);
+            painterConveyor.PaintEffect();
             Debug.Log("Set color to: " + color);
             if (item == null) return;
-            painterConveyor.PaintEffect();
+            
             item.definition.Modify(Product.Modifications.Color.New(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
         }
     

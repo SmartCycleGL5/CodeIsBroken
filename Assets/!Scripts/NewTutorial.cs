@@ -89,6 +89,7 @@ public class NewTutorial : MonoBehaviour
             case 3:
                 uiDocument.rootVisualElement.Q<VisualElement>("BuildingMenu").visible = true;
                 player.DOMove(startPosition, 0.2f);
+                player.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
                 PlayerInputs.instance.enabled = true;
                 level++;
                 return;
@@ -102,7 +103,6 @@ public class NewTutorial : MonoBehaviour
         {
             case 0:
                 label.text = "Press B to open the building menu or click the building button at the bottom of your screen.\n\nUse WASD to move and QE to rotate.";
-                player.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
                 PlayerInputs.instance.enabled = true;
                 if (!BuildingSelector.instance.isBuilding)
                     buildingIndex++;
@@ -121,6 +121,8 @@ public class NewTutorial : MonoBehaviour
         }
     }
 
+
+    private Contract first;
     void ProgrammingTutorial()
     {
         switch (buildingIndex)
@@ -131,11 +133,12 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex++; }
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}) and run it.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractManager.ActiveContract.onFinished += OnFinishedContract;
+                    first = ContractManager.ActiveContract;
+                    first.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -158,6 +161,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractManager.ActiveContract.onFinished -= OnFinishedContract;
+        first.onFinished -= OnFinishedContract;
     }
 }

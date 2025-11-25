@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/!Scripts/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
-    <ui:VisualElement name="Window" class="Window" style="flex-grow: 1; background-color: rgb(0, 0, 0); align-items: center; justify-content: space-around; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+    <Style src="project://database/Assets/!Prefabs/UI/Window/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+    <ui:VisualElement name="Window" class="Window" style="flex-grow: 1; background-color: rgb(0, 0, 0); align-items: center; justify-content: space-around; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; min-height: 300px; min-width: 850px; width: 850px; height: 450px;">
         <ui:Label text="Are you sure you want to close {name}?" name="Label" style="color: rgb(255, 255, 255); font-size: 38px; height: 50%; -unity-text-align: middle-center;" />
         <ui:VisualElement style="flex-grow: 1; flex-direction: row; align-items: center; width: 100%; justify-content: space-around;">
             <ui:Button text="Cancel" name="Cancel" style="font-size: 50%; height: 50%;" />

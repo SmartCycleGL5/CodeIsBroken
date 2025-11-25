@@ -1,8 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="BuildingMenu" src="project://database/Assets/BuildingMenu.uxml?fileID=9197481963319205126&amp;guid=fb23224fae21f474d8ccd51561220d70&amp;type=3#BuildingMenu" />
-    <ui:Template name="ConfirmChoice" src="project://database/Assets/!Prefabs/UI/ConfirmChoice.uxml?fileID=9197481963319205126&amp;guid=430e0bdca1397b34da4b01db61f4ed3c&amp;type=3#ConfirmChoice" />
     <Style src="project://database/Assets/!Prefabs/UI/BaseStyle.uss?fileID=7433441132597879392&amp;guid=dd58a1a328d6d47468f38b3b58f7e1fd&amp;type=3#BaseStyle" />
-    <Style src="project://database/Assets/!Prefabs/UI/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+    <Style src="project://database/Assets/!Prefabs/UI/Window/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
     <ui:VisualElement name="Canvas" picking-mode="Ignore" style="flex-grow: 1; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; visibility: visible;">
         <ui:Button text="Run" name="Run" class="RunButton" style="bottom: 5%;" />
         <NS.RomanLib.RadialFillElement name="XP" angle-offset="0.93" value="1" fill-color="#83FF91FF" width="150" height="150" fill-direction="Clockwise" overlay-image-scale="0" style="position: absolute; bottom: 50px; right: 50px; overflow: hidden; border-top-left-radius: 90px; border-top-right-radius: 90px; border-bottom-right-radius: 90px; border-bottom-left-radius: 90px; background-color: rgb(255, 255, 255); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; display: none; visibility: hidden;" />
@@ -39,8 +38,8 @@
         <ui:Label text="Label" name="TutorialText" style="width: 100%; height: 231px; -unity-text-align: upper-left; font-size: 25px; color: rgb(255, 255, 255); flex-grow: 1; white-space: pre-wrap;" />
         <ui:Label text="Press Space to continue" name="PressToContinue" style="flex-grow: 1; align-self: center; color: rgb(255, 255, 255); font-size: 30px; -unity-font-style: bold;" />
     </ui:VisualElement>
-    <ui:Instance template="ConfirmChoice" name="ConfirmClose" style="position: absolute; align-self: center; bottom: 40%; height: 20%; visibility: hidden;" />
-    <ui:VisualElement name="Keybinds" template="Keybinds" style="visibility: visible; position: absolute; left: auto; bottom: 220px; right: 545px; display: flex;">
+    <ui:VisualElement name="Popup" picking-mode="Ignore" style="position: absolute; bottom: 35%; align-self: center; top: 35%; left: 35%; right: 35%;" />
+    <ui:VisualElement name="Keybinds" template="Keybinds" picking-mode="Ignore" style="visibility: visible; position: absolute; left: auto; bottom: 220px; right: 545px; display: flex;">
         <ui:VisualElement name="Keybinds" style="flex-grow: 1; position: absolute; right: auto; bottom: auto; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
             <ui:VisualElement name="Move" style="flex-grow: 1;">
                 <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/keyboard-wasd.png?fileID=2800000&amp;guid=2bcba8b39558408428a71f04fd7be6b6&amp;type=3#keyboard-wasd&quot;);" />
@@ -63,7 +62,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="BuildingKeybinds" template="BuildingKeybinds" style="position: absolute; bottom: 0; right: 0; display: none;">
+    <ui:VisualElement name="BuildingKeybinds" template="BuildingKeybinds" picking-mode="Ignore" style="position: absolute; bottom: 0; right: 0; display: none;">
         <ui:VisualElement name="BuildingKeybinds" style="flex-grow: 1; position: absolute; right: 40px; bottom: 40px; height: 181px; width: 501px; -unity-text-align: upper-left; flex-direction: row; visibility: visible;">
             <ui:VisualElement name="Rotate" style="flex-grow: 1;">
                 <ui:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/GameInputControllerIconsFree/keyboard/keyboard-solid/r.png?fileID=2800000&amp;guid=ef04bf5a69063ed459dee8c038b66107&amp;type=3#r&quot;); background-size: 63% 65%;" />

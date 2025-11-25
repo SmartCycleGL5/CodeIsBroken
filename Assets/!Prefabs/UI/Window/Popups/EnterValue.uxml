@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Window/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+    <ui:VisualElement name="Window" class="Window" style="flex-grow: 1; min-height: 300px; min-width: 500px; padding-top: 5%; padding-right: 5%; padding-bottom: 5%; padding-left: 5%; height: 450px; width: 850px;">
+        <ui:Label text="Enter value here" name="InfoText" style="-unity-text-align: middle-center; height: 50%; font-size: 50%; color: rgb(255, 255, 255);" />
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; height: 100%;">
+            <ui:TextField placeholder-text="filler text" name="Input" style="height: auto; padding-bottom: 1%; padding-top: 1%; font-size: 70%;" />
+        </ui:VisualElement>
+        <ui:Button text="Confirm&#10;" name="Confirm" style="font-size: 36px;" />
+    </ui:VisualElement>
+</ui:UXML>

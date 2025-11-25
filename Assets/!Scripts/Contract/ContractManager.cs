@@ -48,15 +48,15 @@ namespace CodeIsBroken.Contract
 
             if (contractUI == null)
             {
-                contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
+                contractUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract");
             }
             if (requestUI == null)
             {
-                requestUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Request, AddressableToLoad.Object);
+                requestUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract/Request");
             }
             if (modifierUI == null)
             {
-                modifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ModifierElement, AddressableToLoad.Object);
+                modifierUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract/Modifier");
             }
         }
     

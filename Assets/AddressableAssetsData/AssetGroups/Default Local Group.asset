@@ -14,7 +14,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 3d6d679b23fb6584a9a62bfdecf8640b
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1037b6400adcc804fb62240f126c13cb
+    m_Address: Assets/!Scripts/Journal/Machines/ConveyorBelt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 114514a34fecdce4faef720de94c00c9
+    m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - HintEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 204a9acf28944a94690a92b5f9d03b5f
+    m_Address: Assets/!Scripts/Journal/Concepts/Comments.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42e894855851b1644b259b23ac6096cf
+    m_Address: Assets/!Scripts/Journal/Machines/TruckDockingStation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cb47f9721e93fd40943153cf080eacf
+    m_Address: Assets/!Scripts/Journal/Machines/Saw.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ecd0568cb857dd4c8b68d7ef85b0030
+    m_Address: Assets/!Scripts/Journal/Machines/Painter.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b615cf78ada9034898adadda79e4873
+    m_Address: Assets/!Scripts/Journal/Concepts/Variables.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c92cfe6a9dafb04ca0e50faf75fba50
+    m_Address: Assets/!Scripts/Journal/Machines/Assembler.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7db8678e30c654f42aff6bbfb392b6d0
+    m_Address: Assets/!Scripts/Journal/Machines/Furnace.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8094aef711f9c3c4296282d1efe7670c
+    m_Address: Assets/!Scripts/Journal/Concepts/Methods.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86a7e7ed6987cc1488a76ff526aa776d
+    m_Address: Assets/!Scripts/Journal/Machines/MaterialTube.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86c7f92db8254b244800a7123e5034e1
+    m_Address: Assets/!Scripts/Journal/Concepts/Types.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98a1e832d592a5944a02d44c7751a543
+    m_Address: Assets/!Scripts/Journal/Machines/Crane.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MachineEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8498130b981bfe4da3839d32776f4bf
+    m_Address: Assets/!Scripts/Journal/Concepts/IfStatements.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c435daf5df6b691499bc171d2277b9c0
+    m_Address: Assets/!Scripts/Journal/Hints/JournalEntrySO 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - HintEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d753b529b89a4ba46bd5fd36fba556a7
+    m_Address: Assets/!Scripts/Journal/Concepts/Classes.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}
   m_SchemaSet:

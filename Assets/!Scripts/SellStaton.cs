@@ -49,16 +49,9 @@ public class SellStaton : MonoBehaviour
 
     void SellItem(Item toSell)
     {
-        try
+        if(ContractManager.ActiveContract != null)
         {
-            if (ContractManager.ActiveContract.TryProgressContract(toSell))
-            {
-                //ContractGiver.ActiveContract.Progress();
-            }
-        }
-        catch
-        {
-            Debug.LogWarning("No Contract");
+            ContractManager.ActiveContract.TryProgressContract(toSell);
         }
         
         //Remove is tutorial

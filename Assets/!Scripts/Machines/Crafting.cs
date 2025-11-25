@@ -12,19 +12,22 @@ public class Crafting : MonoBehaviour
         instance = this;
     }
 
-    public Item CraftItem(List<Item> items, List<CraftingRecipie>  craftingRecipies)
+    public Item CraftItem(List<Item> items, List<CraftingRecipie> craftingRecipies)
     {
-        List<BaseMaterials> materials = new();
-        materials.AddRange(items.Select(i => i.definition.baseMaterials));
+        if(items.Count == 0) return null;
+        List<ProductDefinition> materials = new();
+        List<ProductDefinition> recipeItems = new();
+        materials.AddRange(items.Select(i => i.definition));
         
         //Loops over all recipes
         foreach (var recipe in craftingRecipies)
         {
             // Sort lists to compare them:
-            materials = materials.OrderBy(x => x).ToList();
-            recipe.materials = recipe.materials.OrderBy(x => x).ToList();
+            materials = materials.OrderBy(x => x.name).ToList();
+            recipeItems.AddRange(recipe.materials.Select(material => material.definition));
+            recipe.materials = recipe.materials.OrderBy(x => x.name).ToList();
             
-            if (materials.SequenceEqual(recipe.materials))
+            if (materials.SequenceEqual(recipeItems))
             {
                 Debug.Log("Valid recipe");
 

@@ -93,6 +93,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MachineEntries
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a526f9e96c127244fbb49598de8f533f
+    m_Address: Assets/!Scripts/Journal/Concepts/Semicolon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8498130b981bfe4da3839d32776f4bf
     m_Address: Assets/!Scripts/Journal/Concepts/IfStatements.asset
     m_ReadOnly: 0
@@ -104,6 +110,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - HintEntries
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d060b1acb81075e4fb3cff603365ba06
+    m_Address: Assets/!Scripts/Journal/Concepts/Tick.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ConceptEntries
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d753b529b89a4ba46bd5fd36fba556a7
     m_Address: Assets/!Scripts/Journal/Concepts/Classes.asset

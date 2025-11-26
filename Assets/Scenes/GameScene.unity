@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4957907254097424411, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: references._serializedList.Array.size
@@ -1755,7 +1755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: scriptsToActivate.Array.size
@@ -2087,7 +2087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835777250307342540, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6110111071523626909, guid: b87c1696ddb7e4f418dbf37533b45552, type: 3}
       propertyPath: scriptsToActivate.Array.size

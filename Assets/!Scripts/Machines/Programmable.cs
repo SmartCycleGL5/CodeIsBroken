@@ -73,9 +73,6 @@ public class Programmable : MonoBehaviour
         {
             name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
         }
-
-        if (ScriptManager.instance.activePlayerScripts.ContainsKey(name))
-            throw new Exception($"{name} already exists");
         
         AddScript(new Script(name, toDeriveFrom, this));
 
@@ -89,6 +86,10 @@ public class Programmable : MonoBehaviour
             {
                 if (name.ToCharArray().Contains(item))
                     return false;
+            }
+            if(ScriptManager.instance.activePlayerScripts.ContainsKey(name))
+            {
+                return false;
             }
 
             return true;

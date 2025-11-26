@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 8050596945886522476}
   - {fileID: 4133514835888587347}
   - {fileID: 7158184476001963582}
+  renderer: {fileID: 1264304413256730999}
 --- !u!1 &1102627864415495927
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,5 +896,10 @@ PrefabInstance:
 --- !u!4 &296502086832278598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2e50a46a3f50fd4d88d0fd74f9d5379, type: 3}
+  m_PrefabInstance: {fileID: 258915672907688877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1264304413256730999 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7918335002988649766, guid: f2e50a46a3f50fd4d88d0fd74f9d5379, type: 3}
   m_PrefabInstance: {fileID: 258915672907688877}
   m_PrefabAsset: {fileID: 0}

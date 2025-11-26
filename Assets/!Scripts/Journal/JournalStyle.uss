@@ -89,7 +89,7 @@
     -unity-text-align: middle-center;
     white-space: pre-wrap;
     text-overflow: clip;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .Window {

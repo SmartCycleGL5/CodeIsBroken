@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
+  m_Name: Tick
+  m_EditorClassIdentifier: CodeIsBroken::Journal.JournalEntrySO
+  title: Tick
+  showcaseI: {fileID: 0}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: "In the machines, scripts run in a special way. Two of the most commonly-used
+      built-in methods are <b>StartTick</b> and <b>OnTick</b>.\n\nMachines calls
+      StartTick() once when the start button is pressed .\n\nIt\u2019s perfect for:\n\nSetting
+      initial values\nRunning code only once\n"
+  - style: 1
+    text: "void StartTick()\r\n{\r\n    SetMaterial(Material.wood);\r\n}"
+  - style: 0
+    text: "OnTick() runs once every second. \n\nIt is perfect for:\n\nRepeating tasks.\nMachines
+      that need to modify multiple items."
+  - style: 1
+    text: "void OnTick()\r\n{\r\n    Paint(Color.blue);\r\n}"
+  sortOrder: 0
+  levelToUnlock: 0

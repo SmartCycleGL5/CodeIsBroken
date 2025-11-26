@@ -14,7 +14,7 @@ namespace Journal
         [ResizableTextArea]
         public string title;
         [ShowAssetPreview]
-        public Texture2D showcaseI;
+        public Sprite showcaseI;
         public bool bHintTaken;
         public List<JournalText> journalTexts;
         public int sortOrder;

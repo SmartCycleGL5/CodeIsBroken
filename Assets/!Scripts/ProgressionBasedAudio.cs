@@ -1,12 +1,8 @@
 using AYellowpaper.SerializedCollections;
 using FMODUnity;
-using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
-using static Codice.Client.BaseCommands.ProgressStatus;
 
 namespace CodeIsBroken.Audio
 {
@@ -14,7 +10,7 @@ namespace CodeIsBroken.Audio
     public class EmitterProgression
     {
         public string paramToProgress;
-        public List<Vector2> progression; 
+        public List<Vector2> progression;
         [Range(0, 1)]
         public float targetValue;
     }

@@ -1,10 +1,13 @@
 using AYellowpaper.SerializedCollections;
 using DG.Tweening;
 using System.Collections.Generic;
+using CodeIsBroken.Audio;
+using FMODUnity;
 using UnityEngine;
 
 public class MaterialTubeProgression : MonoBehaviour
 {
+    [SerializeField] private EventReference unlockedTube;
     [SerializedDictionary("Level", "Tube Object")]
     public SerializedDictionary<int, GameObject> unlockLevel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +26,8 @@ public class MaterialTubeProgression : MonoBehaviour
             Vector3 position = entry.Value.transform.position;
             position.y = 0f;
             entry.Value.transform.DOMove(position, 2);
+            
+            AudioManager.PlayOneShot(unlockedTube);
         }
     }
 }

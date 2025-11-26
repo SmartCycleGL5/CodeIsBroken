@@ -18,10 +18,9 @@ public class ScriptManager : MonoBehaviour
 
     public static ScriptDomain scriptDomain;
     public static bool isRunning { get; private set; }
+    public static Action<bool> onRun;
     
     static Button  runButton;
-
-    public static List<Programmable> machines = new();
 
     public static bool compiling;
 
@@ -62,6 +61,8 @@ public class ScriptManager : MonoBehaviour
 
         await StartCompile();
 
+        onRun?.Invoke(true);
+
         foreach (var script in instance.activePlayerScripts)
         {
             script.Value.Run();
@@ -88,6 +89,8 @@ public class ScriptManager : MonoBehaviour
         runButton.SetEnabled(false);
         Tick.StopTick();
 
+        onRun?.Invoke(false);
+
         Debug.Log("[ScriptManager] Ending");
 
         foreach (var script in instance.activePlayerScripts)
@@ -103,15 +106,6 @@ public class ScriptManager : MonoBehaviour
         isRunning = false;
         runButton.SetEnabled(true);
         runButton.text = "Start";
-    }
-
-    public void AddMachine(Programmable machine)
-    {
-        machines.Add(machine);
-    }
-    public void RemoveMachine(Programmable machine)
-    {
-        machines.Remove(machine);
     }
 
     public static async Task StartCompile()

@@ -21,6 +21,10 @@ namespace CodeIsBroken.Audio
 
         public static void PlayOneShot(EventReference reference)
         {
+            PlayOneShot(reference, Vector3.zero);
+        }
+        public static void PlayOneShot(EventReference reference, Vector3 position)
+        {
             GameObject instance = new GameObject(reference.Path);
             StudioEventEmitter emitter = instance.AddComponent<StudioEventEmitter>();
             emitter.EventReference = reference;

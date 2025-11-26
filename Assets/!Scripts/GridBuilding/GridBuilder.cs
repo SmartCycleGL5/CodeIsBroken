@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using FMODUnity;
+using CodeIsBroken.Audio;
 
 public class GridBuilder : MonoBehaviour
 {
@@ -97,6 +99,7 @@ public class GridBuilder : MonoBehaviour
                 gridObjects.Remove(new Vector2Int(gridPos.x, gridPos.z));
                 gridUpdated?.Invoke();
             }
+
             Destroy(building);
         }
     }

@@ -1284,9 +1284,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1088987052}
-  - component: {fileID: 1088987051}
-  - component: {fileID: 1088987053}
   - component: {fileID: 1088987054}
+  - component: {fileID: 1088987053}
+  - component: {fileID: 1088987051}
+  - component: {fileID: 1088987055}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1321,9 +1322,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params:
-  - Name: MusicProg
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -1354,8 +1353,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e279f4e4948e3de469164b624bad800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Audio::Audio.AdaptiveMusic
-  machinesNeededForMax: 100
-  TargetValue: 0
+  Emitters:
+    _serializedList:
+    - Key: {fileID: 1088987051}
+      Value:
+        paramToProgress: MusicProg
+        progression:
+        - {x: 0, y: 10}
+        - {x: 0.2, y: 20}
+        - {x: 0.4, y: 30}
+        - {x: 0.6, y: 40}
+        - {x: 0.8, y: 100}
+        - {x: 1, y: -1}
+        targetValue: 0
+    - Key: {fileID: 1088987055}
+      Value:
+        paramToProgress: AmbienceIntencity
+        progression:
+        - {x: 0, y: 4}
+        - {x: 0.25, y: 35}
+        - {x: 0.5, y: 60}
+        - {x: 0.75, y: 100}
+        - {x: 1, y: -1}
+        targetValue: 0
 --- !u!114 &1088987054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,6 +1392,37 @@ MonoBehaviour:
     masterVolume: 50
     musicVolume: 50
     sfxVolume: 50
+--- !u!114 &1088987055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1580218958
+      Data2: 1208905849
+      Data3: -736428399
+      Data4: -470881061
+    Path: event:/Ambiences/GeneralAmbience
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1197379918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2458,27 @@ MonoBehaviour:
   gridBuilder: {fileID: 3008056812779239553}
   ghostPrefab: {fileID: 7588842562528661520, guid: 5c15c13205810994dad91f69c66cfbe7, type: 3}
   isBuilding: 0
+  placeSound:
+    Guid:
+      Data1: -991594247
+      Data2: 1177365889
+      Data3: -1444157282
+      Data4: -1962272804
+    Path: event:/Machines/MachinePlace
+  removeSound:
+    Guid:
+      Data1: -466923929
+      Data2: 1192951011
+      Data3: -1177683026
+      Data4: -284359489
+    Path: event:/Machines/MachineRotate
+  rotateSound:
+    Guid:
+      Data1: -466923929
+      Data2: 1192951011
+      Data3: -1177683026
+      Data4: -284359489
+    Path: event:/Machines/MachineRotate
 --- !u!114 &5962536211833835727
 MonoBehaviour:
   m_ObjectHideFlags: 0

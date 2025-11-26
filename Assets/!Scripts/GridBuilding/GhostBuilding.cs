@@ -1,3 +1,5 @@
+using CodeIsBroken.Audio;
+using FMODUnity;
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,6 +25,11 @@ public class GhostBuilding : MonoBehaviour
     private Building building;
     private bool canPlace;
 
+    [Header("Audio")]
+    [SerializeField] EventReference placeSound;
+    [SerializeField] EventReference removeSound;
+    [SerializeField] EventReference rotateSound;
+
     private void Start()
     {
         BuildingSelector.OnChangedBuilding += SwapGhostBlock;
@@ -38,11 +45,13 @@ public class GhostBuilding : MonoBehaviour
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             Debug.Log("Trying to remove building");
+            AudioManager.PlayOneShot(removeSound);
             gridBuilder.RemoveBuilding();
         }
         if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
+            AudioManager.PlayOneShot(rotateSound);
             RotateBuilding();
         }
         // Block placement when over UI
@@ -53,6 +62,7 @@ public class GhostBuilding : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame && canPlace)
         {
             if(ghostPrefab == null) return;
+            AudioManager.PlayOneShot(placeSound);
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
 

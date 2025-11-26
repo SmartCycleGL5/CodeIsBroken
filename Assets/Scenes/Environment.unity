@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 410087040}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -217,8 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assembler
   tick: 0
   active: 1
-  assemblerSize: 0
-  items: []
   craftingRecipies:
   - {fileID: 11400000, guid: b1c9bcdc76e2ca74694725bb08bd094d, type: 2}
 --- !u!65 &4607673
@@ -531,7 +529,7 @@ Transform:
   m_GameObject: {fileID: 151635785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.69542, y: 1.4777, z: 2.96911}
+  m_LocalPosition: {x: -0.69542, y: 2.4777, z: 2.96911}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -615,21 +613,25 @@ MonoBehaviour:
   Products:
     _serializedList:
     - Key:
+        name: 
         icon: {fileID: 0}
         baseMaterials: 0
         <mods>k__BackingField: []
       Value: {fileID: 1137379969359589219, guid: 8603343a0ec59cc47a87aff01979b950, type: 3}
     - Key:
+        name: 
         icon: {fileID: 0}
         baseMaterials: 0
         <mods>k__BackingField: []
       Value: {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
     - Key:
+        name: 
         icon: {fileID: 0}
         baseMaterials: 0
         <mods>k__BackingField: []
       Value: {fileID: 1137379969359589219, guid: bc891e6f6b3ac9a45a77a398f97edca2, type: 3}
     - Key:
+        name: 
         icon: {fileID: 0}
         baseMaterials: 0
         <mods>k__BackingField: []
@@ -666,7 +668,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -728,13 +730,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.49999967, y: -0, z: -0, w: 0.8660257}
+  m_LocalRotation: {x: 0.6087616, y: 0.0000003949836, z: 0.00000020322281, w: 0.79335326}
   m_LocalPosition: {x: 0, y: 4, z: 0.000000119209275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 using AYellowpaper.SerializedCollections;
+using CodeIsBroken.Audio;
+using FMODUnity;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -39,6 +41,9 @@ namespace CodeIsBroken.Contract
         public static VisualTreeAsset modifierUI { get; private set;}
 
         List<Contract> contractOptions = new();
+
+        [Header("Audio")]
+        [SerializeField] EventReference completedContract;
         private async void Start()
         {
             instance = this;
@@ -119,6 +124,8 @@ namespace CodeIsBroken.Contract
     
             ActiveContract.onFinished -= instance.FinishedContract;
             ActiveContract = null;
+
+            AudioManager.PlayOneShot(completedContract);
     
             GetContractOptions();
         }

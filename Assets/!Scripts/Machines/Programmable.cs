@@ -16,6 +16,10 @@ public class Programmable : MonoBehaviour
     public List<FieldInfo> variableInfo = new();
     public List<MethodInfo> methodInfo = new();
 
+    private void Start()
+    {
+    }
+
     [Button]
     public async void AddScript()
     {
@@ -36,8 +40,6 @@ public class Programmable : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        ScriptManager.instance.RemoveMachine(this);
-
         foreach (var script in attachedScripts)
         {
             ScriptManager.instance.activePlayerScripts.Remove(script.name);

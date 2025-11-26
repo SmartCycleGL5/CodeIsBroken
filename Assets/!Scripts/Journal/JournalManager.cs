@@ -1,9 +1,11 @@
 using CodeIsBroken.Contract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Utility;
 
@@ -35,6 +37,7 @@ namespace Journal
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
+            SettingsTabSetBind();
             Contract(null);
             RecipeEntries();
             await GetEntries();
@@ -165,23 +168,19 @@ namespace Journal
             {
                 text = string.Empty
             };
-            if (entry.showcaseI)
-            {
-                var image = new VisualElement()
-                {
-                    style =
-                            {
-                                backgroundImage = entry.showcaseI
-                            }
-                };
-                image.AddToClassList("journal-button_image");
-                tButton.Add(image);
-            }
             var text = new Label
             {
                 text = entry.title
             };
-
+            if (entry.showcaseI)
+            {
+                text.style.width = 130;
+                var image = new VisualElement();
+                StyleBackground s = Background.FromSprite(entry.showcaseI);
+                image.style.backgroundImage = s;
+                image.AddToClassList("journal-button_image");
+                tButton.Add(image);
+            }
             tButton.AddToClassList("journal-button");
             text.AddToClassList("journal-button_text");
 
@@ -335,6 +334,20 @@ namespace Journal
                 entries[i].SetUnlocked();
                 buttons.ElementAt(i).style.display = entries[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
             }
+        }
+        void SettingsTabSetBind()
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Settings");
+            var quitButton = tab.Q<Button>("Quit");
+            quitButton.clicked += QuitClicked;
+        }
+
+        private void QuitClicked()
+        {
+#if !UNITY_EDITOR
+            Application.Quit();
+#endif
+
         }
     }
 }

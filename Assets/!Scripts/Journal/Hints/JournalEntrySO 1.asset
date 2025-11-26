@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JournalEntrySO 1
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: ',nfvre'
-  showcaseI: {fileID: 2800000, guid: f88677df267a41d6be1e7a6133e7d227, type: 3}
+  showcaseI: {fileID: 0}
   bHintTaken: 0
   journalTexts: []
   sortOrder: 0

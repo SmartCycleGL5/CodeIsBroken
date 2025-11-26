@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 357034594}
   - component: {fileID: 357034595}
   - component: {fileID: 357034596}
+  - component: {fileID: 357034597}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -805,6 +806,13 @@ MonoBehaviour:
   - Another mall
   - Target
   - Coop generic
+  completedContract:
+    Guid:
+      Data1: -244416194
+      Data2: 1079982055
+      Data3: -1253735791
+      Data4: -512553104
+    Path: event:/GameProgression/Finish Contract
   references:
     version: 2
     RefIds:
@@ -868,6 +876,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabcd3744f0aaa6e87bfbc7ae57fb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &357034597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82607042976c0f40a27c92cf93a265f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroke.Audio::CodeIsBroke.Audio.PowerUpDown
+  powerUp:
+    Guid:
+      Data1: 455089827
+      Data2: 1210131821
+      Data3: -1354721104
+      Data4: -1421526503
+    Path: event:/Machines/MachinesPowerUp
+  powerDown:
+    Guid:
+      Data1: 1716437693
+      Data2: 1274255723
+      Data3: -478655059
+      Data4: 870304762
+    Path: event:/Machines/MachinesPowerDown
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -897,7 +931,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -959,13 +993,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.90199673, y: 0.17991358, z: 0.18606094, w: 0.34556383}
+  m_LocalRotation: {x: 0.5000004, y: -0, z: -0, w: 0.8660252}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -43.657, y: -163.018, z: 195.716}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,6 +1282,168 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1088987050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088987052}
+  - component: {fileID: 1088987054}
+  - component: {fileID: 1088987053}
+  - component: {fileID: 1088987056}
+  - component: {fileID: 1088987051}
+  - component: {fileID: 1088987055}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1088987051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2010865230
+      Data2: 1239361315
+      Data3: -675959917
+      Data4: -952096313
+    Path: event:/Music/Music
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1088987052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088987053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e279f4e4948e3de469164b624bad800e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Audio::Audio.AdaptiveMusic
+  Emitters:
+    _serializedList:
+    - Key: {fileID: 1088987051}
+      Value:
+        paramToProgress: MusicProg
+        progression:
+        - {x: 0, y: 10}
+        - {x: 0.2, y: 20}
+        - {x: 0.4, y: 30}
+        - {x: 0.6, y: 40}
+        - {x: 0.8, y: 100}
+        - {x: 1, y: -1}
+        targetValue: 0
+    - Key: {fileID: 1088987055}
+      Value:
+        paramToProgress: AmbienceIntencity
+        progression:
+        - {x: 0, y: 3}
+        - {x: 0.25, y: 35}
+        - {x: 0.5, y: 60}
+        - {x: 0.75, y: 100}
+        - {x: 1, y: -1}
+        targetValue: 0
+--- !u!114 &1088987054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef368c4f35e03ea0f9eb3634335ec593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroke.Audio::CodeIsBroke.Audio.AudioManager
+  settings:
+    masterVolume: 50
+    musicVolume: 50
+    sfxVolume: 50
+--- !u!114 &1088987055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1580218958
+      Data2: 1208905849
+      Data3: -736428399
+      Data4: -470881061
+    Path: event:/Ambiences/GeneralAmbience
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1088987056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088987050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba90ddf274efc6e4ba53f16849ffbb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  emitter: {fileID: 1088987055}
 --- !u!1 &1197379918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1946,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43332c09f70983647894d38db2f92461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialTubeProgression
+  unlockedTube:
+    Guid:
+      Data1: -665051452
+      Data2: 1270789620
+      Data3: 1988222619
+      Data4: -1713445632
+    Path: event:/Machines/SpawnerComingUpOutTheFloor
   unlockLevel:
     _serializedList:
     - Key: 1
@@ -2282,6 +2485,27 @@ MonoBehaviour:
   gridBuilder: {fileID: 3008056812779239553}
   ghostPrefab: {fileID: 7588842562528661520, guid: 5c15c13205810994dad91f69c66cfbe7, type: 3}
   isBuilding: 0
+  placeSound:
+    Guid:
+      Data1: -991594247
+      Data2: 1177365889
+      Data3: -1444157282
+      Data4: -1962272804
+    Path: event:/Machines/MachinePlace
+  removeSound:
+    Guid:
+      Data1: -466923929
+      Data2: 1192951011
+      Data3: -1177683026
+      Data4: -284359489
+    Path: event:/Machines/MachineRotate
+  rotateSound:
+    Guid:
+      Data1: -466923929
+      Data2: 1192951011
+      Data3: -1177683026
+      Data4: -284359489
+    Path: event:/Machines/MachineRotate
 --- !u!114 &5962536211833835727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,3 +2752,4 @@ SceneRoots:
   - {fileID: 600231270}
   - {fileID: 1537081759}
   - {fileID: 145284970}
+  - {fileID: 1088987052}

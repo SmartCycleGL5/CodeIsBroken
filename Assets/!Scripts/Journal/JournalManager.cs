@@ -345,7 +345,7 @@ namespace Journal
         private void QuitClicked()
         {
 #if !UNITY_EDITOR
-            Application.Quit()
+            Application.Quit();
 #endif
 
         }

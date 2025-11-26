@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Furnace
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Furnace
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: -248693709, guid: 031aae27b22d67e41adaeccb7a663fdc, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0

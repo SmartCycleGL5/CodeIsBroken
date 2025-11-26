@@ -17,7 +17,14 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: "Comments are declared using and will be ignored on run. \n\r\nComments
-      are useful for reminders or to remove code that might be useful later."
+    text: "Comments are notes you write in your code that the computer completely
+      ignores.\n\nThey\u2019re for you or other programmers\u2014helping explain
+      what the code does, why it\u2019s written a certain way, or to temporarily
+      disable code."
+  - style: 1
+    text: '// This is a single-line comment
+
+      int age = 10; // You can also
+      put a comment after code'
   sortOrder: 0
   levelToUnlock: 0

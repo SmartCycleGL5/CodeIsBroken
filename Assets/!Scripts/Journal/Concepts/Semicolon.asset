@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
+  m_Name: Semicolon
+  m_EditorClassIdentifier: CodeIsBroken::Journal.JournalEntrySO
+  title: Semicolon
+  showcaseI: {fileID: 0}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: "Just like sentences in English end with a period (.), most C# statements
+      end with a semicolon (;).\n\nThe C# compiler reads your code line by line.
+      The semicolon tells it:\n\u201CThis command is finished. You can move on to
+      the next one.\u201D\n\n"
+  - style: 1
+    text: 'int age = 10;
+
+      Console.WriteLine("Hello!");
+
+      age++;'
+  - style: 0
+    text: "<b>Where do we NOT use semicolons?</b>\n\nNot after blocks of code that
+      use { }, like:\n\n\tif statements\n\tfor loops\n\tClasses\n\tMethods"
+  - style: 1
+    text: "if (age > 5)\r\n{\r\n    Console.WriteLine(\"Old enough!\");\r\n}"
+  sortOrder: 0
+  levelToUnlock: 0

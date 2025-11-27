@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CodeIsBroken.Product;
 using UnityEngine.UIElements;
 using static CodeIsBroken.UI.UIManager;
+using CodeIsBroken.Contract;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class ScriptManager : MonoBehaviour
 
     private void Start()
     {
+        ContractManager.OnNewContracts += StopMachines;
+
         runButton = canvas.Q<Button>("Run");
         runButton.clicked += ToggleMachines;
         runButton.text = "Start";

@@ -28,6 +28,7 @@ namespace CodeIsBroken.Contract
         public static ContractManager instance;
         public static Contract ActiveContract { get; private set; }
         public static Action<Contract> OnNewContract;
+        public static Action OnNewContracts;
 
         public static Settings activeSettings {get; private set;}
         [SerializedDictionary("level", "settings")]
@@ -96,6 +97,8 @@ namespace CodeIsBroken.Contract
         
         async void GetContractOptions()
         {
+            OnNewContracts?.Invoke();
+
 
             for (int i = contractOptions.Count; i < 3; i++)
             {

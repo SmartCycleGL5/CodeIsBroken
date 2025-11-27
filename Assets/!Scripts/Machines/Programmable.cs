@@ -19,6 +19,7 @@ public class Programmable : MonoBehaviour
 
     static List<string> disallowedNames = new()
     {
+        "",
         "Painter",
         "Assembler",
         "Furnace",

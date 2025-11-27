@@ -93,6 +93,13 @@ public class GridBuilder : MonoBehaviour
         if (gridObjects.TryGetValue(new Vector2Int(gridPosition.x, gridPosition.z), out var building))
         {
             Building buildingData = building.GetComponent<Building>();
+            
+            //Stops from removing materialTubes
+            if (buildingData.gameObject.TryGetComponent(out MaterialTubeSpawner mts))
+            {
+                return;
+            }
+            
             foreach (var pos in buildingData.GetBuildingPositions())
             {
                 Vector3Int gridPos = grid.WorldToCell(pos);

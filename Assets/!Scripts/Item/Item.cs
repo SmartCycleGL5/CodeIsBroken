@@ -20,8 +20,8 @@ namespace CodeIsBroken.Product
         {
             items.Add(this);
             
-            if(definition.mods == null) return;
-            foreach (var mod in definition.mods)
+            if(definition.baseMods == null) return;
+            foreach (var mod in definition.baseMods)
             {
                 if(mod is IAdditionalModification)
                     ((IAdditionalModification)mod).Apply(this);

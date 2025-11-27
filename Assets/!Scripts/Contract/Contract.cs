@@ -17,7 +17,7 @@ namespace CodeIsBroken.Contract
 
             public bool satisfied { get; private set; }
             public Action onSatisfied;
-            public int xp => Mathf.RoundToInt(((product.mods.Count + 1) * 5) * (amount / 2));
+            public int xp => Mathf.RoundToInt(((product.baseMods.Count + 1) * 5) * (amount / 2));
 
             public Request(ProductDefinition product, int amount, IAdditionalModification[] additionalModifications = null)
             {
@@ -55,7 +55,7 @@ namespace CodeIsBroken.Contract
 
                 ScrollView mods = request.Q<ScrollView>("ModView");
 
-                foreach (var mod in product.mods)
+                foreach (var mod in product.baseMods)
                 {
                     TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
 

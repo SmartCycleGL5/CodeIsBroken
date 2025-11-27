@@ -125,7 +125,13 @@ namespace CodeIsBroken.Contract
             ActiveContract.onFinished -= instance.FinishedContract;
             ActiveContract = null;
 
-            AudioManager.PlayOneShot(completedContract);
+            try
+            {
+                AudioManager.PlayOneShot(completedContract);
+            }
+            catch (Exception ex)
+            {
+            }
     
             GetContractOptions();
         }

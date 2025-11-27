@@ -1,4 +1,6 @@
 using AYellowpaper.SerializedCollections;
+using CodeIsBroken.Audio;
+using FMODUnity;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,7 @@ namespace CodeIsBroken.Contract
         public static ContractManager instance;
         public static Contract ActiveContract { get; private set; }
         public static Action<Contract> OnNewContract;
+        public static Action OnNewContracts;
 
         public static Settings activeSettings {get; private set;}
         [SerializedDictionary("level", "settings")]
@@ -39,6 +42,9 @@ namespace CodeIsBroken.Contract
         public static VisualTreeAsset modifierUI { get; private set;}
 
         List<Contract> contractOptions = new();
+
+        [Header("Audio")]
+        [SerializeField] EventReference completedContract;
         private async void Start()
         {
             instance = this;
@@ -48,15 +54,15 @@ namespace CodeIsBroken.Contract
 
             if (contractUI == null)
             {
-                contractUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Contract, AddressableToLoad.Object);
+                contractUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract");
             }
             if (requestUI == null)
             {
-                requestUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Request, AddressableToLoad.Object);
+                requestUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract/Request");
             }
             if (modifierUI == null)
             {
-                modifierUI = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.ModifierElement, AddressableToLoad.Object);
+                modifierUI = await Addressable.LoadAsset<VisualTreeAsset>("UI/Contract/Modifier");
             }
         }
     
@@ -91,6 +97,8 @@ namespace CodeIsBroken.Contract
         
         async void GetContractOptions()
         {
+            OnNewContracts?.Invoke();
+
 
             for (int i = contractOptions.Count; i < 3; i++)
             {
@@ -119,6 +127,14 @@ namespace CodeIsBroken.Contract
     
             ActiveContract.onFinished -= instance.FinishedContract;
             ActiveContract = null;
+
+            try
+            {
+                AudioManager.PlayOneShot(completedContract);
+            }
+            catch (Exception ex)
+            {
+            }
     
             GetContractOptions();
         }

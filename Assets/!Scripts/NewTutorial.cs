@@ -121,6 +121,8 @@ public class NewTutorial : MonoBehaviour
         }
     }
 
+
+    private Contract first;
     void ProgrammingTutorial()
     {
         switch (buildingIndex)
@@ -131,11 +133,12 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex++; }
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{contractName.ToLower()}) and run it.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}); and press the Start button.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
-                    ContractManager.ActiveContract.onFinished += OnFinishedContract;
+                    first = ContractManager.ActiveContract;
+                    first.onFinished += OnFinishedContract;
                     subscribed = true;
                 }
                 break;
@@ -158,6 +161,6 @@ public class NewTutorial : MonoBehaviour
     {
         Debug.Log("Finished");
         buildingIndex++;
-        ContractManager.ActiveContract.onFinished -= OnFinishedContract;
+        first.onFinished -= OnFinishedContract;
     }
 }

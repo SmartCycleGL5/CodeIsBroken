@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using FMODUnity;
+using CodeIsBroken.Audio;
 
 public class GridBuilder : MonoBehaviour
 {
@@ -17,8 +19,9 @@ public class GridBuilder : MonoBehaviour
     [SerializeField] GhostBuilding ghostBuilding;
     [SerializedDictionary("Position", "Object in position")]
     public SerializedDictionary<Vector2Int, GameObject> gridObjects = new();
+    public Action gridUpdated;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
@@ -67,6 +70,7 @@ public class GridBuilder : MonoBehaviour
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);
             gridObjects.Add(new Vector2Int(cellPosition.x,cellPosition.z), newBuilding);
+            gridUpdated?.Invoke();
         }
     }
 
@@ -78,6 +82,7 @@ public class GridBuilder : MonoBehaviour
         {
             Vector3Int cellPosition = grid.WorldToCell(cell);
             gridObjects.Add(new Vector2Int(cellPosition.x, cellPosition.z), building);
+            gridUpdated?.Invoke();
         }
     }
 
@@ -88,11 +93,20 @@ public class GridBuilder : MonoBehaviour
         if (gridObjects.TryGetValue(new Vector2Int(gridPosition.x, gridPosition.z), out var building))
         {
             Building buildingData = building.GetComponent<Building>();
+            
+            //Stops from removing materialTubes
+            if (buildingData.gameObject.TryGetComponent(out MaterialTubeSpawner mts))
+            {
+                return;
+            }
+            
             foreach (var pos in buildingData.GetBuildingPositions())
             {
                 Vector3Int gridPos = grid.WorldToCell(pos);
                 gridObjects.Remove(new Vector2Int(gridPos.x, gridPos.z));
+                gridUpdated?.Invoke();
             }
+
             Destroy(building);
         }
     }

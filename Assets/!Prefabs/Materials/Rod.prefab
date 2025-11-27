@@ -234,7 +234,6 @@ GameObject:
   - component: {fileID: 814600658151636506}
   - component: {fileID: 6554058645508566756}
   - component: {fileID: 107939738937706757}
-  - component: {fileID: 1981861293287377730}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -290,7 +289,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 365b5d906ce8ea04aa577452a340e990, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -313,29 +312,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1981861293287377730
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391886035659658603}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7246625453717084734
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,14 +359,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adff9d16eb85484c8347d236d19e4dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  lvlUnlock: 1
+  lvlUnlock: 6
   definition:
     name: Rod
-    icon: {fileID: 21300000, guid: 005888ede18a58e4db8d069cfa3007cb, type: 3}
+    icon: {fileID: 21300000, guid: 484dfac846bdcdd44952cc1494cd7f2f, type: 3}
     baseMaterials: 4
-    <mods>k__BackingField: []
+    <baseMods>k__BackingField:
+    - rid: 1185941479828750414
   artRenderer: {fileID: 107939738937706757}
   changedColor: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1185941479828750414
+      type: {class: Melted, ns: CodeIsBroken.Product.Modifications, asm: CodeIsBroken.Product}
+      data: 

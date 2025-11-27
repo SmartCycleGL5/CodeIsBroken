@@ -1,12 +1,15 @@
+using System;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Reflection;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
+using System.Linq;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
 {
-    [InfoBox("The name of the monobehaviour class")]
+    [InfoBox("The name of the parent class", EInfoBoxType.Warning)]
     public string toDeriveFrom;
 
     public List<Script> attachedScripts = new();
@@ -14,24 +17,94 @@ public class Programmable : MonoBehaviour
     public List<FieldInfo> variableInfo = new();
     public List<MethodInfo> methodInfo = new();
 
-    [Button]
-    public void AddScript()
+    static List<string> disallowedNames = new()
     {
-        AddScript(new Script("NewScript" + UnityEngine.Random.Range(1, 100), toDeriveFrom, this));
+        "",
+        "Painter",
+        "Assembler",
+        "Furnace",
+        "Laser",
+        "Crane",
+        "Machine",
+        "MaterialTube",
+        "Saw"
+    };
+    static List<char> disallowedCharacters = new()
+    {
+        ' ',
+        '\t',
+        '\n',
+        ';',
+        ':',
+        ',',
+        '.',
+        '&',
+        '@',
+        '$',
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '"',
+        '#',
+        '%',
+        '/',
+        '=',
+        '?',
+        '+',
+        '-',
+        '*',
+        '\'',
+        '>',
+        '<'
+    };
+
+    [Button]
+    public async void AddScript()
+    {
+        string name = await WindowManager.OpenEnterValue("Name the script");
+
+        while(!isValidName(name))
+        {
+            name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
+        }
+        
+        AddScript(new Script(name, toDeriveFrom, this));
+
+        bool isValidName(string name)
+        {
+            foreach (var item in disallowedNames)
+            {
+                if (name == item) return false;
+            }
+            foreach (var item in disallowedCharacters)
+            {
+                if (name.ToCharArray().Contains(item))
+                    return false;
+            }
+            if(ScriptManager.instance.activePlayerScripts.ContainsKey(name))
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
     public virtual void AddScript(Script script)
     {
         script.connectedMachine = this;
         attachedScripts.Add(script);
+        
+        script.Edit();
     }
 
     protected virtual void OnDestroy()
     {
-        ScriptManager.instance.RemoveMachine(this);
-
         foreach (var script in attachedScripts)
         {
-            ScriptManager.instance.activePlayerScripts.Remove(script.name);
+            script.Delete();
         }
     }
 

@@ -15,7 +15,7 @@ namespace CodeIsBroken
         private List<Item> items = new();
         private List<CraftingRecipie> craftingRecipies;
         
-        private ParticleSystem sawParticles;
+        private ParticleSystem furnaceParticle;
         
         private ReferenceHolder referenceHolder;
         Tweener moveTween;
@@ -83,7 +83,7 @@ namespace CodeIsBroken
         
         private void TakeItem()
         {
-            Debug.Log("[Saw] TakeItem");
+            Debug.Log("[Furnace] TakeItem");
             if(items.Count >= furnaceSize) return;
             GameObject cell = GridBuilder.instance.LookUpCell(transform.position - transform.forward);
             if (cell == null) return;

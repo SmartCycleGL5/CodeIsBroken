@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Painter
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Painter
-  showcaseI: {fileID: 2800000, guid: 178c9f1e6e92d2445a7263b7a2cd547b, type: 3}
+  showcaseI: {fileID: 13529067, guid: 7fc2b4a1361753c47a7705648d1f05d1, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0
@@ -22,6 +22,6 @@ MonoBehaviour:
       painters, like yellow being Green and Red, purple being Red and Blue, and cyan
       being Blue and Green.\t"
   - style: 1
-    text: "void OnTick()\r\n{\r\n\tPaint(\"Red\");\n\tPaint(\"Blue\");\r\n}"
+    text: "void OnTick()\r\n{\r\n\tPaint(Color.red);\n\tPaint(Color.blue);\r\n}"
   sortOrder: 6
   levelToUnlock: 3

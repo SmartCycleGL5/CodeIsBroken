@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Furnace
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Furnace
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: -248693709, guid: 031aae27b22d67e41adaeccb7a663fdc, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0
     text: "Used to melt/heat metals so that they are ready to be shaped and molded.
       \r\nThe furnace can take one input and outputs the processed item after a time
       delay."
+  - style: 1
+    text: Heat();
   sortOrder: 5
-  levelToUnlock: 3
+  levelToUnlock: 6

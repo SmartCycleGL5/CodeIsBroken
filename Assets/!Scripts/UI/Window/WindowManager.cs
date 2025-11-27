@@ -15,15 +15,26 @@ namespace CodeIsBroken.UI.Window
     {
         public static TabView tabs { get; private set; }
         public static VisualElement windows { get; private set; }
-        public static VisualElement confirmChoice { get; private set; }
+        public static VisualElement Popup { get; private set; }
+        
+        
+        public static VisualTreeAsset confirmChoice { get; private set; }
+        public static VisualTreeAsset enterValue { get; private set; }
     
         public static Dictionary<string, WindowElement> OpenWindows { get; private set; } = new();
-        private void Start()
+
+        public static bool popupOpen;
+        private async void Start()
         {
             tabs = canvas.Q<TabView>("Tabs");
             windows = canvas.Q<VisualElement>("Windows");
-            confirmChoice = canvas.Q<VisualElement>("ConfirmClose");
-    
+            Popup = canvas.Q<VisualElement>("Popup");
+            
+            if(confirmChoice == null)
+                confirmChoice = await Addressable.LoadAsset<VisualTreeAsset>("UI/Popup/ConfirmChoice");
+            if(enterValue == null)
+                enterValue = await Addressable.LoadAsset<VisualTreeAsset>("UI/Popup/EnterValue");
+            
             windows.Q<Button>("Close").clicked += CloseCurrentWindow;
     
             DisableWindow();
@@ -76,6 +87,8 @@ namespace CodeIsBroken.UI.Window
                 {
                     EnableWindow();
                 }
+
+                tabs.activeTab = windowElement.element;
     
                 Debug.Log("[UIManager] " + "Added new tab: " + windowElement.name);
             }
@@ -100,26 +113,28 @@ namespace CodeIsBroken.UI.Window
     
         public static async Task<bool> RequestClose(WindowElement windowElementToClose)
         {
-            Button closeButton = confirmChoice.Q<Button>("Close");
-            Button cancelButton = confirmChoice.Q<Button>("Cancel");
-            Label label = confirmChoice.Q<Label>();
+            TemplateContainer current = confirmChoice.Instantiate();
+            OpenPopup(current);
+            
+            Button closeButton = current.Q<Button>("Close");
+            Button cancelButton = current.Q<Button>("Cancel");
+            Label label = current.Q<Label>();
             
             label.text = $"Are you sure you want to close '{windowElementToClose.name}'?";
             bool requestActive = true;
-            bool result = false; //true = success
-            toggleChoice(true);
+            bool result = false;
     
             closeButton.clicked += () =>
             {
                 requestActive = false;
                 result = true;
-                toggleChoice(false);
+                ClosePopup(current);
             };
             cancelButton.clicked += () =>
             {
                 requestActive = false;
                 result = false;
-                toggleChoice(false);
+                ClosePopup(current);
             };
     
             while (requestActive)
@@ -128,17 +143,48 @@ namespace CodeIsBroken.UI.Window
             }
     
             return result;
-    
-            void toggleChoice(bool toggle)
+        }
+
+        public static async Task<string> OpenEnterValue(string info)
+        {
+            TemplateContainer current = enterValue.Instantiate();
+            OpenPopup(current);
+
+            current.Q<Label>("InfoText").text = info;
+            
+            bool close = false;
+
+            current.Q<Button>("Confirm").clicked += () =>
             {
-                confirmChoice.visible = toggle;
+                close = true;
+                ClosePopup(current);
+            };
+
+            while (!close)
+            {
+                await Task.Delay(100);
             }
+            
+            return current.Q<TextField>("Input").value;
         }
     
+        public static void OpenPopup(TemplateContainer popup)
+        {
+            Popup.style.visibility = Visibility.Visible;
+            popupOpen = true;
+            Popup.Add(popup);
+        }
+        public static void ClosePopup(TemplateContainer popup)
+        {
+            Popup.style.visibility = Visibility.Hidden;
+            popupOpen = false;
+            Popup.Remove(popup);
+        }
+        
         [Button]
         async void OpenTestWindow()
         {
-            VisualTreeAsset element = await Addressable.LoadAsset<VisualTreeAsset>(AddressableAsset.Blue);
+            VisualTreeAsset element = await Addressable.LoadAsset<VisualTreeAsset>("Window/Blue");
             VisualElement blue = element.Instantiate();
             new WindowElement("Blue", blue);
         }

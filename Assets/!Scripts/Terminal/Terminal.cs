@@ -1,13 +1,9 @@
+using CodeIsBroken.UI.Window;
 using SharpCube.Highlighting;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeIsBroken.UI.Window;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Utility;
-using static CodeIsBroken.UI.Window.WindowManager;
 
 namespace ScriptEditor
 {
@@ -19,18 +15,18 @@ namespace ScriptEditor
         public Script scriptToEdit { get; private set; }
 
         public static List<Terminal> terminals = new();
-        
+
         public WindowElement window { get; set; }
 
         #region UI elements
-        
+
         VisualElement terminal;
         Label inheritedMembers;
         TextField input;
         Label inheritedClass;
         Label console;
         Focusable focusedElement => input.panel.focusController.focusedElement;
-         #endregion
+        #endregion
         public static bool focused
         {
             get
@@ -59,19 +55,19 @@ namespace ScriptEditor
                 }
             }
         }
-        
+
         private void Start()
         {
             activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
-            
-            
+
+
             terminal = TerminalManager.terminalUI.Instantiate();
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
 
 #if UNITY_EDITOR
-            new WindowElement(scriptToEdit.name, terminal, false, this);
+            window = new WindowElement(scriptToEdit.name, terminal, false, this);
 #else
-            new WindowElement(scriptToEdit.name, terminal, true, this);
+            window = new WindowElement(scriptToEdit.name, terminal, true, this);
 #endif
 
 
@@ -90,15 +86,16 @@ namespace ScriptEditor
             terminals.Add(this);
 
             PlayerConsole.LogEvent += ConsoleLog;
+            scriptToEdit.Deleted += window.Close;
 
             Load();
         }
 
         private void ConsoleLog(object obj)
         {
-            if(obj is string)
+            if (obj is string)
             {
-                switch((string)obj)
+                switch ((string)obj)
                 {
                     case "/Clear":
                         {
@@ -108,7 +105,7 @@ namespace ScriptEditor
                 }
             }
 
-            console.text += obj+ "\n";
+            console.text += obj + "\n";
         }
 
         private void OnDestroy()
@@ -140,7 +137,7 @@ namespace ScriptEditor
 
             if (scriptToEdit.connectedMachine != null)
                 DisplayIntegratedMethods();
-            
+
             HighlightCode();
         }
         void DisplayIntegratedMethods()
@@ -149,13 +146,13 @@ namespace ScriptEditor
             //availableMethods.text = $"{scriptToEdit.connectedMachine.toDeriveFrom}:\n\n";
 
             inheritedMembers.text += "Variables:\n";
-            
+
             foreach (var info in scriptToEdit.connectedMachine.variableInfo)
             {
                 inheritedMembers.text += info.Name + "\n";
 
             }
-            
+
             inheritedMembers.text += "\nMethods:\n";
 
             foreach (var info in scriptToEdit.connectedMachine.methodInfo)
@@ -163,7 +160,7 @@ namespace ScriptEditor
                 inheritedMembers.text += info.Name + "(";
 
                 inheritedMembers.text += ")\n";
-                
+
             }
         }
 
@@ -177,18 +174,18 @@ namespace ScriptEditor
             }
 
             RemoveHighlight();
-            
+
             PlayerConsole.Clear();
 
             if (scriptToEdit.rawCode != input.text)
             {
                 PlayerConsole.Log("Saving...", scriptToEdit.name);
-                
-                await scriptToEdit.Save(input.text); 
-                
+
+                await scriptToEdit.Save(input.text);
+
                 PlayerConsole.Log("Saved!", scriptToEdit.name);
             }
-            
+
             //window.Rename(scriptToEdit.name);
 
             HighlightCode();

@@ -15,7 +15,7 @@ MonoBehaviour:
   title: 'Material
 
     Tube '
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: -672506597, guid: 145685aed42caa74298e2a19bc667dc5, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0
@@ -30,6 +30,6 @@ MonoBehaviour:
       Use SpawnDelay() to add a delay
       to the production of the material.'
   - style: 1
-    text: "void StartTick()\r\n{\r\n\tSetMaterial(\"Iron\");\r\n\tSpawnDelay(2);\r\n}"
+    text: "void StartTick()\r\n{\r\n\tSetMaterial(Material.iron);\r\n\tSpawnDelay(2);\r\n}"
   sortOrder: 0
   levelToUnlock: 0

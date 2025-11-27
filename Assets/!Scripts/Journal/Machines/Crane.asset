@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crane
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Crane
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: -1353017021, guid: 68f827ba3e20edf47a6d9e4128095aae, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0
@@ -27,4 +27,4 @@ MonoBehaviour:
   - style: 1
     text: "void OnTick()\r\n{\r\n\tPickUp();\n\tDrop();\r\n\tRotate(180);\r\n}"
   sortOrder: 3
-  levelToUnlock: 4
+  levelToUnlock: 8

@@ -80,7 +80,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
-        if (Terminal.focused) return;
+        if (Terminal.focused || WindowManager.popupOpen) return;
 
         Movement();
         MouseRotate();

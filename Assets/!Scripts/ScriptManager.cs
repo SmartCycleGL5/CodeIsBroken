@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CodeIsBroken.Product;
 using UnityEngine.UIElements;
 using static CodeIsBroken.UI.UIManager;
+using CodeIsBroken.Contract;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -18,10 +19,9 @@ public class ScriptManager : MonoBehaviour
 
     public static ScriptDomain scriptDomain;
     public static bool isRunning { get; private set; }
+    public static Action<bool> onRun;
     
-    static Button  runButton;
-
-    public static List<Programmable> machines = new();
+    static Button runButton;
 
     public static bool compiling;
 
@@ -33,6 +33,8 @@ public class ScriptManager : MonoBehaviour
 
     private void Start()
     {
+        ContractManager.OnNewContracts += StopMachines;
+
         runButton = canvas.Q<Button>("Run");
         runButton.clicked += ToggleMachines;
         runButton.text = "Start";
@@ -51,16 +53,15 @@ public class ScriptManager : MonoBehaviour
     }
 
     [Button]
-    public static async void StartMachines()
+    public static void StartMachines()
     {
         if(compiling) return;
         if (isRunning) return;
         
         runButton.text = "Starting";
-        runButton.SetEnabled(false);
         PlayerConsole.Clear();
 
-        await StartCompile();
+        onRun?.Invoke(true);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -71,11 +72,8 @@ public class ScriptManager : MonoBehaviour
 
         Debug.Log("[ScriptManager] Starting");
 
-        await Task.Delay(1000);
-
         Tick.StartTick();
         
-        runButton.SetEnabled(true);
         runButton.text = "Stop";
     }
     [Button]
@@ -85,8 +83,10 @@ public class ScriptManager : MonoBehaviour
         if (!isRunning) return;
         
         runButton.text = "Stopping";
-        runButton.SetEnabled(false);
+
         Tick.StopTick();
+
+        onRun?.Invoke(false);
 
         Debug.Log("[ScriptManager] Ending");
 
@@ -101,33 +101,35 @@ public class ScriptManager : MonoBehaviour
         }
 
         isRunning = false;
-        runButton.SetEnabled(true);
+
         runButton.text = "Start";
     }
 
-    public void AddMachine(Programmable machine)
+    public static async Task<bool> StartCompile()
     {
-        machines.Add(machine);
-    }
-    public void RemoveMachine(Programmable machine)
-    {
-        machines.Remove(machine);
-    }
-
-    public static async Task StartCompile()
-    {
-        if(compiling) return;
+        if(compiling) return false;
         compiling = true;
-        
+
+        runButton.text = "Compiling...";
         runButton.SetEnabled(false);
 
-        await Compile();
-        
+        await Task.Delay(1000); //artificial delay lol
+
+        if(!await Compile())
+        {
+            runButton.text = "<color=#ff0000>Failed</color>";
+            compiling = false;
+            return false;
+        }
+
+        runButton.text = "Start";
         runButton.SetEnabled(true);
+
         compiling = false;
+        return true;
     }
 
-    static async Task Compile()
+    static async Task<bool> Compile()
     {
         bool success = true;
 
@@ -150,6 +152,8 @@ public class ScriptManager : MonoBehaviour
                 PlayerConsole.LogError(error.error.ToString(), error.source.name);
             }
         }
+
+        return success;
     }
 
     private void OnDestroy()

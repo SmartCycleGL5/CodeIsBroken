@@ -55,7 +55,7 @@ namespace CodeIsBroken.Product
         {
             foreach (var product in Instance.Products)
             {
-                if (toFind.Equals(product.Key))
+                if (toFind.Equals(product.Key, false))
                     return product.Value;
             }
             

@@ -1,16 +1,12 @@
+using CodeIsBroken.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CodeIsBroken.Contract;
-using CodeIsBroken.Product;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
-using UnityEngine.Video;
 using Utility;
 
 namespace Journal
@@ -25,6 +21,7 @@ namespace Journal
         [SerializeField] string machineTabName = "Machine";
         [SerializeField] string hintsTabName = "Hints";
         [SerializeField] string conceptsTabName = "Concepts";
+        [SerializeField] private RecipesEntry recipes;
         private EventCallback<MouseUpEvent> tHintEvent;
         public UIDocument journalDoc;
         public StyleSheet styleSheet;
@@ -40,11 +37,13 @@ namespace Journal
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
             var tabView = journalDoc.rootVisualElement.Q<TabView>();
             tabView.activeTabChanged += TabChange;
+            SettingsTabSetBind();
             Contract(null);
+            RecipeEntries();
             await GetEntries();
             AddEntries();
             ChangeColorTabHeader(tabView);
-            
+
         }
 
         private static async Task GetEntries()
@@ -68,8 +67,34 @@ namespace Journal
             for (int i = 0; i < headerImages.Length; i++)
             {
                 tabView.GetTabHeader(i).style.backgroundImage = headerImages[i];
-                tabView.GetTabHeader(i).style.height = headerImages[i].height;
-                tabView.GetTabHeader(i).style.width = headerImages[i].width;
+            }
+        }
+
+        void RecipeEntries()
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Recipes");
+            var scrollV = tab.Q<ScrollView>();
+            recipes.SetUnlocked();
+            if (scrollV.childCount <= 0)
+            {
+                foreach (RecipesText rT in recipes.texts)
+                {
+                    Label rLabel = new(rT.text);
+                    rLabel.AddToClassList("explanation_text");
+                    if (!rT.IsUnlocked)
+                    {
+                        rLabel.style.display = DisplayStyle.None;
+                    }
+                    scrollV.Add(rLabel);
+                }
+            }
+            else if (scrollV.childCount == recipes.texts.Count)
+            {
+                List<VisualElement> childS = scrollV.Children().ToList();
+                for (int i = 0; i < scrollV.childCount; i++)
+                {
+                    childS[i].style.display = recipes.texts[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
+                }
             }
         }
 
@@ -94,33 +119,48 @@ namespace Journal
         }
         public void Contract(Contract contract)
         {
+
             //this should get all the UI for you :))) contract.GetUI()
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            if (contract == null)
+            {
+                tab.tabHeader.focusable = false;
+                tab.tabHeader.style.display = DisplayStyle.None;
+                return;
+            }
+            tab.tabHeader.focusable = true;
+            tab.tabHeader.style.display = DisplayStyle.Flex;
+            tab.Clear();
+            TemplateContainer contractUI = contract.GetUI();
+            contract.onProgress += ProgressAmount;
+            contractUI.Children().First().style.width = StyleKeyword.Auto;
+            contractUI.Children().First().style.height = StyleKeyword.Auto;
+            contractUI.Q<Button>().RemoveFromHierarchy();
+            tab.Add(contractUI);
+            for (int i = 0; i < contract.requests.Length; i++)
+            {
+                Contract.Request request = contract.requests[i];
+                var rTabView = tab.Q<TabView>("Requests");
+                var rTab = rTabView.GetTab(i);
+                var rAmount = rTab.Q<Label>("Amount");
+                rAmount.text = string.Format("{0}X / {0}X", request.amount);
+            }
 
-            //var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
-            //if (contract == null)
-            //{
-            //    tab.tabHeader.focusable = false;
-            //    tab.tabHeader.style.display = DisplayStyle.None;
-            //    return;
-            //}
-            //tab.tabHeader.focusable = true;
-            //tab.tabHeader.style.display = DisplayStyle.Flex;
-            //tab.Q<Label>("ContractName").text = contract.RequestedProduct.baseMaterials.ToString();
-            //tab.Q<Label>("Amount").text = contract.amount.ToString() + "X";
-            //tab.Q<Label>("XP").text = "Reward: " + contract.xpToGive + "xp";
-            //tab.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(contract.RequestedProduct.icon);
-            //ScrollView mods = tab.Q<ScrollView>("Amount");
-            //mods.Clear();
-
-            //foreach (var mod in contract.RequestedProduct.mods)
-            //{
-            //    VisualElement _m = new();
-            //    _m.AddToClassList("modifier");
-            //    _m.Add(new Label { text = mod.Name });
-            //    _m.Add(new Label { text = mod.Description});
-            //    mods.Add(_m);
-            //}   
         }
+
+        private void ProgressAmount()
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Contract");
+            for (int i = 0; i < ContractManager.ActiveContract.requests.Length; i++)
+            {
+                Contract.Request request = ContractManager.ActiveContract.requests[i];
+                var rTabView = tab.Q<TabView>("Requests");
+                var rTab = rTabView.GetTab(i);
+                var rAmount = rTab.Q<Label>("Amount");
+                rAmount.text = string.Format("{0}X / {1}X", request.amountLeft, request.amount);
+            }
+        }
+
         private Button CreateNewButton(JournalEntrySO entry)
         {
             entry.SetUnlocked();
@@ -128,23 +168,19 @@ namespace Journal
             {
                 text = string.Empty
             };
-            if (entry.showcaseI)
-            {
-                var image = new VisualElement()
-                {
-                    style =
-                            {
-                                backgroundImage = entry.showcaseI
-                            }
-                };
-                image.AddToClassList("journal-button_image");
-                tButton.Add(image);
-            }
             var text = new Label
             {
                 text = entry.title
             };
-
+            if (entry.showcaseI)
+            {
+                text.style.width = 130;
+                var image = new VisualElement();
+                StyleBackground s = Background.FromSprite(entry.showcaseI);
+                image.style.backgroundImage = s;
+                image.AddToClassList("journal-button_image");
+                tButton.Add(image);
+            }
             tButton.AddToClassList("journal-button");
             text.AddToClassList("journal-button_text");
 
@@ -183,8 +219,8 @@ namespace Journal
         {
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
-            if(scrollView.childCount >0)
-            {scrollView.Clear();}
+            if (scrollView.childCount > 0)
+            { scrollView.Clear(); }
             UnRegisterUICallback(hintText, tHintEvent);
             tHintEvent = null;
             if (!entry.bHintTaken && tHintEvent == null)
@@ -259,8 +295,8 @@ namespace Journal
             //     JournalOnOff();
             // }
             //Add Button For Leveling up, move it later
-            if(Keyboard.current.leftAltKey.isPressed && Keyboard.current.oKey.wasPressedThisFrame)
-                {
+            if (Keyboard.current.leftAltKey.isPressed && Keyboard.current.oKey.wasPressedThisFrame)
+            {
                 PlayerProgression.LevelUp();
             }
         }
@@ -270,7 +306,7 @@ namespace Journal
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
             scrollView?.Clear();
             var hidehint = tab2.Q("HideHint");
-            if(hidehint != null)hidehint.visible = false;
+            if (hidehint != null) hidehint.visible = false;
         }
         private void RemoveEmptyEntries(JournalEntrySO entry)
         {
@@ -282,6 +318,7 @@ namespace Journal
         }
         void OnLevelUp(int level)
         {
+            RecipeEntries();
             LevelUnlock(machineEntries, machineTabName);
             LevelUnlock(HintEntries, hintsTabName);
             LevelUnlock(ConceptEntries, conceptsTabName);
@@ -297,6 +334,20 @@ namespace Journal
                 entries[i].SetUnlocked();
                 buttons.ElementAt(i).style.display = entries[i].IsUnlocked ? DisplayStyle.Flex : DisplayStyle.None;
             }
+        }
+        void SettingsTabSetBind()
+        {
+            var tab = journalDoc.rootVisualElement.Q<Tab>("Settings");
+            var quitButton = tab.Q<Button>("Quit");
+            quitButton.clicked += QuitClicked;
+        }
+
+        private void QuitClicked()
+        {
+#if !UNITY_EDITOR
+            Application.Quit();
+#endif
+
         }
     }
 }

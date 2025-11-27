@@ -1,20 +1,16 @@
-using System;
 using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using UnityEditor.Overlays;
 using UnityEngine;
 
 public class Metrics : MonoBehaviour
 {
     public static Metrics instance;
-    
+
     private int totalElectricity;
     private int timeSinceLevelUp;
 
     [SerializeField] List<int> electricityLevel = new();
 
-    [SerializeField]List<int> timeUsed = new();
+    [SerializeField] List<int> timeUsed = new();
 
     private bool sentData;
 
@@ -30,7 +26,7 @@ public class Metrics : MonoBehaviour
     public void UseElectricity(int increase)
     {
         totalElectricity += increase;
-        
+
     }
 
     // Adds electricity to metrics on level up
@@ -39,7 +35,7 @@ public class Metrics : MonoBehaviour
         electricityLevel.Add(totalElectricity);
         totalElectricity = 0;
     }
-    
+
 
     // Adds time to metrics on level up
     private void TimeLevelUp(int level)
@@ -50,17 +46,17 @@ public class Metrics : MonoBehaviour
     }
 
 
-    
+
 
     public void GenerateGraph(int level)
     {
-        if (level == 5)
+        if (level == 9)
         {
             sentData = true;
             //GraphDrawer.instance.DrawCharts(electricityLevel, timeUsed);
             SendData(false);
         }
-        
+
     }
 
     private void OnApplicationQuit()
@@ -71,8 +67,8 @@ public class Metrics : MonoBehaviour
 
     private void SendData(bool quit)
     {
-        string electricityString = string.Join( ", ", electricityLevel.ToArray() );
-        string timeString = string.Join( ", ", timeUsed.ToArray() );
+        string electricityString = string.Join(", ", electricityLevel.ToArray());
+        string timeString = string.Join(", ", timeUsed.ToArray());
 
         try
         {
@@ -83,7 +79,7 @@ public class Metrics : MonoBehaviour
             Debug.Log("[Metrics] Webhook disabled");
         }
     }
-    
+
 
     private void OnDestroy()
     {
@@ -91,6 +87,6 @@ public class Metrics : MonoBehaviour
         PlayerProgression.onLevelUp -= ElectricityLevelUp;
         instance = null;
     }
-    
+
 }
 

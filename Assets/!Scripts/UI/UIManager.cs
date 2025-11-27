@@ -15,33 +15,7 @@ namespace CodeIsBroken.UI
             Instance = this;
     
             canvas = GetComponent<UIDocument>().rootVisualElement;
-    /*
-            runButton = canvas.Q<Button>("Run");
-            runButton.clicked += ScriptManager.ToggleMachines;*/
         }
-        
-        /*
-        Label levelIndicator;
-    
-    
-        Button runButton;
-    
-        private void Update()
-        {
-            if (ScriptManager.isRunning)
-            {
-                runButton.text = "Stop";
-            }
-            else
-            {
-                runButton.text = "Run";
-            }
-            
-        }
-        private void OnDestroy()
-        {
-            canvas.Q<Button>("Run").clicked -= ScriptManager.ToggleMachines;
-        }*/
     }
 }
 

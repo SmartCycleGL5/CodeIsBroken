@@ -17,8 +17,7 @@ namespace CodeIsBroken.Contract
 
             public bool satisfied { get; private set; }
             public Action onSatisfied;
-
-            public int xp => Mathf.RoundToInt(((product.mods.Count + 1) * 5) * (amount / 2));
+            public int xp => Mathf.RoundToInt(((product.baseMods.Count + 1) * 5) * (amount / 2));
 
             public Request(ProductDefinition product, int amount, IAdditionalModification[] additionalModifications = null)
             {
@@ -34,7 +33,6 @@ namespace CodeIsBroken.Contract
             public void Progress()
             {
                 amountLeft--;
-
                 if (amountLeft <= 0)
                 {
                     satisfied = true;
@@ -44,7 +42,7 @@ namespace CodeIsBroken.Contract
             public bool SatisfiesRequest(ProductDefinition product)
             {
                 if(satisfied) return false;
-                return product.Equals(product);
+                return this.product.Equals(product);
             }
 
             public TemplateContainer GetUI()
@@ -57,7 +55,18 @@ namespace CodeIsBroken.Contract
 
                 ScrollView mods = request.Q<ScrollView>("ModView");
 
-                foreach (var mod in product.mods)
+                foreach (var mod in product.baseMods)
+                {
+                    TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
+
+                    VisualElement modifier = modifierContainer.Q<VisualElement>("Modifier");
+                    modifier.Q<Label>("Name").text = mod.Name;
+                    modifier.Q<Label>("Description").text = mod.Description;
+
+                    mods.Add(modifier);
+                }
+
+                foreach (var mod in product.additionalMods)
                 {
                     TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
 
@@ -77,6 +86,7 @@ namespace CodeIsBroken.Contract
         public Request[] requests;
 
         public Action<Contract> onFinished;
+        public Action onProgress;
 
         public int xpToGive
         {
@@ -127,28 +137,26 @@ namespace CodeIsBroken.Contract
         }
         public void Finish()
         {
-            PlayerProgression.GiveXP(xpToGive);
+            PlayerProgression.LevelUp();
+            //PlayerProgression.GiveXP(xpToGive);
             onFinished?.Invoke(this);
         }
 
-        public bool TryProgressContract(Item item)
+        public void TryProgressContract(Item item)
         {
             foreach (var request in requests)
             {
                 if(request.SatisfiesRequest(item.definition))
                 {
                     request.Progress();
+                    onProgress?.Invoke();
 
                     if(allRequestsSatisfied())
                     {
                         Finish();
                     }
-
-                    return true;
                 }
             }
-
-            return false;
         }
 
         bool allRequestsSatisfied()

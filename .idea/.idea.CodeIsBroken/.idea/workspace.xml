@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GridBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GridBuilder.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Skole/CodeIsBroken4\CodeIsBroken.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/MonoBuild2\CodeIsBroken.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\noasj\Desktop\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -219,7 +219,15 @@
       <workItem from="1763560346194" duration="103000" />
       <workItem from="1763560825978" duration="263000" />
       <workItem from="1763591666674" duration="253000" />
-      <workItem from="1763733180983" duration="1080000" />
+      <workItem from="1763733180983" duration="3403000" />
+      <workItem from="1763750084877" duration="6530000" />
+      <workItem from="1763810506046" duration="429000" />
+      <workItem from="1763830111432" duration="1424000" />
+      <workItem from="1763923817969" duration="64000" />
+      <workItem from="1764023683754" duration="9000" />
+      <workItem from="1764146635753" duration="1420000" />
+      <workItem from="1764149283235" duration="3738000" />
+      <workItem from="1764157276951" duration="734000" />
     </task>
     <servers />
   </component>

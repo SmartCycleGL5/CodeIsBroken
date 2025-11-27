@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4042b49a4db6d084c82e0022890d91f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  aspectRatio: {x: 15, y: 9}
+  aspectRatio: {x: 16, y: 9}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -44,7 +44,8 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 
     public void PaintEffect()
     {
-            particle.Play();
+        if(particle == null) return;
+        particle.Play();
     }
 
     private void Reset()
@@ -75,10 +76,16 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,0.5f,0),0.3f);
         return true;
     }
-    [DontIntegrate]
+
     public bool RemoveItem()
     {
         return RemoveItem(out Item item);
+    }
+    
+    private void OnDisable()
+    {
+        Tick.OnTick -= TakeItem;
+        Tick.OnEndingTick -= Reset;
     }
 
     private void OnDestroy()

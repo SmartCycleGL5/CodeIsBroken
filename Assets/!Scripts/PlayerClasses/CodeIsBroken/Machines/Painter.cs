@@ -31,6 +31,7 @@ namespace CodeIsBroken
         }
         public void Paint(Color color)
         {
+            Debug.Log("[Painter] im alive");
             Metrics.instance.UseElectricity(1);
             painterConveyor.PaintEffect();
             Debug.Log("Set color to: " + color);
@@ -41,8 +42,10 @@ namespace CodeIsBroken
     
         void OnDestroy()
         {
+            Tick.OnTick -= UpdateItem;
+            Debug.Log("[Painter] I destroyed your asshole");
             if (item == null) return;
-            Destroy(item);
+            item = null;
         }
     
     }

@@ -20,7 +20,7 @@ public class ScriptManager : MonoBehaviour
     public static bool isRunning { get; private set; }
     public static Action<bool> onRun;
     
-    static Button  runButton;
+    static Button runButton;
 
     public static bool compiling;
 
@@ -50,16 +50,13 @@ public class ScriptManager : MonoBehaviour
     }
 
     [Button]
-    public static async void StartMachines()
+    public static void StartMachines()
     {
         if(compiling) return;
         if (isRunning) return;
         
         runButton.text = "Starting";
-        runButton.SetEnabled(false);
         PlayerConsole.Clear();
-
-        await StartCompile();
 
         onRun?.Invoke(true);
 
@@ -72,11 +69,8 @@ public class ScriptManager : MonoBehaviour
 
         Debug.Log("[ScriptManager] Starting");
 
-        await Task.Delay(1000);
-
         Tick.StartTick();
         
-        runButton.SetEnabled(true);
         runButton.text = "Stop";
     }
     [Button]
@@ -86,7 +80,7 @@ public class ScriptManager : MonoBehaviour
         if (!isRunning) return;
         
         runButton.text = "Stopping";
-        runButton.SetEnabled(false);
+
         Tick.StopTick();
 
         onRun?.Invoke(false);
@@ -104,24 +98,35 @@ public class ScriptManager : MonoBehaviour
         }
 
         isRunning = false;
-        runButton.SetEnabled(true);
+
         runButton.text = "Start";
     }
 
-    public static async Task StartCompile()
+    public static async Task<bool> StartCompile()
     {
-        if(compiling) return;
+        if(compiling) return false;
         compiling = true;
-        
+
+        runButton.text = "Compiling...";
         runButton.SetEnabled(false);
 
-        await Compile();
-        
+        await Task.Delay(1000); //artificial delay lol
+
+        if(!await Compile())
+        {
+            runButton.text = "<color=#ff0000>Failed</color>";
+            compiling = false;
+            return false;
+        }
+
+        runButton.text = "Start";
         runButton.SetEnabled(true);
+
         compiling = false;
+        return true;
     }
 
-    static async Task Compile()
+    static async Task<bool> Compile()
     {
         bool success = true;
 
@@ -144,6 +149,8 @@ public class ScriptManager : MonoBehaviour
                 PlayerConsole.LogError(error.error.ToString(), error.source.name);
             }
         }
+
+        return success;
     }
 
     private void OnDestroy()

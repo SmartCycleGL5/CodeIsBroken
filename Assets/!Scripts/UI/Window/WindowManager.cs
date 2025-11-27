@@ -87,6 +87,8 @@ namespace CodeIsBroken.UI.Window
                 {
                     EnableWindow();
                 }
+
+                tabs.activeTab = windowElement.element;
     
                 Debug.Log("[UIManager] " + "Added new tab: " + windowElement.name);
             }

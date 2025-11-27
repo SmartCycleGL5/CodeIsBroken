@@ -27,6 +27,8 @@
             </ui:GroupBox>
         </ui:Tab>
         <ui:Tab name="Contract" style="width: 850px; height: 800px; background-image: url(&quot;project://database/Assets/Art/Sprites/JournalSprite.png?fileID=-1130334826&amp;guid=490b4991d2fccf4458494516a6413b46&amp;type=3#JournalSprite_0&quot;); padding-top: 8px; padding-right: 6px; padding-bottom: 8px; padding-left: 6px;" />
-        <ui:Tab name="Settings" closeable="false" style="width: 850px; height: 800px; background-image: url(&quot;project://database/Assets/Art/Sprites/JournalSprite.png?fileID=-1130334826&amp;guid=490b4991d2fccf4458494516a6413b46&amp;type=3#JournalSprite_0&quot;); padding-top: 8px; padding-right: 6px; padding-bottom: 8px; padding-left: 6px;" />
+        <ui:Tab name="Settings" closeable="false" style="width: 850px; height: 800px; background-image: url(&quot;project://database/Assets/Art/Sprites/JournalSprite.png?fileID=-1130334826&amp;guid=490b4991d2fccf4458494516a6413b46&amp;type=3#JournalSprite_0&quot;); padding-top: 8px; padding-right: 6px; padding-bottom: 8px; padding-left: 6px;">
+            <ui:Button text="Quit" name="Quit" />
+        </ui:Tab>
     </ui:TabView>
 </ui:UXML>

@@ -20,11 +20,9 @@
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    padding-left: 0;
     padding-right: 0;
     padding-top: 2px;
     padding-bottom: 0;
-    background-size: 36% 90%;
     background-position-x: left 3%;
     background-position-y: center;
     border-left-color: rgb(0, 0, 0);
@@ -32,7 +30,8 @@
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
     flex-direction: row;
-    justify-content: center;
+    padding-left: 0;
+    justify-content: space-around;
 }
 
 .journal-button:hover {
@@ -54,11 +53,9 @@
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    padding-left: 0;
     padding-right: 0;
     padding-top: 2px;
     padding-bottom: 0;
-    background-size: 36% 90%;
     background-position-x: left 3%;
     background-position-y: center;
     border-left-color: rgb(0, 0, 0);
@@ -66,7 +63,7 @@
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     -unity-background-image-tint-color: rgb(190, 187, 187);
 }
 
@@ -75,12 +72,12 @@
     flex-basis: 100%;
     -unity-background-scale-mode: scale-to-fit;
     background-size: 90% 90%;
-    max-width: none;
-    width: 37%;
+    width: 130px;
+    min-width: 130px;
+    -unity-text-align: middle-center;
 }
 
 .journal-button_text {
-    width: auto;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -91,7 +88,8 @@
     padding-left: 0;
     -unity-text-align: middle-center;
     white-space: pre-wrap;
-    min-width: 50%;
+    text-overflow: clip;
+    color: rgb(255, 255, 255);
 }
 
 .Window {

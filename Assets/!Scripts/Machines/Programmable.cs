@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using CodeIsBroken.UI.Window;
 using UnityEngine;
+using System.Linq;
 
 [DefaultExecutionOrder(100), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
@@ -16,6 +17,49 @@ public class Programmable : MonoBehaviour
     public List<FieldInfo> variableInfo = new();
     public List<MethodInfo> methodInfo = new();
 
+    static List<string> disallowedNames = new()
+    {
+        "Painter",
+        "Assembler",
+        "Furnace",
+        "Laser",
+        "Crane",
+        "Machine",
+        "MaterialTube",
+        "Saw"
+    };
+    static List<char> disallowedCharacters = new()
+    {
+        ' ',
+        '\t',
+        '\n',
+        ';',
+        ':',
+        ',',
+        '.',
+        '&',
+        '@',
+        '$',
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '"',
+        '#',
+        '%',
+        '/',
+        '=',
+        '?',
+        '+',
+        '-',
+        '*',
+        '\'',
+        '>',
+        '<'
+    };
+
     private void Start()
     {
     }
@@ -25,10 +69,31 @@ public class Programmable : MonoBehaviour
     {
         string name = await WindowManager.OpenEnterValue("Name the script");
 
-        if (ScriptManager.instance.activePlayerScripts.ContainsKey(name))
-            throw new Exception($"{name} already exists");
+        while(!isValidName(name))
+        {
+            name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
+        }
         
         AddScript(new Script(name, toDeriveFrom, this));
+
+        bool isValidName(string name)
+        {
+            foreach (var item in disallowedNames)
+            {
+                if (name == item) return false;
+            }
+            foreach (var item in disallowedCharacters)
+            {
+                if (name.ToCharArray().Contains(item))
+                    return false;
+            }
+            if(ScriptManager.instance.activePlayerScripts.ContainsKey(name))
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
     public virtual void AddScript(Script script)
     {

@@ -60,10 +60,6 @@ public class Programmable : MonoBehaviour
         '<'
     };
 
-    private void Start()
-    {
-    }
-
     [Button]
     public async void AddScript()
     {
@@ -107,7 +103,7 @@ public class Programmable : MonoBehaviour
     {
         foreach (var script in attachedScripts)
         {
-            ScriptManager.instance.activePlayerScripts.Remove(script.name);
+            script.Delete();
         }
     }
 

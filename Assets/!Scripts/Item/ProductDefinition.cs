@@ -67,7 +67,6 @@ namespace CodeIsBroken.Product
             if (baseMods == null || other.baseMods == null) { return false; }
             if (baseMaterials != other.baseMaterials) { Debug.Log($"{baseMaterials} != {other.baseMaterials}"); return false; }
             if (baseMods.Count != other.baseMods.Count) return false;
-            if (additionalMods.Count != other.additionalMods.Count) return false;
 
             for (int i = 0; i < baseMods.Count; i++)
             {
@@ -75,6 +74,8 @@ namespace CodeIsBroken.Product
             }
             if (includeAdditionalMods)
             {
+                if (additionalMods.Count != other.additionalMods.Count) return false;
+
                 for (int i = 0; i < additionalMods.Count; i++)
                 {
                     if (!additionalMods[i].Equals(other.additionalMods[i])) { Debug.Log($"{additionalMods[i]} != {other.additionalMods[i]}"); return false; }

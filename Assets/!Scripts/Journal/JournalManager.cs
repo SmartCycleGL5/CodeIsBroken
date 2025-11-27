@@ -143,7 +143,7 @@ namespace Journal
                 var rTabView = tab.Q<TabView>("Requests");
                 var rTab = rTabView.GetTab(i);
                 var rAmount = rTab.Q<Label>("Amount");
-                rAmount.text = string.Format("{0}X / {0}X", request.amount);
+                rAmount.text = string.Format("0X / {0}X", request.amount);
             }
 
         }
@@ -157,7 +157,7 @@ namespace Journal
                 var rTabView = tab.Q<TabView>("Requests");
                 var rTab = rTabView.GetTab(i);
                 var rAmount = rTab.Q<Label>("Amount");
-                rAmount.text = string.Format("{0}X / {1}X", request.amountLeft, request.amount);
+                rAmount.text = string.Format("{0}X / {1}X", request.amount-request.amountLeft, request.amount);
             }
         }
 

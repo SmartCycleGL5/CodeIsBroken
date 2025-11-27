@@ -66,6 +66,17 @@ namespace CodeIsBroken.Contract
                     mods.Add(modifier);
                 }
 
+                foreach (var mod in product.additionalMods)
+                {
+                    TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
+
+                    VisualElement modifier = modifierContainer.Q<VisualElement>("Modifier");
+                    modifier.Q<Label>("Name").text = mod.Name;
+                    modifier.Q<Label>("Description").text = mod.Description;
+
+                    mods.Add(modifier);
+                }
+
                 return request;
             }
         }

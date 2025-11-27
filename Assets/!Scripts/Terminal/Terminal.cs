@@ -65,9 +65,9 @@ namespace ScriptEditor
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
 
 #if UNITY_EDITOR
-            new WindowElement(scriptToEdit.name, terminal, false, this);
+            window = new WindowElement(scriptToEdit.name, terminal, false, this);
 #else
-            new WindowElement(scriptToEdit.name, terminal, true, this);
+            window = new WindowElement(scriptToEdit.name, terminal, true, this);
 #endif
 
 
@@ -86,6 +86,7 @@ namespace ScriptEditor
             terminals.Add(this);
 
             PlayerConsole.LogEvent += ConsoleLog;
+            scriptToEdit.Deleted += window.Close;
 
             Load();
         }

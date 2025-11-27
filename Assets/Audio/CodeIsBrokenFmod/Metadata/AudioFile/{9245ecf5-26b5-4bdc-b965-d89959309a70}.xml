@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9245ecf5-26b5-4bdc-b965-d89959309a70}">
+		<property name="assetPath">
+			<value>Ambiences/Ambience, Industrial, Bakery Wholesale, Dough, Mixer, Small Rhythmic Clanking From Distance SND107903.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48.420552083333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3edf7464-7b55-4837-b8e7-3b9cfaee000b}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,3 +1,4 @@
+using Coding;
 using NaughtyAttributes;
 using RoslynCSharp;
 using ScriptEditor;
@@ -16,7 +17,7 @@ public class Script
 
     Terminal terminal;
 
-    public Action onDelete;
+    public Action Deleted;
 
     [Header("Code")]
     [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
@@ -116,5 +117,10 @@ public class Script
         return true;
     }
     
+    public void Delete()
+    {
+        ScriptManager.instance.activePlayerScripts.Remove(name);
 
+        Deleted?.Invoke();
+    }
 }

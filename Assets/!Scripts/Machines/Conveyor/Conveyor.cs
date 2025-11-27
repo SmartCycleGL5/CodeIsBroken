@@ -13,6 +13,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
     public GameObject wrapper;
     [SerializeField] List<Transform> positions;
     private Tween moveTween;
+    [SerializeField] private Renderer renderer;
+    private Material material;
 
     public Item item { get; set; }
 
@@ -21,6 +23,15 @@ public class Conveyor : MonoBehaviour, IItemContainer
 
     void Start()
     {
+        material = renderer.material;
+        if (ScriptManager.isRunning)
+        {
+            StartAnim();
+        }
+        else
+        {
+            StopAnim();
+        }
         //Checks for other conveyors and update the conveyors that found.
         UpdateConveyor();
         ConveyorManager.instance.UpdateCells(transform.position+transform.forward);
@@ -30,6 +41,18 @@ public class Conveyor : MonoBehaviour, IItemContainer
         }
         UpdateConveyor();
         Tick.OnLateTick += MoveOnTick;
+        Tick.OnStartingTick += StartAnim;
+        Tick.OnEndingTick += StopAnim;
+    }
+
+    void StartAnim()
+    {
+        material.SetVector("_direction", new Vector2(0,0.6f));
+    }
+
+    void StopAnim()
+    {
+        material.SetVector("_direction", new Vector2(0,0));
     }
 
     public void UpdateConveyor()

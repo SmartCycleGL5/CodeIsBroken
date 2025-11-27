@@ -15,7 +15,7 @@ MonoBehaviour:
   title: 'Material
 
     Tube '
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: -672506597, guid: 145685aed42caa74298e2a19bc667dc5, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0

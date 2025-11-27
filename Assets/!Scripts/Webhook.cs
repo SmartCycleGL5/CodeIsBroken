@@ -10,7 +10,7 @@ public class Webhook : MonoBehaviour
 {
     public static Webhook instance;
     
-    string webhook = "https://discord.com/api/webhooks/1440657859833499739/2j8lWycIChJTzD86xa2RlqbkIYNektQPLLq9u_IfoJKrOVS5zrxAWIi4Wzuj6FsJ_vR5";
+    string webhook = "";
 
     void Awake()
     {

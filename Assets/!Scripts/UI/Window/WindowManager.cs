@@ -22,6 +22,8 @@ namespace CodeIsBroken.UI.Window
         public static VisualTreeAsset enterValue { get; private set; }
     
         public static Dictionary<string, WindowElement> OpenWindows { get; private set; } = new();
+
+        public static bool popupOpen;
         private async void Start()
         {
             tabs = canvas.Q<TabView>("Tabs");
@@ -85,6 +87,8 @@ namespace CodeIsBroken.UI.Window
                 {
                     EnableWindow();
                 }
+
+                tabs.activeTab = windowElement.element;
     
                 Debug.Log("[UIManager] " + "Added new tab: " + windowElement.name);
             }
@@ -166,10 +170,14 @@ namespace CodeIsBroken.UI.Window
     
         public static void OpenPopup(TemplateContainer popup)
         {
+            Popup.style.visibility = Visibility.Visible;
+            popupOpen = true;
             Popup.Add(popup);
         }
         public static void ClosePopup(TemplateContainer popup)
         {
+            Popup.style.visibility = Visibility.Hidden;
+            popupOpen = false;
             Popup.Remove(popup);
         }
         

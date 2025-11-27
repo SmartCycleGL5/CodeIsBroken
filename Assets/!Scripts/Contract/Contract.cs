@@ -126,7 +126,8 @@ namespace CodeIsBroken.Contract
         }
         public void Finish()
         {
-            PlayerProgression.GiveXP(xpToGive);
+            PlayerProgression.LevelUp();
+            //PlayerProgression.GiveXP(xpToGive);
             onFinished?.Invoke(this);
         }
 

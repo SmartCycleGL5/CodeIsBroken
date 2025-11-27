@@ -25,6 +25,7 @@ namespace CodeIsBroken
             machine.AddMethodsAsIntegrated(typeof(Assembler));
 
             Tick.OnTick += TakeItem;
+            Tick.OnEndingTick += Reset;
         }
     
         private void Reset()
@@ -74,6 +75,7 @@ namespace CodeIsBroken
             if (cell == null) return;
             if (cell.TryGetComponent(out Conveyor conveyor))
             {
+                Debug.Log("[Assembler] FoundConveyor");
                 item = conveyor.item;
                 if(item == null) return;
                 item.transform.position = transform.position;
@@ -119,6 +121,7 @@ namespace CodeIsBroken
         protected void OnDestroy()
         {
             Tick.OnTick -= TakeItem;
+            Tick.OnEndingTick -= Reset;
         }
     }
 }

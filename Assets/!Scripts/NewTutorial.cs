@@ -148,6 +148,10 @@ public class NewTutorial : MonoBehaviour
                 {
                     buildingIndex++;
                 }
+                else if (PlayerProgression.Level >= 3)
+                {
+                    buildingIndex++;
+                }
                 break;
             case 4:
                 uiDocument.rootVisualElement.Q<VisualElement>("Tutorial").visible = false;

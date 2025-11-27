@@ -69,6 +69,7 @@ namespace CodeIsBroken
                 if(cell == null) return;
                 if (cell.TryGetComponent(out Conveyor conveyor))
                 {
+                    if (item == null) return;
                     if (conveyor.item != null) return;
                     sawParticles.Play();
                     Destroy(item.gameObject);

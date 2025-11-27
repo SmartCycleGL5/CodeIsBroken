@@ -26,23 +26,18 @@ public class Crafting : MonoBehaviour
             materials = materials.OrderBy(x => x.name).ToList();
             recipeItems.AddRange(recipe.materials.Select(material => material.definition));
             recipe.materials = recipe.materials.OrderBy(x => x.name).ToList();
+            
+            if(materials.Count != recipeItems.Count) return null;
 
             for (int i = 0; i < recipeItems.Count; i++)
             {
                 if (!recipeItems[i].Equals(materials[i], false))
                 {
                     Debug.Log("MAterial not equal");
-                    break;
+                    return null;
                 }
-
-                if (recipeItems.Count >= i)
-                {
-                    Debug.Log("Valid recipe");
-
-                    return recipe.itemToSpawn;
-                }
-                
             }
+            return recipe.itemToSpawn;
             
             /*if (materials.SequenceEqual(recipeItems))
             {

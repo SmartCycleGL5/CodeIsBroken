@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Crane
   showcaseI: {fileID: -1353017021, guid: 68f827ba3e20edf47a6d9e4128095aae, type: 3}
-  bHintTaken: 1
+  bHintTaken: 0
   journalTexts:
   - style: 0
     text: "The crane can be used to \"split\" a chain into two. \nTo ensure that
       the crane picks up and dropps correctly we can do the following:"
   - style: 1
-    text: "public class ExampleCrane : Crane\n{\n\tpublic void OnTick()\n\t{\n\t\tRotate(180);\n\t\t\n\t\tif(HasItem())\n\t\t{\n\t\t\tDrop();\n\t\t}\n\t\telse\n\t\t{\n\t\t\tPickup();\n\t\t}\n\t}\n}"
-  - style: 1
+    text: "public class ExampleCrane : Crane\n{\n\tpublic void OnTick()\n\t{\n\t\tRotate(180);\n\t\t\n\t\tif(HasItem())\n\t\t{\n\t\t\tDrop();\n\t\t}\n\t\telse\n\t\t{\n\t\t\tPickUp();\n\t\t}\n\t}\n}"
+  - style: 0
     text: This will then only drop if it has an item, and will only pickup if it
       doesnt, but only after rotating.
   sortOrder: 1

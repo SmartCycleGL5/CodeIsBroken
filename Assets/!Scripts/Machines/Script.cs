@@ -76,11 +76,27 @@ public class Script
 
     void StartTick()
     {
-        proxy.Methods.Call(startMethod);
+        try
+        {
+            proxy.Methods.Call(startMethod);
+        }
+        catch
+        (Exception ex)
+        {
+            Debug.LogWarning("No start method");
+        }
     }
     void OnTick()
     {
-        proxy.Methods.Call(updateMethod);
+        try
+        {
+            proxy.Methods.Call(updateMethod);
+        }
+        catch
+        (Exception ex)
+        {
+            Debug.LogWarning("No start method");
+        }
     }
     
     public void Edit()

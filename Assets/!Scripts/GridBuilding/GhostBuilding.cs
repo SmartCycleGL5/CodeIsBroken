@@ -47,7 +47,7 @@ public class GhostBuilding : MonoBehaviour
             Debug.Log("Trying to remove building");
             AudioManager.PlayOneShot(removeSound);
             gridBuilder.RemoveBuilding();
-            ScriptManager.StopMachines();
+            StopMachines();
         }
         if (!isBuilding) return;
         if (Keyboard.current.rKey.wasPressedThisFrame)
@@ -64,7 +64,7 @@ public class GhostBuilding : MonoBehaviour
         {
             if(ghostPrefab == null) return;
             AudioManager.PlayOneShot(placeSound);
-            ScriptManager.StopMachines();
+            StopMachines();
             gridBuilder.PlaceBuilding(prefabToBuild, ghostPrefab.transform.Find("Wrapper").rotation);
         }
 
@@ -73,6 +73,14 @@ public class GhostBuilding : MonoBehaviour
         {
             SetGhostPosition();
             BuildingCollisions();
+        }
+    }
+
+    void StopMachines()
+    {
+        if (ScriptManager.isRunning)
+        {
+            ScriptManager.StopMachines();
         }
     }
 

@@ -28,6 +28,8 @@ public class ScriptManager : MonoBehaviour
 
     public static bool compiling;
 
+    public static List<Error> compilerErrors = new List<Error>();
+
     [Header("Audio")]
     [SerializeField] EventReference powerUp;
     [SerializeField] EventReference powerDown;
@@ -140,11 +142,11 @@ public class ScriptManager : MonoBehaviour
     {
         bool success = true;
 
-        List<Error> errors = new();
+        compilerErrors = new();
 
         foreach (var script in instance.activePlayerScripts)
         {
-            if (!script.Value.Compile(ref errors))
+            if (!script.Value.Compile(ref compilerErrors))
                 success = false;
 
             await Task.Delay(10);
@@ -154,7 +156,7 @@ public class ScriptManager : MonoBehaviour
 
         if (!success)
         {
-            foreach (var error in errors)
+            foreach (var error in compilerErrors)
             {
                 PlayerConsole.LogError(error.error.ToString(), error.source.name);
             }

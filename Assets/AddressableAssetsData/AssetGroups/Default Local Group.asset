@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - ConceptEntries
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24118beb582e55748b0193697098a6d4
+    m_Address: Assets/!Scripts/Journal/Hints/MaterialTube.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - HintEntries
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42e894855851b1644b259b23ac6096cf
     m_Address: Assets/!Scripts/Journal/Machines/TruckDockingStation.asset
     m_ReadOnly: 0

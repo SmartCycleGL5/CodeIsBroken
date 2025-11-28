@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c6f19c655706a4cacc75b02de39664, type: 3}
+  m_Name: MaterialTube
+  m_EditorClassIdentifier: CodeIsBroken::Journal.JournalEntrySO
+  title: MaterialTube
+  showcaseI: {fileID: 0}
+  bHintTaken: 0
+  journalTexts:
+  - style: 0
+    text: 'Using bools we can make a MaterialTube output two different material types.
+
+'
+  - style: 1
+    text: "using CodeIsBroken;\r\n\r\npublic class ExampleTube : MaterialTube\r\n{\n\t//
+      Creates a bool that can be used!\r\n\tbool materialToggle;\r\n\r\n\t//Runs
+      once on Start\r\n\tprivate void StartTick()\r\n\t{\r\n\t\t\r\n\t}\r\n\t\r\n\t//Runs
+      once every Tick/second\r\n\tprivate void OnTick()\r\n\t{\n\t\t// If materialToggle
+      is true, spawn iron.\r\n\t\tif(materialToggle)\r\n\t\t{\r\n\t\t\tSetMaterial(Material.iron);\r\n\t\t}\r\n\t\t\n\t\t//
+      if materialToggle is false, spawn wood.\r\n\t\telse\r\n\t\t{\r\n\t\t\tSetMaterial(Material.wood);\r\n\t\t}\r\n\n\t\t//
+      Set materialToggle to the opposite of what it is (If the bool is true it becomes
+      false)\r\n\t\tmaterialToggle = !materialToggle;\r\n\t}\r\n}\r\n"
+  sortOrder: 0
+  levelToUnlock: 4

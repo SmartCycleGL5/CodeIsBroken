@@ -1,4 +1,5 @@
 using CodeIsBroken.Contract;
+using ScriptEditor;
 using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
@@ -290,6 +291,7 @@ namespace Journal
         }
         public void JournalOnOff()
         {
+            if(Terminal.focused)return;
             journalDoc.rootVisualElement.style.display = journalDoc.rootVisualElement.style.display != DisplayStyle.None ? DisplayStyle.None : DisplayStyle.Flex;
         }
         void Update()

@@ -20,6 +20,7 @@ public class Programmable : MonoBehaviour
     static List<string> disallowedNames = new()
     {
         "",
+        //----- Our classes
         "Painter",
         "Assembler",
         "Furnace",
@@ -28,7 +29,7 @@ public class Programmable : MonoBehaviour
         "Machine",
         "MaterialTube",
         "Saw",
-        //-----
+        //----- C# key words
         "abstract",
         "as",
         "base",

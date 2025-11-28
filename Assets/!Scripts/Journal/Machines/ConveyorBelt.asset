@@ -19,8 +19,6 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: "A conveyor belt will move objects on top of it forwards every tick, if
-      possible. Conveyor belts can\u2019t move objects if there is no space for the
-      object or if there is nothing in front of the belt."
-  sortOrder: 1
+    text: A conveyor belt will move objects on top of it forwards every tick!
+  sortOrder: 0
   levelToUnlock: 0

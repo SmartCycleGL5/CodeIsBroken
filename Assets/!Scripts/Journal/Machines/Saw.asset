@@ -17,8 +17,8 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: Saw is used to cut the material its currently holding
+    text: Saw is used to cut the material it is currently holding.
   - style: 1
-    text: Cut();
+    text: "public class ExampleSaw : Saw\n{\n\tvoid OnTick()\n\t{\n\t\tCraft();\n\t}\n}"
   sortOrder: 2
   levelToUnlock: 6

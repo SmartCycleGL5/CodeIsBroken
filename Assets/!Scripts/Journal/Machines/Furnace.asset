@@ -17,10 +17,10 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: "Used to melt/heat metals so that they are ready to be shaped and molded.
-      \r\nThe furnace can take one input and outputs the processed item after a time
-      delay."
+    text: "Used to melt/heat Materials so that they are ready to be shaped and molded.
+      \r\nThe furnace can take one input, and will output the processed item after
+      a time delay."
   - style: 1
-    text: Heat();
+    text: "public class ExampleFurnace : Furnace\n{\n\tvoid OnTick()\n\t{\n\t\tHeat();\n\t}\n}"
   sortOrder: 5
   levelToUnlock: 6

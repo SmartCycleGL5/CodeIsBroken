@@ -32,12 +32,7 @@ MonoBehaviour:
       to craft something if it has a valid combination. For example you can use iron
       and wood to create a chair. To learn more recipes check Recipes under Concepts.'
   - style: 1
-    text: 'void OnTick()
-
-      {
-
-      Craft();
-
-      }'
+    text: "public class ExampleAssembler : Assembler\n{\n\tvoid OnTick()\n\t{\n\t\t//Will
+      craft something if its two materials are a valid recipie\n\t\tCraft();\n\t}\n}"
   sortOrder: 4
   levelToUnlock: 9

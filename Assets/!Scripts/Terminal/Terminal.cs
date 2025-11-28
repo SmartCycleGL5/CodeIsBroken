@@ -9,6 +9,7 @@ namespace ScriptEditor
 {
     using Console;
 
+    [DefaultExecutionOrder(-100)]
     public class Terminal : MonoBehaviour, IWindow
     {
         public SyntaxHighlighting activeHighlighting = new();

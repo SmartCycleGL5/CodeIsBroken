@@ -17,6 +17,11 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 1
-    text: "if()\r\n{\r\n\tDo(x)\r\n}\r\nelse if()\r\n{\r\n\tDo(y)\r\n}\r\nelse \r\n{\r\n\tDo(z)\r\n}"
+    text: If statements are used for simple logic, allowing you to check if something
+      is true
+  - style: 1
+    text: "public class MyPainter : Painter\n{\n\tprivate void OnTick()\n\t{\n\t\t//this
+      checks if the painter has an item, if it does then it will paint the item red.
+      \n\t\tif(HasItem())\n\t\t{\n\t\t\tPaint(Color.red);\n\t\t}\n\t}\n}"
   sortOrder: 0
   levelToUnlock: 4

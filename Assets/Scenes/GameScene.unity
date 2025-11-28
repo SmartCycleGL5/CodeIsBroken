@@ -915,6 +915,8 @@ MonoBehaviour:
   - Another mall
   - Target
   - Coop generic
+  - Joker
+  - SmartCycle
   completedContract:
     Guid:
       Data1: -244416194

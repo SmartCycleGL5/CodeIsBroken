@@ -18,9 +18,9 @@ MonoBehaviour:
   journalTexts:
   - style: 0
     text: "Use the method Paint(Color) to paint the item in it to one of the following
-      colors:\r\nRed, Blue, or Green\r\nYou can also make new colors by using several
-      painters, like yellow being Green and Red, purple being Red and Blue, and cyan
-      being Blue and Green.\t"
+      colors:\r\nRed, Blue, or Green\r\nYou can also make new colors by using Paint()
+      multiple times, like yellow being Green and Red, purple being Red and Blue,
+      and cyan being Blue and Green.\t"
   - style: 1
     text: "void OnTick()\r\n{\r\n\tPaint(Color.red);\n\tPaint(Color.blue);\r\n}"
   sortOrder: 6

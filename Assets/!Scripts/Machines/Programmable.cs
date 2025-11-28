@@ -29,6 +29,9 @@ public class Programmable : MonoBehaviour
         "Machine",
         "MaterialTube",
         "Saw",
+        "Console",
+        "Material",
+        "Random",
         //----- C# key words
         "abstract",
         "as",

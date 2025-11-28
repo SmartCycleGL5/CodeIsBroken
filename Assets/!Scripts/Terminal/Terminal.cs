@@ -59,7 +59,7 @@ namespace ScriptEditor
 
         private void Start()
         {
-            activeHighlighting.SetPallate(ColorThemes.Instance.Themes["Default"]);
+            activeHighlighting.SetPallate(ColorThemes.ActivePallate);
 
 
             terminal = TerminalManager.terminalUI.Instantiate();

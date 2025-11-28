@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CraneHint
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: Crane
-  showcaseI: {fileID: -1353017021, guid: 68f827ba3e20edf47a6d9e4128095aae, type: 3}
+  showcaseI: {fileID: 0}
   bHintTaken: 0
   journalTexts:
   - style: 0

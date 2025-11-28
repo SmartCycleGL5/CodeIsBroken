@@ -1,4 +1,5 @@
 using CodeIsBroken.Contract;
+using CodeIsBroken.UI.Window;
 using DG.Tweening;
 using ScriptEditor;
 using UnityEngine;
@@ -108,7 +109,7 @@ public class NewTutorial : MonoBehaviour
                     buildingIndex++;
                 return;
             case 1:
-                label.text = "Try selecting conveyors and building a line from the MaterialTubes to the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
+                label.text = "Try selecting conveyors and build a line from the MaterialTube to the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
@@ -116,6 +117,7 @@ public class NewTutorial : MonoBehaviour
                 {
                     //contractName = ContractGiver.ActiveContract.RequestedProduct.baseMaterials.ToString();
                     level++;
+                    buildingIndex = 0;
                 }
                 return;
         }
@@ -128,12 +130,12 @@ public class NewTutorial : MonoBehaviour
         switch (buildingIndex)
         {
             case 0:
-                label.text = "Lets try some programming! Click on the material tube and press the terminal symbol. Try writing something inside the terminal!";
+                label.text = "Lets try some programming! Click on the material tube and press the terminal symbol. Give your script a name and try writing something inside the terminal!";
                 if (Terminal.focused)
-                { buildingIndex++; }
+                { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}); and press the Start button.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}); in the StartTick section and press the Start button.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
@@ -148,7 +150,7 @@ public class NewTutorial : MonoBehaviour
                 {
                     buildingIndex++;
                 }
-                else if (PlayerProgression.Level >= 3)
+                else if (PlayerProgression.Level >= 4)
                 {
                     buildingIndex++;
                 }

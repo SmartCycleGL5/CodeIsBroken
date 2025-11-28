@@ -6,7 +6,7 @@ using CodeIsBroken.UI.Window;
 using UnityEngine;
 using System.Linq;
 
-[DefaultExecutionOrder(100), DisallowMultipleComponent]
+[DefaultExecutionOrder(0), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
 {
     [InfoBox("The name of the parent class", EInfoBoxType.Warning)]

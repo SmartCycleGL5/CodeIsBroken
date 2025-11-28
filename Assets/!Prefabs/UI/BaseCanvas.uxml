@@ -76,7 +76,7 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="Popup" style="position: absolute; bottom: 0%; top: 0%; left: 0%; right: 0%; background-color: rgba(0, 0, 0, 0.78); visibility: hidden; justify-content: center; align-items: center;" />
-    <ui:VisualElement name="Contract" style="flex-grow: 1; position: absolute; top: 0; right: 0; bottom: 0; left: 0;">
+    <ui:VisualElement name="Contract" picking-mode="Ignore" style="flex-grow: 1; position: absolute; top: 0; right: 0; bottom: 0; left: 0;">
         <ui:VisualElement name="ContractHolder" class="ContractHolder" style="bottom: 0; justify-content: space-around; background-color: rgba(0, 0, 0, 0.78); visibility: hidden;" />
         <ui:Label text="Select Contract" name="Select" picking-mode="Ignore" style="position: absolute; top: 200px; color: rgb(255, 255, 255); font-size: 96px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 3px; align-self: center; background-color: rgba(168, 95, 95, 0);" />
     </ui:VisualElement>

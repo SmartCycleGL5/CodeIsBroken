@@ -1,6 +1,7 @@
 using ScriptEditor;
 using System;
 using System.Collections.Generic;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -44,7 +45,9 @@ public class BuildingSelector : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.bKey.wasPressedThisFrame && !Terminal.focused)
+        if (Terminal.focused) return;
+        if (WindowManager.popupOpen) return;
+        if (Keyboard.current.bKey.wasPressedThisFrame)
         {
             ToggleMenu();
         }

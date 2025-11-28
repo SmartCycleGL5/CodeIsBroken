@@ -82,11 +82,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         return RemoveItem(out Item item);
     }
     
-    private void OnDisable()
-    {
-        Tick.OnTick -= TakeItem;
-        Tick.OnEndingTick -= Reset;
-    }
+
 
     private void OnDestroy()
     { 

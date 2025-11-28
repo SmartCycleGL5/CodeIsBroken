@@ -238,27 +238,50 @@
     -unity-background-scale-mode: stretch-to-fill;
     width: auto;
     background-color: rgba(0, 0, 0, 0);
-    min-height: 60px;
-    min-width: 60px;
+    min-height: 105px;
+    min-width: 103px;
     background-size: cover;
     scale: 1 1;
     translate: 0 10px;
     transition-property: translate;
     transition-duration: 100ms;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    justify-content: center;
 }
 
 #JournalTabs > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header:hover {
-    translate: 0 0;
+    translate: 0 1px;
     transition-property: translate;
     transition-duration: 100ms;
 }
 
 #JournalTabs > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header:selected {
-    translate: 0 0;
+    translate: 0 1px;
     transition-property: translate;
     transition-duration: 100ms;
 }
 
 #JournalTabs > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header > #unity-tab__header-underline {
     visibility: hidden;
+    display: none;
+}
+
+#JournalTabs > .unity-tab-view__content-viewport > #unity-tab-view__header-container > #unity-tab__header > #unity-tab__header-image {
+    height: 81px;
+    width: 72px;
+    margin-top: 24px;
+    margin-bottom: 0;
+    padding-bottom: 13px;
+    padding-left: 0;
+}
+
+#JournalTabs > .unity-tab-view__content-viewport {
+    overflow: visible;
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Assembler
   m_EditorClassIdentifier: Assembly-CSharp::Journal.JournalEntrySO
   title: 'Assembler '
-  showcaseI: {fileID: 0}
+  showcaseI: {fileID: 21300000, guid: b0ff19e778f28484ba82a6cbc5379b3a, type: 3}
   bHintTaken: 0
   journalTexts:
   - style: 0

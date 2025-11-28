@@ -19,3 +19,4 @@ MonoBehaviour:
     tick.
   levelToUnlock: 1
   sortingOrder: 1
+  icon: {fileID: -610777709, guid: d2366ca20aceef6468a69c21488f6176, type: 3}

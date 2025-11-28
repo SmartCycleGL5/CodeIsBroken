@@ -18,3 +18,4 @@ MonoBehaviour:
   buildingDesctiption: 
   levelToUnlock: 6
   sortingOrder: 1
+  icon: {fileID: -248693709, guid: 031aae27b22d67e41adaeccb7a663fdc, type: 3}

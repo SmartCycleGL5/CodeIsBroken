@@ -21,3 +21,4 @@ MonoBehaviour:
     times.\n\nExample:\nvoid OnTick()\n{\n\tPaint(Red);\n}"
   levelToUnlock: 3
   sortingOrder: 1
+  icon: {fileID: 13529067, guid: 7fc2b4a1361753c47a7705648d1f05d1, type: 3}

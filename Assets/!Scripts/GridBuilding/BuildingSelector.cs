@@ -61,11 +61,14 @@ public class BuildingSelector : MonoBehaviour
 
             var newButton = buildingButtonTemplate.CloneTree();
             var button = newButton.Q<Button>("Button");
+            var buildingText = button.Q<Label>("buildingText");
+            var buildingIcon = button.Q<VisualElement>("buildingIcon");
 
-            button.text = building.buildingName;
-
+            //button.text = building.buildingName;
+            buildingText.text = building.buildingName;
             button.clicked += () => UpdateBuildingBlock(building.buildingPrefab);
-
+            
+            buildingIcon.style.backgroundImage = new StyleBackground(building.icon);
             buildingMenuPanel.Add(newButton);
         }
 

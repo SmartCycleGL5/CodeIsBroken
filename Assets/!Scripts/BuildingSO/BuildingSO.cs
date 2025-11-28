@@ -12,4 +12,5 @@ public class BuildingSO : ScriptableObject
     public int levelToUnlock;
     public bool isUnlocked => levelToUnlock <= PlayerProgression.Level;
     public int sortingOrder = 1;
+    public Sprite icon;
 }

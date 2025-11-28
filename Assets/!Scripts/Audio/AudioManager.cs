@@ -22,23 +22,27 @@ namespace CodeIsBroken.Audio
 
         public static void PlayOneShot(EventReference reference)
         {
-            _=PlayOneShot(reference, Vector3.zero);
+            PlayOneShot(reference, Vector3.zero, out int time);
+        }
+        public static void PlayOneShot(EventReference reference, out int time)
+        {
+            PlayOneShot(reference, Vector3.zero, out time);
         }
         public static async Task PlayOneShotAsync(EventReference reference)
         {
-            await PlayOneShot(reference, Vector3.zero);
+            PlayOneShot(reference, Vector3.zero, out int time);
+            await Task.Delay(time);
         }
-        public static async Task PlayOneShot(EventReference reference, Vector3 position)
+        static void PlayOneShot(EventReference reference, Vector3 position, out int time)
         {
             GameObject instance = new GameObject("reference.Path");
             StudioEventEmitter emitter = instance.AddComponent<StudioEventEmitter>();
             emitter.EventReference = reference;
             emitter.Play();
             emitter.EventDescription.getLength(out int length);
+            time = length;
 
-            await Task.Delay(length);
-
-            Destroy(instance);
+            Destroy(instance, time / 1000);
         }
     }
 }

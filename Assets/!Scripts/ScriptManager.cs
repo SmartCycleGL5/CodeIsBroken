@@ -1,18 +1,19 @@
-using System;
-using System.CodeDom.Compiler;
 using AYellowpaper.SerializedCollections;
+using CodeIsBroken.Audio;
+using CodeIsBroken.Contract;
+using CodeIsBroken.Product;
+using Codice.Client.Common;
+using FMODUnity;
 using NaughtyAttributes;
 using RoslynCSharp;
-using System.Collections.Generic;
-using UnityEngine;
 using ScriptEditor.Console;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeIsBroken.Product;
+using UnityEngine;
 using UnityEngine.UIElements;
 using static CodeIsBroken.UI.UIManager;
-using CodeIsBroken.Contract;
-using FMODUnity;
-using CodeIsBroken.Audio;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -69,7 +70,8 @@ public class ScriptManager : MonoBehaviour
         runButton.text = "Starting";
         PlayerConsole.Clear();
 
-        await AudioManager.PlayOneShotAsync(instance.powerUp);
+        AudioManager.PlayOneShot(instance.powerUp, out int time);
+        await Task.Delay(time / 2);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -93,7 +95,8 @@ public class ScriptManager : MonoBehaviour
         runButton.text = "Stopping";
         Tick.StopTick();
 
-        await AudioManager.PlayOneShotAsync(instance.powerDown);
+        AudioManager.PlayOneShot(instance.powerDown, out int time);
+        await Task.Delay(time / 2);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -119,9 +122,7 @@ public class ScriptManager : MonoBehaviour
         runButton.text = "Compiling...";
         runButton.SetEnabled(false);
 
-        await Task.Delay(1000); //artificial delay lol
-
-        if(!await Compile())
+        if (!await Compile())
         {
             runButton.text = "<color=#ff0000>Failed</color>";
             compiling = false;

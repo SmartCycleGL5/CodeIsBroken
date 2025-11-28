@@ -26,7 +26,7 @@ MonoBehaviour:
       Use Pickup() to pick up an item & Drop() to drop it.'
   - style: 1
     text: "public class ExampleAssembler : Assembler\n{\n\tvoid OnTick()\n\t{\n\t\tRotate(180);
-      //Rotates the crane in degrees\n\t\tif(HasItem())\n\t\t{\n\t\t\tPickup() //Picks
+      //Rotates the crane in degrees\n\t\tif(HasItem())\n\t\t{\n\t\t\tPickUp() //Picks
       up an item under its magnet\n\t\t}\n\t\telse\n\t\t{\n\t\t\tDrop(); //Drops
       an item\n\t\t}\n\t}\n}"
   sortOrder: 3

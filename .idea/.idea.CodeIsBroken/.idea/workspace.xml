@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/BuildingSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/BuildingSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/buildingButton.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/buildingButton.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Desktop/GLExam\CodeIsBroken.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Exam3\CodeIsBroken.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\noasj\Desktop\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />

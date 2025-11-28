@@ -17,24 +17,18 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: 'Supported Types: int, float, string, bool
-
-      Creating Variables
-
-      To
-      create a variable: [Type] variableName;
-
-      example:'
+    text: Variables are how you can remember values of a predetermined type.
   - style: 1
     text: "class Example\r\n{\r\n\tint myInt = 5;\r\n}"
   - style: 0
-    text: 'Calling Variables
-
-      to call a variable: variableName;
-
-      example:'
+    text: of course you can always set your variable to be something else in the
+      future.
   - style: 1
-    text: "class Example\r\n{\r\n\tint myInt = 5;\r\n\r\n\tvoid StartTick()\r\n\t{\r\n\t\tmyInt
-      = 2;\r\n\t}\r\n}"
+    text: "public class CoolTube : MaterialTube\r\n{\r\n\tbool myBool;  //Default
+      is false\r\n\r\n\tvoid StartTick()\r\n\t{\r\n\t\tmyBool = !myBool; //this sets
+      the bool to be the opposite of what it currently is\n\n\t\tif(myBool)\n\t\t{\n\t\t\t//if
+      myBool is true, the material spawned should be wood\n\t\t\tSetMaterial(Material.wood);
+      \n\t\t}\n\t\telse\n\t\t{\n\t\t\t//if myBool is true, the material spawned should
+      be stone\n\t\t\tSetMaterial(Material.stone);\n\t\t}\r\n\t}\r\n}"
   sortOrder: 0
   levelToUnlock: 4

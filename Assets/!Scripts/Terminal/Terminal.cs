@@ -9,6 +9,7 @@ namespace ScriptEditor
 {
     using Console;
 
+    [DefaultExecutionOrder(-100)]
     public class Terminal : MonoBehaviour, IWindow
     {
         public SyntaxHighlighting activeHighlighting = new();
@@ -139,6 +140,12 @@ namespace ScriptEditor
                 DisplayIntegratedMethods();
 
             HighlightCode();
+
+            PlayerConsole.Clear();
+            foreach (var error in ScriptManager.compilerErrors)
+            {
+                PlayerConsole.LogError(error.error.ToString(), error.source.name);
+            }
         }
         void DisplayIntegratedMethods()
         {
@@ -174,8 +181,6 @@ namespace ScriptEditor
             }
 
             RemoveHighlight();
-
-            PlayerConsole.Clear();
 
             if (scriptToEdit.rawCode != input.text)
             {

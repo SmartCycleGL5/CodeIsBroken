@@ -1,4 +1,5 @@
 using CodeIsBroken.Contract;
+using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace Journal
         private VisualElement windowElement;
         private Label codeT;
         private Label explainT;
+        SyntaxHighlighting syntax = new();
         async void Awake()
         {
             if (!instance) { instance = this; }
@@ -35,7 +37,7 @@ namespace Journal
             PlayerProgression.onLevelUp += OnLevelUp;
             ContractManager.OnNewContract += Contract; //added to make the contact giver not reliant on other systems
             journalDoc.rootVisualElement.style.display = DisplayStyle.None;
-            var tabView = journalDoc.rootVisualElement.Q<TabView>();
+            var tabView = journalDoc.rootVisualElement.Q<TabView>("JournalTabs");
             tabView.activeTabChanged += TabChange;
             SettingsTabSetBind();
             Contract(null);
@@ -45,7 +47,10 @@ namespace Journal
             ChangeColorTabHeader(tabView);
 
         }
-
+        void Start()
+        {
+            syntax.SetPallate(ColorThemes.ActivePallate);
+        }
         private static async Task GetEntries()
         {
             machineEntries = await Addressable.LoadAssets<JournalEntrySO>("MachineEntries");
@@ -266,7 +271,7 @@ namespace Journal
                     codeT.selection.isSelectable = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
-                    codeT.text = text.text;
+                    codeT.text = syntax.HighlightCode(text.text);
                     windowElement.Add(codeT);
                     scrollView.Add(windowElement);
 
@@ -305,8 +310,11 @@ namespace Journal
             var scrollView = tab1.Q<ScrollView>("ScrollExpla");
             if (scrollView != null) scrollView.verticalScroller.slider.value = 0;
             scrollView?.Clear();
-            var hidehint = tab2.Q("HideHint");
-            if (hidehint != null) hidehint.visible = false;
+            var hidehint = tab1.Q("HintText");
+            if (hidehint != null)
+            {
+               hidehint.visible = false; 
+            } 
         }
         private void RemoveEmptyEntries(JournalEntrySO entry)
         {

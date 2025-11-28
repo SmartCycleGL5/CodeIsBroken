@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 357034594}
   - component: {fileID: 357034595}
   - component: {fileID: 357034596}
-  - component: {fileID: 357034597}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -556,6 +555,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Coding.ScriptManager
   activePlayerScripts:
     _serializedList: []
+  powerUp:
+    Guid:
+      Data1: 455089827
+      Data2: 1210131821
+      Data3: -1354721104
+      Data4: -1421526503
+    Path: event:/Machines/MachinesPowerUp
+  powerDown:
+    Guid:
+      Data1: 1716437693
+      Data2: 1274255723
+      Data3: -478655059
+      Data4: 870304762
+    Path: event:/Machines/MachinesPowerDown
 --- !u!4 &357034589
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,32 +1057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabcd3744f0aaa6e87bfbc7ae57fb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &357034597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357034587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82607042976c0f40a27c92cf93a265f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CodeIsBroke.Audio::CodeIsBroke.Audio.PowerUpDown
-  powerUp:
-    Guid:
-      Data1: 455089827
-      Data2: 1210131821
-      Data3: -1354721104
-      Data4: -1421526503
-    Path: event:/Machines/MachinesPowerUp
-  powerDown:
-    Guid:
-      Data1: 1716437693
-      Data2: 1274255723
-      Data3: -478655059
-      Data4: 870304762
-    Path: event:/Machines/MachinesPowerDown
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

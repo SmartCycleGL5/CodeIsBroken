@@ -1,16 +1,19 @@
-using System;
-using System.CodeDom.Compiler;
 using AYellowpaper.SerializedCollections;
+using CodeIsBroken.Audio;
+using CodeIsBroken.Contract;
+using CodeIsBroken.Product;
+using Codice.Client.Common;
+using FMODUnity;
 using NaughtyAttributes;
 using RoslynCSharp;
-using System.Collections.Generic;
-using UnityEngine;
 using ScriptEditor.Console;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeIsBroken.Product;
+using UnityEngine;
 using UnityEngine.UIElements;
 using static CodeIsBroken.UI.UIManager;
-using CodeIsBroken.Contract;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -24,6 +27,13 @@ public class ScriptManager : MonoBehaviour
     static Button runButton;
 
     public static bool compiling;
+
+    public static List<Error> compilerErrors = new List<Error>();
+
+    [Header("Audio")]
+    [SerializeField] EventReference powerUp;
+    [SerializeField] EventReference powerDown;
+
 
     private void Awake()
     {
@@ -53,15 +63,17 @@ public class ScriptManager : MonoBehaviour
     }
 
     [Button]
-    public static void StartMachines()
+    public static async void StartMachines()
     {
         if(compiling) return;
         if (isRunning) return;
-        
+
+        runButton.SetEnabled(false);
         runButton.text = "Starting";
         PlayerConsole.Clear();
 
-        onRun?.Invoke(true);
+        AudioManager.PlayOneShot(instance.powerUp, out int time);
+        await Task.Delay(time / 2);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -70,25 +82,23 @@ public class ScriptManager : MonoBehaviour
 
         isRunning = true;
 
-        Debug.Log("[ScriptManager] Starting");
-
         Tick.StartTick();
-        
+
+        runButton.SetEnabled(true);
         runButton.text = "Stop";
     }
     [Button]
-    public static void StopMachines()
+    public static async void StopMachines()
     {
         if(compiling) return;
         if (!isRunning) return;
-        
-        runButton.text = "Stopping";
 
+        runButton.SetEnabled(false);
+        runButton.text = "Stopping";
         Tick.StopTick();
 
-        onRun?.Invoke(false);
-
-        Debug.Log("[ScriptManager] Ending");
+        AudioManager.PlayOneShot(instance.powerDown, out int time);
+        await Task.Delay(time / 2);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -102,6 +112,7 @@ public class ScriptManager : MonoBehaviour
 
         isRunning = false;
 
+        runButton.SetEnabled(true);
         runButton.text = "Start";
     }
 
@@ -113,9 +124,7 @@ public class ScriptManager : MonoBehaviour
         runButton.text = "Compiling...";
         runButton.SetEnabled(false);
 
-        await Task.Delay(1000); //artificial delay lol
-
-        if(!await Compile())
+        if (!await Compile())
         {
             runButton.text = "<color=#ff0000>Failed</color>";
             compiling = false;
@@ -133,11 +142,11 @@ public class ScriptManager : MonoBehaviour
     {
         bool success = true;
 
-        List<Error> errors = new();
+        compilerErrors = new();
 
         foreach (var script in instance.activePlayerScripts)
         {
-            if (!script.Value.Compile(ref errors))
+            if (!script.Value.Compile(ref compilerErrors))
                 success = false;
 
             await Task.Delay(10);
@@ -147,7 +156,7 @@ public class ScriptManager : MonoBehaviour
 
         if (!success)
         {
-            foreach (var error in errors)
+            foreach (var error in compilerErrors)
             {
                 PlayerConsole.LogError(error.error.ToString(), error.source.name);
             }

@@ -19,3 +19,4 @@ MonoBehaviour:
     to Grab and Release items.\n\nExample:\nvoid OnTick()\n{\n\tGrabLoseItem();\n\tRotate(180);\n}"
   levelToUnlock: 8
   sortingOrder: 1
+  icon: {fileID: -1353017021, guid: 68f827ba3e20edf47a6d9e4128095aae, type: 3}

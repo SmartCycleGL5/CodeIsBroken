@@ -21,3 +21,4 @@ MonoBehaviour:
     produces a material.\n\nExample:\n\nvoid StartTick()\n{\n\tChangeMaterial(Iron);\n\tSpawnDelay(2);\n}"
   levelToUnlock: 1
   sortingOrder: 1
+  icon: {fileID: -672506597, guid: 145685aed42caa74298e2a19bc667dc5, type: 3}

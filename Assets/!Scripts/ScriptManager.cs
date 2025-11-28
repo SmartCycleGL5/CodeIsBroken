@@ -11,6 +11,8 @@ using CodeIsBroken.Product;
 using UnityEngine.UIElements;
 using static CodeIsBroken.UI.UIManager;
 using CodeIsBroken.Contract;
+using FMODUnity;
+using CodeIsBroken.Audio;
 
 public class ScriptManager : MonoBehaviour
 {
@@ -24,6 +26,11 @@ public class ScriptManager : MonoBehaviour
     static Button runButton;
 
     public static bool compiling;
+
+    [Header("Audio")]
+    [SerializeField] EventReference powerUp;
+    [SerializeField] EventReference powerDown;
+
 
     private void Awake()
     {
@@ -53,15 +60,16 @@ public class ScriptManager : MonoBehaviour
     }
 
     [Button]
-    public static void StartMachines()
+    public static async void StartMachines()
     {
         if(compiling) return;
         if (isRunning) return;
-        
+
+        runButton.SetEnabled(false);
         runButton.text = "Starting";
         PlayerConsole.Clear();
 
-        onRun?.Invoke(true);
+        await AudioManager.PlayOneShotAsync(instance.powerUp);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -70,25 +78,22 @@ public class ScriptManager : MonoBehaviour
 
         isRunning = true;
 
-        Debug.Log("[ScriptManager] Starting");
-
         Tick.StartTick();
-        
+
+        runButton.SetEnabled(true);
         runButton.text = "Stop";
     }
     [Button]
-    public static void StopMachines()
+    public static async void StopMachines()
     {
         if(compiling) return;
         if (!isRunning) return;
-        
-        runButton.text = "Stopping";
 
+        runButton.SetEnabled(false);
+        runButton.text = "Stopping";
         Tick.StopTick();
 
-        onRun?.Invoke(false);
-
-        Debug.Log("[ScriptManager] Ending");
+        await AudioManager.PlayOneShotAsync(instance.powerDown);
 
         foreach (var script in instance.activePlayerScripts)
         {
@@ -102,6 +107,7 @@ public class ScriptManager : MonoBehaviour
 
         isRunning = false;
 
+        runButton.SetEnabled(true);
         runButton.text = "Start";
     }
 

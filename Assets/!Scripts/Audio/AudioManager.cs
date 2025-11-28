@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using FMODUnity;
 using UnityEngine;
 
@@ -21,17 +22,23 @@ namespace CodeIsBroken.Audio
 
         public static void PlayOneShot(EventReference reference)
         {
-            PlayOneShot(reference, Vector3.zero);
+            _=PlayOneShot(reference, Vector3.zero);
         }
-        public static void PlayOneShot(EventReference reference, Vector3 position)
+        public static async Task PlayOneShotAsync(EventReference reference)
+        {
+            await PlayOneShot(reference, Vector3.zero);
+        }
+        public static async Task PlayOneShot(EventReference reference, Vector3 position)
         {
             GameObject instance = new GameObject("reference.Path");
             StudioEventEmitter emitter = instance.AddComponent<StudioEventEmitter>();
             emitter.EventReference = reference;
             emitter.Play();
             emitter.EventDescription.getLength(out int length);
-            Debug.Log("length: " + length);
-            Destroy(instance, length / 1000);
+
+            await Task.Delay(length);
+
+            Destroy(instance);
         }
     }
 }

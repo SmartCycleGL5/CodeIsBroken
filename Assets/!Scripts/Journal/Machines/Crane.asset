@@ -23,8 +23,11 @@ MonoBehaviour:
       Use Rotate() to rotate the crane an amount
       in degrees.
 
-      Use GrabLoseItem() to grab/release the object.'
+      Use Pickup() to pick up an item & Drop() to drop it.'
   - style: 1
-    text: "void OnTick()\r\n{\r\n\tPickUp();\n\tDrop();\r\n\tRotate(180);\r\n}"
+    text: "public class ExampleAssembler : Assembler\n{\n\tvoid OnTick()\n\t{\n\t\tRotate(180);
+      //Rotates the crane in degrees\n\t\tif(HasItem())\n\t\t{\n\t\t\tPickup() //Picks
+      up an item under its magnet\n\t\t}\n\t\telse\n\t\t{\n\t\t\tDrop(); //Drops
+      an item\n\t\t}\n\t}\n}"
   sortOrder: 3
   levelToUnlock: 8

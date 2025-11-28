@@ -21,8 +21,8 @@ MonoBehaviour:
   bHintTaken: 0
   journalTexts:
   - style: 0
-    text: Where you sell objects. Objects have to be transported to the truck docking
-      station located along the walls. When the object goes into the station the
-      user will receive money/completion towards a contract.
+    text: Where you sell Products. Products have to be transported to the truck docking
+      station located along the walls. When the product goes into the station the
+      user will receive money/completion towards a active contract.
   sortOrder: 2
   levelToUnlock: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   showcaseI: {fileID: 0}
   bHintTaken: 0
   journalTexts:
-  - style: 1
+  - style: 0
     text: If statements are used for simple logic, allowing you to check if something
       is true
   - style: 1

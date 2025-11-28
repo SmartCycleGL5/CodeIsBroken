@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: RecipesEntry
   m_EditorClassIdentifier: CodeIsBroken::Journal.RecipesEntry
   texts:
-  - levelToUnlock: 0
-    text: bfihbn
-  - levelToUnlock: 0
-    text: okgr
+  - levelToUnlock: 6
+    text: 'Cutter:
+
+      Wood => Planks'
+  - levelToUnlock: 6
+    text: 'Furnace:
+
+      Iron => Rod'
   - levelToUnlock: 9
     text: 'Assembler:
 

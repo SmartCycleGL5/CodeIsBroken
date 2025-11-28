@@ -22,6 +22,6 @@ MonoBehaviour:
       multiple times, like yellow being Green and Red, purple being Red and Blue,
       and cyan being Blue and Green.\t"
   - style: 1
-    text: "void OnTick()\r\n{\r\n\tPaint(Color.red);\n\tPaint(Color.blue);\r\n}"
+    text: "public class ExampleAssembler : Assembler\n{\n\tvoid OnTick()\n\t{\n\t\tPaint(Color.red);\n\t\tPaint(Color.blue);\n\t}\n}"
   sortOrder: 6
   levelToUnlock: 3

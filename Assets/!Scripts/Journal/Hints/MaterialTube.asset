@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MaterialTube
   m_EditorClassIdentifier: CodeIsBroken::Journal.JournalEntrySO
   title: MaterialTube
-  showcaseI: {fileID: 0}
-  bHintTaken: 0
+  showcaseI: {fileID: -672506597, guid: 145685aed42caa74298e2a19bc667dc5, type: 3}
+  bHintTaken: 1
   journalTexts:
   - style: 0
     text: 'Using bools we can make a MaterialTube output two different material types.

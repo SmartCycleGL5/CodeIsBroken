@@ -47,6 +47,12 @@ public class NewTutorial : MonoBehaviour
             buttonPressIndex++;
         }
 
+        if (PlayerProgression.Level >= 4)
+        {
+            uiDocument.rootVisualElement.Q<VisualElement>("Tutorial").visible = false;
+            this.enabled = false;
+        }
+
         switch (level)
         {
             case 1:

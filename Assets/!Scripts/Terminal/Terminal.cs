@@ -66,7 +66,7 @@ namespace ScriptEditor
             VisualElement windowElement = terminal.Q<VisualElement>("Window");
 
 #if UNITY_EDITOR
-            window = new WindowElement(scriptToEdit.name, terminal, false, this);
+            window = new WindowElement(scriptToEdit.name, terminal, true, this);
 #else
             window = new WindowElement(scriptToEdit.name, terminal, true, this);
 #endif
@@ -112,6 +112,7 @@ namespace ScriptEditor
         private void OnDestroy()
         {
             PlayerConsole.LogEvent -= ConsoleLog;
+            scriptToEdit.Deleted -= window.Close;
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }

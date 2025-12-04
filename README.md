@@ -9,7 +9,7 @@ Write code to operate the machines and fulfill the contract requirements to unlo
 Itch: https://noathesoap.itch.io/code-is-broken <br>
 
 <h2>Download</h2>
-1. press "<> Code". <br>
-2. press "Download Zip". <br>
+1. Press "<> Code". <br>
+2. Press "Download Zip". <br>
 3. Unzip the file. <br>
 4. Find the file through unity hub and open it. <br>

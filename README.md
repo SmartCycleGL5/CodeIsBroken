@@ -6,9 +6,7 @@ Create your own factory and build machines to deliver items!<br>
 Write code to operate the machines and fulfill the contract requirements to unlock even more machines.
 
 <h3>Links</h3>
-Itch: https://noathesoap.itch.io/code-is-broken
-
-<iframe frameborder="0" src="https://itch.io/embed/3883178" width="552" height="167"><a href="https://noathesoap.itch.io/code-is-broken">Code Is Broken by NoaTheSoap, Iverander</a></iframe>
+Itch: https://noathesoap.itch.io/code-is-broken <br>
 
 <h2>Download</h2>
 1. press "<> Code". <br>

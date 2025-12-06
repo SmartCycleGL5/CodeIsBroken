@@ -80,7 +80,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
-        if (Terminal.focused || WindowManager.popupOpen) return;
+        if (/*Terminal.focused ||*/ WindowManager.popupOpen) return;
 
         Movement();
         MouseRotate();
@@ -90,7 +90,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (isBuilding)
         {
-            if (Terminal.focused) return;
+            //if (Terminal.focused) return;
             isBuilding = true;
             playerAction = PlayerAction.Building;
             Debug.Log("Enabled Building");

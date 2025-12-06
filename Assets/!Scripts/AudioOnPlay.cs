@@ -8,14 +8,17 @@ public class AudioOnPlay : MonoBehaviour
 
     void Start()
     {
-        ScriptManager.onRun += toggle;
+        GameManager.onStart += Start;
+        GameManager.onStop += Stop;
     }
 
-    private void toggle(bool obj)
+    void Play()
     {
-        if(obj)
-            emitter.Play();
-        else
-            emitter.Stop();
+        emitter.Play();
     }
+    void Stop()
+    {
+        emitter.Stop();
+    }
+    
 }

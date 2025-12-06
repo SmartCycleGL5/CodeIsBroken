@@ -1,6 +1,3 @@
-using Coding;
-using System.Threading;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;

@@ -24,7 +24,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
     void Start()
     {
         material = renderer.material;
-        if (ScriptManager.isRunning)
+        if (GameManager.isRunning)
         {
             StartAnim();
         }
@@ -131,7 +131,6 @@ public class Conveyor : MonoBehaviour, IItemContainer
         moveTween = this.item.gameObject.transform.DOMove(transform.position+new Vector3(0,0.5f,0),0.3f);
         return true;
     }
-    [DontIntegrate]
     public bool RemoveItem()
     {
         return RemoveItem(out Item item);

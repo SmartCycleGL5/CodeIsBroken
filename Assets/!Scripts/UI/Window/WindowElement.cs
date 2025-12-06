@@ -17,24 +17,30 @@ namespace CodeIsBroken.UI.Window
         bool requestClose;
         bool closing;
     
-        public WindowElement(string name, VisualElement element, bool requestClose = false, IWindow window = null)
+        public WindowElement(string name, bool requestClose = false, IWindow window = null)
         {
             this.name = name;
-            this.tab = new Tab(name);
-            this.tab.Add(element);
             this.requestClose = requestClose;
             this.connectedWindow = window;
+            
+            newTab();
             
             WindowManager.AddWindow(this);
     
             Focus();
+
+            void newTab()
+            {
+                this.tab = new Tab(name);
+                this.tab.style.borderTopWidth = new StyleFloat(2);
+                this.tab.style.borderTopColor = new StyleColor(Color.white);
+            }
         }
     
         public void Focus()
         {
             WindowManager.FocusWindow(this);
         }
-
         public void ForceClose()
         {
             Close(true);
@@ -54,14 +60,15 @@ namespace CodeIsBroken.UI.Window
             }
     
             WindowManager.CloseWindow(this);
-    
-            if (connectedWindow != null)
-            {
-                connectedWindow.Close();
-            }
+            
+            Closing();
             closing = false;
         }
-    
+
+        protected virtual void Closing()
+        {
+            
+        }
         public void Rename(string name)
         {
             WindowManager.CloseWindow(this);

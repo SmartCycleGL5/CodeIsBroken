@@ -57,7 +57,7 @@ public class Tutorial : MonoBehaviour
                 return;
             case 5:
                 replaceBlock.SetActive(false);
-                if (Terminal.focused) tutorialLevel++;
+                /*if (Terminal.focused) */tutorialLevel++;
                 return;
             case 6:
                 buttons.SetActive(true);
@@ -100,7 +100,7 @@ public class Tutorial : MonoBehaviour
 
     public void PlayAgain()
     {
-        ScriptManager.StopMachines();
+        GameManager.StopMachines();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Continue()
@@ -109,7 +109,7 @@ public class Tutorial : MonoBehaviour
         {
             Destroy(scripts.gameObject);
         }
-        ScriptManager.StopMachines();
+        GameManager.StopMachines();
         SceneManager.LoadScene("GameScene");
 
     }

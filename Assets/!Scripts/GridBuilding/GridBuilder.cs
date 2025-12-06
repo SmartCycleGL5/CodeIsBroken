@@ -94,11 +94,12 @@ public class GridBuilder : MonoBehaviour
         {
             Building buildingData = building.GetComponent<Building>();
             
-            //Stops from removing materialTubes
+            //Stops from removing materialTubes | do it a different way lol
+            /*
             if (buildingData.gameObject.TryGetComponent(out MaterialTubeSpawner mts))
             {
                 return;
-            }
+            }*/
             
             foreach (var pos in buildingData.GetBuildingPositions())
             {

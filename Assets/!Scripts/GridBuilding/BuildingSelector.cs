@@ -45,7 +45,7 @@ public class BuildingSelector : MonoBehaviour
 
     private void Update()
     {
-        if (Terminal.focused) return;
+        //if (Terminal.focused) return;
         if (WindowManager.popupOpen) return;
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {

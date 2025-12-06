@@ -78,9 +78,9 @@ public class GhostBuilding : MonoBehaviour
 
     void StopMachines()
     {
-        if (ScriptManager.isRunning)
+        if (GameManager.isRunning)
         {
-            ScriptManager.StopMachines();
+            GameManager.StopMachines();
         }
     }
 

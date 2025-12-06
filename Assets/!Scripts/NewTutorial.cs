@@ -137,8 +137,8 @@ public class NewTutorial : MonoBehaviour
         {
             case 0:
                 label.text = "Lets try some programming! Click on the material tube and give the script a name.";
-                if (Terminal.focused)
-                { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }
+                /*if (Terminal.focused)
+                { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }*/
                 break;
             case 2:
                 label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}); in the StartTick section and press the Start button.";

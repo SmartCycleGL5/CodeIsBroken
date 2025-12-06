@@ -3,6 +3,7 @@ using System.Linq;
 using CodeIsBroken.Product;
 using UnityEngine;
 
+
 public class Crafting : MonoBehaviour
 {
     public static Crafting instance;

@@ -1,6 +1,6 @@
 using CodeIsBroken.Contract;
 using ScriptEditor;
-using SharpCube.Highlighting;
+//using SharpCube.Highlighting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace Journal
         private VisualElement windowElement;
         private Label codeT;
         private Label explainT;
-        SyntaxHighlighting syntax = new();
+        //SyntaxHighlighting syntax = new();
         async void Awake()
         {
             if (!instance) { instance = this; }
@@ -50,7 +50,7 @@ namespace Journal
         }
         void Start()
         {
-            syntax.SetPallate(ColorThemes.ActivePallate);
+            //syntax.SetPallate(ColorThemes.ActivePallate);
         }
         private static async Task GetEntries()
         {
@@ -272,7 +272,7 @@ namespace Journal
                     codeT.selection.isSelectable = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
-                    codeT.text = syntax.HighlightCode(text.text);
+                    //codeT.text = syntax.HighlightCode(text.text);
                     windowElement.Add(codeT);
                     scrollView.Add(windowElement);
 
@@ -291,7 +291,7 @@ namespace Journal
         }
         public void JournalOnOff()
         {
-            if(Terminal.focused)return;
+            //if(Terminal.focused)return;
             journalDoc.rootVisualElement.style.display = journalDoc.rootVisualElement.style.display != DisplayStyle.None ? DisplayStyle.None : DisplayStyle.Flex;
         }
         void Update()

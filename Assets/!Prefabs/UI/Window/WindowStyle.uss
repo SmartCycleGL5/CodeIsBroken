@@ -69,3 +69,17 @@
 .WindowElement {
     color: var(--primary-color);
 }
+
+.Popup {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    min-height: 300px;
+    min-width: 850px;
+    width: 850px;
+    height: 450px;
+}

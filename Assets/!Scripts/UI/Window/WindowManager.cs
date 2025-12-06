@@ -87,9 +87,11 @@ namespace CodeIsBroken.UI.Window
         [Button]
         public static async void CloseAllWindows()
         {
-            foreach (var window in OpenWindows.Values)
+            var windows = OpenWindows.ToList();
+
+            for (int i = windows.Count - 1; i > 0; i--)
             {
-                await window.Close();
+                await windows[i].Value.Close();
             }
     
             OpenWindows.Clear();
@@ -181,14 +183,6 @@ namespace CodeIsBroken.UI.Window
             Popup.style.visibility = Visibility.Hidden;
             popupOpen = false;
             Popup.Remove(popup);
-        }
-        
-        [Button]
-        async void OpenTestWindow()
-        {
-            VisualTreeAsset element = await Addressable.LoadAsset<VisualTreeAsset>("Window/Blue");
-            VisualElement blue = element.Instantiate();
-            new WindowElement("Blue", blue);
         }
     }
 

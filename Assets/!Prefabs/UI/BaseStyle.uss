@@ -5,10 +5,6 @@
     height: auto;
 }
 
-.Windows {
-    font-size: 50px;
-}
-
 .RunButton {
     bottom: 50px;
     position: absolute;

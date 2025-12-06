@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Window/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3" />
+    <ui:VisualElement name="Windows" enabled="true" picking-mode="Ignore" class="Windows WindowContainer" style="font-size: 50px; width: 800px; height: 1080px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;">
+        <ui:TabView name="Tabs" reorderable="true" focusable="true" picking-mode="Ignore" class="TabHolder" style="height: 100%; position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+            <ui:Tab label="Test" name="Tab" style="background-color: rgb(255, 255, 255);" />
+        </ui:TabView>
+        <ui:VisualElement name="WindowButtons" style="flex-direction: row; position: absolute; background-color: rgba(143, 143, 143, 0); top: 0; right: 0; width: 200px; overflow: hidden; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+            <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton WindowButton" />
+            <ui:Button text="X" name="Close" class="unity-button TerminalButton WindowButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Popup" style="position: absolute; bottom: 0%; top: 0%; left: 0%; right: 0%; background-color: rgba(0, 0, 0, 0.78); visibility: hidden; justify-content: center; align-items: center;" />
+</ui:UXML>

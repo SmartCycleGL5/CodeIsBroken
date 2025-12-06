@@ -87,7 +87,7 @@ namespace ScriptEditor
             terminals.Add(this);
 
             PlayerConsole.LogEvent += ConsoleLog;
-            scriptToEdit.Deleted += window.Close;
+            scriptToEdit.Deleted += window.ForceClose;
 
             Load();
         }
@@ -112,7 +112,7 @@ namespace ScriptEditor
         private void OnDestroy()
         {
             PlayerConsole.LogEvent -= ConsoleLog;
-            scriptToEdit.Deleted -= window.Close;
+            scriptToEdit.Deleted -= window.ForceClose;
             terminals.Remove(this);
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,7 +12,7 @@ namespace CodeIsBroken.UI.Window
     public class WindowElement
     {
         public string name;
-        public Tab element;
+        public Tab tab;
         public IWindow connectedWindow;
         bool requestClose;
         bool closing;
@@ -19,24 +20,31 @@ namespace CodeIsBroken.UI.Window
         public WindowElement(string name, VisualElement element, bool requestClose = false, IWindow window = null)
         {
             this.name = name;
-            this.element = new Tab(name);
-            this.element.Add(element);
+            this.tab = new Tab(name);
+            this.tab.Add(element);
             this.requestClose = requestClose;
             this.connectedWindow = window;
-    
-            Open();
-        }
-    
-        void Open()
-        {
+            
             WindowManager.AddWindow(this);
+    
+            Focus();
         }
-        public async void Close()
+    
+        public void Focus()
+        {
+            WindowManager.FocusWindow(this);
+        }
+
+        public void ForceClose()
+        {
+            Close(true);
+        }
+        public async Task Close(bool overrideRequestClose = false)
         {
             if (closing) return;
             closing = true;
     
-            if(requestClose)
+            if(requestClose && !overrideRequestClose)
             {
                 if (!await WindowManager.RequestClose(this))
                 {
@@ -53,21 +61,14 @@ namespace CodeIsBroken.UI.Window
             }
             closing = false;
         }
-        public void ForceClose()
-        {
-            if (connectedWindow != null)
-            {
-                connectedWindow.Close();
-            }
-        }
     
         public void Rename(string name)
         {
             WindowManager.CloseWindow(this);
     
             this.name = name;
-            element.name = name;
-            element.label = name;
+            tab.name = name;
+            tab.label = name;
     
             WindowManager.AddWindow(this);
         }

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utility;
-using static CodeIsBroken.UI.UIManager;
 
 namespace CodeIsBroken.UI.Window
 {
     public class WindowManager : MonoBehaviour
     {
+        public static VisualElement root { get; private set; }
+        
         public static TabView tabs { get; private set; }
         public static VisualElement windows { get; private set; }
         public static VisualElement Popup { get; private set; }
@@ -24,39 +25,27 @@ namespace CodeIsBroken.UI.Window
         public static Dictionary<string, WindowElement> OpenWindows { get; private set; } = new();
 
         public static bool popupOpen;
+
+        private void Awake()
+        {
+            root = GetComponent<UIDocument>().rootVisualElement;
+        }
+
         private async void Start()
         {
-            tabs = canvas.Q<TabView>("Tabs");
-            windows = canvas.Q<VisualElement>("Windows");
-            Popup = canvas.Q<VisualElement>("Popup");
+            tabs = root.Q<TabView>("Tabs");
+            windows = root.Q<VisualElement>("Windows");
+            Popup = root.Q<VisualElement>("Popup");
             
             if(confirmChoice == null)
                 confirmChoice = await Addressable.LoadAsset<VisualTreeAsset>("UI/Popup/ConfirmChoice");
             if(enterValue == null)
                 enterValue = await Addressable.LoadAsset<VisualTreeAsset>("UI/Popup/EnterValue");
             
-            windows.Q<Button>("Close").clicked += CloseCurrentWindow;
+            windows.Q<Button>("Close").clicked += CloseAllWindows;
     
             DisableWindow();
     
-        }
-    
-        [Button]
-        public static void CloseCurrentWindow()
-        {
-            OpenWindows[tabs.activeTab.label].Close();
-        }
-        [Button]
-        public static void CloseAllWindows()
-        {
-            List<KeyValuePair<string, WindowElement>> windows = OpenWindows.ToList();
-    
-            for (int i = windows.Count - 1; i >= 0; i--)
-            {
-                windows[i].Value.Close();
-            }
-    
-            OpenWindows.Clear();
         }
     
         static void EnableWindow()
@@ -77,31 +66,38 @@ namespace CodeIsBroken.UI.Window
         /// <param name="windowElement">the window to add</param>
         public static void AddWindow(WindowElement windowElement)
         {
-            try
+            OpenWindows.Add(windowElement.name, windowElement);
+            
+            tabs.Add(windowElement.tab);
+    
+            if (OpenWindows.Count > 0)
             {
-                OpenWindows.Add(windowElement.name, windowElement);
+                EnableWindow();
+            }
     
-                tabs.Add(windowElement.element);
-    
-                if (OpenWindows.Count > 0)
-                {
-                    EnableWindow();
-                }
+            Debug.Log("[UIManager] " + "Added new tab: " + windowElement.name);
+        }
 
-                tabs.activeTab = windowElement.element;
-    
-                Debug.Log("[UIManager] " + "Added new tab: " + windowElement.name);
-            }
-            catch (Exception e)
+        #region Close
+        [Button]
+        public static void CloseCurrentWindow()
+        {
+            OpenWindows[tabs.activeTab.label].Close();
+        }
+        [Button]
+        public static async void CloseAllWindows()
+        {
+            foreach (var window in OpenWindows.Values)
             {
-                windowElement.ForceClose();
-                Debug.LogError("[UIManager] " + windowElement.name + ": " + e);
+                await window.Close();
             }
+    
+            OpenWindows.Clear();
         }
         public static void CloseWindow(WindowElement windowElementToClose)
         {
             OpenWindows.Remove(windowElementToClose.name);
-            tabs.Remove(windowElementToClose.element);
+            tabs.Remove(windowElementToClose.tab);
     
             if (OpenWindows.Count <= 0)
             {
@@ -143,6 +139,12 @@ namespace CodeIsBroken.UI.Window
             }
     
             return result;
+        }
+        #endregion
+
+        public static void FocusWindow(WindowElement windowElement)
+        {
+            tabs.activeTab = windowElement.tab;
         }
 
         public static async Task<string> OpenEnterValue(string info)

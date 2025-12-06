@@ -531,7 +531,6 @@ GameObject:
   - component: {fileID: 357034591}
   - component: {fileID: 357034592}
   - component: {fileID: 357034593}
-  - component: {fileID: 357034594}
   - component: {fileID: 357034595}
   - component: {fileID: 357034596}
   m_Layer: 0
@@ -640,42 +639,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Metrics
   electricityLevel: 
   timeUsed: 
---- !u!114 &357034594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357034587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db1dc07692c7ed841aac341926e3998f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CodeIsBroken::ColorThemes
-  Themes:
-    _serializedList:
-    - Key: Default
-      Value:
-        Colors:
-          _serializedList:
-          - Key: 0
-            Value: {r: 1, g: 1, b: 1, a: 1}
-          - Key: 1
-            Value: {r: 0, g: 0, b: 0, a: 1}
-          - Key: 2
-            Value: {r: 0, g: 0.7, b: 0, a: 1}
-          - Key: 3
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
-          - Key: 4
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
-          - Key: 5
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
-          - Key: 6
-            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
-          - Key: 8
-            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
-          - Key: 7
-            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
 --- !u!114 &357034595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1763,7 +1726,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7975169644371646309, guid: c0a63f3541adece44a62414d12d6e8d4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2169,6 +2133,7 @@ Transform:
   m_Children:
   - {fileID: 557035052}
   - {fileID: 1291140319}
+  - {fileID: 3277176804388689441}
   - {fileID: 1460485514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2565,6 +2530,21 @@ MonoBehaviour:
   ghostBuilding: {fileID: 5631033168589675713}
   gridObjects:
     _serializedList: []
+--- !u!4 &3277176804388689441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826550204175053936}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.08264005, y: -6.82115, z: 5.64704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1994596630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3323748746105681420
 Transform:
   m_ObjectHideFlags: 0
@@ -2684,6 +2664,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorManager
   gridBuilder: {fileID: 3008056812779239553}
+--- !u!114 &6554369775316533419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826550204175053936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c34066192206fc42893f6728c81ae66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!114 &6828413919741800735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,6 +2779,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8179022851121514294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826550204175053936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 55e1959a62664bd4ab41a53258cc770d, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3822c52d337d40f5081f8f8936a038ec, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &8237323680038018197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2914,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   aspectRatio: {x: 16, y: 9}
+--- !u!1 &8826550204175053936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3277176804388689441}
+  - component: {fileID: 8179022851121514294}
+  - component: {fileID: 6554369775316533419}
+  - component: {fileID: 8826550204175053937}
+  m_Layer: 5
+  m_Name: WindowUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8826550204175053937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826550204175053936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1dc07692c7ed841aac341926e3998f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::ColorThemes
+  Themes:
+    _serializedList:
+    - Key: Default
+      Value:
+        Colors:
+          _serializedList:
+          - Key: 0
+            Value: {r: 1, g: 1, b: 1, a: 1}
+          - Key: 1
+            Value: {r: 0, g: 0, b: 0, a: 1}
+          - Key: 2
+            Value: {r: 0, g: 0.7, b: 0, a: 1}
+          - Key: 3
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 4
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 5
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 6
+            Value: {r: 0.325, g: 0.592, b: 0.816, a: 1}
+          - Key: 8
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
+          - Key: 7
+            Value: {r: 0.9, g: 0.5, b: 0.961, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,3 +1,17 @@
 {
-	"name": "CodeIsBroken.Progression"
+    "name": "CodeIsBroken.Progression",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

@@ -1,4 +1,3 @@
-using ScriptEditor;
 using System;
 using System.Collections.Generic;
 using CodeIsBroken.UI.Window;

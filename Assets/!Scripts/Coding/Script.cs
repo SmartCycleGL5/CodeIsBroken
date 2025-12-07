@@ -16,7 +16,7 @@ public class Script
     public Action Deleted;
 
     [Header("Code")]
-    [field: SerializeField, ResizableTextArea] public string rawCode { get; private set; }
+    public string rawCode { get; private set; }
     public ScriptType type { get; private set; }
     public ScriptProxy proxy { get; private set; }
 

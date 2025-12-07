@@ -1,11 +1,8 @@
 {
-    "name": "CodeIsBroken.UI.Window",
-    "rootNamespace": "CodeIsBroken.UI.Window",
+    "name": "CodeIsBroken.Input",
+    "rootNamespace": "",
     "references": [
-        "GUID:76593d958cbc834fe819928fb8608f2c",
-        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
-        "GUID:d525ad6bd40672747bde77962f1c401e",
-        "GUID:cc9a1f3cb8146aeaa8c2a624ab5138a7"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

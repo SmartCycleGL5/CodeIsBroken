@@ -1,6 +1,4 @@
 using CodeIsBroken.UI.Window;
-using ScriptEditor;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -14,7 +12,6 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] GhostBuilding buildingInput;
     [SerializeField] MachineInteraction machineInput;
     [SerializeField] Camera cam;
-    [SerializeField] private TMP_InputField terminal;
 
     [SerializeField] Transform player;
 

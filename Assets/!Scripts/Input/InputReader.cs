@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Journal;
 
 public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
 {
@@ -19,10 +18,11 @@ public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
         playerInput.Disable();
     }
 
+    public static Action toggleJournal;
     public void OnOpenJournal(InputAction.CallbackContext context)
     {
         if (!context.started) return;
         //UIManager.Instance.gameObject.AddComponent<ShitJournal>();
-        JournalManager.instance.JournalOnOff();
+        toggleJournal?.Invoke();
     }
 }

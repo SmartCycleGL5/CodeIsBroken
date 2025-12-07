@@ -1,3 +1,4 @@
+using System;
 using CodeIsBroken.UI.Window;
 using SharpCube.Highlighting;
 using System.Collections.Generic;
@@ -33,9 +34,10 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         
         public SyntaxHighlighting activeHighlighting = new();
         public Script scriptToEdit { get; private set; }
+        public Action<string> save; 
         
-        Label inheritedMembers;
-        Label inheritedClass;
+        //Label inheritedMembers;
+        //Label inheritedClass;
         
         TextField input;
 
@@ -49,8 +51,6 @@ namespace CodeIsBroken.UI.Window.CodeEditor
             input = editor.editorRoot.Q<TextField>("Input");
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
             input.Q<TextElement>().enableRichText = true;
-            
-            scriptToEdit.Deleted += editor.ForceClose;
 
             Load();
         }
@@ -63,7 +63,6 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         public override async void Close()
         {
             await Save();
-            scriptToEdit.Deleted -= editor.ForceClose;
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
 
@@ -73,9 +72,7 @@ namespace CodeIsBroken.UI.Window.CodeEditor
 
             Debug.Log(scriptToEdit);
 
-            input.value = scriptToEdit.rawCode;
-
-            inheritedMembers.text = "";
+            //inheritedMembers.text = "";
             
             HighlightCode();
 
@@ -89,12 +86,7 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         public async Task Save()
         {
             if (scriptToEdit == null) return;
-
-            if (GameManager.isRunning)
-            {
-                GameManager.StopMachines();
-            }
-
+            
             RemoveHighlight();
 
             if (scriptToEdit.rawCode != input.text)

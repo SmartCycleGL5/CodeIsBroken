@@ -1,4 +1,3 @@
-using System;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Reflection;
@@ -179,7 +178,7 @@ public class Programmable : MonoBehaviour
     {
         script.connectedMachine = this;
         attachedScripts.Add(script);
-        
+
         //script.Edit();
     }
 

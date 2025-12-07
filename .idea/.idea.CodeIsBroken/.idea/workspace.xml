@@ -6,155 +6,97 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Popups/ConfirmChoice.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Popups/ConfirmChoice.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Popups/EnterValue.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Popups/EnterValue.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Terminal.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/Terminal.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowStyle.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowStyle.uss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowUI.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/AudioOnPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/AudioOnPlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Assembler.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Assembler.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/BuildingSO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/BuildingSO.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Conveyor.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Conveyor.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Crane.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Crane.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Methods.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Methods.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Recepies.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Recepies.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Variables.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Descriptions/Variables.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Furnace.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Furnace.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/MaterialTube.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/MaterialTube.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Painter.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Painter.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Saw.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/BuildingSO/Saw.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeIsBroken.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/CodeIsBroken.Coding.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/CodeIsBroken.Coding.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/CodeIsBroken.Contract.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/CodeIsBroken.Contract.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/BuildingSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GhostBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GhostBuilding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GridBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/GridBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineInteraction.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineUIController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/MachineUIController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Interaction/PlayerInputs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Programmable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Programmable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/ReferenceHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/ReferenceHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Script.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/DontIntegrate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/DontIntegrate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Class.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Class.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/ColorPallate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/ColorPallate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Compiler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Compiler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Encapsulation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Encapsulation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IKeyword.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IKeyword.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IReference.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IReference.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IntegratedMethod.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/IntegratedMethod.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Keywords.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Keywords.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Memory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Memory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Method.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Method.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Object.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Object.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Bool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Bool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Class.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Class.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Float.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Float.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/IType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/IType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Int.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/Int.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/String.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Types/String.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Variable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/SharpCubeCompiler/Variable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/ShitJournal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/ShitJournal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/CodeSnippet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/CodeSnippet.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IGetSetAble.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IGetSetAble.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IGettable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IGettable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IMethodContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IMethodContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/ISettable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/ISettable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IVariableContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interfaces/IVariableContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interporate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Interporate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Actions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Actions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Encapsulations.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Encapsulations.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Lines.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Runnable/Lines.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Script.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Script.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Syntax.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Syntax.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/SyntaxHighlighting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/SyntaxHighlighting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Bool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Bool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Class.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Class.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Float.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Float.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Int.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Int.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/IntegratedMethod.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/IntegratedMethod.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Method.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Method.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Object.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Object.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/ObjectInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/ObjectInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/String.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/String.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/UserMethod.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/UserMethod.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Variable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/Terminal/Variables&amp;Classes/Variable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/UserErrorLogger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Old/UserErrorLogger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Input/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Input/InputReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/PlayerInputs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Interaction/PlayerInputs.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/BaseMaterials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/CodeIsBroken.Product.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IItemContainer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IItemContainer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/IModification.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/Item.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Item/ProductManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/CodeIsBroken.Machines.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/CodeIsBroken.Machines.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineInteraction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineInteraction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineUIController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MachineUIController.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Player.CodeIsBroken.Machines.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Player.CodeIsBroken.Machines.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/ScriptManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GameManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/SellStaton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/ColorThemes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/ColorThemes.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/PlayerConsole.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/SyntaxHighlighting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/SyntaxHighlighting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/Terminal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/TerminalManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Terminal/TerminalManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Tutorial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Player.CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Player.CodeIsBroken.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerConsole.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerConsole.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Progression/CodeIsBroken.Progression.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Progression/CodeIsBroken.Progression.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Chair.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Chair.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/CraftingRecipie.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/CraftingRecipie.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Furnace.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Furnace/Rod.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Furnace/Rod.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Saw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Saw/Planks.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Recipe/Saw/Planks.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Tick.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/CodeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/CodeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/CodeIsBroken.UI.Window.CodeEditor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/CodeIsBroken.UI.Window.CodeEditor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Console.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Console/Console.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Console/Console.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/SyntaxHighlighting.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/SyntaxHighlighting.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/Terminal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/Terminal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/TerminalManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/Terminal/TerminalManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeIsBroken.UI.Window.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeIsBroken.UI.Window.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +107,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/164822bb67a64d1b8cdc62a0d8825a8a9f7e00/7b/b955702f/CodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/168204921bb64c3e97fe409496d2e893223400/e8/d9d7263c/VisualElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/ef/792c6493/KeyValuePair`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/AudioOnPlay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -174,8 +117,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/FPSLimit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/GraphDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/InGameMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Interaction/PlayerInputs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Item/ProductDefinition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
@@ -188,7 +129,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Furnace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Machine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/Window/CodeEditor/CodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Packages/MackySoft/MackySoft.SerializeReferenceExtensions/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@d929cbc70804/Editor/Settings/AddressableAssetSettings.cs" root0="SKIP_HIGHLIGHTING" />
@@ -385,7 +325,8 @@
       <workItem from="1765018412190" duration="10000" />
       <workItem from="1765018513774" duration="7170000" />
       <workItem from="1765048506969" duration="6636000" />
-      <workItem from="1765055806346" duration="1645000" />
+      <workItem from="1765055806346" duration="1779000" />
+      <workItem from="1765105099695" duration="4958000" />
     </task>
     <servers />
   </component>

@@ -1,19 +1,8 @@
-using AYellowpaper.SerializedCollections;
-using CodeIsBroken.Audio;
-using CodeIsBroken.Contract;
-using CodeIsBroken.Product;
-
 using FMODUnity;
 using NaughtyAttributes;
-using RoslynCSharp;
-using ScriptEditor.Console;
 using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static CodeIsBroken.UI.UIManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,15 +23,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-
+/*
     private void Start()
     {
-        ContractManager.OnNewContracts += StopMachines;
-
         runButton = canvas.Q<Button>("Run");
         runButton.clicked += ToggleMachines;
         runButton.text = "Start";
-    }
+    }*/
 
     public static void ToggleMachines()
     {
@@ -63,10 +50,10 @@ public class GameManager : MonoBehaviour
 
         runButton.SetEnabled(false);
         runButton.text = "Starting";
-        PlayerConsole.Clear();
+        //PlayerConsole.Clear();
 
-        AudioManager.PlayOneShot(instance.powerUp, out int time);
-        await Task.Delay(time / 2);
+        //AudioManager.PlayOneShot(instance.powerUp, out int time);
+        //await Task.Delay(time / 2);
 
         onStart?.Invoke();
 
@@ -86,15 +73,15 @@ public class GameManager : MonoBehaviour
         runButton.text = "Stopping";
         Tick.StopTick();
 
-        AudioManager.PlayOneShot(instance.powerDown, out int time);
-        await Task.Delay(time / 2);
+        //AudioManager.PlayOneShot(instance.powerDown, out int time);
+        //await Task.Delay(time / 2);
 
         onStop?.Invoke();
-
+/*
         for (int i = Item.items.Count - 1; i >= 0; i--)
         {
             Destroy(Item.items[i].gameObject);
-        }
+        }*/
 
         isRunning = false;
 

@@ -1,11 +1,10 @@
 {
-    "name": "CodeIsBroken.UI.Window",
-    "rootNamespace": "CodeIsBroken.UI.Window",
+    "name": "CodeIsBroken.Core",
+    "rootNamespace": "CodeIsBroken.Core",
     "references": [
-        "GUID:76593d958cbc834fe819928fb8608f2c",
-        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
         "GUID:d525ad6bd40672747bde77962f1c401e",
-        "GUID:cc9a1f3cb8146aeaa8c2a624ab5138a7"
+        "GUID:0c752da273b17c547ae705acf0f2adf2",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

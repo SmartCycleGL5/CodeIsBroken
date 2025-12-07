@@ -20,6 +20,11 @@ namespace CodeIsBroken.Coding
             scriptDomain = new ScriptDomain();
         }
 
+        public static void StartCompiling()
+        {
+            _=StartCompile();
+        }
+
         public static async Task<bool> StartCompile()
         {
             if(compiling) return false;

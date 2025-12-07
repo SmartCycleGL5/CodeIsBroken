@@ -20,10 +20,9 @@ namespace CodeIsBroken.UI.Window.CodeEditor
             new Console(),
         };
         public VisualElement editorRoot;
+        public PersistentData<string> script { get; private set; }
         
-        public Script script;
-        
-        public CodeEditor(Script script, bool requestClose = true, IWindow window = null) : base(script.name, requestClose, window)
+        public CodeEditor(PersistentData<string> script, bool requestClose = true, IWindow window = null) : base(script.name, requestClose, window)
         {
             TerminalManager.editors.Add(this);
 

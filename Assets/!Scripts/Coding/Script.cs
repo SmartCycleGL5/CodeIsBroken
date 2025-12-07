@@ -16,7 +16,7 @@ public class Script
     public Action Deleted;
 
     [Header("Code")]
-    public string rawCode { get; private set; }
+    public PersistentData<string> rawCode { get; private set; }
     public ScriptType type { get; private set; }
     public ScriptProxy proxy { get; private set; }
 
@@ -52,14 +52,17 @@ public class Script
     {
         this.name = className;
         connectedMachine = machine;
+        
+        rawCode = new PersistentData<string>(className, "Scripts", DefaultCode(className, parentClass));
+        
         Compiler.activePlayerScripts.Add(name, this);
-
-        Debug.Log(connectedMachine);
-
-        _=Save(DefaultCode(className, parentClass));
 
         GameManager.onStart += Run;
         GameManager.onStop += Terminate;
+        
+        _=Compiler.StartCompile();
+
+        rawCode.onChanged += Compiler.StartCompiling;
     }
 
     public void Run()
@@ -97,15 +100,10 @@ public class Script
             Debug.LogWarning("No start method");
         }
     }
-
-    public async Task Save(string code)
-    {
-        rawCode = code;
-        await Compiler.StartCompile();
-    }
+    
     public bool Compile(ref List<Error> errors)
     {
-        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode, out CompileResult compileResult, out CodeSecurityReport report);
+        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode.data, out CompileResult compileResult, out CodeSecurityReport report);
 
         if (proxy != null) proxy.Dispose();
 

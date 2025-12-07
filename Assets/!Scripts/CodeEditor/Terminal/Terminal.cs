@@ -4,7 +4,6 @@ using SharpCube.Highlighting;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeIsBroken.Coding;
-using Mono.Cecil.Cil;
 using ScriptEditor.Console;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -33,7 +32,6 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         CodeEditor editor;
         
         public SyntaxHighlighting activeHighlighting = new();
-        public Script scriptToEdit { get; private set; }
         public Action<string> save; 
         
         //Label inheritedMembers;
@@ -68,9 +66,9 @@ namespace CodeIsBroken.UI.Window.CodeEditor
 
         public void Load()
         {
-            if (scriptToEdit == null) return;
+            if (editor.script == null) return;
 
-            Debug.Log(scriptToEdit);
+            Debug.Log(editor.script);
 
             //inheritedMembers.text = "";
             
@@ -85,17 +83,17 @@ namespace CodeIsBroken.UI.Window.CodeEditor
 
         public async Task Save()
         {
-            if (scriptToEdit == null) return;
+            if (editor.script == null) return;
             
             RemoveHighlight();
 
-            if (scriptToEdit.rawCode != input.text)
+            if (editor.script.data != input.text)
             {
-                PlayerConsole.Log("Saving...", scriptToEdit.name);
+                PlayerConsole.Log("Saving...", editor.script.name);
 
-                await scriptToEdit.Save(input.text);
+                editor.script.UpdateData(input.text);
 
-                PlayerConsole.Log("Saved!", scriptToEdit.name);
+                PlayerConsole.Log("Saved!", editor.script.name);
             }
 
             //window.Rename(scriptToEdit.name);

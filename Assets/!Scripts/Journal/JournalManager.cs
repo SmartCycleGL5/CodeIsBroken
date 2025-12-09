@@ -51,8 +51,15 @@ namespace Journal
         }
         void Start()
         {
+            InputReader.toggleJournal += JournalOnOff;
             //syntax.SetPallate(ColorThemes.ActivePallate);
         }
+
+        private void OnDestroy()
+        {
+            InputReader.toggleJournal -= JournalOnOff;
+        }
+
         private static async Task GetEntries()
         {
             machineEntries = await Addressable.LoadAssets<JournalEntrySO>("MachineEntries");

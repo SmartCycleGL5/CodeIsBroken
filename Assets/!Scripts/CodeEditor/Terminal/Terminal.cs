@@ -65,6 +65,11 @@ namespace CodeIsBroken.IDE
             input.UnregisterCallback<FocusOutEvent>(OnLoseFocus);
         }
 
+        public override IDEExtention Clone()
+        {
+            return (Terminal)MemberwiseClone();
+        }
+
         public void Load()
         {
             if (editor.script == null) return;

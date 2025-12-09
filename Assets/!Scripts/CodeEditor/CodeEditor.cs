@@ -18,7 +18,7 @@ namespace CodeIsBroken.IDE
 
         public static VisualTreeAsset codeEditorUI;
         
-        public static List<IDEExtention> extentions => IDEManager.instance.CodeEditorExtentions;
+        public List<IDEExtention> extentions = new();
         public VisualElement editorRoot;
         public PersistentData<string> script { get; private set; }
         
@@ -34,9 +34,24 @@ namespace CodeIsBroken.IDE
             editorRoot.style.height = 2000;
             tab.Add(editorRoot);
 
-            foreach (var item in extentions)
+            foreach (var extention in IDEManager.instance.CodeEditorExtentions)
             {
-                item.Initialize(this);   
+                extentions.Add(extention.Clone());
+            }
+
+            foreach (var extention in extentions)
+            {
+                extention.Initialize(this);   
+            }
+        }
+
+        protected override void Closing()
+        {
+            base.Closing();
+
+            foreach (var extention in extentions)
+            {
+                extention.Close();
             }
         }
     }
@@ -57,6 +72,9 @@ namespace CodeIsBroken.IDE
             editor.editorRoot.Add(extentionRoot);
             extentionRoot.style.height = UI_weight * 1000;
         }
+
         public abstract void Close();
+
+        public abstract IDEExtention Clone();
     }
 }

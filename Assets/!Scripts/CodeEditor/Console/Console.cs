@@ -1,6 +1,8 @@
 using System;
+using CodeIsBroken.Coding;
 using CodeIsBroken.IDE;
 using ScriptEditor.Console;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace CodeIsBroken.IDE
@@ -18,11 +20,18 @@ namespace CodeIsBroken.IDE
             
             output = extentionRoot.Q<Label>("Output");
             PlayerConsole.LogEvent += Log;
+            
+            Debug.Log("Console initialized");
         }
 
         public override void Close()
         {
-            
+            PlayerConsole.LogEvent -= Log;
+        }
+        
+        public override IDEExtention Clone()
+        {
+            return (Console)MemberwiseClone();
         }
 
         private void Log(object obj)

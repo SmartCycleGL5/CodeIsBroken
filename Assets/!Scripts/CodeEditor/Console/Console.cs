@@ -20,6 +20,11 @@ namespace CodeIsBroken.IDE
             
             output = extentionRoot.Q<Label>("Output");
             PlayerConsole.LogEvent += Log;
+
+            foreach (var error in Compiler.compilerErrors)
+            {
+                Log($"[{error.source.name}] <color=red>{error.error.ToString()}</color>");
+            }
             
             Debug.Log("Console initialized");
         }
@@ -36,9 +41,9 @@ namespace CodeIsBroken.IDE
 
         private void Log(object obj)
         {
-            if (obj is string)
+            if (obj is string s)
             {
-                switch ((string)obj)
+                switch (s)
                 {
                     case "/Clear":
                     {

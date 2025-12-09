@@ -1023,19 +1023,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   <CodeEditorExtentions>k__BackingField:
   - rid: 1537236216123228468
-  - rid: 1537236216123228465
+  - rid: 1537236220303114324
   references:
     version: 2
     RefIds:
-    - rid: 1537236216123228465
-      type: {class: Console, ns: CodeIsBroken.IDE, asm: CodeIsBroken.IDE.Console}
-      data:
-        UI_weight: 1
-        extentionUI: {fileID: 0}
     - rid: 1537236216123228468
       type: {class: Terminal, ns: CodeIsBroken.IDE, asm: CodeIsBroken.IDE.Terminal}
       data:
         UI_weight: 3
+        extentionUI: {fileID: 0}
+    - rid: 1537236220303114324
+      type: {class: Console, ns: CodeIsBroken.IDE, asm: CodeIsBroken.IDE.Console}
+      data:
+        UI_weight: 1
         extentionUI: {fileID: 0}
 --- !u!114 &357034597
 MonoBehaviour:

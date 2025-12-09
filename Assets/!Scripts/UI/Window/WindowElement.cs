@@ -13,15 +13,13 @@ namespace CodeIsBroken.UI.Window
     {
         public string name;
         public Tab tab;
-        public IWindow connectedWindow;
         bool requestClose;
         bool closing;
     
-        public WindowElement(string name, bool requestClose = false, IWindow window = null)
+        public WindowElement(string name, bool requestClose = false)
         {
             this.name = name;
             this.requestClose = requestClose;
-            this.connectedWindow = window;
             
             newTab();
             
@@ -31,9 +29,9 @@ namespace CodeIsBroken.UI.Window
 
             void newTab()
             {
-                this.tab = new Tab(name);
-                this.tab.style.borderTopWidth = new StyleFloat(2);
-                this.tab.style.borderTopColor = new StyleColor(Color.white);
+                tab = new Tab(name);
+                tab.style.borderTopWidth = new StyleFloat(2);
+                tab.style.borderTopColor = new StyleColor(Color.white);
             }
         }
     

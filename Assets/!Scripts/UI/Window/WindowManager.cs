@@ -87,10 +87,13 @@ namespace CodeIsBroken.UI.Window
         [Button]
         public static async void CloseAllWindows()
         {
+            Debug.Log("close all windows");
+            
             var windows = OpenWindows.ToList();
 
-            for (int i = windows.Count - 1; i > 0; i--)
+            for (int i = windows.Count - 1; i >= 0; i--)
             {
+                Debug.Log("Closing: "  + windows[i].Value.name);
                 await windows[i].Value.Close();
             }
     

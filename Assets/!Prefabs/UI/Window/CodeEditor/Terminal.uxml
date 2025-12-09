@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Window/CodeEditro/CodeEditorSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#CodeEditorSyle" />
+    <ui:VisualElement name="Terminal" class="Terminal test WindowElement" style="flex-grow: 1; height: 70%; overflow: hidden; min-height: 200px; min-width: 400px; white-space: pre;">
+        <ui:TextField multiline="true" auto-correction="true" name="Input" placeholder-text="Maybe start with a class? just a thought" vertical-scroller-visibility="Auto" select-all-on-focus="false" hide-mobile-input="true" enabled="true" select-all-on-mouse-up="false" style="background-color: rgba(0, 0, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>

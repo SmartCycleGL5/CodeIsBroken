@@ -38,20 +38,24 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+    height: 100%;
+    width: 50%;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    height: 100%;
-    width: 50%;
 }
 
 .WindowContainer {
     background-color: var(--secondary-color);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     overflow: hidden;
     border-top-color: var(--primary-color);
     border-right-color: var(--primary-color);

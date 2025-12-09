@@ -1,16 +1,22 @@
+using System;
+using CodeIsBroken.IDE;
 using ScriptEditor.Console;
-using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace CodeIsBroken.UI.Window.CodeEditor
+namespace CodeIsBroken.IDE
 {
-    public class Console : CodeEditor.Element
+    [Serializable]
+    public class Console : IDEExtention
     {
         Label output;
         
+        public override string uiPath => "Window/CodeEditor/Console";
+        
         public override void Initialize(CodeEditor editor)
         {
-            output = editor.editorRoot.Q<Label>("Output");
+            base.Initialize(editor);
+            
+            output = extentionRoot.Q<Label>("Output");
             PlayerConsole.LogEvent += Log;
         }
 

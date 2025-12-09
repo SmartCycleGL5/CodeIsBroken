@@ -5,6 +5,7 @@ using CodeIsBroken.UI.Window;
 using UnityEngine;
 using System.Linq;
 using CodeIsBroken.Coding;
+using CodeIsBroken.IDE;
 
 [DefaultExecutionOrder(0), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
@@ -179,7 +180,7 @@ public class Programmable : MonoBehaviour
         script.connectedMachine = this;
         attachedScripts.Add(script);
 
-        //script.Edit();
+        script.Edit();
     }
 
     protected virtual void OnDestroy()
@@ -194,7 +195,7 @@ public class Programmable : MonoBehaviour
     [Button]
     public void OpenTerminalForMachine(int script = 0)
     {
-        //attachedScripts[script].Edit();
+        attachedScripts[script].Edit();
     }
     // Why is Torje breaking the code
 

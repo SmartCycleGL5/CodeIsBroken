@@ -12,14 +12,11 @@ namespace CodeIsBroken.Product
         public ProductDefinition definition = new(BaseMaterials.Wood);
     
         public MeshRenderer artRenderer;
-        public static List<Item> items = new List<Item>();
         
         [HideInInspector] public bool changedColor;
     
         private void Start()
         {
-            items.Add(this);
-            
             if(definition.baseMods == null) return;
             foreach (var mod in definition.baseMods)
             {
@@ -28,13 +25,20 @@ namespace CodeIsBroken.Product
             }
     
             definition.modified += ApplyModifications;
+
+            GameManager.onStop += OnStop;
         }
         private void OnDestroy()
         {
-            items.Remove(this);
+            GameManager.onStop -= OnStop;
             definition.modified -= ApplyModifications;
         }
-    
+
+        private void OnStop()
+        {
+            Destroy(gameObject);
+        }
+
         void ApplyModifications(IAdditionalModification mod)
         {
             mod.Apply(this);

@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Window/WindowStyle.uss?fileID=7433441132597879392&amp;guid=7169f661ff550ab4697adf7bee558c91&amp;type=3#WindowStyle" />
+    <Style src="project://database/Assets/!Prefabs/UI/Window/CodeEditor/CodeEditorSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#CodeEditorSyle" />
+</ui:UXML>

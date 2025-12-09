@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeIsBroken.Coding;
+using CodeIsBroken.IDE;
 using Trivial.CodeSecurity;
 using UnityEngine;
 
@@ -48,21 +49,19 @@ public class Script
     }
 
 
-    public  Script(string className, string parentClass, Programmable machine = null)
+    public  Script(string name, string parentClass, Programmable machine = null)
     {
-        this.name = className;
+        this.name = name;
         connectedMachine = machine;
         
-        rawCode = new PersistentData<string>(className, "Scripts", DefaultCode(className, parentClass));
+        rawCode = new PersistentData<string>(name, "Scripts", DefaultCode(name, parentClass));
         
-        Compiler.activePlayerScripts.Add(name, this);
+        Compiler.activePlayerScripts.Add(this.name, this);
 
         GameManager.onStart += Run;
         GameManager.onStop += Terminate;
         
-        _=Compiler.StartCompile();
-
-        rawCode.onChanged += Compiler.StartCompiling;
+        _=Compiler.StartCompileAsync();
     }
 
     public void Run()
@@ -129,5 +128,10 @@ public class Script
         Compiler.activePlayerScripts.Remove(name);
 
         Deleted?.Invoke();
+    }
+
+    public void Edit()
+    {
+        new CodeEditor(rawCode, true);
     }
 }

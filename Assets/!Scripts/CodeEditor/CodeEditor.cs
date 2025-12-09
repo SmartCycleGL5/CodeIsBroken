@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace CodeIsBroken.UI.Window.CodeEditor
+namespace CodeIsBroken.IDE
 {
     public class CodeEditor : WindowElement
     {
@@ -14,31 +16,47 @@ namespace CodeIsBroken.UI.Window.CodeEditor
             }
         }
 
-        public List<Element> editorElements = new List<Element>()
-        {
-            new Terminal(),
-            new Console(),
-        };
+        public static VisualTreeAsset codeEditorUI;
+        
+        public static List<IDEExtention> extentions => IDEManager.instance.CodeEditorExtentions;
         public VisualElement editorRoot;
         public PersistentData<string> script { get; private set; }
         
-        public CodeEditor(PersistentData<string> script, bool requestClose = true, IWindow window = null) : base(script.name, requestClose, window)
+        public CodeEditor(PersistentData<string> script, bool requestClose = true) : base(script.name, requestClose)
         {
-            TerminalManager.editors.Add(this);
+            this.script = script;
+            
+            Debug.Log(script);
+            
+            IDEManager.editors.Add(this);
 
-            editorRoot = TerminalManager.terminalUI.Instantiate();
+            editorRoot = codeEditorUI.Instantiate();
+            editorRoot.style.height = 2000;
             tab.Add(editorRoot);
 
-            foreach (var item in editorElements)
+            foreach (var item in extentions)
             {
                 item.Initialize(this);   
             }
         }
+    }
+    
+    [Serializable]
+    public abstract class IDEExtention
+    {
+        [SerializeField] private int UI_weight = 1;
+        
+        [HideInInspector] public VisualTreeAsset extentionUI;
+        protected TemplateContainer extentionRoot;
+        
+        public abstract string uiPath { get; }
 
-        public abstract class Element
+        public virtual void Initialize(CodeEditor editor)
         {
-            public abstract void Initialize(CodeEditor editor);
-            public abstract void Close();
+            extentionRoot = extentionUI.Instantiate();
+            editor.editorRoot.Add(extentionRoot);
+            extentionRoot.style.height = UI_weight * 1000;
         }
+        public abstract void Close();
     }
 }

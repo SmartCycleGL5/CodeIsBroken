@@ -8,10 +8,10 @@ using ScriptEditor.Console;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace CodeIsBroken.UI.Window.CodeEditor
+namespace CodeIsBroken.IDE
 {
-    [DefaultExecutionOrder(1000)]
-    public class Terminal : CodeEditor.Element
+    [Serializable]
+    public class Terminal : IDEExtention
     {
         public bool isFocused
         {
@@ -34,19 +34,20 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         public SyntaxHighlighting activeHighlighting = new();
         public Action<string> save; 
         
-        //Label inheritedMembers;
-        //Label inheritedClass;
-        
         TextField input;
 
 
+        public override string uiPath => "Window/CodeEditor/Terminal";
+
         public override void Initialize(CodeEditor editor)
         {
+            base.Initialize(editor);
+            
             this.editor = editor;
             
             activeHighlighting.SetPallate(ColorThemes.ActivePallate);
             
-            input = editor.editorRoot.Q<TextField>("Input");
+            input = extentionRoot.Q<TextField>("Input");
             input.RegisterCallback<FocusOutEvent>(OnLoseFocus);
             input.Q<TextElement>().enableRichText = true;
 
@@ -67,10 +68,8 @@ namespace CodeIsBroken.UI.Window.CodeEditor
         public void Load()
         {
             if (editor.script == null) return;
-
-            Debug.Log(editor.script);
-
-            //inheritedMembers.text = "";
+            
+            input.value = editor.script.data;
             
             HighlightCode();
 
@@ -92,11 +91,10 @@ namespace CodeIsBroken.UI.Window.CodeEditor
                 PlayerConsole.Log("Saving...", editor.script.name);
 
                 editor.script.UpdateData(input.text);
+                await Compiler.StartCompileAsync();
 
                 PlayerConsole.Log("Saved!", editor.script.name);
             }
-
-            //window.Rename(scriptToEdit.name);
 
             HighlightCode();
         }

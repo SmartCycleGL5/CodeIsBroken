@@ -3,20 +3,21 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+[Serializable]
 public class PersistentData<T>
 {
-    public string name { get; private set; }
-    public string folder  { get; private set; }
-    public T data { get; private set; }
+    [field: SerializeField] public string name { get; private set; }
+    [field: SerializeField] public string folder  { get; private set; }
+    [field: SerializeField] public T data { get; private set; }
 
     public Action onChanged;
     
-    public string dataPath => Application.persistentDataPath + $"/{folder}/{name}.json";
-
+    public string dataPath => Application.persistentDataPath + $"{folder}/";
+    
     public PersistentData(string name, string folder, T data = default)
     {
         this.name = name;
-        this.folder = folder;
+        this.folder = "/"+folder;
         this.data = data;
         
         Save();
@@ -30,9 +31,11 @@ public class PersistentData<T>
     
     void Save()
     {
-        Debug.Log($"Saving to: {dataPath}");
+        Debug.Log($"Saving to: {dataPath + name}.txt");
         string jsonText = JsonUtility.ToJson(this);
-        File.WriteAllText(dataPath, jsonText);
+
+        if(!Directory.Exists(dataPath)) Directory.CreateDirectory(dataPath);
+        File.WriteAllText(dataPath + name+ ".txt", jsonText);
         
         onChanged?.Invoke();
     }

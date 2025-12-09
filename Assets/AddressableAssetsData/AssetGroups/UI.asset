@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52ad993bc2e4b1ac1802c1944d31a179
+    m_Address: Window/CodeEditor/Terminal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 792b9ea35c7de65438e0b0496118c06b
     m_Address: UI/Contract/Request
     m_ReadOnly: 0
@@ -37,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6811b2bf1a4c80cfa0750f8e484264a
     m_Address: UI/Popup/EnterValue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae5b2a091e1c403419f63ab2a2a087e4
+    m_Address: Window/CodeEditor/Console
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

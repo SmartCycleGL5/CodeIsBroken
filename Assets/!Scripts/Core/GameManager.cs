@@ -1,6 +1,9 @@
 using FMODUnity;
 using NaughtyAttributes;
 using System;
+using System.Threading.Tasks;
+using CodeIsBroken.Audio;
+using CodeIsBroken.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,13 +26,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
-/*
+
     private void Start()
     {
-        runButton = canvas.Q<Button>("Run");
+        runButton = UIManager.canvas.Q<Button>("Run");
         runButton.clicked += ToggleMachines;
         runButton.text = "Start";
-    }*/
+    }
 
     public static void ToggleMachines()
     {
@@ -52,8 +55,8 @@ public class GameManager : MonoBehaviour
         runButton.text = "Starting";
         //PlayerConsole.Clear();
 
-        //AudioManager.PlayOneShot(instance.powerUp, out int time);
-        //await Task.Delay(time / 2);
+        AudioManager.PlayOneShot(instance.powerUp, out int time);
+        await Task.Delay(time / 2);
 
         onStart?.Invoke();
 
@@ -73,15 +76,10 @@ public class GameManager : MonoBehaviour
         runButton.text = "Stopping";
         Tick.StopTick();
 
-        //AudioManager.PlayOneShot(instance.powerDown, out int time);
-        //await Task.Delay(time / 2);
+        AudioManager.PlayOneShot(instance.powerDown, out int time);
+        await Task.Delay(time / 2);
 
         onStop?.Invoke();
-/*
-        for (int i = Item.items.Count - 1; i >= 0; i--)
-        {
-            Destroy(Item.items[i].gameObject);
-        }*/
 
         isRunning = false;
 

@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/CodeIsBroken.Coding.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/CodeIsBroken.Coding.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Compiler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Core/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/CodeEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/CodeEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/IDEManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/IDEManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/PlayerInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Journal/JournalManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,6 +318,7 @@
       <workItem from="1765274251441" duration="8265000" />
       <workItem from="1765286838547" duration="6926000" />
       <workItem from="1765309922173" duration="1983000" />
+      <workItem from="1765316903170" duration="2093000" />
     </task>
     <servers />
   </component>

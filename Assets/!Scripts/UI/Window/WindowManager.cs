@@ -24,8 +24,19 @@ namespace CodeIsBroken.UI.Window
     
         public static Dictionary<string, WindowElement> OpenWindows { get; private set; } = new();
 
+        
+        /// <summary>
+        /// whether a popup is open
+        /// </summary>
         public static bool popupOpen;
-        public static bool isFocused => root ==  root.focusController.focusedElement;
+        /// <summary>
+        /// whether a window or popup is focused
+        /// </summary>
+        public static bool isFocused => root.Contains((VisualElement)root.focusController.focusedElement);
+        /// <summary>
+        /// whether a window is focused
+        /// </summary>
+        public static bool windowFocused => windows.Contains((VisualElement)windows.focusController.focusedElement);
         
 
         private void Awake()
@@ -49,11 +60,6 @@ namespace CodeIsBroken.UI.Window
             DisableWindow();
     
         }
-/*
-        private void Update()
-        {
-            Debug.Log(root.focusController.focusedElement);
-        }*/
 
         static void EnableWindow()
         {

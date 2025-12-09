@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CodeIsBroken.UI.Window;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -291,7 +292,7 @@ namespace Journal
         }
         public void JournalOnOff()
         {
-            //if(Terminal.focused)return;
+            if(WindowManager.windowFocused || WindowManager.popupOpen)return;
             journalDoc.rootVisualElement.style.display = journalDoc.rootVisualElement.style.display != DisplayStyle.None ? DisplayStyle.None : DisplayStyle.Flex;
         }
         void Update()

@@ -15,20 +15,6 @@ namespace CodeIsBroken.IDE
         
         public static List<CodeEditor> editors = new();
         
-        
-        public static bool focused
-        {
-            get
-            {
-                if (editors.Count <= 0) return false;
-                foreach (var terminal in editors)
-                {
-                    if (terminal.isFocused)
-                        return true;
-                }
-                return false;
-            }
-        }
 
         private void Awake()
         {

@@ -77,7 +77,7 @@ public class PlayerInputs : MonoBehaviour
     void Update()
     {
         PlayerUpdate();
-        if (/*Terminal.focused ||*/ WindowManager.popupOpen) return;
+        if (WindowManager.windowFocused || WindowManager.popupOpen) return;
 
         Movement();
         MouseRotate();

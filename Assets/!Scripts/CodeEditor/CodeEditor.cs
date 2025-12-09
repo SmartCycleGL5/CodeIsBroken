@@ -8,13 +8,20 @@ namespace CodeIsBroken.IDE
 {
     public class CodeEditor : WindowElement
     {
-        public bool isFocused
+        public static bool focused
         {
             get
             {
+                if (IDEManager.editors.Count <= 0) return false;
+                foreach (var terminal in IDEManager.editors)
+                {
+                    if (terminal.isFocused)
+                        return true;
+                }
                 return false;
             }
         }
+        public bool isFocused => editorRoot.Contains((VisualElement)editorRoot.focusController.focusedElement);
 
         public static VisualTreeAsset codeEditorUI;
         
@@ -25,8 +32,6 @@ namespace CodeIsBroken.IDE
         public CodeEditor(PersistentData<string> script, bool requestClose = true) : base(script.name, requestClose)
         {
             this.script = script;
-            
-            Debug.Log(script);
             
             IDEManager.editors.Add(this);
 

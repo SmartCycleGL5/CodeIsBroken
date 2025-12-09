@@ -13,22 +13,6 @@ namespace CodeIsBroken.IDE
     [Serializable]
     public class Terminal : IDEExtention
     {
-        public bool isFocused
-        {
-            get
-            {
-                if (input == null) return false;
-                try
-                {
-                    return input ==  input.panel.focusController.focusedElement;
-                }
-                catch
-                {
-                    return false;
-                }
-            }
-        }
-        
         CodeEditor editor;
         
         public SyntaxHighlighting activeHighlighting = new();

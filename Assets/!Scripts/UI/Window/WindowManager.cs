@@ -25,6 +25,8 @@ namespace CodeIsBroken.UI.Window
         public static Dictionary<string, WindowElement> OpenWindows { get; private set; } = new();
 
         public static bool popupOpen;
+        public static bool isFocused => root ==  root.focusController.focusedElement;
+        
 
         private void Awake()
         {
@@ -47,7 +49,12 @@ namespace CodeIsBroken.UI.Window
             DisableWindow();
     
         }
-    
+/*
+        private void Update()
+        {
+            Debug.Log(root.focusController.focusedElement);
+        }*/
+
         static void EnableWindow()
         {
             windows.visible = true;

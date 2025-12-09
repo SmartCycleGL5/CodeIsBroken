@@ -12,15 +12,23 @@ public class PersistentData<T>
 
     public Action onChanged;
     
-    public string dataPath => Application.persistentDataPath + $"{folder}/";
+    public string filePath => folderPath + name + ".json";
+    public string folderPath => Application.persistentDataPath + $"{folder}/";
     
     public PersistentData(string name, string folder, T data = default)
     {
         this.name = name;
         this.folder = "/"+folder;
         this.data = data;
-        
-        Save();
+
+        if (File.Exists(filePath))
+        {
+            Load();
+        }
+        else
+        {
+            Save();   
+        }
     }
 
     public void UpdateData(T data)
@@ -31,18 +39,18 @@ public class PersistentData<T>
     
     void Save()
     {
-        Debug.Log($"Saving to: {dataPath + name}.txt");
+        Debug.Log($"Saving to: {folderPath + name}.txt");
         string jsonText = JsonUtility.ToJson(this);
 
-        if(!Directory.Exists(dataPath)) Directory.CreateDirectory(dataPath);
-        File.WriteAllText(dataPath + name+ ".txt", jsonText);
+        if(!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+        File.WriteAllText(filePath, jsonText);
         
         onChanged?.Invoke();
     }
     public void Load()
     {
-        Debug.Log($"Loading: {dataPath}");
-        string jsonToRead = File.ReadAllText(dataPath);
+        Debug.Log($"Loading: {folderPath}");
+        string jsonToRead = File.ReadAllText(filePath);
         JsonUtility.FromJsonOverwrite(jsonToRead, this);
     }
 

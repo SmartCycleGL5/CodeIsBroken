@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static Action onStart;
     public static Action onStop;
     
-    static Button runButton;
+    public static Button runButton { get; private set; }
 
     [Header("Audio")]
     [SerializeField] EventReference powerUp;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         runButton.clicked += ToggleMachines;
         runButton.text = "Start";
     }
-
+    
     public static void ToggleMachines()
     {
         if (isRunning)

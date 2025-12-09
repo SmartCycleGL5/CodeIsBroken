@@ -75,7 +75,7 @@ public class Script
         Tick.OnTick -= OnTick;
     }
 
-    void StartTick()
+    public void StartTick()
     {
         try
         {
@@ -87,7 +87,7 @@ public class Script
             Debug.LogWarning("No start method");
         }
     }
-    void OnTick()
+    public void OnTick()
     {
         try
         {

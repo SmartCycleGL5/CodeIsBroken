@@ -14,6 +14,7 @@ namespace CodeIsBroken.Coding
         
         public static bool compiling;
         public static List<Error> compilerErrors = new List<Error>();
+        
 
         private void Start()
         {
@@ -29,19 +30,27 @@ namespace CodeIsBroken.Coding
         {
             if(compiling) return false;
             compiling = true;
+            
+            if(GameManager.isRunning)
+                GameManager.StopMachines();
+            
+            GameManager.runButton.text = "Compiling...";
+            GameManager.runButton.SetEnabled(false);
+            
+            bool result = await Compile();
 
-            if (!await Compile())
+            if (result)
             {
-                //runButton.text = "<color=#ff0000>Failed</color>";
-                compiling = false;
-                return false;
+                GameManager.runButton.text = "Start";
+                GameManager.runButton.SetEnabled(true);
             }
-/*
-            runButton.text = "Start";
-            runButton.SetEnabled(true);*/
-
+            else
+            {
+                GameManager.runButton.text = "<color=red>Failed</color>";
+            }
+            
             compiling = false;
-            return true;
+            return result;
         }
 
         static async Task<bool> Compile()

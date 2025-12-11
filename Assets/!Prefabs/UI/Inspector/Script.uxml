@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss?fileID=7433441132597879392&amp;guid=7b8b37e22260f26d99349f0b9995d4c2&amp;type=3#InspectorStyle" />
+    <ui:VisualElement name="Script" class="Component" style="justify-content: space-between; flex-direction: row; font-size: 25px; color: rgb(255, 255, 255); -unity-text-align: middle-left; -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgb(0, 0, 0); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; align-items: center;">
+        <ui:Label text="Name" name="Name" style="width: 70%; margin-top: 0; margin-right: 3px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; overflow: hidden;" />
+        <ui:Button name="Edit" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 35px; height: 35px; background-image: url(&quot;project://database/Assets/Art/Sprites/programmingTabIcom.png?fileID=21300000&amp;guid=c0626f196a74cf14caa790a9f3fc0968&amp;type=3#programmingTabIcom&quot;); background-size: 80% 80%;" />
+    </ui:VisualElement>
+</ui:UXML>

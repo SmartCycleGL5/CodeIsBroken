@@ -7,7 +7,7 @@ namespace CodeIsBroken.UI
     public class Inspector : MonoBehaviour
     {
         public static Inspector activeInspector { get; private set; }
-        private VisualElement root;
+        public VisualElement root { get; set; }
         public Programmable programmable;
 
         VisualElement scriptHolder;
@@ -24,7 +24,7 @@ namespace CodeIsBroken.UI
             root = GetComponent<UIDocument>().rootVisualElement;
             scriptHolder = root.Q("ScriptHolder");
 
-            UpdateScripts();
+            Refresh();
 
             root.Q<Button>("AddScript").clicked += AddScript;
         }
@@ -34,7 +34,7 @@ namespace CodeIsBroken.UI
             root.Q<Button>("AddScript").clicked -= AddScript;
         }
 
-        private void UpdateScripts()
+        public void Refresh()
         {
             int childCount = scriptHolder.childCount;
             for (int i = childCount - 1; i >= 0; i--)
@@ -52,11 +52,9 @@ namespace CodeIsBroken.UI
             }
         }
 
-        private async void AddScript()
+        private void AddScript()
         {
-            await programmable.AddScript();
-            
-            UpdateScripts();
+            FileBrowser.NewFilebrowser(this);
         }
         
         

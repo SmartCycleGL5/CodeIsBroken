@@ -3,7 +3,9 @@
     "rootNamespace": "CodeIsBroken.UI",
     "references": [
         "GUID:76593d958cbc834fe819928fb8608f2c",
-        "GUID:edc0a64edf786668e95dd842bd73fa4a"
+        "GUID:edc0a64edf786668e95dd842bd73fa4a",
+        "GUID:6b32905a4786e5d8dafe2803d928d458",
+        "GUID:3539b116d27b9b7d296b3d56f1ba436d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

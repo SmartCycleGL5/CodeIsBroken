@@ -133,6 +133,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - ConceptEntries
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d687fcff1ead441c39de6d36661bf098
+    m_Address: FileBrowserUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d753b529b89a4ba46bd5fd36fba556a7
     m_Address: Assets/!Scripts/Journal/Concepts/Classes.asset
     m_ReadOnly: 0

@@ -24,7 +24,8 @@ public class Script
     private static string startMethod => "StartTick";
     private static string updateMethod => "OnTick";
     
-    static string DefaultCode(string className, string parentClass)
+    public static string DefaultScriptFolder => "Scripts";
+    public static string DefaultCode(string className, string parentClass)
     {
         return
             $"using CodeIsBroken;\n\n" +
@@ -49,12 +50,11 @@ public class Script
     }
 
 
-    public  Script(string name, string parentClass, Programmable machine = null)
+    public Script(PersistentData<string> data, Programmable machine = null)
     {
-        this.name = name;
+        this.name = data.name;
+        rawCode = data;
         connectedMachine = machine;
-        
-        rawCode = new PersistentData<string>(name, "Scripts", DefaultCode(name, parentClass));
         
         Compiler.activePlayerScripts.Add(this.name, this);
 

@@ -6,6 +6,7 @@ namespace CodeIsBroken.UI
 {
     public class Inspector : MonoBehaviour
     {
+        public static Inspector activeInspector { get; private set; }
         private VisualElement root;
         public Programmable programmable;
 
@@ -13,12 +14,24 @@ namespace CodeIsBroken.UI
         
         private void Start()
         {
+
+            if (activeInspector != null)
+            {
+                Destroy(activeInspector.gameObject);    
+            }
+            
+            activeInspector = this;
             root = GetComponent<UIDocument>().rootVisualElement;
             scriptHolder = root.Q("ScriptHolder");
 
             UpdateScripts();
 
             root.Q<Button>("AddScript").clicked += AddScript;
+        }
+
+        private void OnDestroy()
+        {
+            root.Q<Button>("AddScript").clicked -= AddScript;
         }
 
         private void UpdateScripts()

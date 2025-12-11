@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
   toDeriveFrom: Crane
   attachedScripts: []
+  inspectorHeight: 2.5
 --- !u!114 &7360716299285168666
 MonoBehaviour:
   m_ObjectHideFlags: 0

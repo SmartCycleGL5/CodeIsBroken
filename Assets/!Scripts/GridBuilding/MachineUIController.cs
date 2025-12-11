@@ -6,7 +6,7 @@ public class MachineUIController : MonoBehaviour
     [SerializeField] GameObject uiMenu;
     //private Machine machine; machines wont be on objects like this anymore
     bool uiEnabled;
-
+    
     private void Start()
     {
         uiEnabled = false;
@@ -14,15 +14,6 @@ public class MachineUIController : MonoBehaviour
     }
 
     public void ToggleUI(bool toggle)
-    {
-        //uiEnabled = toggle;
-        //uiMenu.SetActive(toggle);
-        Debug.Log(uiEnabled);
-        TerminalButton();
-
-    }
-
-    public void TerminalButton()
     {
         if (gameObject.TryGetComponent(out Programmable machine))
         {

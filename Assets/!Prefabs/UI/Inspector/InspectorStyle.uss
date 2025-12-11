@@ -48,3 +48,18 @@
     margin-bottom: 2px;
     margin-left: 2px;
 }
+
+.unity-button {
+    transition-duration: 0.1s;
+    background-color: rgb(255, 255, 255);
+}
+
+.unity-button:hover {
+    transition-duration: 0.1s;
+    background-color: rgb(159, 255, 155);
+}
+
+.unity-button:active {
+    transition-duration: 0.1s;
+    background-color: rgb(71, 255, 64);
+}

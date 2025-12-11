@@ -6,16 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/WindowUI.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/Inspector.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/Inspector.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptUI.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptUI.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/InspectorUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/InspectorUI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/CodeIsBroken.GridBuilder.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/CodeIsBroken.GridBuilder.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/MachineUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/GridBuilding/MachineUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/CodeIsBroken.UI.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/CodeIsBroken.UI.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/Inspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/Inspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/InspectorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/InspectorManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Crane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
@@ -329,7 +331,8 @@
       <workItem from="1765309922173" duration="1983000" />
       <workItem from="1765316903170" duration="2093000" />
       <workItem from="1765386885805" duration="1584000" />
-      <workItem from="1765459471917" duration="7066000" />
+      <workItem from="1765459471917" duration="7114000" />
+      <workItem from="1765469949315" duration="3821000" />
     </task>
     <servers />
   </component>

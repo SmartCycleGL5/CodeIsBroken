@@ -18,6 +18,8 @@ public class Programmable : MonoBehaviour
 
     public List<FieldInfo> variableInfo = new();
     public List<MethodInfo> methodInfo = new();
+    
+    public float inspectorHeight = 1.5f;
 
     static List<string> disallowedNames = new()
     {

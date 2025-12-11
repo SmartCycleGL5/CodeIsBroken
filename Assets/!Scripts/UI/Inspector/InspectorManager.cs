@@ -9,8 +9,6 @@ namespace CodeIsBroken.UI
         public static InspectorManager Instance { get; private set; }
         public static Inspector InspectorUI { get; private set; }
         public static VisualTreeAsset ScriptUI { get; private set; }
-
-        [SerializeField] private float height;
         
         private void Awake()
         {
@@ -32,7 +30,7 @@ namespace CodeIsBroken.UI
         public static Inspector NewInspector(Programmable programmable)
         {
             Inspector inspector = Instantiate(InspectorUI, programmable.transform);
-            inspector.transform.position += Vector3.up * Instance.height;
+            inspector.transform.position += Vector3.up * programmable.inspectorHeight;
             inspector.programmable = programmable;
             return inspector;
         }

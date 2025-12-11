@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8358976705987672513}
   - component: {fileID: 5772611491218883397}
   - component: {fileID: 3666965028651409190}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InspectorUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
-  m_WorldSpaceWidth: 140
+  m_WorldSpaceWidth: 280
   m_WorldSpaceHeight: 200
   m_PivotReferenceSize: 0
   m_Pivot: 7

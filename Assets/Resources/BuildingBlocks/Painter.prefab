@@ -561,6 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: CodeIsBroken.Base::BaseMachine
   toDeriveFrom: Painter
   attachedScripts: []
+  inspectorHeight: 2
 --- !u!1 &6959536395488756687
 GameObject:
   m_ObjectHideFlags: 0

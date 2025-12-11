@@ -6,20 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/Inspector.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/Inspector.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptUI.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptUI.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Programmable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/CodeIsBroken.UI.Inspector.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/CodeIsBroken.UI.Inspector.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/Inspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/Inspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/InspectorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/InspectorManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -335,7 +323,7 @@
       <workItem from="1765316903170" duration="2093000" />
       <workItem from="1765386885805" duration="1584000" />
       <workItem from="1765459471917" duration="7114000" />
-      <workItem from="1765469949315" duration="10287000" />
+      <workItem from="1765469949315" duration="10677000" />
     </task>
     <servers />
   </component>

@@ -151,6 +151,8 @@ public class PersistentData<T>
         newData.folder = "/"+folder;
         newData.data = data;
         
+        if(!Directory.Exists(newData.folderPath)) Directory.CreateDirectory(newData.folderPath);
+        
         newData.Save(); 
         return newData;
     }
@@ -174,8 +176,7 @@ public class PersistentData<T>
     {
         Debug.Log($"Saving to: {folderPath + name}.txt");
         string jsonText = JsonUtility.ToJson(this);
-
-        if(!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+        
         File.WriteAllText(filePath, jsonText);
         
         onChanged?.Invoke();

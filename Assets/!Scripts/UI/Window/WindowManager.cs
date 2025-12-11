@@ -56,10 +56,14 @@ namespace CodeIsBroken.UI.Window
                 enterValue = await Addressable.LoadAsset<VisualTreeAsset>("UI/Popup/EnterValue");
             
             windows.Q<Button>("Close").clicked += CloseAllWindows;
-    
+
+            windows.style.backgroundColor = ColorThemes.ActivePallate.Colors[ColorPallate.Type.backgroundColor];
+            windows.style.color = ColorThemes.ActivePallate.Colors[ColorPallate.Type.defaultColor];
+            
             DisableWindow();
     
         }
+        
 
         static void EnableWindow()
         {

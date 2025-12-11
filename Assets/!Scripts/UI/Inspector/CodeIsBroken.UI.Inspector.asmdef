@@ -1,8 +1,9 @@
 {
-    "name": "CodeIsBroken.UI",
+    "name": "CodeIsBroken.UI.Inspector",
     "rootNamespace": "CodeIsBroken.UI",
     "references": [
-        "GUID:76593d958cbc834fe819928fb8608f2c"
+        "GUID:76593d958cbc834fe819928fb8608f2c",
+        "GUID:edc0a64edf786668e95dd842bd73fa4a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

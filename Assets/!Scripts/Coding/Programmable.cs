@@ -4,6 +4,7 @@ using System.Reflection;
 using CodeIsBroken.UI.Window;
 using UnityEngine;
 using System.Linq;
+using System.Threading.Tasks;
 using CodeIsBroken.Coding;
 using CodeIsBroken.IDE;
 
@@ -145,7 +146,7 @@ public class Programmable : MonoBehaviour
     };
 
     [Button]
-    public async void AddScript()
+    public async Task AddScript()
     {
         string name = await WindowManager.OpenEnterValue("Name the script");
 

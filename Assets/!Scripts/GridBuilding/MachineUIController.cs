@@ -1,3 +1,4 @@
+using CodeIsBroken.UI;
 using UnityEngine;
 
 public class MachineUIController : MonoBehaviour
@@ -25,10 +26,13 @@ public class MachineUIController : MonoBehaviour
     {
         if (gameObject.TryGetComponent(out Programmable machine))
         {
+            InspectorManager.NewInspector(machine);
+
+            /*
             if(machine.attachedScripts.Count == 0)
                 machine.AddScript();
             else
-                machine.OpenTerminalForMachine();
+                machine.OpenTerminalForMachine();*/
         } else
         {
             Debug.Log("[MachineUIController] Couldnt Find Machine");

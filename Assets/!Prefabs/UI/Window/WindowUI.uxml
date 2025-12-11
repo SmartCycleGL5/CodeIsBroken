@@ -7,5 +7,5 @@
             <ui:Button text="_" name="Minimize" enabled="false" class="unity-button TerminalButton WindowButton" style="width: 100px; display: none;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Popup" style="position: absolute; bottom: 0%; top: 0%; left: 0%; right: 0%; background-color: rgba(0, 0, 0, 0.78); visibility: hidden; justify-content: center; align-items: center;" />
+    <ui:VisualElement name="Popup" style="position: absolute; bottom: 2px; top: 2px; left: 2px; right: 2px; background-color: rgba(0, 0, 0, 0.78); visibility: hidden; justify-content: center; align-items: center;" />
 </ui:UXML>

@@ -1,5 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss?fileID=7433441132597879392&amp;guid=7b8b37e22260f26d99349f0b9995d4c2&amp;type=3#InspectorStyle" />
-    <ui:ScrollView name="FileHolder" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" class="Element" style="width: auto;" />
-    <ui:Button text="New Script" name="Create" style="height: 15%; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+    <ui:VisualElement style="flex-grow: 1; border-left-color: rgba(255, 255, 255, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; align-items: center; border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);">
+        <ui:ScrollView name="FileHolder" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" class="Element" style="width: auto;" />
+        <ui:Button text="New Script" name="Create" class="BottomButton" />
+    </ui:VisualElement>
 </ui:UXML>

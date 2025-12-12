@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using CodeIsBroken.Coding;
 using CodeIsBroken.UI.Window;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace CodeIsBroken.UI
                 name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
             }
             
-            Inspector.programmable.AddScript(new Script(PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, data: Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), Inspector.programmable));
+            Inspector.programmable.AddScript(new Script(PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, "cs",Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), Inspector.programmable));
             
             Inspector.Refresh();
                 
@@ -66,10 +67,10 @@ namespace CodeIsBroken.UI
         {
             DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + "/Scripts");
 
-            foreach (var file in info.GetFiles("*.json"))
+            foreach (var file in info.GetFiles())
             {
-                VisualElement fileUI = InspectorManager.ScriptUI.Instantiate();
-                fileUI.Q<Label>().text = file.Name;
+                VisualElement fileUI = InspectorManager.FileUI.Instantiate();
+                fileUI.Q<Button>().text = file.Name;//.Substring(0, file.Name.LastIndexOf('.'));
                 fileUI.Q<Button>().clicked += () =>
                 {
                     Inspector.programmable.AddScript(new Script(PersistentData<string>.LoadFile(file.FullName), Inspector.programmable));

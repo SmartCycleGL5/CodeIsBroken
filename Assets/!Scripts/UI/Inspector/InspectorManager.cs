@@ -9,6 +9,7 @@ namespace CodeIsBroken.UI
         public static InspectorManager Instance { get; private set; }
         public static Inspector InspectorUI { get; private set; }
         public static VisualTreeAsset ScriptUI { get; private set; }
+        public static VisualTreeAsset FileUI { get; private set; }
         public static VisualTreeAsset FileBrowserUI { get; private set; }
         
         private void Awake()
@@ -29,6 +30,10 @@ namespace CodeIsBroken.UI
             if (FileBrowserUI == null)
             {
                 FileBrowserUI = await Utility.Addressable.LoadAsset<VisualTreeAsset>("FileBrowserUI");
+            }
+            if (FileUI == null)
+            {
+                FileUI = await Utility.Addressable.LoadAsset<VisualTreeAsset>("FileUI");
             }
         }
 

@@ -45,7 +45,7 @@ namespace CodeIsBroken.UI
             foreach (var script in programmable.attachedScripts)
             {
                 VisualElement scriptUI = InspectorManager.ScriptUI.Instantiate();
-                scriptUI.Q<Label>("Name").text = script.name;
+                scriptUI.Q<Button>("Script").text = script.name;
                 scriptHolder.Add(scriptUI);
                 
                 scriptUI.Q<Button>("Edit").clicked += script.Edit;

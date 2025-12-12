@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,6 +13,8 @@ namespace CodeIsBroken.UI
 
         VisualElement scriptHolder;
         
+        public IInspectorElement inspectorElement;
+        
         private void Start()
         {
 
@@ -28,12 +29,13 @@ namespace CodeIsBroken.UI
 
             Refresh();
 
-            root.Q<Button>("AddScript").clicked += AddScript;
+            root.Q<Button>("AddScript").clicked += OpenFileBrowser;
             
             root.Q("Holder").Focus();
+            
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if(!focused)
                 Destroy(gameObject);
@@ -41,7 +43,7 @@ namespace CodeIsBroken.UI
 
         private void OnDestroy()
         {
-            root.Q<Button>("AddScript").clicked -= AddScript;
+            root.Q<Button>("AddScript").clicked -= OpenFileBrowser;
         }
 
         public void Refresh()
@@ -62,11 +64,11 @@ namespace CodeIsBroken.UI
             }
         }
 
-        private void AddScript()
+        private void OpenFileBrowser()
         {
-            FileBrowser.NewFilebrowser(this);
+            if(inspectorElement != null) inspectorElement.Close();
+            
+            inspectorElement = FileBrowser.NewFilebrowser(this);
         }
-        
-        
     }
 }

@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 namespace CodeIsBroken.UI
 {
-    public class FileBrowser : MonoBehaviour
+    public class FileBrowser : MonoBehaviour, IInspectorElement
     {
         private VisualElement root;
         Inspector Inspector;
@@ -73,9 +73,15 @@ namespace CodeIsBroken.UI
                 fileUI.Q<Button>().text = file.Name;//.Substring(0, file.Name.LastIndexOf('.'));
                 fileUI.Q<Button>().clicked += () =>
                 {
-                    Inspector.programmable.AddScript(new Script(PersistentData<string>.LoadFile(file.FullName), Inspector.programmable));
-                    Inspector.Refresh();
-                    Destroy(this);
+                    try
+                    {
+                        Inspector.programmable.AddScript(new Script(PersistentData<string>.LoadFile(file.FullName), Inspector.programmable));
+                        Inspector.Refresh();
+                    }
+                    catch
+                    {
+                        fileUI.Q<Button>().text = "<color=red>failed</color>";
+                    }
                 };
                 
                 root.Q("FileHolder").Add(fileUI);
@@ -86,6 +92,11 @@ namespace CodeIsBroken.UI
         {
             Inspector.root.Q("Holder").Remove(root);
             root.Q<Button>("Create").clicked -= CreateScript;
+        }
+
+        public void Close()
+        {
+            Destroy(this);
         }
     }
 }

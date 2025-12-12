@@ -38,7 +38,7 @@ namespace CodeIsBroken.UI
                 name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
             }
             
-            Inspector.programmable.AddScript(new Script(PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), Inspector.programmable));
+            Inspector.programmable.AddScript(new Script(PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, data: Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), Inspector.programmable));
             
             Inspector.Refresh();
                 

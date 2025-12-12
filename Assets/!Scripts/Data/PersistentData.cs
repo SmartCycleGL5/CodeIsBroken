@@ -7,14 +7,11 @@ using UnityEngine;
 [Serializable]
 public class PersistentData<T>
 {
-    [field: SerializeField] public string name { get; private set; }
-    [field: SerializeField] public string folder  { get; private set; }
+    public string name { get; private set; }
+    public string filePath { get; private set; }
     [field: SerializeField] public T data { get; private set; }
 
     public Action onChanged;
-    
-    public string filePath => folderPath + name + ".json";
-    public string folderPath => Application.persistentDataPath + $"{folder}/";
     
     public static List<string> disallowedNames = new()
     {
@@ -142,16 +139,21 @@ public class PersistentData<T>
         '<'
     };
     
-
-    public static PersistentData<T> NewFile(string name, string folder, T data = default)
+    private PersistentData(string name, string filePath)
     {
-        PersistentData<T> newData = new PersistentData<T>();
+        this.name = name;
+        this.filePath = filePath;
+    }
+
+    public static PersistentData<T> NewFile(string name, string folder, string fileType = "json", T data = default)
+    {
+        PersistentData<T> newData = new PersistentData<T>(name, Application.persistentDataPath + $"/{folder}/{name}.{fileType}");
         
-        newData.name = name;
-        newData.folder = "/"+folder;
         newData.data = data;
+        string folderPath = Application.persistentDataPath + $"/{folder}";
         
-        if(!Directory.Exists(newData.folderPath)) Directory.CreateDirectory(newData.folderPath);
+        Debug.Log(name);
+        if(!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
         
         newData.Save(); 
         return newData;
@@ -159,26 +161,23 @@ public class PersistentData<T>
 
     public static PersistentData<T> LoadFile(string filePath)
     {
-        PersistentData<T> loadedData = new PersistentData<T>();
+        PersistentData<T> loadedData = new PersistentData<T>(Path.GetFileNameWithoutExtension(filePath), filePath);
         
         loadedData.Load(filePath);
-        
         return loadedData;
     }
 
     public void UpdateData(T data)
     {
         this.data = data;
+        onChanged?.Invoke();
         Save();
     }
     
     void Save()
     {
-        Debug.Log($"Saving to: {folderPath + name}.txt");
         string jsonText = JsonUtility.ToJson(this);
-        
         File.WriteAllText(filePath, jsonText);
-        
         onChanged?.Invoke();
     }
     void Load(string filePath)
@@ -189,6 +188,6 @@ public class PersistentData<T>
 
     public void Delete()
     {
-        throw  new System.NotImplementedException();
+        File.Delete(filePath);
     }
 }

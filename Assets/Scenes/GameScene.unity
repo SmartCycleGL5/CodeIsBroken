@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a677fa75fbd034f976d71db8ecefcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken::FPSLimit
-  fps: 165
+  fps: 360
 --- !u!4 &145284970
 Transform:
   m_ObjectHideFlags: 0

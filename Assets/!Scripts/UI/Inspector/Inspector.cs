@@ -10,6 +10,8 @@ namespace CodeIsBroken.UI
         public VisualElement root { get; set; }
         public Programmable programmable;
 
+        public bool focused => root.Contains((VisualElement)root.focusController.focusedElement);
+
         VisualElement scriptHolder;
         
         private void Start()
@@ -27,6 +29,14 @@ namespace CodeIsBroken.UI
             Refresh();
 
             root.Q<Button>("AddScript").clicked += AddScript;
+            
+            root.Q("Holder").Focus();
+        }
+
+        private void Update()
+        {
+            if(!focused)
+                Destroy(gameObject);
         }
 
         private void OnDestroy()

@@ -24,8 +24,7 @@
 .Element {
     flex-grow: 1;
     overflow: hidden;
-    width: 140px;
-    height: auto;
+    min-width: 140px;
 }
 
 .Component {
@@ -69,11 +68,11 @@
     margin-bottom: 1px;
     margin-left: 1px;
     width: auto;
-    height: 50px;
+    height: 35px;
     color: rgb(255, 255, 255);
     -unity-text-outline-color: rgb(0, 0, 0);
-    -unity-text-outline-width: 1px;
-    font-size: 25px;
+    -unity-text-outline-width: 0.5px;
+    font-size: 20px;
     flex-direction: row;
     align-items: center;
     -unity-text-align: middle-left;

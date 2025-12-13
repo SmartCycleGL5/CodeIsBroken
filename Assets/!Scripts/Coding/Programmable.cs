@@ -21,12 +21,13 @@ public class Programmable : MonoBehaviour
     
     public float inspectorHeight = 1.5f;
     
-    public virtual void AddScript(Script script)
+    public virtual void AddScript(Script script, bool autoOpen = false)
     {
         script.connectedMachine = this;
         attachedScripts.Add(script);
 
-        script.Edit();
+        if (autoOpen)
+            script.Edit();
     }
 
     protected virtual void OnDestroy()

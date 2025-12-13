@@ -39,9 +39,15 @@ namespace CodeIsBroken.UI
                 name = await WindowManager.OpenEnterValue("<color=#ff0000>Enter a valid name</color>");
             }
             
-            Inspector.programmable.AddScript(new Script(PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, "cs",Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), Inspector.programmable));
+            Inspector.programmable.AddScript(
+                script: new Script(
+                    data: PersistentData<string>.NewFile(name, Script.DefaultScriptFolder, "cs",Script.DefaultCode(name, Inspector.programmable.toDeriveFrom)), 
+                    machine: Inspector.programmable), 
+                autoOpen: true);
             
             Inspector.Refresh();
+            Inspector.Focus();
+            Close();
                 
             bool isValidName(string name)
             {
@@ -54,10 +60,11 @@ namespace CodeIsBroken.UI
                     if (name.ToCharArray().Contains(item))
                         return false;
                 }
-                if(Compiler.activePlayerScripts.ContainsKey(name))
+                /* replace with file check
+                if(Compiler.usedScripts.ContainsKey(name))
                 {
                     return false;
-                }
+                }*/
 
                 return true;
             }
@@ -76,12 +83,16 @@ namespace CodeIsBroken.UI
                     try
                     {
                         Inspector.programmable.AddScript(new Script(PersistentData<string>.LoadFile(file.FullName), Inspector.programmable));
-                        Inspector.Refresh();
                     }
-                    catch
+                    catch (Exception e)
                     {
+                        Debug.LogWarning(e.Message);
                         fileUI.Q<Button>().text = "<color=red>failed</color>";
                     }
+                    
+                    Inspector.Refresh();
+                    Inspector.Focus();
+                    Close();
                 };
                 
                 root.Q("FileHolder").Add(fileUI);

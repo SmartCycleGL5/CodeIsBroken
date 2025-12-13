@@ -31,8 +31,7 @@ namespace CodeIsBroken.UI
 
             root.Q<Button>("AddScript").clicked += OpenFileBrowser;
             
-            root.Q("Holder").Focus();
-            
+            Focus();
         }
 
         private void FixedUpdate()
@@ -62,6 +61,11 @@ namespace CodeIsBroken.UI
                 
                 scriptUI.Q<Button>("Edit").clicked += script.Edit;
             }
+        }
+
+        public void Focus()
+        {
+            root.Q("Holder").Focus();
         }
 
         private void OpenFileBrowser()

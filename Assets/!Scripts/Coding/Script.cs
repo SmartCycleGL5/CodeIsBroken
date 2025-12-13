@@ -52,11 +52,11 @@ public class Script
 
     public Script(PersistentData<string> data, Programmable machine = null)
     {
-        this.name = data.name;
+        name = data.name;
         rawCode = data;
         connectedMachine = machine;
         
-        Compiler.activePlayerScripts.Add(this.name, this);
+        Compiler.usedScripts.Add(this);
 
         GameManager.onStart += Run;
         GameManager.onStop += Terminate;
@@ -125,7 +125,7 @@ public class Script
     
     public void Delete()
     {
-        Compiler.activePlayerScripts.Remove(name);
+        Compiler.usedScripts.Remove(this);
 
         Deleted?.Invoke();
     }

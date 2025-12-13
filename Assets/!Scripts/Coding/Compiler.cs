@@ -10,10 +10,10 @@ namespace CodeIsBroken.Coding
     public class Compiler : MonoBehaviour
     {
         public static ScriptDomain scriptDomain;
-        public static Dictionary<string, Script> activePlayerScripts = new();
+        public static List<Script> usedScripts = new();
         
         public static bool compiling;
-        public static List<Error> compilerErrors = new List<Error>();
+        public static List<Error> compilerErrors = new();
         
 
         private void Start()
@@ -21,9 +21,9 @@ namespace CodeIsBroken.Coding
             scriptDomain = new ScriptDomain();
         }
 
-        public static void StartCompile()
+        public static bool StartCompile()
         {
-            _=StartCompileAsync();
+            return StartCompileAsync().Result;
         }
 
         public static async Task<bool> StartCompileAsync()
@@ -59,9 +59,9 @@ namespace CodeIsBroken.Coding
 
             compilerErrors = new();
 
-            foreach (var script in activePlayerScripts)
+            foreach (var script in usedScripts)
             {
-                if (!script.Value.Compile(ref compilerErrors))
+                if (!script.Compile(ref compilerErrors))
                     success = false;
 
                 await Task.Delay(10);

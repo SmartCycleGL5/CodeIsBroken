@@ -10,7 +10,7 @@ namespace CodeIsBroken
     {
         
         Transform spawnLocation;
-        Item materialToSpawn;
+        Product.Product materialToSpawn;
         int spawnRate;
         int tickCount;
         private GameObject lid;

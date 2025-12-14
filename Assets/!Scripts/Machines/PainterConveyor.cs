@@ -7,7 +7,7 @@ using UnityEngine.PlayerLoop;
 public class PainterConveyor : MonoBehaviour, IItemContainer
 {
     Tweener moveTween;
-    public Item item { get; set; }
+    public Product item { get; set; }
     [SerializeField] ParticleSystem particle;
     
     void Start()
@@ -56,7 +56,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         }
     }
 
-    public bool RemoveItem(out Item removedItem)
+    public bool RemoveItem(out Product removedItem)
     {
         removedItem = null;
         if (item == null) return false;
@@ -69,7 +69,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
         return true;
     }
 
-    public bool SetItem(Item item)
+    public bool SetItem(Product item)
     {
         if (this.item != null) return false;
         this.item = item;
@@ -79,7 +79,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 
     public bool RemoveItem()
     {
-        return RemoveItem(out Item item);
+        return RemoveItem(out Product item);
     }
     
 

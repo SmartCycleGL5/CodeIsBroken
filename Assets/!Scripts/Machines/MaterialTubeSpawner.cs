@@ -9,7 +9,7 @@ public class MaterialTubeSpawner : MonoBehaviour
 {
     
     Transform spawnLocation;
-    Item materialToSpawn;
+    Product materialToSpawn;
     int spawnRate;
     int tickCount;
     private GameObject lid;
@@ -75,7 +75,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         }
         if(conveyor.item != null)return;
         Debug.Log("[MaterialTube] got material");
-        Item instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Item>();
+        Product instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Product>();
         instObj.gameObject.transform.Rotate(new Vector3(0, UnityEngine.Random.Range(0, 359), 0));
         conveyor.SetItem(instObj);
         lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);

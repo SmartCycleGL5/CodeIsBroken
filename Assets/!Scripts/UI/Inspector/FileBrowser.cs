@@ -72,7 +72,8 @@ namespace CodeIsBroken.UI
 
         public void DisplayFiles()
         {
-            DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + "/Scripts");
+            if (!Directory.Exists(Application.persistentDataPath + "/" + Script.DefaultScriptFolder)) return;
+            DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + "/" + Script.DefaultScriptFolder);
 
             foreach (var file in info.GetFiles())
             {

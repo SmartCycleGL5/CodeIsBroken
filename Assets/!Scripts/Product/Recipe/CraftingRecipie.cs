@@ -5,8 +5,8 @@ using UnityEngine;
 public class CraftingRecipie : ScriptableObject
 {
 
-    [Header("Materials")] public List<Item> materials;
-    public Item itemToSpawn;
+    [Header("Materials")] public List<Product> materials;
+    public Product itemToSpawn;
 
     [Header("Settings")]
     public int tickCraftingTime;

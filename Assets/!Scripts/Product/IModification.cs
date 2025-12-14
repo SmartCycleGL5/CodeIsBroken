@@ -16,7 +16,7 @@ namespace CodeIsBroken.Product.Modifications
 
     public interface IAdditionalModification : IModification
     {
-        public void Apply(Item item);
+        public void Apply(Product item);
 
         public static IAdditionalModification RandomModification()
         {
@@ -75,7 +75,7 @@ namespace CodeIsBroken.Product.Modifications
             return toReturn;
         }
 
-        public void Apply(Item item)
+        public void Apply(Product item)
         {
             if(!item.changedColor)
             {

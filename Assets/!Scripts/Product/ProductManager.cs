@@ -9,12 +9,20 @@ using Random = UnityEngine.Random;
 
 namespace CodeIsBroken.Product
 {
+    public enum Products
+    {
+        Wood,
+        Stone,
+        Iron,
+
+    }
+
     public class ProductManager : MonoBehaviour
     {
         public static ProductManager Instance;
 
         [SerializedDictionary("Material", "Prefab"), SerializeField, ReadOnly]
-        private SerializedDictionary<ProductDefinition, Item> Products;
+        private SerializedDictionary<ProductDefinition, Product> Products;
         public static Action foundProducts;
         
         void Awake()
@@ -28,16 +36,16 @@ namespace CodeIsBroken.Product
 
             foreach (var item in items)
             {
-                Item i = item.GetComponent<Item>();
+                Product i = item.GetComponent<Product>();
                 Products.Add(i.definition, i);
             }
             
             foundProducts?.Invoke();
         }
 
-        public static Item GetRandomProduct()
+        public static Product GetRandomProduct()
         {
-            List<KeyValuePair<ProductDefinition, Item>> listToChooseFrom = Instance.Products.ToList();
+            List<KeyValuePair<ProductDefinition, Product>> listToChooseFrom = Instance.Products.ToList();
 
             for (int i = listToChooseFrom.Count - 1; i >= 0; i--)
             {
@@ -51,7 +59,7 @@ namespace CodeIsBroken.Product
             return listToChooseFrom[Random.Range(0, listToChooseFrom.Count)].Value;
         }
 
-        public static Item GetProduct(ProductDefinition toFind)
+        public static Product GetProduct(ProductDefinition toFind)
         {
             foreach (var product in Instance.Products)
             {

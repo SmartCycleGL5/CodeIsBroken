@@ -12,14 +12,14 @@ namespace CodeIsBroken
     public class Furnace : Machine, IItemContainer
     {
         private int furnaceSize = 1;
-        private List<Item> items = new();
+        private List<Product.Product> items = new();
         private List<CraftingRecipie> craftingRecipies;
         
         private ParticleSystem furnaceParticle;
         
         private ReferenceHolder referenceHolder;
         Tweener moveTween;
-        public Item item { get; set; }
+        public Product.Product item { get; set; }
         Programmable programmable;
 
 
@@ -50,7 +50,7 @@ namespace CodeIsBroken
             //
             
             Metrics.instance.UseElectricity(1);
-            Item itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
+            Product.Product itemCrafted = Crafting.instance.CraftItem(items, craftingRecipies);
             
             if (itemCrafted != null)
             {
@@ -103,7 +103,7 @@ namespace CodeIsBroken
         }
     
 
-        public bool RemoveItem(out Item removedItem)
+        public bool RemoveItem(out Product.Product removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -116,7 +116,7 @@ namespace CodeIsBroken
             return true;
         }
 
-        public bool SetItem(Item item)
+        public bool SetItem(Product.Product item)
         {
             if (this.item != null) return false;
             this.item = item;
@@ -126,7 +126,7 @@ namespace CodeIsBroken
 
         public bool RemoveItem()
         {
-            return RemoveItem(out Item item);
+            return RemoveItem(out Product.Product item);
         }
     
 

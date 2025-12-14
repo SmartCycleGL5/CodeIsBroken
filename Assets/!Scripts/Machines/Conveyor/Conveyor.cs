@@ -16,7 +16,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
     [SerializeField] private Renderer renderer;
     private Material material;
 
-    public Item item { get; set; }
+    public Product item { get; set; }
 
 
     //Vector3 itemPosition { get { return transform.position + new Vector3(0, 1, 0);  } }
@@ -108,7 +108,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
         }
     }
 
-    public bool RemoveItem(out Item removedItem)
+    public bool RemoveItem(out Product removedItem)
     {
         removedItem = null;
         if(item == null) return false;
@@ -121,7 +121,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
         return true;
     }
 
-    public bool SetItem(Item item)
+    public bool SetItem(Product item)
     {
         if (item == null) return false;
         if(this.item != null) return false;
@@ -133,6 +133,6 @@ public class Conveyor : MonoBehaviour, IItemContainer
     }
     public bool RemoveItem()
     {
-        return RemoveItem(out Item item);
+        return RemoveItem(out Product item);
     }
 }

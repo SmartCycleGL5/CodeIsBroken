@@ -13,7 +13,7 @@ public class Crafting : MonoBehaviour
         instance = this;
     }
 
-    public Item CraftItem(List<Item> items, List<CraftingRecipie> craftingRecipies)
+    public Product CraftItem(List<Product> items, List<CraftingRecipie> craftingRecipies)
     {
         if(items.Count == 0) return null;
         List<ProductDefinition> materials = new();

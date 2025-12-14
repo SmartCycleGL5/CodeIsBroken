@@ -16,7 +16,7 @@ namespace CodeIsBroken
         Tweener rotationTween;
         private bool pickUp;
         private bool drop;
-        public Product.Item item { get; set; }
+        public Product.Product item { get; set; }
 
         private void Start()
         {
@@ -117,7 +117,7 @@ namespace CodeIsBroken
         
         
         
-        public bool SetItem(Product.Item item)
+        public bool SetItem(Product.Product item)
         {
     
             if (this.item != null) return false;
@@ -127,7 +127,7 @@ namespace CodeIsBroken
             this.item.transform.position = holdLocation.position;
             return true;
         }
-        public bool RemoveItem(out Product.Item removedItem)
+        public bool RemoveItem(out Product.Product removedItem)
         {
             removedItem = null;
             if (item == null) return false;
@@ -138,7 +138,7 @@ namespace CodeIsBroken
         }
         public bool RemoveItem()
         {
-            return RemoveItem(out Product.Item item);
+            return RemoveItem(out Product.Product item);
         }
     
     }

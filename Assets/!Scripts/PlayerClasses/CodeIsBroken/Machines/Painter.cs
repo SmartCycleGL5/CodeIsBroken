@@ -6,7 +6,7 @@ namespace CodeIsBroken
 {
     public class Painter : Machine
     {
-        Product.Item item;
+        Product.Product item;
         private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
 

@@ -38,7 +38,7 @@ public class SellStaton : MonoBehaviour
                 continue;
             }
 
-            if(conveyor.RemoveItem(out Item removedItem))
+            if(conveyor.RemoveItem(out Product removedItem))
             {
                 SellItem(removedItem);
             }
@@ -46,7 +46,7 @@ public class SellStaton : MonoBehaviour
 
     }
 
-    void SellItem(Item toSell)
+    void SellItem(Product toSell)
     {
         if(ContractManager.ActiveContract != null)
         {

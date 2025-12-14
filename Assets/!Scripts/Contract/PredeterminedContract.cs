@@ -12,7 +12,7 @@ namespace CodeIsBroken.Contract
         [Serializable]
         public struct Request
         {
-            public Item toRequest;
+            public Product.Product toRequest;
             public int amount;
             [field: SerializeReference, SubclassSelector]
             public IAdditionalModification[] additionalModifications;

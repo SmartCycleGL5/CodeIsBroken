@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CodeIsBroken.Product
 {
-    public class Item : MonoBehaviour
+    public class Product : MonoBehaviour
     {
         [Min(1)]
         public int lvlUnlock = 1;

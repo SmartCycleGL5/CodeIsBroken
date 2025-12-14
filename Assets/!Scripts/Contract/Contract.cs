@@ -142,7 +142,7 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public void TryProgressContract(Item item)
+        public void TryProgressContract(Product.Product item)
         {
             foreach (var request in requests)
             {

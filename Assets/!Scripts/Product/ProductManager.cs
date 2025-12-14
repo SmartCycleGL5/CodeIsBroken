@@ -14,15 +14,19 @@ namespace CodeIsBroken.Product
         Wood,
         Stone,
         Iron,
-
+        Chair,
+        IronRod,
+        Planks
     }
 
     public class ProductManager : MonoBehaviour
     {
         public static ProductManager Instance;
 
-        [SerializedDictionary("Material", "Prefab"), SerializeField, ReadOnly]
-        private SerializedDictionary<ProductDefinition, Product> Products;
+
+
+        [field: SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
+        private SerializedDictionary<Products, Product> Products {  get; set; }
         public static Action foundProducts;
         
         void Awake()
@@ -32,12 +36,12 @@ namespace CodeIsBroken.Product
 
         private async void Start()
         {
-            List<GameObject> items = await Addressable.LoadAssets<GameObject>("Material");
+            List<GameObject> items = await Addressable.LoadAssets<GameObject>("Product");
 
             foreach (var item in items)
             {
                 Product i = item.GetComponent<Product>();
-                Products.Add(i.definition, i);
+                Products.Add(i.pruductType, i);
             }
             
             foundProducts?.Invoke();
@@ -45,7 +49,7 @@ namespace CodeIsBroken.Product
 
         public static Product GetRandomProduct()
         {
-            List<KeyValuePair<ProductDefinition, Product>> listToChooseFrom = Instance.Products.ToList();
+            List<KeyValuePair<Products, Product>> listToChooseFrom = Instance.Products.ToList();
 
             for (int i = listToChooseFrom.Count - 1; i >= 0; i--)
             {
@@ -59,15 +63,9 @@ namespace CodeIsBroken.Product
             return listToChooseFrom[Random.Range(0, listToChooseFrom.Count)].Value;
         }
 
-        public static Product GetProduct(ProductDefinition toFind)
+        public static Product GetProduct(Products toFind)
         {
-            foreach (var product in Instance.Products)
-            {
-                if (toFind.Equals(product.Key, false))
-                    return product.Value;
-            }
-            
-            return null;
+            return Instance.Products[toFind];
         }
     }
 }

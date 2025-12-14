@@ -31,7 +31,7 @@ namespace CodeIsBroken
         {
             materialTubeSpawner.SpawnDelay(delay);
         }
-        public void SetMaterial(ProductDefinition material)
+        public void SetMaterial(Products material)
         {
             materialTubeSpawner.SetMaterial(material);
         }

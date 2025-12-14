@@ -18,7 +18,7 @@ public class MaterialTubeSpawner : MonoBehaviour
 
     private void Reset()
     {
-        SetMaterial(ProductDefinition.Wood);
+        SetMaterial(Products.Wood);
         spawnRate = 0;
     }
 
@@ -35,7 +35,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid));
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
 
-        ProductManager.foundProducts += () => { SetMaterial(ProductDefinition.Wood); };
+        ProductManager.foundProducts += () => { SetMaterial(Products.Wood); };
     }
 
     // Player controlled
@@ -44,7 +44,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         this.spawnRate = delay;
 
     }
-    public void SetMaterial(ProductDefinition material)
+    public void SetMaterial(Products material)
     {
         materialToSpawn = ProductManager.GetProduct(material);
     }

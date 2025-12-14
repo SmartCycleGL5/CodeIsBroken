@@ -19,49 +19,49 @@ MonoBehaviour:
     m_Address: Assets/!Scripts/BuildingSO/Descriptions/Methods.asset
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d540034421db7b4f88b7ccb21a9d270
     m_Address: Painter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28769768684a69b40acfcd7c308a170e
     m_Address: Crane
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3199b4ac6337d6649a81a0966a9e2ead
     m_Address: MaterialTube
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38339965888ef764f9aea3a93f2968eb
     m_Address: Recepies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5091e44f8d6e71d48bb232ec9c459f29
     m_Address: Assembler
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89d4265f2ec6c094ab549149033fbcac
     m_Address: Assets/!Scripts/BuildingSO/Descriptions/Variables.asset
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2abdcbda98005c45aabf8afca599042
     m_Address: Conveyor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Machines
+    - Product
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0ca8816e81b04a347b7926adbbd6c745, type: 2}

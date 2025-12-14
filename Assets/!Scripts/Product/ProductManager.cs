@@ -7,18 +7,8 @@ using Utility;
 using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
-namespace CodeIsBroken.Product
+namespace CodeIsBroken.ProductSystem
 {
-    public enum Products
-    {
-        Wood,
-        Stone,
-        Iron,
-        Chair,
-        IronRod,
-        Planks
-    }
-
     public class ProductManager : MonoBehaviour
     {
         public static ProductManager Instance;

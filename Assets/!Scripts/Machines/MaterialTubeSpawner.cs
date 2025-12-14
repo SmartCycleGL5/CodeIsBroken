@@ -1,5 +1,5 @@
 
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;

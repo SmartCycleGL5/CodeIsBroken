@@ -141,7 +141,7 @@ public class NewTutorial : MonoBehaviour
                 { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }*/
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.baseMaterials.ToString().ToLower()}); in the StartTick section and press the Start button.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.pruductType.ToString().ToLower()}); in the StartTick section and press the Start button.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");

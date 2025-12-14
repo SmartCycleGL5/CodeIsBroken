@@ -1,5 +1,5 @@
 
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
@@ -10,7 +10,7 @@ namespace CodeIsBroken
     {
         
         Transform spawnLocation;
-        Product.Product materialToSpawn;
+        ProductSystem.Product materialToSpawn;
         int spawnRate;
         int tickCount;
         private GameObject lid;
@@ -31,7 +31,7 @@ namespace CodeIsBroken
         {
             materialTubeSpawner.SpawnDelay(delay);
         }
-        public void SetMaterial(Products material)
+        public void SetMaterial(ProductSystem.Products material)
         {
             materialTubeSpawner.SetMaterial(material);
         }

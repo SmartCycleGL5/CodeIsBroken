@@ -1,12 +1,12 @@
 
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 
 namespace CodeIsBroken
 {
     public class Painter : Machine
     {
-        Product.Product item;
+        ProductSystem.Product item;
         private PainterConveyor painterConveyor;
         Renderer toColor { get { return item.artRenderer; } }
 
@@ -37,7 +37,7 @@ namespace CodeIsBroken
             Debug.Log("Set color to: " + color);
             if (item == null) return;
             
-            item.definition.Modify(Product.Modifications.Color.New(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
+            item.Modify(ProductSystem.Modifications.Color.New(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
         }
     
         void OnDestroy()

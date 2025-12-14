@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Imaging;
 using UnityEngine;
 
-namespace CodeIsBroken.Product.Modifications
+namespace CodeIsBroken.ProductSystem.Modifications
 {
     public interface IModification : IEquatable<IModification>
     {

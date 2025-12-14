@@ -157,18 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c972d5b97181e840bfc590058b5be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.Product
+  icon: {fileID: 21300000, guid: c9cbf8f8e4a270542aa7401ffabf51cf, type: 3}
   lvlUnlock: 1
-  pruductType: 0
-  definition:
-    name: 
-    icon: {fileID: 0}
-    baseMaterials: 2
-    <baseMods>k__BackingField: []
-  artRenderer: {fileID: 0}
+  pruductType: 5
   changedColor: 0
-  references:
-    version: 2
-    RefIds: []
 --- !u!1001 &7306833944437757815
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -158,18 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c972d5b97181e840bfc590058b5be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.Product
+  icon: {fileID: 21300000, guid: 45347b7d9cc4abe6090233fc354136c0, type: 3}
   lvlUnlock: 1
-  pruductType: 0
-  definition:
-    name: 
-    icon: {fileID: 0}
-    baseMaterials: 2
-    <baseMods>k__BackingField: []
-  artRenderer: {fileID: 0}
+  pruductType: 1
+  artRenderer: {fileID: 4020905862633163328}
   changedColor: 0
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &8372438306318709229
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +340,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}
+--- !u!23 &4020905862633163328 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -322325064454756100, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}
+  m_PrefabInstance: {fileID: 5497768814935351996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5458722179854910807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e31f11133ab02d94aa38f8a57d86b98c, type: 3}

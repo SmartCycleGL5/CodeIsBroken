@@ -1,6 +1,7 @@
-using CodeIsBroken.Product;
-using CodeIsBroken.Product.Modifications;
+using CodeIsBroken.ProductSystem;
+using CodeIsBroken.ProductSystem.Modifications;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -11,24 +12,21 @@ namespace CodeIsBroken.Contract
     {
         public class Request
         {
-            public ProductDefinition product;
+            public Product product;
+            public IModification[] modifications;
             public int amount;
             public int amountLeft { get; private set; }
 
             public bool satisfied { get; private set; }
             public Action onSatisfied;
-            public int xp => Mathf.RoundToInt(((product.baseMods.Count + 1) * 5) * (amount / 2));
+            public int xp => Mathf.RoundToInt(((product.modifications.Count + 1) * 5) * (amount / 2));
 
-            public Request(ProductDefinition product, int amount, IAdditionalModification[] additionalModifications = null)
+            public Request(Product product, int amount, IAdditionalModification[] modifications = null)
             {
-                this.product = product.Clone();
+                this.product = product;
+                this.modifications = modifications;
                 this.amount = amount;
                 this.amountLeft = amount;
-
-                foreach (var mod in additionalModifications)
-                {
-                    this.product.Modify(mod);
-                }
             }
             public void Progress()
             {
@@ -39,7 +37,7 @@ namespace CodeIsBroken.Contract
                     onSatisfied?.Invoke();
                 }
             }
-            public bool SatisfiesRequest(ProductDefinition product)
+            public bool SatisfiesRequest(Product product)
             {
                 if(satisfied) return false;
                 return this.product.Equals(product);
@@ -50,23 +48,12 @@ namespace CodeIsBroken.Contract
                 TemplateContainer request = ContractManager.requestUI.Instantiate();
 
                 request.Q<Label>("Amount").text = amount.ToString() + " X";
-                request.Q<Label>("MaterialTitle").text = product.baseMaterials.ToString();
+                request.Q<Label>("MaterialTitle").text = product.pruductType.ToString();
                 request.Q<VisualElement>("Icon").style.backgroundImage = new StyleBackground(product.icon);
 
                 ScrollView mods = request.Q<ScrollView>("ModView");
 
-                foreach (var mod in product.baseMods)
-                {
-                    TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
-
-                    VisualElement modifier = modifierContainer.Q<VisualElement>("Modifier");
-                    modifier.Q<Label>("Name").text = mod.Name;
-                    modifier.Q<Label>("Description").text = mod.Description;
-
-                    mods.Add(modifier);
-                }
-
-                foreach (var mod in product.additionalMods)
+                foreach (var mod in product.modifications)
                 {
                     TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
 
@@ -117,12 +104,12 @@ namespace CodeIsBroken.Contract
         /// <returns>the contract</returns>
         public static Contract New()
         {
-            ProductDefinition RequestedProduct = ProductManager.GetRandomProduct().definition.Clone();
+            Product RequestedProduct = ProductManager.GetRandomProduct();
             int amount = Mathf.RoundToInt(Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
             Request request = new Request(RequestedProduct, amount, IAdditionalModification.GetRandomModifications(amountOfMods));
-            return Contract.New(new Request[] { request });
+            return New(new Request[] { request });
         }
         /// <summary>
         /// Creates a predetermined contract
@@ -142,11 +129,11 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public void TryProgressContract(Product.Product item)
+        public void TryProgressContract(Product product)
         {
             foreach (var request in requests)
             {
-                if(request.SatisfiesRequest(item.definition))
+                if(request.SatisfiesRequest(product))
                 {
                     request.Progress();
                     onProgress?.Invoke();

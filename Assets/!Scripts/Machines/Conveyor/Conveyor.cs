@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 
 

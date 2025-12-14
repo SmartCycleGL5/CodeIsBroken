@@ -1,5 +1,5 @@
 using System;
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.PlayerLoop;

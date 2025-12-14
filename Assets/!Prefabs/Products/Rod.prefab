@@ -359,15 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c972d5b97181e840bfc590058b5be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.Product
+  icon: {fileID: 21300000, guid: 484dfac846bdcdd44952cc1494cd7f2f, type: 3}
   lvlUnlock: 1
-  pruductType: 0
-  definition:
-    name: 
-    icon: {fileID: 0}
-    baseMaterials: 2
-    <baseMods>k__BackingField: []
-  artRenderer: {fileID: 0}
+  pruductType: 3
   changedColor: 0
-  references:
-    version: 2
-    RefIds: []

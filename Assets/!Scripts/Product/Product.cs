@@ -5,15 +5,6 @@ using UnityEngine;
 
 namespace CodeIsBroken.ProductSystem
 {
-    public enum Products
-    {
-        Wood,
-        Stone,
-        Iron,
-        IronRod,
-        Planks,
-        Chair,
-    }
     public class Product : MonoBehaviour
     {
         public Sprite icon;

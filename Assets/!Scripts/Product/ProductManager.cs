@@ -15,8 +15,8 @@ namespace CodeIsBroken.ProductSystem
 
 
 
-        [field: SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
-        private SerializedDictionary<Products, Product> Products {  get; set; }
+        [SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
+        private SerializedDictionary<Products, Product> Products;
         public static Action foundProducts;
         
         void Awake()

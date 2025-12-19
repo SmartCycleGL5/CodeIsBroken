@@ -5,6 +5,6 @@ namespace CodeIsBroken
 {
     public class Product
     {
-        public Products[] Materials = new Products[] { Products.Wood, Products.Stone, Products.Iron };
+        public static Products[] Materials = new Products[] { Products.Wood, Products.Stone, Products.Iron };
     }
 }

@@ -1833,20 +1833,18 @@ MonoBehaviour:
     AssemblyRestrictions:
     - Name: CodeIsBroken.Product
       NamedTypeRestrictions:
-      - Name: CodeIsBroken.Product
+      - Name: CodeIsBroken.ProductSystem
         TypeRestrictions:
         - Name: IItemContainer
-          Allowed: 1
-        - Name: Item
-          Allowed: 1
-        - Name: BaseMaterials
           Allowed: 0
-        - Name: ProductDefinition
+        - Name: Products
+          Allowed: 0
+        - Name: Product
           Allowed: 0
         - Name: ProductManager
-          Allowed: 1
-        Allowed: 1
-      - Name: CodeIsBroken.Product.Modifications
+          Allowed: 0
+        Allowed: 0
+      - Name: CodeIsBroken.ProductSystem.Modifications
         TypeRestrictions:
         - Name: IModification
           Allowed: 0
@@ -1866,7 +1864,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134097926993876616
+      <LastWriteTimeUTC>k__BackingField: 134106314052257619
     - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1875,7 +1873,7 @@ MonoBehaviour:
           Allowed: 0
         - Name: Console
           Allowed: 0
-        - Name: Material
+        - Name: Product
           Allowed: 0
         - Name: Random
           Allowed: 0
@@ -1883,7 +1881,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134101040947376549
+      <LastWriteTimeUTC>k__BackingField: 134106314055944683
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1908,7 +1906,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134101046181083845
+      <LastWriteTimeUTC>k__BackingField: 134106314056761259
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo
@@ -1921,7 +1919,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: fe7e3a70237a9e54a8cda05078348ee5, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495865046
+      <LastWriteTimeUTC>k__BackingField: 134105674997007974
     - Name: System
       NamedTypeRestrictions:
       - Name: Microsoft.Win32
@@ -4696,7 +4694,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1d1511a5d70cf9f4991195fe70812cf3, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495874413
+      <LastWriteTimeUTC>k__BackingField: 134105674997057537
     - Name: Unity.Burst
       NamedTypeRestrictions:
       - Name: Unity.Burst
@@ -4759,7 +4757,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3d97c7ea051395449a0ce7e92ade5169, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495889807
+      <LastWriteTimeUTC>k__BackingField: 134105674999550426
     - Name: Unity.Collections
       NamedTypeRestrictions:
       - Name: Unity.Jobs
@@ -5000,7 +4998,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: af6cdaac4795dea48ae3a2dabd9b20aa, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495882505
+      <LastWriteTimeUTC>k__BackingField: 134105675000674900
     - Name: Unity.InputSystem
       NamedTypeRestrictions:
       - Name: Unity.XR.OpenVR
@@ -5675,7 +5673,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 51b952f413904594a8c63a907252312e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495902209
+      <LastWriteTimeUTC>k__BackingField: 134105674996912296
     - Name: Unity.Mathematics
       NamedTypeRestrictions:
       - Name: Unity.Mathematics
@@ -5839,7 +5837,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495897296
+      <LastWriteTimeUTC>k__BackingField: 134105674996971181
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
       - Name: UnityEngine.TextCore
@@ -6084,7 +6082,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495889807
+      <LastWriteTimeUTC>k__BackingField: 134105674997020555
     - Name: Unity.Timeline
       NamedTypeRestrictions:
       - Name: UnityEngine.Timeline
@@ -6189,7 +6187,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134095786495889807
+      <LastWriteTimeUTC>k__BackingField: 134105674996971957
     - Name: UnityEngine.AIModule
       NamedTypeRestrictions:
       - Name: UnityEngine.Experimental.AI

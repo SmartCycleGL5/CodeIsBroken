@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e9ec66e2ab1a04a8bc8ee3c658a097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.ProductManager
-  <Products>k__BackingField:
+  Products:
     _serializedList: []
 --- !u!114 &357034592
 MonoBehaviour:
@@ -658,11 +658,11 @@ MonoBehaviour:
             amount: 10
             additionalModifications: []
         - requests:
-          - toRequest: 0
+          - toRequest: 1
             amount: 15
             additionalModifications: []
         - requests:
-          - toRequest: 0
+          - toRequest: 2
             amount: 10
             additionalModifications: []
     - Key: 3
@@ -674,12 +674,12 @@ MonoBehaviour:
             amount: 30
             additionalModifications: []
         - requests:
-          - toRequest: 0
+          - toRequest: 1
             amount: 20
             additionalModifications:
-            - rid: -2
+            - rid: 1310733781368832069
         - requests:
-          - toRequest: 0
+          - toRequest: 2
             amount: 30
             additionalModifications: []
     - Key: 4
@@ -888,6 +888,10 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1310733781368832069
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken.Product}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &357034596
 MonoBehaviour:
   m_ObjectHideFlags: 0

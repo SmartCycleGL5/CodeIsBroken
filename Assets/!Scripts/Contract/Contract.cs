@@ -21,7 +21,7 @@ namespace CodeIsBroken.Contract
             public Action onSatisfied;
             public int xp => Mathf.RoundToInt(((product.modifications.Count + 1) * 5) * (amount / 2));
 
-            public Request(Product product, int amount, IAdditionalModification[] modifications = null)
+            public Request(Product product, int amount, IModification[] modifications = null)
             {
                 this.product = product;
                 this.modifications = modifications;
@@ -108,7 +108,7 @@ namespace CodeIsBroken.Contract
             int amount = Mathf.RoundToInt(Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
-            Request request = new Request(RequestedProduct, amount, IAdditionalModification.GetRandomModifications(amountOfMods));
+            Request request = new Request(RequestedProduct, amount);
             return New(new Request[] { request });
         }
         /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CodeIsBroken.ProductSystem;
 using CodeIsBroken.ProductSystem.Modifications;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CodeIsBroken.Contract
 {
@@ -14,12 +15,12 @@ namespace CodeIsBroken.Contract
         {
             public Products toRequest;
             public int amount;
-            [field: SerializeReference, SubclassSelector]
-            public IAdditionalModification[] additionalModifications;
+            [FormerlySerializedAs("additionalModifications")] [field: SerializeReference, SubclassSelector]
+            public IModification[] mods;
 
             public Contract.Request GetRequest()
             {
-                return new Contract.Request(ProductManager.GetProduct(toRequest), amount, additionalModifications);
+                return new Contract.Request(ProductManager.GetProduct(toRequest), amount, mods);
             }
         }
 

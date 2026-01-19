@@ -35,9 +35,9 @@ namespace CodeIsBroken
             Debug.Log("[Painter] im alive");
             Metrics.instance.UseElectricity(1);
             painterConveyor.PaintEffect();
-            Debug.Log("Set color to: " + color);
-            if (item == null) return;
+            if (!HasItem()) return;
             
+            Debug.Log($"[Painter] Set {item} color to: " + color);
             item.Modify(ProductSystem.Modifications.Color.New(new UnityEngine.Color(color.r, color.g, color.b, color.a)));
         }
     

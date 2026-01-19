@@ -11,9 +11,9 @@ namespace CodeIsBroken.ProductSystem.Modifications
         public string Description { get; }
         
         public bool Equals(IModification other);
-       
+        public void Apply(Product item);
     }
-
+/*
     public interface IAdditionalModification : IModification
     {
         public void Apply(Product item);
@@ -59,10 +59,10 @@ namespace CodeIsBroken.ProductSystem.Modifications
 
             return mods.ToArray();
         }
-    }
+    }*/
 
     [Serializable]
-    public class Color : IAdditionalModification
+    public class Color : IModification
     {
         public string Name => "Color:";
         public string Description => $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
@@ -74,18 +74,7 @@ namespace CodeIsBroken.ProductSystem.Modifications
             toReturn.color = color;
             return toReturn;
         }
-
-        public void Apply(Product item)
-        {
-            if(!item.changedColor)
-            {
-                item.artRenderer.material.SetColor("_Colour", new UnityEngine.Color(0, 0, 0, 1));
-                item.changedColor = true;
-            }
-    
-            item.artRenderer.material.SetColor("_Colour", item.artRenderer.material.GetColor("_Colour") + color);
-        }
-
+        
         public bool Equals(IModification other)
         {
             if (other is null) return false;
@@ -94,8 +83,41 @@ namespace CodeIsBroken.ProductSystem.Modifications
             
             return true;
         }
-    }
 
+        public void Apply(Product item)
+        {
+            if(!item.artRenderer.material.GetColor("_Colour").Equals(UnityEngine.Color.white))
+            {
+                item.artRenderer.material.SetColor("_Colour", new UnityEngine.Color(0, 0, 0, 1));
+            }
+    
+            item.artRenderer.material.SetColor("_Colour", item.artRenderer.material.GetColor("_Colour") + color);
+        }
+        
+        public static Color Random()
+        {
+            int rng = UnityEngine.Random.Range(0, 3);
+
+            switch (rng)
+            {
+                case 0:
+                {
+                    return Color.New(new UnityEngine.Color(1, 0, 0));
+                }
+                case 1:
+                {
+                    return Color.New(new UnityEngine.Color(0, 1, 0));
+                }
+                case 2:
+                {
+                    return Color.New(new UnityEngine.Color(0, 0, 1));
+                }
+            }
+
+            return default;
+        }
+    }
+/*
     [Serializable]
     public class Cut : IModification
     {
@@ -139,5 +161,5 @@ namespace CodeIsBroken.ProductSystem.Modifications
 
             return true;
         }
-    }
+    }*/
 }

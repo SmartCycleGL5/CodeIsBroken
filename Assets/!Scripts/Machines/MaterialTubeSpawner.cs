@@ -25,7 +25,7 @@ public class MaterialTubeSpawner : MonoBehaviour
 
     private void Start()
     {
-        Tick.OnTick += GetMaterial;
+        Tick.OnLateTick += GetMaterial;
         
         //Set all references
         ReferenceHolder referenceHolder = GetComponent<ReferenceHolder>();
@@ -61,22 +61,24 @@ public class MaterialTubeSpawner : MonoBehaviour
         
         //Debug.LogError("Reached max");
 
-        GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+        //GameObject cell = GridBuilder.instance.LookUpCell(transform.position + transform.forward);
+        
 
-        if (cell == null)
-        {
-            Debug.Log("[MaterialTube] Nothing in adjacent cell");
-            return;
-        }
-
-        if (!cell.TryGetComponent(out Conveyor conveyor))
-        {
-            Debug.Log("[MaterialTube] Adjacent cell not conveyor");
-            return;
-        }
+        // if (cell == null)
+        // {
+        //     Debug.Log("[MaterialTube] Nothing in adjacent cell");
+        //     return;
+        // }
+        //
+        // if (!cell.TryGetComponent(out Conveyor conveyor))
+        // {
+        //     Debug.Log("[MaterialTube] Adjacent cell not conveyor");
+        //     return;
+        // }
+        Conveyor conveyor = GetComponent<Conveyor>();
         if(conveyor.item != null)return;
         Debug.Log("[MaterialTube] got material");
-        Product instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,1,0), conveyor.transform.rotation).GetComponent<Product>();
+        Product instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,0,0), conveyor.transform.rotation).GetComponent<Product>();
         instObj.gameObject.transform.Rotate(new Vector3(0, UnityEngine.Random.Range(0, 359), 0));
         conveyor.SetItem(instObj);
         lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);

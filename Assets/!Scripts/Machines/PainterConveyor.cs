@@ -18,7 +18,7 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
 
     private void TakeItem()
     {
-        // Output item
+        /*// Output item
         GameObject outputCell = GridBuilder.instance.LookUpCell(transform.position+transform.forward);
         if(outputCell == null) return;
         if (outputCell.TryGetComponent(out Conveyor conveyorOut))
@@ -37,9 +37,11 @@ public class PainterConveyor : MonoBehaviour, IItemContainer
             if(conveyorIn.item == null) return;
             SetItem(conveyorIn.item);
             conveyorIn.RemoveItem();
-        }
+        }*/
 
         //PainterMachine.item = item; we need a different solution lol
+        Conveyor conveyor = GetComponent<Conveyor>();
+        item = conveyor.item;
     }
 
     public void PaintEffect()

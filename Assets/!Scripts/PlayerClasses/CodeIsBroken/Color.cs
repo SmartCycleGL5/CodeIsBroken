@@ -28,5 +28,10 @@ namespace CodeIsBroken
         {
             return color == other.color;
         }
+
+        public override string ToString()
+        {
+            return $"{r}, {g}, {b}, {a}";
+        }
     }
 }

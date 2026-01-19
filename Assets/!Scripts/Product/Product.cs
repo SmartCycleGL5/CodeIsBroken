@@ -17,8 +17,6 @@ namespace CodeIsBroken.ProductSystem
 
         public MeshRenderer artRenderer {  get; private set; }
         
-        [HideInInspector] public bool changedColor;
-    
         private void Start()
         {
             artRenderer = GetComponentInChildren<MeshRenderer>();
@@ -34,14 +32,15 @@ namespace CodeIsBroken.ProductSystem
             Destroy(gameObject);
         }
 
-        void ApplyModifications(IAdditionalModification mod)
+        void ApplyModifications(IModification mod)
         {
             mod.Apply(this);
         }
 
         public void Modify(IModification mod)
         {
-            throw new NotImplementedException();
+            modifications.Add(mod);
+            mod.Apply(this);
         }
     }
 }

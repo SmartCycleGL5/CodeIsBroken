@@ -7,26 +7,16 @@ using Utility;
 using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
-namespace CodeIsBroken.Product
+namespace CodeIsBroken.ProductSystem
 {
-    public enum Products
-    {
-        Wood,
-        Stone,
-        Iron,
-        Chair,
-        IronRod,
-        Planks
-    }
-
     public class ProductManager : MonoBehaviour
     {
         public static ProductManager Instance;
 
 
 
-        [field: SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
-        private SerializedDictionary<Products, Product> Products {  get; set; }
+        [SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
+        private SerializedDictionary<Products, Product> Products;
         public static Action foundProducts;
         
         void Awake()

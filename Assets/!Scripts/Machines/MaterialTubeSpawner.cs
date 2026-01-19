@@ -1,5 +1,6 @@
 
-using CodeIsBroken.Product;
+using CodeIsBroken;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
@@ -18,7 +19,7 @@ public class MaterialTubeSpawner : MonoBehaviour
 
     private void Reset()
     {
-        SetMaterial(Products.Wood);
+        SetMaterial(Materials.Wood);
         spawnRate = 0;
     }
 
@@ -35,7 +36,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid));
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
 
-        ProductManager.foundProducts += () => { SetMaterial(Products.Wood); };
+        ProductManager.foundProducts += () => { SetMaterial(Materials.Wood); };
     }
 
     // Player controlled
@@ -44,9 +45,9 @@ public class MaterialTubeSpawner : MonoBehaviour
         this.spawnRate = delay;
 
     }
-    public void SetMaterial(Products material)
+    public void SetMaterial(Materials material)
     {
-        materialToSpawn = ProductManager.GetProduct(material);
+        materialToSpawn = ProductManager.GetProduct((Products)material);
     }
     
     // Not player controlled

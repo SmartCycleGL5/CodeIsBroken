@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeIsBroken.Product
+namespace CodeIsBroken.ProductSystem
 {
     public interface IItemContainer
     {

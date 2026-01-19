@@ -270,18 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c972d5b97181e840bfc590058b5be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.Product
+  icon: {fileID: 21300000, guid: 86b53a1619f83cdd99504ab8279517f9, type: 3}
   lvlUnlock: 1
   pruductType: 0
-  definition:
-    name: 
-    icon: {fileID: 0}
-    baseMaterials: 2
-    <baseMods>k__BackingField: []
-  artRenderer: {fileID: 0}
+  artRenderer: {fileID: 882578288086400146}
   changedColor: 0
-  references:
-    version: 2
-    RefIds: []
 --- !u!1001 &2017078163867050006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +336,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8143d8aa260b2784082225bd4cf83dac, type: 3}
+--- !u!23 &882578288086400146 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8143d8aa260b2784082225bd4cf83dac, type: 3}
+  m_PrefabInstance: {fileID: 2017078163867050006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2050440314984024061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8143d8aa260b2784082225bd4cf83dac, type: 3}

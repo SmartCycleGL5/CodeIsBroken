@@ -1,39 +1,32 @@
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product.Modifications;
+using CodeIsBroken.ProductSystem.Modifications;
 using UnityEngine;
 
-namespace CodeIsBroken.Product
+namespace CodeIsBroken.ProductSystem
 {
     public class Product : MonoBehaviour
     {
+        public Sprite icon;
+
         [Min(1)]
         public int lvlUnlock = 1;
 
         public Products pruductType;
-        public ProductDefinition definition = new(BaseMaterials.Wood);
-    
-        public MeshRenderer artRenderer;
+        public List<IModification> modifications { get; private set; } = new();
+
+        public MeshRenderer artRenderer {  get; private set; }
         
         [HideInInspector] public bool changedColor;
     
         private void Start()
         {
-            if(definition.baseMods == null) return;
-            foreach (var mod in definition.baseMods)
-            {
-                if(mod is IAdditionalModification)
-                    ((IAdditionalModification)mod).Apply(this);
-            }
-    
-            definition.modified += ApplyModifications;
-
+            artRenderer = GetComponentInChildren<MeshRenderer>();
             GameManager.onStop += OnStop;
         }
         private void OnDestroy()
         {
             GameManager.onStop -= OnStop;
-            definition.modified -= ApplyModifications;
         }
 
         private void OnStop()
@@ -44,6 +37,11 @@ namespace CodeIsBroken.Product
         void ApplyModifications(IAdditionalModification mod)
         {
             mod.Apply(this);
+        }
+
+        public void Modify(IModification mod)
+        {
+            throw new NotImplementedException();
         }
     }
 }

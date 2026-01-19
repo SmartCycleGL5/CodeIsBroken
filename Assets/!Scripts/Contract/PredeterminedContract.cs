@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using CodeIsBroken.Product;
-using CodeIsBroken.Product.Modifications;
+using CodeIsBroken.ProductSystem;
+using CodeIsBroken.ProductSystem.Modifications;
 using UnityEngine;
 
 namespace CodeIsBroken.Contract
@@ -12,14 +12,14 @@ namespace CodeIsBroken.Contract
         [Serializable]
         public struct Request
         {
-            public Product.Product toRequest;
+            public Products toRequest;
             public int amount;
             [field: SerializeReference, SubclassSelector]
             public IAdditionalModification[] additionalModifications;
 
             public Contract.Request GetRequest()
             {
-                return new Contract.Request(toRequest.definition, amount, additionalModifications);
+                return new Contract.Request(ProductManager.GetProduct(toRequest), amount, additionalModifications);
             }
         }
 

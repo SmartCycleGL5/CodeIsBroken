@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using CodeIsBroken.Product;
+using CodeIsBroken.ProductSystem;
 using UnityEngine;
 
 
@@ -16,23 +16,21 @@ public class Crafting : MonoBehaviour
     public Product CraftItem(List<Product> items, List<CraftingRecipie> craftingRecipies)
     {
         if(items.Count == 0) return null;
-        List<ProductDefinition> materials = new();
-        List<ProductDefinition> recipeItems = new();
-        materials.AddRange(items.Select(i => i.definition));
+        List<Product> recipeItems = new();
         
         //Loops over all recipes
         foreach (var recipe in craftingRecipies)
         {
             // Sort lists to compare them:
-            materials = materials.OrderBy(x => x.name).ToList();
-            recipeItems.AddRange(recipe.materials.Select(material => material.definition));
+            items = items.OrderBy(x => x.name).ToList();
+            recipeItems.AddRange(recipe.materials);
             recipe.materials = recipe.materials.OrderBy(x => x.name).ToList();
             
-            if(materials.Count != recipeItems.Count) return null;
+            if(items.Count != recipeItems.Count) return null;
 
             for (int i = 0; i < recipeItems.Count; i++)
             {
-                if (!recipeItems[i].Equals(materials[i], false))
+                if (recipeItems[i] != items[i])
                 {
                     Debug.Log("MAterial not equal");
                     return null;

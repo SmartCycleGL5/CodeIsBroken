@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a677fa75fbd034f976d71db8ecefcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken::FPSLimit
-  fps: 120
+  fps: 60
 --- !u!4 &145284970
 Transform:
   m_ObjectHideFlags: 0
@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e9ec66e2ab1a04a8bc8ee3c658a097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Product::CodeIsBroken.Product.ProductManager
-  <Products>k__BackingField:
+  Products:
     _serializedList: []
 --- !u!114 &357034592
 MonoBehaviour:
@@ -656,15 +656,15 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 10
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 1
             amount: 15
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 2
             amount: 10
-            additionalModifications: []
+            mods: []
     - Key: 3
       Value:
         additionalModifications: {x: 0, y: 1}
@@ -672,16 +672,16 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 1
             amount: 20
-            additionalModifications:
+            mods:
             - rid: 1310733781368832069
         - requests:
           - toRequest: 2
             amount: 30
-            additionalModifications: []
+            mods: []
     - Key: 4
       Value:
         additionalModifications: {x: 0, y: 1}
@@ -689,18 +689,18 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 20
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 35
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 35
-            additionalModifications:
+            mods:
             - rid: -2
     - Key: 5
       Value:
@@ -709,32 +709,32 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications: []
+            mods: []
           - toRequest: 0
             amount: 10
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 40
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
           - toRequest: 0
             amount: 10
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 0
             amount: 15
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 15
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 15
-            additionalModifications:
+            mods:
             - rid: -2
     - Key: 6
       Value:
@@ -743,19 +743,19 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
     - Key: 7
       Value:
@@ -764,23 +764,23 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 40
-            additionalModifications: []
+            mods: []
           - toRequest: 0
             amount: 40
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 60
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
     - Key: 8
@@ -790,31 +790,31 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 50
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 30
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
           - toRequest: 0
             amount: 50
-            additionalModifications:
+            mods:
             - rid: -2
     - Key: 9
       Value:
@@ -823,16 +823,16 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 100
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 200
-            additionalModifications: []
+            mods: []
         - requests:
           - toRequest: 0
             amount: 75
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
     - Key: 10
@@ -842,28 +842,28 @@ MonoBehaviour:
         - requests:
           - toRequest: 0
             amount: 100
-            additionalModifications:
+            mods:
             - rid: -2
           - toRequest: 0
             amount: 100
-            additionalModifications:
+            mods:
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 200
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
             - rid: -2
         - requests:
           - toRequest: 0
             amount: 75
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
           - toRequest: 0
             amount: 75
-            additionalModifications:
+            mods:
             - rid: -2
             - rid: -2
   CompanyNames:

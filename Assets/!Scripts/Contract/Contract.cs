@@ -129,7 +129,7 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public void TryProgressContract(Product product)
+        public bool TryProgressContract(Product product)
         {
             foreach (var request in requests)
             {
@@ -142,8 +142,12 @@ namespace CodeIsBroken.Contract
                     {
                         Finish();
                     }
+                    
+                    return true;
                 }
             }
+            
+            return false;
         }
 
         bool allRequestsSatisfied()

@@ -13,7 +13,7 @@ namespace CodeIsBroken.ProductSystem
         public int lvlUnlock = 1;
 
         public Products pruductType;
-        public List<IModification> modifications { get; private set; } = new();
+        [field: SerializeField]public List<IModification> modifications { get; private set; } = new();
 
         public MeshRenderer artRenderer {  get; private set; }
         
@@ -41,6 +41,24 @@ namespace CodeIsBroken.ProductSystem
         {
             modifications.Add(mod);
             mod.Apply(this);
+        }
+
+        public bool Equals(Product other)
+        {
+            if (modifications.Count != other.modifications.Count) return false;
+            
+            if (pruductType == other.pruductType)
+            {
+                for (int i = 0; i < modifications.Count; i++)
+                {
+                    if (modifications[i].Equals(other.modifications[i]))
+                    {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
         }
     }
 }

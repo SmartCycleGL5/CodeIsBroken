@@ -23,6 +23,7 @@ namespace CodeIsBroken
         private void UpdateItem()
         {
             item = painterConveyor.item;
+            Debug.Log(item);
         }
         
         public bool HasItem()
@@ -43,7 +44,6 @@ namespace CodeIsBroken
         void OnDestroy()
         {
             Tick.OnTick -= UpdateItem;
-            Debug.Log("[Painter] I destroyed your asshole");
             if (item == null) return;
             item = null;
         }

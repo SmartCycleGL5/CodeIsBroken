@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/CodeIsBroken.Product.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Machines.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/ConveyorBelt.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/MaterialTube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/PainterConveyor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Painter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/BuildingBlocks/Painter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b4c8c45fec274213bfac03ee0e9a3d621f5a00/0c/263bbb2f/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/AudioOnPlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/CodeEditor/CodeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Console/Console.cs" root0="FORCE_HIGHLIGHTING" />
@@ -36,6 +42,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LevelUpNotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LineGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/LookAtCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/NewConveyor/NewConveyorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/Crafting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/MachineConveyor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/Machines/RecipeHolder.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,7 +52,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Furnace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/Machine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Materials/Products.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/FileBrowser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Scripts/UI/Window/WindowManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Packages/MackySoft/MackySoft.SerializeReferenceExtensions/package.json" root0="FORCE_HIGHLIGHTING" />
@@ -65,36 +71,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Roslyn2",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.environmentSetup",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.environmentSetup&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Exam3\CodeIsBroken.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\noasj\Desktop\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -109,12 +117,14 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -129,12 +139,14 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/6000.2.2f1/Editor/Unity" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.2f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\torje\!GameDevelopment\Unity\Projects\CodeIsBroken" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -216,7 +228,7 @@
       <item itemvalue="Standalone Player.Standalone Player" />
       <item itemvalue="Standalone Player.Start Unity" />
       <item itemvalue="Standalone Player.Unit Tests (batch mode)" />
-      <item itemvalue="Unity Attach To.Attach to" />
+      <item itemvalue="Unity Attach to Device.Attach to" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -323,6 +335,7 @@
       <workItem from="1765630049303" duration="1879000" />
       <workItem from="1766158020236" duration="791000" />
       <workItem from="1766161392919" duration="2079000" />
+      <workItem from="1768811722588" duration="4107000" />
     </task>
     <servers />
   </component>
@@ -350,5 +363,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/NewConveyor/NewConveyor.cs</url>
+          <line>108</line>
+          <properties documentPath="C:\Users\noasj\Documents\GitHub\CodeIsBroken\Assets\!Scripts\Machines\Conveyor\NewConveyor\NewConveyor.cs" containingFunctionPresentation="Method 'RemoveItem'">
+            <startOffsets>
+              <option value="1988" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1989" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs</url>
+          <line>66</line>
+          <properties documentPath="C:\Users\noasj\Documents\GitHub\CodeIsBroken\Assets\!Scripts\Machines\MaterialTubeSpawner.cs" containingFunctionPresentation="Method 'GetMaterial'">
+            <startOffsets>
+              <option value="1706" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1726" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 7935390463072465191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.78, z: 1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8361168025469850701}
   - component: {fileID: 3989704304939235237}
+  - component: {fileID: 5513523921252390056}
   m_Layer: 0
   m_Name: MaterialTube
   m_TagString: Untagged
@@ -200,14 +201,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3019211792bb92f4e8edcf33e14139d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  machineCode:
-    name: Tube
-    Code: "class Tube\n{\n\tvoid Start()\n\t{\n\t\tGetMaterial();\n\t}\n}"
-  Classes:
-    _serializedList: []
-  connectedTerminal: {fileID: 0}
-  spawnLocation: {fileID: 7807187637934711611}
-  lid: {fileID: 8400492573680159948}
+  tick: 0
+  active: 1
+--- !u!114 &5513523921252390056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018452569668254804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d499cacdeba608347a070acc31713df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken.Machines::Conveyor
+  output: {fileID: 7807187637934711611}
+  nextConveyor: {fileID: 0}
+  recieveFrom: []
+  inputs: []
+  renderer: {fileID: 0}
 --- !u!1 &8826747319174564861
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,10 +369,5 @@ PrefabInstance:
 --- !u!4 &6454105595691511363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 669984618782425433, guid: a7aa66231ed304048a1def0b735c7080, type: 3}
-  m_PrefabInstance: {fileID: 5827048436348563226}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8400492573680159948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2614725318879896534, guid: a7aa66231ed304048a1def0b735c7080, type: 3}
   m_PrefabInstance: {fileID: 5827048436348563226}
   m_PrefabAsset: {fileID: 0}

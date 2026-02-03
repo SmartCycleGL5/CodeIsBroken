@@ -710,10 +710,10 @@ MonoBehaviour:
         additionalModifications: {x: 0, y: 2}
         firstContracts:
         - requests:
-          - toRequest: 0
+          - toRequest: 1
             amount: 30
             mods: []
-          - toRequest: 0
+          - toRequest: 2
             amount: 10
             mods:
             - rid: 4020644705474969679
@@ -723,7 +723,7 @@ MonoBehaviour:
             mods:
             - rid: 4020644705474969680
             - rid: 4020644705474969681
-          - toRequest: 0
+          - toRequest: 1
             amount: 10
             mods: []
         - requests:

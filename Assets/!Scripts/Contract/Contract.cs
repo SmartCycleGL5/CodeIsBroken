@@ -40,7 +40,15 @@ namespace CodeIsBroken.Contract
             public bool SatisfiesRequest(Product product)
             {
                 if(satisfied) return false;
-                return this.product.Equals(product);
+                if(!this.product.Equals(product)) return false;
+                if(modifications.Length != product.modifications.Count) return false;
+
+                for (int i = 0; i < modifications.Length; i++)
+                {
+                    if(!modifications[i].Equals(product.modifications[i])) return false;
+                }
+                
+                return true;
             }
 
             public TemplateContainer GetUI()

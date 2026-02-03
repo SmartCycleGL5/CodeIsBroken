@@ -45,20 +45,12 @@ namespace CodeIsBroken.ProductSystem
 
         public bool Equals(Product other)
         {
-            if (modifications.Count != other.modifications.Count) return false;
-            
-            if (pruductType == other.pruductType)
+            if (pruductType != other.pruductType)
             {
-                for (int i = 0; i < modifications.Count; i++)
-                {
-                    if (modifications[i].Equals(other.modifications[i]))
-                    {
-                        return true;
-                    }
-                }
+                return false;
             }
             
-            return false;
+            return true;
         }
     }
 }

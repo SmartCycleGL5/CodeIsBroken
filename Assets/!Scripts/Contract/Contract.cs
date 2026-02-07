@@ -61,7 +61,7 @@ namespace CodeIsBroken.Contract
 
                 ScrollView mods = request.Q<ScrollView>("ModView");
 
-                foreach (var mod in product.modifications)
+                foreach (var mod in modifications)
                 {
                     TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
 

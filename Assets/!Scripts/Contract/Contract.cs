@@ -67,7 +67,7 @@ namespace CodeIsBroken.Contract
 
                     VisualElement modifier = modifierContainer.Q<VisualElement>("Modifier");
                     modifier.Q<Label>("Name").text = mod.Name;
-                    modifier.Q<Label>("Description").text = mod.Description;
+                    modifier.Q<Label>("Description").text = "";//mod.Description;
 
                     mods.Add(modifier);
                 }

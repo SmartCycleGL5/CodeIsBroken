@@ -64,8 +64,28 @@ namespace CodeIsBroken.ProductSystem.Modifications
     [Serializable]
     public class Color : IModification
     {
-        public string Name => "Color:";
-        public string Description => $"Red: {color.r}, Green: {color.g}, Blue: {color.b}";
+        public string Name => $"Paint: {Description}";
+
+        public string Description
+        {
+            get
+            {
+                if(color.r > 0) 
+                {
+                    return "Red";
+                }
+                else if (color.g > 0)
+                {
+                    return "Green";
+                }
+                else if (color.b > 0)
+                {
+                    return "Green";
+                }
+
+                return "Fail";
+            }
+        }
         [field: SerializeField] public UnityEngine.Color color  { get; private set; } = new UnityEngine.Color(0, 0, 0, 1);
         
         public static Color New(UnityEngine.Color color)

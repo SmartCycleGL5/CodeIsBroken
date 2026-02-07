@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 4957907254097424411}
   - component: {fileID: 6505023197043100097}
   - component: {fileID: 5011683190662006242}
+  - component: {fileID: 1879287536893735978}
   m_Layer: 0
   m_Name: MaterialTube BUilding
   m_TagString: Untagged
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseMachine
   toDeriveFrom: MaterialTube
   attachedScripts: []
+  inspectorHeight: 1.5
 --- !u!114 &4957907254097424411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +326,7 @@ MonoBehaviour:
     - Key: lid
       Value: {fileID: 8718735706113119580}
     - Key: spawnLocation
-      Value: {fileID: 7082907703644039351}
+      Value: {fileID: 8718735706113119580}
 --- !u!114 &6505023197043100097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +351,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aaec0b11e480254facb93679dc33c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken::MaterialTubeSpawner
+--- !u!114 &1879287536893735978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835777250307342540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d499cacdeba608347a070acc31713df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken.Machines::Conveyor
+  output: {fileID: 6931905521742723755}
+  nextConveyor: {fileID: 0}
+  recieveFrom: []
+  inputs: []
+  renderer: {fileID: 0}
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,9 +593,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5362953086219537834}
   m_SourcePrefab: {fileID: 100100000, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
---- !u!1 &7082907703644039351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7935390463072465191, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
+--- !u!4 &6931905521742723755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7807187637934711611, guid: 380d066e72d901b408cdb8d2f37a9e21, type: 3}
   m_PrefabInstance: {fileID: 894985503074441616}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7146338163404088772 stripped

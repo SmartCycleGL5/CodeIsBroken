@@ -2,17 +2,17 @@ namespace CodeIsBroken
 {
     public enum Products
     {
-        Wood,
-        Stone,
-        Iron,
-        IronRod,
-        Planks,
-        Chair,
+        wood,
+        stone,
+        iron,
+        ironRod,
+        planks,
+        chair,
     }
     public enum Materials
     {
-        Wood = Products.Wood,
-        Stone = Products.Stone,
-        Iron  = Products.Iron,
+        wood = Products.wood,
+        stone = Products.stone,
+        iron  = Products.iron,
     }
 }

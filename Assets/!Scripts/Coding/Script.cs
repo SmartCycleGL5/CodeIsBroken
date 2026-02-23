@@ -80,6 +80,7 @@ public class Script
         try
         {
             proxy.Methods.Call(startMethod);
+            Debug.Log("Starting tick");
         }
         catch
         (Exception ex)
@@ -92,6 +93,7 @@ public class Script
         try
         {
             proxy.Methods.Call(updateMethod);
+            Debug.Log("Updating tick");
         }
         catch
         (Exception ex)
@@ -126,7 +128,13 @@ public class Script
     public void Delete()
     {
         Compiler.usedScripts.Remove(this);
-
+        connectedMachine.attachedScripts.Remove(this);
+        if(proxy != null)
+            proxy.Dispose();
+        
+        GameManager.onStart -= Run;
+        GameManager.onStop -= Terminate;
+        
         Deleted?.Invoke();
     }
 

@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1d718e0cb1c8b46b53b94d97410b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tick
-  tickTime: 1
+  tickTime: 0.1
 --- !u!114 &357034591
 MonoBehaviour:
   m_ObjectHideFlags: 0

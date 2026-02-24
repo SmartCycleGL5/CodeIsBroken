@@ -71,21 +71,17 @@ namespace CodeIsBroken.ProductSystem.Modifications
             get
             {
                 if(color.r > 0) 
-                {
                     return "Red";
-                }
-                else if (color.g > 0)
-                {
+                if (color.g > 0)
                     return "Green";
-                }
-                else if (color.b > 0)
-                {
-                    return "Green";
-                }
+                if (color.b > 0)
+                    return "Blue";
 
                 return "Fail";
             }
         }
+
+        public bool Applied { get; set; }
         [field: SerializeField] public UnityEngine.Color color  { get; private set; } = new UnityEngine.Color(0, 0, 0, 1);
         
         public static Color New(UnityEngine.Color color)
@@ -106,12 +102,14 @@ namespace CodeIsBroken.ProductSystem.Modifications
 
         public void Apply(Product item)
         {
+            if(Applied) return;
             if(!item.artRenderer.material.GetColor("_Colour").Equals(UnityEngine.Color.white))
             {
                 item.artRenderer.material.SetColor("_Colour", new UnityEngine.Color(0, 0, 0, 1));
             }
     
             item.artRenderer.material.SetColor("_Colour", item.artRenderer.material.GetColor("_Colour") + color);
+            Applied = true;
         }
         
         public static Color Random()

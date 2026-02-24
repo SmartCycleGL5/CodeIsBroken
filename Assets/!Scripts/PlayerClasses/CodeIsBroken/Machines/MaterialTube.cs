@@ -23,7 +23,6 @@ namespace CodeIsBroken
             Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(MaterialTube));
             materialTubeSpawner = GetComponent<MaterialTubeSpawner>();
-
         }
 
         // Player controlled

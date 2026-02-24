@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
 
-
+[DefaultExecutionOrder(-100)]
 public class MaterialTubeSpawner : MonoBehaviour
 {
     
@@ -37,6 +37,8 @@ public class MaterialTubeSpawner : MonoBehaviour
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
 
         ProductManager.foundProducts += () => { SetMaterial(Materials.wood); };
+
+        Tick.OnStartingTick += Reset;
     }
 
     // Player controlled

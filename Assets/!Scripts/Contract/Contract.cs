@@ -43,9 +43,15 @@ namespace CodeIsBroken.Contract
                 if(!this.product.Equals(product)) return false;
                 if(modifications.Length != product.modifications.Count) return false;
 
-                for (int i = 0; i < modifications.Length; i++)
+                foreach (var modification in modifications)
                 {
-                    if(!modifications[i].Equals(product.modifications[i])) return false;
+                    bool success = false;
+                    foreach (var productModification in product.modifications)
+                    {
+                        if(modification.Equals(productModification)) success = true;
+                    }
+                    
+                    if(!success) return false;
                 }
                 
                 return true;

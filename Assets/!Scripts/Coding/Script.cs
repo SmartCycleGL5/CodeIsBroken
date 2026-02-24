@@ -28,6 +28,7 @@ public class Script
     public static string DefaultCode(string className, string parentClass)
     {
         return
+            //$"using CodeIsBroken.Products;\n\n"+
             $"using CodeIsBroken;\n\n" +
             $"public class {className} : {parentClass}" +
             "\n{" +
@@ -140,6 +141,6 @@ public class Script
 
     public void Edit()
     {
-        new CodeEditor(rawCode, true);
+        new CodeEditor(this);
     }
 }

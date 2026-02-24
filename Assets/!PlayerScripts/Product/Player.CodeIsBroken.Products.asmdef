@@ -1,6 +1,6 @@
 {
     "name": "Player.CodeIsBroken.Products",
-    "rootNamespace": "CodeIsBroken",
+    "rootNamespace": "CodeIsBroken.Products",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

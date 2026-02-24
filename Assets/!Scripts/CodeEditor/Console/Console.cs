@@ -27,6 +27,8 @@ namespace CodeIsBroken.IDE
             }
             
             Debug.Log("Console initialized");
+
+            extentionRoot.Q<Label>("Members").text = editor.script.connectedMachine.variableInfo.ToString();
         }
 
         public override void Close()

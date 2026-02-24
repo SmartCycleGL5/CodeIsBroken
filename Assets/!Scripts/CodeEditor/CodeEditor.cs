@@ -27,9 +27,9 @@ namespace CodeIsBroken.IDE
         
         public List<IDEExtention> extentions = new();
         public VisualElement editorRoot;
-        public PersistentData<string> script { get; private set; }
+        public Script script { get; private set; }
         
-        public CodeEditor(PersistentData<string> script, bool requestClose = true) : base(script.name, requestClose)
+        public CodeEditor(Script script, bool requestClose = true) : base(script.name, requestClose)
         {
             this.script = script;
             

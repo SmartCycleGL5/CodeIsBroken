@@ -58,7 +58,7 @@ namespace CodeIsBroken.IDE
         {
             if (editor.script == null) return;
             
-            input.value = editor.script.data;
+            input.value = editor.script.rawCode.data;
             
             HighlightCode();
 
@@ -75,11 +75,11 @@ namespace CodeIsBroken.IDE
             
             RemoveHighlight();
 
-            if (editor.script.data != input.text)
+            if (editor.script.rawCode.data != input.text)
             {
                 PlayerConsole.Log("Saving...", editor.script.name);
 
-                editor.script.UpdateData(input.text);
+                editor.script.rawCode.UpdateData(input.text);
                 await Compiler.StartCompileAsync();
 
                 PlayerConsole.Log("Saved!", editor.script.name);

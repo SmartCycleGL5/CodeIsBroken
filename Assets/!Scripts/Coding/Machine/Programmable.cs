@@ -1,12 +1,7 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Reflection;
-using CodeIsBroken.UI.Window;
 using UnityEngine;
-using System.Linq;
-using System.Threading.Tasks;
-using CodeIsBroken.Coding;
-using CodeIsBroken.IDE;
 
 [DefaultExecutionOrder(0), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour

@@ -39,10 +39,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
   - {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
   - {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-  - {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
   - {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-  - {fileID: 11400000, guid: 9ea5565dd50d2c798861fa00a2353205, type: 2}
-  - {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
+  - {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
   <LogLevel>k__BackingField: 2
   <CompilerFlags>k__BackingField:
     <AllowUnsafe>k__BackingField: 0
@@ -1854,7 +1852,7 @@ MonoBehaviour:
       - Name: CraftingRecipie
         Allowed: 0
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
       <LastWriteTimeUTC>k__BackingField: 134164276621388803
     - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
@@ -1864,17 +1862,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: Console
           Allowed: 0
-        - Name: Random
-          Allowed: 0
-        Allowed: 0
-      RootTypeRestrictions: []
-      Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134164275962230308
-    - Name: Player.CodeIsBroken.Machines
-      NamedTypeRestrictions:
-      - Name: CodeIsBroken
-        TypeRestrictions:
         - Name: Assembler
           Allowed: 0
         - Name: Crane
@@ -1889,26 +1876,59 @@ MonoBehaviour:
           Allowed: 0
         - Name: Saw
           Allowed: 0
+        - Name: Random
+          Allowed: 0
         Allowed: 0
       RootTypeRestrictions:
       - Name: Machine
         Allowed: 0
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134164288229396555
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134164419204115652
+    - Name: Player.CodeIsBroken.Machines
+      NamedTypeRestrictions:
+      - Name: CodeIsBroken
+        TypeRestrictions:
+        - Name: Color
+          Allowed: 0
+        - Name: Console
+          Allowed: 0
+        - Name: Assembler
+          Allowed: 0
+        - Name: Crane
+          Allowed: 0
+        - Name: Furnace
+          Allowed: 0
+        - Name: Laser
+          Allowed: 0
+        - Name: MaterialTube
+          Allowed: 0
+        - Name: Painter
+          Allowed: 0
+        - Name: Saw
+          Allowed: 0
+        - Name: Random
+          Allowed: 0
+        Allowed: 0
+      RootTypeRestrictions:
+      - Name: Machine
+        Allowed: 0
+      Allowed: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134164419204115652
     - Name: Player.CodeIsBroken.Products
       NamedTypeRestrictions:
       - Name: CodeIsBroken
         TypeRestrictions:
-        - Name: Materials
-          Allowed: 0
         - Name: Products
+          Allowed: 0
+        - Name: Materials
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
-      <LastWriteTimeUTC>k__BackingField: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134164420596502041
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo

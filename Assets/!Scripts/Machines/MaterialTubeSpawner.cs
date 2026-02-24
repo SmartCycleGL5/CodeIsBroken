@@ -52,11 +52,6 @@ public class MaterialTubeSpawner : MonoBehaviour
     }
     public void SetMaterial(Materials material)
     {
-        if (!Enum.IsDefined(typeof(Materials), material))
-        {
-            PlayerConsole.LogError("Invalid material type!", "MaterialTube");
-            return;
-        }
         currentMaterial = material;
         materialToSpawn = ProductManager.GetProduct((Products)material);
     }

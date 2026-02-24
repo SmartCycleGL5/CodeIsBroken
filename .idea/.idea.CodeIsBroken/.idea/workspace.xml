@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/CodeEditor/Console.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Window/CodeEditor/Console.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Console/Console.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Console/Console.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" afterDir="false" />
-    </list>
+    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -337,7 +331,7 @@
       <workItem from="1770149168029" duration="1907000" />
       <workItem from="1770485092179" duration="691000" />
       <workItem from="1771869809439" duration="3666000" />
-      <workItem from="1771953016374" duration="11576000" />
+      <workItem from="1771953016374" duration="11923000" />
     </task>
     <servers />
   </component>

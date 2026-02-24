@@ -1,7 +1,9 @@
 
+using System;
 using CodeIsBroken.ProductSystem;
 using UnityEngine;
 using DG.Tweening;
+using ScriptEditor.Console;
 using Random = UnityEngine.Random;
 
 namespace CodeIsBroken
@@ -32,6 +34,11 @@ namespace CodeIsBroken
         }
         public void SetMaterial(Materials newMaterial)
         {
+            if (!Enum.IsDefined(typeof(Materials), newMaterial))
+            {
+                PlayerConsole.LogError("Invalid material type!", "MaterialTube");
+                return;
+            }
             materialTubeSpawner.SetMaterial(newMaterial);
         }
 

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="" />
+    <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -332,6 +336,7 @@
       <workItem from="1770485092179" duration="691000" />
       <workItem from="1771869809439" duration="3666000" />
       <workItem from="1771953016374" duration="11923000" />
+      <workItem from="1771971757774" duration="187000" />
     </task>
     <servers />
   </component>

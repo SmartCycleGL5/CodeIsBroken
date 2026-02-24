@@ -1,14 +1,17 @@
 
+using System;
 using CodeIsBroken;
 using CodeIsBroken.ProductSystem;
 using UnityEngine;
 using DG.Tweening;
+using ScriptEditor.Console;
+using Console = CodeIsBroken.IDE.Console;
 using Random = UnityEngine.Random;
 
 [DefaultExecutionOrder(-100)]
 public class MaterialTubeSpawner : MonoBehaviour
 {
-    
+    public Materials currentMaterial;
     Transform spawnLocation;
     Product materialToSpawn;
     int spawnRate;
@@ -49,6 +52,12 @@ public class MaterialTubeSpawner : MonoBehaviour
     }
     public void SetMaterial(Materials material)
     {
+        if (!Enum.IsDefined(typeof(Materials), material))
+        {
+            PlayerConsole.LogError("Invalid material type!", "MaterialTube");
+            return;
+        }
+        currentMaterial = material;
         materialToSpawn = ProductManager.GetProduct((Products)material);
     }
     

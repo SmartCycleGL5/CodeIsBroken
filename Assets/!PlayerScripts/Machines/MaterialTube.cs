@@ -10,7 +10,7 @@ namespace CodeIsBroken
     {
         
         Transform spawnLocation;
-        ProductSystem.Product materialToSpawn;
+        //ProductSystem.Product materialToSpawn;
         int spawnRate;
         int tickCount;
         private GameObject lid;
@@ -30,12 +30,15 @@ namespace CodeIsBroken
         {
             materialTubeSpawner.SpawnDelay(delay);
         }
-        public void SetMaterial(Materials material)
+        public void SetMaterial(Materials newMaterial)
         {
-            materialTubeSpawner.SetMaterial(material);
+            materialTubeSpawner.SetMaterial(newMaterial);
         }
-        
-        
+
+        public Materials GetMaterial()
+        {
+            return materialTubeSpawner.currentMaterial;
+        }
 
         private void OnDestroy()
         {

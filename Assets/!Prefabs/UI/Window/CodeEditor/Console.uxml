@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/!Prefabs/UI/Window/CodeEditor/CodeEditorSyle.uss?fileID=7433441132597879392&amp;guid=ddf8421364bb5c04ea3ab17ba5bbdd77&amp;type=3#CodeEditorSyle" />
     <ui:VisualElement class="WindowElement" style="flex-grow: 1; flex-direction: row; height: 30%; min-height: 200px; min-width: 400px;">
-        <ui:VisualElement class="Console" style="flex-grow: 1; height: auto; overflow: hidden; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+        <ui:VisualElement class="Console" style="flex-grow: 1; height: auto; overflow: hidden; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); width: 10%;">
             <ui:Label text="Console" class="Title" style="-unity-text-align: middle-left; height: auto;" />
             <ui:ScrollView name="Log">
                 <ui:Label name="Output" style="white-space: normal; font-size: 25px;" />
@@ -9,7 +9,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="VisualElement" class="InheritedMembers" style="flex-grow: 1; overflow: hidden; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
             <ui:Label text="Class" name="InheritedClass" class="Title" style="color: rgb(0, 255, 0);" />
-            <ui:ScrollView name="InheritedMembers" style="height: 85%;">
+            <ui:ScrollView name="InheritedMembers" mode="VerticalAndHorizontal" style="height: 85%;">
                 <ui:Label text="Variables:&#10;&#10;Methods:" name="Members" style="font-size: 25px;" />
             </ui:ScrollView>
         </ui:VisualElement>

@@ -18,7 +18,10 @@ namespace CodeIsBroken.UI
             inspector.root.Q("Holder").Add(scriptEditor.root);
 
             scriptEditor.toEdit = toEdit;
-            scriptEditor.root.Q<Button>("Remove").clicked += scriptEditor.RemoveScript;
+            Button removeButton = scriptEditor.root.Q<Button>("Remove");
+            removeButton.clicked += scriptEditor.RemoveScript;
+            removeButton.text = $"Remove \"{toEdit.name}\"";
+            scriptEditor.root.Q<Label>().text = toEdit.name;
             
             return scriptEditor;
         }

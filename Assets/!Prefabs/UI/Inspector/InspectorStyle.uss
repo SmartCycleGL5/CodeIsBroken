@@ -24,7 +24,7 @@
 .Element {
     flex-grow: 1;
     overflow: hidden;
-    min-width: 140px;
+    width: 140px;
 }
 
 .Component {

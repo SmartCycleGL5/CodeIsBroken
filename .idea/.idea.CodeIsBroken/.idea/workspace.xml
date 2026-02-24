@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/PlayerClasses/CodeIsBroken/Machines/MaterialTube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Product/IModification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Product/IModification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Product/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Product/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/FileBrowser.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/FileBrowser.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptEditor.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/UI/Inspector/ScriptEditor.uxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/ScriptEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/UI/Inspector/ScriptEditor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +342,7 @@
       <workItem from="1770149168029" duration="1907000" />
       <workItem from="1770485092179" duration="691000" />
       <workItem from="1771869809439" duration="3666000" />
-      <workItem from="1771953016374" duration="1865000" />
+      <workItem from="1771953016374" duration="3376000" />
     </task>
     <servers />
   </component>
@@ -386,12 +386,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs</url>
-          <line>66</line>
-          <properties documentPath="C:\Users\noasj\Documents\GitHub\CodeIsBroken\Assets\!Scripts\Machines\MaterialTubeSpawner.cs" containingFunctionPresentation="Method 'GetMaterial'" />
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

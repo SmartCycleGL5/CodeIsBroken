@@ -39,7 +39,7 @@ namespace CodeIsBroken
             outputPos = referenceHolder.GetReference("output").transform;
             sawBlade = referenceHolder.GetReference("sawBlade").transform;
             sawParticles = referenceHolder.GetReference("sawParticle").GetComponent<ParticleSystem>();
-            Tick.OnTick += TakeItem;
+            Tick.OnEarlyTick += TakeItem;
             Tick.OnEndingTick += Reset;
         }
     
@@ -75,6 +75,7 @@ namespace CodeIsBroken
                     sawParticles.Play();
                     Destroy(item.gameObject);
                     item = Instantiate(itemCrafted, sawBlade.position, Quaternion.identity);
+                    conveyor.RecievedFromMachine();
                     conveyor.SetItem(item);
                     ClearMachine();
                     RemoveItem();

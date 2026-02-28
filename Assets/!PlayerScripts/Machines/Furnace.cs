@@ -32,7 +32,7 @@ namespace CodeIsBroken
 
             referenceHolder = GetComponent<ReferenceHolder>();
             
-            Tick.OnTick += TakeItem;
+            Tick.OnEarlyTick += TakeItem;
         }
     
         private void Reset()

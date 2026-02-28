@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Assembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Assembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Furnace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Furnace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Saw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/Saw.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Player.CodeIsBroken.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Player.CodeIsBroken.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Prefabs/Machines/BuildingPrefab 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Prefabs/Machines/BuildingPrefab 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Core/Tick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Core/Tick.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/Conveyor/Conveyor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +332,7 @@
       <workItem from="1771971757774" duration="187000" />
       <workItem from="1772272550581" duration="8698000" />
       <workItem from="1772289889541" duration="161000" />
-      <workItem from="1772290187547" duration="2797000" />
+      <workItem from="1772290187547" duration="7077000" />
     </task>
     <servers />
   </component>

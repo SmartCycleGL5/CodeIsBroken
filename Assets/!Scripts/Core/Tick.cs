@@ -8,7 +8,8 @@ public class Tick : MonoBehaviour
     [SerializeField] public float tickTime = 0.5f;
     public static float tickLength => Instance.tickTime;
     public static int tickCount;
-
+    
+    public static event Action OnEarlyTick;
     public static event Action OnTick;
 
     public static event Action OnLateTick;
@@ -54,6 +55,7 @@ public class Tick : MonoBehaviour
 
     void DoTick()
     {
+        OnEarlyTick?.Invoke();
         OnTick?.Invoke();
         OnLateTick?.Invoke();
         tickCount++;

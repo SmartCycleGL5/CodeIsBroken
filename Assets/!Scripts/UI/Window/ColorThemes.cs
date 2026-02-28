@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using System;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)]
 public class ColorThemes : MonoBehaviour
 {
     public static ColorPallate ActivePallate;

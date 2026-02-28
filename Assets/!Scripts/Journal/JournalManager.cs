@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CodeIsBroken.UI.Window;
+using SharpCube.Highlighting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -31,7 +32,7 @@ namespace Journal
         private VisualElement windowElement;
         private Label codeT;
         private Label explainT;
-        //SyntaxHighlighting syntax = new();
+        SyntaxHighlighting syntax = new();
         async void Awake()
         {
             if (!instance) { instance = this; }
@@ -52,7 +53,7 @@ namespace Journal
         void Start()
         {
             InputReader.toggleJournal += JournalOnOff;
-            //syntax.SetPallate(ColorThemes.ActivePallate);
+            syntax.SetPallate(ColorThemes.ActivePallate);
         }
 
         private void OnDestroy()
@@ -258,6 +259,7 @@ namespace Journal
             if (eventCallback == null) return;
             uiElement.UnregisterCallback(eventCallback);
         }
+        
         private void ChangeEntry(Tab tab, JournalEntrySO entry)
         {
             var scrollView = tab.Q<ScrollView>("ScrollExpla");
@@ -280,7 +282,8 @@ namespace Journal
                     codeT.selection.isSelectable = true;
                     windowElement.AddToClassList("Window");
                     codeT.AddToClassList("code_text");
-                    //codeT.text = syntax.HighlightCode(text.text);
+                    //codeT.text = text.text;
+                    codeT.text = syntax.HighlightCode(text.text);
                     windowElement.Add(codeT);
                     scrollView.Add(windowElement);
 

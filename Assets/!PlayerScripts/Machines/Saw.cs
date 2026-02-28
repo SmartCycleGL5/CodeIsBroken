@@ -40,6 +40,7 @@ namespace CodeIsBroken
             sawBlade = referenceHolder.GetReference("sawBlade").transform;
             sawParticles = referenceHolder.GetReference("sawParticle").GetComponent<ParticleSystem>();
             Tick.OnTick += TakeItem;
+            Tick.OnEndingTick += Reset;
         }
     
         private void Reset()
@@ -142,6 +143,7 @@ namespace CodeIsBroken
         protected void OnDestroy()
         {
             Tick.OnTick -= TakeItem;
+            Tick.OnEndingTick -= Reset;
         }
     }
 }

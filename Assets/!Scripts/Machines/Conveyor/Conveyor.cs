@@ -19,6 +19,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
     
     private Material material;
     private Tween moveTween;
+    
+    
     public Product item { get; set; }
 
 

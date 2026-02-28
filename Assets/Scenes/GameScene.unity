@@ -910,7 +910,7 @@ MonoBehaviour:
     - rid: 4020645285667012680
       type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
       data:
-        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
     - rid: 4020645285667012681
       type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
       data:

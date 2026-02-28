@@ -57,6 +57,12 @@ namespace CodeIsBroken.Contract
                 return true;
             }
 
+            public void Reset()
+            {
+                amountLeft = amount;
+                satisfied = false;
+            }
+
             public TemplateContainer GetUI()
             {
                 TemplateContainer request = ContractManager.requestUI.Instantiate();
@@ -87,7 +93,7 @@ namespace CodeIsBroken.Contract
         public Request[] requests;
 
         public Action<Contract> onFinished;
-        public Action onProgress;
+        public Action onChanged;
 
         public int xpToGive
         {
@@ -109,7 +115,17 @@ namespace CodeIsBroken.Contract
         public Contract(Request[] requests)
         {
             companyName = ContractManager.GetCompanyName();
+            
             this.requests = requests;
+            
+            foreach (var request in this.requests)
+            {
+                Tick.OnEndingTick += () =>
+                {
+                    request.Reset();
+                    onChanged?.Invoke();
+                };
+            }
         }
 
         /// <summary>
@@ -123,7 +139,7 @@ namespace CodeIsBroken.Contract
 
 
             Request request = new Request(RequestedProduct, amount);
-            return New(new Request[] { request });
+            return New(new [] { request });
         }
         /// <summary>
         /// Creates a predetermined contract
@@ -150,7 +166,7 @@ namespace CodeIsBroken.Contract
                 if(request.SatisfiesRequest(product))
                 {
                     request.Progress();
-                    onProgress?.Invoke();
+                    onChanged?.Invoke();
 
                     if(allRequestsSatisfied())
                     {

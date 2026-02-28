@@ -146,7 +146,7 @@ namespace Journal
             tab.tabHeader.style.display = DisplayStyle.Flex;
             tab.Clear();
             TemplateContainer contractUI = contract.GetUI();
-            contract.onProgress += ProgressAmount;
+            contract.onChanged += ProgressAmount;
             contractUI.Children().First().style.width = StyleKeyword.Auto;
             contractUI.Children().First().style.height = StyleKeyword.Auto;
             contractUI.Q<Button>().RemoveFromHierarchy();

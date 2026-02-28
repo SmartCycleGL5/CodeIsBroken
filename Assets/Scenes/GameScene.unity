@@ -680,7 +680,7 @@ MonoBehaviour:
           - toRequest: 1
             amount: 20
             mods:
-            - rid: -2
+            - rid: 4020645285667012677
         - requests:
           - toRequest: 2
             amount: 30
@@ -693,18 +693,18 @@ MonoBehaviour:
           - toRequest: 0
             amount: 20
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012678
+            - rid: 4020645285667012679
         - requests:
-          - toRequest: 0
+          - toRequest: 1
             amount: 35
             mods:
-            - rid: -2
+            - rid: 4020645285667012680
         - requests:
-          - toRequest: 0
+          - toRequest: 2
             amount: 35
             mods:
-            - rid: -2
+            - rid: 4020645285667012681
     - Key: 5
       Value:
         additionalModifications: {x: 0, y: 2}
@@ -712,17 +712,18 @@ MonoBehaviour:
         - requests:
           - toRequest: 1
             amount: 30
-            mods: []
+            mods:
+            - rid: 4020645285667012685
           - toRequest: 2
             amount: 10
             mods:
-            - rid: -2
+            - rid: 4020645285667012682
         - requests:
           - toRequest: 0
             amount: 40
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012683
+            - rid: 4020645285667012684
           - toRequest: 1
             amount: 10
             mods: []
@@ -730,15 +731,15 @@ MonoBehaviour:
           - toRequest: 0
             amount: 10
             mods:
-            - rid: -2
+            - rid: 4020645285667012686
           - toRequest: 1
             amount: 10
             mods:
-            - rid: -2
+            - rid: 4020645285667012687
           - toRequest: 2
             amount: 10
             mods:
-            - rid: -2
+            - rid: 4020645285667012688
     - Key: 6
       Value:
         additionalModifications: {x: 0, y: 2}
@@ -755,37 +756,38 @@ MonoBehaviour:
           - toRequest: 0
             amount: 30
             mods:
-            - rid: -2
-          - toRequest: 1
+            - rid: 4020645285667012689
+          - toRequest: 2
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012690
     - Key: 7
       Value:
         additionalModifications: {x: 0, y: 2}
         firstContracts:
         - requests:
           - toRequest: 3
-            amount: 40
+            amount: 20
             mods: []
           - toRequest: 4
-            amount: 40
-            mods: []
+            amount: 20
+            mods:
+            - rid: 4020645285667012695
         - requests:
-          - toRequest: 1
+          - toRequest: 3
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012691
           - toRequest: 2
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012692
         - requests:
           - toRequest: 4
             amount: 60
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012693
+            - rid: 4020645285667012694
     - Key: 8
       Value:
         additionalModifications: {x: 1, y: 2}
@@ -794,31 +796,31 @@ MonoBehaviour:
           - toRequest: 3
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012696
           - toRequest: 4
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012697
         - requests:
           - toRequest: 2
             amount: 50
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012698
+            - rid: 4020645285667012699
           - toRequest: 3
             amount: 30
             mods:
-            - rid: -2
+            - rid: 4020645285667012700
         - requests:
           - toRequest: 0
             amount: 30
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012701
+            - rid: 4020645285667012702
           - toRequest: 4
             amount: 50
             mods:
-            - rid: -2
+            - rid: 4020645285667012703
     - Key: 9
       Value:
         additionalModifications: {x: 1, y: 2}
@@ -827,7 +829,7 @@ MonoBehaviour:
           - toRequest: 5
             amount: 100
             mods:
-            - rid: -2
+            - rid: 4020645285667012704
         - requests:
           - toRequest: 5
             amount: 200
@@ -836,8 +838,8 @@ MonoBehaviour:
           - toRequest: 5
             amount: 75
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012705
+            - rid: 4020645285667012706
     - Key: 10
       Value:
         additionalModifications: {x: 2, y: 2}
@@ -846,29 +848,33 @@ MonoBehaviour:
           - toRequest: 5
             amount: 100
             mods:
-            - rid: -2
+            - rid: 4020645285667012710
           - toRequest: 4
             amount: 100
             mods:
-            - rid: -2
+            - rid: 4020645285667012711
         - requests:
           - toRequest: 5
             amount: 200
             mods:
-            - rid: -2
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012707
+            - rid: 4020645285667012708
+            - rid: 4020645285667012709
         - requests:
           - toRequest: 3
             amount: 75
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012712
+            - rid: 4020645285667012713
           - toRequest: 5
             amount: 75
             mods:
-            - rid: -2
-            - rid: -2
+            - rid: 4020645285667012714
+            - rid: 4020645285667012715
+          - toRequest: 4
+            amount: 75
+            mods:
+            - rid: 4020645285667012716
   CompanyNames:
   - The generic Mall
   - Woodworkers co
@@ -889,8 +895,166 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 4020645285667012677
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012678
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012679
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012680
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012681
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012682
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012683
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012684
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012685
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012686
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012687
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012688
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012689
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012690
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012691
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012692
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012693
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012694
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012695
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012696
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012697
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012698
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012699
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012700
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012701
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012702
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012703
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012704
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012705
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012706
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012707
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012708
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012709
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012710
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0.99215686, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012711
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012712
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012713
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
+    - rid: 4020645285667012714
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
+    - rid: 4020645285667012715
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4020645285667012716
+      type: {class: Color, ns: CodeIsBroken.ProductSystem.Modifications, asm: CodeIsBroken}
+      data:
+        <color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &357034596
 MonoBehaviour:
   m_ObjectHideFlags: 0

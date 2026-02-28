@@ -12,7 +12,7 @@ namespace CodeIsBroken.Contract
     {
         public class Request
         {
-            public Product product;
+            public ProductSystem.Product product;
             public IModification[] modifications;
             public int amount;
             public int amountLeft { get; private set; }
@@ -21,7 +21,7 @@ namespace CodeIsBroken.Contract
             public Action onSatisfied;
             public int xp => Mathf.RoundToInt(((product.modifications.Count + 1) * 5) * (amount / 2));
 
-            public Request(Product product, int amount, IModification[] modifications = null)
+            public Request(ProductSystem.Product product, int amount, IModification[] modifications = null)
             {
                 this.product = product;
                 this.modifications = modifications;
@@ -37,7 +37,7 @@ namespace CodeIsBroken.Contract
                     onSatisfied?.Invoke();
                 }
             }
-            public bool SatisfiesRequest(Product product)
+            public bool SatisfiesRequest(ProductSystem.Product product)
             {
                 if(satisfied) return false;
                 if(!this.product.Equals(product)) return false;
@@ -134,7 +134,7 @@ namespace CodeIsBroken.Contract
         /// <returns>the contract</returns>
         public static Contract New()
         {
-            Product RequestedProduct = ProductManager.GetRandomProduct();
+            ProductSystem.Product RequestedProduct = ProductManager.GetRandomProduct();
             int amount = Mathf.RoundToInt(Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
@@ -159,7 +159,7 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public bool TryProgressContract(Product product)
+        public bool TryProgressContract(ProductSystem.Product product)
         {
             foreach (var request in requests)
             {

@@ -12,7 +12,7 @@ namespace CodeIsBroken.ProductSystem
         [Min(1)]
         public int lvlUnlock = 1;
 
-        public Products pruductType;
+        public CodeIsBroken.Product pruductType;
         [field: SerializeField, SerializeReference, SubclassSelector]public List<IModification> modifications { get; private set; } = new();
 
         public MeshRenderer artRenderer {  get; private set; }

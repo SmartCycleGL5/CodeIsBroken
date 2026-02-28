@@ -6,14 +6,16 @@ using UnityEngine;
 using DG.Tweening;
 using ScriptEditor.Console;
 using Console = CodeIsBroken.IDE.Console;
+using Material = CodeIsBroken.Material;
+using Product = CodeIsBroken.Product;
 using Random = UnityEngine.Random;
 
 [DefaultExecutionOrder(-100)]
 public class MaterialTubeSpawner : MonoBehaviour
 {
-    public Materials currentMaterial;
+    public Material currentMaterial;
     Transform spawnLocation;
-    Product materialToSpawn;
+    CodeIsBroken.ProductSystem.Product materialToSpawn;
     int spawnRate;
     int tickCount;
     private GameObject lid;
@@ -22,7 +24,7 @@ public class MaterialTubeSpawner : MonoBehaviour
 
     private void Reset()
     {
-        SetMaterial(Materials.wood);
+        SetMaterial(Material.wood);
         spawnRate = 0;
     }
 
@@ -39,7 +41,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid));
         sequence.Append(lid.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.4f).SetEase(Ease.OutBounce).SetDelay(0.2f));
 
-        ProductManager.foundProducts += () => { SetMaterial(Materials.wood); };
+        ProductManager.foundProducts += () => { SetMaterial(Material.wood); };
 
         Tick.OnStartingTick += Reset;
     }
@@ -50,10 +52,10 @@ public class MaterialTubeSpawner : MonoBehaviour
         this.spawnRate = delay;
 
     }
-    public void SetMaterial(Materials material)
+    public void SetMaterial(Material material)
     {
         currentMaterial = material;
-        materialToSpawn = ProductManager.GetProduct((Products)material);
+        materialToSpawn = ProductManager.GetProduct((Product)material);
     }
     
     // Not player controlled
@@ -84,7 +86,7 @@ public class MaterialTubeSpawner : MonoBehaviour
         Conveyor conveyor = GetComponent<Conveyor>();
         if(conveyor.item != null)return;
         Debug.Log("[MaterialTube] got material");
-        Product instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,0,0), conveyor.transform.rotation).GetComponent<Product>();
+        CodeIsBroken.ProductSystem.Product instObj = Instantiate(materialToSpawn.gameObject, conveyor.transform.position+new Vector3(0,0,0), conveyor.transform.rotation).GetComponent<CodeIsBroken.ProductSystem.Product>();
         instObj.gameObject.transform.Rotate(new Vector3(0, UnityEngine.Random.Range(0, 359), 0));
         conveyor.SetItem(instObj);
         lid.transform.DOLocalRotate(new Vector3(-130, 0, 0), 0.2f).OnComplete(CloseLid);

@@ -177,7 +177,7 @@ public class PersistentData<T>
     public T GetData()
     {
         Load(filePath);
-        return data;
+        return data;    
     }
     
     void Save()

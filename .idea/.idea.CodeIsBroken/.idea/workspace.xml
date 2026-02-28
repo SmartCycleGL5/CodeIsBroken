@@ -6,9 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Terminal/Terminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Script.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/MaterialTube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Machines/MaterialTube.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Product/Products.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Product/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!PlayerScripts/Product/Products.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!PlayerScripts/Product/Product.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/Contract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Contract/PredeterminedContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Contract/PredeterminedContract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Core/Tick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Core/Tick.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Data/PersistentData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Machines/MaterialTubeSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Product/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Product/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Product/ProductManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Product/ProductManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Products.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.Products.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +350,7 @@
       <workItem from="1771869809439" duration="3666000" />
       <workItem from="1771953016374" duration="11923000" />
       <workItem from="1771971757774" duration="187000" />
-      <workItem from="1772272550581" duration="2239000" />
+      <workItem from="1772272550581" duration="4045000" />
     </task>
     <servers />
   </component>

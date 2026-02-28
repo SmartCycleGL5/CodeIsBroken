@@ -16,7 +16,7 @@ namespace CodeIsBroken.ProductSystem
 
 
         [SerializeField, SerializedDictionary("Product", "Prefab"), ReadOnly]
-        private SerializedDictionary<Products, Product> Products;
+        private SerializedDictionary<CodeIsBroken.Product, Product> Products;
         public static Action foundProducts;
         
         void Awake()
@@ -39,7 +39,7 @@ namespace CodeIsBroken.ProductSystem
 
         public static Product GetRandomProduct()
         {
-            List<KeyValuePair<Products, Product>> listToChooseFrom = Instance.Products.ToList();
+            List<KeyValuePair<CodeIsBroken.Product, Product>> listToChooseFrom = Instance.Products.ToList();
 
             for (int i = listToChooseFrom.Count - 1; i >= 0; i--)
             {
@@ -53,7 +53,7 @@ namespace CodeIsBroken.ProductSystem
             return listToChooseFrom[Random.Range(0, listToChooseFrom.Count)].Value;
         }
 
-        public static Product GetProduct(Products toFind)
+        public static Product GetProduct(CodeIsBroken.Product toFind)
         {
             return Instance.Products[toFind];
         }

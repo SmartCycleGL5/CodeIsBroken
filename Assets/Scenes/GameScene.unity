@@ -658,11 +658,11 @@ MonoBehaviour:
         firstContracts:
         - requests:
           - toRequest: 0
-            amount: 10
+            amount: 15
             mods: []
         - requests:
           - toRequest: 1
-            amount: 15
+            amount: 10
             mods: []
         - requests:
           - toRequest: 2
@@ -673,7 +673,7 @@ MonoBehaviour:
         additionalModifications: {x: 0, y: 1}
         firstContracts:
         - requests:
-          - toRequest: 0
+          - toRequest: 1
             amount: 30
             mods: []
         - requests:

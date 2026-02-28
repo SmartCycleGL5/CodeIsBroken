@@ -32,9 +32,9 @@ namespace CodeIsBroken
         {
             materialTubeSpawner.SpawnDelay(delay);
         }
-        public void SetMaterial(Materials newMaterial)
+        public void SetMaterial(Material newMaterial)
         {
-            if (!Enum.IsDefined(typeof(Materials), newMaterial))
+            if (!Enum.IsDefined(typeof(Material), newMaterial))
             {
                 PlayerConsole.LogError("Invalid material type!", "MaterialTube");
                 return;
@@ -42,7 +42,7 @@ namespace CodeIsBroken
             materialTubeSpawner.SetMaterial(newMaterial);
         }
 
-        public Materials GetMaterial()
+        public Material GetMaterial()
         {
             return materialTubeSpawner.currentMaterial;
         }

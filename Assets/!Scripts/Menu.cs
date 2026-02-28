@@ -16,6 +16,8 @@ namespace CodeIsBroken
         private VisualElement menu;
         private VisualElement fade;
         
+        bool startingGame = false;
+        
         void Start()
         {
             root = GetComponent<UIDocument>().rootVisualElement;
@@ -29,7 +31,11 @@ namespace CodeIsBroken
 
         async void StartGame()
         {
+            if (startingGame) return;
+            startingGame = true;
             int cycles = 70;
+            
+            //root.Q<Button>("TitleButton").SetEnabled(false);
             
             for (int i = 0; i < cycles; i++)
             {
@@ -46,6 +52,7 @@ namespace CodeIsBroken
         
         void ExitGame()
         {
+            if (startingGame) return;
             Application.Quit();
         }
     }

@@ -24,7 +24,7 @@ namespace CodeIsBroken
             Programmable machine = GetComponent<Programmable>();
             machine.AddMethodsAsIntegrated(typeof(Assembler));
 
-            Tick.OnTick += TakeItem;
+            Tick.OnEarlyTick += TakeItem;
             Tick.OnEndingTick += Reset;
         }
     

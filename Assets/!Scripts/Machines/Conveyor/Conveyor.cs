@@ -19,6 +19,8 @@ public class Conveyor : MonoBehaviour, IItemContainer
     
     private Material material;
     private Tween moveTween;
+
+    public bool justRecieved;
     public Product item { get; set; }
 
 
@@ -47,7 +49,7 @@ public class Conveyor : MonoBehaviour, IItemContainer
             ConveyorManager.instance.UpdateCells(pos.position);
         }
         UpdateConveyor();
-        Tick.OnLateTick += MoveOnTick;
+        Tick.OnTick += MoveOnTick;
         if (renderer != null)
         {
             
@@ -92,8 +94,15 @@ public class Conveyor : MonoBehaviour, IItemContainer
         }
     }
 
+    public void RecievedFromMachine()
+    {
+        justRecieved = false;
+        Debug.Log("RecievedFromMachine");
+    }
+
     public void SendItem()
     {
+        
         if(recieveFrom != null)
         {
             foreach (var conveyor in recieveFrom)
@@ -101,6 +110,11 @@ public class Conveyor : MonoBehaviour, IItemContainer
                 if (conveyor == null) return;
                 if (item == null)
                 {
+                    if (conveyor.justRecieved)
+                    {
+                        conveyor.justRecieved = false;
+                        return;
+                    }
                     SetItem(conveyor.item);
                     conveyor.RemoveItem();
                 }

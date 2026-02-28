@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Rod
   m_EditorClassIdentifier: CodeIsBroken::CraftingRecipie
   materials:
-  - {fileID: 1137379969359589219, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
-  itemToSpawn: {fileID: 1137379969359589219, guid: 922226ce19d5b504389c9efc1c22212f, type: 3}
+  - {fileID: 8628172417605473475, guid: 834511c54a71a8a439d35cd9610b2da1, type: 3}
+  itemToSpawn: {fileID: -6252605136067727408, guid: 922226ce19d5b504389c9efc1c22212f, type: 3}
   tickCraftingTime: 0

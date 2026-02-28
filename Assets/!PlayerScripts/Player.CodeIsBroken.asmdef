@@ -2,8 +2,8 @@
     "name": "Player.CodeIsBroken",
     "rootNamespace": "CodeIsBroken",
     "references": [
-        "GUID:91519028d427e8fb180bff45af5a1a05",
-        "GUID:95c335a42a18f07049cf7a4794685544"
+        "Player.CodeIsBroken.Products",
+        "CodeIsBroken"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

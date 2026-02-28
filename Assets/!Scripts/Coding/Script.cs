@@ -105,7 +105,7 @@ public class Script
     
     public bool Compile(ref List<Error> errors)
     {
-        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode.data, out CompileResult compileResult, out CodeSecurityReport report);
+        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode.GetData(), out CompileResult compileResult, out CodeSecurityReport report);
 
         if (proxy != null) proxy.Dispose();
 

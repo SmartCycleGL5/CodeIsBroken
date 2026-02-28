@@ -116,6 +116,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - ConceptEntries
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad68d5d6be684d6419f94260d592b2fb
+    m_Address: ScriptEditorUI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b483b3fe419abd577832f9d19576fc9e
     m_Address: Inspector
     m_ReadOnly: 0

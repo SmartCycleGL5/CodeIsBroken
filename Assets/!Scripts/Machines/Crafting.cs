@@ -30,7 +30,7 @@ public class Crafting : MonoBehaviour
 
             for (int i = 0; i < recipeItems.Count; i++)
             {
-                if (recipeItems[i] != items[i])
+                if (!recipeItems[i].Equals( items[i]))
                 {
                     Debug.Log("MAterial not equal");
                     return null;

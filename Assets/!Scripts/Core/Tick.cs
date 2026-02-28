@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class Tick : MonoBehaviour
 {
     public static Tick Instance { get; private set; }
-    [SerializeField] private float tickTime = 0.5f;
+    [SerializeField] public float tickTime = 0.5f;
     public static float tickLength => Instance.tickTime;
     public static int tickCount;
 

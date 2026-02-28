@@ -6,7 +6,7 @@ namespace CodeIsBroken.UI
     public class Inspector : MonoBehaviour
     {
         public static Inspector activeInspector { get; private set; }
-        public VisualElement root { get; set; }
+        public VisualElement root { get; private set; }
         public Programmable programmable;
 
         public bool focused => root.Contains((VisualElement)root.focusController.focusedElement);
@@ -56,7 +56,17 @@ namespace CodeIsBroken.UI
             foreach (var script in programmable.attachedScripts)
             {
                 VisualElement scriptUI = InspectorManager.ScriptUI.Instantiate();
-                scriptUI.Q<Button>("Script").text = script.name;
+                
+                Button scriptButton = scriptUI.Q<Button>("Script");
+                scriptButton.text = script.name;
+                
+                scriptButton.clicked += () =>
+                {
+                    if(inspectorElement != null) inspectorElement.Close();
+
+                    inspectorElement = ScriptEditor.New(this, script);
+                };
+                
                 scriptHolder.Add(scriptUI);
                 
                 scriptUI.Q<Button>("Edit").clicked += script.Edit;
@@ -67,12 +77,13 @@ namespace CodeIsBroken.UI
         {
             root.Q("Holder").Focus();
         }
+        
 
         private void OpenFileBrowser()
         {
             if(inspectorElement != null) inspectorElement.Close();
             
-            inspectorElement = FileBrowser.NewFilebrowser(this);
+            inspectorElement = FileBrowser.New(this);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace CodeIsBroken.ProductSystem
         [Min(1)]
         public int lvlUnlock = 1;
 
-        public Products pruductType;
-        public List<IModification> modifications { get; private set; } = new();
+        public CodeIsBroken.Product pruductType;
+        [field: SerializeField, SerializeReference, SubclassSelector]public List<IModification> modifications { get; private set; } = new();
 
         public MeshRenderer artRenderer {  get; private set; }
         
@@ -21,6 +21,15 @@ namespace CodeIsBroken.ProductSystem
         {
             artRenderer = GetComponentInChildren<MeshRenderer>();
             GameManager.onStop += OnStop;
+
+            Tick.OnLateTick += () =>
+            {
+                if(modifications.Count <= 0) return;
+                foreach (var mod in modifications)
+                {
+                    mod.Apply(this);
+                }
+            };
         }
         private void OnDestroy()
         {
@@ -31,16 +40,20 @@ namespace CodeIsBroken.ProductSystem
         {
             Destroy(gameObject);
         }
-
-        void ApplyModifications(IModification mod)
-        {
-            mod.Apply(this);
-        }
-
+        
         public void Modify(IModification mod)
         {
             modifications.Add(mod);
-            mod.Apply(this);
+        }
+
+        public bool Equals(Product other)
+        {
+            if (pruductType != other.pruductType)
+            {
+                return false;
+            }
+            
+            return true;
         }
     }
 }

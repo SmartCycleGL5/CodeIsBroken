@@ -39,10 +39,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
   - {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
   - {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-  - {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
   - {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-  - {fileID: 11400000, guid: 9ea5565dd50d2c798861fa00a2353205, type: 2}
-  - {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
+  - {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
   <LogLevel>k__BackingField: 2
   <CompilerFlags>k__BackingField:
     <AllowUnsafe>k__BackingField: 0
@@ -1845,25 +1843,17 @@ MonoBehaviour:
         Allowed: 0
       - Name: CodeIsBroken.ProductSystem.Modifications
         TypeRestrictions:
-        - Name: Assembled
-          Allowed: 0
-        - Name: Color
-          Allowed: 0
-        - Name: Cut
-          Allowed: 0
-        - Name: IAdditionalModification
-          Allowed: 0
         - Name: IModification
           Allowed: 0
-        - Name: Melted
+        - Name: Color
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions:
       - Name: CraftingRecipie
         Allowed: 0
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 7d83ced0674a47c4dbec53a822a5d199, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134106364425307304
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
+      <LastWriteTimeUTC>k__BackingField: 134164276621388803
     - Name: Player.CodeIsBroken
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1872,17 +1862,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: Console
           Allowed: 0
-        - Name: Random
-          Allowed: 0
-        Allowed: 0
-      RootTypeRestrictions: []
-      Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134106365418477959
-    - Name: Player.CodeIsBroken.Machines
-      NamedTypeRestrictions:
-      - Name: CodeIsBroken
-        TypeRestrictions:
         - Name: Assembler
           Allowed: 0
         - Name: Crane
@@ -1897,39 +1876,76 @@ MonoBehaviour:
           Allowed: 0
         - Name: Saw
           Allowed: 0
+        - Name: Random
+          Allowed: 0
+        - Name: Time
+          Allowed: 0
         Allowed: 0
       RootTypeRestrictions:
       - Name: Machine
         Allowed: 0
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3466cea18dd7538808ef4d9add868335, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134106365890064668
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134167562441912704
+    - Name: Player.CodeIsBroken.Machines
+      NamedTypeRestrictions:
+      - Name: CodeIsBroken
+        TypeRestrictions:
+        - Name: Color
+          Allowed: 0
+        - Name: Console
+          Allowed: 0
+        - Name: Assembler
+          Allowed: 0
+        - Name: Crane
+          Allowed: 0
+        - Name: Furnace
+          Allowed: 0
+        - Name: Laser
+          Allowed: 0
+        - Name: MaterialTube
+          Allowed: 0
+        - Name: Painter
+          Allowed: 0
+        - Name: Saw
+          Allowed: 0
+        - Name: Random
+          Allowed: 0
+        - Name: Time
+          Allowed: 0
+        Allowed: 0
+      RootTypeRestrictions:
+      - Name: Machine
+        Allowed: 0
+      Allowed: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134167562441912704
     - Name: Player.CodeIsBroken.Products
       NamedTypeRestrictions:
       - Name: CodeIsBroken
         TypeRestrictions:
-        - Name: Materials
+        - Name: Product
           Allowed: 0
-        - Name: Products
+        - Name: Material
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
-      <ReferenceAssemblyAsset>k__BackingField: {fileID: 0}
-      <LastWriteTimeUTC>k__BackingField: 0
+      <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
+      <LastWriteTimeUTC>k__BackingField: 134167506383318946
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo
         TypeRestrictions:
-        - Name: MazeCrawler
-          Allowed: 0
         - Name: MazeDirection
+          Allowed: 0
+        - Name: MazeCrawler
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: fe7e3a70237a9e54a8cda05078348ee5, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674997007974
+      <LastWriteTimeUTC>k__BackingField: 134132839343920418
     - Name: System
       NamedTypeRestrictions:
       - Name: Microsoft.CSharp
@@ -4690,13 +4706,13 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: Unity.AI.Navigation
         TypeRestrictions:
-        - Name: CollectObjects
-          Allowed: 0
         - Name: NavMeshLink
           Allowed: 0
         - Name: NavMeshModifier
           Allowed: 0
         - Name: NavMeshModifierVolume
+          Allowed: 0
+        - Name: CollectObjects
           Allowed: 0
         - Name: NavMeshSurface
           Allowed: 0
@@ -4704,11 +4720,17 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1d1511a5d70cf9f4991195fe70812cf3, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674997057537
+      <LastWriteTimeUTC>k__BackingField: 134132839344162037
     - Name: Unity.Burst
       NamedTypeRestrictions:
       - Name: Unity.Burst
         TypeRestrictions:
+        - Name: OptimizeFor
+          Allowed: 0
+        - Name: FloatMode
+          Allowed: 0
+        - Name: FloatPrecision
+          Allowed: 0
         - Name: BurstCompileAttribute
           Allowed: 0
         - Name: BurstCompiler
@@ -4719,34 +4741,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: BurstRuntime
           Allowed: 0
-        - Name: FloatMode
-          Allowed: 0
-        - Name: FloatPrecision
+        - Name: IFunctionPointer
           Allowed: 0
         - Name: FunctionPointer`1
           Allowed: 0
-        - Name: IFunctionPointer
-          Allowed: 0
         - Name: NoAliasAttribute
           Allowed: 0
-        - Name: OptimizeFor
-          Allowed: 0
         - Name: SharedStatic`1
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Burst.CompilerServices
-        TypeRestrictions:
-        - Name: Aliasing
-          Allowed: 0
-        - Name: AssumeRangeAttribute
-          Allowed: 0
-        - Name: Constant
-          Allowed: 0
-        - Name: Hint
-          Allowed: 0
-        - Name: IgnoreWarningAttribute
-          Allowed: 0
-        - Name: SkipLocalsInitAttribute
           Allowed: 0
         Allowed: 0
       - Name: Unity.Burst.Intrinsics
@@ -4764,29 +4765,63 @@ MonoBehaviour:
         - Name: X86
           Allowed: 0
         Allowed: 0
+      - Name: Unity.Burst.CompilerServices
+        TypeRestrictions:
+        - Name: Aliasing
+          Allowed: 0
+        - Name: AssumeRangeAttribute
+          Allowed: 0
+        - Name: Constant
+          Allowed: 0
+        - Name: Hint
+          Allowed: 0
+        - Name: IgnoreWarningAttribute
+          Allowed: 0
+        - Name: SkipLocalsInitAttribute
+          Allowed: 0
+        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3d97c7ea051395449a0ce7e92ade5169, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674999550426
+      <LastWriteTimeUTC>k__BackingField: 134132839344162795
     - Name: Unity.Collections
       NamedTypeRestrictions:
+      - Name: Unity.Jobs
+        TypeRestrictions:
+        - Name: EarlyInitHelpers
+          Allowed: 0
+        - Name: JobParallelIndexListExtensions
+          Allowed: 0
+        - Name: IJobParallelForFilter
+          Allowed: 0
+        - Name: IJobFilter
+          Allowed: 0
+        - Name: IJobFilterExtensions
+          Allowed: 0
+        - Name: IJobParallelForBatch
+          Allowed: 0
+        - Name: IJobParallelForBatchExtensions
+          Allowed: 0
+        - Name: IJobParallelForDefer
+          Allowed: 0
+        - Name: IJobParallelForDeferExtensions
+          Allowed: 0
+        - Name: RegisterGenericJobTypeAttribute
+          Allowed: 0
+        Allowed: 0
       - Name: Unity.Collections
         TypeRestrictions:
-        - Name: AllocatorHelper`1
-          Allowed: 0
         - Name: AllocatorManager
+          Allowed: 0
+        - Name: AllocatorHelper`1
           Allowed: 0
         - Name: BitField32
           Allowed: 0
         - Name: BitField64
           Allowed: 0
-        - Name: BurstCompatibleAttribute
+        - Name: INativeDisposable
           Allowed: 0
         - Name: CollectionHelper
-          Allowed: 0
-        - Name: ConversionError
-          Allowed: 0
-        - Name: CopyError
           Allowed: 0
         - Name: DataStreamReader
           Allowed: 0
@@ -4794,71 +4829,61 @@ MonoBehaviour:
           Allowed: 0
         - Name: DoubleRewindableAllocators
           Allowed: 0
-        - Name: ExcludeFromBurstCompatTestingAttribute
-          Allowed: 0
-        - Name: FixedBytes126
-          Allowed: 0
-        - Name: FixedBytes16
-          Allowed: 0
-        - Name: FixedBytes30
-          Allowed: 0
-        - Name: FixedBytes4094
-          Allowed: 0
-        - Name: FixedBytes510
-          Allowed: 0
-        - Name: FixedBytes62
-          Allowed: 0
-        - Name: FixedList128Bytes`1
-          Allowed: 0
-        - Name: FixedList128BytesExtensions
-          Allowed: 0
         - Name: FixedList32Bytes`1
           Allowed: 0
         - Name: FixedList32BytesExtensions
-          Allowed: 0
-        - Name: FixedList4096Bytes`1
-          Allowed: 0
-        - Name: FixedList4096BytesExtensions
-          Allowed: 0
-        - Name: FixedList512Bytes`1
-          Allowed: 0
-        - Name: FixedList512BytesExtensions
           Allowed: 0
         - Name: FixedList64Bytes`1
           Allowed: 0
         - Name: FixedList64BytesExtensions
           Allowed: 0
+        - Name: FixedList128Bytes`1
+          Allowed: 0
+        - Name: FixedList128BytesExtensions
+          Allowed: 0
+        - Name: FixedList512Bytes`1
+          Allowed: 0
+        - Name: FixedList512BytesExtensions
+          Allowed: 0
+        - Name: FixedList4096Bytes`1
+          Allowed: 0
+        - Name: FixedList4096BytesExtensions
+          Allowed: 0
         - Name: FixedListExtensions
           Allowed: 0
-        - Name: FixedString
+        - Name: FixedBytes16
           Allowed: 0
-        - Name: FixedString128Bytes
+        - Name: FixedBytes30
           Allowed: 0
         - Name: FixedString32Bytes
           Allowed: 0
-        - Name: FixedString4096Bytes
-          Allowed: 0
-        - Name: FixedString512Bytes
+        - Name: FixedBytes62
           Allowed: 0
         - Name: FixedString64Bytes
           Allowed: 0
+        - Name: FixedBytes126
+          Allowed: 0
+        - Name: FixedString128Bytes
+          Allowed: 0
+        - Name: FixedBytes510
+          Allowed: 0
+        - Name: FixedString512Bytes
+          Allowed: 0
+        - Name: FixedBytes4094
+          Allowed: 0
+        - Name: FixedString4096Bytes
+          Allowed: 0
         - Name: FixedStringMethods
           Allowed: 0
-        - Name: FormatError
-          Allowed: 0
-        - Name: GenerateTestsForBurstCompatibilityAttribute
-          Allowed: 0
-        - Name: HashSetExtensions
-          Allowed: 0
-        - Name: IIndexable`1
-          Allowed: 0
-        - Name: INativeDisposable
-          Allowed: 0
-        - Name: INativeList`1
+        - Name: FixedString
           Allowed: 0
         - Name: IUTF8Bytes
           Allowed: 0
-        - Name: KVPair`2
+        - Name: BurstCompatibleAttribute
+          Allowed: 0
+        - Name: GenerateTestsForBurstCompatibilityAttribute
+          Allowed: 0
+        - Name: ExcludeFromBurstCompatTestingAttribute
           Allowed: 0
         - Name: ListExtensions
           Allowed: 0
@@ -4866,15 +4891,21 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeBitArray
           Allowed: 0
+        - Name: KVPair`2
+          Allowed: 0
         - Name: NativeHashMap`2
           Allowed: 0
         - Name: NativeHashSet`1
           Allowed: 0
-        - Name: NativeKeyValueArrays`2
+        - Name: IIndexable`1
+          Allowed: 0
+        - Name: INativeList`1
           Allowed: 0
         - Name: NativeList`1
           Allowed: 0
         - Name: NativeListExtensions
+          Allowed: 0
+        - Name: NativeKeyValueArrays`2
           Allowed: 0
         - Name: NativeParallelHashMap`2
           Allowed: 0
@@ -4882,11 +4913,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeParallelHashSet`1
           Allowed: 0
+        - Name: HashSetExtensions
+          Allowed: 0
+        - Name: NativeParallelMultiHashMapIterator`1
+          Allowed: 0
         - Name: NativeParallelMultiHashMap`2
           Allowed: 0
         - Name: NativeParallelMultiHashMapExtensions
-          Allowed: 0
-        - Name: NativeParallelMultiHashMapIterator`1
           Allowed: 0
         - Name: NativeQueue`1
           Allowed: 0
@@ -4896,36 +4929,43 @@ MonoBehaviour:
           Allowed: 0
         - Name: NativeSortExtension
           Allowed: 0
-        - Name: NativeStream
-          Allowed: 0
-        - Name: NativeText
-          Allowed: 0
-        - Name: ParseError
-          Allowed: 0
-        - Name: RewindableAllocator
-          Allowed: 0
         - Name: SortJob`2
           Allowed: 0
         - Name: SortJobDefer`2
           Allowed: 0
+        - Name: NativeStream
+          Allowed: 0
+        - Name: NativeText
+          Allowed: 0
+        - Name: RewindableAllocator
+          Allowed: 0
         - Name: StreamCompressionModel
+          Allowed: 0
+        - Name: UTF8ArrayUnsafeUtility
+          Allowed: 0
+        - Name: FormatError
+          Allowed: 0
+        - Name: ParseError
+          Allowed: 0
+        - Name: CopyError
+          Allowed: 0
+        - Name: ConversionError
           Allowed: 0
         - Name: Unicode
           Allowed: 0
         - Name: UnsafeQueue`1
           Allowed: 0
-        - Name: UTF8ArrayUnsafeUtility
-          Allowed: 0
         - Name: xxHash3
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.Collections.NotBurstCompatible
+        TypeRestrictions:
+        - Name: Extensions
           Allowed: 0
         Allowed: 0
       - Name: Unity.Collections.LowLevel.Unsafe
         TypeRestrictions:
         - Name: DataStreamExtensions
-          Allowed: 0
-        - Name: HashSetExtensions
-          Allowed: 0
-        - Name: KeyValue`2
           Allowed: 0
         - Name: NativeBitArrayUnsafeUtility
           Allowed: 0
@@ -4949,15 +4989,21 @@ MonoBehaviour:
           Allowed: 0
         - Name: UnsafeListExtensions
           Allowed: 0
-        - Name: UnsafeParallelHashMap`2
+        - Name: UnsafePtrList`1
           Allowed: 0
         - Name: UnsafeParallelHashMapBucketData
           Allowed: 0
+        - Name: KeyValue`2
+          Allowed: 0
+        - Name: UnsafeParallelHashMap`2
+          Allowed: 0
+        - Name: UntypedUnsafeParallelHashMap
+          Allowed: 0
         - Name: UnsafeParallelHashSet`1
           Allowed: 0
-        - Name: UnsafeParallelMultiHashMap`2
+        - Name: HashSetExtensions
           Allowed: 0
-        - Name: UnsafePtrList`1
+        - Name: UnsafeParallelMultiHashMap`2
           Allowed: 0
         - Name: UnsafeRingQueue`1
           Allowed: 0
@@ -4969,109 +5015,68 @@ MonoBehaviour:
           Allowed: 0
         - Name: UnsafeUtilityExtensions
           Allowed: 0
-        - Name: UntypedUnsafeParallelHashMap
-          Allowed: 0
         Allowed: 0
       - Name: Unity.Collections.LowLevel.Unsafe.NotBurstCompatible
         TypeRestrictions:
         - Name: Extensions
           Allowed: 0
         Allowed: 0
-      - Name: Unity.Collections.NotBurstCompatible
-        TypeRestrictions:
-        - Name: Extensions
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.Jobs
-        TypeRestrictions:
-        - Name: EarlyInitHelpers
-          Allowed: 0
-        - Name: IJobFilter
-          Allowed: 0
-        - Name: IJobFilterExtensions
-          Allowed: 0
-        - Name: IJobParallelForBatch
-          Allowed: 0
-        - Name: IJobParallelForBatchExtensions
-          Allowed: 0
-        - Name: IJobParallelForDefer
-          Allowed: 0
-        - Name: IJobParallelForDeferExtensions
-          Allowed: 0
-        - Name: IJobParallelForFilter
-          Allowed: 0
-        - Name: JobParallelIndexListExtensions
-          Allowed: 0
-        - Name: RegisterGenericJobTypeAttribute
-          Allowed: 0
-        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: af6cdaac4795dea48ae3a2dabd9b20aa, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105675000674900
+      <LastWriteTimeUTC>k__BackingField: 134132839346602987
     - Name: Unity.InputSystem
       NamedTypeRestrictions:
-      - Name: Unity.XR.GoogleVr
-        TypeRestrictions:
-        - Name: DaydreamController
-          Allowed: 0
-        - Name: DaydreamHMD
-          Allowed: 0
-        Allowed: 0
-      - Name: Unity.XR.Oculus.Input
-        TypeRestrictions:
-        - Name: GearVRTrackedController
-          Allowed: 0
-        - Name: OculusHMD
-          Allowed: 0
-        - Name: OculusHMDExtended
-          Allowed: 0
-        - Name: OculusRemote
-          Allowed: 0
-        - Name: OculusTouchController
-          Allowed: 0
-        - Name: OculusTrackingReference
-          Allowed: 0
-        Allowed: 0
       - Name: Unity.XR.OpenVR
         TypeRestrictions:
-        - Name: HandedViveTracker
+        - Name: OpenVRHMD
           Allowed: 0
         - Name: OpenVRControllerWMR
           Allowed: 0
-        - Name: OpenVRHMD
-          Allowed: 0
-        - Name: OpenVROculusTouchController
+        - Name: ViveWand
           Allowed: 0
         - Name: ViveLighthouse
           Allowed: 0
         - Name: ViveTracker
           Allowed: 0
-        - Name: ViveWand
+        - Name: HandedViveTracker
+          Allowed: 0
+        - Name: OpenVROculusTouchController
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.XR.Oculus.Input
+        TypeRestrictions:
+        - Name: OculusHMD
+          Allowed: 0
+        - Name: OculusTouchController
+          Allowed: 0
+        - Name: OculusTrackingReference
+          Allowed: 0
+        - Name: OculusRemote
+          Allowed: 0
+        - Name: OculusHMDExtended
+          Allowed: 0
+        - Name: GearVRTrackedController
+          Allowed: 0
+        Allowed: 0
+      - Name: Unity.XR.GoogleVr
+        TypeRestrictions:
+        - Name: DaydreamHMD
+          Allowed: 0
+        - Name: DaydreamController
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.XR.WindowsMR.Input
+        TypeRestrictions:
+        - Name: WMRHMD
+          Allowed: 0
+        - Name: HololensHand
+          Allowed: 0
+        - Name: WMRSpatialController
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem
         TypeRestrictions:
-        - Name: Accelerometer
-          Allowed: 0
-        - Name: AmbientTemperatureSensor
-          Allowed: 0
-        - Name: AttitudeSensor
-          Allowed: 0
-        - Name: CommonUsages
-          Allowed: 0
-        - Name: DefaultInputActions
-          Allowed: 0
-        - Name: Gamepad
-          Allowed: 0
-        - Name: GravitySensor
-          Allowed: 0
-        - Name: Gyroscope
-          Allowed: 0
-        - Name: HingeAngle
-          Allowed: 0
-        - Name: HumiditySensor
-          Allowed: 0
         - Name: IInputActionCollection
           Allowed: 0
         - Name: IInputActionCollection2
@@ -5088,11 +5093,11 @@ MonoBehaviour:
           Allowed: 0
         - Name: InputActionMap
           Allowed: 0
+        - Name: InputActionRebindingExtensions
+          Allowed: 0
         - Name: InputActionPhase
           Allowed: 0
         - Name: InputActionProperty
-          Allowed: 0
-        - Name: InputActionRebindingExtensions
           Allowed: 0
         - Name: InputActionReference
           Allowed: 0
@@ -5108,6 +5113,14 @@ MonoBehaviour:
           Allowed: 0
         - Name: InputBindingCompositeContext
           Allowed: 0
+        - Name: InputControlScheme
+          Allowed: 0
+        - Name: InputInteractionContext
+          Allowed: 0
+        - Name: InputSystem
+          Allowed: 0
+        - Name: CommonUsages
+          Allowed: 0
         - Name: InputControl
           Allowed: 0
         - Name: InputControl`1
@@ -5120,27 +5133,15 @@ MonoBehaviour:
           Allowed: 0
         - Name: InputControlPath
           Allowed: 0
-        - Name: InputControlScheme
-          Allowed: 0
-        - Name: InputDevice
-          Allowed: 0
-        - Name: InputDeviceChange
-          Allowed: 0
-        - Name: InputExtensions
-          Allowed: 0
-        - Name: InputInteractionContext
-          Allowed: 0
         - Name: InputProcessor
           Allowed: 0
         - Name: InputProcessor`1
           Allowed: 0
-        - Name: InputRemoting
+        - Name: Gamepad
           Allowed: 0
-        - Name: InputSettings
+        - Name: InputDevice
           Allowed: 0
-        - Name: InputSystem
-          Allowed: 0
-        - Name: InputValue
+        - Name: InputDeviceChange
           Allowed: 0
         - Name: Joystick
           Allowed: 0
@@ -5148,17 +5149,57 @@ MonoBehaviour:
           Allowed: 0
         - Name: Keyboard
           Allowed: 0
-        - Name: LightSensor
+        - Name: Mouse
+          Allowed: 0
+        - Name: PenButton
+          Allowed: 0
+        - Name: Pen
+          Allowed: 0
+        - Name: Pointer
+          Allowed: 0
+        - Name: InputRemoting
+          Allowed: 0
+        - Name: Sensor
+          Allowed: 0
+        - Name: Accelerometer
+          Allowed: 0
+        - Name: Gyroscope
+          Allowed: 0
+        - Name: GravitySensor
+          Allowed: 0
+        - Name: AttitudeSensor
           Allowed: 0
         - Name: LinearAccelerationSensor
           Allowed: 0
         - Name: MagneticFieldSensor
           Allowed: 0
-        - Name: Mouse
+        - Name: LightSensor
           Allowed: 0
-        - Name: Pen
+        - Name: PressureSensor
           Allowed: 0
-        - Name: PenButton
+        - Name: ProximitySensor
+          Allowed: 0
+        - Name: HumiditySensor
+          Allowed: 0
+        - Name: AmbientTemperatureSensor
+          Allowed: 0
+        - Name: StepCounter
+          Allowed: 0
+        - Name: HingeAngle
+          Allowed: 0
+        - Name: TouchPhase
+          Allowed: 0
+        - Name: Touchscreen
+          Allowed: 0
+        - Name: TrackedDevice
+          Allowed: 0
+        - Name: InputExtensions
+          Allowed: 0
+        - Name: InputSettings
+          Allowed: 0
+        - Name: DefaultInputActions
+          Allowed: 0
+        - Name: InputValue
           Allowed: 0
         - Name: PlayerInput
           Allowed: 0
@@ -5168,64 +5209,217 @@ MonoBehaviour:
           Allowed: 0
         - Name: PlayerNotifications
           Allowed: 0
-        - Name: Pointer
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.iOS
+        TypeRestrictions:
+        - Name: iOSGameController
           Allowed: 0
-        - Name: PressureSensor
+        - Name: XboxOneGampadiOS
           Allowed: 0
-        - Name: ProximitySensor
+        - Name: DualShock4GampadiOS
           Allowed: 0
-        - Name: Sensor
+        - Name: DualSenseGampadiOS
           Allowed: 0
-        - Name: StepCounter
+        - Name: PrivacyDataUsage
           Allowed: 0
-        - Name: TouchPhase
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.iOS.LowLevel
+        TypeRestrictions:
+        - Name: MotionAuthorizationStatus
           Allowed: 0
-        - Name: Touchscreen
+        - Name: iOSStepCounter
           Allowed: 0
-        - Name: TrackedDevice
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.XR
+        TypeRestrictions:
+        - Name: PoseState
+          Allowed: 0
+        - Name: PoseControl
+          Allowed: 0
+        - Name: XRHMD
+          Allowed: 0
+        - Name: XRController
+          Allowed: 0
+        - Name: XRControllerWithRumble
+          Allowed: 0
+        - Name: TrackedPoseDriver
+          Allowed: 0
+        - Name: XRUtilities
+          Allowed: 0
+        - Name: FeatureType
+          Allowed: 0
+        - Name: UsageHint
+          Allowed: 0
+        - Name: XRFeatureDescriptor
+          Allowed: 0
+        - Name: XRDeviceDescriptor
+          Allowed: 0
+        - Name: Bone
+          Allowed: 0
+        - Name: Eyes
+          Allowed: 0
+        - Name: BoneControl
+          Allowed: 0
+        - Name: EyesControl
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.XR.Haptics
+        TypeRestrictions:
+        - Name: BufferedRumble
+          Allowed: 0
+        - Name: HapticState
+          Allowed: 0
+        - Name: GetCurrentHapticStateCommand
+          Allowed: 0
+        - Name: HapticCapabilities
+          Allowed: 0
+        - Name: GetHapticCapabilitiesCommand
+          Allowed: 0
+        - Name: SendBufferedHapticCommand
+          Allowed: 0
+        - Name: SendHapticImpulseCommand
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.XInput
+        TypeRestrictions:
+        - Name: IXboxOneRumble
+          Allowed: 0
+        - Name: XInputController
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.WebGL
+        TypeRestrictions:
+        - Name: WebGLGamepad
+          Allowed: 0
+        - Name: WebGLJoystick
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.Users
+        TypeRestrictions:
+        - Name: InputUser
+          Allowed: 0
+        - Name: InputUserAccountHandle
+          Allowed: 0
+        - Name: InputUserChange
+          Allowed: 0
+        - Name: InputUserPairingOptions
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.UI
+        TypeRestrictions:
+        - Name: ExtendedPointerEventData
+          Allowed: 0
+        - Name: UIPointerType
+          Allowed: 0
+        - Name: UIPointerBehavior
+          Allowed: 0
+        - Name: InputSystemUIInputModule
+          Allowed: 0
+        - Name: MultiplayerEventSystem
+          Allowed: 0
+        - Name: TrackedDeviceRaycaster
+          Allowed: 0
+        - Name: VirtualMouseInput
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.Switch
+        TypeRestrictions:
+        - Name: SwitchProControllerHID
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.OnScreen
+        TypeRestrictions:
+        - Name: OnScreenButton
+          Allowed: 0
+        - Name: OnScreenControl
+          Allowed: 0
+        - Name: OnScreenStick
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.OSX
+        TypeRestrictions:
+        - Name: NimbusGamepadHid
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.HID
+        TypeRestrictions:
+        - Name: HID
+          Allowed: 0
+        - Name: HIDSupport
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.EnhancedTouch
+        TypeRestrictions:
+        - Name: EnhancedTouchSupport
+          Allowed: 0
+        - Name: Finger
+          Allowed: 0
+        - Name: Touch
+          Allowed: 0
+        - Name: TouchHistory
+          Allowed: 0
+        - Name: TouchSimulation
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.DualShock
+        TypeRestrictions:
+        - Name: DualShockGamepad
+          Allowed: 0
+        - Name: DualSenseGamepadHID
+          Allowed: 0
+        - Name: DualShock4GamepadHID
+          Allowed: 0
+        - Name: DualShock3GamepadHID
+          Allowed: 0
+        - Name: IDualShockHaptics
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.DualShock.LowLevel
+        TypeRestrictions:
+        - Name: DualSenseHIDInputReport
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem.Android
         TypeRestrictions:
-        - Name: AndroidAccelerometer
-          Allowed: 0
-        - Name: AndroidAmbientTemperature
-          Allowed: 0
         - Name: AndroidGamepad
           Allowed: 0
         - Name: AndroidGamepadWithDpadAxes
           Allowed: 0
         - Name: AndroidGamepadWithDpadButtons
           Allowed: 0
-        - Name: AndroidGameRotationVector
+        - Name: AndroidJoystick
           Allowed: 0
-        - Name: AndroidGravitySensor
+        - Name: DualShock4GamepadAndroid
+          Allowed: 0
+        - Name: XboxOneGamepadAndroid
+          Allowed: 0
+        - Name: AndroidAccelerometer
+          Allowed: 0
+        - Name: AndroidMagneticFieldSensor
           Allowed: 0
         - Name: AndroidGyroscope
           Allowed: 0
-        - Name: AndroidHingeAngle
-          Allowed: 0
-        - Name: AndroidJoystick
-          Allowed: 0
         - Name: AndroidLightSensor
-          Allowed: 0
-        - Name: AndroidLinearAccelerationSensor
-          Allowed: 0
-        - Name: AndroidMagneticFieldSensor
           Allowed: 0
         - Name: AndroidPressureSensor
           Allowed: 0
         - Name: AndroidProximity
           Allowed: 0
-        - Name: AndroidRelativeHumidity
+        - Name: AndroidGravitySensor
+          Allowed: 0
+        - Name: AndroidLinearAccelerationSensor
           Allowed: 0
         - Name: AndroidRotationVector
           Allowed: 0
+        - Name: AndroidRelativeHumidity
+          Allowed: 0
+        - Name: AndroidAmbientTemperature
+          Allowed: 0
+        - Name: AndroidGameRotationVector
+          Allowed: 0
         - Name: AndroidStepCounter
           Allowed: 0
-        - Name: DualShock4GamepadAndroid
-          Allowed: 0
-        - Name: XboxOneGamepadAndroid
+        - Name: AndroidHingeAngle
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem.Android.LowLevel
@@ -5237,21 +5431,175 @@ MonoBehaviour:
         - Name: AndroidKeyCode
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.Composites
+      - Name: UnityEngine.InputSystem.Editor
         TypeRestrictions:
-        - Name: AxisComposite
+        - Name: InputActionCodeGenerator
           Allowed: 0
-        - Name: ButtonWithOneModifier
+        - Name: InputControlPathEditor
           Allowed: 0
-        - Name: ButtonWithTwoModifiers
+        - Name: InputControlPicker
           Allowed: 0
-        - Name: OneModifierComposite
+        - Name: InputControlPickerState
           Allowed: 0
-        - Name: TwoModifiersComposite
+        - Name: InputParameterEditor
           Allowed: 0
-        - Name: Vector2Composite
+        - Name: InputParameterEditor`1
           Allowed: 0
-        - Name: Vector3Composite
+        - Name: InputSystemPluginControl
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.Haptics
+        TypeRestrictions:
+        - Name: IDualMotorRumble
+          Allowed: 0
+        - Name: IHaptics
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.LowLevel
+        TypeRestrictions:
+        - Name: DisableDeviceCommand
+          Allowed: 0
+        - Name: EnableDeviceCommand
+          Allowed: 0
+        - Name: EnableIMECompositionCommand
+          Allowed: 0
+        - Name: IInputDeviceCommandInfo
+          Allowed: 0
+        - Name: InitiateUserAccountPairingCommand
+          Allowed: 0
+        - Name: InputDeviceCommandDelegate
+          Allowed: 0
+        - Name: InputDeviceExecuteCommandDelegate
+          Allowed: 0
+        - Name: InputDeviceCommand
+          Allowed: 0
+        - Name: QueryCanRunInBackground
+          Allowed: 0
+        - Name: QueryDimensionsCommand
+          Allowed: 0
+        - Name: QueryEnabledStateCommand
+          Allowed: 0
+        - Name: QueryKeyNameCommand
+          Allowed: 0
+        - Name: QueryKeyboardLayoutCommand
+          Allowed: 0
+        - Name: QueryPairedUserAccountCommand
+          Allowed: 0
+        - Name: RequestResetCommand
+          Allowed: 0
+        - Name: RequestSyncCommand
+          Allowed: 0
+        - Name: SetIMECursorPositionCommand
+          Allowed: 0
+        - Name: SetSamplingFrequencyCommand
+          Allowed: 0
+        - Name: GamepadState
+          Allowed: 0
+        - Name: GamepadButton
+          Allowed: 0
+        - Name: IInputUpdateCallbackReceiver
+          Allowed: 0
+        - Name: ITextInputReceiver
+          Allowed: 0
+        - Name: KeyboardState
+          Allowed: 0
+        - Name: MouseState
+          Allowed: 0
+        - Name: MouseButton
+          Allowed: 0
+        - Name: PenState
+          Allowed: 0
+        - Name: TouchState
+          Allowed: 0
+        - Name: DeltaStateEvent
+          Allowed: 0
+        - Name: DeviceConfigurationEvent
+          Allowed: 0
+        - Name: DeviceRemoveEvent
+          Allowed: 0
+        - Name: DeviceResetEvent
+          Allowed: 0
+        - Name: IInputEventTypeInfo
+          Allowed: 0
+        - Name: IMECompositionEvent
+          Allowed: 0
+        - Name: IMECompositionString
+          Allowed: 0
+        - Name: InputEvent
+          Allowed: 0
+        - Name: InputEventBuffer
+          Allowed: 0
+        - Name: InputEventListener
+          Allowed: 0
+        - Name: InputEventPtr
+          Allowed: 0
+        - Name: InputEventTrace
+          Allowed: 0
+        - Name: StateEvent
+          Allowed: 0
+        - Name: TextEvent
+          Allowed: 0
+        - Name: InputMetrics
+          Allowed: 0
+        - Name: InputUpdateType
+          Allowed: 0
+        - Name: IInputStateCallbackReceiver
+          Allowed: 0
+        - Name: IInputStateChangeMonitor
+          Allowed: 0
+        - Name: IInputStateTypeInfo
+          Allowed: 0
+        - Name: InputState
+          Allowed: 0
+        - Name: InputStateBlock
+          Allowed: 0
+        - Name: InputStateHistory
+          Allowed: 0
+        - Name: InputStateHistory`1
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.Processors
+        TypeRestrictions:
+        - Name: AxisDeadzoneProcessor
+          Allowed: 0
+        - Name: ClampProcessor
+          Allowed: 0
+        - Name: EditorWindowSpaceProcessor
+          Allowed: 0
+        - Name: InvertProcessor
+          Allowed: 0
+        - Name: InvertVector2Processor
+          Allowed: 0
+        - Name: InvertVector3Processor
+          Allowed: 0
+        - Name: NormalizeProcessor
+          Allowed: 0
+        - Name: NormalizeVector2Processor
+          Allowed: 0
+        - Name: NormalizeVector3Processor
+          Allowed: 0
+        - Name: ScaleProcessor
+          Allowed: 0
+        - Name: ScaleVector2Processor
+          Allowed: 0
+        - Name: ScaleVector3Processor
+          Allowed: 0
+        - Name: StickDeadzoneProcessor
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.Layouts
+        TypeRestrictions:
+        - Name: InputControlAttribute
+          Allowed: 0
+        - Name: InputDeviceFindControlLayoutDelegate
+          Allowed: 0
+        - Name: InputControlLayout
+          Allowed: 0
+        - Name: InputControlLayoutAttribute
+          Allowed: 0
+        - Name: InputDeviceDescription
+          Allowed: 0
+        - Name: InputDeviceMatcher
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem.Controls
@@ -5289,304 +5637,32 @@ MonoBehaviour:
         - Name: Vector3Control
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.DualShock
-        TypeRestrictions:
-        - Name: DualSenseGamepadHID
-          Allowed: 0
-        - Name: DualShock3GamepadHID
-          Allowed: 0
-        - Name: DualShock4GamepadHID
-          Allowed: 0
-        - Name: DualShockGamepad
-          Allowed: 0
-        - Name: IDualShockHaptics
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.DualShock.LowLevel
-        TypeRestrictions:
-        - Name: DualSenseHIDInputReport
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Editor
-        TypeRestrictions:
-        - Name: InputActionCodeGenerator
-          Allowed: 0
-        - Name: InputControlPathEditor
-          Allowed: 0
-        - Name: InputControlPicker
-          Allowed: 0
-        - Name: InputControlPickerState
-          Allowed: 0
-        - Name: InputParameterEditor
-          Allowed: 0
-        - Name: InputParameterEditor`1
-          Allowed: 0
-        - Name: InputSystemPluginControl
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.EnhancedTouch
-        TypeRestrictions:
-        - Name: EnhancedTouchSupport
-          Allowed: 0
-        - Name: Finger
-          Allowed: 0
-        - Name: Touch
-          Allowed: 0
-        - Name: TouchHistory
-          Allowed: 0
-        - Name: TouchSimulation
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Haptics
-        TypeRestrictions:
-        - Name: IDualMotorRumble
-          Allowed: 0
-        - Name: IHaptics
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.HID
-        TypeRestrictions:
-        - Name: HID
-          Allowed: 0
-        - Name: HIDSupport
-          Allowed: 0
-        Allowed: 0
       - Name: UnityEngine.InputSystem.Interactions
         TypeRestrictions:
         - Name: HoldInteraction
           Allowed: 0
         - Name: MultiTapInteraction
           Allowed: 0
-        - Name: PressBehavior
-          Allowed: 0
         - Name: PressInteraction
+          Allowed: 0
+        - Name: PressBehavior
           Allowed: 0
         - Name: SlowTapInteraction
           Allowed: 0
         - Name: TapInteraction
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.iOS
-        TypeRestrictions:
-        - Name: DualSenseGampadiOS
-          Allowed: 0
-        - Name: DualShock4GampadiOS
-          Allowed: 0
-        - Name: iOSGameController
-          Allowed: 0
-        - Name: PrivacyDataUsage
-          Allowed: 0
-        - Name: XboxOneGampadiOS
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.iOS.LowLevel
-        TypeRestrictions:
-        - Name: iOSStepCounter
-          Allowed: 0
-        - Name: MotionAuthorizationStatus
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Layouts
-        TypeRestrictions:
-        - Name: InputControlAttribute
-          Allowed: 0
-        - Name: InputControlLayout
-          Allowed: 0
-        - Name: InputControlLayoutAttribute
-          Allowed: 0
-        - Name: InputDeviceDescription
-          Allowed: 0
-        - Name: InputDeviceFindControlLayoutDelegate
-          Allowed: 0
-        - Name: InputDeviceMatcher
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.LowLevel
-        TypeRestrictions:
-        - Name: DeltaStateEvent
-          Allowed: 0
-        - Name: DeviceConfigurationEvent
-          Allowed: 0
-        - Name: DeviceRemoveEvent
-          Allowed: 0
-        - Name: DeviceResetEvent
-          Allowed: 0
-        - Name: DisableDeviceCommand
-          Allowed: 0
-        - Name: EnableDeviceCommand
-          Allowed: 0
-        - Name: EnableIMECompositionCommand
-          Allowed: 0
-        - Name: GamepadButton
-          Allowed: 0
-        - Name: GamepadState
-          Allowed: 0
-        - Name: IInputDeviceCommandInfo
-          Allowed: 0
-        - Name: IInputEventTypeInfo
-          Allowed: 0
-        - Name: IInputStateCallbackReceiver
-          Allowed: 0
-        - Name: IInputStateChangeMonitor
-          Allowed: 0
-        - Name: IInputStateTypeInfo
-          Allowed: 0
-        - Name: IInputUpdateCallbackReceiver
-          Allowed: 0
-        - Name: IMECompositionEvent
-          Allowed: 0
-        - Name: IMECompositionString
-          Allowed: 0
-        - Name: InitiateUserAccountPairingCommand
-          Allowed: 0
-        - Name: InputDeviceCommand
-          Allowed: 0
-        - Name: InputDeviceCommandDelegate
-          Allowed: 0
-        - Name: InputDeviceExecuteCommandDelegate
-          Allowed: 0
-        - Name: InputEvent
-          Allowed: 0
-        - Name: InputEventBuffer
-          Allowed: 0
-        - Name: InputEventListener
-          Allowed: 0
-        - Name: InputEventPtr
-          Allowed: 0
-        - Name: InputEventTrace
-          Allowed: 0
-        - Name: InputMetrics
-          Allowed: 0
-        - Name: InputState
-          Allowed: 0
-        - Name: InputStateBlock
-          Allowed: 0
-        - Name: InputStateHistory
-          Allowed: 0
-        - Name: InputStateHistory`1
-          Allowed: 0
-        - Name: InputUpdateType
-          Allowed: 0
-        - Name: ITextInputReceiver
-          Allowed: 0
-        - Name: KeyboardState
-          Allowed: 0
-        - Name: MouseButton
-          Allowed: 0
-        - Name: MouseState
-          Allowed: 0
-        - Name: PenState
-          Allowed: 0
-        - Name: QueryCanRunInBackground
-          Allowed: 0
-        - Name: QueryDimensionsCommand
-          Allowed: 0
-        - Name: QueryEnabledStateCommand
-          Allowed: 0
-        - Name: QueryKeyboardLayoutCommand
-          Allowed: 0
-        - Name: QueryKeyNameCommand
-          Allowed: 0
-        - Name: QueryPairedUserAccountCommand
-          Allowed: 0
-        - Name: RequestResetCommand
-          Allowed: 0
-        - Name: RequestSyncCommand
-          Allowed: 0
-        - Name: SetIMECursorPositionCommand
-          Allowed: 0
-        - Name: SetSamplingFrequencyCommand
-          Allowed: 0
-        - Name: StateEvent
-          Allowed: 0
-        - Name: TextEvent
-          Allowed: 0
-        - Name: TouchState
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.OnScreen
-        TypeRestrictions:
-        - Name: OnScreenButton
-          Allowed: 0
-        - Name: OnScreenControl
-          Allowed: 0
-        - Name: OnScreenStick
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.OSX
-        TypeRestrictions:
-        - Name: NimbusGamepadHid
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Processors
-        TypeRestrictions:
-        - Name: AxisDeadzoneProcessor
-          Allowed: 0
-        - Name: ClampProcessor
-          Allowed: 0
-        - Name: EditorWindowSpaceProcessor
-          Allowed: 0
-        - Name: InvertProcessor
-          Allowed: 0
-        - Name: InvertVector2Processor
-          Allowed: 0
-        - Name: InvertVector3Processor
-          Allowed: 0
-        - Name: NormalizeProcessor
-          Allowed: 0
-        - Name: NormalizeVector2Processor
-          Allowed: 0
-        - Name: NormalizeVector3Processor
-          Allowed: 0
-        - Name: ScaleProcessor
-          Allowed: 0
-        - Name: ScaleVector2Processor
-          Allowed: 0
-        - Name: ScaleVector3Processor
-          Allowed: 0
-        - Name: StickDeadzoneProcessor
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Switch
-        TypeRestrictions:
-        - Name: SwitchProControllerHID
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.UI
-        TypeRestrictions:
-        - Name: ExtendedPointerEventData
-          Allowed: 0
-        - Name: InputSystemUIInputModule
-          Allowed: 0
-        - Name: MultiplayerEventSystem
-          Allowed: 0
-        - Name: TrackedDeviceRaycaster
-          Allowed: 0
-        - Name: UIPointerBehavior
-          Allowed: 0
-        - Name: UIPointerType
-          Allowed: 0
-        - Name: VirtualMouseInput
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.Users
-        TypeRestrictions:
-        - Name: InputUser
-          Allowed: 0
-        - Name: InputUserAccountHandle
-          Allowed: 0
-        - Name: InputUserChange
-          Allowed: 0
-        - Name: InputUserPairingOptions
-          Allowed: 0
-        Allowed: 0
       - Name: UnityEngine.InputSystem.Utilities
         TypeRestrictions:
+        - Name: InputActionTrace
+          Allowed: 0
+        - Name: Vector2MagnitudeComparer
+          Allowed: 0
+        - Name: Vector3MagnitudeComparer
+          Allowed: 0
         - Name: DisplayStringFormatAttribute
           Allowed: 0
         - Name: FourCC
-          Allowed: 0
-        - Name: InputActionTrace
           Allowed: 0
         - Name: InternedString
           Allowed: 0
@@ -5602,88 +5678,28 @@ MonoBehaviour:
           Allowed: 0
         - Name: ReadOnlyArrayExtensions
           Allowed: 0
-        - Name: Vector2MagnitudeComparer
-          Allowed: 0
-        - Name: Vector3MagnitudeComparer
-          Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.WebGL
+      - Name: UnityEngine.InputSystem.Composites
         TypeRestrictions:
-        - Name: WebGLGamepad
+        - Name: AxisComposite
           Allowed: 0
-        - Name: WebGLJoystick
+        - Name: ButtonWithOneModifier
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.XInput
-        TypeRestrictions:
-        - Name: IXboxOneRumble
+        - Name: ButtonWithTwoModifiers
           Allowed: 0
-        - Name: XInputController
+        - Name: OneModifierComposite
           Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.XR
-        TypeRestrictions:
-        - Name: Bone
+        - Name: TwoModifiersComposite
           Allowed: 0
-        - Name: BoneControl
+        - Name: Vector2Composite
           Allowed: 0
-        - Name: Eyes
-          Allowed: 0
-        - Name: EyesControl
-          Allowed: 0
-        - Name: FeatureType
-          Allowed: 0
-        - Name: PoseControl
-          Allowed: 0
-        - Name: PoseState
-          Allowed: 0
-        - Name: TrackedPoseDriver
-          Allowed: 0
-        - Name: UsageHint
-          Allowed: 0
-        - Name: XRController
-          Allowed: 0
-        - Name: XRControllerWithRumble
-          Allowed: 0
-        - Name: XRDeviceDescriptor
-          Allowed: 0
-        - Name: XRFeatureDescriptor
-          Allowed: 0
-        - Name: XRHMD
-          Allowed: 0
-        - Name: XRUtilities
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.XR.Haptics
-        TypeRestrictions:
-        - Name: BufferedRumble
-          Allowed: 0
-        - Name: GetCurrentHapticStateCommand
-          Allowed: 0
-        - Name: GetHapticCapabilitiesCommand
-          Allowed: 0
-        - Name: HapticCapabilities
-          Allowed: 0
-        - Name: HapticState
-          Allowed: 0
-        - Name: SendBufferedHapticCommand
-          Allowed: 0
-        - Name: SendHapticImpulseCommand
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.XR.WindowsMR.Input
-        TypeRestrictions:
-        - Name: HololensHand
-          Allowed: 0
-        - Name: WMRHMD
-          Allowed: 0
-        - Name: WMRSpatialController
+        - Name: Vector3Composite
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 51b952f413904594a8c63a907252312e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674996912296
+      <LastWriteTimeUTC>k__BackingField: 134132839344179373
     - Name: Unity.Mathematics
       NamedTypeRestrictions:
       - Name: Unity.Mathematics

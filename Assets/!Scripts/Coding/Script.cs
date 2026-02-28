@@ -28,6 +28,7 @@ public class Script
     public static string DefaultCode(string className, string parentClass)
     {
         return
+            //$"using CodeIsBroken.Products;\n\n"+
             $"using CodeIsBroken;\n\n" +
             $"public class {className} : {parentClass}" +
             "\n{" +
@@ -80,6 +81,7 @@ public class Script
         try
         {
             proxy.Methods.Call(startMethod);
+            Debug.Log("Starting tick");
         }
         catch
         (Exception ex)
@@ -92,6 +94,7 @@ public class Script
         try
         {
             proxy.Methods.Call(updateMethod);
+            Debug.Log("Updating tick");
         }
         catch
         (Exception ex)
@@ -102,7 +105,7 @@ public class Script
     
     public bool Compile(ref List<Error> errors)
     {
-        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode.data, out CompileResult compileResult, out CodeSecurityReport report);
+        type = Compiler.scriptDomain.CompileAndLoadMainSource(rawCode.GetData(), out CompileResult compileResult, out CodeSecurityReport report);
 
         if (proxy != null) proxy.Dispose();
 
@@ -126,12 +129,18 @@ public class Script
     public void Delete()
     {
         Compiler.usedScripts.Remove(this);
-
+        connectedMachine.attachedScripts.Remove(this);
+        if(proxy != null)
+            proxy.Dispose();
+        
+        GameManager.onStart -= Run;
+        GameManager.onStop -= Terminate;
+        
         Deleted?.Invoke();
     }
 
     public void Edit()
     {
-        new CodeEditor(rawCode, true);
+        new CodeEditor(this);
     }
 }

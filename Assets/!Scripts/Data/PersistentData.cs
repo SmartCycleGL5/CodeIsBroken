@@ -9,7 +9,7 @@ public class PersistentData<T>
 {
     public string name { get; private set; }
     public string filePath { get; private set; }
-    [field: SerializeField] public T data { get; private set; }
+    [field: SerializeField] private T data { get; set; }
 
     public Action onChanged;
     
@@ -172,6 +172,12 @@ public class PersistentData<T>
         this.data = data;
         onChanged?.Invoke();
         Save();
+    }
+
+    public T GetData()
+    {
+        Load(filePath);
+        return data;    
     }
     
     void Save()

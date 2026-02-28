@@ -11,6 +11,7 @@ namespace CodeIsBroken.UI
         public static VisualTreeAsset ScriptUI { get; private set; }
         public static VisualTreeAsset FileUI { get; private set; }
         public static VisualTreeAsset FileBrowserUI { get; private set; }
+        public static VisualTreeAsset ScriptEditorUI { get; private set; }
         
         private void Awake()
         {
@@ -30,6 +31,10 @@ namespace CodeIsBroken.UI
             if (FileBrowserUI == null)
             {
                 FileBrowserUI = await Utility.Addressable.LoadAsset<VisualTreeAsset>("FileBrowserUI");
+            }
+            if (ScriptEditorUI == null)
+            {
+                ScriptEditorUI = await Utility.Addressable.LoadAsset<VisualTreeAsset>("ScriptEditorUI");
             }
             if (FileUI == null)
             {

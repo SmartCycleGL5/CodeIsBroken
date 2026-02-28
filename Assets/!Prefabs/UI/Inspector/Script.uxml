@@ -1,6 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss?fileID=7433441132597879392&amp;guid=7b8b37e22260f26d99349f0b9995d4c2&amp;type=3#InspectorStyle" />
-    <ui:Button text="Button" name="Script" class="Selectable">
-        <ui:Button name="Edit" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 1px; padding-right: 1px; padding-bottom: 1px; padding-left: 1px; width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/Art/Sprites/programmingTabIcom.png?fileID=21300000&amp;guid=c0626f196a74cf14caa790a9f3fc0968&amp;type=3#programmingTabIcom&quot;); background-size: contain; right: 5px; position: absolute;" />
-    </ui:Button>
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <ui:Button name="Edit" class="Selectable" style="background-image: url(&quot;project://database/Assets/Art/Sprites/programmingTabIcom.png?fileID=21300000&amp;guid=c0626f196a74cf14caa790a9f3fc0968&amp;type=3#programmingTabIcom&quot;); background-size: contain; background-color: rgba(84, 84, 84, 0); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); width: 20%; min-width: auto;" />
+        <ui:Button text="Button" name="Script" class="Selectable" style="min-width: auto; width: 75%;" />
+    </ui:VisualElement>
 </ui:UXML>

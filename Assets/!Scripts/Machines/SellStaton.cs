@@ -50,7 +50,7 @@ public class SellStaton : MonoBehaviour
     {
         if(ContractManager.ActiveContract != null)
         {
-            ContractManager.ActiveContract.TryProgressContract(toSell);
+            Debug.Log($"[SellSation] {ContractManager.ActiveContract.TryProgressContract(toSell)}");
         }
         
         //Remove is tutorial

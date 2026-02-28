@@ -27,6 +27,46 @@ namespace CodeIsBroken.IDE
             }
             
             Debug.Log("Console initialized");
+            
+            Label MembersText = extentionRoot.Q<Label>("Members");
+            MembersText.text = "Variables: \n";
+            foreach (var variable in editor.script.connectedMachine.variableInfo)
+            {
+                string returnType = SimplifyTypeText(variable.FieldType.ToString());
+                
+                MembersText.text += returnType + " " + variable.Name + " \n";
+            }
+
+            MembersText.text += "\nMethods: \n";
+            foreach (var method in editor.script.connectedMachine.methodInfo)
+            {
+                string returnType = SimplifyTypeText(method.ReturnType.ToString());
+
+                string parameters = "";
+
+                var paramInfo = method.GetParameters();
+                for (int i = 0; i < paramInfo.Length; i++)
+                {
+                    var parameter = paramInfo[i];
+                    if(i > 0) parameters += ", "; 
+                    parameters += SimplifyTypeText(parameter.ParameterType + " " + parameter.Name);
+                }
+                
+                MembersText.text += $"{returnType} {method.Name}({parameters}) \n";
+            }
+
+            string SimplifyTypeText(string text)
+            {
+                text = text.Replace("System.", "");
+                text = text.Replace("CodeIsBroken.", "");
+                text = text.Replace("Int32", "int");
+                text = text.Replace("Boolean", "bool");
+                text = text.Replace("Single", "float");
+                text = text.Replace("String", "string");
+                text = text.Replace("Void", "void");
+                
+                return text;
+            }
         }
 
         public override void Close()

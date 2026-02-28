@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/!Prefabs/UI/Inspector/InspectorStyle.uss?fileID=7433441132597879392&amp;guid=7b8b37e22260f26d99349f0b9995d4c2&amp;type=3#InspectorStyle" />
+    <ui:VisualElement style="flex-grow: 1; align-items: center; min-width: 140px; overflow: hidden;">
+        <ui:Label text="very long name" name="Name" style="color: rgb(255, 255, 255); font-size: 15px; -unity-text-align: middle-center; width: 100%; border-bottom-color: rgb(255, 255, 255); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;" />
+        <ui:VisualElement style="flex-grow: 1;" />
+        <ui:Button text="Remove Script" name="Remove" class="BottomButton" />
+    </ui:VisualElement>
+</ui:UXML>

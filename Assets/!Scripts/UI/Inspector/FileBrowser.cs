@@ -14,7 +14,7 @@ namespace CodeIsBroken.UI
         private VisualElement root;
         Inspector Inspector;
         
-        public static FileBrowser NewFilebrowser(Inspector inspector)
+        public static FileBrowser New(Inspector inspector)
         {
             FileBrowser fileBrowser = inspector.gameObject.AddComponent<FileBrowser>();
             

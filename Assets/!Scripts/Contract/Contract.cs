@@ -12,7 +12,7 @@ namespace CodeIsBroken.Contract
     {
         public class Request
         {
-            public Product product;
+            public ProductSystem.Product product;
             public IModification[] modifications;
             public int amount;
             public int amountLeft { get; private set; }
@@ -21,7 +21,7 @@ namespace CodeIsBroken.Contract
             public Action onSatisfied;
             public int xp => Mathf.RoundToInt(((product.modifications.Count + 1) * 5) * (amount / 2));
 
-            public Request(Product product, int amount, IModification[] modifications = null)
+            public Request(ProductSystem.Product product, int amount, IModification[] modifications = null)
             {
                 this.product = product;
                 this.modifications = modifications;
@@ -37,10 +37,30 @@ namespace CodeIsBroken.Contract
                     onSatisfied?.Invoke();
                 }
             }
-            public bool SatisfiesRequest(Product product)
+            public bool SatisfiesRequest(ProductSystem.Product product)
             {
                 if(satisfied) return false;
-                return this.product.Equals(product);
+                if(!this.product.Equals(product)) return false;
+                if(modifications.Length != product.modifications.Count) return false;
+
+                foreach (var modification in modifications)
+                {
+                    bool success = false;
+                    foreach (var productModification in product.modifications)
+                    {
+                        if(modification.Equals(productModification)) success = true;
+                    }
+                    
+                    if(!success) return false;
+                }
+                
+                return true;
+            }
+
+            public void Reset()
+            {
+                amountLeft = amount;
+                satisfied = false;
             }
 
             public TemplateContainer GetUI()
@@ -53,13 +73,13 @@ namespace CodeIsBroken.Contract
 
                 ScrollView mods = request.Q<ScrollView>("ModView");
 
-                foreach (var mod in product.modifications)
+                foreach (var mod in modifications)
                 {
                     TemplateContainer modifierContainer = ContractManager.modifierUI.Instantiate();
 
                     VisualElement modifier = modifierContainer.Q<VisualElement>("Modifier");
                     modifier.Q<Label>("Name").text = mod.Name;
-                    modifier.Q<Label>("Description").text = mod.Description;
+                    modifier.Q<Label>("Description").text = "";//mod.Description;
 
                     mods.Add(modifier);
                 }
@@ -73,7 +93,7 @@ namespace CodeIsBroken.Contract
         public Request[] requests;
 
         public Action<Contract> onFinished;
-        public Action onProgress;
+        public Action onChanged;
 
         public int xpToGive
         {
@@ -95,7 +115,17 @@ namespace CodeIsBroken.Contract
         public Contract(Request[] requests)
         {
             companyName = ContractManager.GetCompanyName();
+            
             this.requests = requests;
+            
+            foreach (var request in this.requests)
+            {
+                Tick.OnEndingTick += () =>
+                {
+                    request.Reset();
+                    onChanged?.Invoke();
+                };
+            }
         }
 
         /// <summary>
@@ -104,12 +134,12 @@ namespace CodeIsBroken.Contract
         /// <returns>the contract</returns>
         public static Contract New()
         {
-            Product RequestedProduct = ProductManager.GetRandomProduct();
+            ProductSystem.Product RequestedProduct = ProductManager.GetRandomProduct();
             int amount = Mathf.RoundToInt(Random.Range(PlayerProgression.Level * 5, (PlayerProgression.Level * 5) * 2));
 
 
             Request request = new Request(RequestedProduct, amount);
-            return New(new Request[] { request });
+            return New(new [] { request });
         }
         /// <summary>
         /// Creates a predetermined contract
@@ -129,21 +159,25 @@ namespace CodeIsBroken.Contract
             onFinished?.Invoke(this);
         }
 
-        public void TryProgressContract(Product product)
+        public bool TryProgressContract(ProductSystem.Product product)
         {
             foreach (var request in requests)
             {
                 if(request.SatisfiesRequest(product))
                 {
                     request.Progress();
-                    onProgress?.Invoke();
+                    onChanged?.Invoke();
 
                     if(allRequestsSatisfied())
                     {
                         Finish();
                     }
+                    
+                    return true;
                 }
             }
+            
+            return false;
         }
 
         bool allRequestsSatisfied()

@@ -10,6 +10,7 @@ namespace CodeIsBroken.IDE
     [Serializable]
     public class Console : IDEExtention
     {
+        CodeEditor editor;
         Label output;
         
         public override string uiPath => "Window/CodeEditor/Console";
@@ -17,7 +18,16 @@ namespace CodeIsBroken.IDE
         public override void Initialize(CodeEditor editor)
         {
             base.Initialize(editor);
+            this.editor = editor;
             
+            InitializeHelper();
+            InitializeConsole();
+            
+            Debug.Log("Console initialized");
+        }
+
+        void InitializeConsole()
+        {
             output = extentionRoot.Q<Label>("Output");
             PlayerConsole.LogEvent += Log;
 
@@ -25,8 +35,11 @@ namespace CodeIsBroken.IDE
             {
                 Log($"[{error.source.name}] <color=red>{error.error.ToString()}</color>");
             }
-            
-            Debug.Log("Console initialized");
+        }
+
+        void InitializeHelper()
+        {
+            extentionRoot.Q<Label>("InheritedClass").text = editor.script.connectedMachine.toDeriveFrom;
             
             Label MembersText = extentionRoot.Q<Label>("Members");
             MembersText.text = "Variables: \n";

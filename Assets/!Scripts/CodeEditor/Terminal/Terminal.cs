@@ -19,6 +19,8 @@ namespace CodeIsBroken.IDE
         public Action<string> save; 
         
         TextField input;
+        
+        public static Action opened;
 
 
         public override string uiPath => "Window/CodeEditor/Terminal";
@@ -26,6 +28,8 @@ namespace CodeIsBroken.IDE
         public override void Initialize(CodeEditor editor)
         {
             base.Initialize(editor);
+            
+            opened?.Invoke();
             
             this.editor = editor;
             

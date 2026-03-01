@@ -1,4 +1,6 @@
+using System;
 using CodeIsBroken.Contract;
+using CodeIsBroken.IDE;
 using CodeIsBroken.UI.Window;
 using DG.Tweening;
 using ScriptEditor;
@@ -115,7 +117,7 @@ public class NewTutorial : MonoBehaviour
                     buildingIndex++;
                 return;
             case 1:
-                label.text = "Try selecting conveyors and build a line from the MaterialTube to the Selling station. Close the menu and press run when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
+                label.text = "Try selecting conveyors and build a line from the MaterialTube to the Selling station. Close the menu and press start when completed!\n\n Use left click to place an item, R to rotate and Right click to remove a building.";
                 return;
             case 2:
                 label.text = "Good job! This is the contract system. Select a product you would like to craft.";
@@ -133,18 +135,25 @@ public class NewTutorial : MonoBehaviour
     private Contract first;
     void ProgrammingTutorial()
     {
+        Action handler = () =>
+        {
+            buildingIndex = 2;
+            Debug.Log("[Tutorial] Terminal is focused!");
+        };
+        
         switch (buildingIndex)
         {
             case 0:
                 label.text = "Lets try some programming! Click on the material tube and add a script and give it name.";
-                /*if (Terminal.focused)
-                { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }*/
+
+                Terminal.opened += handler;
                 break;
             case 2:
-                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.name.ToLower()}); in the StartTick section and press the Start button.";
+                label.text = $"Try writing SetMaterial(Material.{ContractManager.ActiveContract.requests[0].product.name.ToLower()}); in the StartTick() section and press the Start button.";
                 if (!subscribed)
                 {
                     Debug.Log("Subscribed");
+                    Terminal.opened -= handler;
                     first = ContractManager.ActiveContract;
                     first.onFinished += OnFinishedContract;
                     subscribed = true;

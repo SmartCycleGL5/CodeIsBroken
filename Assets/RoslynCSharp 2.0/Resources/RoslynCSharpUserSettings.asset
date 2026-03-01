@@ -1886,7 +1886,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134167723501228497
+      <LastWriteTimeUTC>k__BackingField: 134168531164216352
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1919,7 +1919,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134167723501228497
+      <LastWriteTimeUTC>k__BackingField: 134168531164216352
     - Name: Player.CodeIsBroken.Products
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1932,7 +1932,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134167506383318946
+      <LastWriteTimeUTC>k__BackingField: 134167627374079117
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo
@@ -1945,7 +1945,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: fe7e3a70237a9e54a8cda05078348ee5, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134132839343920418
+      <LastWriteTimeUTC>k__BackingField: 134167624100901790
     - Name: System
       NamedTypeRestrictions:
       - Name: Microsoft.CSharp
@@ -4720,7 +4720,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1d1511a5d70cf9f4991195fe70812cf3, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134132839344162037
+      <LastWriteTimeUTC>k__BackingField: 134167624101028434
     - Name: Unity.Burst
       NamedTypeRestrictions:
       - Name: Unity.Burst
@@ -4783,7 +4783,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 3d97c7ea051395449a0ce7e92ade5169, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134132839344162795
+      <LastWriteTimeUTC>k__BackingField: 134167624100871592
     - Name: Unity.Collections
       NamedTypeRestrictions:
       - Name: Unity.Jobs
@@ -4941,8 +4941,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: StreamCompressionModel
           Allowed: 0
-        - Name: UTF8ArrayUnsafeUtility
-          Allowed: 0
         - Name: FormatError
           Allowed: 0
         - Name: ParseError
@@ -4954,6 +4952,8 @@ MonoBehaviour:
         - Name: Unicode
           Allowed: 0
         - Name: UnsafeQueue`1
+          Allowed: 0
+        - Name: UTF8ArrayUnsafeUtility
           Allowed: 0
         - Name: xxHash3
           Allowed: 0
@@ -5024,7 +5024,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: af6cdaac4795dea48ae3a2dabd9b20aa, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134132839346602987
+      <LastWriteTimeUTC>k__BackingField: 134167624117687853
     - Name: Unity.InputSystem
       NamedTypeRestrictions:
       - Name: Unity.XR.OpenVR
@@ -5210,26 +5210,6 @@ MonoBehaviour:
         - Name: PlayerNotifications
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.iOS
-        TypeRestrictions:
-        - Name: iOSGameController
-          Allowed: 0
-        - Name: XboxOneGampadiOS
-          Allowed: 0
-        - Name: DualShock4GampadiOS
-          Allowed: 0
-        - Name: DualSenseGampadiOS
-          Allowed: 0
-        - Name: PrivacyDataUsage
-          Allowed: 0
-        Allowed: 0
-      - Name: UnityEngine.InputSystem.iOS.LowLevel
-        TypeRestrictions:
-        - Name: MotionAuthorizationStatus
-          Allowed: 0
-        - Name: iOSStepCounter
-          Allowed: 0
-        Allowed: 0
       - Name: UnityEngine.InputSystem.XR
         TypeRestrictions:
         - Name: PoseState
@@ -5286,6 +5266,8 @@ MonoBehaviour:
           Allowed: 0
         - Name: XInputController
           Allowed: 0
+        - Name: XInputControllerWindows
+          Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem.WebGL
         TypeRestrictions:
@@ -5327,6 +5309,11 @@ MonoBehaviour:
         - Name: SwitchProControllerHID
           Allowed: 0
         Allowed: 0
+      - Name: UnityEngine.InputSystem.OSX
+        TypeRestrictions:
+        - Name: NimbusGamepadHid
+          Allowed: 0
+        Allowed: 0
       - Name: UnityEngine.InputSystem.OnScreen
         TypeRestrictions:
         - Name: OnScreenButton
@@ -5336,9 +5323,24 @@ MonoBehaviour:
         - Name: OnScreenStick
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.InputSystem.OSX
+      - Name: UnityEngine.InputSystem.iOS
         TypeRestrictions:
-        - Name: NimbusGamepadHid
+        - Name: PrivacyDataUsage
+          Allowed: 0
+        - Name: iOSGameController
+          Allowed: 0
+        - Name: XboxOneGampadiOS
+          Allowed: 0
+        - Name: DualShock4GampadiOS
+          Allowed: 0
+        - Name: DualSenseGampadiOS
+          Allowed: 0
+        Allowed: 0
+      - Name: UnityEngine.InputSystem.iOS.LowLevel
+        TypeRestrictions:
+        - Name: MotionAuthorizationStatus
+          Allowed: 0
+        - Name: iOSStepCounter
           Allowed: 0
         Allowed: 0
       - Name: UnityEngine.InputSystem.HID
@@ -5479,9 +5481,9 @@ MonoBehaviour:
           Allowed: 0
         - Name: QueryEnabledStateCommand
           Allowed: 0
-        - Name: QueryKeyNameCommand
-          Allowed: 0
         - Name: QueryKeyboardLayoutCommand
+          Allowed: 0
+        - Name: QueryKeyNameCommand
           Allowed: 0
         - Name: QueryPairedUserAccountCommand
           Allowed: 0
@@ -5699,12 +5701,14 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 51b952f413904594a8c63a907252312e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134132839344179373
+      <LastWriteTimeUTC>k__BackingField: 134167624100998105
     - Name: Unity.Mathematics
       NamedTypeRestrictions:
       - Name: Unity.Mathematics
         TypeRestrictions:
         - Name: AffineTransform
+          Allowed: 0
+        - Name: math
           Allowed: 0
         - Name: bool2
           Allowed: 0
@@ -5729,8 +5733,6 @@ MonoBehaviour:
         - Name: bool4x3
           Allowed: 0
         - Name: bool4x4
-          Allowed: 0
-        - Name: DoNotNormalizeAttribute
           Allowed: 0
         - Name: double2
           Allowed: 0
@@ -5812,13 +5814,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: int4x4
           Allowed: 0
-        - Name: math
+        - Name: quaternion
           Allowed: 0
         - Name: noise
           Allowed: 0
         - Name: PostNormalizeAttribute
           Allowed: 0
-        - Name: quaternion
+        - Name: DoNotNormalizeAttribute
           Allowed: 0
         - Name: Random
           Allowed: 0
@@ -5853,9 +5855,9 @@ MonoBehaviour:
         Allowed: 0
       - Name: Unity.Mathematics.Geometry
         TypeRestrictions:
-        - Name: Math
-          Allowed: 0
         - Name: MinMaxAABB
+          Allowed: 0
+        - Name: Math
           Allowed: 0
         - Name: Plane
           Allowed: 0
@@ -5863,29 +5865,16 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674996971181
+      <LastWriteTimeUTC>k__BackingField: 134167624100967276
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
+      - Name: UnityEngine.TextCore
+        TypeRestrictions:
+        - Name: OTL_FeatureTag
+          Allowed: 0
+        Allowed: 0
       - Name: TMPro
         TypeRestrictions:
-        - Name: AlternateSubstitutionRecord
-          Allowed: 0
-        - Name: AtlasPopulationMode
-          Allowed: 0
-        - Name: CaretInfo
-          Allowed: 0
-        - Name: CaretPosition
-          Allowed: 0
-        - Name: ColorMode
-          Allowed: 0
-        - Name: Compute_DistanceTransform_EventTypes
-          Allowed: 0
-        - Name: Compute_DT_EventArgs
-          Allowed: 0
-        - Name: Extents
-          Allowed: 0
-        - Name: FaceInfo_Legacy
-          Allowed: 0
         - Name: FastAction
           Allowed: 0
         - Name: FastAction`1
@@ -5894,35 +5883,7 @@ MonoBehaviour:
           Allowed: 0
         - Name: FastAction`3
           Allowed: 0
-        - Name: FontAssetCreationSettings
-          Allowed: 0
-        - Name: FontFeatureLookupFlags
-          Allowed: 0
-        - Name: FontStyles
-          Allowed: 0
-        - Name: FontWeight
-          Allowed: 0
         - Name: GlyphAnchorPoint
-          Allowed: 0
-        - Name: GlyphPairKey
-          Allowed: 0
-        - Name: GlyphValueRecord_Legacy
-          Allowed: 0
-        - Name: HighlightState
-          Allowed: 0
-        - Name: HorizontalAlignmentOptions
-          Allowed: 0
-        - Name: ITextElement
-          Allowed: 0
-        - Name: ITextPreprocessor
-          Allowed: 0
-        - Name: KerningPair
-          Allowed: 0
-        - Name: KerningPairKey
-          Allowed: 0
-        - Name: KerningTable
-          Allowed: 0
-        - Name: LigatureSubstitutionRecord
           Allowed: 0
         - Name: MarkPositionAdjustment
           Allowed: 0
@@ -5930,51 +5891,69 @@ MonoBehaviour:
           Allowed: 0
         - Name: MarkToMarkAdjustmentRecord
           Allowed: 0
-        - Name: MaskingOffsetMode
-          Allowed: 0
-        - Name: MaskingTypes
-          Allowed: 0
-        - Name: MaterialReference
-          Allowed: 0
-        - Name: MaterialReferenceManager
-          Allowed: 0
-        - Name: Mesh_Extents
+        - Name: SingleSubstitutionRecord
           Allowed: 0
         - Name: MultipleSubstitutionRecord
           Allowed: 0
-        - Name: ShaderUtilities
+        - Name: AlternateSubstitutionRecord
           Allowed: 0
-        - Name: SingleSubstitutionRecord
+        - Name: LigatureSubstitutionRecord
           Allowed: 0
-        - Name: TagUnitType
+        - Name: ITextPreprocessor
           Allowed: 0
-        - Name: TagValueType
+        - Name: MaterialReferenceManager
           Allowed: 0
-        - Name: TextAlignmentOptions
+        - Name: TMP_MaterialReference
           Allowed: 0
-        - Name: TextContainer
+        - Name: MaterialReference
           Allowed: 0
         - Name: TextContainerAnchors
           Allowed: 0
-        - Name: TextElementType
+        - Name: TextContainer
           Allowed: 0
         - Name: TextMeshPro
           Allowed: 0
         - Name: TextMeshProUGUI
           Allowed: 0
-        - Name: TextOverflowModes
+        - Name: Compute_DistanceTransform_EventTypes
           Allowed: 0
-        - Name: TextRenderFlags
+        - Name: TMPro_EventManager
           Allowed: 0
-        - Name: TextureMappingOptions
+        - Name: Compute_DT_EventArgs
           Allowed: 0
-        - Name: TextWrappingModes
+        - Name: TMPro_ExtensionMethods
+          Allowed: 0
+        - Name: TMP_Math
+          Allowed: 0
+        - Name: TMP_VertexDataUpdateFlags
+          Allowed: 0
+        - Name: VertexGradient
+          Allowed: 0
+        - Name: TMP_PageInfo
+          Allowed: 0
+        - Name: TMP_LinkInfo
+          Allowed: 0
+        - Name: TMP_WordInfo
+          Allowed: 0
+        - Name: TMP_SpriteInfo
+          Allowed: 0
+        - Name: Extents
+          Allowed: 0
+        - Name: Mesh_Extents
           Allowed: 0
         - Name: TMP_Asset
           Allowed: 0
         - Name: TMP_Character
           Allowed: 0
+        - Name: TMP_Vertex
+          Allowed: 0
+        - Name: TMP_Offset
+          Allowed: 0
+        - Name: HighlightState
+          Allowed: 0
         - Name: TMP_CharacterInfo
+          Allowed: 0
+        - Name: ColorMode
           Allowed: 0
         - Name: TMP_ColorGradient
           Allowed: 0
@@ -5984,25 +5963,41 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_Dropdown
           Allowed: 0
+        - Name: AtlasPopulationMode
+          Allowed: 0
         - Name: TMP_FontAsset
           Allowed: 0
-        - Name: TMP_FontAssetUtilities
+        - Name: FaceInfo_Legacy
           Allowed: 0
-        - Name: TMP_FontFeatureTable
+        - Name: TMP_Glyph
           Allowed: 0
-        - Name: TMP_FontStyleStack
-          Allowed: 0
-        - Name: TMP_FontUtilities
+        - Name: FontAssetCreationSettings
           Allowed: 0
         - Name: TMP_FontWeightPair
           Allowed: 0
-        - Name: TMP_Glyph
+        - Name: KerningPairKey
+          Allowed: 0
+        - Name: GlyphValueRecord_Legacy
+          Allowed: 0
+        - Name: KerningPair
+          Allowed: 0
+        - Name: KerningTable
+          Allowed: 0
+        - Name: TMP_FontUtilities
+          Allowed: 0
+        - Name: TMP_FontAssetUtilities
+          Allowed: 0
+        - Name: FontFeatureLookupFlags
+          Allowed: 0
+        - Name: TMP_GlyphValueRecord
           Allowed: 0
         - Name: TMP_GlyphAdjustmentRecord
           Allowed: 0
         - Name: TMP_GlyphPairAdjustmentRecord
           Allowed: 0
-        - Name: TMP_GlyphValueRecord
+        - Name: GlyphPairKey
+          Allowed: 0
+        - Name: TMP_FontFeatureTable
           Allowed: 0
         - Name: TMP_InputField
           Allowed: 0
@@ -6010,31 +6005,29 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_LineInfo
           Allowed: 0
-        - Name: TMP_LinkInfo
-          Allowed: 0
         - Name: TMP_MaterialManager
           Allowed: 0
-        - Name: TMP_MaterialReference
-          Allowed: 0
-        - Name: TMP_Math
+        - Name: VertexSortingOrder
           Allowed: 0
         - Name: TMP_MeshInfo
-          Allowed: 0
-        - Name: TMP_Offset
           Allowed: 0
         - Name: TMP_PackageResourceImporter
           Allowed: 0
         - Name: TMP_PackageResourceImporterWindow
           Allowed: 0
-        - Name: TMP_PageInfo
-          Allowed: 0
         - Name: TMP_ResourceManager
+          Allowed: 0
+        - Name: TagValueType
+          Allowed: 0
+        - Name: TagUnitType
           Allowed: 0
         - Name: TMP_ScrollbarEventHandler
           Allowed: 0
         - Name: TMP_SelectionCaret
           Allowed: 0
         - Name: TMP_Settings
+          Allowed: 0
+        - Name: ShaderUtilities
           Allowed: 0
         - Name: TMP_Sprite
           Allowed: 0
@@ -6046,8 +6039,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SpriteGlyph
           Allowed: 0
-        - Name: TMP_SpriteInfo
-          Allowed: 0
         - Name: TMP_Style
           Allowed: 0
         - Name: TMP_StyleSheet
@@ -6056,41 +6047,57 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SubMeshUI
           Allowed: 0
+        - Name: ITextElement
+          Allowed: 0
+        - Name: TextAlignmentOptions
+          Allowed: 0
+        - Name: HorizontalAlignmentOptions
+          Allowed: 0
+        - Name: VerticalAlignmentOptions
+          Allowed: 0
+        - Name: TextRenderFlags
+          Allowed: 0
+        - Name: TMP_TextElementType
+          Allowed: 0
+        - Name: MaskingTypes
+          Allowed: 0
+        - Name: TextOverflowModes
+          Allowed: 0
+        - Name: TextWrappingModes
+          Allowed: 0
+        - Name: MaskingOffsetMode
+          Allowed: 0
+        - Name: TextureMappingOptions
+          Allowed: 0
+        - Name: FontStyles
+          Allowed: 0
+        - Name: FontWeight
+          Allowed: 0
         - Name: TMP_Text
+          Allowed: 0
+        - Name: TextElementType
           Allowed: 0
         - Name: TMP_TextElement
           Allowed: 0
         - Name: TMP_TextElement_Legacy
           Allowed: 0
-        - Name: TMP_TextElementType
-          Allowed: 0
         - Name: TMP_TextInfo
           Allowed: 0
         - Name: TMP_TextParsingUtilities
           Allowed: 0
+        - Name: TMP_FontStyleStack
+          Allowed: 0
         - Name: TMP_TextProcessingStack`1
+          Allowed: 0
+        - Name: CaretPosition
+          Allowed: 0
+        - Name: CaretInfo
           Allowed: 0
         - Name: TMP_TextUtilities
           Allowed: 0
         - Name: TMP_UpdateManager
           Allowed: 0
         - Name: TMP_UpdateRegistry
-          Allowed: 0
-        - Name: TMP_Vertex
-          Allowed: 0
-        - Name: TMP_VertexDataUpdateFlags
-          Allowed: 0
-        - Name: TMP_WordInfo
-          Allowed: 0
-        - Name: TMPro_EventManager
-          Allowed: 0
-        - Name: TMPro_ExtensionMethods
-          Allowed: 0
-        - Name: VertexGradient
-          Allowed: 0
-        - Name: VertexSortingOrder
-          Allowed: 0
-        - Name: VerticalAlignmentOptions
           Allowed: 0
         Allowed: 0
       - Name: TMPro.SpriteAssetUtilities
@@ -6100,32 +6107,35 @@ MonoBehaviour:
         - Name: TexturePacker_JsonArray
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.TextCore
-        TypeRestrictions:
-        - Name: OTL_FeatureTag
-          Allowed: 0
-        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674997020555
+      <LastWriteTimeUTC>k__BackingField: 134167624101089165
     - Name: Unity.Timeline
       NamedTypeRestrictions:
       - Name: UnityEngine.Timeline
         TypeRestrictions:
-        - Name: ActivationControlPlayable
-          Allowed: 0
         - Name: ActivationTrack
           Allowed: 0
         - Name: AnimationPlayableAsset
           Allowed: 0
+        - Name: MatchTargetFields
+          Allowed: 0
+        - Name: TrackOffset
+          Allowed: 0
         - Name: AnimationTrack
+          Allowed: 0
+        - Name: TimelineClip
+          Allowed: 0
+        - Name: TimelineAsset
+          Allowed: 0
+        - Name: TrackAsset
+          Allowed: 0
+        - Name: TrackColorAttribute
           Allowed: 0
         - Name: AudioPlayableAsset
           Allowed: 0
         - Name: AudioTrack
-          Allowed: 0
-        - Name: BasicPlayableBehaviour
           Allowed: 0
         - Name: ClipCaps
           Allowed: 0
@@ -6133,43 +6143,13 @@ MonoBehaviour:
           Allowed: 0
         - Name: ControlTrack
           Allowed: 0
-        - Name: CustomStyleAttribute
-          Allowed: 0
-        - Name: DirectorControlPlayable
-          Allowed: 0
-        - Name: GroupTrack
-          Allowed: 0
-        - Name: HideInMenuAttribute
-          Allowed: 0
-        - Name: ILayerable
-          Allowed: 0
         - Name: IMarker
           Allowed: 0
         - Name: INotificationOptionProvider
           Allowed: 0
-        - Name: IPropertyCollector
-          Allowed: 0
-        - Name: IPropertyPreview
-          Allowed: 0
-        - Name: ITimeControl
-          Allowed: 0
-        - Name: ITimelineClipAsset
-          Allowed: 0
         - Name: Marker
           Allowed: 0
         - Name: MarkerTrack
-          Allowed: 0
-        - Name: MatchTargetFields
-          Allowed: 0
-        - Name: NotificationFlags
-          Allowed: 0
-        - Name: NotKeyableAttribute
-          Allowed: 0
-        - Name: ParticleControlPlayable
-          Allowed: 0
-        - Name: PlayableTrack
-          Allowed: 0
-        - Name: PrefabControlPlayable
           Allowed: 0
         - Name: SignalAsset
           Allowed: 0
@@ -6179,41 +6159,63 @@ MonoBehaviour:
           Allowed: 0
         - Name: SignalTrack
           Allowed: 0
-        - Name: StandardFrameRates
+        - Name: TrackAssetExtensions
+          Allowed: 0
+        - Name: GroupTrack
+          Allowed: 0
+        - Name: ILayerable
+          Allowed: 0
+        - Name: ActivationControlPlayable
+          Allowed: 0
+        - Name: BasicPlayableBehaviour
+          Allowed: 0
+        - Name: DirectorControlPlayable
+          Allowed: 0
+        - Name: ITimeControl
+          Allowed: 0
+        - Name: NotificationFlags
+          Allowed: 0
+        - Name: ParticleControlPlayable
+          Allowed: 0
+        - Name: PrefabControlPlayable
           Allowed: 0
         - Name: TimeControlPlayable
           Allowed: 0
-        - Name: TimelineAsset
-          Allowed: 0
-        - Name: TimelineClip
-          Allowed: 0
-        - Name: TimelineClipExtensions
-          Allowed: 0
-        - Name: TimelinePlayable
-          Allowed: 0
         - Name: TimeNotificationBehaviour
           Allowed: 0
-        - Name: TrackAsset
+        - Name: PlayableTrack
           Allowed: 0
-        - Name: TrackAssetExtensions
+        - Name: TrackMediaType
+          Allowed: 0
+        - Name: TrackClipTypeAttribute
+          Allowed: 0
+        - Name: NotKeyableAttribute
           Allowed: 0
         - Name: TrackBindingFlags
           Allowed: 0
         - Name: TrackBindingTypeAttribute
           Allowed: 0
-        - Name: TrackClipTypeAttribute
+        - Name: HideInMenuAttribute
           Allowed: 0
-        - Name: TrackColorAttribute
+        - Name: CustomStyleAttribute
           Allowed: 0
-        - Name: TrackMediaType
+        - Name: ITimelineClipAsset
           Allowed: 0
-        - Name: TrackOffset
+        - Name: TimelinePlayable
+          Allowed: 0
+        - Name: IPropertyCollector
+          Allowed: 0
+        - Name: IPropertyPreview
+          Allowed: 0
+        - Name: TimelineClipExtensions
+          Allowed: 0
+        - Name: StandardFrameRates
           Allowed: 0
         Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 1022a5b72b4d4db4785dc9df9f0414d9, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674996971957
+      <LastWriteTimeUTC>k__BackingField: 134167624100886687
     - Name: UnityEngine.AIModule
       NamedTypeRestrictions:
       - Name: UnityEngine.AI

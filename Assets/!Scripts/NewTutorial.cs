@@ -136,7 +136,7 @@ public class NewTutorial : MonoBehaviour
         switch (buildingIndex)
         {
             case 0:
-                label.text = "Lets try some programming! Click on the material tube and give the script a name.";
+                label.text = "Lets try some programming! Click on the material tube and add a script and give it name.";
                 /*if (Terminal.focused)
                 { buildingIndex = 2; Debug.Log("[Tutorial] Terminal is focused!"); }*/
                 break;

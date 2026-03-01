@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-[DefaultExecutionOrder(0), DisallowMultipleComponent]
+[DefaultExecutionOrder(-100), DisallowMultipleComponent]
 public class Programmable : MonoBehaviour
 {
     [InfoBox("The name of the parent class", EInfoBoxType.Warning)]

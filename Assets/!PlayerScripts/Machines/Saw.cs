@@ -143,7 +143,7 @@ namespace CodeIsBroken
 
         protected void OnDestroy()
         {
-            Tick.OnTick -= TakeItem;
+            Tick.OnEarlyTick -= TakeItem;
             Tick.OnEndingTick -= Reset;
         }
     }

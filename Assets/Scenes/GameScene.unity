@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 357034595}
   - component: {fileID: 357034596}
   - component: {fileID: 357034597}
+  - component: {fileID: 357034598}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -1095,6 +1096,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81db36877812aa54fbd361e2400f0ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken.Coding::CodeIsBroken.Coding.Compiler
+--- !u!114 &357034598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357034587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70eb74ef6edab8940834b4ed78ef5d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::CodeIsBroken.ScriptsDeletor
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,6 +3490,7 @@ GameObject:
   - component: {fileID: 4710198114510246799}
   - component: {fileID: 6828413919741800735}
   - component: {fileID: 8332630410640430041}
+  - component: {fileID: 8332630410640430042}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3496,6 +3510,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7194f448b5d6ce478cc211a9600f22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputReader
+--- !u!114 &8332630410640430042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8332630410640430040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70eb74ef6edab8940834b4ed78ef5d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!20 &8561771419572170403
 Camera:
   m_ObjectHideFlags: 0

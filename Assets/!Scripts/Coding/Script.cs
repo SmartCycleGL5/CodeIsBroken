@@ -62,6 +62,8 @@ public class Script
         GameManager.onStart += Run;
         GameManager.onStop += Terminate;
         
+        data.onDeleted += Delete;
+        
         _=Compiler.StartCompileAsync();
     }
 
@@ -135,7 +137,7 @@ public class Script
         
         GameManager.onStart -= Run;
         GameManager.onStop -= Terminate;
-        
+        rawCode.onDeleted -= Delete;
         Deleted?.Invoke();
     }
 

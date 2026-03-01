@@ -12,6 +12,8 @@ public class PersistentData<T>
     [field: SerializeField] private T data { get; set; }
 
     public Action onChanged;
+    public Action onDeleted;
+    public static Action refresh;
     
     public static List<string> disallowedNames = new()
     {
@@ -143,6 +145,8 @@ public class PersistentData<T>
     {
         this.name = name;
         this.filePath = filePath;
+
+        refresh += Refresh;
     }
 
     public static PersistentData<T> NewFile(string name, string folder, string fileType = "json", T data = default)
@@ -192,8 +196,22 @@ public class PersistentData<T>
         JsonUtility.FromJsonOverwrite(jsonToRead, this);
     }
 
+    public void Refresh()
+    {
+        try
+        {
+            Load(filePath);
+        }
+        catch (Exception e)
+        {
+            Delete();
+        }
+    }
+
     public void Delete()
     {
+        onDeleted?.Invoke();
+        refresh -= Refresh;
         File.Delete(filePath);
     }
 }

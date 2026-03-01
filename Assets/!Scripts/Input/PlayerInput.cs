@@ -100,6 +100,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeleteScripts"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb591535-4529-47c1-9727-f646588b943f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,6 +122,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""OpenJournal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e38c34b-cdeb-43fc-9e1b-992814134dc7"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteScripts"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
+        m_Player_DeleteScripts = m_Player.FindAction("DeleteScripts", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -203,6 +224,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_OpenJournal;
+    private readonly InputAction m_Player_DeleteScripts;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -218,6 +240,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/OpenJournal".
         /// </summary>
         public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DeleteScripts".
+        /// </summary>
+        public InputAction @DeleteScripts => m_Wrapper.m_Player_DeleteScripts;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -247,6 +273,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OpenJournal.started += instance.OnOpenJournal;
             @OpenJournal.performed += instance.OnOpenJournal;
             @OpenJournal.canceled += instance.OnOpenJournal;
+            @DeleteScripts.started += instance.OnDeleteScripts;
+            @DeleteScripts.performed += instance.OnDeleteScripts;
+            @DeleteScripts.canceled += instance.OnDeleteScripts;
         }
 
         /// <summary>
@@ -261,6 +290,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @OpenJournal.started -= instance.OnOpenJournal;
             @OpenJournal.performed -= instance.OnOpenJournal;
             @OpenJournal.canceled -= instance.OnOpenJournal;
+            @DeleteScripts.started -= instance.OnDeleteScripts;
+            @DeleteScripts.performed -= instance.OnDeleteScripts;
+            @DeleteScripts.canceled -= instance.OnDeleteScripts;
         }
 
         /// <summary>
@@ -308,5 +340,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenJournal(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DeleteScripts" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDeleteScripts(InputAction.CallbackContext context);
     }
 }

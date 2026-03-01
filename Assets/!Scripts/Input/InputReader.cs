@@ -25,4 +25,11 @@ public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
         //UIManager.Instance.gameObject.AddComponent<ShitJournal>();
         toggleJournal?.Invoke();
     }
+
+    public static Action deleteScripts;
+    public void OnDeleteScripts(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        deleteScripts?.Invoke();
+    }
 }

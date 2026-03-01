@@ -387,6 +387,8 @@ GameObject:
   - component: {fileID: 700099899}
   - component: {fileID: 700099898}
   - component: {fileID: 700099900}
+  - component: {fileID: 700099901}
+  - component: {fileID: 700099902}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -445,6 +447,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   gameScene: GameScene
+--- !u!114 &700099901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700099897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70eb74ef6edab8940834b4ed78ef5d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::CodeIsBroken.ScriptsDeletor
+--- !u!114 &700099902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700099897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7194f448b5d6ce478cc211a9600f22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CodeIsBroken::InputReader
 --- !u!1 &730725649
 GameObject:
   m_ObjectHideFlags: 0

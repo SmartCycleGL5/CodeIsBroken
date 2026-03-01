@@ -658,7 +658,7 @@ MonoBehaviour:
         additionalModifications: {x: 0, y: 0}
         firstContracts:
         - requests:
-          - toRequest: 0
+          - toRequest: 2
             amount: 15
             mods: []
         - requests:

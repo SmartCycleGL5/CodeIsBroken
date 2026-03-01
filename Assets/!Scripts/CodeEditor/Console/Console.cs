@@ -22,7 +22,7 @@ namespace CodeIsBroken.IDE
             base.Initialize(editor);
             this.editor = editor;
             
-            refresh += Refresh;
+            //refresh += Refresh;
             
             InitializeHelper();
             InitializeConsole();
@@ -34,7 +34,15 @@ namespace CodeIsBroken.IDE
         {
             Clone().Initialize(editor);
             Close();
-            editor.editorRoot.Remove(extentionRoot);
+            try
+            {
+                editor.editorRoot.Remove(extentionRoot);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+                
+            }
         }
 
         void InitializeConsole()

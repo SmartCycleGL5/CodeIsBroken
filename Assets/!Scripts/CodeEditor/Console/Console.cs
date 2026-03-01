@@ -12,6 +12,8 @@ namespace CodeIsBroken.IDE
     {
         CodeEditor editor;
         Label output;
+
+        public static Action refresh;
         
         public override string uiPath => "Window/CodeEditor/Console";
         
@@ -20,10 +22,19 @@ namespace CodeIsBroken.IDE
             base.Initialize(editor);
             this.editor = editor;
             
+            refresh += Refresh;
+            
             InitializeHelper();
             InitializeConsole();
             
             Debug.Log("Console initialized");
+        }
+
+        private void Refresh()
+        {
+            Clone().Initialize(editor);
+            Close();
+            editor.editorRoot.Remove(extentionRoot);
         }
 
         void InitializeConsole()

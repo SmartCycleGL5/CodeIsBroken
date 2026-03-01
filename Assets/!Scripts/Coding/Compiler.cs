@@ -15,6 +15,8 @@ namespace CodeIsBroken.Coding
         public static bool compiling;
         public static List<Error> compilerErrors = new();
         
+        
+        
 
         private void Start()
         {

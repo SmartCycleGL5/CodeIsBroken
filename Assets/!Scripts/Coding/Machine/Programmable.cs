@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Reflection;
+using CodeIsBroken.IDE;
 using UnityEngine;
 
 [DefaultExecutionOrder(-100), DisallowMultipleComponent]
@@ -39,7 +40,7 @@ public class Programmable : MonoBehaviour
     {
         attachedScripts[script].Edit();
     }
-    // Why is Torje breaking the code
+    // Why is someone breaking the code
 
    public void AddMethodsAsIntegrated(System.Type machine)
    {
@@ -58,5 +59,7 @@ public class Programmable : MonoBehaviour
                 methodInfo.Add(item);
             }
         }
+        
+        Console.refresh?.Invoke();
    }
 }

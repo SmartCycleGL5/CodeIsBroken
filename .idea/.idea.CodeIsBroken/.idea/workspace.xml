@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3df49db-6b5c-4fbd-b8dc-cebdae85ac0e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CodeIsBroken/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Terminal/Terminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Terminal/Terminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/NewTutorial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Roslyn/Player.CodeIsBroken.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RoslynCSharp 2.0/Resources/RoslynCSharpUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Console/Console.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/CodeEditor/Console/Console.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Compiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Compiler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Scripts/Coding/Machine/Programmable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Scripts/Coding/Machine/Programmable.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/168204921bb64c3e97fe409496d2e893223400/b3/37549bb0/StyleTransformOrigin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/168204921bb64c3e97fe409496d2e893223400/e8/d9d7263c/VisualElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7a1eac1b18e46ebb2789d2fe4a00d211f5a00/f7/0f072818/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/3c/dfb6c1d1/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/3d/f700c049/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/53/cb097902/Single.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/91/16b084d0/String.cs" root0="FORCE_HIGHLIGHTING" />
@@ -364,7 +363,7 @@
       <workItem from="1772272550581" duration="8698000" />
       <workItem from="1772289889541" duration="161000" />
       <workItem from="1772290187547" duration="7077000" />
-      <workItem from="1772391667424" duration="785000" />
+      <workItem from="1772391667424" duration="2021000" />
     </task>
     <servers />
   </component>

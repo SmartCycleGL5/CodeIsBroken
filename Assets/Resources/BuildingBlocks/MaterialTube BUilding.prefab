@@ -281,6 +281,7 @@ MonoBehaviour:
   - {fileID: 4569153384676419293}
   scriptsToActivate:
   - {fileID: 9214029674004761619}
+  deletable: 0
 --- !u!114 &9214029674004761619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aaec0b11e480254facb93679dc33c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CodeIsBroken::MaterialTubeSpawner
+  currentMaterial: 0
 --- !u!114 &1879287536893735978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,7 @@ MonoBehaviour:
   recieveFrom: []
   inputs: []
   renderer: {fileID: 0}
+  justRecieved: 0
 --- !u!1 &4569153384676419293
 GameObject:
   m_ObjectHideFlags: 0

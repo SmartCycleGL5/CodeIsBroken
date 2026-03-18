@@ -1886,7 +1886,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134168654972412527
+      <LastWriteTimeUTC>k__BackingField: 134183065485128483
     - Name: Player.CodeIsBroken.Machines
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1919,7 +1919,7 @@ MonoBehaviour:
         Allowed: 0
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: 117b8b954cad6d71a93d96c2c7759b9a, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134168654972412527
+      <LastWriteTimeUTC>k__BackingField: 134183065485128483
     - Name: Player.CodeIsBroken.Products
       NamedTypeRestrictions:
       - Name: CodeIsBroken
@@ -1932,7 +1932,7 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ec2957040c7359560a7668de45b03a05, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134167506383318946
+      <LastWriteTimeUTC>k__BackingField: 134183038241513908
     - Name: RoslynCSharp.MazeDemo
       NamedTypeRestrictions:
       - Name: RoslynCSharp.Demo
@@ -5704,7 +5704,15 @@ MonoBehaviour:
       NamedTypeRestrictions:
       - Name: Unity.Mathematics
         TypeRestrictions:
+        - Name: noise
+          Allowed: 0
+        - Name: PostNormalizeAttribute
+          Allowed: 0
+        - Name: DoNotNormalizeAttribute
+          Allowed: 0
         - Name: AffineTransform
+          Allowed: 0
+        - Name: math
           Allowed: 0
         - Name: bool2
           Allowed: 0
@@ -5729,8 +5737,6 @@ MonoBehaviour:
         - Name: bool4x3
           Allowed: 0
         - Name: bool4x4
-          Allowed: 0
-        - Name: DoNotNormalizeAttribute
           Allowed: 0
         - Name: double2
           Allowed: 0
@@ -5812,12 +5818,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: int4x4
           Allowed: 0
-        - Name: math
-          Allowed: 0
-        - Name: noise
-          Allowed: 0
-        - Name: PostNormalizeAttribute
-          Allowed: 0
         - Name: quaternion
           Allowed: 0
         - Name: Random
@@ -5853,9 +5853,9 @@ MonoBehaviour:
         Allowed: 0
       - Name: Unity.Mathematics.Geometry
         TypeRestrictions:
-        - Name: Math
-          Allowed: 0
         - Name: MinMaxAABB
+          Allowed: 0
+        - Name: Math
           Allowed: 0
         - Name: Plane
           Allowed: 0
@@ -5863,29 +5863,16 @@ MonoBehaviour:
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: ca140a259c6c8864a8eb11cac512b19e, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674996971181
+      <LastWriteTimeUTC>k__BackingField: 134132839344170889
     - Name: Unity.TextMeshPro
       NamedTypeRestrictions:
+      - Name: UnityEngine.TextCore
+        TypeRestrictions:
+        - Name: OTL_FeatureTag
+          Allowed: 0
+        Allowed: 0
       - Name: TMPro
         TypeRestrictions:
-        - Name: AlternateSubstitutionRecord
-          Allowed: 0
-        - Name: AtlasPopulationMode
-          Allowed: 0
-        - Name: CaretInfo
-          Allowed: 0
-        - Name: CaretPosition
-          Allowed: 0
-        - Name: ColorMode
-          Allowed: 0
-        - Name: Compute_DistanceTransform_EventTypes
-          Allowed: 0
-        - Name: Compute_DT_EventArgs
-          Allowed: 0
-        - Name: Extents
-          Allowed: 0
-        - Name: FaceInfo_Legacy
-          Allowed: 0
         - Name: FastAction
           Allowed: 0
         - Name: FastAction`1
@@ -5894,35 +5881,7 @@ MonoBehaviour:
           Allowed: 0
         - Name: FastAction`3
           Allowed: 0
-        - Name: FontAssetCreationSettings
-          Allowed: 0
-        - Name: FontFeatureLookupFlags
-          Allowed: 0
-        - Name: FontStyles
-          Allowed: 0
-        - Name: FontWeight
-          Allowed: 0
         - Name: GlyphAnchorPoint
-          Allowed: 0
-        - Name: GlyphPairKey
-          Allowed: 0
-        - Name: GlyphValueRecord_Legacy
-          Allowed: 0
-        - Name: HighlightState
-          Allowed: 0
-        - Name: HorizontalAlignmentOptions
-          Allowed: 0
-        - Name: ITextElement
-          Allowed: 0
-        - Name: ITextPreprocessor
-          Allowed: 0
-        - Name: KerningPair
-          Allowed: 0
-        - Name: KerningPairKey
-          Allowed: 0
-        - Name: KerningTable
-          Allowed: 0
-        - Name: LigatureSubstitutionRecord
           Allowed: 0
         - Name: MarkPositionAdjustment
           Allowed: 0
@@ -5930,51 +5889,35 @@ MonoBehaviour:
           Allowed: 0
         - Name: MarkToMarkAdjustmentRecord
           Allowed: 0
-        - Name: MaskingOffsetMode
-          Allowed: 0
-        - Name: MaskingTypes
-          Allowed: 0
-        - Name: MaterialReference
-          Allowed: 0
-        - Name: MaterialReferenceManager
-          Allowed: 0
-        - Name: Mesh_Extents
+        - Name: SingleSubstitutionRecord
           Allowed: 0
         - Name: MultipleSubstitutionRecord
           Allowed: 0
-        - Name: ShaderUtilities
+        - Name: AlternateSubstitutionRecord
           Allowed: 0
-        - Name: SingleSubstitutionRecord
+        - Name: LigatureSubstitutionRecord
           Allowed: 0
-        - Name: TagUnitType
+        - Name: ITextPreprocessor
           Allowed: 0
-        - Name: TagValueType
+        - Name: MaterialReferenceManager
           Allowed: 0
-        - Name: TextAlignmentOptions
+        - Name: TMP_MaterialReference
           Allowed: 0
-        - Name: TextContainer
-          Allowed: 0
-        - Name: TextContainerAnchors
-          Allowed: 0
-        - Name: TextElementType
-          Allowed: 0
-        - Name: TextMeshPro
-          Allowed: 0
-        - Name: TextMeshProUGUI
-          Allowed: 0
-        - Name: TextOverflowModes
-          Allowed: 0
-        - Name: TextRenderFlags
-          Allowed: 0
-        - Name: TextureMappingOptions
-          Allowed: 0
-        - Name: TextWrappingModes
+        - Name: MaterialReference
           Allowed: 0
         - Name: TMP_Asset
           Allowed: 0
         - Name: TMP_Character
           Allowed: 0
+        - Name: TMP_Vertex
+          Allowed: 0
+        - Name: TMP_Offset
+          Allowed: 0
+        - Name: HighlightState
+          Allowed: 0
         - Name: TMP_CharacterInfo
+          Allowed: 0
+        - Name: ColorMode
           Allowed: 0
         - Name: TMP_ColorGradient
           Allowed: 0
@@ -5984,25 +5927,41 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_Dropdown
           Allowed: 0
+        - Name: AtlasPopulationMode
+          Allowed: 0
         - Name: TMP_FontAsset
+          Allowed: 0
+        - Name: FaceInfo_Legacy
+          Allowed: 0
+        - Name: TMP_Glyph
+          Allowed: 0
+        - Name: FontAssetCreationSettings
+          Allowed: 0
+        - Name: TMP_FontWeightPair
+          Allowed: 0
+        - Name: KerningPairKey
+          Allowed: 0
+        - Name: GlyphValueRecord_Legacy
+          Allowed: 0
+        - Name: KerningPair
+          Allowed: 0
+        - Name: KerningTable
+          Allowed: 0
+        - Name: TMP_FontUtilities
           Allowed: 0
         - Name: TMP_FontAssetUtilities
           Allowed: 0
         - Name: TMP_FontFeatureTable
           Allowed: 0
-        - Name: TMP_FontStyleStack
+        - Name: FontFeatureLookupFlags
           Allowed: 0
-        - Name: TMP_FontUtilities
-          Allowed: 0
-        - Name: TMP_FontWeightPair
-          Allowed: 0
-        - Name: TMP_Glyph
+        - Name: TMP_GlyphValueRecord
           Allowed: 0
         - Name: TMP_GlyphAdjustmentRecord
           Allowed: 0
         - Name: TMP_GlyphPairAdjustmentRecord
           Allowed: 0
-        - Name: TMP_GlyphValueRecord
+        - Name: GlyphPairKey
           Allowed: 0
         - Name: TMP_InputField
           Allowed: 0
@@ -6010,31 +5969,29 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_LineInfo
           Allowed: 0
-        - Name: TMP_LinkInfo
-          Allowed: 0
         - Name: TMP_MaterialManager
           Allowed: 0
-        - Name: TMP_MaterialReference
-          Allowed: 0
-        - Name: TMP_Math
+        - Name: VertexSortingOrder
           Allowed: 0
         - Name: TMP_MeshInfo
-          Allowed: 0
-        - Name: TMP_Offset
           Allowed: 0
         - Name: TMP_PackageResourceImporter
           Allowed: 0
         - Name: TMP_PackageResourceImporterWindow
           Allowed: 0
-        - Name: TMP_PageInfo
-          Allowed: 0
         - Name: TMP_ResourceManager
+          Allowed: 0
+        - Name: TagValueType
+          Allowed: 0
+        - Name: TagUnitType
           Allowed: 0
         - Name: TMP_ScrollbarEventHandler
           Allowed: 0
         - Name: TMP_SelectionCaret
           Allowed: 0
         - Name: TMP_Settings
+          Allowed: 0
+        - Name: ShaderUtilities
           Allowed: 0
         - Name: TMP_Sprite
           Allowed: 0
@@ -6046,8 +6003,6 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SpriteGlyph
           Allowed: 0
-        - Name: TMP_SpriteInfo
-          Allowed: 0
         - Name: TMP_Style
           Allowed: 0
         - Name: TMP_StyleSheet
@@ -6056,19 +6011,51 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_SubMeshUI
           Allowed: 0
+        - Name: ITextElement
+          Allowed: 0
+        - Name: TextAlignmentOptions
+          Allowed: 0
+        - Name: HorizontalAlignmentOptions
+          Allowed: 0
+        - Name: VerticalAlignmentOptions
+          Allowed: 0
+        - Name: TextRenderFlags
+          Allowed: 0
+        - Name: TMP_TextElementType
+          Allowed: 0
+        - Name: MaskingTypes
+          Allowed: 0
+        - Name: TextOverflowModes
+          Allowed: 0
+        - Name: TextWrappingModes
+          Allowed: 0
+        - Name: MaskingOffsetMode
+          Allowed: 0
+        - Name: TextureMappingOptions
+          Allowed: 0
+        - Name: FontStyles
+          Allowed: 0
+        - Name: FontWeight
+          Allowed: 0
         - Name: TMP_Text
+          Allowed: 0
+        - Name: TextElementType
           Allowed: 0
         - Name: TMP_TextElement
           Allowed: 0
         - Name: TMP_TextElement_Legacy
           Allowed: 0
-        - Name: TMP_TextElementType
-          Allowed: 0
         - Name: TMP_TextInfo
           Allowed: 0
         - Name: TMP_TextParsingUtilities
           Allowed: 0
+        - Name: TMP_FontStyleStack
+          Allowed: 0
         - Name: TMP_TextProcessingStack`1
+          Allowed: 0
+        - Name: CaretPosition
+          Allowed: 0
+        - Name: CaretInfo
           Allowed: 0
         - Name: TMP_TextUtilities
           Allowed: 0
@@ -6076,21 +6063,39 @@ MonoBehaviour:
           Allowed: 0
         - Name: TMP_UpdateRegistry
           Allowed: 0
-        - Name: TMP_Vertex
-          Allowed: 0
-        - Name: TMP_VertexDataUpdateFlags
-          Allowed: 0
-        - Name: TMP_WordInfo
+        - Name: Compute_DistanceTransform_EventTypes
           Allowed: 0
         - Name: TMPro_EventManager
           Allowed: 0
+        - Name: Compute_DT_EventArgs
+          Allowed: 0
         - Name: TMPro_ExtensionMethods
+          Allowed: 0
+        - Name: TMP_Math
+          Allowed: 0
+        - Name: TMP_VertexDataUpdateFlags
           Allowed: 0
         - Name: VertexGradient
           Allowed: 0
-        - Name: VertexSortingOrder
+        - Name: TMP_PageInfo
           Allowed: 0
-        - Name: VerticalAlignmentOptions
+        - Name: TMP_LinkInfo
+          Allowed: 0
+        - Name: TMP_WordInfo
+          Allowed: 0
+        - Name: TMP_SpriteInfo
+          Allowed: 0
+        - Name: Extents
+          Allowed: 0
+        - Name: Mesh_Extents
+          Allowed: 0
+        - Name: TextContainerAnchors
+          Allowed: 0
+        - Name: TextContainer
+          Allowed: 0
+        - Name: TextMeshPro
+          Allowed: 0
+        - Name: TextMeshProUGUI
           Allowed: 0
         Allowed: 0
       - Name: TMPro.SpriteAssetUtilities
@@ -6100,15 +6105,10 @@ MonoBehaviour:
         - Name: TexturePacker_JsonArray
           Allowed: 0
         Allowed: 0
-      - Name: UnityEngine.TextCore
-        TypeRestrictions:
-        - Name: OTL_FeatureTag
-          Allowed: 0
-        Allowed: 0
       RootTypeRestrictions: []
       Allowed: 0
       <ReferenceAssemblyAsset>k__BackingField: {fileID: 11400000, guid: c771eda1d6de8604eb46606d19a3c332, type: 2}
-      <LastWriteTimeUTC>k__BackingField: 134105674997020555
+      <LastWriteTimeUTC>k__BackingField: 134132839344033483
     - Name: Unity.Timeline
       NamedTypeRestrictions:
       - Name: UnityEngine.Timeline

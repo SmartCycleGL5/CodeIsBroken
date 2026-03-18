@@ -6,6 +6,7 @@ public class Building : MonoBehaviour
 {
     [SerializeField] private List<GameObject> buildingCells;
     [SerializeField] private List<MonoBehaviour> scriptsToActivate;
+    public bool deletable = true;
 
     public List<Vector3> GetBuildingPositions()
     {

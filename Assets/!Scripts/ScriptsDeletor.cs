@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CodeIsBroken
 {
@@ -19,6 +20,7 @@ namespace CodeIsBroken
         
         private void DeleteScripts()
         {
+            SceneManager.LoadScene(0);
             if (!Directory.Exists(Application.persistentDataPath + "/" + Script.DefaultScriptFolder)) return;
             DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath + "/" + Script.DefaultScriptFolder);
 

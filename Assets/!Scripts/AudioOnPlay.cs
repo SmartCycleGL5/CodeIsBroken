@@ -20,5 +20,10 @@ public class AudioOnPlay : MonoBehaviour
     {
         emitter.Stop();
     }
-    
+
+    private void OnDestroy()
+    {
+        GameManager.onStart -= Start;
+        GameManager.onStop -= Stop;
+    }
 }

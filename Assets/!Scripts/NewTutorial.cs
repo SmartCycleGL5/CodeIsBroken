@@ -42,6 +42,13 @@ public class NewTutorial : MonoBehaviour
         OnLevelUp(1);
     }
 
+    private void OnEnable()
+    {
+        level = 0;
+        buildingIndex = 0;
+        subscribed = false;
+    }
+
     private void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -183,5 +190,13 @@ public class NewTutorial : MonoBehaviour
         Debug.Log("Finished");
         buildingIndex++;
         first.onFinished -= OnFinishedContract;
+        subscribed = false;
+    }
+
+    private void OnDestroy()
+    {
+        if(subscribed)
+            first.onFinished -= OnFinishedContract;
+
     }
 }

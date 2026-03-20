@@ -27,6 +27,10 @@ namespace CodeIsBroken.Audio
         private void OnDestroy()
         {
             GridBuilder.instance.gridUpdated -= UpdateProgression;
+            foreach (var emitter in Emitters.Keys)
+            {
+                emitter.Stop();
+            }
         }
 
         private void UpdateProgression()

@@ -102,6 +102,7 @@ public class MaterialTubeSpawner : MonoBehaviour
     private void OnDestroy()
     {
         Tick.OnTick -= GetMaterial;
+        Tick.OnLateTick -= Reset;
     }
 
 
